@@ -1,0 +1,288 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: RSS 2.0规范</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000274.html" tppabs="http://hedong.3322.org/archives/000274.html" title="关于Google API的学习" />
+
+<link rel="next" href="000276.html" tppabs="http://hedong.3322.org/archives/000276.html" title="Python学习（一）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000275.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/193"
+    dc:title="RSS 2.0规范"
+    dc:identifier="http://hedong.3322.org/archives/000275.html"
+    dc:subject="ItTech"
+    dc:description="<![CDATA[　　RSS是 Really Simple Syndication的缩写（对rss2.0而言，是这三个词的缩写，对rss1.0而言则是RDF Site Summary的缩写，1.0与2.0走的是两个体系） 　　RSS 基于XML，所有的 RSS 必须遵循w3c网站上公布的XML 1.0 规范。 　　在一个RSS文档中，根元素是&lt;rss>，带有一个必备属性version，用以指明该文档遵循的rss规范，如果rss文档遵循本规范，则version值必须是2.0。 　　&lt;rss>元素只有一个子元素，包含关于频道的一些信息。频道(channel)是整个blog，项(item)指一篇文章或日志(也有称这为post)。...]]>"
+    dc:creator="Hilton"
+    dc:date="2003-10-08T19:55:17+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000275.html">
+<dc:title>RSS 2.0规范</dc:title>
+<dc:description><![CDATA[　　RSS是 Really Simple Syndication的缩写（对rss2.0而言，是这三个词的缩写，对rss1.0而言则是RDF Site Summary的缩写，1.0与2.0走的是两个体系） 　　RSS 基于XML，所有的 RSS 必须遵循w3c网站上公布的XML 1.0 规范。 　　在一个RSS文档中，根元素是&lt;rss>，带有一个必备属性version，用以指明该文档遵循的rss规范，如果rss文档遵循本规范，则version值必须是2.0。 　　&lt;rss>元素只有一个子元素，包含关于频道的一些信息。频道(channel)是整个blog，项(item)指一篇文章或日志(也有称这为post)。...]]></dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-08T19:55:17+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000274.html" tppabs="http://hedong.3322.org/archives/000274.html">&laquo; 关于Google API的学习</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000276.html" tppabs="http://hedong.3322.org/archives/000276.html">Python学习（一） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 08, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">RSS 2.0规范</h3>
+
+<p>　　RSS是 Really Simple Syndication的缩写（对<a href="javascript:if(confirm('http://blogs.law.harvard.edu/tech/rss  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogs.law.harvard.edu/tech/rss'" tppabs="http://blogs.law.harvard.edu/tech/rss">rss2.0</a>而言，是这三个词的缩写，对<a href="javascript:if(confirm('http://web.resource.org/rss/1.0/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://web.resource.org/rss/1.0/'" tppabs="http://web.resource.org/rss/1.0/">rss1.0</a>而言则是RDF Site Summary的缩写，1.0与2.0走的是两个体系）<br />
+　　RSS 基于XML，所有的 RSS 必须遵循w3c网站上公布的XML 1.0 规范。<br />
+　　在一个RSS文档中，根元素是&lt;rss>，带有一个必备属性version，用以指明该文档遵循的rss规范，如果rss文档遵循本规范，则version值必须是2.0。<br />
+　　&lt;rss>元素只有一个子元素，包含关于频道的一些信息。频道(channel)是整个blog，项(item)指一篇文章或日志(也有称这为post)。<br />
+</p>
+
+<a name="more"></a>
+<p><center><h4>RSS2.0元素channel的子元素列表</h4><br />
+<table border="1"><tr><td>元素(Element)</td><td>描述(Description)</td><td>值域</td><td>重要性</td><td>举例(Example)</td></tr><tr><td>title</td><td>频道名称</td><td></td><td>必备</td><td>GoUpstate.com News Headlines</td></tr><tr><td>link</td><td>频道的URL</td><td></td><td>必备</td><td>http://www.goupstate.com/</td></tr><tr><td>Description</td><td>频道的描述</td><td></td><td>必备</td><td>The latest news from GoUpstate.com, a Spartanburg Herald-Journal Web site.</td></tr><tr><td></td><td></td><td></td><td></td><td></td></tr><tr><td>language</td><td>频道文章所用语言，</td><td>可用netscape或w3c推荐的列表</td><td>可选</td><td>en-us</td></tr><tr><td>copyright</td><td>频道内容的版权说明</td><td></td><td>可选</td><td>Copyright 2002, Spartanburg Herald-Journal</td></tr><tr><td>managingEditor</td><td>责任编辑的email</td><td></td><td>可选</td><td>geo@herald.com (George Matesky)</td></tr><tr><td>webMaster</td><td>负责频道技术事务的网站管理员email</td><td></td><td>可选</td><td>betty@herald.com (Betty Guernsey)</td></tr><tr><td>pubDate</td><td>频道内容发布日期，格式遵循RFC822格式（年份可为2们或4位）</td><td></td><td>可选</td><td>Sat, 07 Sep 2002 00:00:01 GMT</td></tr><tr><td>lastBuildDate</td><td>频道内容最后的修改日期</td><td></td><td>可选</td><td>Sat, 07 Sep 2002 09:42:31 GMT</td></tr><tr><td>category</td><td>指定频道所属的一个或几个类别</td><td></td><td>可选</td><td>&lt;category&gt;Newspapers&lt;/category&gt;</td></tr><tr><td>generator</td><td>生成该频道的程序名</td><td></td><td>可选</td><td>MightyInHouse Content System v2.3</td></tr><tr><td>docs</td><td>指向该RSS文件所用格式说明的URL</td><td></td><td>可选</td><td>http://blogs.law.harvard.edu/tech/rss</td></tr><tr><td>cloud</td><td>Allows processes to register with a cloud to be notified of updates to the channel, implementing a lightweight publish-subscribe protocol for RSS feeds. More info here.</td><td></td><td>可选</td><td>&lt;cloud domain="rpc.sys.com" port="80" path="/RPC2" registerProcedure="pingMe" protocol="soap"/&gt;</td></tr><tr><td>ttl</td><td>有效期，用以指明该频道可被缓存的最长时间</td><td>分钟为单位</td><td>可选</td><td>&lt;ttl&gt;60&lt;/ttl&gt;</td></tr><tr><td>image</td><td>指定一个 GIF或JPEG或PNG图片，用以与频道一起显示</td><td></td><td>可选</td><td></td></tr><tr><td>rating</td><td>这个频道的分级（主要指成人、限制、儿童等）</td><td></td><td>可选</td><td></td></tr><tr><td>textInput</td><td>指定一个text输入框供用户输入，具体信息及功能未定。</td><td></td><td>可选</td><td></td></tr><tr><td>skipHours</td><td>提示新闻聚合器，那些小时时段它可以跳过。</td><td></td><td>可选</td><td></td></tr><tr><td>skipDays</td><td>提示新闻聚合器，那些天它可以跳过。</td><td></td><td>可选</td><td></td></tr></table></p>
+
+<p><h4>RSS2.0元素channel的子元素image的子元素列表</h4><br />
+<table border="1"><tr><td>元素(Element)</td><td>描述(Description)</td><td>值域</td><td>重要性</td><td>举例(Example)</td></tr><tr><td>url</td><td>图片的url</td><td></td><td>必备</td><td></td></tr><tr><td>title</td><td>图片的标题，用于http的alt属性</td><td></td><td>必备</td><td></td></tr><tr><td>link</td><td>网站的url(实际中常以频道的url代替)</td><td></td><td>必备</td><td></td></tr><tr><td>width</td><td>图片的宽度(象素为单位)</td><td>最大144,默认88</td><td>可选</td><td></td></tr><tr><td>height</td><td>图片的高度(象素为单位)</td><td>最大400，默认31</td><td>可选</td><td></td></tr><tr><td>description</td><td>用于link的title属性</td><td></td><td>可选</td><td></td></tr></table><br />
+<h4>RSS2.0元素channel的子元素cloud的子元素列表</h4><br />
+<table border="1"><tr><td>元素(Element)</td><td>描述(Description)</td><td>值域</td><td>重要性</td><td>举例(Example)</td></tr><tr><td>domain</td><td>Cloud程序所在机器的域名或IP地址</td><td></td><td></td><td>radio.xmlstoragesystem.com</td></tr><tr><td>port</td><td>访问clound程序所通过的端口</td><td></td><td></td><td>80</td></tr><tr><td>path</td><td>程序所在路径（不一定是真实路径）</td><td></td><td></td><td>/RPC2</td></tr><tr><td>registerProcedure</td><td>注册的可提供的服务或过程</td><td></td><td></td><td>xmlStorageSystem.rssPleaseNotify</td></tr><tr><td>protocol</td><td>协议</td><td>xml-rpc, soap , http-post 之一</td><td></td><td>xml-rpc</td></tr></table><br />
+<h4>RSS2.0元素channel的子元素textInput的子元素列表</h4><br />
+<table border="1"><tr><td>元素(Element)</td><td>描述(Description)</td><td>值域</td><td>重要性</td><td>举例(Example)</td></tr><tr><td>title</td><td>Submit按钮的标签</td><td></td><td>必备</td><td></td></tr><tr><td>description</td><td>解释text输入区</td><td></td><td>必备</td><td></td></tr><tr><td>name</td><td>Text area对象的名字</td><td></td><td>必备</td><td></td></tr><tr><td>link</td><td>处理提交的请求的cgi程序</td><td></td><td>必备</td><td></td></tr></table></p>
+
+<p>关于item的内容，请看<a href="000268.html" tppabs="http://hedong.3322.org/archives/000268.html">基于XML-RPC的BloggerAPI学习</a>.<br />
+说明：<br />
+　　rss2.0要求&lt;link>和&lt;url>的值的非常部分开头，须是在IANA注册过的，如http://或https://或ftp://等。<br />
+　　一个rss文件中，可以包括没有这儿定义的元素，只要它是在某个命名空间被定义过。<br />
+　　一个常见问题是<guid>与<link>的区别，两者在有些情况下是相同的，但前者可指几某个长文中的某个位置（即所谓的页内锚点吧）。</p>
+
+<p>　　关于cloud，我也不很清楚，正在找明白人问呢。：）</p>
+
+<span class="posted">Posted by Hilton at October  8, 2003 07:55 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=275.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=275" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>你好，很高兴能在你的站点上读文章，感觉你是个踏实的作技术的人，我很欣赏，我想我会成为你的常客。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://shanquan.blogone.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://shanquan.blogone.net/'" tppabs="http://shanquan.blogone.net/">雪云鹰</a> at December 19, 2003 08:48 PM</span>
+</div>
+<div class="comments-body">
+<p>你的MSN多少啊想和你交流交流啊<br />
+我的是<br />
+tzs225@hotmail.com<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://blogger.cn/taye  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogger.cn/taye'" tppabs="http://blogger.cn/taye">Taye</a> at December 16, 2003 07:53 PM</span>
+</div>
+<div class="comments-body">
+<p>hilton，</p>
+
+<p>我没有觉得你的表达有什么问题啊！<br />
+我看不懂你这里的很多东西，并不是你的表达有任何问题，而是我自己对你研究的领域实在知之甚少。<br />
+这两天看到有自己稍稍知道一些的内容，自然有些小得意——我可以好好用上这里的资源啦。：）</p>
+
+<p>ps:其实我的文字表达实在也不咋地，一幅傻乎乎的大白话模样,没才气。；）<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;hanyufen&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;hanyufen&#64;hotmail&#46;com">hanyufen</a> at October 10, 2003 10:34 PM</span>
+</div>
+<div class="comments-body">
+<p>To Han;<br />
+　　我也感到很高兴，我的文字大家能看懂。我的一直头疼于我的文字表达能力，能得到han老师的肯定，很高兴：）</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 10, 2003 01:14 PM</span>
+</div>
+<div class="comments-body">
+<p>又碰上一个能看懂的啦！<br />
+真高兴！；）<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;hanyufen&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;hanyufen&#64;hotmail&#46;com">hanyufen</a> at October  9, 2003 11:13 PM</span>
+</div>
+<div class="comments-body">
+<p>非常感谢！</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October  9, 2003 09:45 PM</span>
+</div>
+<div class="comments-body">
+<p>Matt Mower 做的一个基于RSS2.0的一个project，里面有多cloud的定义的一些应用！或许对你有用！ ：）</p>
+
+<p><a href="javascript:if(confirm('http://matt.blogs.it/specs/ENT/1.0/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://matt.blogs.it/specs/ENT/1.0/'" tppabs="http://matt.blogs.it/specs/ENT/1.0/">http://matt.blogs.it/specs/ENT/1.0/</a></p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://blog.timetide.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.timetide.net/'" tppabs="http://blog.timetide.net/">owen</a> at October  9, 2003 12:48 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="275" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

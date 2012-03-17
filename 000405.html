@@ -1,0 +1,250 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 第二章安装Squid</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000404.html" tppabs="http://hedong.3322.org/archives/000404.html" title="第二章安装Squid" />
+
+<link rel="next" href="000406.html" tppabs="http://hedong.3322.org/archives/000406.html" title="第二章安装Squid" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000405.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/294"
+    dc:title="第二章安装Squid"
+    dc:identifier="http://hedong.3322.org/archives/000405.html"
+    dc:subject=""
+    dc:description="选择操作系统..."
+    dc:creator="Hilton"
+    dc:date="2003-12-17T23:35:39+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000405.html">
+<dc:title>第二章安装Squid</dc:title>
+<dc:description>选择操作系统...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-17T23:35:39+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000404.html" tppabs="http://hedong.3322.org/archives/000404.html">&laquo; 第二章安装Squid</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000406.html" tppabs="http://hedong.3322.org/archives/000406.html">第二章安装Squid &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 17, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">第二章安装Squid</h3>
+
+<p><strong>选择操作系统</strong></p>
+
+<a name="more"></a>
+<p>　　在我工作的地方，运行着各式各样的unix。我的第一次安装squid是在我的linux机器上-如果我由于误操作而中断了服务，我不会受到用户的抱怨，所以我可以在它上面做我想做的事。<br />
+　　一旦我测试完Squid,我们打算让更多人使用缓存系统。我把squid装在一台更快的、当时没用使用的机器上：奔腾133,128M内存，运行FreeBSD.<br />
+　　在那时，我更熟悉Linux，最后还是在公用的缓存机器上安装了linux.虽然运行linux造成了一些不便（尤其是它的每个进程的可用文件句柄的数量很少），这是一个正确的选择，只因为我把这台机器维护得更好。好多次我的linux经验，帮我绕开了一些棘手的问题。<br />
+　　如果你选择的操作系统节省了你的时间，且能运行squid，就使用它吧。就象我不使用Digital Unix(Squid在NLANR开发时是基于Digital Unix机器的)，你不必因为我使用Linux而选择它。<br />
+　　大多数现代操作系统支持相似的性能和相似的功能集合。如果你常用的系统在源码级上大致兼容Posix，它大都被Squid支持。<br />
+　　你上一次因硬件失败而致的系统崩溃是在何时？除非你是特别的“不”幸运，两次硬件失败的时间间隔还是非常长的。硬件质量飞速提高，软件却常跟不上脚步。许多的崩溃是由操作系统的问题程序造成的。因此你必须在操作系统因某种原因崩溃后还能坚强地爮起来。<br />
+<strong>经验</strong><br />
+　　如果你通常在一特定的操作系统上工作，就不要用一种“新风味”的操作系统来做缓存测试的操作系统。如果你对某一操作系统拥有更多的经验，就把它选作你的缓存服务器的基础。Customers rapidly turn off caching when a cache stops accepting requests (while you learn your way around some 'feature').<br />
+　　一旦稳定下来，你的缓存系统将会是你的网络的核心部分。当系统失败后，必须在最短的时间内将系统恢复工作，这就是你已有的经验大展身手的时候。如果失败在工作时间之外发生，你将不能从销售商那儿得到技术支持。一个拔号ISP的工作时间，可与操作系统供应商的工作时间大不相同。<br />
+<strong>功能</strong><br />
+　　虽然大多数操作系统支持相似的功能，但对一些不常用的系统功能的实现却没有标准。透明代理的实现就是一个例子：现在许多操作系统可以支持到一个本地程序的透明重定向，但它们几乎都用互不相同的实现的，因为在这种情况下没有一个实际的实现标准。</p>
+
+<p>　　如果找不到squid在你的操作系统的信息资料，你需要在一个试验机上试装一下（假定你用的是一个商业操作系统）。只有当系统正常运行了，你才能确认你的操作系统支持那些需要的功能。</p>
+
+<p>squid工作在下列操作系统中: (? List ?)</p>
+
+<p>　　如果你不使用squid的扩展功能，如透明代理和arp访问控制列表，你不会遇到问题。为使用方便，文档中包含了一个特定操作系统支持特殊功能的列表。由于squid还在不停的开发当中，这个列表可能也会变化。</p>
+
+<p><strong>编译器</strong></p>
+
+<p>　　Squid在运行gcc的Digital Unix (?version ?)机器上开发。. 免费的操作如Linux和FreeBSD上都饱含GCC, 其它许多操作系统和硬件平台的gcc也易得到。GCC尽可能地遵循ANSI C标准， 所以如你的操作系统中有一个不同的编译器，用它来编译squid的代码是否会出问题，取决于它遵循ANSI　C标准的程度。 实际上，大多数编译器工作得很好。</p>
+
+<p>　　一些商业编译器在ANSI的基础上后向兼容一些旧的版本。这个编译器通常会有一个开关来打开“ANSI 兼容模式”. 如果你用它们编译squid出现问题时，可能需要打开这个开关。 (? is this still valid? I remember things like this back in the Borland C days - though I seem to remember this on a Unix system too... ?) 最坏的情况下，可能需要用你的编译器编译gcc,然后用gcc编译squid.</p>
+
+<p>　　如果你没有编译器，你可以从互联网上找到一个预编译好的供你的那种操作系统使用的gcc. 当安装来自不可信任的站点的软件时，一定要小心。这个问题会在稍后的"预编译二进制代码"一节详述.</p>
+
+<p>　　如果你找到适合你的平台的gcc,你在计算成本时除了操作系统和硬件外还要把编译器考虑进去。<br />
+</p>
+
+<span class="posted">Posted by Hilton at December 17, 2003 11:35 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=405.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=405" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="405" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

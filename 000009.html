@@ -1,0 +1,368 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: cocoon学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000008.html" tppabs="http://hedong.3322.org/archives/000008.html" title="给90级建了个主页" />
+
+<link rel="next" href="000010.html" tppabs="http://hedong.3322.org/archives/000010.html" title="OSW:前言" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000009.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/13"
+    dc:title="cocoon学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000009.html"
+    dc:subject="ItTech"
+    dc:description="　　cocoon读[ke&apos;ku:n],茧的意思。..."
+    dc:creator="Hilton"
+    dc:date="2003-07-08T06:50:49+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000009.html">
+<dc:title>cocoon学习笔记</dc:title>
+<dc:description>　　cocoon读[ke&apos;ku:n],茧的意思。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-08T06:50:49+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000008.html" tppabs="http://hedong.3322.org/archives/000008.html">&laquo; 给90级建了个主页</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000010.html" tppabs="http://hedong.3322.org/archives/000010.html">OSW:前言 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 08, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">cocoon学习笔记</h3>
+
+<p>　　cocoon读[ke'ku:n],茧的意思。</p>
+
+<a name="more"></a>
+<p>　　接连看到几篇文章谈cocoon，因其中牵扯术语太多，看后一头雾水，遂起学习之心。</p>
+
+<p>　　网上找到很多谈cocoon的，IBM : developerWorks 中国网站 的在线教程写得最棒。下面就是学习笔记，觉得有意思就顺手记下来了。</p>
+
+<p>　　以下三行是取源码的命令。<br />
+　　cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic login<br />
+　　cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic -z3 checkout -r cocoon_20_branch xml-cocoon2<br />
+　　cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic logout<br />
+　　<br />
+　　管道由一些输入数据以及随后对它进行的一些处理步骤构成。每个处理步骤接受前一步的输出作为输入，一直到达管道的末端并产生最终输出。</p>
+
+<p>　　Cocoon 包含许多常规管道组件，根据在管道中扮演的角色，它们分组成几种完全不同的类型。</p>
+
+<p>　　管道输入 — 生成器(如FileGenerator,HTMLGenerator,DirectoryGenerator)和阅读器(常用来读静态文件) <br />
+　　处理步骤 — 转换器(如XSLT 转换器)和操作 <br />
+　　管道输出 — 序列化器(如XML,HTML,SVG,PDF序列化器 ) <br />
+　　条件的处理 — 匹配器和选择器 </p>
+
+<p>　　Cocoon 管道通常至少由生成器和序列化器组成，但可能含有任意数量的处理步骤。将数据作为 SAX 事件通过 Cocoon 管道传递。 </p>
+
+<p>　　对接收请求和为响应提供服务的逻辑周期如下：<br />
+　　1、从用户接受请求。 <br />
+　　2、确定用来解释该请求并生成响应的适当管道（使用匹配器）。 <br />
+　　3、从可用的预配置的组件构造管道。 <br />
+　　4、指示管道为请求服务。 <br />
+　　5、将由管道生成的响应返回用户，可能对结果进行高速缓存以便以后使用。 </p>
+
+<p>　　网站地图（sitemap）两个功能：<br />
+　　1、声明组件； <br />
+　　2、定义管道。 </p>
+
+<p>　　XML Server Pages（XSP）编译过程如下图：<br />
+　　<center><img src="xsp.gif" tppabs="http://www-900.ibm.com/developerWorks/cn/education/xml/x-xsp/tutorial/images/xsp.gif"></center></p>
+
+<p>　　XSP语法：<br />
+　　1、xsp:page 元素是每个 XSP 文档的根元素。它必须有一个标识该页面包含的编程语言 — 具体说就是“java”— 的语言属性。<br />
+　　该页面元素可能包含：<br />
+　　　任意数目的 xsp:structure 元素 <br />
+　　　任意数目的 xsp:logic 元素 <br />
+　　　单个用户元素 <br />
+　　这最后一个限制非常重要。“用户元素”表示不在 XSP 名称空间中的任何元素，包括无名称空间的元素。之所以有这个限制是因为用户元素成为由 XSP 页面创建的 XML 文档的根元素，而 XML 文档只能有单个根元素。</p>
+
+<p>　　2、xsp:structure 和 xsp:include 元素用于向代码生成过程提供这些附加提示。这两个元素是一前一后使用的，xsp:structure 元素将许多 xsp:include 元素组合在一起。每个 xsp:include 定义一个要导入的附加 Java 包或类。</p>
+
+<p>　　3、xsp:logic 元素用于将 Java 代码块添加到 XSP。<br />
+　　在这些元素作为 xsp:page 元素的直接子元素出现的任何地方（也就是，单个用户元素以外），这个代码块都应包含方法定义和／或成员变量。之所以存在这一点是因为出现在用户元素以外的代码不包含在生成器的 generate() 方法内。常规的 Java 语法规则意味着这个代码必须是成员或类（也就是，静态）变量或方法。<br />
+　　xsp:logic 元素也可以使用在 XSP 页面的其它地方。在这种情况下，它们应该包含将被添加到已编译的生成器中的 generate() 方法的 Java 语句。这使 xsp:logic 元素类似于 JSP 页面中使用的 <% ... %> scriptlet 语法。</p>
+
+<p>　　4、CDATA 节，它向 XML 解析器发出信号以对于那节内容不采用良好格式规则<br />
+　　&lt;![CDATA[...]]&gt;</p>
+
+<p>　　5、xsp:expr 元素用于封装一个表达式，该表达式的值将直接添加到输出文档。与此相反，xsp:logic 元素包含生成器的代码。因此，xsp:expr 元素等价于在 JSP 中实现类似角色的 &lt;%= ... %&gt; 表达式语法。例如：<br />
+&lt;elements&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:logic&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for&nbsp;(int&nbsp;i=1;&nbsp;i&lt;11;&nbsp;i++)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;element&gt;&lt;xsp:expr&gt;i&lt;/xsp:expr&gt;&lt;/element&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&lt;/xsp:logic&gt;<br />
+&lt;/elements&gt;<br />
+ <br />
+　　6、通过使用 xsp:element 生成动态元素。如：<br />
+&lt;xsp:element&nbsp;prefix="my"&nbsp;uri="http://www.examples.org"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:param&nbsp;name="name"&gt;&lt;xsp:expr&gt;"myElementName"&lt;/xsp:expr&gt;&lt;/xsp:param&gt;<br />
+&nbsp;&nbsp;&nbsp;Element&nbsp;content<br />
+&lt;/xsp:element&gt;<br />
+这个示例生成了以下&nbsp;XML&nbsp;输出：<br />
+&lt;my:myElementName&nbsp;xmlns:my="http://www.examples.org"&gt;Element&nbsp;content&lt;/my:myElementName&gt;</p>
+
+<p>　　7、通过使用 xsp:attribute 生成动态属性<br />
+&lt;xsp:element&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:param&nbsp;name="name"&gt;&lt;xsp:expr&gt;"myElementName"&lt;/xsp:expr&gt;&lt;/xsp:param&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:attribute&nbsp;name="myAttribute"&gt;myAttributeValue&lt;/xsp:attribute&gt;<br />
+&nbsp;&nbsp;&nbsp;Element&nbsp;content<br />
+&lt;/xsp:element&gt;<br />
+和（两个例程没关系）<br />
+&lt;image&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:attribute&nbsp;name="href"&gt;&lt;xsp:expr&gt;calculateImageURL()&lt;/xsp:expr&gt;&lt;/xsp:attribute&gt;<br />
+&lt;/image&gt;</p>
+
+<p>　　8、xsp:comment 和 xsp:pi 元素用于创建注释和处理指令。<br />
+&lt;xsp:comment&gt;This&nbsp;is&nbsp;a&nbsp;comment&lt;/xsp:comment&gt;<br />
+然后这个注释变成：<br />
+&lt;!--&nbsp;This&nbsp;is&nbsp;a&nbsp;comment&nbsp;--&gt;<br />
+请注意：尽管任何文本将被添加到注释，但任何嵌套标记都被忽略了。</p>
+
+<p>创建处理指令类似于创建动态元素或属性。xsp:pi&nbsp;元素应该有一个标识处理指令目标的嵌套参数。照例对&nbsp;xsp:pi&nbsp;元素的剩余内容求值。这里是一个简单示例：<br />
+&lt;xsp:pi&nbsp;target="myApplication"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:expr&gt;"param1=value,&nbsp;param2=value,&nbsp;generatorTimestamp="&nbsp;+<br />
+&nbsp;&nbsp;&nbsp;System.currentTimeMillis()&lt;/xsp:expr&gt;<br />
+&lt;/xsp:pi&gt;<br />
+输出如下：<br />
+&lt;?myApplication&nbsp;param1=value,&nbsp;param2=value,&nbsp;generatorTimestamp=1017407796870?&gt;</p>
+
+<p>　　逻辑单是可以被添加到 XSP 页面的定制元素库，是通过使用 XSLT 转换实现的。这些转换将附加的代码块和／或 XSP 标记引入到 XSP 文档，这样扩展了产生 Generator 类的能力。<br />
+　　每个逻辑单都与一个特殊的名称空间关联。使用逻辑单仅仅涉及在 XSP 文档中声明相应的名称空间，然后在需要的时候添加来自那个名称空间的元素。如<br />
+&lt;xsp:page&nbsp;language="java"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:xsp="http://apache.org/xsp"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;xmlns:util="http://apache.org/xsp/util/2.0"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;clock&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;day&gt;&lt;util:time&nbsp;format="EE"/&gt;&lt;/day&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;month&gt;&lt;util:time&nbsp;format="MMMM"/&gt;&lt;/month&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;year&gt;&lt;util:time&nbsp;format="yyyy"/&gt;&lt;/year&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;time&gt;&lt;util:time&nbsp;format="HH:mm:ss&nbsp;'on'&nbsp;dd/MM/yyyy"/&gt;&lt;/time&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;/clock&gt;<br />
+&lt;/xsp:page&gt;</p>
+
+<p>请注意该页面声明了实用程序的名称空间&nbsp;http://apache.org/xsp/util/2.0，并使用一个附加的元素，而没有插入任何附加&nbsp;Java&nbsp;代码。当对它求值时，这个页面产生：</p>
+
+<p>&lt;clock&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;day&gt;Fri&lt;/day&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;month&gt;March&lt;/month&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;year&gt;2002&lt;/year&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;time&gt;15:14:27&nbsp;on&nbsp;29/03/2002&lt;/time&gt;<br />
+&lt;/clock&gt;</p>
+
+<p>　　Cocoon 2 提供了许多预先定义的逻辑单，它们提供大量有用功能，而不必编写 Java 代码。根据这些预先定义的的逻辑单提供的功能类型，可以对它们进行松散分类：<br />
+　　1、环境（Environmental）逻辑单 — 提供了对 Cocoon 处理环境的访问（例如，请求和响应） ,有以下四个：<br />
+　　1）请求（request）逻辑单提供了对请求属性的访问，包括对请求参数、请求方法（例如，GET、POST 等等）以及请求标题的访问。当请求参数的某些方面用于改变输出文档的生成时，这个逻辑单就格外有用。<br />
+　　2）响应（response）逻辑单提供对与当前请求关联的 HTTP 响应的限制访问；它只提供对请求标题的访问。XSP 文档不能用与 Java Servlet 或 JSP 页面相同的方法执行包含或转发，因为分离问题是 Cocoon 2 体系结构的核心部分。这个功能描述在网站地图中；XSP 页面生成 XML 内容而不指导处理。<br />
+　　3）会话（session）逻辑单提供了对 HTTP 会话信息的访问，包括创建和删除会话以及添加和除去会话属性的能力。很明显，这个功能在必须为上下文维护用户会话的 Web 应用程序中是最有用的。Cocoon 2 中的会话管理正好等价于它的 JSP 对手。<br />
+　　4）cookie 逻辑单提供了 cookie 维护功能，诸如添加和除去 cookie、允许优先存储到用户的浏览器中。</p>
+
+<p><br />
+　　2、实用程序逻辑单 — 多用途实用程序代码（例如，文件包含、日志记录、发送邮件等等） <br />
+　　有三个逻辑单，每个逻辑单都提供了一些简单的实用程序功能。<br />
+　　1）日期和时间</p>
+
+<p>　　2）日志（log）逻辑单处理用户请求时，它允许从&nbsp;XSP&nbsp;生成器上写入日志消息。如：<br />
+&lt;log:debug&gt;This&nbsp;is&nbsp;a&nbsp;debug&nbsp;message&nbsp;from&nbsp;an&nbsp;XSP&nbsp;generator&lt;/log:debug&gt;<br />
+还有附加的&nbsp;info、warn、error&nbsp;和&nbsp;fatal-error&nbsp;元素用于写其它各种日志语句。</p>
+
+<p>　　3）发送邮件（sendmail）&nbsp;逻辑单包含了一个提供从&nbsp;XSP&nbsp;页面对&nbsp;JavaMail&nbsp;API&nbsp;访问的有用元素,如：<br />
+&lt;sendmail:send-mail&nbsp;from="myemail@email.com"&nbsp;to="user@user.com"&nbsp;smtphost="smtphost@email.com"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:param&nbsp;name="subject"&gt;&lt;xsp:expr&gt;"The&nbsp;subject&nbsp;of&nbsp;this&nbsp;email..."&lt;/xsp:expr&gt;&lt;/xsp:param&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;xsp:param&nbsp;name="body"&gt;&lt;xsp:expr&gt;"The&nbsp;body&nbsp;of&nbsp;this&nbsp;email..."&lt;/xsp:expr&gt;&lt;/xsp:param&gt;<br />
+&lt;/sendmail:send-mail&gt;</p>
+
+<p>　　3、数据操作 — 提供了对数据验证和与数据库关联的功能的访问 <br />
+有两个逻辑单属于该类别，其中的一个提供了比另一个明显更多的功能。</p>
+
+<p>　　表单验证器（form validator）逻辑单从未真正单独使用。它向 Cocoon 表单验证器行为（Cocoon Form Validator Action）提供一个整齐的界面。这个行为能够对从 HTML 表单发送到 Cocoon 应用程序的数据执行基本验证操作，包括检查整数的最小和最大值、检查字符串的大小以及检查提供的某些参数。一个著名功能是能够测试传递的变量是否匹配给定的正则表达式。</p>
+
+<p>　　验证的结果存储在请求参数中。验证器（validator）逻辑单提供了解释来自 XSP 页面内的这些结果的方法。这样允许为用户动态生成错误消息。</p>
+
+<p>　　在数据被确认为有效之后，下一步是将那个数据存储到数据库中。esql 逻辑单提供了执行这一步的方法，并提供了更多的功能，包括选择、删除和更新数据库。本质上，esql 逻辑单提供了将 SQL 语句直接嵌入到 XSP 文档的方法。然后这个逻辑单生成相应的 JDBC 代码来实现 SQL 操作，这样通过使用 Cocoon 2 简化了对数据库数据的操作和检索。</p>
+
+<span class="posted">Posted by Hilton at July  8, 2003 06:50 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=9.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=9" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="9" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

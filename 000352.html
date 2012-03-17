@@ -1,0 +1,237 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 自动化功能测试之工具选择和实施</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000351.html" tppabs="http://hedong.3322.org/archives/000351.html" title="TrackBack技术规范" />
+
+<link rel="next" href="000353.html" tppabs="http://hedong.3322.org/archives/000353.html" title="Apache的Mod_rewrite学习（六）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000352.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/247"
+    dc:title="自动化功能测试之工具选择和实施"
+    dc:identifier="http://hedong.3322.org/archives/000352.html"
+    dc:subject="ItTech"
+    dc:description="　　2003。11期《程序员》东方海外QA组的文章“自动化功能测试之工具选择和实施”，阅读摘记。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-08T21:27:02+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000352.html">
+<dc:title>自动化功能测试之工具选择和实施</dc:title>
+<dc:description>　　2003。11期《程序员》东方海外QA组的文章“自动化功能测试之工具选择和实施”，阅读摘记。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-08T21:27:02+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000351.html" tppabs="http://hedong.3322.org/archives/000351.html">&laquo; TrackBack技术规范</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000353.html" tppabs="http://hedong.3322.org/archives/000353.html">Apache的Mod_rewrite学习（六） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 08, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">自动化功能测试之工具选择和实施</h3>
+
+<p>　　2003。11期《程序员》东方海外QA组的文章“自动化功能测试之工具选择和实施”，阅读摘记。<br />
+</p>
+
+<a name="more"></a>
+<p><h4>商业化自动功能测试工具特性比较</h4><br />
+<table border="1"><tr><td>特性</td><td>WinRunner</td><td>SilkTest</td><td>Etester</td></tr><tr><td>易于安装</td><td>是</td><td>是</td><td>是，不支持设置代理服务等设置</td></tr><tr><td>GUI对象和脚本分离</td><td>是</td><td>对象声明在单独的include文件中，但是case脚本中还有包含</td><td>两者都在VB脚本的case中</td></tr><tr><td>toolbar/field定制</td><td>可以</td><td>无法定制toolbar,可以定制GUI的fields内容</td><td>无法定制</td></tr><tr><td>操作系统</td><td>Windows</td><td>Unix,Windows</td><td>Unix, Windows</td></tr><tr><td>浏览器</td><td>NetScape,IE</td><td>NetScape,IE</td><td>NetScape,IE</td></tr><tr><td>支持测试对象</td><td>HTML,DHTML,JavaScript,VBScript,XML,JAVA applets, ActiveX,VB, PowerBuilder,Delphi,Terminal Emulator,,Oracle,SAP,PeopleSoft, Siebel</td><td>HTML, DHTML, JavaScript, XML, Java apps and applets, MFC, VB, Oracle, PowerBuilder, Delphi, SAP</td><td>Java apps and applets in M$JVM/SunJVM, HTML, DHTML, JavaScript, XML, MFC, VB, Oracle, SAP, Delphi, Terminal Emulator, PowerBuilder, Oracle, Peoplesoft</td></tr><tr><td>脚本语言</td><td>TSL</td><td>第四代面向对象的脚本语言4Test,类似C++</td><td>提供可编程接口，用户可使用标准语言扩展可视脚本，如VB,C++,Java</td></tr><tr><td>脚本调试功能</td><td>强大</td><td>类似C＋＋Debugger</td><td>VBA Debugger结合Visual Script Debugger</td></tr><tr><td>允许数据驱动的测试</td><td>是</td><td>是</td><td>是</td></tr><tr><td>自动数据生成</td><td>支持</td><td>支持</td><td>不支持</td></tr><tr><td>允许通过数据库验证数据</td><td>通过ODBC及本地数据库连接</td><td>自带Database Tester</td><td>通过ODBC</td></tr><tr><td>应用程序改变后的脚本维护</td><td>直接修改GUImap</td><td>更新include 文件。</td><td>自动更新无需录制</td></tr><tr><td>数据库支持</td><td>市场流行的数据库</td><td>市场流行的数据库</td><td>市场流行的数据库</td></tr><tr><td>无人看管下的自动执行测试</td><td>通过Testdirector</td><td>允许</td><td>允许，通过eTestSuite</td></tr><tr><td>分布式测试控制/同步/执行</td><td>Testdirector支持</td><td>支持</td><td>支持</td></tr><tr><td>自动创建测试结果日志</td><td>是</td><td>是</td><td>是</td></tr><tr><td>非预期错误的恢复</td><td>允许</td><td>允许</td><td>允许</td></tr><tr><td>与测试管理工具接口</td><td>Testdirector</td><td>自带Case管理功能。</td><td>e-test suite</td></tr><tr><td>图形化设计脚本执行集合</td><td>通过Testdirector设计</td><td>不支持</td><td>通过e-test suite设计</td></tr><tr><td>培训</td><td>有，Onsite及public training</td><td>有，提供kickoff training</td><td>有，onsite及public training</td></tr><tr><td>技术支持</td><td>曾获SSPA STAR荣誉</td><td>很好</td><td>客户对其评价</td></tr><tr><td>License</td><td>灵活的记费方式，既可以按使用次数计费也可以按协议算永久使用费</td><td>提供floating以及node-locked两种方式</td><td>提供Floating以及Node-locked两种方式</td></tr><tr><td>价格</td><td>昂贵</td><td>较贵</td><td>一般</td></tr><tr><td>Add-in收费</td><td>部分收费</td><td>不收费</td><td>不收费</td></tr><tr><td><strong>总论</strong></td><td>在全球的市场占有率较高，功能全面，价格昂贵</td><td>在国内的推广还处于起步阶段</td><td>价格较低，只支持web的测试，在金融、证券、电子商务等领域有广泛应用。</td></tr></table></p>
+
+<p>开源的自动化测试工具推荐的是HttpUnit和Junit.</p>
+
+<span class="posted">Posted by Hilton at November  8, 2003 09:27 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=352.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=352" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>　　这两种期刊我都订了，其中有很多的文章还是不错的。：）</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 10, 2003 10:48 PM</span>
+</div>
+<div class="comments-body">
+<p>看来hedong大哥《程序员》也是一期不落啊：）<br />
+现在下半月的《开发高手》也不错的<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.douzi.org/blog  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.douzi.org/blog'" tppabs="http://www.douzi.org/blog">windix</a> at November 10, 2003 10:36 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="352" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

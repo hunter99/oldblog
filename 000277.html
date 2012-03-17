@@ -1,0 +1,300 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Python学习（二）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000276.html" tppabs="http://hedong.3322.org/archives/000276.html" title="Python学习（一）" />
+
+<link rel="next" href="000278.html" tppabs="http://hedong.3322.org/archives/000278.html" title="Python学习（三）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000277.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/195"
+    dc:title="Python学习（二）"
+    dc:identifier="http://hedong.3322.org/archives/000277.html"
+    dc:subject="ItTech"
+    dc:description="　　今天继续dive into python...."
+    dc:creator="Hilton"
+    dc:date="2003-10-09T21:43:20+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000277.html">
+<dc:title>Python学习（二）</dc:title>
+<dc:description>　　今天继续dive into python....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-09T21:43:20+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000276.html" tppabs="http://hedong.3322.org/archives/000276.html">&laquo; Python学习（一）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000278.html" tppabs="http://hedong.3322.org/archives/000278.html">Python学习（三） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 09, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Python学习（二）</h3>
+
+<p>　　今天继续dive into python.</p>
+
+<a name="more"></a>
+<p>12、列表与字符串<br />
+　　1)用一个字符串对象的join 方法将列表元素连接成单个字符串，此字符串充当分隔符。<br />
+　　2)join 只用用于字符串列表；它不进行任何的类型强制转换。连接一个存在一个或多个非字符串元素的列表将引发一个异常。<br />
+　　3)用一个字符串对象的split 方法将列表元素连接成单个字符串，此字符串充当分隔符。<br />
+　　4)split 接受一个可选的第二个参数，它是要分割的次数。<br />
+　　5)split 无参数调用时，默认为以空白为分隔符(空格/换行/制表符),多个连续空白初见为一个。</p>
+
+<p>13、导入模块<br />
+　　1)Python用两种方法导入模块，一是import module,一种是from module import,<br />
+　　2)第一种方法导入整个模块，对其属性或方法的引用要加限制名，如：<br />
+&gt;&gt;&gt; import types<br />
+&gt;&gt;&gt; types.FunctionType<br />
+　　3)第二种方法将模块的方法和属性直接导入名字空间中，可以直接引用这些方法和属性，如：<br />
+&gt;&gt;&gt; from types import FunctionType <br />
+&gt;&gt;&gt; FunctionType<br />
+　　4)两种方法各有利弊，前者可明确指定要导入的方法和属性，并直接引用，比较方便；对于属性或方法重名的情况，则后者非常有用。</p>
+
+<p>14、函数的参数<br />
+　　1)函数的参数可以拥有缺省值，某个参数有什么缺省值在定义函数时指明，<br />
+　　2)拥有缺省值的参数为可选参数，否则为必备参数，即调用函数时必须为必备参数提供参数，如果没有对可选参数提供参数值，则其使用缺省值。<br />
+　　3)调用函数时，可以通过指定参数名而以任意次序来传递参数，称为定名参数。如：<br />
+定义：<br />
+def help(object, spacing=10, collapse=1):<br />
+合法调用：<br />
+help(odbchelper)                    <br />
+help(odbchelper, 12)                <br />
+help(odbchelper, collapse=0)        <br />
+help(spacing=15, object=odbchelper) <br />
+　　4)参数是个“字典”，缺省可以不指定名字而用顺序将参数名与值匹配起来。</p>
+
+<p>15、内置函数<br />
+　　1)所有Python内置函数被组合进一个名叫 __builtins__ (前后有两个下划线)的特别模块中。<br />
+　　2)内置函数dir 返回任意一个对象的属性和方法的列表。<br />
+　　3)内置函数str 强制将任一种类型的数据转化为字符串，对python的空值None，则str(None)返回字符串"None”.<br />
+　　4)内置函数type 返回任意对象的数据类型。<br />
+　　5)使用函数 getattr 得到对象的各种引用，这个过程中方法没有被调用。<br />
+　　<br />
+　　6)使用getattr得到引用后，其返回值为方法，可以调用相应的函数。如下：<br />
+&gt;&gt;&gt;getattr(li, "append")("Moe")<br />
+　　<br />
+16、列表映射过滤语法<br />
+[mapping-expression for element in source-list if filter-expression]</p>
+
+<p>17、and-or技巧,对bool and a or b来说，<br />
+　　1)逻辑运行采用了快捷方式，即如果or前值为真，是不再计算后面的值，并返回前面的结果<br />
+　　2)用 (bool and [a] or [b])[0]的方法，可以实现与c中bool?a:b的功能</p>
+
+<p>18、lambda函数<br />
+　　1)可以使用lambda定义单行的最小函数，格式如下：<br />
+funcVar = lambda x : x...<br />
+　　没有名字，返回是默认的。上式中可以没有funcVar，有funcVar时可与正常函数一样调用，没有funcVar时可如下调用：<br />
+(lambda x:x...)(a)<br />
+　　2)lambda函数可以接受一到多个参数(包括可选参数),返回单个表达式的值，函数中不能包含命令，表达式不能超过一个。</p>
+
+<p>19、一些小技巧<br />
+　　1)python几乎总是在操作列表<br />
+　　2)字符串的ljust(spacing)可以在右边加空格以达到spacing值所示的长度，当spacing的值小于字符串的长度时，不会截断。</p>
+
+<p>附:builtin的属性表<br />
+<table border="1"><tr><td>属性</td><td>说明</td></tr><tr><td>ArithmeticError</td><td>Base class for arithmetic errors.</td></tr><tr><td>AssertionError </td><td>Assertion failed.</td></tr><tr><td>AttributeError </td><td>Attribute not found.</td></tr><tr><td>DeprecationWarning </td><td>Base class for warnings about deprecated features.</td></tr><tr><td>EOFError </td><td>Read beyond end of file.</td></tr><tr><td>EnvironmentError </td><td>Base class for I/O related errors.</td></tr><tr><td>Exception</td><td>Common base class for all exceptions.</td></tr><tr><td>FloatingPointError </td><td>Floating point operation failed.</td></tr><tr><td>FutureWarning</td><td>Base class for warnings about constructs that will change semantically in the future.</td></tr><tr><td>IOError</td><td>I/O operation failed.</td></tr><tr><td>ImportError</td><td>Import can't find module, or can't find name in module.</td></tr><tr><td>IndentationError </td><td>Improper indentation.</td></tr><tr><td>IndexError </td><td>Sequence index out of range.</td></tr><tr><td>KeyError </td><td>Mapping key not found.</td></tr><tr><td>KeyboardInterrupt</td><td>Program interrupted by user.</td></tr><tr><td>LookupError</td><td>Base class for lookup errors.</td></tr><tr><td>MemoryError</td><td>Out of memory.</td></tr><tr><td>NameError</td><td>Name not found globally.</td></tr><tr><td>NotImplementedError</td><td>Method or function hasn't been implemented yet.</td></tr><tr><td>OSError</td><td>OS system call failed.</td></tr><tr><td>OverflowError</td><td>Result too large to be represented.</td></tr><tr><td>OverflowWarning</td><td>Base class for warnings about numeric overflow.</td></tr><tr><td>PendingDeprecationWarning </td><td>Base class for warnings about features which will be deprecated in the future.</td></tr><tr><td>ReferenceError </td><td>Weak ref proxy used after referent went away.</td></tr><tr><td>RuntimeError </td><td>Unspecified run-time error.</td></tr><tr><td>RuntimeWarning </td><td>Base class for warnings about dubious runtime behavior.</td></tr><tr><td>StandardError</td><td>Base class for all standard Python exceptions.</td></tr><tr><td>StopIteration</td><td>Signal the end from iterator.next().</td></tr><tr><td>SyntaxError</td><td>Invalid syntax.</td></tr><tr><td>SyntaxWarning</td><td>Base class for warnings about dubious syntax.</td></tr><tr><td>SystemError</td><td>Internal error in the Python interpreter. Please report this to the Python maintainer, along with the traceback, the Python version, and the hardware/OS platform and version.</td></tr><tr><td>SystemExit </td><td>Request to exit from the interpreter.</td></tr><tr><td>TabError </td><td>Improper mixture of spaces and tabs.</td></tr><tr><td>TypeError</td><td>Inappropriate argument type.</td></tr><tr><td>UnboundLocalError</td><td>Local name referenced but not bound to a value.</td></tr><tr><td>UnicodeDecodeError </td><td>Unicode decoding error.</td></tr><tr><td>UnicodeEncodeError </td><td>Unicode encoding error.</td></tr><tr><td>UnicodeError </td><td>Unicode related error.</td></tr><tr><td>UnicodeTranslateError</td><td> Unicode translation error.</td></tr><tr><td>UserWarning</td><td>Base class for warnings generated by user code.</td></tr><tr><td>ValueError </td><td>Inappropriate argument value (of correct type).</td></tr><tr><td>Warning</td><td>Base class for warning categories.</td></tr><tr><td>WindowsError </td><td>MS-Windows OS system call failed.</td></tr><tr><td>ZeroDivisionError</td><td>Second argument to a division or modulo operation was zero.</td></tr></table><br />
+builtin方法(函数)表<br />
+<table border="1"><tr><td>方法</td><td>说明</td></tr><tr><td>__import__ </td><td>__import__(name, globals, locals, fromlist) -&gt; module Import a module. The globals are only used to determine the context; they are not modified. The locals are currently unused. The fromlist should be a list of names to emulate ``from name import ...'', or an empty list to emulate ``import name''. When importing a module from a package, note that __import__('A.B', ...) returns package A when fromlist is empty, but its submodule B when fromlist is not empty.</td></tr><tr><td>abs</td><td>abs(number) -&gt; number Return the absolute value of the argument.</td></tr><tr><td>apply</td><td>apply(object[, args[, kwargs]]) -&gt; value Call a callable object with positional arguments taken from the tuple args, and keyword arguments taken from the optional dictionary kwargs. Note that classes are callable, as are instances with a __call__() method. Deprecated since release 2.3. Instead, use the extended call syntax: function(*args, **keywords).</td></tr><tr><td>callable </td><td>callable(object) -&gt; bool Return whether the object is callable (i.e., some kind of function). Note that classes are callable, as are instances with a __call__() method.</td></tr><tr><td>chr</td><td>chr(i) -&gt; character Return a string of one character with ordinal i; 0 &lt;= i &lt; 256.</td></tr><tr><td>cmp</td><td>cmp(x, y) -&gt; integer Return negative if x&lt;y, zero if x==y, positive if x&gt;y.</td></tr><tr><td>coerce </td><td>coerce(x, y) -&gt; None or (x1, y1) When x and y can be coerced to values of the same type, return a tuple containing the coerced values. When they can't be coerced, return None.</td></tr><tr><td>compile</td><td>compile(source, filename, mode[, flags[, dont_inherit]]) -&gt; code object Compile the source string (a Python module, statement or expression) into a code object that can be executed by the exec statement or eval(). The filename will be used for run-time error messages. The mode must be 'exec' to compile a module, 'single' to compile a single (interactive) statement, or 'eval' to compile an expression. The flags argument, if present, controls which future statements influence the compilation of the code. The dont_inherit argument, if non-zero, stops the compilation inheriting the effects of any future statements in effect in the code calling compile; if absent or zero these statements do influence the compilation, in addition to any features explicitly specified.</td></tr><tr><td>delattr</td><td>delattr(object, name) Delete a named attribute on an object; delattr(x, 'y') is equivalent to ``del x.y''.</td></tr><tr><td>dir</td><td>dir([object]) -&gt; list of strings Return an alphabetized list of names comprising (some of) the attributes of the given object, and of attributes reachable from it: No argument: the names in the current scope. Module object: the module attributes. Type or class object: its attributes, and recursively the attributes of its bases. Otherwise: its attributes, its class's attributes, and recursively the attributes of its class's base classes.</td></tr><tr><td>divmod </td><td>divmod(x, y) -&gt; (div, mod) Return the tuple ((x-x%y)/y, x%y). Invariant: div*y + mod == x.</td></tr><tr><td>eval </td><td>eval(source[, globals[, locals]]) -&gt; value Evaluate the source in the context of globals and locals. The source may be a string representing a Python expression or a code object as returned by compile(). The globals and locals are dictionaries, defaulting to the current globals and locals. If only globals is given, locals defaults to it.</td></tr><tr><td>execfile </td><td>execfile(filename[, globals[, locals]]) Read and execute a Python script from a file. The globals and locals are dictionaries, defaulting to the current globals and locals. If only globals is given, locals defaults to it.</td></tr><tr><td>filter </td><td>filter(function or None, sequence) -&gt; list, tuple, or string Return those items of sequence for which function(item) is true. If function is None, return the items that are true. If sequence is a tuple or string, return the same type, else return a list.</td></tr><tr><td>getattr</td><td>getattr(object, name[, default]) -&gt; value Get a named attribute from an object; getattr(x, 'y') is equivalent to x.y. When a default argument is given, it is returned when the attribute doesn't exist; without it, an exception is raised in that case.</td></tr><tr><td>globals</td><td>globals() -&gt; dictionary Return the dictionary containing the current scope's global variables.</td></tr><tr><td>hasattr</td><td>hasattr(object, name) -&gt; bool Return whether the object has an attribute with the given name. (This is done by calling getattr(object, name) and catching exceptions.)</td></tr><tr><td>hash </td><td>hash(object) -&gt; integer Return a hash value for the object. Two objects with the same value have the same hash value. The reverse is not necessarily true, but likely.</td></tr><tr><td>hex</td><td>hex(number) -&gt; string Return the hexadecimal representation of an integer or long integer.</td></tr><tr><td>id </td><td>id(object) -&gt; integer Return the identity of an object. This is guaranteed to be unique among simultaneously existing objects. (Hint: it's the object's memory address.)</td></tr><tr><td>input</td><td>input([prompt]) -&gt; value Equivalent to eval(raw_input(prompt)).</td></tr><tr><td>intern </td><td>intern(string) -&gt; string ``Intern'' the given string. This enters the string in the (global) table of interned strings whose purpose is to speed up dictionary lookups. Return the string itself or the previously interned string object with the same value.</td></tr><tr><td>isinstance </td><td>isinstance(object, class-or-type-or-tuple) -&gt; bool Return whether an object is an instance of a class or of a subclass thereof. With a type as second argument, return whether that is the object's type. The form using a tuple, isinstance(x, (A, B, ...)), is a shortcut for isinstance(x, A) or isinstance(x, B) or ... (etc.).</td></tr><tr><td>issubclass </td><td>issubclass(C, B) -&gt; bool Return whether class C is a subclass (i.e., a derived class) of class B. When using a tuple as the second argument issubclass(X, (A, B, ...)), is a shortcut for issubclass(X, A) or issubclass(X, B) or ... (etc.).</td></tr><tr><td>iter </td><td>iter(collection) -&gt; iterator iter(callable, sentinel) -&gt; iterator Get an iterator from an object. In the first form, the argument must supply its own iterator, or be a sequence. In the second form, the callable is called until it returns the sentinel.</td></tr><tr><td>len</td><td>len(object) -&gt; integer Return the number of items of a sequence or mapping.</td></tr><tr><td>locals </td><td>locals() -&gt; dictionary Update and return a dictionary containing the current scope's local variables.</td></tr><tr><td>map</td><td>map(function, sequence[, sequence, ...]) -&gt; list Return a list of the results of applying the function to the items of the argument sequence(s). If more than one sequence is given, the function is called with an argument list consisting of the corresponding item of each sequence, substituting None for missing values when not all sequences have the same length. If the function is None, return a list of the items of the sequence (or a list of tuples if more than one sequence).</td></tr><tr><td>max</td><td>max(sequence) -&gt; value max(a, b, c, ...) -&gt; value With a single sequence argument, return its largest item. With two or more arguments, return the largest argument.</td></tr><tr><td>min</td><td>min(sequence) -&gt; value min(a, b, c, ...) -&gt; value With a single sequence argument, return its smallest item. With two or more arguments, return the smallest argument.</td></tr><tr><td>oct</td><td>oct(number) -&gt; string Return the octal representation of an integer or long integer.</td></tr><tr><td>ord</td><td>ord(c) -&gt; integer Return the integer ordinal of a one-character string.</td></tr><tr><td>pow</td><td>pow(x, y[, z]) -&gt; number With two arguments, equivalent to x**y. With three arguments, equivalent to (x**y) % z, but may be more efficient (e.g. for longs).</td></tr><tr><td>range</td><td>range([start,] stop[, step]) -&gt; list of integers Return a list containing an arithmetic progression of integers. range(i, j) returns [i, i+1, i+2, ..., j-1]; start (!) defaults to 0. When step is given, it specifies the increment (or decrement). For example, range(4) returns [0, 1, 2, 3]. The end point is omitted! These are exactly the valid indices for a list of 4 elements.</td></tr><tr><td>raw_input</td><td>raw_input([prompt]) -&gt; string Read a string from standard input. The trailing newline is stripped. If the user hits EOF (Unix: Ctl-D, Windows: Ctl-Z+Return), raise EOFError. On Unix, GNU readline is used if enabled. The prompt string, if given, is printed without a trailing newline before reading.</td></tr><tr><td>reduce </td><td>reduce(function, sequence[, initial]) -&gt; value Apply a function of two arguments cumulatively to the items of a sequence, from left to right, so as to reduce the sequence to a single value. For example, reduce(lambda x, y: x+y, [1, 2, 3, 4, 5]) calculates ((((1+2)+3)+4)+5). If initial is present, it is placed before the items of the sequence in the calculation, and serves as a default when the sequence is empty.</td></tr><tr><td>reload </td><td>reload(module) -&gt; module Reload the module. The module must have been successfully imported before.</td></tr><tr><td>repr </td><td>repr(object) -&gt; string Return the canonical string representation of the object. For most object types, eval(repr(object)) == object.</td></tr><tr><td>round</td><td>round(number[, ndigits]) -&gt; floating point number Round a number to a given precision in decimal digits (default 0 digits). This always returns a floating point number. Precision may be negative.</td></tr><tr><td>setattr</td><td>setattr(object, name, value) Set a named attribute on an object; setattr(x, 'y', v) is equivalent to ``x.y = v''.</td></tr><tr><td>sum</td><td>sum(sequence, start=0) -&gt; value Returns the sum of a sequence of numbers (NOT strings) plus the value of parameter 'start'. When the sequence is empty, returns start.</td></tr><tr><td>unichr </td><td>unichr(i) -&gt; Unicode character Return a Unicode string of one character with ordinal i; 0 &lt;= i &lt;= 0x10ffff.</td></tr><tr><td>vars </td><td>vars([object]) -&gt; dictionary Without arguments, equivalent to locals(). With an argument, equivalent to object.__dict__.</td></tr><tr><td>zip</td><td>zip(seq1 [, seq2 [...]]) -&gt; [(seq1[0], seq2[0] ...), (...)] Return a list of tuples, where each tuple contains the i-th element from each of the argument sequences. The returned list is truncated in length to the length of the shortest argument sequence.</td></tr></table></p>
+
+<span class="posted">Posted by Hilton at October  9, 2003 09:43 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=277.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=277" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>　　我是这么理解的。<br />
+　　在python中，一切都是对象，如果我们调用了一某个函数，那么这个函数应该属于某个对象的。<br />
+　　我们在例子中用过dir函数，用过len函数，可是我们并没有指明它是哪个类的或对象的函数，其实它们都属于__builtins__这个包的（包也是对象），而为了使用方便，python自动加载了这个包。<br />
+　　这在diveintopython中有讲解，如果方便，你可以根据链接去下载回来看看，我这儿只是作了一些摘要，并加了一些自己的理解，供参考。<br />
+　　</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 22, 2003 10:53 AM</span>
+</div>
+<div class="comments-body">
+<p>能不能对应一个具体的例子</p>
+
+<p>再详细讲一讲builtin的属性和函数呢?</p>
+
+<p>看了列表,还是很模糊. </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;dorothy&#46;net&#64;sohu&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;dorothy&#46;net&#64;sohu&#46;com">Ciel</a> at October 22, 2003 10:37 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="277" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,180 @@
+<html>
+
+<head>
+  <title>第六章 ─ 迴響功能</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第六章 ─ 迴響功能</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#comment">第六章 ─ 迴響功能</a></li> 
+  <ul>
+    <li><a href="#intro">甚麼是迴響</a></li>
+    <li><a href="#enable">啟用迴響功能與迴響狀態</a></li>
+    <li><a href="#anonymous">匿名迴響</a></li>
+    <li><a href="#html">迴響允許 HTML</a></li>
+    <li><a href="#sanitize">迴響消毒</a></li>
+    <li><a href="#convert">自動轉換鏈結</a></li>
+    <li><a href="#edit">編輯與刪除迴響</a></li>
+    <li><a href="#ban">禁用 IP</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="comment"></a>第六章 ─ 迴響功能</h1>
+
+<p>本章與<a href="mtbook_trackback.html#trackback" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_trackback.html#trackback">下一章</a>將分別為各位介紹 Movable Type 所提供的互動工具 ─ <code>迴響</code>和<code>引用</code>功能。本章將講解迴響的意義與用途，同時也會介紹各種與迴響有關的設定及操作；但是這一章並不會提及與迴響有關的模版撰寫技巧。我們照例將把所有跟實際撰寫模版有關的部分，都放到<a href="mtbook_practice.html#practice" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_practice.html#practice">第十章</a>去，有興趣的讀者請先讀完本章、確實瞭解了<code>迴響</code>之後，再行翻閱後面的實做技巧。</p>
+
+<h2><a id="intro"></a>甚麼是迴響</h2>
+
+<p>迴響功能可能是最簡單而又直接的互動方式了。</p>
+
+<p>一旦妳啟用了迴響功能之後，讀者就能夠針對妳的文章發表回應、評論或感言；這樣子的回應模式是以<code>文章</code>為單位來處理的，換而言之，妳可以隨意指定哪幾篇文章要啟用迴響功能而哪幾篇不要。對於在網路上活躍的作者來說，提供迴響功能是一個絕佳的選擇，因為妳並不需要公開電子郵件信箱或任何私人聯絡資訊，卻又能夠讓讀者們發表她們想說的話。</p>
+
+<p>事實上熱烈的讀者參與正是站台活力的來源；當有越來越多的讀者會在妳的站台發表迴響的時候，就會使得更多人養成前來瀏覽妳的頁面的習慣 ─ 因為就算妳自己沒空寫新的文章，妳的站台還是會一直發生不少新鮮事 ─ 接著更多的讀者也會開始發表迴響。一切就有如滾雪球般，不斷地成長下去。舉例來說，<a href="javascript:if(confirm('http://www.kottke.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.kottke.org/'" tppabs="http://www.kottke.org/"> Jason Kottke 的網誌</a>上有一篇文章「 <a href="javascript:if(confirm('http://www.kottke.org/03/05/030515the_matrix_r.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.kottke.org/03/05/030515the_matrix_r.html'" tppabs="http://www.kottke.org/03/05/030515the_matrix_r.html">The Matrix Reloaded</a> 」，其內容不過寥寥數百字，但是引發的迴響卻洋洋灑灑多達九百篇、計數十萬字！迴響的威力由此可見一斑。</p>
+
+<div class="img"><a id="img_01"></a><img src="kottke_tmr.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/kottke_tmr.png" alt="http://www.kottke.org/03/05/030515the_matrix_r.html"><br />圖一： Kottke 的文章引來超大量的迴響，因此他不得不把這些迴響另外獨立整理出來。</div>
+
+<h2><a id="enable"></a>啟用迴響功能與迴響狀態</h2>
+
+<p>在 Movable Type 裡，每一篇文章都有各自的迴響狀態，迴響狀態則總共有三種：</p>
+
+<p><ul>
+  <li><code>開啟</code>：文章之後會顯示出該文章的迴響，同時也開放讓讀者們能夠繼續發表迴響。</li>
+  <li><code>關閉</code>：文章之後會顯示出該文章的迴響，但讀者們將不能繼續發表迴響。</li>
+  <li><code>無</code>：文章之後不顯示出該文章的迴響，也不讓讀者們繼續發表迴響。</li>
+</ul></p>
+
+<p>妳可以針對任何一篇文章，指定它的迴響狀態；也可以把妳最常採用的迴響狀態設定成預設值，這樣就不需要每次去更改了。請見以下的步驟說明：</p>
+
+<p><ol>
+  <li><a id="enable_01"></a>在<code>編輯文章</code>畫面裡，有一個「<strong>允許迴響</strong>」的下拉式選單，妳可以按照<a href="#img_02">圖二</a>那樣選擇這一篇文章的迴響狀態，再按下「儲存」按鈕，就可以更新這一篇文章的迴響狀態了。當然，日後妳還是可以隨時修改。<div class="img"><a id="img_02"></a><img src="mtcomment_enable_entry_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_entry_01.png" alt="修改特定文章的迴響狀態，然後按下「儲存」按鈕"><br />圖二：從「允許迴響」下拉式選單裡選擇這一篇文章的迴響狀態，然後按下「儲存」按鈕；在這個範例中我們選的是「開啟」。</div></li>
+  <li><a id="enable_02"></a>根據迴響狀態的不同，妳的網誌版面也會適時地提供不同的資訊。<div class="img"><a id="img_03"></a><img src="mtcomment_enable_entry_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_entry_02.png" alt="主索引頁面上，會在文章下方出現迴響鏈結並標示迴響數量"><br />圖三：如果妳選的是「開啟」或「關閉」的話，就可以在該文章底下看到一個「迴響」的鏈結，同時還會標示出目前的迴響數量。</div><div class="img"><a id="img_04"></a><img src="mtcomment_enable_entry_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_entry_03.png" alt="迴響清單裡會列出所有的迴響內容，並提供發表迴響的表單"><br />圖四：按下那個「迴響」鏈結後會彈出一個迴響清單；在這裡會列出這篇文章所有的迴響內容，同時也會提供一個迴響表單，讓讀者能夠繼續發表迴響。在這個範例裡，我們可以看到有個自稱 Yoda 的讀者，發表了內容是「 Nice font it is. Get this font you must. 」的迴響。</div><div class="img"><a id="img_05"></a><img src="mtcomment_enable_entry_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_entry_04.png" alt="迴響表單不見得能用"><br />圖五：然而如果這篇文章的迴響狀態是「關閉」的話，雖然妳能在迴響清單視窗裡看到迴響表單，但是讀者們試圖發表迴響的時候，就會被告知這篇文章並不開放其他迴響。</div><div class="img"><a id="img_06"></a><img src="mtcomment_enable_entry_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_entry_05.png" alt="不列出「迴響」的鏈結"><br />圖六：如果文章的迴響狀態是「無」的話，就不會出現「迴響」鏈結了。</div></li>
+  <li><a id="enable_03"></a>妳也可以預先把妳會最常選用的迴響狀態設成網誌的預設值。首先請如<a href="#img_07">圖七</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_08">圖八</a>點擊網誌組態畫面上方的「<strong>偏好</strong>」鏈結，再如<a href="#img_09">圖九</a>點擊網誌組態偏好畫面上方的「<strong>迴響組態</strong>」鏈結。<div class="img"><a id="img_07"></a><img src="mtcomment_enable_default_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_default_01.png" alt="按下「網誌組態」按鈕"><br />圖七：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_08"></a><img src="mtcomment_enable_default_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_default_02.png" alt="點擊「偏好」鏈結"><br />圖八：點擊「偏好」鏈結。</div><div class="img"><a id="img_09"></a><img src="mtcomment_enable_default_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_default_03.png" alt="點擊「迴響組態」鏈結"><br />圖九：點擊「迴響組態」鏈結。</div></li>
+  <li><a id="enable_04"></a>迴響組態的最後一項設定值，就是「<strong>預設允許迴響</strong>」，妳可以如<a href="#img_10">圖十</a>從這個下拉式選單選一個來當作預設值，並如<a href="#img_11">圖十一</a>按下畫面最底下的「儲存」按鈕。從此之後當妳新增文章時，就會預設把迴響狀態設定成妳在這裡所設定的值。<div class="img"><a id="img_10"></a><img src="mtcomment_enable_default_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_default_04.png" alt="從下拉式選單選擇一個迴響狀態"><br />圖十：從下拉式選單選擇一個迴響狀態，妳一樣可以從「開啟」、「關閉」或「無」裡面選一個。</div><div class="img"><a id="img_11"></a><img src="mtcomment_enable_default_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_enable_default_05.png" alt="按下「儲存」按鈕"><br />圖十一：按下「儲存」按鈕，把妳的設定值存檔。</div></li>
+</ol></p>
+
+<h2><a id="anonymous"></a>匿名迴響</h2>
+
+<p>所謂的<code>匿名迴響</code>指的是讀者不需要留下電子郵件及網址資訊，也能發表迴響。實際上所有的迴響都可以視為匿名 ─ 因為沒有人能夠證明讀者所留下來的電子郵件及網址資訊是真的，甚至也沒有任何機制能夠避免冒名頂替的事件發生。妳可以不要啟用匿名迴響功能，但是妳卻該將這件事牢記在心：<strong>沒有人能夠真的證明以及辨識這些留言者的身份</strong>。</p>
+
+<p>在這種情況下，其實有沒有啟用匿名迴響唯一的差別，恐怕就祇剩下系統會不會要求讀者一定要填寫那兩個欄位了。如果妳因為某些理由，希望讀者們就算造假也得填寫電子郵件地址及網址資訊的話，就可以關閉匿名迴響的功能；反之若妳看開了，瞭解到其實沒有強迫填寫的意義的話，就可以啟用匿名迴響的功能。開與不開並沒有絕對的好壞，端看妳自己如何抉擇。</p>
+
+<p><code>匿名迴響</code>是一個會涉及整份網誌的開關，也就是說妳沒辦法決定某一篇文章接受匿名迴響、而另一篇不要。所有在這份網誌裡的文章要不是都不接受匿名迴響，就是都得接受匿名迴響。這個開關得在<code>網誌組態</code>裡切換，請見下列的步驟：</p>
+
+<p><ol>
+  <li><a id="anonymous_01"></a>請如<a href="#img_12">圖十二</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_13">圖十三</a>點擊網誌組態畫面上方的「<strong>偏好</strong>」鏈結，再如<a href="#img_14">圖十四</a>點擊網誌組態偏好畫面上方的「<strong>迴響組態</strong>」鏈結。<div class="img"><a id="img_12"></a><img src="mtcomment_anonymous_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_anonymous_01.png" alt="按下「網誌組態」按鈕"><br />圖十二：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_13"></a><img src="mtcomment_anonymous_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_anonymous_02.png" alt="點擊「偏好」鏈結"><br />圖十三：點擊「偏好」鏈結。</div><div class="img"><a id="img_14"></a><img src="mtcomment_anonymous_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_anonymous_03.png" alt="點擊「迴響組態」鏈結"><br />圖十四：點擊「迴響組態」鏈結。</div></li>
+  <li><a id="anonymous_02"></a>迴響組態的第一個設定值就是「<strong>允許匿名迴響</strong>」，妳可以如<a href="#img_15">圖十五</a>核選這個核選框，然後再按下最底下的「儲存」按鈕，就可以開啟允許匿名迴響的功能了。<div class="img"><a id="img_15"></a><img src="mtcomment_anonymous_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_anonymous_04.png" alt="核選「允許匿名迴響」再按下「儲存」按鈕"><br />圖十五：核選「允許匿名迴響」的核選框，再按下「儲存」按鈕，以啟用匿名迴響功能。</div></li>
+</ol></p>
+
+<h2><a id="html"></a>迴響允許 HTML</h2>
+
+<p>當妳開放了迴響功能之後，還可以進一步地讓讀者們能夠在評論裡使用 HTML 標籤，這樣將能夠提供她們更大的彈性，讓她們能夠做出一些字型變化、加上列表清單、繪製表格、插入圖片、嵌入各種媒體檔案、以及所有其他可能的效果 ─ 祇要她們懂得如何善用這些 HTML 標籤。</p>
+
+<p><code>迴響允許 HTML </code>是一個會涉及整份網誌的開關，也就是說妳沒辦法決定某一篇文章的迴響能夠使用 HTML 標籤、而另一篇不要。所有在這份網誌裡的文章要不是都不能夠使用 HTML 標籤，就是都得要能夠使用。這個開關得在<code>網誌組態</code>裡切換，請見下列的步驟：</p>
+
+<p><ol>
+  <li><a id="html_01"></a>請如<a href="#img_16">圖十六</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_17">圖十七</a>點擊網誌組態畫面上方的「<strong>偏好</strong>」鏈結，再如<a href="#img_18">圖十八</a>點擊網誌組態偏好畫面上方的「<strong>迴響組態</strong>」鏈結。<div class="img"><a id="img_16"></a><img src="mtcomment_html_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_html_01.png" alt="按下「網誌組態」按鈕"><br />圖十六：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_17"></a><img src="mtcomment_html_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_html_02.png" alt="點擊「偏好」鏈結"><br />圖十七：點擊「偏好」鏈結。</div><div class="img"><a id="img_18"></a><img src="mtcomment_html_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_html_03.png" alt="點擊「迴響組態」鏈結"><br />圖十八：點擊「迴響組態」鏈結。</div></li>
+  <li><a id="html_02"></a>迴響組態的倒數第三個設定值就是「<strong>允許迴響使用 HTML 語法</strong>」，妳可以如<a href="#img_19">圖十九</a>核選這個核選框，然後再按下最底下的「儲存」按鈕，就可以讓讀者們在發表迴響時使用各種 HTML 標籤了。<div class="img"><a id="img_19"></a><img src="mtcomment_html_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_html_04.png" alt="核選「允許迴響使用 HTML 語法」的核選框，再按下「儲存」按鈕"><br />圖十九：核選「允許迴響使用 HTML 語法」的核選框，再按下「儲存」按鈕，以啟用匿名迴響功能。</div></li>
+</ol></p>
+
+<h2><a id="sanitize"></a>迴響消毒</h2>
+
+<p>這一個小節對於部分的使用者來說可能會比較艱深；如果妳對於 HTML 標籤根本不熟悉的話，請<a href="#convert">跳過這一小節</a>，直接採用預設值就可以了。這一小節是要寫給那些懂得如何徒手撰寫網頁的人的。</p>
+
+<p>實際上<code>允許迴響使用 HTML 語法</code>遠比妳所能想像得更嚴重，因為這意味著讀者在發表迴響的時候將能夠嵌入像是 <code>JavaScript</code> 或 <code>PHP</code> 等腳本語言，然後從伺服器上的 cookie 裡讀取隱私檔案，並拿來做任何事。</p>
+
+<p>新版的 Movable Type 加入了一個「<strong>消毒功能</strong>」，可以針對<code>迴響</code>（事實上還有<code>引用</code>也會）的內容進行處理，透過一個正向列表，祇留下妳允許使用的標籤，而把不在列表裡的都給清掉。除此之外，這個消毒功能也會幫妳把迴響裡漏掉的結束標籤像是 <code>&lt;/b&gt;</code> 、 <code>&lt;/p&gt;</code> 等給補上，以免由於迴響的不當而毀了妳接下來的版面。</p>
+
+<p>預設可以使用的標籤（和屬性）包含了有： <code>&lt;a href=&quot;&quot;&gt;</code> 、 <code>&lt;/a&gt;</code> 、 <code>&lt;b&gt;</code> 、 <code>&lt;/b&gt;</code> 、 <code>&lt;br&gt;</code> 、 <code>&lt;p&gt;</code> 、 <code>&lt;/p&gt;</code> 、 <code>&lt;strong&gt;</code> 、 <code>&lt;/strong&gt;</code> 、 <code>&lt;em&gt;</code> 、 <code>&lt;/em&gt;</code> 、 <code>&lt;ul&gt;</code> 、 <code>&lt;/ul&gt;</code> 、 <code>&lt;li&gt;</code> 、 <code>&lt;/li&gt;</code> 、 <code>&lt;blockquote&gt;</code> 和 <code>&lt;/blockquote&gt;</code> ，不過妳還是可以修改這個清單。在我們開始解說要如何修改這個設定值前，首先讓我們來看看要如何撰寫這個正向列表 ─ 它也被稱做<strong>消毒規格</strong>。</p>
+
+<p>消毒規格會由四種元件組成：<code>可用的標籤</code>、<code>可用的屬性</code>、<code>空白</code>和<code>逗號</code>。妳得在消毒規格裡列出所有允許使用的 HTML 標籤，彼此以逗號隔開；如果這些標籤還可以加上屬性的話，那麼妳也得把允許使用的屬性也放進去，它們之間則是以空白來隔開。舉例來說，如果妳想要讓讀者能夠使用 <code>&lt;a&gt;</code> 標籤及其 <code>href</code> 屬性，也要讓讀者能夠使用 <code>&lt;b&gt;</code> 標籤（當然還有相對應的 <code>&lt;/a&gt;</code> 以及 <code>&lt;/b&gt;</code>）的話，那麼妳就得寫成：<pre>a href,b</pre></p>
+
+<p>多數的 HTML 標籤都是成雙成對的 ─ 標籤的作用範圍是從 &lt;foo&gt; 開始，然後到 &lt;foo&gt; 為止；但是有一些標籤卻是單獨存在的，像是單純的換列標籤 <code>&lt;br&gt;</code> ，這個標籤在 XHTML 裡面都被改成 <code>&lt;br /&gt;</code> ，多了一個 <code>/</code> 來表示這個標籤是單獨存在、沒有對應標籤的。撰寫<code>消毒規格</code>的時候，如果妳遇到了這種標籤的話，也得以相似的形式，在標籤後面多加上一個斜線（ <code>/</code> ），來表示這個標籤是單獨使用的。舉例來說，如果妳祇想讓讀者們能夠使用 <code>&lt;p&gt;</code> 、 <code>&lt;/p&gt;</code> 和 <code>&lt;br&gt;</code> 的話，消毒規格就得寫成：<pre>p,br/</pre></p>
+
+<p>請注意，妳務必得把打算允許使用的標籤屬性也都加進消毒規格裡，否則會發生很糟的情況。例如說，如果妳祇在消毒規格裡寫上：<pre>a,b,p,br/</pre></p>
+
+<p>那麼如果有使用者寫了：<pre>&lt;a href=&quot;http://www.movabletype.org&quot;&gt;MovableType&lt;/a&gt;</pre></p>
+
+<p>結果實際上在迴響裡出現的東西就會變成：<pre>&lt;a&gt;MovableType&lt;/a&gt;</pre></p>
+
+<p>這麼一來這個超鏈結就失效了。</p>
+
+<p>除此之外，有些標籤屬性幾乎可以用於任何 HTML 標籤裡，例如像是 <code>id</code> 或 <code>style</code> ，妳可以不需要寫在每個 HTML 標籤裡，事情總是有比較偷懶的作法，那就是用 <strong>*</strong> 來表示<strong>所有被列出的標籤</strong>。舉個例子來說，如果妳想要讓使用者能夠使用像是 <code>&lt;a id=&quot;foo&quot;&gt;</code> 、 <code>&lt;a href=&quot;#foo&quot;&gt;</code> 、 <code>&lt;/a;&gt;</code> 、 <code>&lt;span&gt;</code> 、 <code>&lt;span id=&quot;bar&quot;&gt;</code> 、 <code>&lt;/span&gt;</code> 、 <code>&lt;hr&gt;</code> 、 <code>&lt;hr id=&quot;baz&quot;&gt;</code> 和 <code>&lt;br&gt;</code> 的話，妳可以把消毒規格寫成：<pre>a href id,span id,hr/ id,br/</pre></p>
+
+<p>不過我們可以用更精簡的方式來撰寫：<pre>a href,span,hr/,br/,* id</pre></p>
+
+<p>請注意，在上述的例子裡，以下的 HTML 標籤是無效的：<pre>&lt;h1 id=&quot;foobar&quot;&gt;</pre></p>
+
+<p>妳得把所有可以用的標籤都給列出來纔行。消毒規格裡的 <code>*</code> 祇能拿來代表其他有在消毒規格裡出現的 HTML 標籤。現在就讓我們來看看要如何修改這個消毒規格：</p>
+
+<p><ol>
+  <li><a id="sanitize_01"></a>請如<a href="#img_20">圖二十</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_21">圖二十一</a>點擊網誌組態畫面上方的「<strong>偏好</strong>」鏈結，再如<a href="#img_22">圖二十二</a>點擊網誌組態偏好畫面上方的「<strong>一般設定</strong>」鏈結。<div class="img"><a id="img_20"></a><img src="mtcomment_sanitize_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_01.png" alt="按下「網誌組態」按鈕"><br />圖二十：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_21"></a><img src="mtcomment_sanitize_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_02.png" alt="點擊「偏好」鏈結"><br />圖二十一：點擊「偏好」鏈結。</div><div class="img"><a id="img_22"></a><img src="mtcomment_sanitize_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_03.png" alt="點擊「一般設定」鏈結"><br />圖二十二：點擊「一般設定」鏈結。</div></li>
+  <li><a id="sanitize_02"></a>一般設定的倒數第三個設定值就是「<strong>消毒規格</strong>」，妳可以如<a href="#img_23">圖二十三</a>選擇要按照預設值，也可以如<a href="#img_24">圖二十四</a>自行決定消毒規格，最後再如<a href="#img_25">圖二十五</a>按下最底下的「儲存」按鈕，就完成消毒規格的設定了。<div class="img"><a id="img_23"></a><img src="mtcomment_sanitize_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_04.png" alt="消毒規格採用預設值"><br />圖二十三：在預設的情況下，消毒規格的設定就是採用預設值。</div><div class="img"><a id="img_24"></a><img src="mtcomment_sanitize_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_05.png" alt="自訂消毒規格"><br />圖二十四：妳也可以自己決定消毒規格；在這個範例中我們填入了「 a href,b,u,i,br/,p,* title 」。</div><div class="img"><a id="img_25"></a><img src="mtcomment_sanitize_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_sanitize_06.png" alt="按下「儲存」按鈕"><br />圖二十五：按下「儲存」按鈕。</div></li>
+</ol></p>
+
+<h2><a id="convert"></a>自動轉換鏈結</h2>
+
+<p>如果妳怕麻煩（或者祇是單純地謹慎而保守）而決定不要在迴響裡接受 HTML 標籤的話，就該啟用這個「<code>自動轉換鏈結</code>」的功能，這麼一來當讀者發表迴響時，如果提供了任何資訊的鏈結時，這個鏈結就會自動生效，變成一個真的可以直接點擊的鏈結，而不需要妳或其他讀者先小心翼翼地把它複製下來，再貼到瀏覽器的網址列裡。</p>
+
+<p>舉例來說，當讀者在迴響裡寫了：<pre>MovableType official site:<br />http://www.movabletype.org</pre></p>
+
+<p>如果妳開啟了這個自動轉換鏈結的功能後，這一段迴響就會變成：<pre>MovableType official site:<br />&lt;a href=&quot;http://www.movabletype.org&quot;&gt;http://www.movabletype.org&lt;/a&gt;</pre></p>
+
+<p><code>自動轉換鏈結</code>是一個會涉及整份網誌的開關，也就是說妳沒辦法決定某一篇文章的迴響要自動轉換鏈結、而另一篇不要。所有在這份網誌裡的文章要不是都不要自動轉換鏈結，就是都得要。這個開關得在<code>網誌組態</code>裡切換，請見下列的步驟：</p>
+
+<p><ol>
+  <li><a id="convert_01"></a>請如<a href="#img_26">圖二十六</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_27">圖二十七</a>點擊網誌組態畫面上方的「<strong>偏好</strong>」鏈結，再如<a href="#img_28">圖二十八</a>點擊網誌組態偏好畫面上方的「<strong>迴響組態</strong>」鏈結。<div class="img"><a id="img_26"></a><img src="mtcomment_convert_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_convert_01.png" alt="按下「網誌組態」按鈕"><br />圖二十六：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_27"></a><img src="mtcomment_convert_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_convert_02.png" alt="點擊「偏好」鏈結"><br />圖二十七：點擊「偏好」鏈結。</div><div class="img"><a id="img_28"></a><img src="mtcomment_convert_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_convert_03.png" alt="點擊「迴響組態」鏈結"><br />圖二十八：點擊「迴響組態」鏈結。</div></li>
+  <li><a id="convert_02"></a>迴響組態的倒數第二個設定值就是「<strong>自動連結網址</strong>」，妳可以如<a href="#img_29">圖二十九</a>核選這個核選框，然後再按下最底下的「儲存」按鈕，就可以讓讀者們在發表迴響時所輸入的鏈結網址自動生效了。<div class="img"><a id="img_29"></a><img src="mtcomment_convert_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_convert_04.png" alt="核選「自動連結網址」再按下「儲存」按鈕"><br />圖二十九：核選「自動連結網址」的核選框，再按下「儲存」按鈕，以啟用自動轉換鏈結的功能。</div></li>
+</ol></p>
+
+<h2><a id="edit"></a>編輯與刪除迴響</h2>
+
+<p>身為網誌的主人，妳當然也能夠編輯或刪除讀者們所發表的迴響 ─ 當妳做這件事的時候請務必小心！因為如果妳總是去修改別人所發表的迴響，恐怕過不了多久就沒有人會想要繼續發表了。這個功能通常是用來讓妳有機會修改迴響裡被錯誤使用的 HTML 語法，或者是讓妳有辦法處理一些被曝光的敏感資訊；當妳開啟迴響功能之前就應該要先考慮到這些可能發生的後果，這個功能應該祇是備而不用而已。</p>
+
+<p>如果妳真的需要這麼做的話，請參考以下的步驟：</p>
+
+<p><ol>
+  <li><a id="edit_01"></a>在<code>編輯選單</code>畫面裡，除了會列出我們在<a href="mtbook_entry.html#modify_search_recent5" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_entry.html#modify_search_recent5">第三章</a>提過的<code>最新五篇文章</code>之外，也會列出<code>最新五則迴響</code>，如<a href="#img_30">圖三十</a>所示，就在<code>最新五篇文章</code>底下。另外，在每一篇文章的<code>文章編輯畫面</code>裡，妳也會看到如<a href="#img_31">圖三十一</a>那樣，在<code>進階選項</code>區段的第一欄列出屬於該篇文章的迴響。上述兩個清單都會列出<code>迴響作者</code>以及<code>迴響日期</code>這兩個資訊，祇要妳點擊迴響作者的鏈結，就能夠加以編輯該則迴響。<div class="img"><a id="img_30"></a><img src="mtcomment_edit_recent5_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_edit_recent5_01.png" alt="最新五則迴響"><br />圖三十：在編輯選單裡可以看到最新五則迴響，點擊迴響作者的鏈結即可編輯該則迴響。</div><div class="img"><a id="img_31"></a><img src="mtcomment_edit_entry_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_edit_entry_01.png" alt="特定文章的迴響清單"><br />圖三十一：在文章編輯畫面裡可以看到屬於該篇文章的迴響清單，點擊迴響作者的鏈結即可編輯該則迴響。</div></li>
+  <li><a id="edit_02"></a>如<a href="#img_32">圖三十二</a>，一旦妳點擊迴響作者的鏈結後，即可編輯該則迴響；妳能夠修改的欄位包括了<code>作者姓名</code>、<code>作者的電子郵件地址</code>、<code>作者的網址</code>以及<code>迴響的內容</code>。一旦妳修改完成後，請依<a href="#img_33">圖三十三</a>按下底下的「<strong>儲存</strong>」按鈕，就可以把這個修改儲存起來。接下來請跳至<a href="#edit_06">步驟六</a>的說明。<div class="img"><a id="img_32"></a><img src="mtcomment_edit_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_edit_01.png" alt="在編輯迴響畫面裡的作者、 Email 地址、網址、迴響內容等欄位"><br />圖三十二：在編輯迴響畫面裡，妳可以修改作者、 Email 地址、網址、迴響內容等欄位。</div><div class="img"><a id="img_33"></a><img src="mtcomment_edit_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_edit_02.png" alt="按下「儲存」按鈕"><br />圖三十三：當妳完成修改後，就按下「儲存」按鈕來把妳所做的變更給存起來。</div></li>
+  <li><a id="edit_03"></a>如果妳不想要修改迴響內容，而是打算將之刪除的話，也可以在這個<code>迴響編輯畫面</code>裡，如<a href="#img_34">圖三十四</a>按下「<strong>刪除</strong>」按鈕；或者妳也可以如<a href="#img_35">圖三十五</a>在<code>文章編輯</code>畫面裡，核選想要刪除的那幾篇迴響後面的核選框，再如<a href="#img_36">圖三十六</a>按下「<strong>刪除核選的項目</strong>」按鈕。<div class="img"><a id="img_34"></a><img src="mtcomment_delete_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_01.png" alt="按下「刪除」按鈕"><br />圖三十四：在迴響編輯畫面裡，按下「刪除」按鈕來刪除該則迴響。</div><div class="img"><a id="img_35"></a><img src="mtcomment_delete_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_02.png" alt="核選欲刪除迴響的核選框"><br />圖三十五：在文章編輯畫面裡，核選欲刪除的迴響後面的核選框。</div><div class="img"><a id="img_36"></a><img src="mtcomment_delete_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_03.png" alt="按下「刪除核選的項目」按鈕"><br />圖三十六：按下「刪除核選的項目」按鈕，來把被核選的迴響一併刪除。</div></li>
+  <li><a id="edit_04"></a>無論妳是刪除特定的迴響或者是一次刪除多篇迴響，都會看到如<a href="#img_37">圖三十七</a>的視窗彈出來，要求妳確認。此時請按下「<strong>刪除</strong>」按鈕，即可真的把這些迴響給刪除。<div class="img"><a id="img_37"></a><img src="mtcomment_delete_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_04.png" alt="按下「刪除」按鈕"><br />圖三十七：按下「刪除」按鈕，確認把這些迴響給刪除掉。</div></li>
+  <li><a id="edit_05"></a>接著會出現如<a href="#img_38">圖三十八</a>的畫面，提示妳迴響已被刪除，並把妳帶回到迴響所屬的文章編輯畫面。<div class="img"><a id="img_38"></a><img src="mtcomment_delete_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_05.png" alt="迴響已被刪除"><br />圖三十八：迴響已被刪除。</div></li>
+  <li><a id="edit_06"></a>然而此時祇有資料庫裡的東西被變更了，妳的靜態頁面上仍然有原來的迴響內容；妳得<strong>重建</strong>相關的頁面纔能夠一併更新這些靜態頁面。最簡單的方法就是在這個<code>文章編輯畫面</code>裡，如<a href="#img_39">圖三十九</a>按下「<strong>儲存</strong>」按鈕，那麼跟這一篇文章有關的頁面就都會被一起重建了。<div class="img"><a id="img_39"></a><img src="mtcomment_delete_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_06.png" alt="按下「儲存」按鈕"><br />圖三十九：按下「儲存」按鈕，重建與此篇文章有關的頁面。</div></li>
+  <li><a id="edit_07"></a>現在妳的靜態頁面應該也照妳所做的修改更新過了。<div class="img"><a id="img_40"></a><img src="mtcomment_delete_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_delete_07.png" alt="靜態頁面也被更新了"><br />圖四十：靜態頁面也被更新了；在這個範例中我們可以看到迴響數量又回復成 0 則。</div></li>
+</ol></p>
+
+<h2><a id="ban"></a>禁用 IP</h2>
+
+<p>要說有甚麼跟迴響有關的功能，是比<code>編輯迴響</code>還要更少用到的話，恐怕就是<code>禁用 IP <code>的功能了。然而這並不代表這個功能就不重要，相反地，有時候這個功能確實能夠挽救妳寶貴的時間與生命。</p>
+
+<p>妳也許不知道，寬廣無垠的網際網路裡，充斥著各式各樣的廣告機器人 ─ 她們會逛遍整個網路王國的疆域，並且四處留下惱人的廣告，而妳所提供的迴響也是她們的目標之一；再者，偶而也會出現幾個祇會吵鬧滋事的網民，她們可能總是在妳的網誌上發表充滿挑釁味道卻毫無實質內容的迴響。單單為了這類的事情，就把迴響功能關閉的話，實在是過於可惜。</p>
+
+<p>在這種情況下，<code>禁用 IP </code>功能也許就能助妳一臂之力了。這個功能能夠幫妳抵擋來自特定位置的使用者（或機器人），讓她們無法在妳的地盤留下任何惱人的話語 ─ 而其他人卻絲毫不受影響！</p>
+
+<p>像這樣的功能當然也會涉及整份網誌，任何來自被禁用的 IP 地址的讀者，將無法在任何一篇文章發表迴響。請見下列的步驟：</p>
+
+<p><ol>
+  <li><a id="ban_01"></a>請如<a href="#img_41">圖四十一</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_42">圖四十二</a>點擊網誌組態畫面上方的「<strong>禁用 IP </strong>」鏈結。<div class="img"><a id="img_41"></a><img src="mtcomment_ban_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_01.png" alt="按下「網誌組態」按鈕"><br />圖四十一：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_42"></a><img src="mtcomment_ban_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_02.png" alt="點擊「禁用 IP 」鏈結"><br />圖四十二：點擊「禁用 IP 」鏈結。</div></li>
+  <li><a id="ban_02"></a>把妳打算要禁用的 IP 地址如<a href="#img_43">圖四十三</a>填入 IP 地址的欄位，然後再如<a href="#img_44">圖四十四</a>按下「<strong>加入</strong>」按鈕。<div class="img"><a id="img_43"></a><img src="mtcomment_ban_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_03.png" alt="填入要禁用的 IP 地址"><br />圖四十三：填入要禁用的 IP 地址，在這個範例裡我們填的是「 192.168.1.99 」。</div><div class="img"><a id="img_44"></a><img src="mtcomment_ban_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_04.png" alt="按下「加入」按鈕"><br />圖四十四：按下「加入」按鈕，把我們所填寫的 IP 地址加進<code> IP 禁用清單</code>裡。</div></li>
+  <li><a id="ban_03"></a>妳會看到如<a href="#img_45">圖四十五</a>的畫面，在<code> IP 禁用清單</code>裡會列出已被禁用的 IP 地址。<div class="img"><a id="img_45"></a><img src="mtcomment_ban_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_05.png" alt="IP 禁用清單"><br />圖四十五： IP 禁用清單裡會列出已被禁用的 IP 地址，在這個範例裡的是「 192.168.1.99 」。</div></li>
+  <li><a id="ban_04"></a>如果妳打算取消對某幾個 IP 地址的禁用令的話，請如<a href="#img_46">圖四十六</a>核選這些 IP 地址後面的核選框，再如<a href="#img_47">圖四十七</a>按下「<strong>刪除</strong>」按鈕。<div class="img"><a id="img_46"></a><img src="mtcomment_ban_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_06.png" alt="核選欲取消禁用的 IP 地址"><br />圖四十六：核選欲取消禁用的 IP 地址，在這個範例裡我們核選了「 192.168.1.99 」後的核選框。</div><div class="img"><a id="img_47"></a><img src="mtcomment_ban_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_07.png" alt="按下「刪除」按鈕"><br />圖四十七：按下「刪除」按鈕，來把被核選的 IP 地址移出 IP 禁用清單。</div></li>
+  <li><a id="ban_05"></a>接著會彈出如<a href="#img_48">圖四十八</a>的視窗，請按「<strong>刪除</strong>」按鈕，來確定刪除這些 IP 地址的禁用令。<div class="img"><a id="img_48"></a><img src="mtcomment_ban_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_08.png" alt="按下「刪除」按鈕"><br />圖四十八：按下「刪除」按鈕。</div></li>
+  <li><a id="ban_06"></a>如<a href="#img_49">圖四十九</a>，這樣子來自這些 IP 的讀者就又能夠在妳的網誌上發表迴響了。<div class="img"><a id="img_49"></a><img src="mtcomment_ban_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcomment_ban_09.png" alt="指定的 IP 地址被取消禁用了"><br />圖四十九：指定的 IP 地址被取消禁用了。</div></li>
+</ol></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

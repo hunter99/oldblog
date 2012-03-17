@@ -1,0 +1,215 @@
+<html>
+
+<head>
+  <title>第八章 ─ 彙整</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第八章 ─ 彙整</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#archive">第八章 ─ 彙整</a></li> 
+  <ul>
+    <li><a href="#intro">甚麼是彙整</a></li>
+    <li><a href="#type">彙整的種類</a></li>
+    <ul>
+      <li><a href="#type_individual">單篇彙整</a></li>
+      <li><a href="#type_timebased">按時彙整</a></li>
+      <li><a href="#type_category">分類彙整</a></li>
+    </ul>
+    <li><a href="#enable">選擇要使用的彙整方式</a></li>
+    <li><a href="#pref">指定偏好的彙整方式</a></li>
+    <li><a href="#filename">彙整檔案的檔名</a></li>
+    <li><a href="#multi">多重彙整</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="archive"></a>第八章 ─ 彙整</h1>
+
+<p>本章要介紹的是 Movable Type 裡的彙整功能，本章將說明何謂彙整並介紹其種類，接著會介紹使用各種彙整的方法，還有相關的事項。雖然我們在這一章仍舊不會涉及較深入的模版寫作實務，但是當我們提到彙整檔名的時候，卻會用到 Movable Type 的模版標籤；如果各位實在無法消化那一小節的內容，也不需要強迫自己閱讀，可以先擱著稍後再回來翻閱參照。</p>
+
+<p>從這一章起我們也將進入文字較多而圖片較少的世界，有些讀者也許一開始不大能夠接受，但是這些概念上的東西其實都不難，相信各位還是能夠很快上手的。</p>
+
+<h2><a id="intro"></a>甚麼是彙整</h2>
+
+<p>我們在一開始的<a href="mtbook_intro.html#history" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_intro.html#history">網誌發跡史</a>曾經提過網誌的四個要素：<code>彙整</code>、<code>靜態鏈結</code>、<code>時間戳印</code>和<code>日期標頭</code>。其中第一項「<strong>彙整</strong>」正是寫網誌 (blogging) 最重要的精神，也是本章的重點。</p>
+
+<p>如果我們把「寫網誌 (blogging) 」定義成「<strong>作者按照自己的信念整理資訊的方法與過程</strong>」的話，那麼這些被整理過後的資訊產物，就是所謂的<code>彙整</code>了。實際上 archive （彙整）這個字就跟 blog （網誌、寫網誌）這個字一樣，可以單純的當作名詞來表示某一種東西，更可以當作動詞來表示一種動作或過程。作為名詞的時候，彙整就是<strong>彙集或整理著特定資訊的一份檔案</strong>；當作動詞的時候則是<strong>彙集或整理資訊的過程</strong>。</p>
+
+<p>讓我們回到稍早的定義，因此<strong>網誌就是一些特定的彙整檔案</strong>，同時<strong>寫網誌就是一種彙整的行為</strong>。由此可見彙整在網誌裡有多重要了。</p>
+
+<p>實際上彙整是一種很自由的舉動，雖然我們把這兩個字解釋得如此文謅謅的，但是就算妳隨意地、胡亂地把一堆文章片段放在一起，祇要妳自己明白它們被放在一起的原因，那麼妳就可以稱這樣的一個檔案是一份彙整，沒有人能夠反駁妳；甚至同一篇文章（或圖片、聲音、任何媒體檔案）也都可以同時出現在多個彙整檔案裡，沒有人規定彙整裡的資訊都得要獨一無二不可。</p>
+
+<h2><a id="type"></a>彙整的種類</h2>
+
+<p>在 Movable Type 裡面預先定義了幾種不同的彙整方式，能夠自動地幫妳維護這些彙整檔案；這些彙整的方式也許並不獨特，但卻相當合理，而且對於多數的情況來說也已經足夠了。它們包括了：</p>
+
+<p><ul>
+  <li><a href="#type_individual">單篇彙整</a></li>
+  <li><a href="#type_timebased">按時彙整</a></li>
+  <li><a href="#type_category">分類彙整</a></li>
+</ul></p>
+
+<p>以下就讓我們逐一加以說明：</p>
+
+<h3><a id="type_individual"></a>單篇彙整</h3>
+
+<p>單篇彙整可以說是最簡單而直覺的彙整方式了：每一份彙整檔案裡不多不少剛好就祇有那麼一篇文章。單篇彙整是 Movable Type 預設就會使用的彙整方式之一，這種彙整方式有著不少好處，妳可以把所有祇跟那篇文章有關的資訊都顯示出來，跟這一篇文章無關的資訊則一概不予顯示。</p>
+
+<p>這種把每一篇文章單獨整理起來，呈為一個靜態頁面的彙整方式，可以讓讀者把心思集中在當前這一篇文章上；妳可以在此呈現文章的內容本體、延伸內容、迴響、引用記錄等資訊，而絲毫不用擔心造成讀者資訊負荷過重 ─ 因為在這裡一次就祇會顯示出一篇文章的內容罷了。</p>
+
+<h3><a id="type_timebased"></a>按時彙整</h3>
+
+<p>既然網誌裡的文章必定帶著<code>時間戳印</code>，於是就有了<code>按時彙整</code>這樣的彙整方式。這種彙整方式乃是把固定時間週期內的文章通通蒐集起來，整理呈一個靜態頁面；根據選用週期的不同，又可以分成<code>逐月彙整</code>、<code>逐週彙整</code>以及<code>逐日彙整</code>。</p>
+
+<p>顧名思義，逐月彙整就是以月份為單位，把時間戳印在同一個月份裡的文章都集結起來；逐週彙整就是以星期為單位，把時間戳印在同一週裡的文章都集結起來；逐日彙整就是以日期為單位，把時間戳印在同一天裡的文章都集結起來。這麼做的好處是，當任何人日後要回過頭來找舊文章的時候，就祇需要大略記得是哪一段時間內的東西就好，然後再翻出相對應的那一份彙整。</p>
+
+<p>妳可以發現妳選用的彙整週期越大，所囊括的文章也就越多；這麼一來一方面妳找舊文章時的記憶就算更模糊也無所謂，但另一方面每一個彙整檔案可能都會有更多內容 ─ 妳很快就能確定妳要找的東西在哪一個檔案裡，問題變成妳不曉得它會在檔案的哪一個角落出現。</p>
+
+<p>相反地，如果妳選用的彙整週期較小，那麼妳就得比較精確地記得文章被發表的時間；但是一旦妳找到正確的彙整檔案後，很快就能夠在那個彙整檔案裡找回妳要的東西了。</p>
+
+<p>當然妳可以同時選用各種不同的彙整週期；但是別忘了，雖然資料庫裡的東西一樣多，但是妳每多選用了一種彙整週期，妳所製作出來的靜態彙整檔案就又會多佔去足足一倍的伺服器空間！選擇合宜的彙整週期是一項學問，妳應當自己斟酌文章發表的頻率以及文章的性質，挑出合適的彙整週期。</p>
+
+<p>Movable Type 預設啟用的彙整方式中，就包含了<strong>逐月彙整</strong>；對於剛開始寫作的朋友來說，一個月的彙整週期其實是挺合適的。等到妳寫作的頻率逐漸增加後，再考慮縮短彙整週期就可以了。</p>
+
+<h3><a id="type_category"></a>分類彙整</h3>
+
+<p>如果妳已經按照我們在<a href="mtbook_category.html#category" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_category.html#category">第五章</a>討論過的步驟，開始把文章指派給不同的類別的話，那麼利用這些類別來整理檔案似乎也是很棒的選擇。</p>
+
+<p>這種把歸在同一個類別的文章通通彙集起來的彙整方式，就是<code>分類彙整</code>。這種彙整方式可以提供各個類別的脈絡情境，當讀者閱讀某一個分類彙整檔案裡的文章時，將可以擺脫時間的不連續性，而將先後發生的事件串聯在一起。當妳開始發展出特定的書寫方向的時候，也會是開始啟用分類彙整的好時機。</p>
+
+<p>因為當妳剛開始寫作的時候，連系統都不甚熟悉，更遑論發展出特定寫作方向了；此外 Movable Type 一開始也不會提供任何預設的類別，所以分類彙整一開始是不會啟用的，妳得自己把它打開。</p>
+
+<h2><a id="enable"></a>選擇要使用的彙整方式</h2>
+
+<p>妳可以在任何時候改變彙整方式、啟用某幾種彙整方式或不再使用某幾種彙整方式。已經被建立出來的靜態檔案仍舊會存在，但是不再被繼續使用的彙整方式就不會用來更新這些檔案了。請參考下列的步驟：</p>
+
+<p><ol>
+  <li><a id="enable_01"></a>如<a href="#img_01">圖一</a>按下左方工具列上的「<strong>網誌組透</strong>」按鈕，再如<a href="#img_02">圖二</a>點擊「<strong>彙整</strong>」鏈結。<div class="img"><a id="img_01"></a><img src="mtarchive_enable_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_enable_01.png" alt="按下「網誌組態」按鈕"><br />圖一：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_02"></a><img src="mtarchive_enable_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_enable_02.png" alt="點擊「彙整」鏈結"><br />圖二：點擊網誌組態畫面上方的「彙整」鏈結。</div></li>
+  <li><a id="enable_02"></a>在網誌組態的彙整畫面中，如<a href="#img_03">圖三</a>核選欲啟用的彙整方式，並且把不打算繼續使用的彙整方式取消核選，再按下「<strong>儲存</strong>」按鈕，這樣就可以了。<div class="img"><a id="img_03"></a><img src="mtarchive_enable_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_enable_03.png" alt="核選「類別」"><br />圖三：核選欲啟用的彙整方式，在這個範例中我們核選了「類別」，表示我們打算開始進行分類彙整。</div></li>
+</ol></p>
+
+<h2><a id="pref"></a>指定偏好的彙整方式</h2>
+
+<p>除了決定要使用哪些彙整方式外，妳還可以決定<strong>偏好彙整類別</strong>是甚麼；這個決定會影響到文章靜態鏈結的表現方式。</p>
+
+<p>如果妳偏好的彙整方式是<code>單篇彙整</code>，那麼文章的靜態鏈結就會指到僅含有該篇文章的單篇彙整去；如果偏好的彙整方式是<code>逐日彙整</code>的話，文章的靜態鏈結就會指到該篇文章所在的逐日彙整檔案，並加上該篇文章的定位錨；如果偏好的彙整方式是<code>逐週彙整</code>的話，文章的靜態鏈結就會指到該篇文章所在的逐週彙整檔案，並加上該篇文章的定位錨；如果偏好的彙整方式是<code>逐月彙整</code>的話，文章的靜態鏈結就會指到該篇文章所在的逐月彙整檔案，並加上該篇文章的定位錨；如果偏好的彙整方式是<code>分類彙整</code>的話，文章的靜態鏈結就會指到該篇文章所在的分類彙整檔案，並加上該篇文章的定位錨。</p>
+
+<p>在正常的情況下，我會建議妳選擇<code>單篇彙整</code>作為偏好的彙整方式，因為這樣的彙整方式恰好適合用來呈現所有跟單篇文章有關的資訊，拿來當作文章靜態鏈結的目的地再好不過了。不過也許妳會有不同的規劃及想法，這時候妳可以用下列的步驟來修改這項設定：</p>
+
+<p><ol>
+  <li><a id="pref_01"></a>如<a href="#img_04">圖四</a>按下左方工具列上的「<strong>網誌組態</strong>」按鈕，再如<a href="#img_05">圖五</a>點擊「<strong>偏好</strong>」鏈結；在接下來的網誌組態畫面中，再如<a href="#img_06">圖六</a>點擊「<strong>彙整</strong>」鏈結。<div class="img"><a id="img_04"></a><img src="mtarchive_pref_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_pref_01.png" alt="按下「網誌組態」按鈕"><br />圖四：按下左方工具列的「網誌組態」按鈕。</div><div class="img"><a id="img_05"></a><img src="mtarchive_pref_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_pref_02.png" alt="點擊「偏好」鏈結"><br />圖五：點擊網誌組態畫面上方的「偏好」鏈結。</div><div class="img"><a id="img_06"></a><img src="mtarchive_pref_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_pref_03.png" alt="點擊「彙整」鏈結"><br />圖六：點擊偏好頁面上的「彙整」鏈結。</div></li>
+  <li><a id="pref_02"></a>妳可以看到在如<a href="#img_07">圖七</a>的畫面中，彙整區段的第一項設定值就是偏好彙整類別。這個設定項目是一個下拉式選單，祇有妳照著<a href="#enable">前一小節</a>的方法啟用的彙整方式，纔會在這個下拉式選單裡出現；如果妳打算設為偏好彙整方式的選項沒有出現，就表示妳根本還沒有啟用那個彙整方式，請先啟用後再回來設定。用這個下拉式選單設定好預設彙整方式後，別忘了還要如<a href="#img_08">圖八</a>按下「儲存」按鈕就可以了。<div class="img"><a id="img_07"></a><img src="mtarchive_pref_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_pref_04.png" alt="從下拉式選單裡選擇「單篇彙整」"><br />圖七：從下拉式選單裡選擇偏好彙整方式，在這個範例種選用的是「單篇彙整」。</div><div class="img"><a id="img_08"></a><img src="mtarchive_pref_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_pref_05.png" alt="按下「儲存」按鈕"><br />圖八：設定完成後別忘了按下「儲存」按鈕。</div></li>
+</ol></p>
+
+<h2><a id="filename"></a>彙整檔案的檔名</h2>
+
+<p>當妳開始彙整文章之後，下一個會問的問題大概就是「檔案在哪裡？」了。</p>
+
+<p>所有的彙整檔案都會被放到<code>本機彙整路徑</code>裡，任何讀者都可以利用<code>彙整網址</code>來讀取這些檔案。這兩項設定我們在<a href="mtbook_config.html#blog_config_core" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_core">第二章的核心設定小節</a>提過了，如果妳已經忘記當初設定了甚麼的話，也可以循相同的方式去看一下妳自己的設定值。</p>
+
+<p>而不同的彙整方式所產生的彙整檔案，檔名看起來也會有所不同。以下先讓我們看一下各種彙整方式所產生的彙整檔案檔名格式：</p>
+
+<ul>
+  <li>單篇彙整檔案的預設檔名是<strong>六位數字的文章ID.html </strong>，不滿六位的話會自動補上 0 。相當於在彙整檔案模版裡填上：<pre>&lt;$MTEntryID pad=&quot;1&quot;$&gt;.html</pre></li>
+  <li>逐月彙整檔案的預設檔名是<strong>該月的四位數字年份_該月的兩位數字月份.html </strong>，位數不滿的部分一樣會補上 0 。相當於在彙整檔案模版裡填上：<pre>&lt;$MTArchiveDate format=&quot;%Y_%m&quot;$&gt;.html</pre></li>
+  <li>逐週彙整檔案的預設檔名是<strong> week_該週開始日的四位數字年份_該週開始日的兩位數字月份_該週開始日的兩位數日期.html </strong>，位數不滿的部分一樣會補上 0 。相當於在彙整檔案模版裡填上：<pre>week_&lt;$MTArchiveDate format=&quot;%Y_%m_%d&quot;$&gt;.html</pre></li>
+  <li>逐日彙整檔案的預設檔名是<strong>該日的四位數字年份_該日的兩位數字月份_該日的兩位數字日期.html </strong>，位數不滿的部分一樣會補上 0 。相當於在彙整檔案模版裡填上：<pre>&lt;$MTArchiveDate format=&quot;%Y_%m_%d&quot;$&gt;.html</pre></li>
+  <li>分類彙整檔案的預設檔名是<strong> cat_分類名稱.html </strong>，相當於在彙整檔案模版裡填上：<pre>cat_&lt;$MTCategoryLabel$&gt;.html</pre></li>
+</ul>
+
+<p>在上述的這份清單裡，出現了一些<strong>模版標籤</strong>；這可能是妳第一次看到它們，不過別驚慌，它們沒有妳想像得那麼複雜。可以用於彙整檔名的模版標籤包含了：</p>
+
+<p><ul>
+  <li><code>&lt;$MTArchiveDate$&gt;</code><br />這個標籤祇能夠用於<code>按時彙整</code>，代表的是<code>彙整開始的日期</code>。</li>
+  <li><code>&lt;$MTArchiveDateEnd$&gt;</code><br />這個標籤祇能夠用於<code>按時彙整</code>，代表的是<code>彙整結束的日期</code>。</li>
+  <li><code>&lt;$MTArchiveCategory$&gt;</code><br />這個標籤祇能夠用於<code>分類彙整</code>，代表的是這份彙整清單所屬的<code>類別名稱</code>。</li>
+  <li><code>&lt;$MTEntryTitle$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>標題</code>。</li>
+  <li><code>&lt;$MTEntryStatus$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>出版狀態</code>。</li>
+  <li><code>&lt;$MTEntryExcerpt$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>文摘</code>。</li>
+  <li><code>&lt;$MTEntryBody$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>主要文章本體</code>。</li>
+  <li><code>&lt;$MTEntryMore$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>額外文章內容</code>。</li>
+  <li><code>&lt;$MTEntryKeywords$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>關鍵字</code>。</li>
+  <li><code>&lt;$MTEntryAuthor$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>作者名字</code>。</li>
+  <li><code>&lt;$MTEntryAuthorNickname$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>作者暱稱</code>。</li>
+  <li><code>&lt;$MTEntryDate$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>日期</code>。</li>
+  <li><code>&lt;$MTEntryCommentCount$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>迴響數量</code>。</li>
+  <li><code>&lt;$MTEntryTrackbackCount$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>引用通告數量</code>。</li>
+  <li><code>&lt;$MTEntryTrackbackID$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>引用物件 ID </code>。</li>
+  <li><code>&lt;$MTEntryID$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code> ID </code>。如果妳打算把這個數字湊滿六位，不足補 0 的話，就可以加上 <code>pad=&quot;1&quot;</code> 屬性，像這樣：<pre>&lt;$MTEntryID pad=&quot;1&quot;$&gt;</pre></li>
+  <li><code>&lt;$MTEntryCategory$&gt;</code><br />這個標籤祇能夠用於<code>單篇彙整</code>，代表的是這篇文章的<code>主要類別名稱</code>。</li>
+</ul></p>
+
+<p>對於 <code>&lt;$MTArchiveDate$&gt;</code> 、 <code>&lt;$MTArchiveDateEnd$&gt;</code> 和 <code>&lt;$MTEntryDate$&gt;</code> 這三個標籤來說，妳也可以用 <code>format</code> 屬性來自訂日期顯示格式。在這個屬性裡妳可以用下列的字串來任意排列組合：</p>
+
+<p><ul>
+  <li><code>%a</code><br />一週裡的哪一天，以縮寫表示。例如： <code>Thu</code> 。</li>
+  <li><code>%A</code><br />一週裡的哪一天，以全稱表示。例如： <code>Thursday</code> 。</li>
+  <li><code>%b</code><br />月份名稱的縮寫。例如： <code>Sep</code> 。</li>
+  <li><code>%B</code><br />完整的月份名稱。例如： <code>September</code> 。</li>
+  <li><code>%d</code><br />該月的第幾天，以兩位數字表示；必要的時候在前面補 <code>0</code> 。例如： <code>09</code> 。</li>
+  <li><code>%e</code><br />該月的第幾天，必要的時候在前面補上空白。例如： <code> 9</code> 。</li>
+  <li><code>%H</code><br />時，以 24 時制（軍隊時制）表示成兩位數字，必要的時候在前面補 <code>0</code> 。例如： <code>16</code> 。</li>
+  <li><code>%I</code><br />時，以 12 時制表示成兩位數字，必要的時候在前面補 <code>0</code> 。例如： <code>04</code> 。</li>
+  <li><code>%j</code><br />該年的第幾天，以三位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>056</code> 。</li>
+  <li><code>%k</code><br />時，以 24 時制（軍隊時制）表示成兩位數字，必要的時候在前面補上空白。例如： <code> 9</code> 。</li>
+  <li><code>%l</code><br />時，以 12 時制表示成兩位數字，必要的時候在前面補上空白。例如： <code> 4</code> 。</li>
+  <li><code>%m</code><br />月份，以兩位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>09</code> 。</li>
+  <li><code>%M</code><br />分，以兩位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>02</code> 。</li>
+  <li><code>%p</code><br /><code>AM</code> 或 <code>PM</code> 。</li>
+  <li><code>%S</code><br />秒，以兩位數字表示，必要的時候在前面補 <code>0</code> ，例如： <code>04</code> 。</li>
+  <li><code>%x</code><br />按照語言決定的日期格式。對於多數的語言來說，就是 <i>%B %e, %Y</i> 。例如： <code>September 6, 2002</code> 。</li>
+  <li><code>%X</code><br />按照語言決定的時間格式。對於多數的語言來說，就是 <i>%I:%M %p</i> 。例如： <code>4:31 PM</code> 。</li>
+  <li><code>%y</code><br />年份，以兩位數字表示，必要的時候在前面補 <code>0</code> ，例如： <code>01</code> 。</li>
+  <li><code>%Y</code><br />年份，以四位數字表示。例如： <code>2001</code> 。</li>
+</ul></p>
+
+<p>除了上述的屬性之外，所有的標籤也都可以（也應該）套用下列的屬性：</p>
+
+<p><ul>
+  <li><code>dirify=&quot;1&quot;</code><br />這個屬性可以把標籤代表的值，修裁成適合拿來當作目錄或檔案名稱的樣子。它實際上會把所有的字母轉成小寫，然後刪除所有的 HTML 標籤及項目或奇怪的字符，最後再把所有的空白轉換成底線（ <code>_</code> ）。</li>
+  <li><code>remove_html=&quot;1&quot;</code><br />這個屬性會把標籤所代表的值裡面，所有的 HTML 標籤都給清除。
+  <li><code>upper_case=&quot;1&quot;</code><br />這個屬性會把標籤的值全部轉為大寫。</li>
+  <li><code>lower_case=&quot;1&quot;</code><br />這個屬性會把標籤的值全部轉為小寫。</li>
+  <li><code>trim_to=&quot;N&quot;</code><br />這個屬性會把標籤的值裁減成祇剩下前 N 個字符。妳得在此指定 N 的數值纔可以，像這樣：<pre>&lt;$MTEntryBody trim_to=&quot;15&quot;&gt;</li>
+  <li><code>zero_pad=&quot;N&quot;</code><br />這個屬性會在標籤所代表的數值前面插入 <code>0</code> ，使其總長度成為 N 個字符長。妳得在此指定 N 的數值纔可以，像這樣：<pre>&lt;$MTEntryID zero_pad=&quot;10&quot;&gt;</pre></li>
+</ul></p>
+
+<p>如果妳打算自訂彙整檔案格式的話，可以如<a href="#img_09">圖九</a>在<code>網誌組態</code>的<code>彙整</code>頁面，自行填寫彙整檔名格式（留空表示採用預設值）。</p>
+
+<p><strong>注意：</strong>當妳自訂彙整檔案格式的時候，切記一定要把副檔名（包含點號）加上去； Movable Type 並不為自動幫妳加上副檔名的！</p>
+
+<div class="img"><a id="img_09"></a><img src="mtarchive_filename_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_filename_01.png" alt="彙整檔案模版欄位"><br />圖九：妳可以在彙整檔案模版自訂彙整檔案的檔名格式。</div>
+
+<h2><a id="multi"></a>多重彙整</h2>
+
+<p>最後要介紹的是另一個更為罕用的功能：多重彙整。這裡所謂的多重彙整，指的是針對同一種彙整方式做出多份彙整檔案。透過這樣的功能，妳就能為相同方式的彙整製作出不同架構的檔案；舉例來說，妳就可以為分類彙整製作兩個檔案，其中一個僅調列出該類別內各篇文章的標題、日期等資訊，而另一個檔案裡則把各篇文章的主要文章本體也都加進去。</p>
+
+<p><strong>注意：</strong>在接下來的步驟之前，妳得先做好另一份不同的<code>彙整模版</code>。關於這部分的細節，請參考<a href="mtbook_template.html#template" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_template.html#template">第九章</a>的介紹。</p>
+
+<p>請參考下列的步驟，來設定多重模版：</p>
+
+<p><ol>
+  <li><a id="multi_01"></a>如<a href="#img_10">圖十</a>按下左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_11">圖十一</a>點擊網誌組態畫面上方的「<strong>彙整</strong>」鏈結。<div class="img"><a id="img_10"></a><img src="mtarchive_multi_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_01.png" alt="按下「網誌組態」按鈕"><br />圖十：按下左方工具列的「網誌組態」按鈕。</div><div class="img"><a id="img_11"></a><img src="mtarchive_multi_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_02.png" alt="點擊「彙整」鏈結"><br />圖十一：點擊網誌組態畫面上方的「彙整」鏈結。</div></li>
+  <li><a id="multi_02"></a>在網誌組態的彙整畫面裡，請如<a href="#img_12">圖十二</a>按下「<strong>新增...</strong>」按鈕。<div class="img"><a id="img_12"></a><img src="mtarchive_multi_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_03.png" alt="按下「新增...」按鈕"><br />圖十二：按下畫面下方的「新增...」按鈕。</div></li>
+  <li><a id="multi_03"></a>此時會彈出一個如<a href="#img_13">圖十三</a>的視窗，讓妳能夠增設新的「彙整方式─模版」關聯性。請如<a href="#img_14">圖十四</a>及<a href="#img_15">圖十五</a>選擇彙整方式及模版，再如<a href="#img_16">圖十六</a>按下「<strong>加入</strong>」即可。這裡可以選用的彙整方式，並不限於一定要被妳啟用過的纔能選擇；但是模版則一定要事先就建立起來，纔會出現在下拉式選單裡。<div class="img"><a id="img_13"></a><img src="mtarchive_multi_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_04.png" alt="彈出式視窗"><br />圖十三：用來建立「彙整方式─模版」關聯性的彈出式視窗。</div><div class="img"><a id="img_14"></a><img src="mtarchive_multi_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_05.png" alt="選擇「類別」彙整類別"><br />圖十四：從下拉式選單選擇彙整方式，在這個例子裡我們選了「分類彙整」。</div><div class="img"><a id="img_15"></a><img src="mtarchive_multi_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_06.png" alt="選擇「分類精簡彙整模版」這個彙整模版"><br />圖十五：從下拉式選單選擇相對應的模版，在這個例子裡我們選的是「分類精簡彙整模版」。</div><div class="img"><a id="img_16"></a><img src="mtarchive_multi_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_07.png" alt="按下「加入」按鈕"><br />圖十六：按下「加入」按鈕。</div></li>
+  <li><a id="multi_04"></a>一旦加入了新的「彙整方式─模版」關聯性後，妳馬上就可以如<a href="#img_17">圖十七</a>在畫面中看到；妳也可以趁這個機會再指定偏好的「彙整方式─模版」關聯，祇需要在「模版」欄位裡，選擇該彙整方式的偏好模版即可。<div class="img"><a id="img_17"></a><img src="mtarchive_multi_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_08.png" alt="指定「分類精簡彙整模版」"><br />圖十七：指定「分類精簡彙整模版」作為「分類彙整」的偏好彙整模版。</div></li>
+  <li><a id="multi_05"></a>如果某一種彙整方式啟用了這種「多重彙整」的功能（也就是分配了超過一個模版），就應該在「<strong>彙整檔案模版</strong>」的欄位裡指定不同的<code>彙整檔案名稱</code>，否則會導致各組彙整檔案重複覆寫的情況。這個步驟請參考<a href="#filename">前一小節</a>的內容。<div class="img"><a id="img_18"></a><img src="mtarchive_multi_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_09.png" alt="指定另一個彙整模版所要使用的彙整檔案名稱"><br />圖十八：指定彙整檔案名稱，在這個例子裡我們輸入的是「 &lt;$MTCategoryLabel dirify=&quot;1&quot;$&gt;/index.html 」，也就是以類別名稱分別建立子目錄來存放檔案。</div></li>
+  <li><a id="multi_06"></a>最後別忘了要按下「儲存」按鈕，纔能把這些變更都儲存起來。<div class="img"><a id="img_19"></a><img src="mtarchive_multi_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtarchive_multi_10.png" alt="按下「儲存」按鈕"><br />圖十九：按下「儲存」按鈕。</div></li>
+</ol></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

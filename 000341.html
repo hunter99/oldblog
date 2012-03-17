@@ -1,0 +1,417 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Jmagick学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000340.html" tppabs="http://hedong.3322.org/archives/000340.html" title="ImageMagick的FAQ摘录" />
+
+<link rel="next" href="000342.html" tppabs="http://hedong.3322.org/archives/000342.html" title="Apache的Mod_rewrite学习（一）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000341.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/237"
+    dc:title="Jmagick学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000341.html"
+    dc:subject="ItTech"
+    dc:description="　　JMagick是一个开源API，利用JNI(Java Native Interface)技术实现了对ImageMagickAPI的Java访问接口,因此也将比纯Java实现的图片操作函数在速度上要快。JMagick只实现了ImageMagicAPI的一部分功能，它的发行遵循LGPL协议。 　　ImageMagick请参考其官方网站或ImageMagick学习。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-29T00:13:54+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000341.html">
+<dc:title>Jmagick学习笔记</dc:title>
+<dc:description>　　JMagick是一个开源API，利用JNI(Java Native Interface)技术实现了对ImageMagickAPI的Java访问接口,因此也将比纯Java实现的图片操作函数在速度上要快。JMagick只实现了ImageMagicAPI的一部分功能，它的发行遵循LGPL协议。 　　ImageMagick请参考其官方网站或ImageMagick学习。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-29T00:13:54+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000340.html" tppabs="http://hedong.3322.org/archives/000340.html">&laquo; ImageMagick的FAQ摘录</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000342.html" tppabs="http://hedong.3322.org/archives/000342.html">Apache的Mod_rewrite学习（一） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 29, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Jmagick学习笔记</h3>
+
+<p><img alt="jmagicklogo.png" src="jmagicklogo.png" tppabs="http://hedong.3322.org/archives/pics/jmagicklogo.png" width="216" height="80" border="0" align="left"/>　　<a href="javascript:if(confirm('http://www.yeo.nu/jmagick/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.yeo.nu/jmagick/'" tppabs="http://www.yeo.nu/jmagick/">JMagick</a>是一个开源API，利用JNI(Java Native Interface)技术实现了对<a href="javascript:if(confirm('http://www.imagemagick.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.imagemagick.org/'" tppabs="http://www.imagemagick.org/">ImageMagick</a>API的Java访问接口,因此也将比纯Java实现的图片操作函数在速度上要快。JMagick只实现了ImageMagicAPI的一部分功能，它的发行遵循<a "http://www.fsf.org/licenses/licenses.html#TOCLGPL">LGPL协议</a>。<br />
+　　ImageMagick请参考其<a href="javascript:if(confirm('http://www.imagemagick.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.imagemagick.org/'" tppabs="http://www.imagemagick.org/">官方网站</a>或<a href="000339.html" tppabs="http://hedong.3322.org/archives/000339.html">ImageMagick学习</a>。<br />
+</p>
+
+<a name="more"></a>
+<p><h4>下载安装</h4>　　安装要求：<ol><li>如果通过CVS下载的源码，则需要GNU Autoconf</li><br />
+<li>GNU Make 3.77或更新版本(我用的是3.7.9). </li><br />
+<li>一个ANSI C 编译器，建议用 GNU 或 EGCS 的编译器</li><br />
+<li>ImageMagick 5.5.6或更新版本</li><br />
+<li>Java2 JDK( JMagick是在 Sun JDK 1.4.1上开发，但运行好象不用那么高，我用的是1.3.1)</li></ol><br />
+下载过程如下：<br />
+用CVS取源码：<div class="code">cvs -d :pserver:anonymous@jmagick.yeo.nu:/var/cvs/jmagick login<br />
+Password: jmagick<br />
+cvs -d :pserver:anonymous@jmagick.yeo.nu:/var/cvs/jmagick checkout Jmagick</div><br />
+也可以直接下载JMagick-5.5.6-X.tar.gz包。<br />
+根据INSTALL文档指示，编译如下：<div class="code">对下载包：<br />
+tar zxvf Jmagick-5.5.6-X.tar.gz<br />
+cd Jmagick-5.5.6-X<br />
+对CVS取回来的源码<br />
+cd JMagick<br />
+autoconf<br />
+以下为两种情况都相同的部分<br />
+./configure<br />
+make all<br />
+su<br />
+make install<br />
+make javadoc<br />
+make test  <ins>&lt;--如果x-win没有启动，大部分测试是成功的，但也会显示一些错误信息，因为没法显示图片。</ins></div><br />
+<h4>通过JMagick,实现JSP上传图片文件后生成缩略图的功能</h4><br />
+　　Jmagick自身带的Test.java程序，演示了如何使用JMagick来实现图片的复制、信息获取、斜角、特效、组合、改变大小、加边框、旋转、切片、改变格式、去色等等功能，编程的重要参考。<br />
+　　下面主要描述如何实现将用JSP上传的图片，进行压缩生成缩略图。用jsp上传文件的全部代码，参见<a href="000192.html" tppabs="http://hedong.3322.org/archives/000192.html">利用apache-commons-fileupload写jsp上传文件</a>,下面只描述图片压缩的实现。<br />
+<div class="code"><%@ page language="java" contentType="text/html;charset=gb2312"%><br />
+<%@ page import="java.util.*"%><br />
+<%@ page import="java.io.*"%><br />
+<%@ page import="com.hedong.JMagick.PicResize" %><br />
+<jsp:useBean id="PR" scope="application" class="com.hedong.JMagick.PicResize" /><br />
+<%<br />
+ String filename="123456789.jpg";<br />
+ String updir="/uploadpics/2003/";<br />
+ String filepath = getServletContext().getRealPath(updir);//<---好象在tomcat下getrealpath有点问题<br />
+ String picFrom=filepath+"/"+filename;//大图片的文件名<br />
+ String picTo=filepath+"/small-"+filename;//小图片的文件名.<br />
+ try {<br />
+     PR.resize(picFrom,picTo);//进行压缩，具体的实现在PicResize这个bean实现。<br />
+ } catch(Exception e){<br />
+        logger.error(e.toString());<br />
+ }%></div><br />
+$TOMCATHOME/webapps/yourproject/WEB-INF/classes/com/hedong/JMagick/PicResize.java<div class="code">package com.hedong.JMagick;<br />
+import org.apache.log4j.*;<br />
+import java.awt.Dimension;<br />
+import java.awt.Rectangle;<br />
+import magick.ImageInfo;<br />
+import magick.MagickImage;<br />
+import magick.MagickException;<br />
+import magick.QuantizeInfo;<br />
+import magick.ColorspaceType;<br />
+import magick.MagickApiException;<br />
+import magick.PixelPacket;<br />
+import magick.DrawInfo;<br />
+import magick.ResolutionType;<br />
+import magick.ProfileInfo;<br />
+import magick.MontageInfo;<br />
+import magick.Magick;<br />
+import magick.MagickInfo;<br />
+import java.io.IOException;<br />
+import java.io.FileOutputStream;<br />
+public class PicResize {<br />
+&nbsp;&nbsp;static Logger logger = Logger.getLogger(PicResize.class.getName());<br />
+&nbsp;&nbsp;public void resize(String picFrom,String picTo) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;try {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;// Resize<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ImageInfo info = new ImageInfo(picFrom);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MagickImage image = new MagickImage(new ImageInfo(picFrom));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;MagickImage scaled = image.scaleImage(100, 80);//小图片文件的大小.<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaled.setFileName(picTo);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scaled.writeImage(info);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.info("alter pic form "+picFrom +" to "+picTo);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp; catch(MagickApiException ex) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.error("MagickException: " + ex + ": " + ex.getReason() + ", " + ex.getDescription());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp; catch(MagickException ex) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;logger.error("MagickException: " + ex);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;}<br />
+}</div><br />
+注意，需要将编译JMagick生成的lib/jmagick.jar包，复制到$TOMCATHOME/webapps/yourproject/WEB-INF/lib目录下。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 29, 2003 12:13 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=341.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=341" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>To Hilton :</p>
+
+<p>    谢谢你的帮助。</p>
+
+<p>BTW，与初用者分享一点：win环境下，只下载jmagick.jar和jmagick.dll是不够的，还需要下载其他的dll一起使用才可以，给大家一个链接<a href="javascript:if(confirm('http://www.yeo.id.au/jmagick/quickload/win-5.5.7/ImageMagick-5.5.7-Q8-windows-dll.exe，安装后记得要重新启动pc。我听从下面前辈的也将jmagick.dll放在了system32目录下面了。  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.yeo.id.au/jmagick/quickload/win-5.5.7/ImageMagick-5.5.7-Q8-windows-dll.exe，安装后记得要重新启动pc。我听从下面前辈的也将jmagick.dll放在了system32目录下面了。'" tppabs="http://www.yeo.id.au/jmagick/quickload/win-5.5.7/ImageMagick-5.5.7-Q8-windows-dll.exe，安装后记得要重新启动pc。我听从下面前辈的也将jmagick.dll放在了system32目录下面了。">http://www.yeo.id.au/jmagick/quickload/win-5.5.7/ImageMagick-5.5.7-Q8-windows-dll.exe，安装后记得要重新启动pc。我听从下面前辈的也将jmagick.dll放在了system32目录下面了。</a></p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com">ryan</a> at January 13, 2004 10:56 AM</span>
+</div>
+<div class="comments-body">
+<p>To  ryan;</p>
+
+<p>　　在$JAMGICKHOME/src/test目录下。我把它打了个包，你也可以从 <a href="test.tar.gz" tppabs="http://hedong.3322.org/archives/docs/test.tar.gz">http://hedong.3322.org/archives/docs/test.tar.gz</a> 下载。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January 12, 2004 11:52 AM</span>
+</div>
+<div class="comments-body">
+<p>你们说的Test.java在哪儿？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com">ryan</a> at January 12, 2004 11:44 AM</span>
+</div>
+<div class="comments-body">
+<p>//…………………………………………………………<br />
+我在JmagicK的主页上找不到JmagicK实现的API的有关文档，所以还是不知道具体怎么用JmagicK，请问版主那里有文档吗？或者有其他助于学JmagicK的好东东。</p>
+
+<p>Posted by: zhm at December 12, 2003 08:39 AM <br />
+//…………………………………………………………</p>
+
+<p>zhm，你可以去下载<a href="javascript:if(confirm('http://www.yeo.id.au/jmagick/quickload/JMagick-5.5.1-bin-win32.zip  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.yeo.id.au/jmagick/quickload/JMagick-5.5.1-bin-win32.zip'" tppabs="http://www.yeo.id.au/jmagick/quickload/JMagick-5.5.1-bin-win32.zip">http://www.yeo.id.au/jmagick/quickload/JMagick-5.5.1-bin-win32.zip</a><br />
+这个包，里面包括了doc。</p>
+<span class="comments-post">Posted by:  at January 12, 2004 11:39 AM</span>
+</div>
+<div class="comments-body">
+<p>about java.lang.UnsatisfiedLinkError: no JMagick in java.library.path.<br />
+copy libJMagick.so $resin_home/lib</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;jbkc&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;jbkc&#64;sina&#46;com">汤汤</a> at January  2, 2004 12:14 PM</span>
+</div>
+<div class="comments-body">
+<p>imagesj<br />
+应用</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:12 PM</span>
+</div>
+<div class="comments-body">
+<p>老板又要我研究用JMagicK做动画，又要研究了。。。。。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.it315.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.it315.org/'" tppabs="http://www.it315.org/">zhm</a> at December 24, 2003 06:48 PM</span>
+</div>
+<div class="comments-body">
+<p>To zhm;</p>
+
+<p>　　祝贺你安装jmagick成功！</p>
+
+<p>　　去<a href="javascript:if(confirm('http://www.dependencywalker.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.dependencywalker.com/'" tppabs="http://www.dependencywalker.com/">http://www.dependencywalker.com/</a> 下载这个程序，安装运行它，然后利用其"open"功能打开要看的程序就可以了。</p>
+
+<p>Hilton<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 19, 2003 01:32 PM</span>
+</div>
+<div class="comments-body">
+<p>问一下版主，怎么用depends看一个dll依赖于哪些文件？谢谢。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.it315.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.it315.org/'" tppabs="http://www.it315.org/">zhm</a> at December 19, 2003 10:22 AM</span>
+</div>
+<div class="comments-body">
+<p>呵呵，我的也是在Windows下运行的，折腾了一个星期，总算成功了，要把那个jmagick.dll考到系统的System32目录下面，然后下载一个ImageMagick-5.5.7-Q16-windows-dll.exe安装了，一切都OK了。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.it315.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.it315.org/'" tppabs="http://www.it315.org/">zhm</a> at December 19, 2003 10:21 AM</span>
+</div>
+<div class="comments-body">
+<p>呵呵，我的也是在Windows下运行的，折腾了一个星期，总算成功了，要把那个jmagick.dll考到系统的System32目录下面，然后下载一个ImageMagick-5.5.7-Q16-windows-dll.exe安装了，一切都OK了。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;zhanghm&#64;chinabyte&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;zhanghm&#64;chinabyte&#46;com">zhm</a> at December 19, 2003 10:21 AM</span>
+</div>
+<div class="comments-body">
+<p>是不是需要装imagemagick?<br />
+你用depends看看，这个dll依赖于哪些文件？</p>
+
+<p>真不好意思，我用jmagick是在linux下的，所以对windows下的东东不是很熟悉。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 13, 2003 09:39 PM</span>
+</div>
+<div class="comments-body">
+<p>我把jmagick.dll和jmagick.jar都放到system32下但出现java.lang.UnsatisfiedLinkError: C:\WINDOWS\system32\JMagick.dll: Can't find dependent libraries。我是在IDEA开发中调用的，总是不成功，为什么jmagick还要有dll？不象其他java的工具包？</p>
+<span class="comments-post">Posted by:  at December 13, 2003 11:59 AM</span>
+</div>
+<div class="comments-body">
+<p>To zhm,</p>
+
+<p>   JMagick的文档确实很少，你可以参考<a href="javascript:if(confirm('http://www.yeo.id.au/cgi-bin/jmagick/fom  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.yeo.id.au/cgi-bin/jmagick/fom'" tppabs="http://www.yeo.id.au/cgi-bin/jmagick/fom">http://www.yeo.id.au/cgi-bin/jmagick/fom</a> 。或去ImageMagick的主页看一下，因为jmagick仅是对imagemagick的一个java包装。</p>
+
+<p>　　另外，这个包中的Test.java，把几乎所有的功能都演示了一下，也可以看看。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 12, 2003 08:45 AM</span>
+</div>
+<div class="comments-body">
+<p>我在JmagicK的主页上找不到JmagicK实现的API的有关文档，所以还是不知道具体怎么用JmagicK，请问版主那里有文档吗？或者有其他助于学JmagicK的好东东。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;zhanghm&#64;chinabyte&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;zhanghm&#64;chinabyte&#46;com">zhm</a> at December 12, 2003 08:39 AM</span>
+</div>
+<div class="comments-body">
+<p>放在运行程序时的当前目录，或者放到windows的system32目录下试试。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 11, 2003 10:00 PM</span>
+</div>
+<div class="comments-body">
+<p>请问我在运行是出现java.lang.UnsatisfiedLinkError: no JMagick in java.library.path错误。jmagick.dll应该怎么用？</p>
+<span class="comments-post">Posted by:  at December 11, 2003 06:11 PM</span>
+</div>
+<div class="comments-body">
+<p>你好，我最近也在看基于JAVA的图像处理：<br />
+你看看这个如何：ImageJ<br />
+<a href="javascript:if(confirm('http://rsb.info.nih.gov/ij/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://rsb.info.nih.gov/ij/'" tppabs="http://rsb.info.nih.gov/ij/">http://rsb.info.nih.gov/ij/</a></p>
+
+<p>我想利用这个包将图片动态生成各种幅面的缩略图（包含站点水印）。然后图片可以通过PATH_INFO解析参数，比如生成一个200*150的水印：<br />
+<a href="javascript:if(confirm('http://www.chedong.com/thumb/200/150/orig.jpg  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/thumb/200/150/orig.jpg'" tppabs="http://www.chedong.com/thumb/200/150/orig.jpg">http://www.chedong.com/thumb/200/150/orig.jpg</a><br />
+然后再在前台用SQUID缓存住。<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">Che Dong</a> at November  1, 2003 10:28 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="341" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

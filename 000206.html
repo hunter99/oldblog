@@ -1,0 +1,328 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Lucene学习笔记（1）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000205.html" tppabs="http://hedong.3322.org/archives/000205.html" title="修改了“类别”和“按月”归整的模板" />
+
+<link rel="next" href="000207.html" tppabs="http://hedong.3322.org/archives/000207.html" title="W3C的开源软件" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000206.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/135"
+    dc:title="Lucene学习笔记（1）"
+    dc:identifier="http://hedong.3322.org/archives/000206.html"
+    dc:subject="ItTech"
+    dc:description="　　Lucene是一套全文检索的API，对其介绍的文章和应用的案例都多，可参考lucene及本文的参考文献。 　　此次学习，以实用为主，一是简单应用，二是Web应用，三是汉化，四相关应用（Lucene主页上在SandBox中）。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-02T21:58:27+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000206.html">
+<dc:title>Lucene学习笔记（1）</dc:title>
+<dc:description>　　Lucene是一套全文检索的API，对其介绍的文章和应用的案例都多，可参考lucene及本文的参考文献。 　　此次学习，以实用为主，一是简单应用，二是Web应用，三是汉化，四相关应用（Lucene主页上在SandBox中）。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-02T21:58:27+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000205.html" tppabs="http://hedong.3322.org/archives/000205.html">&laquo; 修改了“类别”和“按月”归整的模板</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000207.html" tppabs="http://hedong.3322.org/archives/000207.html">W3C的开源软件 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 02, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Lucene学习笔记（1）</h3>
+
+<p>　　Lucene是一套全文检索的API，对其介绍的文章和应用的案例都多，可参考<a href="000131.html" tppabs="http://hedong.3322.org/archives/000131.html" title="我的一篇lucene备忘">lucene</a>及本文的参考文献。<br />
+　　此次学习，以实用为主，一是简单应用，二是Web应用，三是汉化，四相关应用（Lucene主页上在SandBox中）。</p>
+
+<a name="more"></a>
+<p>0、准备工作<br />
+　　去<a href="javascript:if(confirm('http://jakarta.apache.org/lucene/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/lucene/'" tppabs="http://jakarta.apache.org/lucene/" title="lucene is a apache project">Lucene的主页</a>下载目前的稳定版本lucene-1.2.tar.gz，解压缩，将lucene-1.2目录下的两个jar文件lucene-1.2.jar和lucene-demo2-1.2.jar放到适当的目录下后，并将其加入到CLASSPATH环境变量中。<div class="code">tar zxvf lucene-1.2.tar.gz &lt;----解压缩<br />
+cd lucene-1.2<br />
+cp *.jar $DP<ins>&lt;---存放jar文件的目录，根据具体工作要求用实际目录替换</ins><br />
+CLASSPATH=$CLASSPATH:$DP/lucene-1.2.jar:$DP/lucene-demos-1.2.jar; export CLASSPATH</div><a href="winclasspath.gif" tppabs="http://hedong.3322.org/archives/pics/winclasspath.gif"><img alt="winclasspath.gif" src="winclasspath-thumb.gif" tppabs="http://hedong.3322.org/archives/pics/winclasspath-thumb.gif" width="300" height="414" border="0" align="right"/></a>如果不想在每次都登录后，可以编辑/etc/profile或自己目录下的.profile，将上面的最后一行加到文件的最后一行。Windows的设置，右击桌面的“我的电脑”，选“高级”－＞“环境变量”－＞选中CLASSPATH－＞“编辑”，在输入框中加入两个jar文件的全路径名，注意分隔符是分号(;)。参见右图。</p>
+
+<p>1、运行demo<br />
+<div class="code">$ java org.apache.lucene.demo.IndexFiles /usr/local/man/man1/ <ins>&lt;--对man文件建立索引</ins><br />
+adding /usr/local/man/man1/mysql.1<br />
+...........<br />
+adding /usr/local/man/man1/cvs.1<br />
+1614 total milliseconds<br />
+$ java org.apache.lucene.demo.SearchFiles <ins>&lt;--进行检索</ins><br />
+Query: password<br />
+Searching for: password<br />
+7 total matching documents<br />
+0. /usr/local/man/man1/mysql.1<br />
+......<br />
+6. /usr/local/man/man1/mysqlshow.1<br />
+Query: </div>OK!Lucene自待的demo运行成功<br />
+这个demo程序调用的主要API函数:<div class="code">/*关于索引的主要函数*/<br />
+File file=new File(argv[]);<br />
+IndexWriter writer = new IndexWriter("index", new StandardAnalyzer(), true);</p>
+
+<p>Document doc = new Document();<br />
+doc.add(Field.Text("path", file.getPath()));<br />
+doc.add(Field.Keyword("modified",DateField.timeToString(file.lastModified())));<br />
+FileInputStream is = new FileInputStream(f);<br />
+Reader reader = new BufferedReader(new InputStreamReader(is));<br />
+doc.add(Field.Text("contents", reader));</p>
+
+<p>writer.addDocument(doc);</p>
+
+<p>writer.optimize();<br />
+writer.close();</p>
+
+<p>/*关于检索的主要函数*/<br />
+Searcher searcher = new IndexSearcher("index");<br />
+Analyzer analyzer = new StandardAnalyzer();<br />
+Query query = QueryParser.parse(lineforsearch, "contents", analyzer);<br />
+Hits hits = searcher.search(query);<br />
+for (int i = start; i < hits.length(); i++) {<br />
+      Document doc = hits.doc(i);<br />
+      String path = doc.get("path");<br />
+      System.out.println(i + ". " + path);<br />
+}</div></p>
+
+<p><br />
+3、运行LuceneWeb<br />
+　　假定tomcat装在$TOMCATHOME目录下，具体应用时用真实的目录替换$TOMCATHOME。<div class="code">cd $TOMCATHOME/webapps<br />
+mkdir lucenedb<br />
+cd lucenedb<br />
+java org.apache.lucene.demo.IndexHTML -create -index $TOMCAT/webapps/lucenedb ../examples<ins>&lt;--用相对路径“..”，一来指明被索引的文件的位置，二来用来显示被索引文件的URL，因为检索的jsp程序在luceneweb子目录下.examples可用其它的真实应用的目录名来替换</ins><br />
+cd ..<br />
+cp ~/lucene-1.2/luceneweb.war . <ins>&lt;--luceneweb.war在你解压缩生成的lucene-1.2目录下</ins><br />
+../bin/shudown.sh<br />
+../bin/startup.sh</div><br />
+然后通过客户端访问http://yourdomain.com:8080/luceneweb,如果顺利浏览器应出现右边所示的内容。<img alt="luceneweb-1.gif" src="luceneweb-1.gif" tppabs="http://hedong.3322.org/archives/pics/luceneweb-1.gif" width="499" height="151" border="0" align="right" />.再到服务器端<div class="code">cd luceneweb<br />
+vi configuration.jsp <ins>&lt;--将indexLocation 的值改为 "$TOMCATHOME/webapps/lucenedb";</ins><br />
+cd ..<br />
+jar -ur luceneweb.war luceneweb</div>再到客户端，刷新刚才的页面，然后就可以输入单词进行检索了。遗憾的是，此是只能检索英文单词。且如果命中的html页面的title是汉字的话，显示也有问题。如图。<br />
+<img alt="luceneweb-2.gif" src="luceneweb-2.gif" tppabs="http://hedong.3322.org/archives/pics/luceneweb-2.gif" width="742" height="256" border="0" /><br />
+　　此处的IndexHTML,可以对htm、html和txt类型的文件进行索引，用的是一个HTMLParser，除此以外与上一例基本相同。</p>
+
+<p><center><a href="000208.html" tppabs="http://hedong.3322.org/archives/000208.html" title="next part">Lucene学习笔记（2）</a></center></p>
+
+<p>参考文献<br />
+1、Lucene FAQ, http://lucene.sourceforge.net/cgi-bin/faq/faqmanager.cgi?file=chapter.indexing&toc=faq#q1</p>
+
+<p>2、Getting Started，http://jakarta.apache.org/lucene/docs/gettingstarted.html<br />
+</p>
+
+<span class="posted">Posted by Hilton at September  2, 2003 09:58 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=206.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=206" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>lucene-1.2.tar.gz下不了。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 12:55 PM</span>
+</div>
+<div class="comments-body">
+<p>很想知道车东的那个summary怎么做的？<br />
+demo中的只是取了固定的几十个字而已？<br />
+那个高亮显示的程序呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com">hairinwind</a> at December 12, 2003 04:42 PM</span>
+</div>
+<div class="comments-body">
+<p>很想知道车东的那个summary怎么做的？<br />
+demo中的只是取了固定的几十个字而已？<br />
+那个高亮显示的程序呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com">hairinwind</a> at December 12, 2003 04:42 PM</span>
+</div>
+<div class="comments-body">
+<p>很想知道车东的那个summary怎么做的？<br />
+demo中的只是取了固定的几十个字而已？<br />
+那个高亮显示的程序呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com">hairinwind</a> at December 12, 2003 04:42 PM</span>
+</div>
+<div class="comments-body">
+<p>很想知道车东的那个summary怎么做的？<br />
+demo中的只是取了固定的几十个字而已？<br />
+那个高亮显示的程序呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com">hairinwind</a> at December 12, 2003 04:42 PM</span>
+</div>
+<div class="comments-body">
+<p>很想知道车东的那个summary怎么做的？<br />
+demo中的只是取了固定的几十个字而已？<br />
+那个高亮显示的程序呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;laitp&#64;163&#46;com">hairinwind</a> at December 12, 2003 04:42 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="206" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

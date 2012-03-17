@@ -1,0 +1,260 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 关于usability的二点思考</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000080.html" tppabs="http://hedong.3322.org/archives/000080.html" title="google的使用技巧" />
+
+<link rel="next" href="000082.html" tppabs="http://hedong.3322.org/archives/000082.html" title="首页可用性设计的10条指导方针（译）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000081.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/85"
+    dc:title="关于usability的二点思考"
+    dc:identifier="http://hedong.3322.org/archives/000081.html"
+    dc:subject="ItTech"
+    dc:description="　　一是在web上是什么格式的文档发布信息，二是HCI的研究及usability的定义。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-06T22:14:05+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000081.html">
+<dc:title>关于usability的二点思考</dc:title>
+<dc:description>　　一是在web上是什么格式的文档发布信息，二是HCI的研究及usability的定义。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-06T22:14:05+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000080.html" tppabs="http://hedong.3322.org/archives/000080.html">&laquo; google的使用技巧</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000082.html" tppabs="http://hedong.3322.org/archives/000082.html">首页可用性设计的10条指导方针（译） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 06, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">关于usability的二点思考</h3>
+
+<p>　　一是在web上是什么格式的文档发布信息，二是<acronym title="Human Computer Interaction">HCI</acronym>的研究及usability的定义。</p>
+
+<a name="more"></a>
+<p>　　今天，见<a href="javascript:if(confirm('http://keke.we2.lfhost.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://keke.we2.lfhost.com/'" tppabs="http://keke.we2.lfhost.com/" title="keke's blog'">keke</a>的网志谈起<a href="javascript:if(confirm('http://keke.we2.lfhost.com/archives/2003/08/06/000069.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://keke.we2.lfhost.com/archives/2003/08/06/000069.html'" tppabs="http://keke.we2.lfhost.com/archives/2003/08/06/000069.html" title="关于usability的话题">usability的问题</a>，忽然记起<a href="javascript:if(confirm('http://www.useit.com/jakob/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/jakob/'" tppabs="http://www.useit.com/jakob/" title="king of usability">Dr. Jakob Nielsen</a>关于<a href="javascript:if(confirm('http://www.useit.com/alertbox/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/alertbox/'" tppabs="http://www.useit.com/alertbox/" title="issues in Web Usability">usability的专栏</a>，然后又想起前几天<a href="javascript:if(confirm('http://www.isaacmao.com/weblogs/cesblog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.isaacmao.com/weblogs/cesblog/'" tppabs="http://www.isaacmao.com/weblogs/cesblog/" title="互联教育体系-博录(CES Blog)">isaacmao</a>推荐的<a href="javascript:if(confirm('http://www.isaacmao.com/weblogs/cesblog/2003/7/29  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.isaacmao.com/weblogs/cesblog/2003/7/29#814'" tppabs="http://www.isaacmao.com/weblogs/cesblog/2003/7/29#814" title="flashpager">flash工具</a>，最后，就记在这儿了。：）<br />
+　　Jakob博士在7月14日<a href="javascript:if(confirm('http://www.useit.com/alertbox/20030714.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/alertbox/20030714.html'" tppabs="http://www.useit.com/alertbox/20030714.html" title="PDF: Unfit for Human Consumption">撰文</a>，说PDF格式适合打印而不适合用于在web上在线发布信息，并列数了几大罪状：线性展示、破坏了用户的经验、易致客户浏览器或系统崩溃、中断了阅读的流畅、难以返回浏览器、难以快速找到所需内容、编排适合打印纸而非显示屏幕。接着<a href="javascript:if(confirm('http://www.useit.com/alertbox/20030728.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/alertbox/20030728.html'" tppabs="http://www.useit.com/alertbox/20030728.html" title="Gateway Pages Prevent PDF Shock">在7月28日再次撰文</a>,建议不要直接连向站外的pdf，最后连接其说明文档作缓冲，并进一步指出pdf格式不利于搜索引擎搜集信息，同时指出将pdf的<acronym title="interactive form">交互表单</acronym>作为pdf的卖点也是不恰当的。最后，Jakob博士建议不要滥用工具软件，只要用在最适合它的地方就够了，如pdf用在打印上。窃以为然！<br />
+　　isaacmao提到的FlashPaper技术,不也是有类似pdf的毛病吗？</p>
+
+<p>　　对usability的确切定义，我不清楚到到底是什么。但国外对HCI的研究，确实到应值得我们学习。<br />
+</p>
+
+<span class="posted">Posted by Hilton at August  6, 2003 10:14 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=81.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=81" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>这里的主人当是位SEO了？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xm3721.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xm3721.com/'" tppabs="http://www.xm3721.com/">网络营销</a> at January 17, 2004 03:16 AM</span>
+</div>
+<div class="comments-body">
+<p>赫赫，你消息很灵通，不过我动作也很快！：）</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://keke.we2.lfhost.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://keke.we2.lfhost.com/'" tppabs="http://keke.we2.lfhost.com/">keke</a> at August  7, 2003 09:47 AM</span>
+</div>
+<div class="comments-body">
+<p>　　blogcn我以前少去，主要是感觉信息组织有点凌乱，需要静下心来一点点地读，所以难免忽略了他们的讨论，惭愧！</p>
+
+<p>　　另外，在html这绿色的一望无际的大草原上，突然零星出现了pdf这些小花（如果它是花的话），除了感觉很美以外，可能并不能给牛马带了更多的营养吧。：）</p>
+
+<p>　　Jakob的这篇文章，我只是选取了他的一些观点，而没有全译，所心显得逻辑性和说明力都欠缺。</p>
+
+<p>　　另外，.net vs java第二篇已出来了，你去抓回来？<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at August  7, 2003 09:21 AM</span>
+</div>
+<div class="comments-body">
+<p>似乎也在blogchina上看到过此文！<br />
+个人以为PDF是一种非常好的媒体，特别是用于论文及其某些技术文档的发表上，而不仅仅只是使用于打印。</p>
+
+<p>对于某个文档/论文的电子版而言，我更喜欢PDF而不是HTML。</p>
+
+<p>也许对于内容的收集和查找而言，PDF的确不是非常适合，但是现在已经有很多技术可以从PDF中抽取出需要的内容。</p>
+
+<p>另外，当今的WWW的经验中，我们已经不仅仅接触的是纯文本的HTML了，各种介质信息充斥其中。我想对于PDF的评价也许片面了一些！</p>
+
+<p>赫赫，个人观点！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://keke.we2.lfhost.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://keke.we2.lfhost.com/'" tppabs="http://keke.we2.lfhost.com/">keke</a> at August  7, 2003 09:09 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="81" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

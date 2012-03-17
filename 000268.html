@@ -1,0 +1,531 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 基于XML-RPC的BloggerAPI学习</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000269.html" tppabs="http://hedong.3322.org/archives/000269.html" title="关于XML-RPC" />
+
+<link rel="next" href="000274.html" tppabs="http://hedong.3322.org/archives/000274.html" title="关于Google API的学习" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000268.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/189"
+    dc:title="基于XML-RPC的BloggerAPI学习"
+    dc:identifier="http://hedong.3322.org/archives/000268.html"
+    dc:subject="ItTech"
+    dc:description="　　 Luliang的mail2blog脚本，通过基于XML-RPC的BloggerAPI来实现的发布blog的功能。 　　BloggerAPI是一套程序接口，用以支持远程操作blog.这个规范现在的版本是1.0，是个试验版本和α版本。但是，规范的研发人员不再对BloggerAPI进一步地开发，他们正在制定一套新的、更稳定的API，新项目的名称为echo ...."
+    dc:creator="Hilton"
+    dc:date="2003-10-06T21:22:29+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000268.html">
+<dc:title>基于XML-RPC的BloggerAPI学习</dc:title>
+<dc:description>　　 Luliang的mail2blog脚本，通过基于XML-RPC的BloggerAPI来实现的发布blog的功能。 　　BloggerAPI是一套程序接口，用以支持远程操作blog.这个规范现在的版本是1.0，是个试验版本和α版本。但是，规范的研发人员不再对BloggerAPI进一步地开发，他们正在制定一套新的、更稳定的API，新项目的名称为echo ....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-06T21:22:29+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000269.html" tppabs="http://hedong.3322.org/archives/000269.html">&laquo; 关于XML-RPC</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000274.html" tppabs="http://hedong.3322.org/archives/000274.html">关于Google API的学习 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 06, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">基于XML-RPC的BloggerAPI学习</h3>
+
+<p><img alt="blogger_logo.gif" src="blogger_logo.gif" tppabs="http://hedong.3322.org/archives/pics/blogger_logo.gif" width="50" height="50" border="0"  align="left"/>　　<a href="javascript:if(confirm('http://luliang.dhs.org/pearl/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://luliang.dhs.org/pearl/'" tppabs="http://luliang.dhs.org/pearl/" title="unlocking the air"> Luliang</a>的mail2blog脚本，通过基于<a href="javascript:if(confirm('http://www.xml-rpc.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xml-rpc.com/'" tppabs="http://www.xml-rpc.com/">XML-RPC</a>的<a href="javascript:if(confirm('http://www.blogger.com/developers/api/1_docs/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.blogger.com/developers/api/1_docs/'" tppabs="http://www.blogger.com/developers/api/1_docs/" >BloggerAPI</a>来实现的发布blog的功能。<br />
+　　BloggerAPI是一套程序接口，用以支持远程操作blog.这个规范现在的版本是1.0，是个试验版本和α版本。但是，规范的研发人员不再对BloggerAPI进一步地开发，他们正在制定一套新的、更稳定的API，新项目的名称为echo<a href="" title="echo"><img alt="moinmoin.gif" src="moinmoin.gif" tppabs="http://hedong.3322.org/archives/pics/moinmoin.gif" width="64" height="54" border="0" /><br />
+</a>.</p>
+
+<a name="more"></a>
+<p>　　虽然如此，了解一下这个bloggerAPI还是非常有意义的。一方面有很多语言提供了实现包，另一方面很blog工具也提供了相应的包，如MT。需要说明的是，BloggerAPI提供的功能太有限了，只定义了6个方法或函数，所以出了一个RFC叫 <a href="javascript:if(confirm('http://www.xmlrpc.com/metaWeblogApi  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xmlrpc.com/metaWeblogApi'" tppabs="http://www.xmlrpc.com/metaWeblogApi">MetaWeblog API</a>，对其进行了扩展。我看了一下，MT2.6.4就支持MetaWeblogAPI.<br />
+　　下面对二者进行简单地介绍，以后有机会，再跟echo比较一下。：）<br />
+<h4>BloggerAPI based on XML-RPC</h4><br />
+1、方法列表<br />
+<table border="1"><tr><td>方法</td><td>说明</td></tr><tr><td>blogger.newPost</td><td>向批定的blog增加新的文章（post）,通常会在增加后即发布。</td></tr><tr><td>blogger.editPost</td><td>编辑一篇文章(post)，通常会在修改后发布。</td></tr><tr><td>blogger.getUsersBlogs</td><td>返回一个成员的所有文章的信息。</td></tr><tr><td>blogger.getUserInfo</td><td>鉴证一个用户并反回其信息（如userid,email等）</td></tr><tr><td>blogger.getTemplate</td><td>返回指定的blog的主要或文档索引模板</td></tr><tr><td>blogger.setTemplate</td><td>编辑指定的blog的主要或文档索引模板</td></tr></table><br />
+2、blogger.newPost<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td> appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td> blogid (string)</td><td>这个post即将发送到的blog的标志</td></tr><tr><td> username (string)</td><td>有权post文章的用户名</td></tr><tr><td> password (string)</td><td>用户密码</td></tr><tr><td> content (string)</td><td>Post的内容</td></tr><tr><td> publish (boolean)</td><td>是否发布</td></tr></table><br />
+示例：<br />
+请求XML-RPC调用的数据<br />
+<div class="code">POST /api/RPC2 HTTP/1.0<br />
+User-Agent: Java.Net Wa-Wa 2.0<br />
+Host: plant.blogger.com<br />
+Content-Type: text/xml<br />
+Content-length: 515<br />
+&lt;?xml version="1.0"?&gt;<br />
+&lt;methodCall&gt;<br />
+  &lt;methodName&gt;blogger.newPost&lt;/methodName&gt;<br />
+  &lt;params&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;string&gt;C6CE3FFB3174106584CBB250C0B0519BF4E294&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;string&gt;744145&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;string&gt;ewilliams&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;string&gt;secret&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;string&gt;Today I had a peanut butter and pickle sandwich<br />
+   for lunch. Do you like peanut-butter and pickle sandwiches? I do. <br />
+      They're yummy. Please comment!&lt;/string&gt;&lt;/value&gt;&lt;/param&gt;<br />
+      &lt;param&gt;&lt;value&gt;&lt;boolean&gt;false&lt;/boolean&gt;&lt;/value&gt;&lt;/param&gt; <br />
+  &lt;/params&gt;<br />
+&lt;/methodCall&gt;</div><br />
+成功时的应答<br />
+<div class="code">HTTP/1.1 200 OK<br />
+Connection: close<br />
+Content-Length: 125<br />
+Content-Type: text/xml<br />
+Date: Mon, 6 Aug 20001 19:55:08 GMT<br />
+Server: Java.Net Wa-Wa/Linux<br />
+&lt;?xml version="1.0"?&gt;<br />
+&lt;methodResponse&gt;<br />
+  &lt;params&gt;<br />
+     &lt;param&gt;<br />
+        &lt;value&gt;&lt;string&gt;4515151&lt;/string&gt;&lt;/value&gt;<br />
+     &lt;/param&gt;<br />
+  &lt;/params&gt;<br />
+&lt;/methodResponse&gt;</div><br />
+失败时的应答<br />
+<div class="code">错误信息通过XML-RPC &lt;methodResponse&gt;及&lt;fault&gt; 项返回，包含着的 &lt;struct&gt; 有错误码和描述,这是由xml-rpc规范定义. <br />
+HTTP/1.1 200 OK<br />
+Connection: close<br />
+Content-Length: 225<br />
+Content-Type: text/xml<br />
+Date: Mon, 6 Aug 20001 19:55:08 GMT<br />
+Server: Java.Net Wa-Wa/Linux<br />
+&lt;?xml version="1.0"?&gt;<br />
+&lt;methodResponse&gt;<br />
+  &lt;fault&gt;<br />
+     &lt;value&gt;<br />
+        &lt;struct&gt;<br />
+           &lt;member&gt;<br />
+              &lt;name&gt;faultCode&lt;/name&gt;<br />
+              &lt;value&gt;&lt;int&gt;4&lt;/int&gt;&lt;/value&gt;<br />
+           &lt;/member&gt;<br />
+           &lt;member&gt;<br />
+              &lt;name&gt;faultString&lt;/name&gt;<br />
+              &lt;value&gt;&lt;string&gt;java.lang.Exception: java.lang.Exception: Error: AppKey is<br />
+ invalid or inactive.&lt;/string&gt;&lt;/value&gt;<br />
+           &lt;/member&gt;<br />
+        &lt;/struct&gt;<br />
+     &lt;/value&gt;<br />
+  &lt;/fault&gt;<br />
+&lt;/methodResponse&gt;<br />
+</div><br />
+3、blogger.editPost<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td>appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td>postid (string)</td><td>某篇post的唯一标志</td></tr><tr><td>username (string)</td><td>有权修改文章的用户名（作者或管理员）</td></tr><tr><td>password (string)</td><td>用户密码</td></tr><tr><td>content (string)</td><td>Post的内容</td></tr><tr><td>publish (boolean)</td><td>是否发布</td></tr></table><br />
+4、blogger.getUserBlogs<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td>appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td>username (string)</td><td>用户名</td></tr><tr><td>password (string)</td><td>用户密码</td></tr></table><br />
+成功应答示例<br />
+<div class="code"><br />
+HTTP/1.1 200 OK<br />
+Connection: close<br />
+Content-Length: 125<br />
+Content-Type: text/xml<br />
+Date: Mon, 6 Aug 20001 19:55:08 GMT<br />
+Server: Java.Net Wa-Wa/Linux<br />
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br />
+&lt;methodResponse&gt;<br />
+   &lt;params&gt;<br />
+       &lt;param&gt;<br />
+           &lt;value&gt;<br />
+               &lt;array&gt;<br />
+                   &lt;data&gt;<br />
+                       &lt;value&gt;<br />
+                           &lt;struct&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;url&lt;/name&gt;<br />
+                                   &lt;value&gt;http://stuff.foo.com/biz&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogid&lt;/name&gt;<br />
+                                   &lt;value&gt;2997323&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogName&lt;/name&gt;<br />
+                                   &lt;value&gt;Blogger Biz Dev&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                           &lt;/struct&gt;<br />
+                       &lt;/value&gt;<br />
+                       &lt;value&gt;<br />
+                           &lt;struct&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;url&lt;/name&gt;<br />
+                                   &lt;value&gt;http://www.blogger.com/&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogid&lt;/name&gt;<br />
+                                   &lt;value&gt;2723&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogName&lt;/name&gt;<br />
+                                   &lt;value&gt;Blogger News&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                           &lt;/struct&gt;<br />
+                       &lt;value&gt;<br />
+                           &lt;struct&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;url&lt;/name&gt;<br />
+                                   &lt;value&gt;http://www.geocities.com/rafting/&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogid&lt;/name&gt;<br />
+                                   &lt;value&gt;223723&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                               &lt;member&gt;<br />
+                                   &lt;name&gt;blogName&lt;/name&gt;<br />
+                                   &lt;value&gt;RaftingBlog&lt;/value&gt;<br />
+                               &lt;/member&gt;<br />
+                           &lt;/struct&gt;<br />
+                       &lt;/value&gt;<br />
+                       &lt;/value&gt;<br />
+                   &lt;/data&gt;<br />
+               &lt;/array&gt;<br />
+           &lt;/value&gt;<br />
+       &lt;/param&gt;<br />
+   &lt;/params&gt;<br />
+&lt;/methodResponse&gt;<br />
+</div><br />
+5、blogger.getUserInfo<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td>appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td>username (string)</td><td>用户名</td></tr><tr><td>password (string)</td><td>用户密码</td></tr></table><br />
+成功应答示例<div class="code">HTTP/1.1 200 OK<br />
+Connection: close<br />
+Content-Length: 125<br />
+Content-Type: text/xml<br />
+Date: Mon, 6 Aug 20001 19:55:08 GMT<br />
+Server: Java.Net Wa-Wa/Linux<br />
+&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;<br />
+  &lt;methodResponse&gt;<br />
+     &lt;params&gt;<br />
+        &lt;param&gt;<br />
+           &lt;value&gt;<br />
+              &lt;struct&gt;<br />
+                 &lt;member&gt;<br />
+                    &lt;name&gt;nickname&lt;/name&gt;<br />
+                    &lt;value&gt;Ev.&lt;/value&gt;<br />
+                 &lt;/member&gt;<br />
+                 &lt;member&gt;<br />
+                    &lt;name&gt;userid&lt;/name&gt;<br />
+                    &lt;value&gt;1&lt;/value&gt;<br />
+                 &lt;/member&gt;<br />
+                 &lt;member&gt;<br />
+                    &lt;name&gt;url&lt;/name&gt;<br />
+                    &lt;value&gt;http://www.evhead.com&lt;/value&gt;<br />
+                 &lt;/member&gt;<br />
+                 &lt;member&gt;<br />
+                     &lt;name&gt;email&lt;/name&gt;<br />
+                     &lt;value&gt;ev@pyra.com&lt;/value&gt;<br />
+                 &lt;/member&gt;<br />
+                 &lt;member&gt;<br />
+                     &lt;name&gt;lastname&lt;/name&gt;<br />
+                     &lt;value&gt;Williams&lt;/value&gt;<br />
+                  &lt;/member&gt;<br />
+                  &lt;member&gt;<br />
+                     &lt;name&gt;firstname&lt;/name&gt;<br />
+                     &lt;value&gt;Evan&lt;/value&gt;<br />
+                  &lt;/member&gt;<br />
+               &lt;/struct&gt;<br />
+            &lt;/value&gt;<br />
+         &lt;/param&gt;<br />
+      &lt;/params&gt;<br />
+  &lt;/methodResponse&gt;<br />
+</div><br />
+6、blogger.getTemplate<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td>  appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td> blogid (string)</td><td>这个post即将发送到的blog的标志</td></tr><tr><td> username (string)</td><td>有权post文章的用户名</td></tr><tr><td> password (string)</td><td>用户密码</td></tr><tr><td>templateType (string)</td><td>指定返回哪个模板，目前只能是 "main" 或  "archiveIndex".</td></tr></table><br />
+成功时的应答，....表示此处内容被我省略。<br />
+<div class="code">&lt;?xml version="1.0" encoding="ISO-8859-1"?&lt;&lt;methodResponse&lt;&lt;params&lt;&lt;param&lt;&lt;value&lt;&amp;lt;HTML&lt;<br />
+  &amp;lt;HEAD&lt;<br />
+    &amp;lt;TITLE&lt;&lt;$BlogTitle$&lt;: &lt;$BlogDescription$&lt;&lt;/TITLE&lt;</p>
+
+<p>  &amp;lt;/BODY&lt;<br />
+&amp;lt;/HTML&lt;</p>
+
+<p>&lt;/value&lt;&lt;/param&lt;&lt;/params&lt;&lt;/methodResponse&lt;<br />
+</div><br />
+7、blogger.setTemplate<br />
+参数说明<br />
+<table border="1"><tr><td>参数</td><td>说明</td></tr><tr><td>  appkey (string)</td><td>发送这个post的程序的唯一标志</td></tr><tr><td> blogid (string)</td><td>这个post即将发送到的blog的标志</td></tr><tr><td> username (string)</td><td>有权post文章的用户名</td></tr><tr><td> password (string)</td><td>用户密码</td></tr><tr><td>template (string)</td><td>模板文本（通常是HTML）.必须包含 <Blogger>和<blogger/>标签，因它们需要发布。 （？我的mainindex里没有啊）</td></tr><tr><td>templateType (string)</td><td>指定返回哪个模板，目前只能是 "main" 或  "archiveIndex".</td></tr></table><br />
+请求格式示例<br />
+<div class="code">		<br />
+POST /api/RPC2 HTTP/1.0 		<br />
+User-Agent: Java.Net Wa-Wa 2.0 		<br />
+Host: plant.blogger.com 		<br />
+Content-Type: text/xml 		<br />
+Content-length: 515 		<br />
+&lt;?xml version="1.0"?&gt; 		<br />
+&lt;methodCall&gt; 		<br />
+	&lt;methodName&gt;blogger.setTemplate&lt;/methodName&gt; 	<br />
+	&lt;params&gt; 	<br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;C6CE3FFB3174106584CBB250C0B0519BF4E294&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;744154&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;ewilliams&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;secret&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;&amp;lt;html&amp;gt;&amp;lt;head&amp;gt;&amp;lt;title&amp;gt;&amp;lt;$BlogTitle$&amp;gt;&amp;lt;/title&amp;gt;&amp;lt;/head&amp;gt;&amp;lt;body&amp;gt;&amp;lt;Blogger&amp;gt;&amp;lt;BlogDateHeader&amp;gt;&amp;lt;h1&amp;gt;&amp;lt;$BlogDateHeaderDate$&amp;gt;&amp;lt;/h1&amp;gt;&amp;lt;/BlogDateHeader&amp;gt;&amp;lt;$BlogItemBody$&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/Blogger&amp;gt;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+		&lt;param&gt;&lt;value&gt;&lt;string&gt;main&lt;/string&gt;&lt;/value&gt;&lt;/param&gt; <br />
+	&lt;/params&gt; 	<br />
+&lt;/methodCall&gt; 		<br />
+</div><br />
+<h4>MetaWeblog API</h4><br />
+这个rfc的最新发布是在08/26/2003.<br />
+1、什么是MetaWeblog API<br />
+　　MetaWeblog API (MWA)是一套编程接口，允许外面的程序能取得和设置blog文章的文本或属性。它基于流行的XML-RPC通信协议,后者在<a href="javascript:if(confirm('http://www.xmlrpc.com/directory/1568/implementations  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xmlrpc.com/directory/1568/implementations'" tppabs="http://www.xmlrpc.com/directory/1568/implementations">很多的流行的开发环境中都有了实现的包</a>。</p>
+
+<p>2、MetaWeblog API与Blogger API 的关系<br />
+　　MetaWeblog API是对Blogger API增强, Blogger API只能取得或设置blog文章的文本内容(hedong问，能取得吗？).在2002年春天MWA面世,在此以前许多blog工具能存储许多扩展数据，但不能访问或编辑这些数据，因为没有一个通过的API。</p>
+
+<p>　　到2003年夏天，在本文的写作期间，大部分流行的blog工具和编辑器，能同时支持Blogger API 和MetaWeblog API.<br />
+3、MetaWeblog API和 RSS 2.0 的关系</p>
+
+<p>	MetaWeblog API利用XML-RPC来描述一篇blog文章. 我们使用了<a href="javascript:if(confirm('http://blogs.law.harvard.edu/tech/rss  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogs.law.harvard.edu/tech/rss'" tppabs="http://blogs.law.harvard.edu/tech/rss" title="RSS 2.0 Specification">RSS2.0</a>中对一个项的术语来描述一篇blog文章的元数据，而不是重新发明一套。请参照RSS2.0中对文章的title, link 、description，author, comments, enclosure, guid等的定义或命名。 更进一步，由于RSS2.0是可扩展的，因而MetaWeblog API也是可扩展的. 我们在MWA中设计了一些用以表述属性和命名空间的约定。<br />
+	<br />
+4、基本函数(entry-points)<br />
+1)metaWeblog.newPost (blogid, username, password, struct, publish) returns string<br />
+2)metaWeblog.editPost (postid, username, password, struct, publish) returns true<br />
+3)metaWeblog.getPost (postid, username, password) returns struct<br />
+blogid, username, password 和publish参数的含义同 Blogger API. newPost返回的字符串表示post_id,同Blogger API定义的一样. 而那个struct就是MWA的精华所在。</p>
+
+<p>5、数据结构<br />
+　　在newPost和editPost中，内容信息不再跟BloggerAPI中那是一个字符串，而是一个数据结构。这个数据结构的成员，就是rss2.0中定义的ITEM的元素。参见后面附表。</p>
+
+<p>　　当一个元素有属性时，用一个数据结构（属性做成员）传递属性及其相应的值。如enclosure元素，用一个包含url, length 和type的结构传递属性。</p>
+
+<p>	对source元素，数据结构的成员为url 和name，前者为source的属性后者为source值。</p>
+
+<p>	对categories元素，传递一个字符串数组。在服务器端，如果传来的category不存在，则忽略不报错，且只保存有效的那些category.(hedong，好象没说domain属性的事啊）</p>
+
+<p>　　服务器必须忽略所有不能理解的元素。</p>
+
+<p>	在调用 metaWeblog.newPost 或 metaWeblog.editPost时，如果数据结构中含有一个名叫flNotOnHomePage的 boolean 值，则主页不显示此文章而只在分类中显示。<br />
+	<br />
+6、其它函数<br />
+1）metaWeblog.newMediaObject (blogid, username, password, struct) returns struct<br />
+　　参数的struct，至少包含name, type and bits三个元素。<br />
+	name是个字符串，可以用来作存储对象的文件名或用于对象列表的显示。它决定weblog如何引用这个对象。如果name和weblog已有一个对象重名，则替换掉已有的对象。<br />
+	type是个字符串，表示对象的类型，必须是个标准的MIME类型，如 audio/mpeg or image/jpeg or video/quicktime.<br />
+	bits是个base64-编码的二进制值，包含着对象的内容。<br />
+	这个结构可以含有其它的元素，这些元素可以或不能被内容管理系统保存.<br />
+	当调用失败时，抛出error.当成功时，返回的strcut中，至少要有一个元素url，用以指明这个对象如何被访问。其值只能是一个HTTP url或FTP url.<br />
+2）metaWeblog.getCategories (blogid, username, password) returns struct<br />
+	返回的struct中，为每个分类提供一个子结构，子结构中至少包含三个元素：description, httpurl 和 rssurl.<br />
+	<br />
+3）metaWeblog.getRecentPosts (blogid, username, password, numberOfPosts) returns array of structs<br />
+　　返回是一个结构数组，盛放着最新发布的文章信息。每个结构的内容同metaWeblog.getPost返回内容相同.<br />
+　　numberOfPosts指明要取回的按发布时间倒序计数的文章数量，当值超过总文章数时，返回全部文章信息。</p>
+
+<p>7、传送带属性的元素<br />
+　　除了enclosure和source元素有专门规定外，其它元素按下列规则处理：<br />
+1)如果一个元素有属性，则用一个struct来表示，各属性为struct的子元素。<br />
+2)如果一个元素同时有属性和值，则用一个一个struct来表示，各属性为struct的子元素，再增加一个叫_value的子元素，表示元素的值。这也就要求，元素的属性名不能为_value.</p>
+
+<p>8、传送某命名空间的元素<br />
+　　RSS 2.0允许使用命名空间. 如果你要传送的元素是一个命名空间的一部分，那就在传递给 newPost 或 editPost 的struct中增加一个子struct,以指明命名空间的URL为名，以要传送的元素值为子元素。</p>
+
+<p>9、说明<br />
+　　在MWA中不要明确要求传送appkey值，如果应用程序要传送appkey,则在struct中增加一个名为appkey的元素，并赋之以相关的值。</p>
+
+<p>附表：RSS2.0中ITEM的元素列表　　<br />
+<table border="1"><tr><td>元素(Element)</td><td>描述(Description)</td><td>例子(Example)</td><td>重要性</td><td>属性</td></tr><tr><td>title</td><td>项(item)的标题</td><td>Venice Film Festival Tries to Quit Sinking</td><td>必备</td><td></td></tr><tr><td>link</td><td>项的URL</td><td>http://www.nytimes.com/2002/09/07/movies/07FEST.html</td><td>必备</td><td></td></tr><tr><td>description</td><td>项的大纲</td><td>Some of the most heated chatter at the Venice Film Festival this week was about the way that the arrival of the stars at the Palazzo del Cinema was being staged.</td><td>必备</td><td></td></tr><tr><td>author</td><td>该项作者的email</td><td>oprah@oxygen.net</td><td>可选</td><td></td></tr><tr><td>category</td><td>包含该项的一个或几个分类(catogory)</td><td>Simpsons Characters</td><td>可选</td><td>domain可选，指分类法的URL</td></tr><tr><td>comments</td><td>该项的评论(comments)页的URL</td><td>http://www.myblog.org/cgi-local/mt/mt-comments.cgi?entry_id=290</td><td>可选</td><td></td></tr><tr><td>enclosure</td><td>描述该附带的媒体对象</td><td></td><td>可选</td><td>url/length/type皆必备,type须是标准MIME类型</td></tr><tr><td>guid</td><td>项的唯一标志符串</td><td>http://inessential.com/2002/09/01.php#a2</td><td>可选</td><td>isPermaLink可选，默认为真，指明guid是否为一永久URL。</td></tr><tr><td>pubDate</td><td>项的发布时间</td><td>Sun, 19 May 2002 15:21:36 GMT</td><td>可选</td><td></td></tr><tr><td>source</td><td>该项来自的RSS道</td><td>Quotes of the Day</td><td>可选</td><td>Url必备</td></tr></table></p>
+
+<p>附：MWAAPI清单<br />
+<ol><li> metaWeblog.newPost (blogid, username, password, struct, publish) returns string</li><br />
+<li>metaWeblog.editPost (postid, username, password, struct, publish) returns true</li><br />
+<li>metaWeblog.getPost (postid, username, password) returns struct</li><br />
+<li> metaWeblog.newMediaObject (blogid, username, password, struct) returns struct</li><br />
+<li> metaWeblog.getCategories (blogid, username, password) returns struct</li><br />
+<li> metaWeblog.getRecentPosts (blogid, username, password, numberOfPosts) returns array of structs</li><br />
+</ol></p>
+
+<span class="posted">Posted by Hilton at October  6, 2003 09:22 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=268.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=268" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>下载了几个blogger的client,都不支持中文:(</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;freeman&#64;php&#46;net'" tppabs="http://hedong.3322.org/archives/mailto&#58;freeman&#64;php&#46;net">freeman</a> at October 11, 2003 09:18 PM</span>
+</div>
+<div class="comments-body">
+<p>hilton, 本来昨天给你回信, 不知到这么网络是好时坏, 信可能没有发出去. 现在的 MT的 xml-rpc 协议不支持category, 我在源码上进行了部分修改, 还没有测试, 可能要一段时间.<br />
+还有就是utf-8 和 gb2312的转换, 参考<a href="javascript:if(confirm('http://luliang.dhs.org/luliang/tcltk/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://luliang.dhs.org/luliang/tcltk/'" tppabs="http://luliang.dhs.org/luliang/tcltk/">http://luliang.dhs.org/luliang/tcltk/</a><br />
+set newGB [encoding convert from utf-8 "sth"]</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://luliang.dhs.org/blog  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://luliang.dhs.org/blog'" tppabs="http://luliang.dhs.org/blog">Liang</a> at October  6, 2003 09:24 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="268" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

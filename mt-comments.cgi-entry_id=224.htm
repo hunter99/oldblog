@@ -1,0 +1,183 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on Junit学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: Junit学习笔记</div>
+
+
+<div class="comments-body">
+<p>　　我当时在学习的时候，发现一个问题，就是：</p>
+
+<p>　　假定$JUNITHOME为junit解压缩后的目录，</p>
+
+<p>　　进行$JUNITHOME目录，用jar将junit目录打包，然后将此包加入CLASSPATH，运行java junit.swingui.TestRunner junit.samples.AllTests命令时，会出现你所说的错误。</p>
+
+<p>　　但是，<br />
+　　如果只是将$JUNITHOME这个目录加入到CLASSPATH中，则不出现问题，119个测试都会通过。</p>
+
+<p>　　后来，我没有仔细研究这个问题，也就没有将这点内容写在这儿。<br />
+　　<br />
+　　你按上述第二种方法试一下，是不是还是有问题？<br />
+　　如果你找到了问题的答案，欢迎来信指点一下。：）</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 23, 2003 03:49 PM</span>
+</div>
+<div class="comments-body">
+<p>在java junit.swingui.TestRunner junit.samples.AllTests的时候，你不会出LoadedFromJar<br />
+的错误吗？119的测试都ok吗？</p>
+
+<p>我在google上看见也有人会出现LoadedFromJar测试不过的情况。<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;szmlike&#64;sohu&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;szmlike&#64;sohu&#46;com">luoda</a> at October 23, 2003 02:44 PM</span>
+</div>
+<div class="comments-body">
+<p>原来是tag的问题</p>
+
+<p>西大哥，你的邮件我收到了！太好了你<br />
+不过我还得试试看再说。</p>
+
+<p>因为Win32下别人编译过得Netpbm只到v10.6<br />
+而他主页有句话</p>
+
+<p>Older packages, such as libwmf-0.2.2, netpbm-10.6, and wv-0.7.2, sometimes need libjpeg.dll.<br />
+Until these are updated, a provisional solution is to copy jpeg-62.dll to libjpeg.dll</p>
+
+<p>而我的正是其中的netpbm-10.6,对，问题就出在libjpeg.dll上了，缺这个，我就把jpeg-62改名为libjpeg放到了需要他的文件夹<br />
+结果进入galleryupload之后，说Library里的和caller的尺寸不一致....ft~~</p>
+
+<p>能不能帮我编译一个高点版本的netpbm?那可能就没这个dll的问题了，我没有Linux，也没编译过 :)</p>
+
+<p>如果方便，请帮忙帮到底吧~细细</p>
+
+<p>另外我按照你的邮件再装一遍，不过还是想要个新一点的Stable Netpbm</p>
+
+<p>嗯，就这些。严重偏离你的这个主题..</p>
+<span class="comments-post">Posted by diffhapp at September 12, 2003 10:02 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="224" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,1575 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: "蚂蚁怒了"</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000423.html" tppabs="http://hedong.3322.org/archives/000423.html" title="Java极限编程的学习笔记" />
+
+<link rel="next" href="000426.html" tppabs="http://hedong.3322.org/archives/000426.html" title="我的2004" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000424.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/313"
+    dc:title="&quot;蚂蚁怒了&quot;"
+    dc:identifier="http://hedong.3322.org/archives/000424.html"
+    dc:subject="ItTech"
+    dc:description="读Steve Loughran的&quot;Ant in Anger&quot;一文的笔记而已。^_^..."
+    dc:creator="Hilton"
+    dc:date="2004-01-01T17:33:52+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000424.html">
+<dc:title>&quot;蚂蚁怒了&quot;</dc:title>
+<dc:description>读Steve Loughran的&quot;Ant in Anger&quot;一文的笔记而已。^_^...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2004-01-01T17:33:52+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000423.html" tppabs="http://hedong.3322.org/archives/000423.html">&laquo; Java极限编程的学习笔记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000426.html" tppabs="http://hedong.3322.org/archives/000426.html">我的2004 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">January 01, 2004</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">"蚂蚁怒了"</h3>
+
+<img alt="ant_logo_large.gif" src="ant_logo_large.gif" tppabs="http://hedong.3322.org/archives/pics/ant_logo_large.gif" width="190" height="120" border="0"  align="left" />读Steve Loughran的<a href="javascript:if(confirm('http://ant.apache.org/ant_in_anger.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/ant_in_anger.html'" tppabs="http://ant.apache.org/ant_in_anger.html">"Ant in Anger"</a>一文的笔记而已。^_^
+
+<a name="more"></a>
+<br>Steve建议的顶级目标的名称及内容。
+<table border="1"><tr><td>目标的名字</td><td>内容</td></tr><tr><td>Build</td><td>构建应用系统</td></tr><tr><td>Test</td><td>运行JUnit测试</td></tr><tr><td>Clean</td><td>清空输出目录</td></tr><tr><td>Deploy</td><td>将jar或war等文件装载到执行系统中</td></tr><tr><td>Publish</td><td>输出源代码和二进制文件到发布站点</td></tr><tr><td>Fetch</td><td>从CVS树得到最新源代码</td></tr><tr><td>docs/javadocs</td><td>输出文档文件</td></tr><tr><td>All</td><td>执行clean, fetch,build,test,dos/javadocs, deploy</td></tr><tr><td>Main</td><td>默认的构建过程</td></tr></table>
+<table border="1"><tr><td>内建目标的名称</td><td>内容</td></tr><tr><td>Init</td><td>初始化特性和执行其他初始化任务，读取个性化特性文件</td></tr><tr><td>Init-debug</td><td>初始化调试特性</td></tr><tr><td>Init-release</td><td>初始化发布特性</td></tr><tr><td>Compile</td><td>执行实际编译</td></tr><tr><td>link/jar</td><td>建立jar文件或等价文件</td></tr><tr><td>Staging</td><td>在将应用程序转移到产品站点前执行预部署过程及测试</td></tr></table>
+简单项目的开发目录结构
+<table border="1"><tr><td>目录名</td><td>内容</td></tr><tr><td>bin </td><td>存放普通的二进制文件和脚本文件</td></tr><tr><td>build </td><td>用以存放构建结果的目录树，由ant创建且可以被"clean"目标清空</td></tr><tr><td>dist </td><td>用以存放可发布的开发结果，由ant创建且可以被"clean"目标清空</td></tr><tr><td>doc </td><td>手写文档</td></tr><tr><td>lib </td><td>存放在构建应用系统时需要装入的java库</td></tr><tr><td>src </td><td>存放java原码，目录的层次结构要符合包命名的要求。</td></tr></table>
+<a name="top"></a>
+<h2>ANT任务(ant tasks)一览</h2>
+
+<a href="#archive">档案类任务</a><br>
+<a href="#audit">Audit/Coverage Tasks</a><br>
+<a href="#compile">编译类任务</a><br>
+<a href="#deploy">部署类任务</a><br>
+<a href="#doc">文档类任务</a><br>
+<a href="#ejb">EJB类任务</a><br>
+<a href="#exec">执行类任务</a><br>
+<a href="#file">文件类任务</a><br>
+<a href="#extensions">Java2扩展类任务</a><br>
+<a href="#log">日志类任务</a><br>
+<a href="#mail">邮件类任务</a><br>
+<a href="#misc">其它杂类任务</a><br>
+<a href="#net">.NET类任务</a><br>
+<a href="#preproc">预编译类任务</a><br>
+<a href="#prop">属性类类任务</a><br>
+<a href="#remote">远程类任务</a><br>
+<a href="#scm">SCM(软件控制管理)类任务</a><br>
+
+<a href="#testing">测试类</a><br>
+<a href="#vaj">Visual Age for Java类任务 Tasks</a><br>
+
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="archive">档案类任务</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th nowrap>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/unpack.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/unpack.html'" tppabs="http://ant.apache.org/manual/CoreTasks/unpack.html">BUnzip2</a></td>
+
+    <td><p>解压缩用GZip 或 BZip2打包的文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/pack.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/pack.html'" tppabs="http://ant.apache.org/manual/CoreTasks/pack.html">BZip2</a></td>
+    <td><p>用GZip 或 BZip2 算法将一些文件打包。这个任务不作依赖性检查，总会产生一个输出文件。</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/cab.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/cab.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/cab.html">Cab</a></td>
+    <td><p>生成 Microsoft CAB 格式的文件. 它同<a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/jar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/jar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/jar.html">Jar</a> or
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/zip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/zip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/zip.html">Zip</a>任务那样运行. 这个任务在windows平台上调用一个外部工具 <i>cabarc</i>  (M$提供的),
+     因此这个工具必须在搜索路径上可以找到。</p></td>
+
+   </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/ear.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/ear.html'" tppabs="http://ant.apache.org/manual/CoreTasks/ear.html">Ear</a></td>
+    <td><p>An extension of the <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/jar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/jar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/jar.html">Jar</a> task with
+     special treatment for files that should end up in an
+     Enterprise Application archive.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/gunzip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/gunzip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/gunzip.html">GUnzip</a></td>
+    <td><p>解压缩一个GZip文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/gzip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/gzip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/gzip.html">GZip</a></td>
+    <td><p>将一些文件用GZip打包.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/jar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/jar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/jar.html">Jar</a></td>
+    <td><p>将一些文件用Jar打包.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jlink.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jlink.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jlink.html">Jlink</a></td>
+
+    <td><p><i>不赞成使用此任务.</i> 请使用
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/jar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/jar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/jar.html">Jar</a> 或
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/zip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/zip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/zip.html">Zip</a> 任务的 <code>zipfileset</code>
+     和 <code>zipgroupfileset</code> 属性代替.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/manifest.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/manifest.html'" tppabs="http://ant.apache.org/manual/CoreTasks/manifest.html">Manifest</a></td>
+    <td><p>生成一个清单文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/rpm.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/rpm.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/rpm.html">Rpm</a></td>
+
+    <td><p>加载<i>rpm</i> 程序来构建一个linux安装文件. 这个任务目前只运行在linux以及支持rpm的unix平台上。</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/signjar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/signjar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/signjar.html">SignJar</a></td>
+    <td><p>利用命令行工具<i>javasign</i>来对一个zip或jar文件进行数字签名。</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/tar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/tar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/tar.html">Tar</a></td>
+    <td><p>生成一个tar文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/unzip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/unzip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/unzip.html">Unjar</a></td>
+    <td><p>解压缩一个jar文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/untar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/untar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/untar.html">Untar</a></td>
+    <td><p>展开一个tar文件中包含的文件.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/unzip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/unzip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/unzip.html">Unwar</a></td>
+    <td><p>解压缩一个war文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/unzip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/unzip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/unzip.html">Unzip</a></td>
+
+    <td><p>解压缩一个zip文件.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/war.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/war.html'" tppabs="http://ant.apache.org/manual/CoreTasks/war.html">War</a></td>
+    <td><p>An extension of the <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/jar.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/jar.html'" tppabs="http://ant.apache.org/manual/CoreTasks/jar.html">Jar</a> task
+     with special treatment for files that should end up in the
+     <code>WEB-INF/lib</code>, <code>WEB-INF/classes</code>, or
+     <code>WEB-INF</code> directories of the Web Application Archive.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/zip.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/zip.html'" tppabs="http://ant.apache.org/manual/CoreTasks/zip.html">Zip</a></td>
+    <td><p>生成一个zip文件.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="audit">Audit/Coverage Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jdepend.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jdepend.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jdepend.html">JDepend</a></td>
+    <td><p>Invokes the <a href="javascript:if(confirm('http://www.clarkware.com/software/JDepend.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.clarkware.com/software/JDepend.html'" tppabs="http://www.clarkware.com/software/JDepend.html">
+     JDepend</a> parser. This parser &quot;traverses a set of Java source-file
+     directories and generates design-quality metrics for each Java
+     package&quot;.</p></td>
+
+   </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jpcoverage.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jpcoverage.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jpcoverage.html">JProbe</a></td>
+    <td><p>These tasks run the tools from the
+     <a href="javascript:if(confirm('http://www.sitraka.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sitraka.com/'" tppabs="http://www.sitraka.com/">JProbe</a> suite. This task was written
+      using JProbe Suite Server Side 3.0.</p></td>
+    </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/mmetrics.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/mmetrics.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/mmetrics.html">MMetrics</a></td>
+    <td><p>Computes the metrics of a set of Java source files, using the
+     <a href="javascript:if(confirm('http://www.webgain.com/products/quality_analyzer/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webgain.com/products/quality_analyzer/'" tppabs="http://www.webgain.com/products/quality_analyzer/">
+     Metamata Metrics/WebGain Quality Analyzer</a> source-code analyzer,
+     and writes the results to an XML file.</p></td>
+  </tr>
+
+  <tr valign="top">
+
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/maudit.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/maudit.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/maudit.html">Maudit</a></td>
+    <td><p>Performs static analysis on a set of Java source-code and
+     byte-code files, using the
+     <a href="javascript:if(confirm('http://www.webgain.com/products/quality_analyzer/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webgain.com/products/quality_analyzer/'" tppabs="http://www.webgain.com/products/quality_analyzer/">
+     Metamata Metrics/WebGain Quality Analyzer</a> source-code
+     analyzer.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="compile">编译类任务</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/depend.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/depend.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/depend.html">Depend</a></td>
+    <td><p>Determines which classfiles are out-of-date with respect to their
+     source, removing the classfiles of any other classes that depend on the
+     out-of-date classes, forcing the re-compile of the removed classfiles.
+     Typically used in conjunction with the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/javac.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/javac.html'" tppabs="http://ant.apache.org/manual/CoreTasks/javac.html">Javac</a> task.</p></td>
+
+  <tr valign="top">
+
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/javac.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/javac.html'" tppabs="http://ant.apache.org/manual/CoreTasks/javac.html">Javac</a></td>
+    <td><p>Compiles the specified source file(s) within the running
+     (Ant) VM, or in another VM if the <code>fork</code> attribute is
+     specified.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jspc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jspc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jspc.html">JspC</a></td>
+
+    <td><p>Runs the JSP compiler. It can be used to precompile JSP pages
+     for fast initial invocation of JSP pages, deployment on a server without
+     the full JDK installed, or simply to syntax-check the pages without
+     deploying them. The <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/javac.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/javac.html'" tppabs="http://ant.apache.org/manual/CoreTasks/javac.html">Javac</a> task
+     can be used to compile the generated Java source.
+     (For Weblogic JSP compiles,
+     see the <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/wljspc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/wljspc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/wljspc.html">Wljspc</a> task.)</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/netrexxc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/netrexxc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/netrexxc.html">NetRexxC</a></td>
+
+    <td><p>Compiles a
+     <a href="javascript:if(confirm('http://www2.hursley.ibm.com/netrexx  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www2.hursley.ibm.com/netrexx'" tppabs="http://www2.hursley.ibm.com/netrexx" target="_top">NetRexx</a>
+     source tree within the running (Ant) VM.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/rmic.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/rmic.html'" tppabs="http://ant.apache.org/manual/CoreTasks/rmic.html">Rmic</a></td>
+    <td><p>Runs the <i>rmic</i> compiler on the specified file(s).</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/wljspc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/wljspc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/wljspc.html">Wljspc</a></td>
+    <td><p>Compiles JSP pages using Weblogic's JSP compiler,
+     <i>weblogic.jspc</i>. (For non-Weblogic JSP compiles, see the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jspc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jspc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jspc.html">JspC</a> task.</p></td>
+  </tr>
+
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="deploy">Deployment Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/serverdeploy.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/serverdeploy.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/serverdeploy.html">ServerDeploy</a></td>
+    <td><p>Task to run a &quot;hot&quot; deployment tool for vendor-specific
+     J2EE server.
+    </p></td>
+
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="doc">Documentation Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/javadoc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/javadoc.html'" tppabs="http://ant.apache.org/manual/CoreTasks/javadoc.html">Javadoc/<i>Javadoc2</i></a></td>
+
+    <td><p>Generates code documentation using the <i>javadoc</i> tool.
+     The Javadoc2 task is deprecated; use the Javadoc task instead.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/stylebook.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/stylebook.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/stylebook.html">Stylebook</a></td>
+    <td><p>Executes the Apache Stylebook documentation generator.
+     Unlike the command-line version of this tool, all three arguments
+     are required to run the Stylebook task.</p></td>
+
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="ejb">EJB Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/ejb.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/ejb.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/ejb.html">EJB Tasks</a></td>
+    <td><p>(See the documentation describing the EJB tasks.)</p></td>
+
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="exec">Execution Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/ant.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/ant.html'" tppabs="http://ant.apache.org/manual/CoreTasks/ant.html">Ant</a></td>
+    <td><p>Runs Ant on a supplied buildfile, optionally
+     passing properties (with possibly new values).
+     This task can be used to build sub-projects.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/antcall.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/antcall.html'" tppabs="http://ant.apache.org/manual/CoreTasks/antcall.html">AntCall</a></td>
+    <td><p>Runs another target within the same buildfile, optionally
+     passing properties (with possibly new values).</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/apply.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/apply.html'" tppabs="http://ant.apache.org/manual/CoreTasks/apply.html">Apply/<i>ExecOn</i></a></td>
+
+    <td><p>Executes a system command. When the <code>os</code> attribute is
+     specified, the command is only executed when Ant is run on one
+     of the specified operating systems.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/dependset.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/dependset.html'" tppabs="http://ant.apache.org/manual/CoreTasks/dependset.html">Dependset</a></td>
+    <td><p>This task compares a set of source files with a set of target
+     files.  If any of the source files is newer than any of
+     the target files, all the target files are removed. </p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/exec.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/exec.html'" tppabs="http://ant.apache.org/manual/CoreTasks/exec.html">Exec</a></td>
+    <td><p>Executes a system command. When the <code>os</code> attribute
+     is specified, the command is only executed when Ant is run on one of
+     the specified operating systems.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/java.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/java.html'" tppabs="http://ant.apache.org/manual/CoreTasks/java.html">Java</a></td>
+    <td><p>Executes a Java class within the running (Ant) VM, or in
+     another VM if the <code>fork</code> attribute is specified.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/parallel.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/parallel.html'" tppabs="http://ant.apache.org/manual/CoreTasks/parallel.html">Parallel</a></td>
+
+    <td><p>A container task that can contain other Ant tasks.
+     Each nested task specified within the <code>&lt;parallel&gt;</code>
+     tag will be executed in its own thread.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/sequential.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/sequential.html'" tppabs="http://ant.apache.org/manual/CoreTasks/sequential.html">Sequential</a></td>
+    <td><p>A container task that can contain other Ant tasks.
+     The nested tasks are simply executed in sequence. Its primary use is
+     to support the sequential execution of a subset of tasks within
+     the <code>&lt;parallel&gt;</code> tag.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/sleep.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/sleep.html'" tppabs="http://ant.apache.org/manual/CoreTasks/sleep.html">Sleep</a></td>
+    <td><p> A task for suspending execution for a specified period of time.
+     Useful when a build or deployment process requires an interval between
+     tasks.</p></td>
+  </tr>
+
+  <tr valign="top">
+
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/subant.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/subant.html'" tppabs="http://ant.apache.org/manual/CoreTasks/subant.html">Subant</a></td>
+    <td><p> Calls a given target for all defined sub-builds. This is an extension of ant for bulk project execution.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/waitfor.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/waitfor.html'" tppabs="http://ant.apache.org/manual/CoreTasks/waitfor.html">Waitfor</a></td>
+    <td><p>Blocks execution until a set of specified conditions become true.
+     This task is intended to be used with the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/parallel.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/parallel.html'" tppabs="http://ant.apache.org/manual/CoreTasks/parallel.html">Parallel</a> task to synchronize
+     a set of processes.</p></td>
+
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="file">File Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/attrib.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/attrib.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/attrib.html">Attrib</a></td>
+    <td><p>Changes the permissions and/or attributes of a file or all
+    files inside the specified directories. Currently, it has effect
+    only under Windows.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/checksum.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/checksum.html'" tppabs="http://ant.apache.org/manual/CoreTasks/checksum.html">Checksum</a></td>
+    <td><p>Generates a checksum for a file or set of files. This task can
+     also be used to perform checksum verifications.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/chgrp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/chgrp.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/chgrp.html">Chgrp</a></td>
+
+    <td><p>Changes the group ownership of a file or all files inside
+    the specified directories. Currently, it has effect only under
+    Unix.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/chmod.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/chmod.html'" tppabs="http://ant.apache.org/manual/CoreTasks/chmod.html">Chmod</a></td>
+    <td><p>Changes the permissions of a file or all files inside the
+     specified directories. Currently, it has effect only under Unix.
+     The permissions are also UNIX style, like the arguments for the
+    <i>chmod</i> command.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/chown.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/chown.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/chown.html">Chown</a></td>
+    <td><p>Changes the owner of a file or all files inside the
+    specified directories. Currently, it has effect only under
+    Unix.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/concat.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/concat.html'" tppabs="http://ant.apache.org/manual/CoreTasks/concat.html">Concat</a></td>
+
+    <td><p>Concatenates multiple files into a single one or to Ant's
+     logging system.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/copy.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/copy.html'" tppabs="http://ant.apache.org/manual/CoreTasks/copy.html">Copy</a></td>
+    <td><p>Copies a file or Fileset to a new file or directory.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/copydir.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/copydir.html'" tppabs="http://ant.apache.org/manual/CoreTasks/copydir.html"><i>Copydir</i></a></td>
+    <td><p><i>Deprecated.</i>  Use the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/copy.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/copy.html'" tppabs="http://ant.apache.org/manual/CoreTasks/copy.html">Copy</a> task instead.</p></td>
+  </tr>
+
+  <tr valign="top">
+
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/copyfile.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/copyfile.html'" tppabs="http://ant.apache.org/manual/CoreTasks/copyfile.html"><i>Copyfile</i></a></td>
+    <td><p><i>Deprecated.</i>  Use the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/copy.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/copy.html'" tppabs="http://ant.apache.org/manual/CoreTasks/copy.html">Copy</a> task instead.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/delete.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/delete.html'" tppabs="http://ant.apache.org/manual/CoreTasks/delete.html">Delete</a></td>
+
+    <td><p>Deletes either a single file, all files and sub-directories
+     in a specified directory, or a set of files specified by one or more
+     <a href="javascript:if(confirm('http://hedong.3322.org/archives/CoreTypes/fileset.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/CoreTypes/fileset.html'" tppabs="http://hedong.3322.org/archives/CoreTypes/fileset.html">FileSet</a>s.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/deltree.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/deltree.html'" tppabs="http://ant.apache.org/manual/CoreTasks/deltree.html"><i>Deltree</i></a></td>
+    <td><p><i>Deprecated.</i>  Use the
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/delete.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/delete.html'" tppabs="http://ant.apache.org/manual/CoreTasks/delete.html">Delete</a> task instead.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/filter.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/filter.html'" tppabs="http://ant.apache.org/manual/CoreTasks/filter.html">Filter</a></td>
+    <td><p>Sets a token filter for this project, or reads multiple token
+     filters from a specified file and sets these as filters. Token filters
+     are used by all tasks that perform file-copying operations.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/fixcrlf.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/fixcrlf.html'" tppabs="http://ant.apache.org/manual/CoreTasks/fixcrlf.html">FixCRLF</a></td>
+
+    <td><p>Modifies a file to add or remove tabs, carriage returns, linefeeds,
+     and EOF characters.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/get.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/get.html'" tppabs="http://ant.apache.org/manual/CoreTasks/get.html">Get</a></td>
+    <td><p>Gets a file from a URL.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/mkdir.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/mkdir.html'" tppabs="http://ant.apache.org/manual/CoreTasks/mkdir.html">Mkdir</a></td>
+    <td><p>Creates a directory. Non-existent parent directories are created,
+     when necessary.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/move.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/move.html'" tppabs="http://ant.apache.org/manual/CoreTasks/move.html">Move</a></td>
+    <td><p>Moves a file to a new file or directory, or a set(s) of file(s) to
+     a new directory.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/patch.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/patch.html'" tppabs="http://ant.apache.org/manual/CoreTasks/patch.html">Patch</a></td>
+    <td><p>Applies a &quot;diff&quot; file to originals.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/rename.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/rename.html'" tppabs="http://ant.apache.org/manual/CoreTasks/rename.html"><i>Rename</i></a></td>
+    <td><p><i>Deprecated.</i>  Use the <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/move.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/move.html'" tppabs="http://ant.apache.org/manual/CoreTasks/move.html">Move</a>
+    task instead.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/renameextensions.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/renameextensions.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/renameextensions.html">
+     <i>RenameExtensions</i></a></td>
+    <td><p><i>Deprecated</i>. Use the <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/move.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/move.html'" tppabs="http://ant.apache.org/manual/CoreTasks/move.html">Move</a>
+     task with a <a href="javascript:if(confirm('http://hedong.3322.org/archives/CoreTypes/mapper.html  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/CoreTypes/mapper.html#glob-mapper'" tppabs="http://hedong.3322.org/archives/CoreTypes/mapper.html#glob-mapper">glob mapper</a>
+     instead.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/replace.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/replace.html'" tppabs="http://ant.apache.org/manual/CoreTasks/replace.html">Replace</a></td>
+    <td><p>Replace is a directory-based task for replacing the occurrence
+     of a given string with another string in selected file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/replaceregexp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/replaceregexp.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/replaceregexp.html">
+
+     ReplaceRegExp</a></td>
+    <td><p>Directory-based task for replacing the occurrence of a given
+     regular expression with a substitution pattern in a file or set of
+     files.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/sync.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/sync.html'" tppabs="http://ant.apache.org/manual/CoreTasks/sync.html">Sync</a></td>
+    <td><p>Synchronize two directory trees.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/tempfile.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/tempfile.html'" tppabs="http://ant.apache.org/manual/CoreTasks/tempfile.html">Tempfile</a></td>
+    <td><p>Generates a name for a new temporary file and sets the specified
+     property to that name.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/touch.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/touch.html'" tppabs="http://ant.apache.org/manual/CoreTasks/touch.html">Touch</a></td>
+
+    <td><p>Changes the modification time of a file and possibly creates it at
+     the same time.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="extensions">Java2 Extensions Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap>
+
+    <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jarlib-available.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jarlib-available.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jarlib-available.html">Jarlib-available</a></td>
+    <td><p>Check whether an extension is present in a FileSet or an
+      ExtensionSet. If the extension is present, the specified property is
+     set.</p>
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap>
+    <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jarlib-display.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jarlib-display.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jarlib-display.html">Jarlib-display</a></td>
+
+    <td><p>Display the &quot;Optional Package&quot; and
+      &quot;Package Specification&quot; information contained within the
+      specified jars.</p>
+    </td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap>
+
+    <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jarlib-manifest.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jarlib-manifest.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jarlib-manifest.html">Jarlib-manifest</a></td>
+    <td><p>Task to generate a manifest that declares all the dependencies
+      in manifest. The dependencies are determined by looking in the
+      specified path and searching for Extension/&quot;Optional Package&quot;
+      specifications in the manifests of the jars.</p>
+    </td>
+  </tr>
+
+  <tr valign="top">
+
+    <td nowrap>
+    <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jarlib-resolve.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jarlib-resolve.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jarlib-resolve.html">Jarlib-resolve</a></td>
+    <td><p>Try to locate a jar to satisfy an extension, and place the
+      location of the jar into the specified property.</p>
+    </td>
+  </tr>
+</table>
+
+<p></p>
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="log">Logging Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/recorder.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/recorder.html'" tppabs="http://ant.apache.org/manual/CoreTasks/recorder.html">Record</a></td>
+    <td><p>Runs a listener that records the logging output of the
+     build-process events to a file. Several recorders can exist
+     at the same time. Each recorder is associated with a file.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="mail">Mail Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/mail.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/mail.html'" tppabs="http://ant.apache.org/manual/CoreTasks/mail.html">Mail</a></td>
+    <td><p>A task to send SMTP email.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/mimemail.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/mimemail.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/mimemail.html">MimeMail</a></td>
+
+    <td><p><i>Deprecated</i>. Use the <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/mail.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/mail.html'" tppabs="http://ant.apache.org/manual/CoreTasks/mail.html">Mail</a>
+     task instead.</p></td>
+  </tr>
+
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+
+<a name="misc">Miscellaneous Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/defaultexcludes.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/defaultexcludes.html'" tppabs="http://ant.apache.org/manual/CoreTasks/defaultexcludes.html">Defaultexcludes</a></td>
+    <td><p>Modify the list of default exclude patterns from within
+    your build file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/echo.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/echo.html'" tppabs="http://ant.apache.org/manual/CoreTasks/echo.html">Echo</a></td>
+
+    <td><p>Echoes text to <code>System.out</code> or to a file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/fail.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/fail.html'" tppabs="http://ant.apache.org/manual/CoreTasks/fail.html">Fail</a></td>
+    <td><p>Exits the current build by throwing a BuildException,
+     optionally printing additional information.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/genkey.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/genkey.html'" tppabs="http://ant.apache.org/manual/CoreTasks/genkey.html">GenKey</a></td>
+    <td><p>Generates a key in keystore.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/input.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/input.html'" tppabs="http://ant.apache.org/manual/CoreTasks/input.html">Input</a></td>
+
+    <td><p>Allows user interaction during the build process by displaying a
+     message and reading a line of input from the console.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/script.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/script.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/script.html">Script</a></td>
+    <td><p>Executes a script in a
+     <a href="javascript:if(confirm('http://jakarta.apache.org/bsf/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/bsf/'" tppabs="http://jakarta.apache.org/bsf/"
+      target="_top">Apache BSF</a>-supported language.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/sound.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/sound.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/sound.html">Sound</a></td>
+    <td><p>Plays a sound file at the end of the build, according to whether
+     the build failed or succeeded.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/splash.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/splash.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/splash.html">Splash</a></td>
+
+    <td><p>Displays a splash screen.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/sql.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/sql.html'" tppabs="http://ant.apache.org/manual/CoreTasks/sql.html">Sql</a></td>
+    <td><p>Executes a series of SQL statements via JDBC to a database.
+     Statements can either be read in from a text file using the
+     <code>src</code> attribute, or from between the enclosing SQL
+     tags.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/taskdef.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/taskdef.html'" tppabs="http://ant.apache.org/manual/CoreTasks/taskdef.html">Taskdef</a></td>
+    <td><p>Adds a task definition to the current project, such that this
+     new task can be used in the current project.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/tstamp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/tstamp.html'" tppabs="http://ant.apache.org/manual/CoreTasks/tstamp.html">TStamp</a></td>
+
+    <td><p>Sets the <code>DSTAMP</code>, <code>TSTAMP</code>, and
+     <code>TODAY</code> properties in the current project, based on
+     the current date and time.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/typedef.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/typedef.html'" tppabs="http://ant.apache.org/manual/CoreTasks/typedef.html">Typedef</a></td>
+
+    <td><p>Adds a data-type definition to the current project, such that this
+     new type can be used in the current project.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/xmlvalidate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/xmlvalidate.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/xmlvalidate.html">XmlValidate</a></td>
+    <td><p>Checks that XML files are valid (or only well-formed). This task
+     uses the XML parser that is currently used by Ant by default, but any SAX1/2
+     parser can be specified, if needed.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="net">.NET Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/dotnet.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/dotnet.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/dotnet.html">.NET Tasks</a></td>
+    <td><p>(See the documentation describing the .NET tasks.)</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="preproc">Pre-process Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/antlr.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/antlr.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/antlr.html">ANTLR</a></td>
+    <td><p>Invokes the <a HREF="javascript:if(confirm('http://www.antlr.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.antlr.org/'" tppabs="http://www.antlr.org/" target="_top">ANTLR</a>
+     Translator generator on a grammar file.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/antstructure.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/antstructure.html'" tppabs="http://ant.apache.org/manual/CoreTasks/antstructure.html">AntStructure</a></td>
+    <td><p>Generates a DTD for Ant buildfiles that contains information
+     about all tasks currently known to Ant.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/icontract.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/icontract.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/icontract.html">IContract</a></td>
+
+    <td><p>Instruments Java classes using the
+     <a href="javascript:if(confirm('http://www.reliable-systems.com/tools/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.reliable-systems.com/tools/'" tppabs="http://www.reliable-systems.com/tools/">iContract</a> DBC
+     preprocessor. This task can generate a properties file for
+     <a href="javascript:if(confirm('http://home.sol.no/~hellesoy/icplus.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://home.sol.no/~hellesoy/icplus.html'" tppabs="http://home.sol.no/~hellesoy/icplus.html">iControl</a>,
+     a graphical user interface that lets you turn on/off assertions.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/import.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/import.html'" tppabs="http://ant.apache.org/manual/CoreTasks/import.html">Import</a></td>
+    <td><p>Import another build file and potentially override targets
+    in it with targets of your own.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/javacc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/javacc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/javacc.html">JavaCC</a></td>
+    <td><p>Invokes the
+     <a HREF="javascript:if(confirm('http://javacc.dev.java.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://javacc.dev.java.net/'" tppabs="http://javacc.dev.java.net/" target="_top">
+     JavaCC</a> compiler-compiler on a grammar file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/javah.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/javah.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/javah.html">Javah</a></td>
+    <td><p>Generates JNI headers from a Java class.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jjdoc.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jjdoc.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jjdoc.html">JJDoc</a></td>
+
+    <td><p>Invokes the <a href="javascript:if(confirm('http://javacc.dev.java.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://javacc.dev.java.net/'" tppabs="http://javacc.dev.java.net/">
+     JJDoc</a> documentation generator for the JavaCC compiler-compiler.
+     JJDoc takes a JavaCC parser specification and produces documentation
+     for the BNF grammar.  It can operate in three modes, determined by
+     command line options. This task only invokes JJDoc if the grammar file
+     is newer than the generated BNF grammar documentation.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/jjtree.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/jjtree.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/jjtree.html">JJTree</a></td>
+    <td><p>Invokes the <a href="javascript:if(confirm('http://javacc.dev.java.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://javacc.dev.java.net/'" tppabs="http://javacc.dev.java.net/">
+
+     JJTree</a> preprocessor for the JavaCC compiler-compiler. It inserts
+     parse-tree building actions at various places in the JavaCC source that
+     it generates. The output of JJTree is run through JavaCC to create the
+     parser. This task only invokes JJTree if the grammar file is newer than
+     the generated JavaCC file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/macrodef.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/macrodef.html'" tppabs="http://ant.apache.org/manual/CoreTasks/macrodef.html">Macrodef</a></td>
+    <td><p>Define a new task as a macro built-up upon other tasks.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/mparse.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/mparse.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/mparse.html">MParse</a></td>
+    <td><p>Invokes the Metamata <a HREF="javascript:if(confirm('http://www.metamata.com/parse.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.metamata.com/parse.html'" tppabs="http://www.metamata.com/parse.html">
+     MParse</a> compiler-compiler on a grammar file.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/native2ascii.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/native2ascii.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/native2ascii.html">
+     Native2Ascii</a></td>
+    <td><p>Converts files from native encodings to ASCII with escaped Unicode.
+      A common usage is to convert source files maintained in a native
+      operating system encoding to ASCII, prior to compilation.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/presetdef.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/presetdef.html'" tppabs="http://ant.apache.org/manual/CoreTasks/presetdef.html">Presetdef</a></td>
+
+    <td><p>Define a new task by instrumenting an existing task with
+    default values for attributes or child elements.</p>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/translate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/translate.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/translate.html">Translate</a></td>
+    <td><p>Identifies keys in files, delimited by special tokens, and
+     translates them with values read from resource bundles.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/style.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/style.html'" tppabs="http://ant.apache.org/manual/CoreTasks/style.html">Xslt/Style</a></td>
+    <td><p>Processes a set of documents via XSLT.</p></td>
+  </tr>
+
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+
+<a name="prop">Property Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/available.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/available.html'" tppabs="http://ant.apache.org/manual/CoreTasks/available.html">Available</a></td>
+    <td><p>Sets a property if a specified file, directory, class in the
+     classpath, or JVM system resource is available at runtime.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/basename.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/basename.html'" tppabs="http://ant.apache.org/manual/CoreTasks/basename.html">Basename</a></td>
+
+    <td><p>Sets a property to the last element of a specified path.
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/buildnumber.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/buildnumber.html'" tppabs="http://ant.apache.org/manual/CoreTasks/buildnumber.html">BuildNumber</a></td>
+    <td><p>Task that can be used to track build numbers.
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/condition.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/condition.html'" tppabs="http://ant.apache.org/manual/CoreTasks/condition.html">Condition</a></td>
+
+    <td><p>Sets a property if a certain condition holds true - this is a
+     generalization of <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/available.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/available.html'" tppabs="http://ant.apache.org/manual/CoreTasks/available.html">Available</a> and
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/uptodate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/uptodate.html'" tppabs="http://ant.apache.org/manual/CoreTasks/uptodate.html">Uptodate</a>.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/dirname.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/dirname.html'" tppabs="http://ant.apache.org/manual/CoreTasks/dirname.html">Dirname</a></td>
+    <td><p>Sets a property to the value of the specified file up to,
+     but not including, the last path element.
+  </tr>
+
+  <tr valign="top">
+    <td nowrap>
+    <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/echoproperties.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/echoproperties.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/echoproperties.html">Echoproperties</a><br>
+
+    </td>
+    <td><p>Lists the current properties.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/loadfile.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/loadfile.html'" tppabs="http://ant.apache.org/manual/CoreTasks/loadfile.html">LoadFile</a></td>
+    <td><p>Loads a file into a property.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/loadproperties.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/loadproperties.html'" tppabs="http://ant.apache.org/manual/CoreTasks/loadproperties.html">LoadProperties</a></td>
+    <td><p>Load a file's contents as Ant properties. This task is
+     equivalent to using <code>&lt;property file=&quot;...&quot;/&gt;</code>
+
+     except that it supports nested <code>&lt;filterchain&gt;</code> elements,
+     and it cannot be specified outside a target.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/pathconvert.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/pathconvert.html'" tppabs="http://ant.apache.org/manual/CoreTasks/pathconvert.html">PathConvert</a></td>
+    <td><p>Converts a nested path, path reference, filelist reference, or
+     fileset reference to the form usable on a specified platform and/or
+     to a list of items separated by the specified separator and stores
+     the result in the specified property.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/property.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/property.html'" tppabs="http://ant.apache.org/manual/CoreTasks/property.html">Property</a></td>
+    <td><p>Sets a property (by name and value), or set of properties
+     (from a file or resource) in the project.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/propertyfile.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/propertyfile.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/propertyfile.html">
+
+     PropertyFile</a></td>
+    <td><p>Creates or modifies property files. Useful when wanting to make
+     unattended modifications to configuration files for application
+     servers and applications. Typically used for things such as
+     automatically generating a build number and saving it to a build
+     properties file, or doing date manipulation.<p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/uptodate.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/uptodate.html'" tppabs="http://ant.apache.org/manual/CoreTasks/uptodate.html">Uptodate</a></td>
+    <td><p>Sets a property if a given target file is newer than a set of
+     source files.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/whichresource.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/whichresource.html'" tppabs="http://ant.apache.org/manual/CoreTasks/whichresource.html">Whichresource</a></td>
+    <td><p>Find a class or resource.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/xmlproperty.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/xmlproperty.html'" tppabs="http://ant.apache.org/manual/CoreTasks/xmlproperty.html">XmlProperty</a></td>
+
+    <td><p>Loads property values from a well-formed XML file.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="remote">Remote Tasks</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/ftp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/ftp.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/ftp.html">FTP</a></td>
+
+    <td><p>Implements a basic FTP client that can send, receive,
+     list, and delete files, and create directories.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/rexec.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/rexec.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/rexec.html">Rexec</a></td>
+    <td><p>Task to automate a remote rexec session.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/scp.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/scp.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/scp.html">Scp</a></td>
+    <td><p>Copy files to or from a remote server using SSH.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/setproxy.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/setproxy.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/setproxy.html">setproxy</a></td>
+    <td><p>Sets Java's web proxy properties, so that tasks and code run
+ in the same JVM can have through-the-firewall access to remote web sites.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/sshexec.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/sshexec.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/sshexec.html">Sshexec</a></td>
+    <td><p>Execute a command on a remote server using SSH.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/telnet.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/telnet.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/telnet.html">Telnet</a></td>
+
+    <td><p>Task to automate a remote <i>telnet</i> session. This task uses
+     nested <code>&lt;read&gt;</code> and <code>&lt;write&gt;</code> tags
+     to indicate strings to wait for and specify text to send.</p></td>
+  </tr>
+
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="scm">SCM(软件控制管理)任务</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/cvs.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/cvs.html'" tppabs="http://ant.apache.org/manual/CoreTasks/cvs.html">Cvs</a></td>
+    <td><p>处理从某个
+     <a href="javascript:if(confirm('http://www.cvshome.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cvshome.org/'" tppabs="http://www.cvshome.org/" target="_top">CVS</a>
+     仓库中取得的那些包/模块.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/changelog.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/changelog.html'" tppabs="http://ant.apache.org/manual/CoreTasks/changelog.html">CvsChangeLog</a></td>
+    <td><p>将某个
+     <a href="javascript:if(confirm('http://www.cvshome.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cvshome.org/'" tppabs="http://www.cvshome.org/" target="_top">CVS</a>
+     仓库中记录的变化情况生成一个xml格式的报告.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/cvspass.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/cvspass.html'" tppabs="http://ant.apache.org/manual/CoreTasks/cvspass.html">CVSPass</a></td>
+    <td><p>Adds entries to a .cvspass file. Adding entries to this file
+     has the same affect as a <i>cvs login</i> command.</p></td>
+  </tr>
+
+  <tr valign="top">
+
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/CoreTasks/cvstagdiff.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/CoreTasks/cvstagdiff.html'" tppabs="http://ant.apache.org/manual/CoreTasks/cvstagdiff.html">CvsTagDiff</a></td>
+    <td><p>Generates an XML-formatted report file of the changes between
+    two tags or dates recorded in a <a href="javascript:if(confirm('http://www.cvshome.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cvshome.org/'" tppabs="http://www.cvshome.org/"
+    target="_top">CVS</a> repository.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/clearcase.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/clearcase.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/clearcase.html">ClearCase</a></td>
+
+    <td><p>Tasks to perform the ClearCase cleartool <i>checkin</i>, <i>checkout</i>,
+     <i>uncheckout</i>, <i>update</i>, <i>lock</i>, <i>unlock</i>, <i>mklbtype</i>, <i>rmtype</i>, <i>mklabel</i>, and <i>mkbl</i> commands.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/ccm.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/ccm.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/ccm.html">Continuus/Synergy</a></td>
+    <td><p>Tasks to perform the Continuus <i>ccmcheckin</i>,
+     <i>ccmcheckout</i>, <i>ccmcheckintask</i>, <i>ccmreconfigure</i>, and
+     <i>ccmcreateTask</i> commands.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/vss.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/vss.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/vss.html">
+     Microsoft Visual SourceSafe</a></td>
+    <td><p>Tasks to perform the Visual SourceSafe <i>vssget</i>,
+     <i>vsslabel</i>, <i>vsshistory</i>, <i>vsscheckin</i>,
+     <i>vsscheckout</i>, <i>vssadd</i>, <i>vsscp</i>, and <i>vsscreate</i>
+
+     commands.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/perforce.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/perforce.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/perforce.html">Perforce</a></td>
+    <td><p>Tasks to perform the Perforce <i>p4sync</i>, <i>p4change</i>,
+     <i>p4edit</i>, <i>p4submit</i>, <i>p4have</i>, <i>p4label</i>,
+     <i>p4counter</i>, <i>p4reopen</i>, <i>p4revert</i>, and <i>p4add</i>
+
+     commands.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/pvcstask.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/pvcstask.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/pvcstask.html">Pvcs</a></td>
+    <td><p>Allows the user extract the latest edition of the source code
+     from a PVCS repository.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/sos.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/sos.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/sos.html">SourceOffSite</a></td>
+    <td><p>Tasks to perform the SourceOffSite <i>sosget</i>, <i>soslabel</i>,
+     <i>soscheckin</i>, and <i>soscheckout</i> commands.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/starteam.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/starteam.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/starteam.html">StarTeam</a></td>
+    <td><p>Tasks to perform the StarTeam <i>stcheckout</i>, <i>stcheckin</i>,
+     <i>stlabel</i>, and <i>stlist</i> commands. The
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/starteam.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/starteam.html#starteam'" tppabs="http://ant.apache.org/manual/OptionalTasks/starteam.html#starteam">Starteam</a> task
+     is deprecated; use
+     <a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/starteam.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/starteam.html#stcheckout'" tppabs="http://ant.apache.org/manual/OptionalTasks/starteam.html#stcheckout">STCheckout</a>
+
+     instead.</p></td>
+  </tr>
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="testing">测试类任务</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/junit.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/junit.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/junit.html">Junit</a></td>
+
+    <td><p>运行遵循<a href="javascript:if(confirm('http://www.junit.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.junit.org/'" tppabs="http://www.junit.org/">Junit</a>
+     测试框架的测试. 这个任务已经在JUnit 3.0 至
+     JUnit 3.7上测试通过; 它不能在低于 JUnit 3.0的版本上工作.</p></td>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/junitreport.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/junitreport.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/junitreport.html">JunitReport</a></td>
+    <td><p>将<a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/junit.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/junit.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/junit.html">Junit</a>任务产生的一个个xml文件合并起来，
+    然后对合并生成的文件使用一个样式单(stylesheet)来提供一个可读的测试结果报告.</p></td>
+
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/OptionalTasks/test.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/OptionalTasks/test.html'" tppabs="http://ant.apache.org/manual/OptionalTasks/test.html">Test</a></td>
+    <td><p>运行遵循 <code>org.apache.testlet</code>
+     框架的单元测试.</p></td>
+  </tr>
+
+</table>
+
+<p></p>
+<table width="100%" border="0" cellpadding="4" cellspacing="0">
+<th align="left">
+<font size="+0" face="arial,helvetica,sanserif">
+<a name="vaj">Visual Age for Java任务</a></th>
+</font>
+<font size="-1" face="arial,helvetica,sanserif">
+<th align="right"><a href="#top">[Back to top]</a></th>
+</font>
+</table>
+<table width="100%" border="1" cellpadding="4" cellspacing="0">
+  <tr valign="top">
+
+    <th nowrap>任务名称</th>
+    <th>描述</th>
+  </tr>
+
+  <tr valign="top">
+    <td nowrap><a href="javascript:if(confirm('http://ant.apache.org/manual/Integration/VAJAntTool.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ant.apache.org/manual/Integration/VAJAntTool.html'" tppabs="http://ant.apache.org/manual/Integration/VAJAntTool.html">
+     Visual Age for Java Tasks</a></td>
+    <td><p>(参见Visual Age for Java任务的文档.)</p></td>
+
+  </tr>
+</table>
+
+
+<span class="posted">Posted by Hilton at January  1, 2004 05:33 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=424.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=424" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="424" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

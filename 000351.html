@@ -1,0 +1,472 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: TrackBack技术规范</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000350.html" tppabs="http://hedong.3322.org/archives/000350.html" title="TrackBack新手指南(编译)" />
+
+<link rel="next" href="000352.html" tppabs="http://hedong.3322.org/archives/000352.html" title="自动化功能测试之工具选择和实施" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000351.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/246"
+    dc:title="TrackBack技术规范"
+    dc:identifier="http://hedong.3322.org/archives/000351.html"
+    dc:subject="MtUsage"
+    dc:description="　　原文是TrackBack Technical Specification,此处是译文。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-07T11:28:27+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000351.html">
+<dc:title>TrackBack技术规范</dc:title>
+<dc:description>　　原文是TrackBack Technical Specification,此处是译文。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-07T11:28:27+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000350.html" tppabs="http://hedong.3322.org/archives/000350.html">&laquo; TrackBack新手指南(编译)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000352.html" tppabs="http://hedong.3322.org/archives/000352.html">自动化功能测试之工具选择和实施 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 07, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">TrackBack技术规范</h3>
+
+　　原文是<a href="javascript:if(confirm('http://www.movabletype.org/docs/mttrackback.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/docs/mttrackback.html'" tppabs="http://www.movabletype.org/docs/mttrackback.html">TrackBack Technical Specification</a>,此处是译文。
+
+<a name="more"></a>
+<h3>TrackBack 技术规范</h3>
+
+
+<a name="__index__"></a>
+
+<ul>
+
+	<li><a href="#name">名称</a></li>
+	<li><a href="#authors">作者</a></li>
+	<li><a href="#version">版本</a></li>
+	<li><a href="#description">描述</a></li>
+	<li><a href="#sending a trackback ping">发送一个TrackBack Ping</a></li>
+	<li><a href="#retrieving trackback pings">取回TrackBack Pings</a></li>
+	<li><a href="#autodiscovery of trackback ping urls">TrackBack Ping URLs的自动发现</a></li>
+	<li><a href="#examples">例子</a></li>
+	<ul>
+
+		<li><a href="#sample trackback implementation">TrackBack实现例程</a></li>
+		<li><a href="#sample autodiscovery">自动发现的例程</a></li>
+	</ul>
+
+	<li><a href="#changes">变动</a></li>
+	<ul>
+
+		<li><a href="#1.1 (october 10, 2002)">1.1 (2002年10月10日)</a></li>
+		<li><a href="#1.0 (august 28, 2002)">1.0 (2002年8月28日)</a></li>
+	</ul>
+
+	<li><a href="#credits">致谢</a></li>
+</ul>
+<hr size="1" color="#CCCCCC">
+<p>
+<h1><a name="name"></a>名称</h1>
+<p>mttrackback - TrackBack 技术规范</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="authors"></a>作者</h1>
+<p>Benjamin and Mena Trott, movabletype.org</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="version"></a>版本</h1>
+<p>1.1</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="description"></a>描述</h1>
+<p>本文描述了TrackBack, 一个点对点通信和网站间互相通告的框架. TrackBack的中心思想是<i>TrackBack ping</i>的概念, 从本质上讲，<i>TrackBack ping</i>是一个请求，通告“资源A与资源B相关，或有链接到资源B.” 一个TrackBack “资源” 用一个<i>TrackBack Ping URL</i>表示, 这是一个标准的URI.</p>
+<p>利用TrackBack,站点间可以互相通告相关的资源. 例如，如果博客(weblogger)甲希望通知博客乙他写了一些有趣的/相关的/骇人听闻的文字，甲发送一个TrackBack ping给乙。这完成了两件事：</p>
+<ol>
+<li>乙能自动列出那些引用他的某篇文章的网站，到他网站的访问者能读到网络上所有与此文相关的文章，包括甲的文章。
+<p></p>
+<li>
+<p>ping在他的文章和你的文章间提供了一种稳固的、直接的链接，而不是那种依赖于外部行为（某人点击那个连接）的非直接连接(如反向连接referrer)。</p></ol>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="sending a trackback ping"></a>发送一个TrackBack Ping</h1>
+<p>TrackBack使用REST(Representational State Transfer,http://www.ics.uci.edu/~fielding/pubs/dissertation/top.htm)模式工作, 请求通过标准的HTTP调用传送。要发送一个TrackBack ping, 客户端向服务器端发送一个标准的HTTP请求，然后接收一个简单XML格式的应答(详见下述).</p>
+<p>在TrackBack系统中，接收TrackBack pings的URL叫TrackBack Ping URL.一个典型的TrackBack Ping URL如<i><a href="javascript:if(confirm('http://www.foo.com/mt-tb.cgi/5  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.foo.com/mt-tb.cgi/5'" tppabs="http://www.foo.com/mt-tb.cgi/5">http://www.foo.com/mt-tb.cgi/5</a></i>, 其中<code>5</code>是TrackBack ID. 服务器端可以用任何有意义的格式来定义TrackBack Ping URL;客户端不应该只限于特定的格式.</p>
+<p>为了发送一个ping, 客户端发送一个POST格式的HTTP请求到TrackBack Ping URL. 请求的内容的content type应是<code>application/x-www-form-urlencoded</code>. 例如, 到<i><a href="javascript:if(confirm('http://www.foo.com/mt-tb.cgi/5  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.foo.com/mt-tb.cgi/5'" tppabs="http://www.foo.com/mt-tb.cgi/5">http://www.foo.com/mt-tb.cgi/5</a></i> 的ping请求可能看起来象:</p>
+<pre>POST http://www.foo.com/mt-tb.cgi/5
+Content-Type: application/x-www-form-urlencoded
+title=Foo+Bar&amp;url=http://www.bar.com/&amp;excerpt=My+Excerpt&amp;blog_name=Foo
+</pre><p>注意: 在旧版本的TrackBack规范中，ping是用GET格式的HTTP请求发送的. 这种方式将不再支持; 2003年1月发布的Movable Type系统将会去掉对GET方式的支持。.</p>
+<p>可能的参数包括:</p>
+<ul>
+<li><strong><a name="item_title"></a>title</strong><br>
+文章的标题
+<p></p>
+<li><strong><a name="item_excerpt"></a>excerpt</strong><br>
+文章的摘要. 在Movable Type系统中, 如果摘录信息超过255个字符将会被截断为252个字符, 并在后面增加
+<code>...</code>三个字符.
+<p></p>
+<li><strong><a name="item_url"></a>url</strong><br>
+文章的永久连接. 象其它永久连接一样，这个连接应可能准确地在页面中定位文章的入口，因有疑问时这个链接会用到。
+<p></p>
+<li><strong><a name="item_blog_name"></a>blog_name</strong><br>
+发表文章的blog的名称。
+<p></p></ul>
+<p>在Movable Type系统中, 在上述的参数中只有 <i>url</i> 是必须的. 如果 <i>title</i> 没有提供，,  <i>url</i> 的值将被用作标题.</p>
+<p>对上述请求的应答信息，以XML格式编排，从而能实现应用层的错误检查。(HTTP层的错误将会这样返回--例如，如果TrackBack URL 所指的资源在服务器上已经不存在，状态码<code>404</code> 将会返回).</p>
+<p>一个成功的ping将会返如下应答:</p>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
+&lt;response&gt;
+&lt;error&gt;0&lt;/error&gt;
+&lt;/response&gt;
+</pre><p>一个失败的ping将会返如下应答:</p>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
+&lt;response&gt;
+&lt;error&gt;1&lt;/error&gt;
+&lt;message&gt;The error message&lt;/message&gt;
+&lt;/response&gt;
+</pre><p>当然，应用程序应该允许将来根据需要增加字段，但应答的 XML 结构保持不变.</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="retrieving trackback pings"></a>取回TrackBack Pings</h1>
+<p>要取回某个特定TrackBack Ping URL收到的ping,向它发一个GET格式的HTTP请求，请求字符串(query string)是
+<i>?__mode=rss</i>. 在规范的将来修订中，--一旦从POST转换到GET的过渡期结束--这将非常简单，向TrackBack Ping URL发送一个GET请求，将返回一列ping.</p>
+<p>一个GET请求样例如下：:</p>
+<pre>GET http://192.168.1.103/mt/mt-tb.cgi/3?__mode=rss
+</pre><p>对此请求的应答，要么返回如上所述的错误信息，要么返回一列用RSS规范格式标志的TrackBack pings, 整个应答内容的覆巢无根元素是 <code>&lt;response&gt;</code> .</p>
+<p>例如:</p>
+<pre>&lt;?xml version=&quot;1.0&quot; encoding=&quot;iso-8859-1&quot;?&gt;
+&lt;response&gt;
+&lt;error&gt;0&lt;/error&gt;
+&lt;rss version=&quot;0.91&quot;&gt;&lt;channel&gt;
+&lt;title&gt;TrackBack Test&lt;/title&gt;
+&lt;link&gt;http://this.is/the/trackback/item/link/&lt;/link&gt;
+&lt;description&gt;Description of the TrackBack item&lt;/description&gt;
+&lt;language&gt;en-us&lt;/language&gt;
+&lt;item&gt;
+&lt;title&gt;TrackBack Demo&lt;/title&gt;
+&lt;link&gt;http://this.is/the/permalink/&lt;/link&gt;
+&lt;description&gt;Excerpt&lt;/description&gt;
+&lt;/item&gt;
+&lt;/channel&gt;
+&lt;/rss&gt;&lt;/response&gt;
+</pre><p>在标签<code>&lt;rss&gt;</code> 和 <code>&lt;/rss&gt;</code> 之间的部分，都是真实的RSS数据; 剩余的部分都是应答内容的包装，处理时可以忽略.</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="autodiscovery of trackback ping urls"></a>TrackBack Ping URLs的自动发现</h1>
+<p>TrackBack客户端需要一种方法，来确实一个特定的URL或blog文章的TrackBack Ping URL. 服务器在生成页面时应内嵌RDF; RDF 描述关于该文章的元数据，允许客户端自动发现TrackBack Ping URL.</p>
+<p>RDF样例如下：:</p>
+<pre>&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+         xmlns:dc=&quot;http://purl.org/dc/elements/1.1/&quot;
+         xmlns:trackback=&quot;http://madskills.com/public/xml/rss/module/trackback/&quot;&gt;
+&lt;rdf:Description
+    rdf:about=&quot;http://www.foo.com/archive.html#foo&quot;
+    dc:identifer=&quot;http://www.foo.com/archive.html#foo&quot;
+    dc:title=&quot;Foo Bar&quot;
+    trackback:ping=&quot;http://www.foo.com/tb.cgi/5&quot; /&gt;
+&lt;/rdf:RDF&gt;
+</pre><p>注意: 由目前的检查器将嵌入XHTML页面的RDF信息视为不合规范，要通过检查需要将上述的RDF信息用注释符括起来:</p>
+<pre>&lt;!--
+&lt;rdf:RDF xmlns:rdf=&quot;http://www.w3.org/1999/02/22-rdf-syntax-ns#&quot;
+...
+&lt;/rdf:RDF&gt;
+--&gt;
+</pre><p>这不是一个完美的解决方案，但是作为一个临时的应对措施它可正常工作.</p>
+<p> 其中的<i>dc:</i> 元素是标准的Dublin Core 元素;  <i>trackback:ping</i>元素来自RSS 1.0/2.0的TrackBack模块，参见<i><a href="javascript:if(confirm('http://madskills.com/public/xml/rss/module/trackback/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://madskills.com/public/xml/rss/module/trackback/'" tppabs="http://madskills.com/public/xml/rss/module/trackback/">http://madskills.com/public/xml/rss/module/trackback/</a></i>.</p>
+<p>给定一个URL <i>my_url</i>, 客户按下列步聚来寻找TrackBack Ping URL:</p>
+<ol>
+<li>
+发送GET格式的HTTP请求，取回 <i>my_url</i>对应的页面的内容.
+<p></p>
+<li>
+扫描页面内容，查找内嵌的RDF. 页面中可能嵌有多处RDF--客户端要找到 <i>dc:identifier</i>等于<i>my_url</i>的那块RDF信息.
+<p></p>
+<li>
+从RDF块中抽取<i>trackback:ping</i>值，这就是TrackBack Ping URL.
+<p></p></ol>
+<p>客户端一旦确实了TrackBack Ping URL, 它就可以发送TrackBack ping了 (参见 <a href="#sending a trackback ping">发送 TrackBack Ping</a>).</p>
+<p>自动发现的代码样例参见 <a href="#examples">例子</a>.</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="examples"></a>例子</h1>
+<p>
+<h2><a name="sample trackback implementation"></a>TrackBack实现样例</h2>
+<p>为帮助那些有远见的开发人员在他们的系统中实现 TrackBack , 我们发布了一个TrackBack的独立的实现，它不依赖于Movable Type系统. 它可接收通过HTTP请求发送来的ping, 将ping存放在本地的文件系统中, 且可以返回某个特定TrackBack项(文章)的一列RDF格式的ping. 如果你要求，它还可以静态地产生 RSS文件. 例如，要将最近的15个ping列在工具条，这项功能就会泒上用场。</p>
+<p>这个独立的TrackBack实现可从<i><a href="javascript:if(confirm('http://www.movabletype.org/downloads/tb-standalone.tar.gz  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/downloads/tb-standalone.tar.gz'" tppabs="http://www.movabletype.org/downloads/tb-standalone.tar.gz">http://www.movabletype.org/downloads/tb-standalone.tar.gz</a></i>下载.</p>
+<p>它的发行遵循 Artistic License. Artistic License条款的描述在 <i><a href="javascript:if(confirm('http://www.perl.com/language/misc/Artistic.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.perl.com/language/misc/Artistic.html'" tppabs="http://www.perl.com/language/misc/Artistic.html">http://www.perl.com/language/misc/Artistic.html</a></i>.</p>
+<p>它的安装和使用指令说明在<i><a href="javascript:if(confirm('http://www.movabletype.org/docs/tb-standalone.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/docs/tb-standalone.html'" tppabs="http://www.movabletype.org/docs/tb-standalone.html">http://www.movabletype.org/docs/tb-standalone.html</a></i>.</p>
+<p>
+<h2><a name="sample autodiscovery"></a>自动发现的代码样例</h2>
+<pre>use LWP::UserAgent;
+sub discover_tb {
+    my $url = shift;
+    my $ua = LWP::UserAgent-&gt;new;
+    $ua-&gt;agent('TrackBack/1.0');  
+    $ua-&gt;parse_head(0);   ## So we don't need HTML::HeadParser
+    $ua-&gt;timeout(15);
+    ## 1. Send a GET request to retrieve the page contents.
+    my $req = HTTP::Request-&gt;new(GET =&gt; $url);
+    my $res = $ua-&gt;request($req);
+    return unless $res-&gt;is_success;
+    ## 2. Scan te page contents for embedded RDF.
+    my $c = $res-&gt;content;
+    (my $url_no_anchor = $url) =~ s/#.*$//;
+    my $item;
+    while ($c =~ m!(&lt;rdf:RDF.*?&lt;/rdf:RDF&gt;)!sg) {
+        my $rdf = $1;
+        my($perm_url) = $rdf =~ m!dc:identifier=&quot;([^&quot;]+)&quot;!;  
+        next unless $perm_url eq $url || $perm_url eq $url_no_anchor;
+        ## 3. Extract the trackback:ping value from the RDF.
+        ## We look for 'trackback:ping', but fall back to 'about'
+        if ($rdf =~ m!trackback:ping=&quot;([^&quot;]+)&quot;!) {
+            return $1;
+        } elsif ($rdf =~ m!about=&quot;([^&quot;]+)&quot;!) {
+            return $1;
+        }
+    }
+}
+</pre><p>这段Perl定义了一个过程 <i>discover_tb</i>. 给定一个 URL, 它会试图找到与此URL相对应的TrackBack Ping URL. 如果找到了，它会返回 TrackBack Ping URL; 否则返回 <code>undef</code>.</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="changes"></a>变动</h1>
+<p>
+<h2><a name="1.1 (october 10, 2002)"></a>1.1 (2002年10月10日)</h2>
+<ul>
+<li>
+在此版本中，TrackBack pings 的发送用 POST 格式的HTTP请求代替 GET格式的请求.旧版本的GET方式将不在支持，MT中从2003年1月起也不再提供对GET方式的支持。
+<p></p>
+<li>
+在RDF中，现在TrackBack Ping URL应在<i>trackback:ping</i> 元素中保存, 而不是原先的 <i>rdf:about</i>元素.
+<p></p>
+<li>
+修改了 TrackBack Ping URL的样例的格式，用 PATH_INFO 代替了请求串(query string).
+<p></p>
+<li>
+内嵌的供自动发现使用的RDF不再导致页面检查时出错。
+<p></p>
+<li>
+增加了自动发现的样例代码.
+<p></p></ul>
+<p>
+<h2><a name="1.0 (august 28, 2002)"></a>1.0 (2002年8月28日)</h2>
+<p>规范首次发布.</p>
+<p>
+<hr size="1" color="#CCCCCC">
+<h1><a name="credits"></a>致谢</h1>
+<p>感谢Paul Prescod和其他朋友，他们的指导让TrackBack更符合REST.</p>
+
+<hr size="1" color="#CCCCCC">
+<span class="copyright">Copyright &copy; 2001, 2002 Ben Trott and Mena Trott. All Rights Reserved.</span>
+
+
+<span class="posted">Posted by Hilton at November  7, 2003 11:28 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=351.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=351" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>看的非常犀利糊涂，不知道在程序里如何实现 </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://mytz.net/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mytz.net/blog/'" tppabs="http://mytz.net/blog/">kimjooy</a> at November 14, 2003 09:55 AM</span>
+</div>
+<div class="comments-body">
+<p>看了你的这两篇教材，开始多少对trackback有些了解了！<br />
+谢谢你的共享！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://myblog.net163.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://myblog.net163.com/'" tppabs="http://myblog.net163.com/">tsingove</a> at November 13, 2003 01:14 PM</span>
+</div>
+<div class="comments-body">
+<p>　　从这个规范的定义来看，trackback系统是在两个支持tb的两个web服务器之间互相传递信息的一套机制。传递的信息有两类：<br />
+　　一是引用信息，以ping发送，数据包中可以含有 title、excerpt、url、blog_name等内容，其中只有url信息是必须的。这类信息，主要是想告诉对方，我这儿有一篇什么样的文章（如标题为何，摘要是何，URL是何等）引用了你的哪一篇文章（POST信息到的目标URL，已经指定了是哪篇文章了）。<br />
+　　另一类，是从某个站点取回这个站点的某篇文章收到的所有的引用。有了这个功能，你就可以找到所有与你兴趣相投的文章了（只少它们都引用了这篇文章）。</p>
+
+<p>　　至于当你收到某人发来的ping时，如何处理，要不要显示，显示哪些内容，要不要分类，要不要计数，则是个人的自由，规则没有作规定。<br />
+　　不过有一点，就是没有必要分析referer，一是因为这个ping包中本身就有url信息，二是这个请求是web服务器发出的，请求头里可能没有referer信息。</p>
+
+<p>　　还有一点，就是从规范中可知，trackback系统中，每篇文章有两个URI，一个正常的可以访问页面的URL，另一个用来接收ping的URL（即所谓trackback ping url)，至于后一种URL如何设计，规范也没作规定，只要这个URL中的信息能区别出是那篇文章，即可。</p>
+
+<p>　　以上是我的理解，供参考。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  9, 2003 11:57 AM</span>
+</div>
+<div class="comments-body">
+<p>TRACK BACK 系统:是不是就是真对每篇文章（URL）设置独立的计数器，并且GROUP BY REFERER的域名？<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">Che Dong</a> at November  9, 2003 11:27 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="351" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,524 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Junit学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000222.html" tppabs="http://hedong.3322.org/archives/000222.html" title="海上&lt;del&gt;升&lt;/del&gt;&lt;ins&gt;生&lt;/ins&gt;明月，天涯共此时！" />
+
+<link rel="next" href="000225.html" tppabs="http://hedong.3322.org/archives/000225.html" title="PowerPoint的一个问题" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000224.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/149"
+    dc:title="Junit学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000224.html"
+    dc:subject="ItTech"
+    dc:description="　　JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）,供Java开发人员编写单元测试之用。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-12T14:42:10+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000224.html">
+<dc:title>Junit学习笔记</dc:title>
+<dc:description>　　JUnit是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）,供Java开发人员编写单元测试之用。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-12T14:42:10+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000222.html" tppabs="http://hedong.3322.org/archives/000222.html">&laquo; 海上<del>升</del><ins>生</ins>明月，天涯共此时！</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000225.html" tppabs="http://hedong.3322.org/archives/000225.html">PowerPoint的一个问题 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 12, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Junit学习笔记</h3>
+
+<p><img alt="junitlogo.gif" src="junitlogo.gif" tppabs="http://hedong.3322.org/archives/pics/junitlogo.gif" width="224" height="71" border="0" align="left"/>　　<a href="javascript:if(confirm('http://www.junit.org/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.junit.org/index.htm'" tppabs="http://www.junit.org/index.htm" title="Junit Home page">JUnit</a>是由 Erich Gamma 和 Kent Beck 编写的一个回归测试框架（regression testing framework）,供Java开发人员编写单元测试之用。</p>
+
+<a name="more"></a>
+<p><strong>1、概述</strong><br />
+　　Junit测试是程序员测试，即所谓白盒测试，因为程序员知道被测试的软件如何（How）完成功能和完成什么样（What）的功能。<br />
+　　Junit本质上是一套框架，即开发者制定了一套条条框框，遵循这此条条框框要求编写测试代码，如继承某个类，实现某个接口，就可以用Junit进行自动测试了。<br />
+　　由于Junit相对独立于所编写的代码，可以测试代码的编写可以先于实现代码的编写，XP 中推崇的 test first design的实现有了现成的手段：用Junit写测试代码，写实现代码，运行测试，测试失败，修改实现代码，再运行测试，直到测试成功。以后对代码的修改和优化，运行测试成功，则修改成功。<br />
+　　Java 下的 team 开发，采用 cvs(版本控制) + ant(项目管理) + junit(集成测试) 的模式时，通过对ant的配置，可以很简单地实现测试自动化。</p>
+
+<p>　　对不同性质的被测对象，如Class，Jsp，Servlet，Ejb等，Junit有不同的使用技巧，以后慢慢地分别讲叙。以下以Class测试为例讲解，除非特殊说明。</p>
+
+<p><strong>2、下载安装</strong><br />
+<img alt="junit-alltest.gif" src="junit-alltest.gif" tppabs="http://hedong.3322.org/archives/pics/junit-alltest.gif" width="474" height="504" border="0" align="right"/><ul><li>去<a href="javascript:if(confirm('http://www.junit.org/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.junit.org/index.htm'" tppabs="http://www.junit.org/index.htm">Junit主页</a>下载最新版本3.8.1程序包junit-3.8.1.zip</li><br />
+<li>用winzip或unzip将junit-3.8.1.zip解压缩到某一目录名为$JUNITHOME</li><br />
+<li>将junit.jar和$JUNITHOME/junit加入到CLASSPATH中，加入后者只因为测试例程在那个目录下。</li><br />
+<li><ins>注意不要将junit.jar放在jdk的extension目录下</ins></li><br />
+<li>运行命令,结果如右图。<div class="code"> java junit.swingui.TestRunner junit.samples.AllTests</div></li></ul></p>
+
+<p><strong>3、Junit架构</strong><br />
+　　下面以Money这个类为例进行说明。<div class="code">public class Money {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;int&nbsp;fAmount;//余额<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;String&nbsp;fCurrency;//货币类型</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Money(int&nbsp;amount,&nbsp;String&nbsp;currency)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fAmount=&nbsp;amount;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fCurrency=&nbsp;currency;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;int&nbsp;amount()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fAmount;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;String&nbsp;currency()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;fCurrency;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Money&nbsp;add(Money&nbsp;m)&nbsp;{//加钱<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;Money(amount()+m.amount(),&nbsp;currency());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;boolean&nbsp;equals(Object&nbsp;anObject)&nbsp;{//判断钱数是否相等<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(anObject&nbsp;instanceof&nbsp;Money)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;aMoney=&nbsp;(Money)anObject;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;aMoney.currency().equals(currency())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&&&nbsp;amount()&nbsp;==&nbsp;aMoney.amount();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;false;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}&nbsp;&nbsp;&nbsp;&nbsp;<br />
+}</div><br />
+　　Junit本身是围绕着两个<acronym title="design pattern">设计模式</acronym>来设计的：<acronym title="command pattern">命令模式</acronym>和<acronym title="composite pattern">集成模式</acronym>.<br />
+<ul><li>命令模式<br />
+　　利用TestCase定义一个子类，在这个子类中生成一个被测试的对象，编写代码检测某个<aconym title="method">方法</acronym>被调用后对象的状态与预期的状态是否一致，进而<acronym title="assert">断言</acronym>程序代码有没有bug。<br />
+　　当这个子类要测试不只一个<acronym title="method">方法</acronym>的实现代码时，可以先建立<acronym title="fixture">测试基础</acronym>，让这些测试在同一个基础上运行，一方面可以减少每个测试的初始化，而且可以测试这些不同方法之间的联系。<br />
+　　例如，我们要测试Money的Add方法，可以如下:<div class="code">public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{&nbsp;//<ins>TestCase的子类</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testAdd()&nbsp;{	//<ins>把测试代码放在testAdd中</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m12CHF=&nbsp;new&nbsp;Money(12,&nbsp;"CHF");&nbsp;&nbsp;//<ins>本行和下一行进行一些初始化</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m14CHF=&nbsp;new&nbsp;Money(14,&nbsp;"CHF");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;expected=&nbsp;new&nbsp;Money(26,&nbsp;"CHF");//<ins>预期的结果</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;result=&nbsp;m12CHF.add(m14CHF);&nbsp;&nbsp;&nbsp;&nbsp;//<ins>运行被测试的方法</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(expected.equals(result));&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//<ins>判断运行结果是否与预期的相同</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+　　如果测试一下equals方法，用类似的代码，如下：<div class="code">public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{&nbsp;//<ins>TestCase的子类</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testEquals()&nbsp;{&nbsp;//<ins>把测试代码放在testEquals中</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m12CHF=&nbsp;new&nbsp;Money(12,&nbsp;"CHF");&nbsp;//<ins>本行和下一行进行一些初始化</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;m14CHF=&nbsp;new&nbsp;Money(14,&nbsp;"CHF");</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!m12CHF.equals(null));//<ins>进行不同情况的测试</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(m12CHF,&nbsp;m12CHF);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(m12CHF,&nbsp;new&nbsp;Money(12,&nbsp;"CHF"));&nbsp;//&nbsp;(1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!m12CHF.equals(m14CHF));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+　　当要同时进行测试Add和equals方法时，可以将它们的各自的初始化工作，合并到一起进行，形成测试基础,用setUp初始化，用tearDown清除。如下：<div class="code">public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{//<ins>TestCase的子类</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Money&nbsp;f12CHF;//<ins>提取公用的对象</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Money&nbsp;f14CHF;&nbsp;&nbsp;&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;void&nbsp;setUp()&nbsp;{//<ins>初始化公用对象</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f12CHF=&nbsp;new&nbsp;Money(12,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f14CHF=&nbsp;new&nbsp;Money(14,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testEquals()&nbsp;{//测试equals方法的正确性<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!f12CHF.equals(null));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(f12CHF,&nbsp;f12CHF);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(f12CHF,&nbsp;new&nbsp;Money(12,&nbsp;"CHF"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!f12CHF.equals(f14CHF));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testSimpleAdd()&nbsp;{//测试add方法的正确性<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;expected=&nbsp;new&nbsp;Money(26,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;result=&nbsp;f12CHF.add(f14CHF);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(expected.equals(result));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+　　将以上三个中的任一个TestCase子类代码保存到名为MoneyTest.java的文件里，并在文件首行增加<div class="code">import junit.framework.*;</div>，都是可以运行的。关于Junit运行的问题很有意思，下面单独说明。<br />
+　　上面为解释概念“测试基础(fixture)”，引入了两个对两个方法的测试。命令模式与集成模式的本质区别是，前者一次只运行一个测试。</li><br />
+<li>集成模式<br />
+　　利用TestSuite可以将一个TestCase子类中所有test***()方法包含进来一起运行，还可将TestSuite子类也包含进来，从而行成了一种等级关系。可以把TestSuite视为一个容器，可以盛放TestCase中的test***()方法，它自己也可以嵌套。这种体系架构，非常类似于现实中程序一步步开发一步步集成的现况。<br />
+　　对上面的例子，有代码如下：<div class="code">public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{//TestCase的子类<br />
+&nbsp;&nbsp;&nbsp;&nbsp;....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;Test&nbsp;suite()&nbsp;{//<ins>静态Test</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestSuite&nbsp;suite=&nbsp;new&nbsp;TestSuite();//<ins>生成一个TestSuite</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suite.addTest(new&nbsp;MoneyTest("testEquals"));&nbsp;//<ins>加入测试方法</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;suite.addTest(new&nbsp;MoneyTest("testSimpleAdd"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;suite;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+　　从Junit2.0开始，有列简捷的方法:<div class="code">public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{//TestCase的子类<br />
+&nbsp;&nbsp;&nbsp;&nbsp;....<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;Test&nbsp;suite()&nbsp;{<ins>静态Test</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;new&nbsp;TestSuite(MoneyTest.class);&nbsp;//<ins>以类为参数</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+　　TestSuite见嵌套的例子，在后面应用案例中有。<br />
+　　</li></ul></p>
+
+<p><strong>4、测试代码的运行</strong><br />
+　　先说最常用的集成模式。<br />
+　　测试代码写好以后，可以相应的类中写main方法，用java命令直接运行；也可以不写main方法，用Junit提供的运行器运行。Junit提供了textui,awtui和swingui三种运行器。<br />
+　　以前面第2步中的AllTests运行为例，可有四种：<div class="code">java junit.textui.TestRunner junit.samples.AllTests<br />
+java junit.awtui.TestRunner junit.samples.AllTests<br />
+java junit.swingui.TestRunner junit.samples.AllTests<br />
+java junit.samples.AllTests</div><br />
+　　main方法中一般也都是简单地用Runner调用suite()，当没有main时，TestRunner自己以运行的类为参数生成了一个TestSuite.<br />
+　　<br />
+　　对于命令模式的运行，有两种方法。<br />
+<ul><li>静态方法<br />
+<div class="code">TestCase test= new MoneyTest("simple add") {<br />
+    public void runTest() {<br />
+        testSimpleAdd();<br />
+    }<br />
+};</div></li><br />
+<li>动态方法<br />
+<div class="code">TestCase test= new MoneyTest("testSimpleAdd");</div></li></ul><br />
+　　我试了一下，<del>好象有问题，哪位朋友成功了，请指点我一下。</del>确实可以。<br />
+<div class="code">import&nbsp;junit.framework.*;</p>
+
+<p>public&nbsp;class&nbsp;MoneyTest&nbsp;extends&nbsp;TestCase&nbsp;{//<ins>TestCase的子类</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Money&nbsp;f12CHF;//<ins>提取公用的对象</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Money&nbsp;f14CHF;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;MoneyTest(String&nbsp;name){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(name);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;void&nbsp;setUp()&nbsp;{//<ins>初始化公用对象</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f12CHF=&nbsp;new&nbsp;Money(12,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;f14CHF=&nbsp;new&nbsp;Money(14,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testEquals()&nbsp;{//测试equals方法的正确性<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!f12CHF.equals(null));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(f12CHF,&nbsp;f12CHF);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertEquals(f12CHF,&nbsp;new&nbsp;Money(12,&nbsp;"CHF"));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(!f12CHF.equals(f14CHF));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;testAdd()&nbsp;{//测试add方法的正确性<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;expected=&nbsp;new&nbsp;Money(26,&nbsp;"CHF");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Money&nbsp;result=&nbsp;f12CHF.add(f14CHF);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Assert.assertTrue(expected.equals(result));<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestCase&nbsp;test=new&nbsp;MoneyTest("simple&nbsp;add")&nbsp;{<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;runTest()&nbsp;{<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;testAdd();<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;};<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;junit.textui.TestRunner.run(test);<br />
+//&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;TestCase&nbsp;test=new&nbsp;MoneyTest("testAdd");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;junit.textui.TestRunner.run(test);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div><br />
+再给一个静态方法用集成测试的例子：<div class="code">public&nbsp;static&nbsp;Test&nbsp;suite()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;TestSuite&nbsp;suite=&nbsp;new&nbsp;TestSuite();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;suite.addTest(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;testCar("getWheels")&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;void&nbsp;runTest()&nbsp;{&nbsp;testGetWheels();&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;);</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;suite.addTest(<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;new&nbsp;testCar("getSeats")&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;void&nbsp;runTest()&nbsp;{&nbsp;testGetSeats();&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;suite;<br />
+}</div></p>
+
+<p><strong>5、应用案例</strong><br />
+<ol><li>Junit Primer例程，运行如下：<div class="code">java com.hedong.JunitLearning.Primer.ShoppingCartTest</div></li><br />
+<li>Ant+Junit+Mailto实现自动编译、调试并发送结果的build.xml</li><br />
+<li>JUnit实施,写得很棒，理解也深刻。例程运行如下：<div class="code">java com.hedong.JunitLearning.car.testCarNoJunit<br />
+java junit.swingui.TestRunner com.hedong.JunitLearning.car.testCar</div></li><br />
+<li>Junit与log4j结合，阿菜的例程运行：<div class="code">cd acai<br />
+ant junit</div></li><br />
+<li></li><br />
+<li></li><br />
+<li></li><br />
+<li></li><br />
+</ol><br />
+<strong>6、一些问题</strong><br />
+　　有人在实践基础上总结出一些非常有价值的使用技巧，我没有经过一一“测试”，暂列在此。<br />
+<ol><li> 不要用TestCase的构造函数初始化Fixture，而要用setUp()和tearDown()方法。</li><br />
+<li> 不要依赖或假定测试运行的顺序，因为JUnit利用Vector保存测试方法。所以不同的平台会按不同的顺序从Vector中取出测试方法。<ins>不知3.8中是不是还是如此，不过它提供的例子有一个是指定用VectorSuite的，如果不指定呢？</ins></li><br />
+<li> 避免编写有副作用的TestCase。例如：如果随后的测试依赖于某些特定的交易数据，就不要提交交易数据。简单的回滚就可以了。</li><br />
+<li> 当继承一个测试类时，记得调用父类的setUp()和tearDown()方法。</li><br />
+<li> 将测试代码和工作代码放在一起，一边同步编译和更新。（使用Ant中有支持junit的task.）</li><br />
+<li> 测试类和测试方法应该有一致的命名方案。如在工作类名前加上test从而形成测试类名。</li><br />
+<li> 确保测试与时间无关，不要依赖使用过期的数据进行测试。导致在随后的维护过程中很难重现测试。</li><br />
+<li> 如果你编写的软件面向国际市场，编写测试时要考虑国际化的因素。不要仅用母语的Locale进行测试。</li><br />
+<li> 尽可能地利用JUnit提供地assert/fail方法以及异常处理的方法，可以使代码更为简洁。</li><br />
+<li>测试要尽可能地小，执行速度快。</li><br />
+<li>把测试程序建立在与被测对象相同的包中</li><br />
+<li>在你的原始代码目录中避免测试码出现，可在一个源码镜像目录中放测试码</li><br />
+<li>在自己的应用程序包中包含一个TestSuite测试类</li><br />
+<li></li><br />
+</ol><br />
+ <br />
+<strong>7、相关资源下载</strong><br />
+以下jar包，我只是做了打包、编译和调试的工作，供下载学习之用，相关的权利属于原作者。<br />
+<ol><li><a href="prim.jar" tppabs="http://hedong.3322.org/archives/docs/prim.jar">可运行例程.jar</a></li><br />
+<li><a href="ant_junit_mailto.build.xml" tppabs="http://hedong.3322.org/archives/docs/ant_junit_mailto.build.xml">Build.xml</a></li><br />
+<li><a href="acai.zip" tppabs="http://hedong.3322.org/archives/docs/acai.zip">阿菜的例程</a></li><br />
+<li><ins><a href="JavaX-14.zip" tppabs="http://hedong.3322.org/archives/docs/JavaX-14.zip">Junit API 汉译</a>(pdf)</ins></li><br />
+</ol></p>
+
+<p><strong>8、未完成的任务</strong><br />
+<ol><li>httpunit</li><br />
+<li>cactus</li><br />
+<li>将Junit用链接池测试</li><br />
+</ol><br />
+主要参考文献：<br />
+<ol><br />
+<li>JUnit入門<br />
+http://www.dotspace.twmail.org/Test/JUnit_Primer.htm</li><br />
+<li>怎样使用Junit Framework进行单元测试的编写<br />
+http://www.chinaunix.net/bbsjh/14/546.html</li><br />
+<li>Ant+Junit+Log4J+CVS进行XP模式开发的建立<br />
+http://ejb.cn/modules/tutorials/printpage.php?tid=4</li><br />
+<li>用HttpUnit测试Web应用程序<br />
+http://www.zdnet.com.cn/developer/code/story/0,2000081534,39033726,00.htm</li><br />
+<li>有没有用过Cactus的，Web层的测试是Cactus还是JUnit？<br />
+http://www.jdon.com/jive/thread.jsp?forum=16&thread=9156</li><br />
+<li>Ant+junit的测试自动化    biggie（原作）<br />
+http://www.csdn.net/Develop/article/19%5C19748.shtm</li><br />
+<li>JUnit实施<br />
+http://www.neweasier.com/article/2002-08-07/1028723459.html</li><br />
+<li>JUnitTest Infected: Programmers Love Writing Tests<br />
+http://junit.sourceforge.net/doc/testinfected/testing.htm</li><br />
+<li>JUnit Cookbook<br />
+http://junit.sourceforge.net/doc/cookbook/cookbook.htm</li><br />
+<li> JUnit Primer<br />
+http://www.itu.dk/~lthorup/JUnitPrimer.html</li><br />
+<li>IBM DevelopWorks<br />
+http://www-106.ibm.com/search/searchResults.jsp?query=junit&searchScope=dW&searchType=1&searchSite=dWChina&pageLang=zh&langEncoding=gb2312&Search.x=0&Search.y=0&Search=Search</li><br />
+<li></li><br />
+</ol></p>
+
+<span class="posted">Posted by Hilton at September 12, 2003 02:42 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=224.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=224" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>　　我当时在学习的时候，发现一个问题，就是：</p>
+
+<p>　　假定$JUNITHOME为junit解压缩后的目录，</p>
+
+<p>　　进行$JUNITHOME目录，用jar将junit目录打包，然后将此包加入CLASSPATH，运行java junit.swingui.TestRunner junit.samples.AllTests命令时，会出现你所说的错误。</p>
+
+<p>　　但是，<br />
+　　如果只是将$JUNITHOME这个目录加入到CLASSPATH中，则不出现问题，119个测试都会通过。</p>
+
+<p>　　后来，我没有仔细研究这个问题，也就没有将这点内容写在这儿。<br />
+　　<br />
+　　你按上述第二种方法试一下，是不是还是有问题？<br />
+　　如果你找到了问题的答案，欢迎来信指点一下。：）</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 23, 2003 03:49 PM</span>
+</div>
+<div class="comments-body">
+<p>在java junit.swingui.TestRunner junit.samples.AllTests的时候，你不会出LoadedFromJar<br />
+的错误吗？119的测试都ok吗？</p>
+
+<p>我在google上看见也有人会出现LoadedFromJar测试不过的情况。<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;szmlike&#64;sohu&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;szmlike&#64;sohu&#46;com">luoda</a> at October 23, 2003 02:44 PM</span>
+</div>
+<div class="comments-body">
+<p>原来是tag的问题</p>
+
+<p>西大哥，你的邮件我收到了！太好了你<br />
+不过我还得试试看再说。</p>
+
+<p>因为Win32下别人编译过得Netpbm只到v10.6<br />
+而他主页有句话</p>
+
+<p>Older packages, such as libwmf-0.2.2, netpbm-10.6, and wv-0.7.2, sometimes need libjpeg.dll.<br />
+Until these are updated, a provisional solution is to copy jpeg-62.dll to libjpeg.dll</p>
+
+<p>而我的正是其中的netpbm-10.6,对，问题就出在libjpeg.dll上了，缺这个，我就把jpeg-62改名为libjpeg放到了需要他的文件夹<br />
+结果进入galleryupload之后，说Library里的和caller的尺寸不一致....ft~~</p>
+
+<p>能不能帮我编译一个高点版本的netpbm?那可能就没这个dll的问题了，我没有Linux，也没编译过 :)</p>
+
+<p>如果方便，请帮忙帮到底吧~细细</p>
+
+<p>另外我按照你的邮件再装一遍，不过还是想要个新一点的Stable Netpbm</p>
+
+<p>嗯，就这些。严重偏离你的这个主题..</p>
+<span class="comments-post">Posted by: diffhapp at September 12, 2003 10:02 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="224" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

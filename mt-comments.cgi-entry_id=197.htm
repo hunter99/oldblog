@@ -1,0 +1,192 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on Log4J学习笔记（3）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: Log4J学习笔记（3）</div>
+
+
+<div class="comments-body">
+<p>准备重新学习一次！</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">google</a> at January 14, 2004 01:53 PM</span>
+</div>
+<div class="comments-body">
+<p>好多次都想学习java.但是都中途而费了！</p>
+
+<p>java好想很难学！</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://http;//www.xagoogle.com  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://http;//www.xagoogle.com'" tppabs="http://http;//www.xagoogle.com">google</a> at January 14, 2004 01:52 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢。</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.gissky.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gissky.net/'" tppabs="http://www.gissky.net/">kelvin</a> at January  8, 2004 10:00 AM</span>
+</div>
+<div class="comments-body">
+<p>站长高人呀！我发现你这儿的知识可真多呀！<br />
+准备全部详细学习！</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">wang</a> at January  7, 2004 02:34 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢站长。</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 12:46 PM</span>
+</div>
+<div class="comments-body">
+<p>学习哦。</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">qqba</a> at December 30, 2003 12:45 PM</span>
+</div>
+<div class="comments-body">
+<p>log4j.properties放到WEB-INF/classes下就行了<br />
+不用专门写个servlet来load</p>
+<span class="comments-post">Posted by 路人丙 at December 26, 2003 04:29 PM</span>
+</div>
+<div class="comments-body">
+<p>test</p>
+<span class="comments-post">Posted by 路人丙 at December 26, 2003 04:28 PM</span>
+</div>
+<div class="comments-body">
+<p>To Ryan;</p>
+
+<p>　　我不清楚你这个绝对路径是指log4j.properties文件自身的路径，还是指log4j.properties中定义的log文件的路径，<br />
+　1）对于前者，其路径的取得是通过编码实现的，如本页中的log4jinit.java文件所示，只要略加修改，你就可以把log4j.properties文件放在任何你喜欢的地方；<br />
+　2）对于后者，你需要自己定义一个appender,具体可以参考BasicConfigurator.configure()方法的原码。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 11, 2003 09:51 PM</span>
+</div>
+<div class="comments-body">
+<p>log4j.properties文件的路径到底应该如何设置，我不希望设置绝对路径。特别是Application,我有些疑惑，希望大家给我答案。</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com">RYAN</a> at December 11, 2003 11:33 AM</span>
+</div>
+<div class="comments-body">
+<p><a href="javascript:if(confirm('http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1'" tppabs="http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1">http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1</a></p>
+
+<p>谢谢你的文章。<br />
+在Production环境下，考虑到Servlet多线程，可能需要增加一个标示客户端信息的功能。用NDC或者MDC</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;daniel_kwo&#64;msn&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;daniel_kwo&#64;msn&#46;com">yafeng</a> at October 27, 2003 10:26 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="197" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

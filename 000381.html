@@ -1,0 +1,276 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Digital Unix V4.0F上整合tomcat与apache</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000380.html" tppabs="http://hedong.3322.org/archives/000380.html" title="关于汉字编码的一些连接" />
+
+<link rel="next" href="000382.html" tppabs="http://hedong.3322.org/archives/000382.html" title="jsp:forward的参数的乱码" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000381.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/274"
+    dc:title="Digital Unix V4.0F上整合tomcat与apache"
+    dc:identifier="http://hedong.3322.org/archives/000381.html"
+    dc:subject="ItTech"
+    dc:description="　　apache 2.0.48，Tomcat4.1.29，OS为Digital UNIX V4.0F，mod_jk1.2.5。..."
+    dc:creator="Hilton"
+    dc:date="2003-12-01T22:20:03+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000381.html">
+<dc:title>Digital Unix V4.0F上整合tomcat与apache</dc:title>
+<dc:description>　　apache 2.0.48，Tomcat4.1.29，OS为Digital UNIX V4.0F，mod_jk1.2.5。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-01T22:20:03+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000380.html" tppabs="http://hedong.3322.org/archives/000380.html">&laquo; 关于汉字编码的一些连接</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000382.html" tppabs="http://hedong.3322.org/archives/000382.html">jsp:forward的参数的乱码 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 01, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Digital Unix V4.0F上整合tomcat与apache</h3>
+
+<p>　　<a href="javascript:if(confirm('http://httpd.apache.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://httpd.apache.org/'" tppabs="http://httpd.apache.org/">apache 2.0.48</a>，<a href="javascript:if(confirm('http://jakarta.apache.org/tomcat/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/tomcat/index.html'" tppabs="http://jakarta.apache.org/tomcat/index.html">Tomcat4.1.29</a>，OS为Digital UNIX V4.0F，<a href="javascript:if(confirm('http://jakarta.apache.org/tomcat/tomcat-4.1-doc/config/jk.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/tomcat/tomcat-4.1-doc/config/jk.html'" tppabs="http://jakarta.apache.org/tomcat/tomcat-4.1-doc/config/jk.html">mod_jk1.2.5</a>。</p>
+
+<a name="more"></a>
+<p>1）安装apache<br />
+<div class="code">wget http://www.apache.org/dist/httpd/httpd-2.0.48.tar.gz<br />
+tar zxvf httpd-2.0.48.tar.gz<br />
+cd httpd-2.0.48<br />
+./configure --enable-mods-shared=all --with-egd --with-devrandom --enable-so<br />
+make <br />
+su<br />
+make install</div></p>
+
+<p>2)安装tomcat<br />
+<div class="code">wget http://www.apache.org/dist/jakarta/tomcat-4/v4.1.29/bin/jakarta-tomcat-4.1.29.tar.gz<br />
+cd $PATH_4_TOMCAT<br />
+tar zxvf  jakarta-tomcat-4.1.29.tar.gz<br />
+mv  jakarta-tomcat-4.1.29 tomcat</div><br />
+3)安装mod_jk<br />
+<div class="code">wget http://www.apache.org/dist/jakarta/tomcat-connectors/jk/jakarta-tomcat-connectors-jk-1.2-src-current.tar.gz<br />
+tar zxvf  jakarta-tomcat-connectors-jk-1.2-src-current.tar.gz<br />
+cd jakarta-tomcat-connectors-jk-1.2-src<br />
+vi common/jk_global.h<br />
+定义snprintf为apr_snprintf，vsnprintf为apr_vsnprintf<br />
+./configure --with-apxs=/usr/local/apache2/bin/apxs<br />
+make <br />
+su<br />
+make install</div><br />
+4)配置同linux，网站资料很多。<br />
+说明：apache的配置文件中，要<div class="code">#LoadModule auth_digest_module modules/mod_auth_digest.so</div>否则不能启动apache,如果你的系统能启动。</p>
+
+<p>5)测试并启动<br />
+$APACHE_HOME/bin/apachectl  -t<br />
+$APACHE_HOME/bin/apachectl restart<br />
+$TOMCAT_HOME/bin/startup.sh<br />
+</p>
+
+<span class="posted">Posted by Hilton at December  1, 2003 10:20 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=381.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=381" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>不敢不敢。<br />
+只要大家都来做一点，情况就会好一些。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January 17, 2004 10:52 AM</span>
+</div>
+<div class="comments-body">
+<p>谢谢！感谢你为了我们民族软件产业的奉献精神！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;kenny&#64;madeforchina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;kenny&#64;madeforchina&#46;com">kenny</a> at January 17, 2004 10:46 AM</span>
+</div>
+<div class="comments-body">
+<p>这个模块需要一个产生随机数的设备，而我的系统里没有装。</p>
+
+<p>所以，这个，就这样了。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January 17, 2004 10:03 AM</span>
+</div>
+<div class="comments-body">
+<p>为什么要注释<br />
+#LoadModule auth_digest_module modules/mod_auth_digest.so<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;kenny&#64;madeforchina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;kenny&#64;madeforchina&#46;com">kenny</a> at January 17, 2004 09:49 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="381" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

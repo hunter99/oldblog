@@ -1,0 +1,252 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 第二章安装Squid</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000409.html" tppabs="http://hedong.3322.org/archives/000409.html" title="第二章安装Squid" />
+
+<link rel="next" href="000411.html" tppabs="http://hedong.3322.org/archives/000411.html" title="gcc崩溃了" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000410.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/299"
+    dc:title="第二章安装Squid"
+    dc:identifier="http://hedong.3322.org/archives/000410.html"
+    dc:subject=""
+    dc:description="编译squid..."
+    dc:creator="Hilton"
+    dc:date="2003-12-22T20:27:18+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000410.html">
+<dc:title>第二章安装Squid</dc:title>
+<dc:description>编译squid...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-22T20:27:18+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000409.html" tppabs="http://hedong.3322.org/archives/000409.html">&laquo; 第二章安装Squid</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000411.html" tppabs="http://hedong.3322.org/archives/000411.html">gcc崩溃了 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 22, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">第二章安装Squid</h3>
+
+<p><strong>编译squid</strong></p>
+
+<a name="more"></a>
+<p>如果想最近启动的squid明显得比运行了几天的squid进程使用内存小（使用相同大小的缓存），你可能需要配置squid来使用DL-Malloc.<br />
+软件包中的DL-Malloc内存分配函数不是线程安全的，因此你不可以将它与异步I/O同时使用。（？需要进行搞清楚?)<br />
+要想使用DL-Malloc，只要使用--enable-dl-malloc选项即可：<br />
+./configure --enable-dl-malloc</p>
+
+<p>正则表达式函数<br />
+正则表达式能让你完成复杂的字符串匹配，且可以用来在squid配置文件中的各种各样的设置（最明显地是用于定义规则，来控制对象在缓存中的停留时间）。<br />
+在某些操作系统中，你可能希望用gnu的正则表达式函数来替换默认的函数。这可能是因为操作系统默认的正则表达式函数与squid不兼容或不能正确运行所致。如果你的操作系统没有正则表达式函数库，squid将自动使用gnu函数库，因此gnu正则表达式函数会包含在默认的Squid源代码中，故不必另行下载。<br />
+要想在squid中使用gnu库，只需要使用--enable-gnuregex选项即可。</p>
+
+<p>异步I/O<br />
+squid2.0通过使用异步I/O而使性能有较大的改善。<br />
+记住squid只有一个进程非常重要。许多的网络守护进程，运行时同时有几个进程在运行，因此当一个被系统调用停止时，其它的不受影响。<br />
+squid只有一个进程。如果主循环因某种原因运行停止了，所有的连接都会慢下来。在squid的所有版本中，主循环使用select 和poll系统调用，来决定为哪个连接服务。当squid接收来自服务器的数据时，它将数据写到硬盘上和客户端。<br />
+要将数据写到硬盘上，必须打开缓存驱动器上的一个文件。当大量的客户端开、关到这个繁忙的缓存服务器的连接时，主循环必须调用大量的网络(或文件)open和close（注意文件句柄可以指向网络连接或硬盘上的文件）。这两个函数的运行会阻塞数据通过缓存服务器。当等待一个open的返回结果时，squid不能做任何其它的事情。<br />
+当使用异步I/O时，squid2.0使用线程来打开和关闭文件描述符。在大多数情况下，一个线程是squid主程序的一部分，除了当它调用了一个了阻塞型的系统调用(如open)时，只有这个线程被停止，主循环和其它线程仍正常运行。注意不是每个连接一个线程。<br />
+使用线程来调用阻塞型的函数调用，减少了缓存服务器对每个请求的反应时间。（有时人们会担心缓存系统增大了反应时间，但是如果你有一个足够快的缓存服务器，反应时间不是个问题－－客户端感觉不到明显的迟延。网络的迟延通过会超过squid的迟延。）当缓存满负荷运作时，异步I/O有力地减少了缓存迟延。<br />
+遗憾的是并非所有的操作系统都支持Posix线程。这将对硬件的选择与操作系统的选择绑在了一起，这么说是因为如果你的操作系统不支持线程，你便只能使用一个更快一些的系统，或将负载分配到几个机器上。(? need a table of machines that work ?)</p>
+
+<p>如果每小时有几千个请求，你应试着打开异步I/O运行Squid. 有些系统只有在一定数量的初始设置下才正确地支持线程。如果负载比较小，且异步I/O也不能立即工作，你可以以默认的配置编译squid.</p>
+
+<p>使用 --enable-async-io 选项来将异步写的代码包含到squid中。</p>
+
+<p>用户代理的信息日志<br />
+大多数现代的浏览器会在每个发出的请求中包含一个头字段信息，说明用户浏览器和操作系统的基本信息。这个头字段叫“user-agent”，因它描述了使用的代理程序(浏览器)。自动代理的用户代理头字段与其它代理不同，因此记录用户代理的头字段信息能让你看到是否有人用自动web抓取程序（常指网络蜘蛛）来抓取代表你的利益的网页。还可以用来统计最常用的浏览器。这些头字段的内容被写到一个在配置文件中指定的日志文件中。要在squid中包含负责记录这些信息的代码，使用--enable-useragent-log选项。</p>
+
+<p>简单网管协议（SNMP, Simple Network Monitoring Protocol）<br />
+打开简单网管协议这项功能，可以允许你使用SNMP工具来查询你的缓存机器。如果SNMP功能已经存在，你应可以使用现成的软件来管理squid性能以及取得使用信息。这会在第6章详细讨论。<br />
+使用--enable-snmp选项可以将SNMP相关代码包含到squid中。<br />
+</p>
+
+<span class="posted">Posted by Hilton at December 22, 2003 08:27 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=410.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=410" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="410" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

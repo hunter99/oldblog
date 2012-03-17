@@ -1,0 +1,107 @@
+<html>
+
+<head>
+  <title>第一章 ─ 安裝 Movable Type</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第一章 ─ 安裝 Movable Type</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#install">第一章 ─ 安裝 Movable Type</a></li> 
+  <ul>
+    <li><a href="#download">下載 MovableType</a></li>
+    <li><a href="#win32">裝在 Windows 上</a></li>
+    <li><a href="#win32_note">跟 Windows 有關的注意事項</a></li>
+    <li><a href="#unix">裝在 FreeBSD 或 Linux 上</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="install"></a>第一章 ─ 安裝 Movable Type</h1>
+
+<p>實際上妳祇需要安裝一次 Movable Type ，就可以讓很多人一起用，也可以建立好幾份網誌；對於單純的使用者來說，並不需要在自己的電腦上安裝 Movable Type ，祇需要安裝在網頁伺服器上就可以了。</p>
+
+<p>理論上祇要妳所使用的網頁伺服器能夠執行 <acronym title="Common Gateway Interface">CGI</acronym> ，就能夠安裝 Movable Type ；不過國內能夠執行 CGI 的免費網頁空間越來越少，在這種情況下妳可能就得考慮要自己拉一條 ADSL 或 Cable ，並參考<a href="mtbook_domain.html#domain" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#domain">第零章</a>的內容設定網域名稱，然後用自己家的機器架一台伺服器起來。</p>
+
+<p>本章我們將大致帶領各位安裝一次 Movable Type ，包括在 Windows 上的作法以及 BSD/Linux 上的作法；至於詳細的設定細節，則留待<a href="mtbook_config.html#config" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#config">第二章</a>講解。
+
+<h2><a id="download"></a>下載 MovableType</h2>
+
+<p>不管妳要把 MovableType 安裝到哪兒，妳都得在官方網站閱讀過授權條款，然後纔能從官方網站下載。這是為一合法的取得途徑，現在就讓我們來看看該怎麼做。</p>
+
+<p><ol>
+  <li><a id="download_01"></a>請用網頁瀏覽器連到 <a href="javascript:if(confirm('http://www.movabletype.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/'" tppabs="http://www.movabletype.org/">http://www.movabletype.org</a> 。如<a href="#img_01">圖一</a>按下網頁左上方的下載鏈結。<div class="img"><a id="img_01"></a><img src="mtdownload_official_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_official_01.png" alt="MovableType 的主頁面，下載鏈結在左上方"><br />圖一：連結到 MovableType 的主頁面，並由此再連結到 MovableType 最新版的下載頁面。</div></li>
+  <li><a id="download_02"></a>如<a href="#img_02">>圖二</a>，在接下來的這個下載頁面裡，請於 <code>Select the type of distribution you wish to download.</code> 這一個下拉式選單裡選擇妳要下載的檔案。 Movable Type 有三種包裝，其中 <strong>Full Version, with Libraries</strong> 包裝裡還附上了所有必須要的模組；這是預設的下載，也是我們在此建議的。<div class="img"><a id="img_02"></a><img src="mtdownload_official_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_official_02.png" alt="選擇「 Full Version, with Libraries 」"><br />圖二：選擇完整暨函式庫版本。</div></li>
+  <li><a id="download_03"></a>接下來如<a href="#img_03">圖三</a>，請於 <code>Select the decompression method that your computer supports.</code> 這一個下拉式選單裡選擇妳所要下載的檔案格式。不管妳用的是哪一種作業平台，都請選 <strong>Gzipped TAR</strong> 這一個格式，這也是預設的檔案格式。<div class="img"><a id="img_03"></a><img src="mtdownload_official_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_official_03.png" alt="選擇「 Gzipped TAR 」"><br />圖三：選擇以 gzip 壓縮過的 TAR 檔案格式。</div></li>
+  <li><a id="download_04"></a>然後妳還得如<a href="#img_04">圖四</a>在底下兩欄裡填入妳的姓名與電子郵件位址，纔能夠下載。除此之外，還有一個「要不要收到更新通知之類的電子報」的選項，如果妳不是死忠教義派的 Movable Type 使用者（一開始顯然妳不會是），就可以按照預設值，選擇不要收。<div class="img"><a id="img_04"></a><img src="mtdownload_official_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_official_04.png" alt="填入姓名與電子郵件位址"><br />圖四：填寫姓名與電子郵件位址，並選擇「不要收到電子報」。</div></li>
+  <li><a id="download_05"></a>下載之前，妳還該大略讀過 Movable Type 的授權條款；我知道妳可能沒有時間耐心，所以我在這邊就簡短地告訴妳： <strong>Movable Type 允許個人免費使用，政府機關或商業使用則需要註冊；妳可以自己修改 Movable Type 裡的程式碼，但是不能任意重新散佈。</strong>讀過這份授權條款後，請如<a href="#img_05">圖五</a>點選「 <code>I accept the terms of this license agreement</code> 」，然後按下「 <code>DOWNLOAD</code> 」按鈕，就會開始下載檔案了。妳應該會抓到一個檔名像是 <strong>MT-2.64-full-lib.tar.gz</strong> 的檔案，請找個目錄先存放起來，並且記住妳把它放在哪兒，我們稍後就會用到。<div class="img"><a id="img_13"></a><img src="mtdownload_official_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_official_05.png" alt="同意授權條款並開始下載檔案"><br />圖五：點選「同意上述授權條款」後，按下「下載」的按鈕。</div></li>
+</ol></p>
+
+<h2><a id="win32"></a>裝在 Windows 上</h2>
+
+<p>最新的好消息是國內<a href="javascript:if(confirm('http://irc.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://irc.elixus.org/'" tppabs="http://irc.elixus.org/">藝立協</a>的 <a href="javascript:if(confirm('http://www.autrijus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.autrijus.org/'" tppabs="http://www.autrijus.org/" alt="連結到 autrijus 的首頁去">autrijus</a> 為 Windows 的使用者製作了 Movable Type 的 Windows 安裝檔，大大簡化了安裝的步驟，同時套用了由 <a href="mailto:digdog@mac.com">Kevin Fyure</a> 及筆者所完成的中文語系，也修正了不少程式瑕疵，甚至還會自動幫妳在 Windows 上安裝網頁伺服器以及各種必備會用到的東西。且讓我們來看看要怎麼安裝：</p>
+
+<p><ol>
+  <li><a id="win32_01"></a>首先讓我們連到藝立協的協同開發區去；請打開網頁瀏覽器，連到 <a href="javascript:if(confirm('http://p4.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/'" tppabs="http://p4.elixus.org/">http://p4.elixus.org</a> ，如<a href="#img_06">圖六</a>。<div class="img"><a id="img_06"></a><img src="mtdownload_from_p4_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_from_p4_01.png" alt="http://p4.elixus.org"><br />圖六：用網頁瀏覽器連到 <a href="javascript:if(confirm('http://p4.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/'" tppabs="http://p4.elixus.org/">http://p4.elixus.org</a> 。</div></li>
+  <li><a id="win32_02"></a>現在把這個視窗往下捲動，妳會看到有一個叫 <code>dist/</code> 的鏈結，其下的說明指出這是「穩定版本的釋出套件」；請按這個鏈結，連到 <a href="javascript:if(confirm('http://p4.elixus.org/dist/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/dist/'" tppabs="http://p4.elixus.org/dist/">http://p4.elixus.org/dist/</a> 去，如<a href="#img_07">圖七</a>。<div class="img"><a id="img_02"></a><img src="mtdownload_from_p4_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_from_p4_02.png" alt="dist/"><br />圖七：連到 <a href="javascript:if(confirm('http://p4.elixus.org/dist/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/dist/'" tppabs="http://p4.elixus.org/dist/">http://p4.elixus.org/dist/</a> 去。</div></li>
+  <li><a id="win32_03"></a>連進 <a href="javascript:if(confirm('http://p4.elixus.org/dist/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/dist/'" tppabs="http://p4.elixus.org/dist/">http://p4.elixus.org/dist/</a> 後，妳會看到如<a href="#img_08">圖八</a>的畫面，列出來許許多多的檔案；我們要找的是檔名以 <code>mt</code> 開頭的 <code>.exe</code> 檔，檔名裡的數字則代表版本。妳可以看到目前最新的釋出套件應該是 <code>mt-2.64.exe</code> ，這是 2.64 版的 Movable Type 的 Windows 安裝程式，請點選這個檔案，並且下載儲存到妳要用來當作網頁伺服器的電腦上。請注意，妳在<a href="#download">前一小節</a>所抓到的那個檔案，也應該要跟這個檔案放在同樣的位置。<div class="img"><a id="img_08"></a><img src="mtwin32_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtwin32_03.png" alt="mt-2.64.exe"><br />圖八：下載最新版的 Movable Type 的 Windows 安裝檔。在本範例中，我們抓的是 <a href="javascript:if(confirm('http://p4.elixus.org/dist/mt-2.64.exe  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/dist/mt-2.64.exe'" tppabs="http://p4.elixus.org/dist/mt-2.64.exe">mt-2.64.exe</a> 。</div></li>
+  <li><a id="win32_04"></a>抓下來後，請用滑鼠雙擊這個檔案以執行之。安裝畫面如<a href="#img_09">圖九</a>，祇有一個對話框；這時請<strong>務必不要更改安裝路徑，直接按下「<code>安裝</code>」按鈕</strong>。 <code>mt-2.64.exe</code> 首先會自己解壓縮，然後同時會自己去下載 <code>oin-httpd</code> 跟 <code>Parl</code> 這兩個會用到的元件（前者其是就是 <code>Apache 2</code> 這個知名的網頁伺服器，後者可說是 Perl 的精簡版）；這意味著<strong>妳得在安裝過程中保持網路連線暢通</strong>。<div class="img"><a id="img_09"></a><img src="mtinstaller_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinstaller_01.png" alt="按「安裝」"><br />圖九：安裝程式詢問安裝路徑時，請務必不要修改；請直接按下「<code>安裝</code>」按鈕。</div></li>
+  <li><a id="win32_05"></a>如果妳沒有按照<a href="#download">前一段</a>的指示，從 MovableType 官方網站下載檔案，或者是下載的檔案沒有放在同一個資料夾裡的話，這個時候就會看到如<a href="#img_10">圖十</a>的畫面，此時請按下確定，然後再如<a href="#img_11">圖十一</a>按下「<code>取消</code>」按鈕，等抓到該抓的檔案之後，纔再次執行本程式。<div class="img"><a id="img_10"></a><img src="mtinstaller_error_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinstaller_error_01.png" alt="在這個資料夾裡沒有找到 MT-2.64-full-lib.tar.gz"><br />圖十：安裝程式找不到所需的 MovableType 官方釋出套件。</div><div class="img"><a id="img_11"></a><img src="mtinstaller_error_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinstaller_error_02.png" alt="安裝中 止"><br />圖十一：安裝中止。請備其檔案後再執行此安裝程式。</div></li>
+  <li><a id="win32_06"></a>下載經過一段時間的安裝後，妳應該還會看到像是<a href="#img_12">圖十二</a>跟<a href="#img_13">圖十三</a>這樣的畫面，請都不要理會，它們應該都會在執行完後自動關閉。這個安裝程式還會把 Apache 設定成 Windows 裡的一項「服務」（祇有在 Windows 2000 或 Windows XP 上纔會這樣；在 Windows 98 或 Windows ME 上面，因為系統裡沒有「服務」的架構，則會用模擬的方式來處理）。<div class="img"><a id="img_12"></a><img src="mtinstaller_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinstaller_02.png" alt="正在解開及安裝 MovableType 套件中，並進行必要的補綴"><br />圖十二：安裝正在解開官方釋出的 MovableType 套件，進行必要的補綴，以及安裝其他所需的程式。</div><div class="img"><a id="img_13"></a><img src="mtinstaller_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinstaller_03.png" alt="安裝程式正在補綴妳的 MovableType"><br />圖十三：安裝程式此時正在進行實際補綴的動作。</div>
+  <li><a id="win32_07"></a>安裝完成後，安裝程式會自己開啟妳的網頁瀏覽器，並且執行 <code>http://localhost/oin-setup.cgi</code> 這個腳本，來設定資料庫的初始結構。妳可能會看到如<a href="#img_14">圖十四</a>這樣的畫面，這時請遵照畫面上的指引，按下「<code>網誌組態</code>」的鏈結。如果妳沒有看到如<a href="#img_05">圖五</a>的畫面的話，妳可能會看到如<a href="#img_15">圖十五</a>的畫面；這時請按照畫面上的指引按下「<code>進入設定畫面</code>」的按鈕，然後在接下來的畫面中，如<a href="#img_16">圖十六</a>這樣按下「<code>管理網誌</code>」的鏈結，再如<a href="#img_17">圖十七</a>按下左方工具列上的「<code>網誌組態</code>」按鈕。<div class="img"><a id="img_14"></a><img src="mtinitial_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinitial_01.png" alt="按「網誌組態」"><br />圖十四：資料庫設定完成，請按下「<code>網誌組態</code>」的鏈結。</div><div class="img"><a id="img_15"></a><img src="mtinitial_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinitial_02.png" alt="按「進入設定畫面」"><br />圖十五：資料庫設定完成，請按下「<code>進入設定畫面</code>」的鏈結。</div><div class="img"><a id="img_16"></a><img src="mtinitial_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinitial_03.png" alt="按「管理網誌」"><br />圖十六：這是網誌系統主畫面；請先按下畫面上的「<code>管理網誌</code>」鏈結。</div><div class="img"><a id="img_17"></a><img src="mtinitial_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinitial_04.png" alt="按「網誌組態」"><br />圖十七：按下左邊工具列上的「<code>網誌組態</code>」按鈕。</li>
+  <li><a id="win32_08"></a>接下來妳應該會看到如<a href="#img_18">圖十八</a>的畫面；請按照<a href="mtbook_config.html#config" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#config">第二章</a>的內容來加以設定。<div class="img"><a id="img_18"></a><img src="mtinitial_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtinitial_05.png" alt="網誌組態畫面"><br />圖十八：「網誌組態」的畫面。</div></li>
+</ol></p>
+
+<h2><a id="win32_note"></a>跟 Windows 有關的注意事項</h2>
+
+<p>雖然 Windows 版本的 Movable Type 安裝程式用起來如此輕鬆，但是在不同版本的 Windows 上，其實會遇到不同的狀況。且看以下的注意事項：</p>
+
+<p><ul>
+  <li><a id="win32_note_01"></a>最適合安裝 Movable Type 的 Windows 版本是 <strong>Windows 2000</strong> 或 <strong>WIndows XP</strong> 。至於 Windows ME 、 Windows 98 SE 勉強可以安裝執行， Windows 95 則還沒有人測試過。</li>
+  <li><a id="win32_note_02"></a>如果妳的 Windows 已經安裝過 IIS 或其他網頁伺服器（尤其是在 Server 版的 Windows 2000 或 XP 上）的話，妳得先把這些網頁伺服器停掉，或至少空出 Port 80 ，纔能夠順利安裝 Movable Type 。如果妳不知道該怎麼做，請找當初安裝 IIS 的人來幫忙。</li>
+  <li><a id="win32_note_03"></a>如果妳把 Movable Type 安裝在 <code>Windows ME</code> 、 <code>Windows 98 SE</code> 、 <code>Windows 98</code> 等版本的 Windows 上的話， <code>oin-httpd</code> 會以模擬成系統服務的方式執行；所以每次開機後都會跑出一個 DOS 視窗以啟動 oin-httpd ，然後關機的時候也會出現一個對話框，要求你強制關閉 oin-httpd 之後纔讓妳關機。</li>
+  <li><a id="win32_note_04"></a><a id="win32_sendmail"></a>要在 Windows 上面的 Movable Type 使用任何跟電子郵件有關的功能（通知書之類的）的話，妳還得再安裝一個 <code>Mail::Sendmail</code> 模組。方法如下：<ol>
+    <li><a id="win32_sendmail_01"></a>在妳的 <code>C:\Program Files\OurInternet\Movable Type\lib\</code> 資料夾內，再新增一個叫 <strong>Mail</strong> 的資料夾。</li>
+    <li><a id="win32_sendmail_02"></a>下載 <a href="javascript:if(confirm('http://www.movabletype.org/cpan/cpan-Mail-Sendmail.tar.gz  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/cpan/cpan-Mail-Sendmail.tar.gz'" tppabs="http://www.movabletype.org/cpan/cpan-Mail-Sendmail.tar.gz">http://www.movabletype.org/cpan/cpan-Mail-Sendmail.tar.gz</a> 。</li>
+    <li><a id="win32_sendmail_03"></a>用 WinZip 之類的解壓縮程式解開這個 <code>cpan-Mail-Sendmail.tar.gz</code> 壓縮檔，然後把所得到的 <strong>Sendmail.pm</strong> 檔案放到剛剛建立的 <code>C:\Program Files\OurInternet\Movable Type\lib\Mail\</code> 資料夾內，就可以了。</li>
+  </ol></li>
+</ul></p>
+
+<h2><a id="unix"></a>裝在 FreeBSD 或 Linux 上</h2>
+
+<p>在 Movable Type 的官方文件集裡，有一份<a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/mtinstall.html  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/mtinstall.html'" tppabs="http://hedong.3322.org/mt/docs/zh/mtinstall.html">安裝指引</a>，詳述了安裝的步驟，茲簡短描述如下：</p>
+
+<p><ol>
+  <li><a id="unix_01"></a>首先，我們得先確定妳的系統上有 Perl 。理論上 5.004_04 版以上的 Perl 就可以執行 Movable Type ，不過 Perl 從 5.8 版起，對於萬國碼 (UNICODE) 纔有完善的支援；如果妳希望 Movable Type 對中文字有更好的掌握，妳就應該要把 Perl （以及所有會用到的 Perl 模組）升級到 5.8 版。如果妳不知道妳的 Perl 版本的話，妳可以像<a href="#img_10">圖十九</a>這樣，執行 <pre>perl -v</pre><div class="img"><a id="img_19"></a><img src="mt_check_perl_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mt_check_perl_01.png" alt="perl -v"><br />圖十九：執行 <code>perl -v</code> 來查看 Perl 版本。</div></li>
+  <li><a id="unix_02"></a>請按照<a href="#download">本章第一小節</a>所描述的步驟，從官方網站取得正式釋出的 MovableType 套件 <code>MT-2.64-full-lib.tar.gz</code> ，然後請用下列的指令將其解開：<pre>gunzip MT-2.64-full-lib.tar.gz
+tar -xvf MT-2.64-full-lib.tar</pre></li>
+  <li><a id="unix_03"></a>現在解開的檔案都應該在 <strong>MT-2.64-full-lib/</strong> 目錄底下；請再如<a href="#img_20">圖二十</a>抓取 <a href="javascript:if(confirm('http://p4.elixus.org/depot/MT/diff/MT-2.64-full-lib.new.tar.gz  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/depot/MT/diff/MT-2.64-full-lib.new.tar.gz'" tppabs="http://p4.elixus.org/depot/MT/diff/MT-2.64-full-lib.new.tar.gz">http://p4.elixus.org/depot/MT/diff/MT-2.64-full-lib.new.tar.gz</a> ，這個檔案裡包含了完整的中文語系檔、中文文件、中文搜尋模版、修改過的 <code>MT RSSfeed</code> 外掛模組；我們仍然要把這個檔案解到 <strong>MT-2.64-full-lib/</strong> 裡。請用下列的指令：<pre>gunzip MT-2.64-full-lib.new.tar.gz
+tar -xvf MT-2.64-full-lib.new.tar</pre><div class="img"><a id="img_20"></a><img src="mtdownload_extra_files.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_extra_files.png" alt="從 p4.elixus.org 上抓取 MT-2.64-full-lib.new.tar.gz"><br />圖二十：從 p4.elixus.org 上抓取補增的檔案彙整。</div></li>
+  <li><a id="unix_04"></a>最後我們還要修改 Movable Type 裡的程式碼（以及神秘而重要的 <code>CGI.pm</code> Perl 模組），來解決中文相容性的問題。請先切換 (<code>cd</code>) 到妳解開壓縮檔的目錄（像是 <code>MT-2.64-full-lib</code> ），然後如<a href="#img_21">圖二十一</a>抓取 <a href="javascript:if(confirm('http://p4.elixus.org/depot/MT/diff/mt.diff  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p4.elixus.org/depot/MT/diff/mt.diff'" tppabs="http://p4.elixus.org/depot/MT/diff/mt.diff">http://p4.elixus.org/depot/MT/diff/mt.diff</a> ，用下列的指令來補綴：<pre>patch -p1 &lt; mt.diff</pre><div class="img"><a id="img_21"></a><img src="mtdownload_diff.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtdownload_diff.png" alt="從 p4.elixus.org 上抓取 mt.diff"><br />圖二十一：從 p4.elixus.org 上抓取補綴檔。</div></li>
+  <li><a id="unix_05"></a>妳還得要知道妳的系統把 Perl 安裝在哪裡；因為 <i>mt-add-notify.cgi</i> 、 <i>mt-check.cgi</i> 、 <i>mt-comments.cgi</i> 、 <i>mt-load.cgi</i> 、 <i>mt-send-entry.cgi</i> 、 <i>mt-tb.cgi</i> 、 <i>mt-search.cgi</i> 、 <i>mt.cfg</i> 、 <i>mt-xmlrpc.cgi</i> 和 <i>mt-view.cgi</i> 這些檔案通通都是 Perl 腳本，所以如果妳的 Perl 並非安裝在 <strong>/usr/bin/perl</strong> 的話，妳就得修改上述檔案的第一列，來讓這些腳本找得到 Perl 。<br />請注意，妳應該保留這一列開頭的 <strong>#!</strong> 以及結尾的 <strong>-w</strong> 。<br />舉例來說，如果妳的 Perl 裝在 <code>/usr/bin/perl580</code> 的話，妳就應該把 <code>#!/usr/bin/perl -w</code> 這一列修改成 <strong>#!/usr/bin/perl580 -w</strong> 。<br />如果妳不知道系統上的 Perl 在哪裡的話，請用下列的指令來察看：<pre>whereis perl</pre></li>
+  <li><a id="unix_06"></a>我們還得把這些檔案複製到網頁伺服器使用的目錄中、能夠使用 CGI 腳本的目錄裡。舉例來說，如果妳在網頁伺服器的組態檔案（例如 <code>/usr/local/etc/apache/httpd.conf</code> ）裡設定可以執行 CGI 的目錄位於 <code>/usr/local/www/cgi-bin/</code> 的話，妳可能就應該這麼做：<pre>cd /usr/local/www/cgi-bin
+cp -r /home/foo/MT-2.64-full-lib/ .</pre></li>
+  <li><a id="unix_07"></a>不過我們還得先把 MovableType 管理介面的靜態檔案（包括整個 <code>docs</code> 目錄、整個 <code>images</code> 目錄，以及 <code>styles.css</code> 搬移到正確的目錄去，他們纔能夠被正確顯示出來。舉例來說，如果妳在網頁伺服器的組態檔案（例如 <code>/usr/local/etc/apache/httpd.conf</code> ）裡設定 MovableType 的主索引目錄 (<code>DocumentRoot</code>) 為 <code>/usr/local/www/mt</code> 的話，妳可能就應該這麼做：<pre>mv /usr/local/www/cgi-bin/docs /usr/local/www/mt/docs
+mv /usr/local/www/cgi-bin/images /usr/local/www/mt/images
+mv /usr/local/www/cgi-bin/styles.css /usr/local/www/mt/styles.css</pre></li>
+  <li><a id="unix_08"></a>檔案複製過去後，妳還需要調整檔案權限，讓它們能夠被執行。請用這樣的指令：<pre>chmod 755 /usr/local/www/cgi-bin/mt*.cgi</pre></li>
+  <li><a id="unix_09"></a>Movable Type 還需要用到資料庫來儲存文章或模版等東西，妳可以選用 <code>MySQL</code> 、 <code>PostgreSQL</code> 、 <code>Berkeley DB</code> 或 <code>SQLite</code> 。如果妳決定要用 <code>MySQL</code> 或 <code>PostgreSQL</code> 的話，請先把他們裝好，並參照<a href="mtbook_config.html#config" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#config">第二章</a>來調整相關的設定；如果妳決定要用 <code>Berkeley DB</code> 或 <code>SQLite</code> 的話，妳得要在安裝 Movable Type 的目錄中建立起一個叫 <strong>db</strong> 的目錄，並把目錄的權限設成 <strong>777</strong> 。可能的指令會是像這樣：<pre>mkdir /usr/local/www/cgi-bin/db
+chmod 777 /usr/local/www/cgi-bin/db</pre></li>
+  <li><a id="unix_10"></a>這樣就算安裝完成了。接下來請參照<a href="mtbook_config.html#config" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#config">第二章</a>的內容來加以設定組態。</li>
+</ol></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

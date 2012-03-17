@@ -1,0 +1,262 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: I18N和L10N（3）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000359.html" tppabs="http://hedong.3322.org/archives/000359.html" title="CLI学习笔记" />
+
+<link rel="next" href="000361.html" tppabs="http://hedong.3322.org/archives/000361.html" title="I18N和L10N（4）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000360.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/255"
+    dc:title="I18N和L10N（3）"
+    dc:identifier="http://hedong.3322.org/archives/000360.html"
+    dc:subject="ItTech"
+    dc:description="　　继续学习I18N。 　　估计这篇文章是非英语国家的研究人员写的，读起来非常困难。：（..."
+    dc:creator="Hilton"
+    dc:date="2003-11-14T00:19:26+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000360.html">
+<dc:title>I18N和L10N（3）</dc:title>
+<dc:description>　　继续学习I18N。 　　估计这篇文章是非英语国家的研究人员写的，读起来非常困难。：（...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-14T00:19:26+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000359.html" tppabs="http://hedong.3322.org/archives/000359.html">&laquo; CLI学习笔记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000361.html" tppabs="http://hedong.3322.org/archives/000361.html">I18N和L10N（4） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 14, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">I18N和L10N（3）</h3>
+
+<p>　　继续学习I18N。<br />
+　　估计这篇文章是非英语国家的研究人员写的，读起来非常困难。：（</p>
+
+<a name="more"></a>
+<p><h4>什么是locale?</h4><br />
+I18N的主要目标，是将所有与特定文化有关的信息从代码抽取出来。这也就意味着，你需要在运行时要装载这些数据，因而你的软件能够在那种语言中正常运行。在开发人员的语言中，一个locale不过是一个这种动态加载的数据的句柄(handle)。基于这种技术，locale有几个组件，基本的组件有语言、地域和编码页。<br />
+<h4>什么是“code page”？为什么需要它?</h4><br />
+由于一种语言可有多个编码页（如日语，有EUC、Shift-JIS、UTF-8等编码页），有时在两个系统间交换数据时必须做编码页转换。另一种情况是，当你在一个分布式系统上工作时且决定用Unicode编码页保存数据时，在进行显示时必须转换成本地的编码；或者当你收到用户的输入等。编码页转换通常是一个查表操作，非常耗费资源。只有很少的编码页转换，如UTF－16到UTF－8提供了转换算法。<br />
+<h4>什么是转换敏感的编码页shift sensitive codepages？</h4><br />
+在一些亚洲语言的编码中，一些特殊的字节序列，是用来区分单字节字符和双字节字符的。例如，在日语ISO-2022-JP编码页中，字节序列\x1B\x24\x40用来表示从单字节字符进入双字节字符，而字节序列\x1B\x28\x42则用来表示从双字节字符到单字节字符。换句话说，在分析一个字符串时，如果你遇到了字节序列\x1B\x24\x40，则你知道从此以后的将是一些双字节字符。用以标志从单字节字符转到双字节字符的字节序列叫做shift-in序列，另一个则叫shift-out序列。这些转换点对解析字符串提出了挑战，因为你要一直保存着当前的状态，以便进行相关的字符器操作。ISO-2022-JP 和 ISO-2022-KR 是两个非常著名的日语和韩语转换敏感编码页，流行于很多的HTML页面中。<br />
+<h4>什么是EBCDIC编码页？</h4>　　<br />
+EBCDIC这个编码页的缺点是，即使英文字符也不与ASCII值一致。这儿有<a href="javascript:if(confirm('http://www.natural-innovations.com/computing/asciiebcdic.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.natural-innovations.com/computing/asciiebcdic.html'" tppabs="http://www.natural-innovations.com/computing/asciiebcdic.html">EBCDIC和ASCII的对照表</a>。  <br />
+<h4>关于亚洲字符集有什么好的参考书供初学者？</h4><br />
+Ken Lunde的<a href="javascript:if(confirm('http://www.amazon.com/exec/obidos/tg/detail/-/1565922247/104-1580970-5223942?vi=glance  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.amazon.com/exec/obidos/tg/detail/-/1565922247/104-1580970-5223942?vi=glance'" tppabs="http://www.amazon.com/exec/obidos/tg/detail/-/1565922247/104-1580970-5223942?vi=glance">CJKV Information Processing</a>.<br />
+<h4>什么是国际化QA（internationalization QA）？</h4><br />
+就是那些特别关注产品的语言兼容性测试的QA。这包括测试产品在其语言环境中识别和初始化语言处理的行为、适应那个环境的能力。白盒测试应当典型地包括检查那此实现I18N兼容性标准的代码（如使用正确实的API等）。黑盒测试应典型地包括在不同的语言环境中产品全部功能的回归测试以及测试界面上的本地化语言的字符串。特定文化信息也需要检查（如日期、时间显示等）。<br />
+<h4>什么是本地化QA(localization QA)?</h4><br />
+本地化QA在软件本地化/翻译完这后进行。重点不仅包括功能，而且包括GUI上下文中的信息的翻译是否适宜。还包括检查GUI布局，确保没有信息被截断等。它通常由以某种语言为母语的人来测试。<br />
+<h4>我只懂英文，也能做国际化QA吗 ? </h4><br />
+当然可以。QA中i18n的那部分，不需要特定语言的任何知识，虽然懂得这种语言迟早会用上排场，尤其是进行环境语言设置的时候。如果你作i18nQA，你的产品还没有进行翻译，则它的界面仍以英文显示。也可能有一些来自己运行环境的错误信息你搞不清楚，但通常你可以据错误代码到英文错误信息库中查找相关内容。<br />
+<h4>在亚洲语言环境中，常有哪些问题会造成软件运行的中断?</h4><br />
+许多的亚洲语言的编码页中，多字节字符的第二个字节在ASCII范围内。这类字符易造成软件的中断。<br />
+<h4>如何将字符串从一种编码转换到其它编码？</h4><br />
+利用*nix环境中利用iconv命令，或下载<a href="javascript:if(confirm('http://www.i18nfaq.com/jiconv.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.i18nfaq.com/jiconv.html'" tppabs="http://www.i18nfaq.com/jiconv.html">jiconv</a>。<br />
+<h4>如何看某一个字符的16进制编码？</h4><br />
+在*nix环境中利用od -x命令，在win环境下用<a href="javascript:if(confirm('http://www.muquit.com/muquit/software/hod/hod.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.muquit.com/muquit/software/hod/hod.html'" tppabs="http://www.muquit.com/muquit/software/hod/hod.html">hod.exe</a><br />
+<h4>什么是jchardet?</h4><br />
+jchardet是mozilla自动字符集探测算法代码的java移植,其源代码可以从<a href="javascript:if(confirm('http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192'" tppabs="http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192">sourceforge</a>下载。这个算法的最初作者是frank Tang,C++源代码在<a href="javascript:if(confirm('http://lxr.mozilla.org/mozilla/source/intl/chardet/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://lxr.mozilla.org/mozilla/source/intl/chardet/'" tppabs="http://lxr.mozilla.org/mozilla/source/intl/chardet/">http://lxr.mozilla.org/mozilla/source/intl/chardet/</a>，可以从<a href="javascript:if(confirm('http://www.mozilla.org/projects/intl/chardet.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mozilla.org/projects/intl/chardet.html'" tppabs="http://www.mozilla.org/projects/intl/chardet.html">http://www.mozilla.org/projects/intl/chardet.html</a>得到更多关于这个算法的信息。<br />
+</p>
+
+<span class="posted">Posted by Hilton at November 14, 2003 12:19 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=360.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=360" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>双字节ASCII?<br />
+iconv支持ebcdic，也技很多种类的双字节编码，你可运命令$iconv --list来看一下具体支持编译种类，从而决定它是否能完成你的要求。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January  8, 2004 04:20 PM</span>
+</div>
+<div class="comments-body">
+<p>请问如何把双字节文字从ASCII转换成EBCDIC?<br />
+Would you please adivse on how to convert the multibytes languages TXT from ASCII to EBCDIC ?</p>
+
+<p>many thanks,</p>
+
+<p>Yongqing.liu@geahk.ge.com</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;yongqing&#46;liu&#64;geahk&#46;ge&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;yongqing&#46;liu&#64;geahk&#46;ge&#46;com">Liu Yongqing</a> at January  8, 2004 03:35 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="360" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

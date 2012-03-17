@@ -1,0 +1,318 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Jakarta Commons Logging学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000314.html" tppabs="http://hedong.3322.org/archives/000314.html" title="HttpClient学习(三)" />
+
+<link rel="next" href="000317.html" tppabs="http://hedong.3322.org/archives/000317.html" title="HttpClient学习（四）
+" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000316.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/213"
+    dc:title="Jakarta Commons Logging学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000316.html"
+    dc:subject="ItTech"
+    dc:description="　　说句实话，JCL(Jakarta Commons Logging)和log4j真把我搞蒙了。不都是做log的吗，怎么在jcl的源码包中，还有个log4j的包？倒底谁跟谁啊？至到看了jcl的用户指南，才明白一些。hehe...."
+    dc:creator="Hilton"
+    dc:date="2003-10-20T23:10:35+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000316.html">
+<dc:title>Jakarta Commons Logging学习笔记</dc:title>
+<dc:description>　　说句实话，JCL(Jakarta Commons Logging)和log4j真把我搞蒙了。不都是做log的吗，怎么在jcl的源码包中，还有个log4j的包？倒底谁跟谁啊？至到看了jcl的用户指南，才明白一些。hehe....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-20T23:10:35+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000314.html" tppabs="http://hedong.3322.org/archives/000314.html">&laquo; HttpClient学习(三)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000317.html" tppabs="http://hedong.3322.org/archives/000317.html">HttpClient学习（四）
+ &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 20, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Jakarta Commons Logging学习笔记</h3>
+
+<p>　　说句实话，<a href="javascript:if(confirm('http://jakarta.apache.org/commons/logging.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/commons/logging.html'" tppabs="http://jakarta.apache.org/commons/logging.html">JCL(Jakarta Commons Logging)</a>和<a href="javascript:if(confirm('http://jakarta.apache.org/log4j/docs/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/log4j/docs/index.html'" tppabs="http://jakarta.apache.org/log4j/docs/index.html">log4j</a>真把我搞蒙了。不都是做log的吗，怎么在jcl的源码包中，还有个log4j的包？倒底谁跟谁啊？至到看了jcl的用户指南，才明白一些。hehe.<br />
+</p>
+
+<a name="more"></a>
+<p><h4>1、Commons-Loggin简介</h4><br />
+　　Jakarta Commons Logging (JCL)提供的是一个日志(Log)接口(interface)，同时兼顾轻量级和不依赖于具体的日志实现工具。 它提供给中间件/日志工具开发者一个简单的日志操作抽象，允许程序开发人员使用不同的具体日志实现工具。用户被假定已熟悉某种日志实现工具的更高级别的细节。JCL提供的接口，对其它一些日志工具，包括Log4J, Avalon LogKit, and JDK 1.4等，进行了简单的包装，此接口更接近于Log4J和LogKit的实现. <br />
+<h4>2、快速入门</h4><br />
+　　JCL有两个基本的抽象类：Log(基本记录器)和LogFactory(负责创建Log实例)。当commons-logging.jar被加入到CLASSPATH之后，它会心可能合理地猜测你喜欢的日志工具，然后进行自我设置，用户根本不需要做任何设置。默认的LogFactory是按照下列的步骤去发现并决定那个日志工具将被使用的（按照顺序，寻找过程会在找到第一个工具时中止）:<br />
+<ol><li>寻找当前factory中名叫org.apache.commons.logging.Log配置属性的值</li><br />
+<li>寻找系统中属性中名叫org.apache.commons.logging.Log的值</li><br />
+<li>如果应用程序的classpath中有log4j,则使用相关的包装(wrapper)类(Log4JLogger)</li><br />
+<li>如果应用程序运行在jdk1.4的系统中，使用相关的包装类(Jdk14Logger)</li><br />
+<li>使用简易日志包装类(SimpleLog)</li></ol><br />
+<h4>3、开发使用logging</h4><br />
+<div class="code">//在程序文件头部import相关的类<br />
+      import org.apache.commons.logging.Log;<br />
+      import org.apache.commons.logging.LogFactory;<br />
+      ......<br />
+      //在类中获取一个实例<br />
+      public class MYCLASS<br />
+      {<br />
+         private static Log log = LogFactory.getLog(MyCLASS.class);<br />
+         ...<br />
+	　}</div><br />
+日志信息被送往记录器，如上例中的log。这个发送过程，是通过调用Log接口中定义的方法完成的，不同方法跟不同的级别联系在一起，日志信息通过哪个级别的方法发送，就标明了日志信息的级别。org.apache.commons.logging.Log接口中定义的方法,按严重性由高到低的顺序有：<ol><br />
+<li>log.fatal(Object message);             </li><br />
+<li>log.fatal(Object message, Throwable t);</li><br />
+<li>log.error(Object message);             </li><br />
+<li>log.error(Object message, Throwable t);</li><br />
+<li>log.warn(Object message);              </li><br />
+<li>log.warn(Object message, Throwable t); </li><br />
+<li>log.info(Object message);              </li><br />
+<li>log.info(Object message, Throwable t); </li><br />
+<li>log.debug(Object message);             </li><br />
+<li>log.debug(Object message, Throwable t);</li><br />
+<li>log.trace(Object message);             </li><br />
+<li>log.trace(Object message, Throwable t);</li></ol>除此以外，还提供下列方法以便代码保护.<br />
+<ol><li>log.isFatalEnabled();</li><br />
+<li>log.isErrorEnabled();</li><br />
+<li>log.isWarnEnabled(); </li><br />
+<li>log.isInfoEnabled(); </li><br />
+<li>log.isDebugEnabled();</li><br />
+<li>log.isTraceEnabled();</li></ol><br />
+　　信息级别<br />
+　　确保日志信息在内容上和反应问题的严重程度上的恰当，是非常重要的。<br />
+<ol><li><b>fatal</b>非常严重的错误，导致系统中止。期望这类信息能立即显示在状态控制台上。</li><br />
+<li><b>error</b>其它运行期错误或不是预期的条件。期望这类信息能立即显示在状态控制台上。</li><br />
+<li><b>warn</b>使用了不赞成使用的API、非常拙劣使用API, '几乎就是'错误, 其它运行时不合需要和不合预期的状态但还没必要称为 "错误"。期望这类信息能立即显示在状态控制台上。</li><br />
+<li><b>info</b>运行时产生的有意义的事件。期望这类信息能立即显示在状态控制台上。</li><br />
+<li><b>debug</b>系统流程中的细节信息。期望这类信息仅被写入log文件中。</li><br />
+<li><b>trace</b>更加细节的信息。期望这类信息仅被写入log文件中。</li></ol><br />
+通常情况下，记录器的级别不应低于info.也就是说，通常情况下debug的信息不应被写入log文件中。<br />
+　　工作机理<br />
+<ol><li>生命周期<br />
+JCL LogFactory必须实现建立/断开到日志工具的连接，实例化/初始化/解构一个日志工具.</li><br />
+<li>异常处理<br />
+JCL Log 接口没有指定任何异常处理,对接口的实现必须捕获并处理异常。<li><br />
+<li>多线程<br />
+JCL Log 和 LogFactory 的实现，必须确保任何日志工具对并行的要求.<li></ol><br />
+　　记录器的设置<br />
+　　JCL采用的记录器的不同其设置内容也不同。Log4J是默认首选记录器，对其设置可通过系统属性(system properties)或一个属性文件进行设置，下面是其设置参数。<br />
+<table border="1"><tr><td>参数</td><td>值域</td><td>默认值</td><td>说明</td></tr><tr><td>log4j.configuration</td><td></td><td>log4j.properties</td><td>指定配置文件的名字</td></tr><tr><td>log4j.rootCategory</td><td>priority [, appender]*</td><td></td><td>设定根记录器的级别</td></tr><tr><td>log4j.logger&lt;.logger.name&gt;</td><td>DEBUG, INFO, WARN, ERROR, or FATAL</td><td>设定logger.name这个记录器的级别</td></tr><tr><td>log4j.appender&lt;.appender&gt;.Threshold</td><td>priority</td><td>指定记录设备appender(console, files, sockets, and others)的最低级别。</td></tr></table><br />
+</p>
+
+<span class="posted">Posted by Hilton at October 20, 2003 11:10 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=316.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=316" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>怎么能算垃圾呢？一个是接口，一个是具体实现？</p>
+<span class="comments-post">Posted by:  at January  6, 2004 08:53 AM</span>
+</div>
+<div class="comments-body">
+<p>很喜欢你的学习笔记，再次仅表谢意</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;seanshou77&#64;yahoo&#46;com&#46;cn'" tppabs="http://hedong.3322.org/archives/mailto&#58;seanshou77&#64;yahoo&#46;com&#46;cn">seanshou</a> at December 14, 2003 03:21 PM</span>
+</div>
+<div class="comments-body">
+<p>真得很不错，我学到了很多<br />
+以前只知道用，不明白怎么回事<br />
+谢谢</p>
+<span class="comments-post">Posted by: sandyen at November 13, 2003 03:05 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢鼓励！</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  5, 2003 03:58 PM</span>
+</div>
+<div class="comments-body">
+<p>写的很完整<br />
+看起来也和简单<br />
+good</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;shoujy&#64;redstoneinfo&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;shoujy&#64;redstoneinfo&#46;com">SUNCHINA</a> at November  5, 2003 03:42 PM</span>
+</div>
+<div class="comments-body">
+<p>Common Log 是更通用、简单的log工具，用于屏蔽底层具体的细节，底层完全可以使用Log4J或jdk1.4 log包</p>
+
+<p>很不错阿</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.misslog.com/blog/index.asp?blog_id=6  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.misslog.com/blog/index.asp?blog_id=6'" tppabs="http://www.misslog.com/blog/index.asp?blog_id=6">evan</a> at October 30, 2003 05:01 PM</span>
+</div>
+<div class="comments-body">
+<p>嗬嗬，这也可以算是Jakarta的垃圾之一。同一个系统下出现了多个Log工具！！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://knaps.txt.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://knaps.txt.cn/'" tppabs="http://knaps.txt.cn/">keke</a> at October 22, 2003 06:21 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="316" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

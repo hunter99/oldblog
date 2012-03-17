@@ -1,0 +1,162 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on TrackBack技术规范</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: TrackBack技术规范</div>
+
+
+<div class="comments-body">
+<p>看的非常犀利糊涂，不知道在程序里如何实现 </p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://mytz.net/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mytz.net/blog/'" tppabs="http://mytz.net/blog/">kimjooy</a> at November 14, 2003 09:55 AM</span>
+</div>
+<div class="comments-body">
+<p>看了你的这两篇教材，开始多少对trackback有些了解了！<br />
+谢谢你的共享！</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://myblog.net163.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://myblog.net163.com/'" tppabs="http://myblog.net163.com/">tsingove</a> at November 13, 2003 01:14 PM</span>
+</div>
+<div class="comments-body">
+<p>　　从这个规范的定义来看，trackback系统是在两个支持tb的两个web服务器之间互相传递信息的一套机制。传递的信息有两类：<br />
+　　一是引用信息，以ping发送，数据包中可以含有 title、excerpt、url、blog_name等内容，其中只有url信息是必须的。这类信息，主要是想告诉对方，我这儿有一篇什么样的文章（如标题为何，摘要是何，URL是何等）引用了你的哪一篇文章（POST信息到的目标URL，已经指定了是哪篇文章了）。<br />
+　　另一类，是从某个站点取回这个站点的某篇文章收到的所有的引用。有了这个功能，你就可以找到所有与你兴趣相投的文章了（只少它们都引用了这篇文章）。</p>
+
+<p>　　至于当你收到某人发来的ping时，如何处理，要不要显示，显示哪些内容，要不要分类，要不要计数，则是个人的自由，规则没有作规定。<br />
+　　不过有一点，就是没有必要分析referer，一是因为这个ping包中本身就有url信息，二是这个请求是web服务器发出的，请求头里可能没有referer信息。</p>
+
+<p>　　还有一点，就是从规范中可知，trackback系统中，每篇文章有两个URI，一个正常的可以访问页面的URL，另一个用来接收ping的URL（即所谓trackback ping url)，至于后一种URL如何设计，规范也没作规定，只要这个URL中的信息能区别出是那篇文章，即可。</p>
+
+<p>　　以上是我的理解，供参考。</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  9, 2003 11:57 AM</span>
+</div>
+<div class="comments-body">
+<p>TRACK BACK 系统:是不是就是真对每篇文章（URL）设置独立的计数器，并且GROUP BY REFERER的域名？<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">Che Dong</a> at November  9, 2003 11:27 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="351" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,438 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: bugzilla学习</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000259.html" tppabs="http://hedong.3322.org/archives/000259.html" title="bash编程学习笔记(4)" />
+
+<link rel="next" href="000260.html" tppabs="http://hedong.3322.org/archives/000260.html" title="在Visual Studio中集成CVS的工具" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000256.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/179"
+    dc:title="bugzilla学习"
+    dc:identifier="http://hedong.3322.org/archives/000256.html"
+    dc:subject="ItTech"
+    dc:description="　　Bugzilla是一个bug追踪系统，用以管理bug提交、bug消除，不仅能降低同样错误的重复发生，提高开效率，而且有助于项目管理的难度。更有人打算用借助此系统，用前人的bug来教育新来的程序员，也是个不错的注意。 　　这使我想起一个调侃SYBASE创始人Kertzman的笑话，Kertzman年青时曾是民间歌手、电台主持和加油工，后来非常“喜欢编程”，为一个教育软件公司写了四年的程序。现在，SYBASE公司用Kertzman的代码来告诫新的程序员们，如果他们写出这样的代码，那么就会滚蛋。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-03T18:38:05+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000256.html">
+<dc:title>bugzilla学习</dc:title>
+<dc:description>　　Bugzilla是一个bug追踪系统，用以管理bug提交、bug消除，不仅能降低同样错误的重复发生，提高开效率，而且有助于项目管理的难度。更有人打算用借助此系统，用前人的bug来教育新来的程序员，也是个不错的注意。 　　这使我想起一个调侃SYBASE创始人Kertzman的笑话，Kertzman年青时曾是民间歌手、电台主持和加油工，后来非常“喜欢编程”，为一个教育软件公司写了四年的程序。现在，SYBASE公司用Kertzman的代码来告诫新的程序员们，如果他们写出这样的代码，那么就会滚蛋。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-03T18:38:05+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000259.html" tppabs="http://hedong.3322.org/archives/000259.html">&laquo; bash编程学习笔记(4)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000260.html" tppabs="http://hedong.3322.org/archives/000260.html">在Visual Studio中集成CVS的工具 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 03, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">bugzilla学习</h3>
+
+<p><img alt="bugzilla.jpg" src="bugzilla.jpg" tppabs="http://hedong.3322.org/archives/pics/bugzilla.jpg" width="350" height="80" border="0" align="left"/>　　<a href="javascript:if(confirm('http://www.bugzilla.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bugzilla.org/'" tppabs="http://www.bugzilla.org/" title="Bugzilla项目主页">Bugzilla</a>是一个bug追踪系统，用以管理bug提交、bug消除，不仅能降低同样错误的重复发生，提高开效率，而且有助于项目管理的难度。更有人打算用借助此系统，<a href="javascript:if(confirm('http://www.51cmm.com/SPI/No016.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.51cmm.com/SPI/No016.htm'" tppabs="http://www.51cmm.com/SPI/No016.htm" title="软件过程改进纪实—从CVS到UnitTest再到Bugzilla">用前人的bug来教育新来的程序员</a>，也是个不错的注意。<br />
+　　这使我想起一个调侃SYBASE创始人Kertzman的笑话，Kertzman年青时曾是民间歌手、电台主持和加油工，后来非常“喜欢编程”，为一个教育软件公司写了四年的程序。现在，SYBASE公司用Kertzman的代码来告诫新的程序员们，如果他们写出这样的代码，那么就会滚蛋。</p>
+
+<a name="more"></a>
+<p>　　闲话少说，来说一下Bugzilla的安装吧。<br />
+　　我是在Red Hat Linux 7.3上安装Bugzilla的，而且已经安装了mysql及相关的DBI。下面是安装过程，供参考。<br />
+0、下载<br />
+　　我用的是ftp://ftp.mozilla.org/pub/webtools/bugzilla-2.16.3.tar.gz，现在最新版本是2.17.*，据bugzilla自己的说，左起第一点后数是偶数表示是稳定版，奇数是开发版，我偷懒用的是稳定版。</p>
+
+<p>1、在mysqld的启动中增加-O max_allowed_packet=1M <br />
+	以使其支持高达1M的附件，默认是64K，很遗憾我的mysqld如果加上这个参数就不能启动。</p>
+
+<p>2、安装所需要的perl模块<br />
+	我在安装的过程中，还安装了其它一些需要的程序，lynx和gd.<div class="code">#rpm -iUvh lynx-2.8.5-7.i386.rpm</p>
+
+<p>	$wget http://www.boutell.com/gd/http/gd-2.0.15.tar.gz<br />
+	$tar zxvf gd-2.0.15.tar.gz;cd gd-2.0.15<br />
+	$./configure;make;<br />
+	#make install</div></p>
+
+<p>	安装perl模块（这对我而言确实是一种新的安装方法，我一直用perl Makefile.PL; make; make test; make install的）。<div class="code">	#perl -MCPAN -e 'install "Bundle::Bugzilla"'<br />
+	#perl -MCPAN -e 'install "GD"'<br />
+	#perl -MCPAN -e 'install "Chart::Base"'<br />
+	#perl -MCPAN -e 'install "AppConfig"'</div></p>
+
+<p>3、建立mysql用户，用以管理bugs库<br />
+<div class="code">	$mysql -u root mysql -p<br />
+	mysql>GRANT SELECT,INSERT,UPDATE,DELETE,INDEX, ALTER,CREATE,DROP,REFERENCES ON bugs.* TO bugs@localhost IDENTIFIED BY '你指定的密码'; <br />
+	mysql>FLUSH PRIVILEGES; <br />
+	mysql>\q</div><br />
+	数据库及相关的表在后面通过脚本自动创建。</p>
+
+<p>4、建立或修改脚本解释器<br />
+	两种方法，一种是：<div class="code">$mkdir /usr/bonsaitools<br />
+	$mkdir /usr/bonsaitools/bin<br />
+	$ln -s /usr/local/bin/perl /usr/bonsaitools/bin/perl</div></p>
+
+<p>	两种方法，另一种是将所用的解释器进行替换：<div class="code">$perl -pi -e \<br />
+        's@#\!/usr/bonsaitools/bin/perl@#\!/usr/bin/perl@' *cgi *pl Bug.pm \<br />
+        processmail syncshadowdb</div><br />
+	说明：我服务器上的perl在/usr/local/bin目录下，/usr/bin下的perl是个link,所以第一种方法直接用的是/usr/local/bin/perl.</p>
+
+<p>5、第一遍运行checksetup.pl</p>
+
+<p>6、修改localconfig文件，主要是修改用户的密码<br />
+	<div class="code">$vi localconfig<br />
+	将其中的$db_pass = '你在建立mysql用户时指定的密码';</div></p>
+
+<p>7、第二遍运行checksetup.pl</p>
+
+<p>8、通过浏览里进行访问，并以管理员的身份login，<br />
+	点击页面右下角的log in链接，然后根据提示输入email和密码。<br />
+	登录成功后，点击页面右下角的parameters ，然后修改maintainer和urlbase等参数。OK！</p>
+
+<p>9、如果想重新运行一遍安装过程，可以利用下面的命令将bugs库删掉，再从第5步开始。<br />
+	<div class="code">$mysqladmin -u root drop bugs</div></p>
+
+<p>10、汉化<br />
+　　令人高兴的是，侯光敏已经做了汉化，并在sourceforge上发布了。2.16版本的汉化是这样的。<br />
+<div class="code">wget http://easynews.dl.sourceforge.net/sourceforge/bugzilla-cn/bugzilla-2.16.1-cn-0.91.tar.gz<br />
+tar zxvf bugzilla-2.16.1-cn-0.91.tar.gz<br />
+vi globals.pl <br />
+将INCLUDE_PATH => "template/en/custom:template/en/default" ,改为<br />
+INCLUDE_PATH => "template/cn/custom:template/cn/default" ,</div><br />
+　　还有一个问题就是图片显示的问题，我做了以一下处理：<div class="code">wget http://www.bugzilla.org/bugzilla.jpg -O bug.jpg<br />
+cp ant.jpg ant1.jpg</div><br />
+　　此时，从浏览器中可以看到汉字和图片了。：）</p>
+
+<p>　　对开发人员如何使用bugzilla，以后再写吧。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October  3, 2003 06:38 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=256.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=256" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>有没有在WIN2000环境下运行的 BUGZILLA </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;LUCK5230&#64;SOHU&#46;COM'" tppabs="http://hedong.3322.org/archives/mailto&#58;LUCK5230&#64;SOHU&#46;COM">LUCK</a> at January 15, 2004 10:09 AM</span>
+</div>
+<div class="comments-body">
+<p>　　有没有更简单地办法我不清楚，遇到这种情况我都是这么做的：<br />
+$mysql -u root mysql<br />
+mysql>select * from users;<br />
+这样可以列出所有的用户，你看一下：<br />
+1）有没有bug用户<br />
+2）如果有bug用户，看一下其host字段（也就是第一个字段）的值是不是localhost。<br />
+　　如果不是，改为localhost，或者干脆增加一个记录，其Host为localhost,User为bugs,其它的字段的值同另一个bugs用户的相同就可以。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 24, 2003 08:41 PM</span>
+</div>
+<div class="comments-body">
+<p>我在RedHat 9 上配<br />
+运行checkupsetup.pl 时候出现<br />
+Creating table user_group_map ...<br />
+Creating table series_data ...<br />
+Creating table longdescs ...<br />
+Creating table dependencies ...<br />
+前面创建表格都正确，说明数据库可以连上<br />
+然后出现一排的<br />
+[Wed Dec 24 20:24:30 2003] checksetup.pl: DBD::mysql::db do failed: Access denie<br />
+d for user: 'bugs@localhost' to database 'bugs' at ./checksetup.pl line 1989.</p>
+
+<p>不知道什么缘由，望大侠们赐教</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;zhumrkk&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;zhumrkk&#64;hotmail&#46;com">zhumrkk</a> at December 24, 2003 08:20 PM</span>
+</div>
+<div class="comments-body">
+<p>看一下bugzilla目录下有没有相关的图片。如果没有，下载后复制过来。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 24, 2003 05:20 PM</span>
+</div>
+<div class="comments-body">
+<p>请问我按照你的方式装成功了bugzilla，可是图片不能正常显示阿！<br />
+急请指教！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;chunjulee&#64;126&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;chunjulee&#64;126&#46;com">李春菊</a> at December 24, 2003 05:13 PM</span>
+</div>
+<div class="comments-body">
+<p>请检查一下/usr/lib/sendmail能否正确运行。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 18, 2003 09:36 AM</span>
+</div>
+<div class="comments-body">
+<p>你好！<br />
+我这两天在安装bugzilla，头都大了！还好，看着你的指导总算见到天日了！可是在我最后一次运行checksetup.pl时为什么没有提示输入任何信息啊！没办法，在bugzilla的登陆界面我输入了自己的名字和邮箱，可现在还没有收到密码呀，这是怎么回事啊？？<br />
+请在百忙之中指教！！<br />
+多谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;chunjulee&#64;163&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;chunjulee&#64;163&#46;com">菊子</a> at December 18, 2003 09:24 AM</span>
+</div>
+<div class="comments-body">
+<p>用户名与密码都用英文字母，再试一下。<br />
+从提示信息上看，好象你的用户名或密码有点问题。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 29, 2003 12:53 PM</span>
+</div>
+<div class="comments-body">
+<p>版主：我在安装bugzilla 的最后一次 checksetup.pl 时被要求输入email,realname,password,我照填，但总提示我 not printable character....，然后就是 bugzilla 的主页登录不上去（因为没有正确的用户名及口令嘛），想请教如何解决？我在windowXP上装的，没有配置sendmail及其它 mailserver</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;huishuai&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;huishuai&#64;sina&#46;com">swang</a> at November 29, 2003 11:41 AM</span>
+</div>
+<div class="comments-body">
+<p>　　我一般采用如下方法，相对简单，但可能不符合某些安全方面的要求。仍以bugzilla为例说明。<br />
+　　假定bugzilla解压后的目录为/path/to/bugzilla-2.16.3<br />
+对于apache的配置文件，检查<br />
+    AddHandler cgi-script .cgi .pl<br />
+要求有.cgi在这行里。<br />
+然后，增加如下几行。<br />
+    Alias /bugzilla/ "/path/to/bugzilla-2.16.3/"<br />
+    &lt;Directory "/path/to/bugzilla-2.16.3"&gt;<br />
+        Options Indexes MultiViews Includes FollowSymLinks +ExecCGI<br />
+        AllowOverride Limit<br />
+        Order allow,deny<br />
+        Allow from all<br />
+    &lt;/Directory&gt;<br />
+重启apache后，就可以在浏览器中输入<a href="javascript:if(confirm('http://yourhost/bugzilla进行访问了。  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://yourhost/bugzilla进行访问了。'" tppabs="http://yourhost/bugzilla进行访问了。">http://yourhost/bugzilla进行访问了。</a></p>
+
+<p>　　从你的问题，我猜测你可能将那些cgi移到cgi-bin目录下了。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 15, 2003 10:18 PM</span>
+</div>
+<div class="comments-body">
+<p>感谢解答.除了这个问题,我的bugzilla已经基本可以使用了.<br />
+除了报error倒是对其他功能没有什么影响.只是我要向老板交差,这样看起来很不爽.<br />
+还有一个问题,为什么cgi-bin目录下*.html文件无法正常显示,bugzilla的一些html格式的帮助文件看不了.</p>
+<span class="comments-post">Posted by: darwin at November 14, 2003 11:25 AM</span>
+</div>
+<div class="comments-body">
+<p>　　从错误显示的信息来看，是不是perl版本与DBD::mysql版本匹配的问题？<br />
+　　我没用过perl5.8,你的问题对我来说也是个新问题。：（<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 13, 2003 08:32 PM</span>
+</div>
+<div class="comments-body">
+<p>make 的时候有一个error<br />
+bugzilla 可以使用不过在提交新bug时有以下错误提示信息:<br />
+Software error:<br />
+install_driver(mysql) failed: DBD::mysql object version 2.9003 does not match bootstrap parameter 2.1017 at /usr/local/lib/perl5/5.8.1/i686-linux/DynaLoader.pm line 249.<br />
+Compilation failed in require at (eval 4) line 3.<br />
+at globals.pl line 140<br />
+</p>
+<span class="comments-post">Posted by:  at November 13, 2003 01:54 PM</span>
+</div>
+<div class="comments-body">
+<p>不必。<br />
+只是不知你安装的时候，显示了什么信息？</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 11, 2003 09:52 PM</span>
+</div>
+<div class="comments-body">
+<p>我在安装bugzilla时，什么包都打上了，就是DBD::mysql模块死活不肯上去。我的mysql是在安装系统时装上去的。是否必须要源码安装？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;Darwin_Song&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;Darwin_Song&#64;hotmail&#46;com">Darwin</a> at November 11, 2003 05:43 PM</span>
+</div>
+<div class="comments-body">
+<p>我这一句怎么都不能执行完毕 中途出错 我该怎么安装了<br />
+perl -MCPAN -e 'install "Bundle::Bugzilla"'</p>
+<span class="comments-post">Posted by: <a href="000256.html" tppabs="http://hedong.3322.org/archives/000256.html">rill</a> at November  7, 2003 01:02 PM</span>
+</div>
+<div class="comments-body">
+<p>我这一句怎么都不能执行完毕 中途出错 我该怎么安装了<br />
+perl -MCPAN -e 'install "Bundle::Bugzilla"'</p>
+<span class="comments-post">Posted by: <a href="000256.html" tppabs="http://hedong.3322.org/archives/000256.html">rill</a> at November  7, 2003 01:01 PM</span>
+</div>
+<div class="comments-body">
+<p>to Haishion;</p>
+
+<p>   You are welcome.:)</p>
+
+<p>Hilton<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  6, 2003 02:18 PM</span>
+</div>
+<div class="comments-body">
+<p>多谢了：）</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;new_wine&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;new_wine&#64;sina&#46;com">wethair</a> at November  6, 2003 02:01 PM</span>
+</div>
+<div class="comments-body">
+<p>用新的汉化包吧。<br />
+已经寄给你了。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  6, 2003 01:45 PM</span>
+</div>
+<div class="comments-body">
+<p>Hilton，告诉我你的email，或者给<br />
+haishanzheng AT sina DOT com发一封信，有关于Bugzilla的问题要请教你:)</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://dog.xmu.edu.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dog.xmu.edu.cn/'" tppabs="http://dog.xmu.edu.cn/">Haishion</a> at November  6, 2003 12:05 PM</span>
+</div>
+<div class="comments-body">
+<p>我想请问主人知道bugzilla-2.17.4如何汉化吗？最近souceforge上不了。和2.16.4不同，2.17.4的global里没有include_path。如何使用它的汉化包呢？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;new_wine&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;new_wine&#64;sina&#46;com">wethair</a> at November  6, 2003 08:22 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="256" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

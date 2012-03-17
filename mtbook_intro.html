@@ -1,0 +1,199 @@
+<html>
+
+<head>
+  <title>導論 ─ 網誌與 Movable Type</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：導論 ─ 網誌與 Movable Type</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#intro">導論 ─ 網誌與 Movable Type</a></li> 
+  <ul>
+    <li><a href="#news">為什麼妳該注意到網誌</a></li>
+    <li><a href="#history">網誌發跡史</a></li>
+    <li><a href="#mt">從 Blog 到 Movable Type</a></li>
+    <li><a href="#mt_advantage">Movable Type 的優點</a></li>
+    <li><a href="#usage">Movable Type 的用途</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="intro"></a>導論 ─ 網誌與 Movable Type</h1>
+
+<p>這一章是說故事的章節。我們將概略地描述關於 Blog 這個玩意兒的來龍去脈；甚麼是 Blog ？誰在 Blog ？我為什麼要 Blog ？ Blog 能給我帶來些甚麼好處？為什麼我要用 Movable Type 來 Blog ？ Movable Type 就祇能夠拿來 Blog 嗎？我們不但會在這一章裡為大家解答這些問題，甚至還會為各位介紹 Blog 在華人世界發展的過程。希望所有的朋友也能藉由這一章的內容，而能夠有一些初步的瞭解（或者是用來決定要不要繼續浪費時間來讀這份文件……）。</p>
+
+<h2><a id="news"></a>為什麼妳該注意到網誌</h2>
+
+<p>首先讓我們來看看最近發生的一些重要事件：</p>
+<p><ul>
+  <li>全球最大的搜索引擎公司 <a href="javascript:if(confirm('http://www.google.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google.com/'" tppabs="http://www.google.com/">Google</a> 最近剛併購了 <a href="javascript:if(confirm('http://www.pyra.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.pyra.com/'" tppabs="http://www.pyra.com/">Pyra Labs</a> ，這家公司的主要業務內容也就是提供免費網誌空間 <a href="javascript:if(confirm('http://blogger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogger.com/'" tppabs="http://blogger.com/">http://blogger.com</a></li>
+  <li><a href="javascript:if(confirm('http://blogs.law.harvard.edu/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogs.law.harvard.edu/'" tppabs="http://blogs.law.harvard.edu/">哈佛大學</a>與<a href="javascript:if(confirm('http://www.stanford.edu/dept/itss/projects/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.stanford.edu/dept/itss/projects/blog/'" tppabs="http://www.stanford.edu/dept/itss/projects/blog/">史丹佛大學</a>相繼提供全校師生免費的網誌系統</li>
+  <li><a href="javascript:if(confirm('http://www.cnn.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cnn.com/'" tppabs="http://www.cnn.com/">CNN</a> 自 2003 年三月十日起，開始<a href="javascript:if(confirm('http://www.cnn.com/2003/TECH/internet/03/10/bloggers.ap/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cnn.com/2003/TECH/internet/03/10/bloggers.ap/index.html'" tppabs="http://www.cnn.com/2003/TECH/internet/03/10/bloggers.ap/index.html">報導</a>關於網誌的新聞</li>
+</ul></p>
+<p>從這些事件中，我們不難嗅出這個叫做「網誌」的玩意兒，似乎在台面下躍躍欲試，想要跳到桌子上嚇妳一跳！雖然亞洲一帶的媒體有意或無意間都略過了關於「網誌」的新聞，但是並不代表它在這裡、在台灣就不會有影響力。</p>
+
+<p>在網路的世界裡，本來就沒有甚麼國界之分。能夠被搜索引擎找到的，就是廣大資料庫王國的一員；誰能夠被 Google 相中，誰就是當朝的紅人。這個道理相當地簡單，即使是還不識字的三歲小孩都能理解：<strong>要讓別人聽話行事的先決條件是，妳得讓他聽到妳在說些甚麼。</strong>如果每天都有數以千萬計的新頁面在網路上冒出來、上億的文字被使用，妳又該如何讓妳說的話在這當中佔有一席之地？妳如何纔能讓妳用心撰寫的內容，順利地呈現到妳預期中的讀者面前？</p>
+
+<p>一種叫做「網誌」的系統，一直潛藏於網路世界的幽暗面；如今這套系統逐漸在正是場合露臉。它讓個人出版、個人新聞報導變得真實而容易，同時也讓網頁內容的提供者，能夠輕易地維繫著整個頁面的枝幹架構。它讓文字的內容更能夠貼近讀者的目光，它喚起了無遠弗屆網路王國中的新脈動；無論妳想要觀察這個世界的心跳，或參與其中、或帶頭發難，妳都不該忽略了這個新玩意兒。而這個稱做「網誌」的工具，也就是這份文件裡所要加以闡述、剖析的。我們不但要告訴妳它的驚人威力，更要揭露箇中密辛；甚至，我們還要告訴妳，妳該如何將這份力量化為己用！</p>
+
+<div class="img"><a id="img_01"></a><img src="blogger.com.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/blogger.com.png" alt="blogger.com 的網頁"><br />圖一： blogger.com 的網頁；這家公司提供免費的 Blog 空間，最近纔被 Google 併購。</div>
+
+<div class="img"><a id="img_02"></a><img src="harvard_blog.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/harvard_blog.png" alt="哈佛大學的 Blog 計畫"><br />圖二：哈佛大學提供師生免費的 Blog 系統。</div>
+
+<div class="img"><a id="img_03"></a><img src="stanford_blog.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/stanford_blog.png" alt="史丹佛大學的 Blog 計畫"><br />圖三：史丹佛大學提供師生免費的 Blog 系統。她們用的也是 Movable Type 。</div>
+
+<div class="img"><a id="img_04"></a><img src="cnn_report_blog.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cnn_report_blog.png" alt="CNN 開始報導 Blog"><br />圖四： CNN 在 2003 年 3 月 10 日的時候，首度報導了跟 Blog 有關的新聞，其標題為「Blogging 成為主流活動」。</div>
+
+<h2><a id="history"></a>網誌發跡史</h2>
+
+<p>網誌的原文是 <code>Weblog</code> ，或縮寫成 <code>Blog</code> 。最早出現 Weblog 這個字眼 <a href="javascript:if(confirm('http://www.robotwisdom.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.robotwisdom.com/'" tppabs="http://www.robotwisdom.com/">jorn barger</a> 在 1997 年左右提出來的。在這之前，網路世界裡所謂的 weblog 通常指的是 <code>web log</code> ，是一種硬生生地、充滿技術性記載的、無關乎敘事的紀錄。妳可以把它想成是在網頁伺服器上的一個記錄檔，裡面忠實地記載著這一台伺服器上的眾多封包往來：幾點幾分的時候，來自那個 IP 位址的電腦提出了甚麼樣的要求；幾點幾分的時候來自那個 IP 位址的電腦取得了些甚麼樣的資料；幾點幾分的時候出現了甚麼錯誤訊息。諸如此類，這些內容既多且繁雜，更不具甚麼可讀性。若非想要是分析流量或察看可疑之處的系統管理人員，恐怕實在很難提起性子慢慢讀（事實上，即便是這些系統管理人員，也都得仰賴其他的程式，纔能「讀」出這些記錄背後的意義）。</p>
+
+<p>那麼 1997 年起出現的這個新字眼，又代表著甚麼意思呢？所謂的 Weblog 指的是一種<strong>以 web 作為呈現媒介的（個人） log</strong> 。如果要從各位身邊尋找比較接近的例子的話，或許相當於 <code><acronym title="Bulletin Board System">BBS</acronym> 上的個人板</code>，或<code>明日報個人新聞台</code>吧。也有人把它稱做<code>網頁型態的日記</code>，不過沒有人規定 weblog 每天一篇，所以或許稱做<code>網頁型態的札記</code>會更恰當。</p>
+
+<p>到了 1999 年四、五月間， <a href="javascript:if(confirm('http://peterme.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://peterme.com/'" tppabs="http://peterme.com/">Peter Merholz</a> 開始把 Weblog 唸成 <code>We Blog</code> ；從此有了 <code>Blog</code> 這個說法。而且，這裡的 Blog 不僅僅可以拿來當作名詞、作為 Weblog 的縮寫，更成為了一個動詞。</p>
+
+<p>當作名詞的時候， Weblog ，或說是 Blog ，現在有了更嚴謹的定義；它指的是一些文章，而這些文章必須要滿足這些條件：<p>
+
+<p><ul>
+  <li>彙整<br />這些文章必須經由特定的方法加以整理存放；這可以是單純地按照時間來整理，也可以是任何的分類方式</li>
+  <li>靜態鏈結<br />這些文章必須公開於網路之上，並且能夠讓其他讀者藉由某個固定、不變的網址鏈結而直接讀取得到；這暗指著這些文章的存取會是直接而公開的</li>
+  <li>時間戳印<br />這些文章必須具有時間戳印，記錄著寫成的時間</li>
+  <li>日期標頭<br />這些文章必須要標出日期標頭；這意味著它們將會是具有時序性的，或內容將可能與時空背景有一定的關聯</li>
+</ul></p>
+
+<p>於是 Blog 從很概略的「網頁型式的格人札記」轉變成具有多樣特性的文章集結。而 Blog 這個字眼作為動詞的時候，根據 <a href="javascript:if(confirm('http://megnut.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://megnut.com/'" tppabs="http://megnut.com/">Meg Hourihan</a> 在 <a href="javascript:if(confirm('http://www.oreillynet.com/pub/a/javascript/2002/06/13/megnut.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.oreillynet.com/pub/a/javascript/2002/06/13/megnut.html'" tppabs="http://www.oreillynet.com/pub/a/javascript/2002/06/13/megnut.html">What We're Doing When We Blog</a> 一文裡的說法，乃是<code>按照各自的規則來整理資訊的<strong>方法</strong></code>。</p>
+
+<p>根據這個說法，當某個人在 Blog 的時候，並不是（或不單純祇是）生產被人們稱之為「網誌 (Blog) 」的一篇篇文章；實際上，她是在實踐個人的信念，以她所認同且認可的規則，將她的感官所接受到的種種資訊，整理後加以出版，成為其他讀者所能夠閱讀的文本。</p>
+
+<p>早在有網路之初，國外就有許許多多不同的人們，各自用了各種的技術在做這件事；至於華人世界裡，最早開始接觸 Blog 的也是那些僑居國外的學生。這些僑生由於身在國外，接受各種不同文化的刺激，於是她們也跟著仿效使用。由於她們使用的多半是國外的資源，所以幾乎清一色地使用英文作為呈現文本的語言；雖然如此，這卻是華人世界中，最早萌現的新芽。</p>
+
+<p>隨著近年來 Blog 逐漸受到重視，有一位在美國讀書的菲律賓裔學生成立了「<a href="javascript:if(confirm('http://ricebowljournals.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ricebowljournals.com/'" tppabs="http://ricebowljournals.com/">飯碗誌</a>」，作為亞裔網誌大串聯。她用米飯、用碗筷做為亞裔世界共通的語言：雖然我們可能用不同的語言、住在不同的國家，但是我們都是用碗筷喫米飯的亞裔，有著無以比擬的情感</p>
+
+<p>單就兩岸來說，台灣的資訊介入顯然豐富得多，但是除了 1996 年 <a href="javascript:if(confirm('http://www.epaper.com.tw/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.epaper.com.tw/'" tppabs="http://www.epaper.com.tw/">PChome ePaper 電子報</a>、 1997 年<a href="javascript:if(confirm('http://enews.url.com.tw/category.shtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://enews.url.com.tw/category.shtml'" tppabs="http://enews.url.com.tw/category.shtml">智邦電子報</a> 、 2000 年<a href="javascript:if(confirm('http://mypaper.ttimes.com.tw/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mypaper.ttimes.com.tw/'" tppabs="http://mypaper.ttimes.com.tw/">明日報 MyPaper 個人新聞台</a>這些加以<code>品牌化</code>經營的實際施用後，就呈現出一片停擺。反倒是近年來對岸開始起步了； 2002 年的八月與十月左右，相繼出現了<a href="javascript:if(confirm('http://itsway.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://itsway.com/'" tppabs="http://itsway.com/">博客中國</a>與<a href="javascript:if(confirm('http://blog.cnblog.org/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.cnblog.org/blog/'" tppabs="http://blog.cnblog.org/blog/">中文Blog心得集</a>這兩個 Blog 集結網站 ─ 它們甚至開始回頭探討 Blog 這回事：是甚麼？能怎麼用？有些甚麼可能性？稍晚，一樣在 2002 年十月左右，這陣風纔又吹回台灣。首先是由<a href="javascript:if(confirm('http://elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://elixus.org/'" tppabs="http://elixus.org/">藝立協</a>社群所帶起了<a href="javascript:if(confirm('http://blog.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.elixus.org/'" tppabs="http://blog.elixus.org/">正體中文blog資訊中心</a>，半實驗性地推廣起 Blog ；接下來在 2003 年二月間，經由這些在台灣的推廣活動之下，連帶地出現了<a href="javascript:if(confirm('http://imc.twblog.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://imc.twblog.org/'" tppabs="http://imc.twblog.org/">台灣應遞媒與部落格實驗</a>與<a href="javascript:if(confirm('http://twblog.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://twblog.net/'" tppabs="http://twblog.net/">台灣部落格 - 天線部落 實驗網路</a>。而今歷史正在改寫，而閱讀這份文件的妳，也將成為這近代史上重要的一份支流。</p>
+
+<div class="img"><a id="img_05"></a><img src="rice_bowl_journals.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/rice_bowl_journals.png" alt="飯碗誌"><br />圖五：「飯碗誌」是一個由在美菲律賓裔學生所發起的網誌串聯，以亞裔為主要成員。</div>
+
+<div class="img"><a id="img_06"></a><img src="pchome_epaper.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/pchome_epaper.png" alt="PCHome ePaper 電子報"><br />圖六： PCHome 集團旗下的 ePaper 電子報從 1996 年開始服務。</div>
+
+<div class="img"><a id="img_07"></a><img src="url_enews.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/url_enews.png" alt="智邦電子報"><br />圖七：智邦從 1997 年起，也開始了電子報服務。</div>
+
+<div class="img"><a id="img_08"></a><img src="pchome_mypaper.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/pchome_mypaper.png" alt="明日報個人新聞台"><br />圖八： 2000 年起，明日報個人新聞台開張。後來明日報停止經營，個人新聞台的部分最後存活下來，由 PCHome 繼續經營。</div>
+
+<div class="img"><a id="img_09"></a><img src="blogchina.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/blogchina.png" alt="博客中國"><br />圖九：對岸的「博客中國」從 2002 年八月起，開始探討著網誌在中國大陸的發展。</div>
+
+<div class="img"><a id="img_10"></a><img src="cnblog.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cnblog.png" alt="中文Blog心得集"><br />圖十： 2002 年十月起，「中文Blog心得集」也開始用 Blog 的方式討論 Blog 。</div>
+
+<div class="img"><a id="img_11"></a><img src="blog.elixus.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/blog.elixus.png" alt="正體中文blog資訊中心"><br />圖十一：同樣在 2002 年十月左右，台灣的藝立協社群開始玩起 Blog 來，並成立了「正體中文blog資訊中心」。</div>
+
+<div class="img"><a id="img_12"></a><img src="blog_indymedia_tw.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/blog_indymedia_tw.png" alt="台灣應遞媒與部落格實驗"><br />圖十二： 2003 年二月左右，在 hanteng 的推動下，於台大新聞所成立了「台灣應遞媒與部落格實驗」。</div>
+
+<div class="img"><a id="img_13"></a><img src="twblog.net.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/twblog.net.png" alt="台灣部落格 - 天線部落 實驗網路"><br />圖十三：一樣在 2003 年二月的同一個時間， inertia 在世新傳播成立了「台灣部落格 - 天線部落 實驗網路」。</div>
+
+<h2><a id="mt"></a>從 Blog 到 Movable Type</h2>
+
+<p>前述提及，當 Blog 作為一種「方法」的時候，任何正常的人都會想要把心思著重在<strong>內容</strong>上，而不是其他旁枝末節的部分。然而出版網頁所需的 <acronym title="HyperText Markup Language">HTML</acronym> 語法、乃至於更複雜的文件架構（哪裡是標題、哪一段有多重要等）本身，卻是瑣碎而無趣的。終日處理這些零星的技術部分，祇會讓人們沒辦法把心意集中在內容的創作與書寫上。於是一個又一個的套件或系統因應而生；它們或許看起來或用起來各有千秋，但是背後的目的都是一樣的：讓事情更簡單、把電腦就能處理的事情交給電腦做。</p>
+
+<p>例如像是 <a href="javascript:if(confirm('http://www.raelity.org/apps/blosxom/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.raelity.org/apps/blosxom/'" tppabs="http://www.raelity.org/apps/blosxom/">blosxom</a> 就是一套有名的 Blog 系統。這個系統本身就祇有一個檔案，相當的精簡；它可以說是沒有使用者介面，或者說，它拿別的程式的使用者介面來當作使用者介面。如果使用者懂得 Perl 這隻程式語言，就能夠在 blosxom 之上加入各式各樣千奇百變的功能；如果妳完全沒有程式相關的基礎，甚至更糟地連自己的機器也沒有，那妳還可以選擇其他比較簡單的解決方案。例如我們在前面提過的 <a href="javascript:if(confirm('http://blogger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blogger.com/'" tppabs="http://blogger.com/">blogger.com</a> 就是一個很好的選擇；她們甚至標榜說，祇要五分鐘不到，妳就可以讓自己的 Blog 開張運作。</p>
+
+<p>諸如此類的程式相當地多，像是 <a href="javascript:if(confirm('http://radio.userland.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://radio.userland.com/'" tppabs="http://radio.userland.com/">Radio Userland</a> 、 <a href="javascript:if(confirm('http://noahgrey.com/greysoft  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://noahgrey.com/greysoft'" tppabs="http://noahgrey.com/greysoft">GreyMatter</a> 等都是。也有人列表比較過這些不同的 Blog 系統，妳可以參考 <a href="javascript:if(confirm('http://www.udhien.net/blogtool/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.udhien.net/blogtool/'" tppabs="http://www.udhien.net/blogtool/">http://www.udhien.net/blogtool/</a> 或 <a href="javascript:if(confirm('http://www.urldir.com/bt/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.urldir.com/bt/'" tppabs="http://www.urldir.com/bt/">http://www.urldir.com/bt/</a> 上的資料（雖然它們都有些過時而沒有被加以更新）。這些 Blog 系統甚至可以被當成是陽春的內容管理系統 (<acronym title="Content Manage System">CMS</acronym>) ，能夠提供多使用者像是社群、社團、企業、社會運動人士使用；也能夠降低技術門檻，讓文件內容更容易索引與搜尋，讓內容提供者專注於提供內容，而不需要為技術細節費心，相對地也下放了說話與書寫的權力。另一方面，這樣子的系統也有助於把內容與外貌分開來處理，所以每個頁面都可以很快速地改頭換面，呈現出新的風采。</p>
+
+<p>而在這麼多 Blog 系統之中，本書所特別要提出來的是 <a href="javascript:if(confirm('http://www.movabletype.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.movabletype.org/'" tppabs="http://www.movabletype.org/">Movable Type</a> 這一套最近纔在<a href="javascript:if(confirm('http://www.fairvue.com/?feature=awards2003  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.fairvue.com/?feature=awards2003'" tppabs="http://www.fairvue.com/?feature=awards2003">第三屆年度網誌獎</a>獲選為<strong>年度最佳網誌出版工具 (best web application for weblogs)</strong> 的系統。她們在自己的網站上如此陳述著：<code>Movable Type 是一套去中心化的個人出版系統，這套網頁介面的系統是設計來讓定期更新內容之類的事情更加容易的。前述提及的「內容」可以是網誌或線上新聞的文章項目、線上像簿裡的照片、報紙站台的頭條新聞、線上雜誌的文章，或其他的東西。</code></p>
+
+<p>Movable Type 的安裝需求並不高，大致說來妳祇需要備妥下列要求即可：</p>
+
+<p><ul>
+  <li>能讓妳執行自己的 <acronym title="Common Gateway Interface">CGI</acronym> 腳本的網頁伺服器空間/帳號</li>
+  <li>前述的伺服器上需要安裝有 Perl ，且版本必須比 5.004_04 還要新</li>
+  <li>前述的伺服器同時要安裝 DB_File 這個 Perl 模組，<strong>或</strong> MySQL 及 DBD::mysql 模組</li>
+  <li>妳得要有用來上傳必要檔案的 <acronym title="File Transfer Protoco">FTP</acronym> 軟體</li>
+  <li>妳得要有能夠使用 Javascript 和 cookies 的網頁瀏覽器</li>
+</ul></p>
+
+<p>祇要能夠符合這些需求， Movable Type 幾乎可以安裝在各式各樣的作業系統平台上。甚至，連 Windows 98 都能夠安裝 Movable Type 。</p>
+
+<div class="img"><a id="img_14"></a><img src="blosxom.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/blosxom.png" alt="blosxom 的官方網站"><br />圖十四： blosxom 是一個以 Perl 寫成的精簡 Blog 系統，若搭配其他外掛模組，就能展現出相當強猛有力的功能。</div>
+
+<div class="img"><a id="img_15"></a><img src="radio_userland.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/radio_userland.png" alt="Radio UserLand 的官方網站"><br />圖十五： Radio UserLand 是另一個簡單好上手的 Blog 服務，不過妳得付錢纔能享用。</div>
+
+<div class="img"><a id="img_16"></a><img src="greymatter.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/greymatter.png" alt="GreyMatter 的官方網站"><br />圖十六： GreyMatter 是先前非常熱門的 Blog 系統，可惜目前已經停止發展了。</div>
+
+<div class="img"><a id="img_17"></a><img src="movabletype.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/movabletype.png" alt="Movable Type 的官方網站"><br />圖十七： Movable Type 可以說是目前最活躍的 Blog 系統了。它剛剛贏得了 2003 年年度最佳網誌出版工具。</div>
+
+<div class="img"><a id="img_18"></a><img src="weblog_awards.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/weblog_awards.png" alt="第三屆年度網誌獎的網頁"><br />圖十八：第三屆年度網誌獎各項獎項的得主纔剛剛揭曉。</div>
+
+<h2><a id="mt_advantage"></a>Movable Type 的優點</h2>
+
+<p>自 2001 年十月份面市以來， Movable Type 就一直在活躍地演化中；這套以 Perl 為核心語言的 Blog 系統最為強韌的地方或許正如其名所暗示的一般（ Movable Type 的意思是<code>活字印刷術</code>），也就是無限可能的彈性。許許多多的外掛模組，讓 Movable Type 不論是在處理文字格式或者是內容處理應用上，都具備了廣泛且快速的支援。</p>
+
+<p>除此之外， Movable Type 還有眾多優點，包括了：</p>
+
+<p><ul>
+  <li>具彈性的資料儲存<br />妳可以視實際的情況或需要，選擇不同的資料庫後端。像是 Berkeley DB 、 MySQL 、 PostgreSQL 或 SQLite 都在支援之列</li>
+  <li>採用 XML-RPC API<br />妳可以搭配許許多多的用戶端軟體，像是 BlogBuddy 、 Bloggar 、 BlogApp 等。</li>
+  <li>程式碼均以函式庫來處理<br />這樣妳可以彈性地修改 Movable Type 的各部分功能，或在其他程式中叫用 Movable Type 的功能</li>
+  <li>使用介面優雅精鍊<br />操作簡單直覺好上手；相信我，這絕對是最強大的部分</li>
+  <li>具有<a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/mtbook_communication.html  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/mtbook_communication.html#trackback'" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_communication.html#trackback">引用功能</a><br />能夠讓網誌與網誌間、文章與文章間發展出更多的緊密相連</li>
+  <li>預設模版就有相當優異的 <acronym title="eXtensible HyperText Markup Language">XHTML</acronym> 與 <acronym title="Cascading Style Sheets">CSS</acronym> 水準<br />光是採用系統附上的預設模版，就可以輕易產生出符合標準而且具有相當親和力的頁面了</li>
+  <li>容易本土化<br />Movable Type 裡的各個訊息、描述文字等，都可以經由統一的本土化手續，而轉為不同的語言</li>
+  <li>具備公開搜尋引擎<br />任何讀者都可以藉由頁面上的搜尋引擎，搜尋妳所撰寫過的文字內容，而毋須仰賴任何其他的搜尋引擎</li>
+  <li>資料能夠匯入與匯出<br />因此妳可以從別的系統中，把文章內容轉移進 Movable Type 裡；或者透過這個功能來備份妳的網誌內容</li>
+  <li>能夠同時按照多個模版產生多個檔案<br />這意味著妳可以在一瞬之間，以相同的內容製作出好幾份不同觀感的頁面</li>
+  <li>能夠建立多份網誌<br />所以祇需要安裝一次，就可以拿來做各種不同的用途</li>
+  <li>能夠接受多位作者<br />因此妳可以拿來給一群人用</li>
+  <li>文章能夠分類<br />每一篇文章都可以指派一個主要類別跟無限多個次要類別</li>
+  <li>能夠同時使用多種彙整方式<br />再一次地，每當妳新增一篇文章後，與之相關的各種彙整也都會一併更新</li>
+  <li>內建迴響系統<br />所有的讀者都能夠用此功能來發表評論或迴響</li>
+  <li>還有許許多多....</li>
+</ul>
+
+<p>除了上面提到的這些之外，更重要的是國內社群的支援。這一陣子裡， Movable Type 在國內可以說是如火如荼般地被採用；同樣地 Movable Type 在本土化的資源裡也最豐富。無論是使用者之間的討論分享、中文文件的撰寫、甚至是更細節的程式碼修改等，都有人在奉獻著心力。同樣地，當妳遇到問題的時候，也最容易找到人來幫妳解決各種疑難雜症 ─ 事實上妳眼前的這份文件，恐怕也是開創華文世界的先例了吧！</p>
+
+<p>基於以上種種原因，實在沒有理由不用 Movable Type 不是嗎？（另一方面，我相信這也就是為什麼妳會讀這份文件的原因了）</p>
+
+<h2><a id="#usage"></a>Movable Type 的用途</h2>
+
+<p>那麼人們都拿 Movable Type 來做些甚麼事呢？</p>
+
+<p>最簡單也最基本的用途，莫過於拿來當作個人札記使用了。這就跟妳用其他媒介所做的事情一模一樣：妳可以在任意時刻記錄下附近發生的事、或妳心裡的想法；妳不祇能夠用文字，更可以使用圖片或其他的媒體。這些事情是妳在明日報個人新聞台或 BBS 的個人板裡能做的，現在妳仍舊可以在這裡做。</p>
+
+<p>除了讓 Blog 環繞著妳自己發展之外，也有人會拿特定的主題來 Blog 。例如說 <a href="javascript:if(confirm('http://www.sixapart.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sixapart.com/'" tppabs="http://www.sixapart.com/">Six Apart</a> 自己就拿 Movable Type 來發佈公司的公告，藝立協之前辦 <acronym title="Party of Perl, Python, PHP">P3P</acronym> 的時候，也拿 Movable Type 做了主題站台 <a href="javascript:if(confirm('http://p3p.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://p3p.elixus.org/'" tppabs="http://p3p.elixus.org/">http://p3p.elixus.org</a> ； Schee 用 Movable Type 做了亞洲以華文探討摩托文化的 <a href="javascript:if(confirm('http://www.motomosa.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.motomosa.com/'" tppabs="http://www.motomosa.com/">Motomosa.com</a> 。還有更多人也選擇了 Movable Type ，像是專門講電子化學習的新加坡站台 <a href="javascript:if(confirm('http://www.elearningpost.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.elearningpost.com/'" tppabs="http://www.elearningpost.com/">eLearningPost</a> ，或者像是<a href="javascript:if(confirm('http://shds.med.ntcn.edu.tw/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://shds.med.ntcn.edu.tw/blog/'" tppabs="http://shds.med.ntcn.edu.tw/blog/">台北護理學院聽語障礙科學研究所</a>乾脆就用 Movable Type 來當作整個網站的管理後台。這些也都是適合 Movable Type 發揮的領域。</p>
+
+<p>當然還有許許多多不同的用法；例如 <a href="javascript:if(confirm('http://diveintomark.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://diveintomark.org/'" tppabs="http://diveintomark.org/">Mark Pilgrim</a> 就用 Movable Type 來寫了一本講網頁親和力的書 <a href="javascript:if(confirm('http://www.diveintoaccessibility.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.diveintoaccessibility.org/'" tppabs="http://www.diveintoaccessibility.org/">Dive Into Accessibility</a> （中文翻譯成「<a href="javascript:if(confirm('http://dia.z6i.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dia.z6i.org/'" tppabs="http://dia.z6i.org/">深入親和力</a>」）。值得一提的是這一本書也同時獲選為<a href="javascript:if(confirm('http://www.fairvue.com/?feature=awards2003  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.fairvue.com/?feature=awards2003'" tppabs="http://www.fairvue.com/?feature=awards2003">第三屆年度網誌獎</a>的年度最佳網誌論文 (best article or essay about weblogs) 。另外像是 <a href="javascript:if(confirm('http://logoflinks.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://logoflinks.com/'" tppabs="http://logoflinks.com/">log of links</a> 這個站台就是拿 Movable Type 來整理書籤； <a href="javascript:if(confirm('http://www.themorningnews.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.themorningnews.org/'" tppabs="http://www.themorningnews.org/">The Morning News</a> 則是拿 Movable Type 來當作新聞網站； <a href="javascript:if(confirm('http://www.whatdoiknow.org/library/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.whatdoiknow.org/library/'" tppabs="http://www.whatdoiknow.org/library/">What Do I Know</a> 這個站台則是用 Movable Type 來整理圖書；另外妳也可以看到 Movable Type 的母親 Mena G. Trott 在她自己站台上的 <a href="javascript:if(confirm('http://www.dollarshort.org/days/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.dollarshort.org/days/'" tppabs="http://www.dollarshort.org/days/">A Day Late</a> ，實際上就是用 Movable Type 實做了月曆……諸如此類。</p>
+
+<p>大抵說來，祇要妳要表達的頁面會需要經常性的更新，或者單純祇是在結構上有著某種一致性，就都很適合拿 Movable Type 來當作後台介面。不管是對內對外、半公開或全公開，都可以把瑣碎的細節交給 Movable Type 來處理，祇需要把精力花在內容上就可以了。家庭、社團、行政機關甚至是社運團體，都能夠從中獲得不少益處。</p>
+
+<div class="img"><a id="img_19"></a><img src="six_apart.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/six_apart.png" alt="Six Apart 的網站"><br />圖十九： Movable Type 作者夫妻成立的 Six Apart 公司，用的也是 Movable Type 。</div>
+
+<div class="img"><a id="img_20"></a><img src="p3p.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/p3p.png" alt="P3P 的網站"><br />圖二十：藝立協之前舉辦 P3P 的時候，也直接拿 Movable Type 來當作網站後台系統。</div>
+
+<div class="img"><a id="img_21"></a><img src="motomosa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/motomosa.png" alt="Motomosa.com 的頁面"><br />圖二十一： Motomosa.com 是 Schee 用 Movable Type 建立的站台，主要是在討論摩托文化。這也是華人世界裡少有討論摩托的主題專門站台。</div>
+
+<div class="img"><a id="img_22"></a><img src="elearningpost.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/elearningpost.png" alt="eLearningPost 的頁面"><br />圖二十二： eLearningPost 是新加坡一個專門討論 eLearning 的站台；她們最近把架站系統換成了 Movable Type 。</div>
+
+<div class="img"><a id="img_23"></a><img src="shds.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/shds.png" alt="國立台北護理學院聽語障礙科學研究所的網站"><br />圖二十三：國立台北護理學院聽語障礙科學研究所也拿 Movable Type 來當作架站系統。她們甚至也實做了陽春的行事曆。</div>
+
+<div class="img"><a id="img_24"></a><img src="dia.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/dia.png" alt="中文版的「深入親和力」網站"><br />圖二十四： Mark Pilgrim 用 Movable Type 寫了一本「深入親和力」的書。在這裡展示出來的是中文譯本。</div>
+
+<div class="img"><a id="img_25"></a><img src="logoflinks.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/logoflinks.png" alt="log of links 的網站"><br />圖二十五： log of links 是一個用 Movable Type 來整理鏈結書籤的網站。</div>
+
+<div class="img"><a id="img_26"></a><img src="morning_news.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/morning_news.png" alt="The Morning News 的網站"><br />圖二十六： The Morning News 是一個用 Movable Type 做出來的新聞網站。</div>
+
+<div class="img"><a id="img_27"></a><img src="what_do_i_know.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/what_do_i_know.png" alt="What Do I Know 的網站"><br />圖二十七： What Do I Know 是一個用 Movable Type 來整理書籍的網站。</div>
+
+<div class="img"><a id="img_28"></a><img src="a_day_late.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/a_day_late.png" alt="Mena G. Trott 的網站上的月曆"><br />圖二十八： Movable Type 的母親 Mena G. Trott 在自己的站台上用 Movable Type 做出了月曆。</div>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

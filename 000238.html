@@ -1,0 +1,340 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: JAVA编码规范</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000237.html" tppabs="http://hedong.3322.org/archives/000237.html" title="北京建都850周年" />
+
+<link rel="next" href="000239.html" tppabs="http://hedong.3322.org/archives/000239.html" title="jalopy安装使用" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000238.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/162"
+    dc:title="JAVA编码规范"
+    dc:identifier="http://hedong.3322.org/archives/000238.html"
+    dc:subject="ItTech"
+    dc:description="　　看nutch时，有文中提到编码要符合java编码规范。到sun的网站找到规范一看，甚喜，自己的很多习惯都符合要求。 　　在网上一找，惊喜发现有人做了全文翻译，译文非常准确流畅。可能是规范的版本的问题，在示范代码的缩进略有差异，且文章内容有增有缺。我根据昨天下载的规范，作了补译、加注及校正，现打包在此供有心者下载。 　　同时，将其目录和示例代码摘录如下，供观者自我检视，以定有否必要阅读该规范。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-22T15:33:43+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000238.html">
+<dc:title>JAVA编码规范</dc:title>
+<dc:description>　　看nutch时，有文中提到编码要符合java编码规范。到sun的网站找到规范一看，甚喜，自己的很多习惯都符合要求。 　　在网上一找，惊喜发现有人做了全文翻译，译文非常准确流畅。可能是规范的版本的问题，在示范代码的缩进略有差异，且文章内容有增有缺。我根据昨天下载的规范，作了补译、加注及校正，现打包在此供有心者下载。 　　同时，将其目录和示例代码摘录如下，供观者自我检视，以定有否必要阅读该规范。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-22T15:33:43+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000237.html" tppabs="http://hedong.3322.org/archives/000237.html">&laquo; 北京建都850周年</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000239.html" tppabs="http://hedong.3322.org/archives/000239.html">jalopy安装使用 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 22, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">JAVA编码规范</h3>
+
+<p><a href="java2.gif" tppabs="http://hedong.3322.org/archives/java2.gif"><img alt="java2.gif" src="java2-thumb.gif" tppabs="http://hedong.3322.org/archives/java2-thumb.gif" width="68" height="120" border="0" align="left"/></a>　　看nutch时，有文中提到编码要符合java编码规范。到sun的网站找到规范一看，甚喜，自己的很多习惯都符合要求。<br />
+　　在网上一找，惊喜发现有人做了全文翻译，译文非常准确流畅。可能是规范的版本的问题，在示范代码的缩进略有差异，且文章内容有增有缺。我根据昨天下载的规范，作了补译、加注及校正，现<a href="javacode.zip" tppabs="http://hedong.3322.org/archives/docs/javacode.zip" title="java语言编程规范">打包在此供有心者下载</a>。<br />
+　　同时，将其目录和示例代码摘录如下，供观者自我检视，以定有否必要阅读该规范。</p>
+
+<a name="more"></a>
+<p><h1><center>目录</center><h1><br />
+<center><strong>1、简介<br />
+2、文件命名<br />
+3、文件内容编排<br />
+4、对齐<br />
+5、注释<br />
+6、声明<br />
+7、语句<br />
+8、空白<br />
+9、命名约定<br />
+10、编程惯例<br />
+11、代码范例</strong</center></p>
+
+<p><h2>11、编码示例</h2></p>
+
+<div class="code">/*
+&nbsp;*&nbsp;@(#)Blah.java&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.82&nbsp;99/03/18
+&nbsp;*
+&nbsp;*&nbsp;Copyright&nbsp;(c)&nbsp;1994-1999&nbsp;Sun&nbsp;Microsystems,&nbsp;Inc.
+&nbsp;*&nbsp;901&nbsp;San&nbsp;Antonio&nbsp;Road,&nbsp;Palo&nbsp;Alto,&nbsp;California,&nbsp;94303,&nbsp;U.S.A.
+&nbsp;*&nbsp;All&nbsp;rights&nbsp;reserved.
+&nbsp;*
+&nbsp;*&nbsp;This&nbsp;software&nbsp;is&nbsp;the&nbsp;confidential&nbsp;and&nbsp;proprietary&nbsp;information&nbsp;of&nbsp;Sun
+&nbsp;*&nbsp;Microsystems,&nbsp;Inc.&nbsp;("Confidential&nbsp;Information").&nbsp;&nbsp;You&nbsp;shall&nbsp;not
+&nbsp;*&nbsp;disclose&nbsp;such&nbsp;Confidential&nbsp;Information&nbsp;and&nbsp;shall&nbsp;use&nbsp;it&nbsp;only&nbsp;in
+&nbsp;*&nbsp;accordance&nbsp;with&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;license&nbsp;agreement&nbsp;you&nbsp;entered&nbsp;into
+&nbsp;*&nbsp;with&nbsp;Sun.
+&nbsp;*/
+
+<p><br />
+package&nbsp;java.blah;</p>
+
+<p>import&nbsp;java.blah.blahdy.BlahBlah;</p>
+
+<p>/**<br />
+&nbsp;*&nbsp;Class&nbsp;description&nbsp;goes&nbsp;here.<br />
+&nbsp;*<br />
+&nbsp;*&nbsp;@version&nbsp;	1.82&nbsp;18&nbsp;Mar&nbsp;1999<br />
+&nbsp;*&nbsp;@author&nbsp;	Firstname&nbsp;Lastname<br />
+&nbsp;*/<br />
+public&nbsp;class&nbsp;Blah&nbsp;extends&nbsp;SomeClass&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;/*&nbsp;A&nbsp;class&nbsp;implementation&nbsp;comment&nbsp;can&nbsp;go&nbsp;here.&nbsp;*/</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;classVar1&nbsp;documentation&nbsp;comment&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;int&nbsp;classVar1;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;classVar2&nbsp;documentation&nbsp;comment&nbsp;that&nbsp;happens&nbsp;to&nbsp;be<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;more&nbsp;than&nbsp;one&nbsp;line&nbsp;long<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;Object&nbsp;classVar2;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;instanceVar1&nbsp;documentation&nbsp;comment&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Object&nbsp;instanceVar1;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;instanceVar2&nbsp;documentation&nbsp;comment&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;protected&nbsp;int&nbsp;instanceVar2;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;instanceVar3&nbsp;documentation&nbsp;comment&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;Object[]&nbsp;instanceVar3;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;...constructor&nbsp;Blah&nbsp;documentation&nbsp;comment...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;Blah()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;...implementation&nbsp;goes&nbsp;here...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;...method&nbsp;doSomething&nbsp;documentation&nbsp;comment...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;doSomething()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;...implementation&nbsp;goes&nbsp;here...&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;/**<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;...method&nbsp;doSomethingElse&nbsp;documentation&nbsp;comment...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*&nbsp;@param&nbsp;someParam&nbsp;description<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*/<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;doSomethingElse(Object&nbsp;someParam)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;...implementation&nbsp;goes&nbsp;here...&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div></p>
+
+<p>　　现在有很多软件工具，可以美化所写java程序源码，<a href="javascript:if(confirm('http://www.chedong.com/tech/indent_tools.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/tech/indent_tools.html'" tppabs="http://www.chedong.com/tech/indent_tools.html" title="C Java PHP Perl Python 的程序代码美化工具">车东在就介绍了astyle,japloy等工具</a>。是不是说，在写代码时不用顾虑太多规范的问题，编完码beautify一下就可以了？heihei.</p>
+
+<p><br />
+参考文献：<br />
+Code Conventions for the Java Programming Language<br />
+http://java.sun.com/docs/codeconv/<br />
+</p>
+
+<span class="posted">Posted by Hilton at September 22, 2003 03:33 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=238.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=238" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>谢谢！</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 22, 2003 10:00 PM</span>
+</div>
+<div class="comments-body">
+<p>jalopy，我喜欢，值得推荐。<br />
+当然如果你也是IDEA fan的话，可以用IDEA内置的格式化工具</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://keke.we2.lfhost.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://keke.we2.lfhost.com/'" tppabs="http://keke.we2.lfhost.com/">keke</a> at September 22, 2003 10:00 PM</span>
+</div>
+<div class="comments-body">
+<p><br />
+<a href="javascript:if(confirm('http://jalopy.sourceforge.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jalopy.sourceforge.net/'" tppabs="http://jalopy.sourceforge.net/">http://jalopy.sourceforge.net/</a></p>
+
+<p><a href="javascript:if(confirm('http://www.chedong.com/tech/indent_tools.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/tech/indent_tools.html'" tppabs="http://www.chedong.com/tech/indent_tools.html">http://www.chedong.com/tech/indent_tools.html</a><br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">chedong</a> at September 22, 2003 09:50 PM</span>
+</div>
+<div class="comments-body">
+<p>java代码美化工具，可以集成到ECLIPSE里</p>
+
+<p>＋无耻的推销<br />
+各种语言的代码美化工具<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">chedong</a> at September 22, 2003 09:49 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="238" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

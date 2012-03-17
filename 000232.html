@@ -1,0 +1,258 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: SAXAPI学习笔记（2）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000230.html" tppabs="http://hedong.3322.org/archives/000230.html" title="SAXAPI学习笔记（1）" />
+
+<link rel="next" href="000233.html" tppabs="http://hedong.3322.org/archives/000233.html" title="FreeBSD对用户信息的修改" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000232.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/156"
+    dc:title="SAXAPI学习笔记（2）"
+    dc:identifier="http://hedong.3322.org/archives/000232.html"
+    dc:subject="ItTech"
+    dc:description="　　没想到SAXAPI的学习还是走了弯路，直接到SAX网站读其文档和例程是最快最准因而也最好的方法。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-18T23:04:14+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000232.html">
+<dc:title>SAXAPI学习笔记（2）</dc:title>
+<dc:description>　　没想到SAXAPI的学习还是走了弯路，直接到SAX网站读其文档和例程是最快最准因而也最好的方法。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-18T23:04:14+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000230.html" tppabs="http://hedong.3322.org/archives/000230.html">&laquo; SAXAPI学习笔记（1）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000233.html" tppabs="http://hedong.3322.org/archives/000233.html">FreeBSD对用户信息的修改 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 18, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">SAXAPI学习笔记（2）</h3>
+
+<p>　　没想到SAXAPI的学习还是走了弯路，直接到<a href="javascript:if(confirm('http://www.saxproject.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.saxproject.org/'" tppabs="http://www.saxproject.org/" title="Simple API for XML">SAX网站</a>读其文档和例程是最快最准因而也最好的方法。</p>
+
+<a name="more"></a>
+<p>一、几个细节<br />
+1、SAX是一个通用接口，就象JDBC提供了对各种关系型数据库的操作接口一样，SAX提供了各种XML解析器的通用接口。(在1中我还误认为JAXP是这么个角色，SAX是实现呢，虽然从更高的层面上看有一定的道理）<br />
+2、使用sax2的三个条件：java1.1或更高版本，classpath中指明sax2兼容的XML解析器，同时将sax2包放在classpath中。<br />
+3、SAX驱动器的选择，有三种方法：1）编译SAX2时指定默认的驱动，2）在命令行通过-D参数指定，如java -Dorg.xml.sax.driver=com.example.xml.SAXDriver MySAXApp sample.xml ,3）通过在程序直接指定驱动器生成XMLReader对象。<br />
+4、SAX2定义了标准的方法，来取得或设置XMLReader对象中的功能标志或属性值。通过getFeature, setFeature, getProperty, and setProperty 等方法，可以改变分析器的行为（如要求分析检验一个XML文档的合法性），或注册新的事件处理类型。<br />
+　　功能标志的类型是boolean型，而属性的类型则可为任意对象，功能和属性的名字是完整的URI。<br />
+　　功能和属性有关的异常有两个：<table border=1><tr><td>SAXNotRecognizedException</td><td>当试图查找或设置一个并不存在的功能标志时抛出（常见多因URI写错了）</td></tr><tr><td>SAXNotSupportedException</td><td>当试图设置一个不支持的功能的状态或那个状态只读时抛出</td></tr></table><br />
+　　属性的一个重要应用，是取出或设置扩展的事件处理器。</p>
+
+<p>5、过滤器<br />
+filter<br />
+SAX接口假定两个基础的流，一个是事件流从SAX驱动器（通常是一个XMLReader）流向应用程序，一个是请求流从应用程序流向SAX驱动器。<br />
+SAX为过滤器的实现提供一了个接口org.xml.sax.XMLFilter和一个helper类org.xml.sax.helpers.XMLFilterImpl。<br />
+XMLFilter接口本身非常简单，扩展了XMLReader如下。换言之，XMLFilter是一个以其它XMLReader为parent的XMLReader,对parent XMLReader而言它是处理事件的应用程序，对应用程序而言它又是产生events的SAX驱动器。<br />
+<div class="code">public interface XMLFilter extends XMLReader<br />
+{<br />
+  public abstract void setParent (XMLReader parent);<br />
+  public abstract XMLReader getParent ();<br />
+}</div><br />
+XMLFilterImpl提供了一个定义SAX2过滤器的基础，实现XMLFilter, EntityResolver, DTDHandler, ContentHandler, and ErrorHandler 等接口（DeclHandler and LexicalHandler等扩展接口没有实现）。<br />
+在具体的过滤器实现时，只需要调用super.*相关方法，就可以将流的信息继续传输。</p>
+
+<p>6、命名空间<br />
+SAX2增加了对命名空间的支持，这影响了 ContentHandler和Attributes 接口，SAX1中只在qName中的信息，在SAX2用URI和localName两变量来存放。在startElment和endElement中，取得相关的名字的时，要先判断URI是否为空。在学习笔记1中，好象是判断qName了，不是正统的手法。<br />
+对Attributes，可以用getURI,getLocalName和getValue来取得相应的值。如果URI为空，要用qNamed而不是localName.<br />
+对命名空间处理过程的设置<br />
+"http://xml.org/sax/features/namespaces"功能控制基本的命名空间处理，http://xml.org/sax/features/namespace-prefixes功能控制报告 qNames 和命名空间声明 (xmlns* attributes)。<br />
+下表是两个变量联合控制时情况表（红色是默认状态）<br />
+<table border="1" bgcolor='#ffffcc'><thead><tr bgcolor='#ffffff'><th>namespaces</th><th>namespace-prefixes</th><th>Namespace names</th><th>start/end PrefixMapping</th><th>qNames</th><th>xmlns* attributes</th></tr></thead><tbody><tr　bgcolor='red'><br />
+<td>true</td><td>false</td><td>YES</td><td>YES</td><td><font color='maroon'><em>unknown</em></font></td><td>NO</td></tr><tr><td>true</td><td>true</td><td>YES</td><td>YES</td><td>YES</td><td>YES</td></tr><tr><td>false</td><td>false</td><td colspan="4" align="center"><b>ILLEGAL MODE</b></td><br />
+</tr><tr><td>false</td><td>true</td><td><font color='maroon'><em>unknown</em></font></td><td><font color='maroon'><em>unknown</em></font></td><td>YES</td><td>YES</td></tr></tbody></table></p>
+
+<p>　　刚做完笔记，在IBM-DevelopWorks又见到一篇讲<a href="javascript:if(confirm('http://www-900.ibm.com/developerWorks/cn/xml/tips/x-tipsaxp/index.shtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www-900.ibm.com/developerWorks/cn/xml/tips/x-tipsaxp/index.shtml'" tppabs="http://www-900.ibm.com/developerWorks/cn/xml/tips/x-tipsaxp/index.shtml" title="在 SAX 解析器中使用属性和功能">SAX解析器设置</a>的译文，可参考理解4、5、6三部分。在这个网站上，还有一个<a href="javascript:if(confirm('http://www-900.ibm.com/developerWorks/cn/xml/theme/x-tipsax.shtml  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www-900.ibm.com/developerWorks/cn/xml/theme/x-tipsax.shtml'" tppabs="http://www-900.ibm.com/developerWorks/cn/xml/theme/x-tipsax.shtml" title="SAX 技巧汇总">系列专门讲SAX技巧</a>，可供参考。</p>
+
+<p><center><a href="000230.html" tppabs="http://hedong.3322.org/archives/000230.html" title="学习笔记一">SAXAPI学习笔记</a></center><br />
+</p>
+
+<span class="posted">Posted by Hilton at September 18, 2003 11:04 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=232.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=232" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="232" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

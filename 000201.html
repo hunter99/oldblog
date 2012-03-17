@@ -1,0 +1,392 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Google的PageRank算法学习(2)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000199.html" tppabs="http://hedong.3322.org/archives/000199.html" title="Google的PageRank算法学习" />
+
+<link rel="next" href="000202.html" tppabs="http://hedong.3322.org/archives/000202.html" title="PageRank普遍猛增" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000201.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/130"
+    dc:title="Google的PageRank算法学习(2)"
+    dc:identifier="http://hedong.3322.org/archives/000201.html"
+    dc:subject="ItTech"
+    dc:description="　　继续学习。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-29T11:02:10+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000201.html">
+<dc:title>Google的PageRank算法学习(2)</dc:title>
+<dc:description>　　继续学习。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-29T11:02:10+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000199.html" tppabs="http://hedong.3322.org/archives/000199.html">&laquo; Google的PageRank算法学习</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000202.html" tppabs="http://hedong.3322.org/archives/000202.html">PageRank普遍猛增 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 29, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Google的PageRank算法学习(2)</h3>
+
+<p>　　继续学习。</p>
+
+<a name="more"></a>
+<p>1、入链对计算页面级别的影响<br />
+<img alt="inbound_link.gif" src="inbound_link.gif" tppabs="http://hedong.3322.org/archives/pics/inbound_link.gif" width="186" height="157" border="0" align="right" />　　入链总是能增加当前页面的级别，尤其当前页与其下级页面构成回路时，这种贡献更大。如右图例，设ABCD各页初始级别为1，阻尼系数为0.5，PR(X)/C(X)＝10。则易算出<div class="code">PR(A) = 19/3 = 6.33<br />
+PR(B) = 11/3 = 3.67<br />
+PR(C) = 7/3 = 2.33<br />
+PR(D) = 5/3 = 1.67 </div>如果A不在回路上，则只能得0.5*10=5的收益。<br />
+　　阻尼系数越大，页面级别的收益越大，且整个回路上都能收到更大的收益（即入链收益更能平均地分布到各个回路页面上。针对上例，将阻尼系数改为0.75，则有<div class="code">PR(A) = 419/35 = 11.97<br />
+PR(B) = 323/35 = 9.23<br />
+PR(C) = 251/35 = 7.17<br />
+PR(D) = 197/35 = 5.63 </div>除回路上各个页面的级别值明显增大外，PR(A)/PR(D)的值敢明显减少了。<br />
+　　入链对整个回路上所有页面的级别值的增加之和，可以由下面这个公式得出.<div class="code">(d / (1-d)) × (PR(X) / C(X)) </div>这个公式，可以由<img alt="math.gif" src="math.gif" tppabs="http://hedong.3322.org/archives/pics/math.gif" width="126" height="43" border="0" />简单推导出。<br />
+2、出链对计算页面级别的影响<br />
+　　增加出链不会影响整个web的总级别，但一个站点失去的级别值等于链到的站点的增加值之和。对于两个封闭的站点，从一个站点链上另一个站点时，增加的和减少的都是(d(/(1-d) × (PR(X) / C(X)).如果这两个站点互相链接，则此值减少。用随机冲浪模型可以解释这种现象，就是出链的增加，减少了用户访问站内页面的概率。<img alt="outbound_link.gif" src="outbound_link.gif" tppabs="http://hedong.3322.org/archives/pics/outbound_link.gif" width="127" height="157" border="0" align="right" />举例如图，设阻尼系数为0.75，则<div class="code">PR(A) = 0.25 + 0.75 PR(B)<br />
+PR(B) = 0.25 + 0.375 PR(A)<br />
+PR(C) = 0.25 + 0.75 PR(D) + 0.375 PR(A)<br />
+PR(D) = 0.25 + 0.75 PR(C) <br />
+得：<br />
+PR(A) = 14/23<br />
+PR(B) = 11/23 <br />
+PR(C) = 35/23<br />
+PR(D) = 32/23 <br />
+PR(A)+PR(B)=25/23<br />
+PR(C)+PR(D)=67/23<br />
+PR(A)+PR(B)+PR(C)+PR(D)=92/23=4</div></p>
+
+<p><img alt="outbound_link2.gif" src="outbound_link2.gif" tppabs="http://hedong.3322.org/archives/pics/outbound_link2.gif" width="127" height="157" border="0" align="left" />　　Page和Brin将这样的链接称为悬摆链，它链到页面没有出链。悬摆链对页面的级别计算产生负面影响。如例，阻尼系数为0.75.<div class="code">PR(A) = 0.25 + 0.75 PR(B)<br />
+PR(B) = 0.25 + 0.375 PR(A)<br />
+PR(C) = 0.25 + 0.375 PR(A) <br />
+得：<br />
+PR(A) = 14/23<br />
+PR(B) = 11/23<br />
+PR(C) = 11/23 <br />
+PR(A)+PR(B)+PR(C)=36/23<3</div><br />
+　　据Page和Brin，Google在索引页面时，悬摆链的量很大，主要是由于限制robot.txt的限制及索引了一些没有链出的文件类型如PDF等。<img alt="outbound_link3.gif" src="outbound_link3.gif" tppabs="http://hedong.3322.org/archives/pics/outbound_link3.gif" width="188" height="157" border="0" align="right"/>为消除这种负面影响，google在计算级别时，将此类链接从数据库里去掉，在计算完毕后，再单独计算悬摆链所链到页面。由此可见，PDF类的文件还是可以放心地在网上发布的。</p>
+
+<p>3、页面数量的影响<br />
+<img alt="pagesnumber.gif" src="pagesnumber.gif" tppabs="http://hedong.3322.org/archives/pics/pagesnumber.gif" width="224" height="218" border="0" align="left"/>　　先看例子。阻尼系数为0.75,PR(X)/C(X)=10,则<div class="code">PR(A) = 0.25 + 0.75 (10 + PR(B) + PR(C))<br />
+PR(B) = PR(C) = 0.25 + 0.75 (PR(A) / 2) <br />
+得：<br />
+PR(A) = 260/14<br />
+PR(B) = 101/14<br />
+PR(C) = 101/14 <br />
+PR(A)+PR(B)+PR(C)=33;<br />
+增加页面D；<br />
+PR(A) = 0.25 + 0.75 (10 + PR(B) + PR(C) + PR(D))<br />
+PR(B) = PR(C) = PR(D) = 0.25 + 0.75 (PR(A) / 3) <br />
+得<br />
+PR(A) = 266/14<br />
+PR(B) = 70/14<br />
+PR(C) = 70/14<br />
+PR(D) = 70/14 <br />
+PR(A)+PR(B)+PR(C)+PR(D)=34</div>增加页面后，所有页面的级别值之和增加了1，A页略有增加，而B、C则用大幅下降。<br />
+　　再看右边的例子，假定同上。<img alt="pagesnumber2.gif" src="pagesnumber2.gif" tppabs="http://hedong.3322.org/archives/pics/pagesnumber2.gif" width="224" height="258" border="0" align="right" /><div class="code">PR(A) = 0.25 + 0.75 (10 + PR(C))<br />
+PR(B) = 0.25 + 0.75 × PR(A)<br />
+PR(C) = 0.25 + 0.75 × PR(B) <br />
+得：<br />
+PR(A) = 517/37 = 13.97<br />
+PR(B) = 397/37 = 10.73<br />
+PR(C) = 307/37 = 8.30 </p>
+
+<p>增加页面D：<br />
+PR(A) = 0.25 + 0.75 (10 + PR(D))<br />
+PR(B) = 0.25 + 0.75 × PR(A)<br />
+PR(C) = 0.25 + 0.75 × PR(B)<br />
+PR(D) = 0.25 + 0.75 × PR(C) <br />
+得：<br />
+PR(A) = 419/35 = 11.97<br />
+PR(B) = 323/35 = 9.23<br />
+PR(C) = 251/35 = 7.17<br />
+PR(D) = 197/35 = 5.63 </div>增加页面后，所有页面级别增加了1，但每个页面的级别值减少了，这是由于新加页面分享了入链代来的值。从这个结果看，增加页面减少了已有页面的级别值，露了google算法青睐小站点的特点。当然，大站点也会因内容丰富而吸引其它站点的出链而得以级别值增加。</p>
+
+<p>3、针对搜索引擎优化的级别分布<br />
+<img alt="se_optm1.gif" src="se_optm1.gif" tppabs="http://hedong.3322.org/archives/pics/se_optm1.gif" width="144" height="214" border="0" align="left"/><img alt="se_optm2.gif" src="se_optm2.gif" tppabs="http://hedong.3322.org/archives/pics/se_optm2.gif" width="144" height="214" border="0" align="right"/>　　先看两个列子，阻尼系数为0.5，PR(X)/C(X)=10;<div class="code">BC之间无链接时：<br />
+PR(A) = 0.5 + 0.5 (10 + PR(B) + PR (C))<br />
+PR(B) = 0.5 + 0.5 (PR(A) / 2)<br />
+PR(C) = 0.5 + 0.5 (PR(A) / 2) <br />
+得<br />
+PR(A) = 8<br />
+PR(B) = 2.5<br />
+PR(C) = 2.5<br />
+BC之间互相链接时：<br />
+PR(A) = 0.5 + 0.5 (10 + PR(B) / 2 + PR(C) / 2)<br />
+PR(B) = 0.5 + 0.5 (PR(A) / 2 + PR(C) / 2)<br />
+PR(C) = 0.5 + 0.5 (PR(A) / 2 + PR(B) / 2) <br />
+得：<br />
+PR(A) = 7<br />
+PR(B) = 3<br />
+PR(C) = 3 </div>当BC间互链时，虽然减少了A的级别，但BC都增加了。这符合优化站点所有页面而非只主页的优化思路，因为只有每个页面的级别都提高了，当有检索词命中这些页面时，它们才能排在前面。这种优化的方法也很明显了，就是尽可能地在所有页面间平均分布入链的贡献，各低级页面要增加互链。</p>
+
+<p>4、只要不影响易用性，尽可能地将所有出链集中在一个或几个低级页面中，可以有效地降低出链对页面级别计算的负面影响。看列子：阻尼系数为0.5，PR(X)/C(X)=10;<img alt="se_optm3.gif" src="se_optm3.gif" tppabs="http://hedong.3322.org/archives/pics/se_optm3.gif" width="145" height="175" border="0" align="right" /><img alt="se_optm4.gif" src="se_optm4.gif" tppabs="http://hedong.3322.org/archives/pics/se_optm4.gif" width="145" height="175" border="0" align="right"/><div class="code">BCD都有出链时：<br />
+PR(A) = 0.5 + 0.5 (PR(B) / 2 + PR(C) / 2 + PR(D) / 2)<br />
+PR(B) = PR(C) = PR(D) = 0.5 + 0.5 (PR(A) / 3) <br />
+得：<br />
+PR(A) = 1<br />
+PR(B) = 2/3<br />
+PR(C) = 2/3<br />
+PR(D) = 2/3 <br />
+出链集中于D时：<br />
+PR(A) = 0.5 + 0.5 (PR(B) + PR(C) + PR(D) / 4)<br />
+PR(B) = PR(C) = PR(D) = 0.5 + 0.5 (PR(A) / 3) <br />
+得：<br />
+PR(A) = 17/13<br />
+PR(B) = 28/39<br />
+PR(C) = 28/39<br />
+PR(D) = 28/39 </div>从结果看，出链集中后，ABCD各页面的级别都上升了。</p>
+
+<p>5、链接交换增加了实施交换的页面的级别，却减少了其它页面的级别。如图，阻尼系数为0.5，PR(X)/C(X)=10;<div class="code">交换前，<br />
+PR(A) = 4/3<br />
+PR(B) = 5/6<br />
+PR(C) = 5/6 </p>
+
+<p>PR(D) = 4/3<br />
+PR(E) = 5/6<br />
+PR(F) = 5/6 <br />
+交换后；<br />
+PR(A) = 0.5 + 0.5 (PR(B) + PR(C) + PR(D) / 3)<br />
+PR(B) = PR(C) = 0.5 + 0.5 (PR(A) / 3)<br />
+PR(D) = 0.5 + 0.5 (PR(E) + PR(F) + PR(A) / 3)<br />
+PR(E) = PR(F) = 0.5 + 0.5 (PR(D) / 3) <br />
+得<br />
+PR(A) = 3/2<br />
+PR(B) = 3/4<br />
+PR(C) = 3/4<br />
+PR(D) = 3/2<br />
+PR(E) = 3/4<br />
+PR(F) = 3/4 </div>这情况恰好与增加站内互链的效果相反。由此，当需要对主页进行针对某一关键词的优化时，才取交换链接是可取的。<br />
+　　例中级别值的重新分布，更基本的前提是两个站点中参考交换的页面互相为对方提供的级别值是相等的。如果一个站的某个页面级别高或少出链，则这个站所有页面的级别会降低。这儿一个重要的影响因素是站点页面的数量。当一个站点的页面更多时，有更多的入链级别值被分布到站点的其它页面中，因而参考交换的页面不能提供更多贡献给对方。<br />
+　　<br />
+　　<br />
+<center><a href="000199.html" tppabs="http://hedong.3322.org/archives/000199.html">Google的PageRank算法学习(1)</a>&nbsp;<a href="000204.html" tppabs="http://hedong.3322.org/archives/000204.html">Google的PageRank算法学习(3)</a></center>　　</p>
+
+<span class="posted">Posted by Hilton at August 29, 2003 11:02 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=201.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=201" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>外部连接的相关性甚至比外部连接的PR还重要</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.e2buy.com/cash  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.e2buy.com/cash'" tppabs="http://www.e2buy.com/cash">网络疯子</a> at January 12, 2004 04:03 PM</span>
+</div>
+<div class="comments-body">
+<p>收获很大!</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gissky.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gissky.net/'" tppabs="http://www.gissky.net/">boy</a> at January 11, 2004 08:30 PM</span>
+</div>
+<div class="comments-body">
+<p>To 区区；</p>
+
+<p>　　应该拿掉。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January  2, 2004 01:56 PM</span>
+</div>
+<div class="comments-body">
+<p><a href="mt-comments.cgi-entry_id=416.htm" tppabs="http://hedong.3322.org/mt/mt-comments.cgi?entry_id=416">http://hedong.3322.org/mt/mt-comments.cgi?entry_id=416</a><br />
+这种回复是悬摆链,你怎么看,我认为这对blog总体pr有影响,我打算全部拿掉,你怎么看?</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.google8.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google8.net/'" tppabs="http://www.google8.net/">区区</a> at January  1, 2004 11:06 PM</span>
+</div>
+<div class="comments-body">
+<p>为什么我的pagerank还没有变 1 1 0<br />
+请指教！</p>
+
+<p><br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">google</a> at December 29, 2003 01:37 PM</span>
+</div>
+<div class="comments-body">
+<p>google应该青睐大站，虽然增加一页会减少已有页面的pagerank，但是可以通过重组让新添加的页面pagerank为0，而总的pagerank提高了。看看pagerank高的网站被收录多少网页就知道了。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.52tv.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.52tv.cn/'" tppabs="http://www.52tv.cn/">52tv</a> at December 27, 2003 02:20 PM</span>
+</div>
+<div class="comments-body">
+<p>很专业....</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.hello88.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.hello88.com/'" tppabs="http://www.hello88.com/">hello88</a> at December 21, 2003 08:57 PM</span>
+</div>
+<div class="comments-body">
+<p>寒……太专业了……</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xdanger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xdanger.com/'" tppabs="http://www.xdanger.com/">xdanger</a> at December  7, 2003 02:09 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="201" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

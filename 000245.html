@@ -1,0 +1,303 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: bash编程学习笔记(1)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000244.html" tppabs="http://hedong.3322.org/archives/000244.html" title="正则表达式学习笔记" />
+
+<link rel="next" href="000246.html" tppabs="http://hedong.3322.org/archives/000246.html" title="bash编程学习笔记(2)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000245.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/168"
+    dc:title="bash编程学习笔记(1)"
+    dc:identifier="http://hedong.3322.org/archives/000245.html"
+    dc:subject="ItTech"
+    dc:description="　　好象现在不流行用shell编写脚本了，这些笔记可能显得有些过时，放在这儿供自己参考吧。 　　同时，尽可能把一些细节列出来，供大家当参考手册来查吧。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-27T23:50:33+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000245.html">
+<dc:title>bash编程学习笔记(1)</dc:title>
+<dc:description>　　好象现在不流行用shell编写脚本了，这些笔记可能显得有些过时，放在这儿供自己参考吧。 　　同时，尽可能把一些细节列出来，供大家当参考手册来查吧。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-27T23:50:33+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000244.html" tppabs="http://hedong.3322.org/archives/000244.html">&laquo; 正则表达式学习笔记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000246.html" tppabs="http://hedong.3322.org/archives/000246.html">bash编程学习笔记(2) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 27, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">bash编程学习笔记(1)</h3>
+
+<p>　　好象现在不流行用shell编写脚本了，这些笔记可能显得有些过时，放在这儿供自己参考吧。<br />
+　　同时，尽可能把一些细节列出来，供大家当参考手册来查吧。</p>
+
+<a name="more"></a>
+<p>　　可以理解为用shell这种脚本语言进行编程，编写好的程序放在文件里，用bash 来解释执行这个程序。<br />
+　　下面概要介绍一下shell编程。</p>
+
+<p>　　编写shell脚本程序的要求：<br />
+<h4>建立脚本</h4><br />
+　　程序第一行需用#!指明解释程序<br />
+　　通过bash filename来运行filename程序。chmod +x filename将程序改为可执行，则可用./filename运行此脚本。</p>
+
+<p>　　shell脚本语言作为一种编程语言，与其它计算机高级语言一样有一些共性：<br />
+<h4>注释</h4><br />
+　　以#开头的至行尾的信息（当#出现在引号内、正则式内、比较式内等不为注释符的情况除外）</p>
+
+<p><h4>变量</h4><br />
+　　变量名是字符串，赋值如下： 变量名=值<br />
+　　对变量的使用或取出变量值，在变量名前加$符号，有时为了将变量名与其它字符区别开来，可以用${变量名}的方式。对变量的值的引用，叫变量替换(variable substitution)。变量只有在声明、赋值、unset、export或表示signal时，不用$作前缀。<br />
+　　还有一类变量叫环境变量，与shell变量的用法一致，用export命令可以将shell变量改为环境变量，不清楚反向如何操作。<br />
+　　变量声明后尚未赋值时，值为null.<br />
+　　当$a为一含有空格的字符串时，echo $a与echo “$a”的结果可能不一致，前者会压缩多余的连续空格。<br />
+　　bash变量不分类型，当要对其进行四则运算时，只要求变量的值只含有阿拉伯数字。</p>
+
+<p><h4>命令</h4><br />
+　　相当于一般语言里的基本函数，常用的shell命令参看附表。<br />
+　　shell脚本语言可以自定义函数。</p>
+
+<p><h4>流程控制</h4><br />
+<strong>　　1)if语句</strong><br />
+　　if [ ... ]; then<br />
+　　　...<br />
+　　elif [ ... ]; then<br />
+　　　...<br />
+　　else<br />
+　　　...<br />
+　　fi<br />
+　　其中用” [  ] ”表示条件测试，注意方括号周围的空格。</p>
+
+<p><strong>　　2)case语句</strong><br />
+　　case表达式可以用来匹配一个给定的字符串，而不是数字。<br />
+　　case ... in<br />
+　　...) do something here ;;<br />
+　　...<br />
+　　*) otherwise do something here;;<br />
+　　esac</p>
+
+<p><strong>　　3)while语句</strong><br />
+　　while ...; do<br />
+　　 ....<br />
+　　done<br />
+<strong>　　4)for语句</strong><br />
+　　for var in ....; do<br />
+　　  ....<br />
+　　done<br />
+<h4>输入输出</h4><br />
+<strong>命令间交互</strong><br />
+　　1)管道(|)<br />
+　　将一个命令的输出当作另一个命令的输入<br />
+　　2)重定向(>或>>)<br />
+　　>:将一个命令的输出写到一个文件并覆盖旧的内容<br />
+　　>>:将一个命令的输出追加到一个文件的尾部<br />
+　　3)反引号(`)<br />
+　　可以将以反引号括起来的命令的输出作为另一个命令的命令行参数</p>
+
+<p><strong>select表达式</strong><br />
+　　select var in ... ; do<br />
+　　  break<br />
+　　done</p>
+
+<p><ins>需要说明的是，此处用“语句”，只是为了表达语言的共性，对shell脚本来说应该叫表达式比较准确。</ins><br />
+附表：<center>常用命令表（不详细区分外部命令与built-in命令）</center><br />
+<table border=1><tr><td width="20%">命令</td><td>说明</td></tr><tr><td>echo "some text"</td><td>将文字内容打印在屏幕上</td></tr><tr><td>ls</td><td>文件列表</td></tr><tr><td>wc –l file</td><td>计算文件行数</td></tr><tr><td>wc -w file</td><td>计算文件中的单词数</td></tr><tr><td>wc -c file</td><td>计算文件中的字符数</td></tr><tr><td>cp sourcefile destfile</td><td>文件拷贝</td></tr><tr><td>mv oldname newname </td><td>重命名文件或移动文件</td></tr><tr><td>rm file</td><td>删除文件</td></tr><tr><td>grep 'pattern' file</td><td>在文件内搜索字符串比如：grep 'searchstring' file.txt</td></tr><tr><td>cut -b colnum file</td><td>指定欲显示的文件内容范围，并将它们输出到标准输出设备比如：输出每行第5个到第9个字符cut -b5-9 file.txt千万不要和cat命令混淆，这是两个完全不同的命令</td></tr><tr><td>cat file.txt</td><td>输出文件内容到标准输出设备（屏幕）上</td></tr><tr><td>file somefile</td><td>得到文件类型</td></tr><tr><td>read var</td><td>提示用户输入，并将输入赋值给变量</td></tr><tr><td>sort file.txt</td><td>对file.txt文件中的行进行排序</td></tr><tr><td>uniq</td><td>删除文本文件中出现的行列比如： sort file.txt | uniq</td></tr><tr><td>expr</td><td>进行数学运算Example: add 2 and 3expr 2 "+" 3</td></tr><tr><td>find</td><td>搜索文件比如：根据文件名搜索find . -name filename -print</td></tr><tr><td>tee</td><td>将数据输出到标准输出设备(屏幕) 和文件比如：somecommand | tee outfile</td></tr><tr><td>basename file</td><td>返回不包含路径的文件名比如： basename /bin/tux将返回 tux</td></tr><tr><td>dirname file</td><td>返回文件所在路径比如：dirname /bin/tux将返回 /bin</td></tr><tr><td>head file</td><td>打印文本文件开头几行</td></tr><tr><td>tail file </td><td>打印文本文件末尾几行</td></tr><tr><td>sed</td><td>Sed是一个基本的查找替换程序。可以从标准输入（比如命令管道）读入文本，并将结果输出到标准输出（屏幕）。该命令采用正则表达式（见参考）进行搜索。不要和shell中的通配符相混淆。比如：将linuxfocus 替换为 LinuxFocus ：cat text.file | sed 's/linuxfocus/LinuxFocus/' &gt; newtext.file</td></tr><tr><td>awk</td><td>awk 用来从文本文件中提取字段。缺省地，字段分割符是空格，可以使用-F指定其他分割符。cat file.txt | awk -F, '{print $1 "," $3 }'这里我们使用，作为字段分割符，同时打印第一个和第三个字段。如果该文件内容如下： Adam Bor, 34, IndiaKerry Miller, 22, USA命令输出结果为：Adam Bor, IndiaKerry Miller, USA</td></tr></table><br />
+以下几篇笔记，会详细地介绍一些细节。</p>
+
+<p>参考资料<br />
+shell编程<br />
+http://oldsite.linuxaid.com.cn/developer/sublist.jsp?i=49<br />
+</p>
+
+<span class="posted">Posted by Hilton at September 27, 2003 11:50 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=245.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=245" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>poor<br />
+</p>
+<span class="comments-post">Posted by:  at January  9, 2004 02:14 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="245" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

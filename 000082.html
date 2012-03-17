@@ -1,0 +1,244 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 首页可用性设计的10条指导方针（译）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000081.html" tppabs="http://hedong.3322.org/archives/000081.html" title="关于usability的二点思考" />
+
+<link rel="next" href="000083.html" tppabs="http://hedong.3322.org/archives/000083.html" title="关于usability的定义" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000082.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/86"
+    dc:title="首页可用性设计的10条指导方针（译）"
+    dc:identifier="http://hedong.3322.org/archives/000082.html"
+    dc:subject="ItTech"
+    dc:description="　　Jakob Nielsen博士在2002年5月12日撰文Top Ten Guidelines for Homepage Usability，今摘译每条指导方针。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-06T23:38:33+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000082.html">
+<dc:title>首页可用性设计的10条指导方针（译）</dc:title>
+<dc:description>　　Jakob Nielsen博士在2002年5月12日撰文Top Ten Guidelines for Homepage Usability，今摘译每条指导方针。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-06T23:38:33+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000081.html" tppabs="http://hedong.3322.org/archives/000081.html">&laquo; 关于usability的二点思考</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000083.html" tppabs="http://hedong.3322.org/archives/000083.html">关于usability的定义 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 06, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">首页可用性设计的10条指导方针（译）</h3>
+
+<p>　　<a href="javascript:if(confirm('http://www.useit.com/jakob/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/jakob/'" tppabs="http://www.useit.com/jakob/" title="king of usability">Jakob Nielsen博士</a>在2002年5月12日撰文<a href="javascript:if(confirm('http://www.useit.com/alertbox/20020512.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/alertbox/20020512.html'" tppabs="http://www.useit.com/alertbox/20020512.html" title="可用性设计方针">Top Ten Guidelines for Homepage Usability</a>，今摘译每条指导方针。</p>
+
+<a name="more"></a>
+<p>　　<acronym title="homepages">主页</acronym>是世上最重要的不动产，<acronym title="homepage">首页</acronym>是大多数网站中最重要的一页，因它是公司的形象在众人面前的展示。</p>
+
+<p>　　清楚的表达网站的目的：你是谁，你要干什么。<br />
+　　1、利用一句话的<acronym title="tagline">标志行</acronym>，告诉用户<a href="javascript:if(confirm('http://www.useit.com/alertbox/20010722.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/alertbox/20010722.html'" tppabs="http://www.useit.com/alertbox/20010722.html" title="Tagline Blues: What's the Site About?">公司是干什么的以及相对于竞争者的独特要素</a>。<br />
+　　2、页面<acronym title="title">标题</acronym>对搜索引擎和收藏夹来说有可读性，以公司名字开头，并简述该站。<br />
+　　3、把所有的公司基本信息集在一起，放在一个明显的区域，一个"about&lt;公司名&gt;"链接就是一个将用户引入深层信息的最好方式。</p>
+
+<p>　　帮助用户找到他们需要的东西<br />
+　　4、突出强调网站的最高优先级的任务（突出强调网站的最主要功能，译者注）<br />
+　　5、增加一个检索输入框</p>
+
+<p>　　揭示网站内容<br />
+　　6、用例子显示网站的内容，具体胜过抽象，显示一些最好或最新的内容。<br />
+　　7、用最重要的关键词命名链接，让用户能快速找到解决当前任务的入口。<br />
+　　8、提供手段让用户便捷地找到最近的主页内容。<br />
+　　<br />
+　　用可视设计来增强（不是定义）交互设计<br />
+　　9、不要过分地装饰非常重要的内容，如导航区。用户常把图片当作广告忽略掉。<br />
+　　10、使用有意义的图片。</p>
+
+<p>　　更多的内容请参见Jakob著述<a href="javascript:if(confirm('http://www.useit.com/homepageusability/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.useit.com/homepageusability/'" tppabs="http://www.useit.com/homepageusability/" title="书名">《Homepage Usability: 50 Websites Deconstructed》</a>，其中含有113条方针。另外，在搜索该书的简体译本《专业主页设计技术》时，找到了<a href="javascript:if(confirm('http://www.csdn.net/Subject/198/index.shtm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.csdn.net/Subject/198/index.shtm'" tppabs="http://www.csdn.net/Subject/198/index.shtm" title="主页设计原则">csdn的<专业主页设计原则>专栏</a>，很有参考价值，只不知这两者之间有什么联系。:)<br />
+</p>
+
+<span class="posted">Posted by Hilton at August  6, 2003 11:38 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=82.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=82" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="82" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

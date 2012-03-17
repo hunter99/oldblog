@@ -1,0 +1,425 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: NekoHTML学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000249.html" tppabs="http://hedong.3322.org/archives/000249.html" title="Gerald Wenberg思想摘记" />
+
+<link rel="next" href="000250.html" tppabs="http://hedong.3322.org/archives/000250.html" title="今天是你的生日，我的祖国！" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000251.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/174"
+    dc:title="NekoHTML学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000251.html"
+    dc:subject="ItTech"
+    dc:description="　　J. Andrew Clark用Java写了一系列的工具(Java APIs)，NekoHTML是其中之一。 　　NekoHTML是一个简单地HTML扫描器和标签补偿器(tag balancer) ,使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。NekoHTML能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。NekoHTML的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-30T21:58:34+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000251.html">
+<dc:title>NekoHTML学习笔记</dc:title>
+<dc:description>　　J. Andrew Clark用Java写了一系列的工具(Java APIs)，NekoHTML是其中之一。 　　NekoHTML是一个简单地HTML扫描器和标签补偿器(tag balancer) ,使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。NekoHTML能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。NekoHTML的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-30T21:58:34+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000249.html" tppabs="http://hedong.3322.org/archives/000249.html">&laquo; Gerald Wenberg思想摘记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000250.html" tppabs="http://hedong.3322.org/archives/000250.html">今天是你的生日，我的祖国！ &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 30, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">NekoHTML学习笔记</h3>
+
+<p>　　<a href="javascript:if(confirm('http://www.apache.org/~andyc/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.apache.org/~andyc/'" tppabs="http://www.apache.org/~andyc/">J. Andrew Clark</a>用Java写了一系列的<a herf="http://www.apache.org/~andyc/neko/doc/index.html" title="CyberNeko Tools for XNI">工具</a>(Java APIs)，<a href="javascript:if(confirm('http://www.apache.org/~andyc/neko/doc/html/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.apache.org/~andyc/neko/doc/html/index.html'" tppabs="http://www.apache.org/~andyc/neko/doc/html/index.html" title="CyberNeko HTML Parser">NekoHTML</a>是其中之一。<br />
+　　NekoHTML是一个简单地HTML扫描器和标签补偿器(tag balancer) ,使得程序能解析HTML文档并用标准的XML接口来访问其中的信息。这个解析器能投扫描HTML文件并“修正”许多作者（人或机器）在编写HTML文档过程中常犯的错误。NekoHTML能增补缺失的父元素、自动用结束标签关闭相应的元素，以及不匹配的内嵌元素标签。NekoHTML的开发使用了Xerces Native Interface (XNI)，后者是Xerces2的实现基础。</p>
+
+<a name="more"></a>
+<p>　　<h4>一、运行要求</h4>　　从NekoHTML主页上下载nekohtml-latest.zip，目前版本是0.8.<br />
+　　NekoHTML要求运行在java1.1或更高版本，Xerces-J 2.0或更高版本。（我在试用时，随便拿了个xerces的包来用，结果例如运行老时不能通过，折腾半天后才发现版本不够所致.:)<br />
+　　<h4>二、使用NekoHTML</h4><br />
+1、透明地创建HTML解析器<br />
+　　利用Xerces2.0为基础，应用程序通过JAXP实例化解析器对象时，可以透明地创建HTML解析器，此时只需要将NekoHTML的jar文件，在CLASSPATH中放在Xerces的jar文件之前即可。nekohtmlXni.jar中的META-INF/services/org.apache.xerces.xni.parser.XMLParserConfiguration文件会被Xerces的读取并取代标准的设置文件，此处org.apache.xerces.xni.parser.XMLParserConfiguration文件的内容就是一个字符串“org.cyberneko.html.HTMLConfiguration”。这种方法的好处是简单透明，缺点是影响了Xerces在其它情况下的使用。</p>
+
+<p>2、便利的HTML解析器类<br />
+　　要想避免上述的问题，可以使用org.cyberneko.html.parsers包的DOM和SAX解析器类来创建解析器，这两个类都使用了HTMLConfiguration类。解析器一旦创建之后，就可以解析HTML文件，并用标准的XML接口来访问文件中的信息，就象面对的是一个XML文件一样。<br />
+　　下面的代码是NekoHTML自带的例程，我改了一下，使其可以显示HTML文件内容，而不显示类的名字。<div class="code"><pre>package sample;</p>
+
+<p>import org.cyberneko.html.parsers.DOMParser;<br />
+import org.w3c.dom.Document;<br />
+import org.w3c.dom.Node;</p>
+
+<p>public class TestHTMLDOM {<br />
+    public static void main(String[] argv) throws Exception {<br />
+        DOMParser parser = new DOMParser();<br />
+        for (int i = 0; i < argv.length; i++) {<br />
+            parser.parse(argv[i]);<br />
+            print(parser.getDocument(), "");<br />
+        }<br />
+    }<br />
+    public static void print(Node node, String indent) {<br />
+//        System.out.println(indent+node.getClass().getName());<br />
+        if (node.getNodeValue() != null){<br />
+            if("".equals(node.getNodeValue().trim())){<br />
+            }else{<br />
+            System.out.print(indent);<br />
+            System.out.println(node.getNodeValue());<br />
+        	}<br />
+        }<br />
+        <br />
+        Node child = node.getFirstChild();<br />
+        while (child != null) {<br />
+            print(child, indent+" ");<br />
+            child = child.getNextSibling();<br />
+        }<br />
+    }<br />
+}<br />
+</div>编译运行如下：<div class="code">cd $NEKOHTML_HOME<br />
+cp build_html.xml build.xml<br />
+ant<br />
+java -cp nekohtml.jar;nekohtmlSamples.jar;xmlParserAPIs.jar;xercesImpl.jar       sample.TestHTMLDOM test.html</div><br />
+如果一切正常可以显示HTML的内容了。<br />
+3、文档片段解析<br />
+　　除了DOM和SAX类，NekoHTML还提供了一个实验性质的DOMFragmentParser类，用以解析HTML文件的片段。我个人认为，由于浏览器的强大的容错能力，即使一个片段的HTML文件，也可以正确显示，由此也变相地造成了很多人不再关心的HTML的完整要求了。这个类，也许将是用的最多的。下面，看看nutch是如何使用nekoHTML的。<div class="code"><pre>package net.nutch.fetcher;<br />
+...<br />
+import org.cyberneko.html.parsers.*;<br />
+import org.xml.sax.*;<br />
+import org.w3c.dom.*;<br />
+import org.w3c.dom.html.*;<br />
+import org.apache.html.dom.*;</p>
+
+<p>/* A simple fetcher. */<br />
+public class Fetcher { <br />
+	....<br />
+    private DOMFragmentParser parser = new DOMFragmentParser();<br />
+	....<br />
+    private void handleFetch(URL url, FetchListEntry fle, Http.Response response)<br />
+      throws IOException, SAXException {<br />
+      <br />
+      //判断HTTP应答包的类型，只放过html文件<br />
+      String contentType = response.getHeader("Content-Type");<br />
+      if (contentType != null && !contentType.startsWith("text/html"))<br />
+        throw new IOException("Unknown content-type: " + contentType);<br />
+      //创建文件片段对象<br />
+      DocumentFragment node = new HTMLDocumentImpl().createDocumentFragment();<br />
+      //解析HTML内容<br />
+      parser.parse(new InputSource(new ByteArrayInputStream(response.getContent())),node);<br />
+      //取得全部文本内容<br />
+      StringBuffer sb = new StringBuffer();<br />
+      getText(sb, node);<br />
+      String text = sb.toString();<br />
+      //取得标题信息<br />
+      sb.setLength(0);<br />
+      getTitle(sb, node);<br />
+      String title = sb.toString().trim();<br />
+      //取得该页所有的出链<br />
+      ArrayList l = new ArrayList();<br />
+      getOutlinks(url, l, node);<br />
+      <br />
+      //显示结果，存储信息<br />
+      Outlink[] outlinks = (Outlink[])l.toArray(new Outlink[l.size()]);<br />
+      LOG.fine("found " + outlinks.length + " outlinks in " + url);</p>
+
+<p>      outputPage(new FetcherOutput(fle, MD5Hash.digest(response.getContent()),<br />
+                                   true, title, outlinks),<br />
+                 new FetcherContent(response.getContent()),<br />
+                 new FetcherText(text));<br />
+    }<br />
+  private static void getText(StringBuffer sb, Node node) {<br />
+    if (node.getNodeType() == Node.TEXT_NODE) {<br />
+      sb.append(node.getNodeValue());//取得结点值，即开始与结束标签之间的信息<br />
+    }<br />
+    NodeList children = node.getChildNodes();<br />
+    if ( children != null ) {<br />
+      int len = children.getLength();<br />
+      for ( int i = 0; i &lt; len; i++ ) {<br />
+        getText(sb, children.item(i));//递归遍历DOM树<br />
+      }<br />
+    }<br />
+  }</p>
+
+<p>  private static boolean getTitle(StringBuffer sb, Node node) {<br />
+    if (node.getNodeType() == Node.ELEMENT_NODE) {<br />
+      if ("title".equalsIgnoreCase(node.getNodeName())) {<br />
+        getText(sb, node);<br />
+        return true;<br />
+      }<br />
+    }<br />
+    NodeList children = node.getChildNodes();<br />
+    if (children != null) {<br />
+      int len = children.getLength();<br />
+      for (int i = 0; i &lt; len; i++) {<br />
+        if (getTitle(sb, children.item(i))) {<br />
+          return true;<br />
+        }<br />
+      }<br />
+    }<br />
+    return false;<br />
+  }</p>
+
+<p>  private static void getOutlinks(URL base, ArrayList outlinks, Node node) {<br />
+    if (node.getNodeType() == Node.ELEMENT_NODE) {<br />
+      if ("a".equalsIgnoreCase(node.getNodeName())) {<br />
+        StringBuffer linkText = new StringBuffer();<br />
+        getText(linkText, node);</p>
+
+<p>        NamedNodeMap attrs = node.getAttributes();<br />
+        String target= null;<br />
+        for (int i= 0; i &lt; attrs.getLength(); i++ ) {<br />
+          if ("href".equalsIgnoreCase(attrs.item(i).getNodeName())) {<br />
+            target= attrs.item(i).getNodeValue();//在DOM树中，属性是一个结点。<br />
+            break;<br />
+          }<br />
+        }<br />
+        if (target != null)<br />
+          try {<br />
+            URL url = new URL(base, target);<br />
+            outlinks.add(new Outlink(url.toString(),linkText.toString().trim()));<br />
+          } catch (MalformedURLException e) {<br />
+            // don't care<br />
+          }<br />
+      }<br />
+    }<br />
+    NodeList children = node.getChildNodes();<br />
+    if ( children != null ) {<br />
+      int len = children.getLength();<br />
+      for ( int i = 0; i &lt; len; i++ ) {<br />
+        getOutlinks(base, outlinks, children.item(i));//递归遍历DOM树<br />
+      }<br />
+    }<br />
+  }	<br />
+  ....<br />
+}</pre></div><br />
+<ins>注意，此处传递给解析过程parse的文档片段对象，必须是由org.w3c.dom.html.HTMLDocument类型的DOM文档对象创建，否则有异常。</ins><br />
+　　HTMLConfiguration可以用于创建任何基于XNI解析器，可参考下例<div class="code"><pre>package sample;</p>
+
+<p>import org.apache.xerces.parsers.AbstractSAXParser;<br />
+import org.cyberneko.html.HTMLConfiguration;</p>
+
+<p>public class HTMLSAXParser extends AbstractSAXParser {<br />
+    public HTMLSAXParser() {<br />
+        super(new HTMLConfiguration());<br />
+    }<br />
+}<br />
+</pre></div></p>
+
+<p><h4>三、设置解析器参数</h4>　　为了更加精确的控制解析的动作，nekohtml提供了相应的设置函数。如下列：<div class="code"><pre>// settings on HTMLConfiguration<br />
+org.apache.xerces.xni.parser.XMLParserConfiguration config =<br />
+  new org.cyberneko.html.HTMLConfiguration();<br />
+config.setFeature("http://cyberneko.org/html/features/augmentations", true);<br />
+config.setProperty("http://cyberneko.org/html/properties/names/elems", "lower");</p>
+
+<p>// settings on DOMParser<br />
+org.cyberneko.html.parsers.DOMParser parser = <br />
+  new org.cyberneko.html.parsers.DOMParser();<br />
+parser.setFeature("http://cyberneko.org/html/features/augmentations", true);<br />
+parser.setProperty("http://cyberneko.org/html/properties/names/elems", "lower");<br />
+</pre></div><br />
+<center><strong>nekohtml功能(feature)列表</strong><br />
+<table border="1"><tr><td>功能</td><td>默认值</td><td>描述</td></tr><tr><td>http://cyberneko.org/html/features/balance-tags </td><td>True</td><td>是否允许增补缺失的标签。如果要以XML方式操作HTML文件，此值必须为真。此处提供设置功能，为了性能的原因。</td></tr><tr><td>http://cyberneko.org/html/features/balance-tags/ignore-outside-content </td><td>False</td><td>是否忽略文档根元素以后的数据。如果为false，&lt;html&gt;和&lt;bod&gt;被忽略，所有的内容都被解析。</td></tr><tr><td>http://cyberneko.org/html/features/document-fragment </td><td>False</td><td>解析HTML片段时是否作标签增补。此功能不要用在DOMParser上，而要用在DOMFragmentParser上。</td></tr><tr><td>http://apache.org/xml/features/scanner/notify-char-refs </td><td>False</td><td>当遇到字符实体引用（如＆#x20;）是否将(#x20)报告给相应地文档处理器。</td></tr><tr><td>http://apache.org/xml/features/scanner/notify-builtin-refs </td><td>False</td><td>当遇到XML内建的字符实体引用（如＆amp;）是否将(amp)报告给相应地文档处理器。</td></tr><tr><td>http://cyberneko.org/html/features/scanner/notify-builtin-refs </td><td>False</td><td>当遇到HTML内建的字符实体引用（如＆copy;）是否将(copy)报告给相应地文档处理器。</td></tr><tr><td>http://cyberneko.org/html/features/scanner/script/strip-comment-delims </td><td>False</td><td>是否剥掉&lt;script&gt;元素中的&lt;!--  --&gt;等注释符。</td></tr><tr><td>http://cyberneko.org/html/features/augmentations </td><td>False</td><td>是否将与HTML事件有关的infoset项包括在解析管道中。</td></tr><tr><td>http://cyberneko.org/html/features/report-errors </td><td>False</td><td>是否报告错误。</td></tr></table><br />
+<strong>nekohtml属性列表</strong><br />
+<table border="1"><tr><td>属性</td><td>默认值</td><td>值域</td><td>描述</td></tr><tr><td>http://cyberneko.org/html/properties/filters </td><td>null</td><td>XMLDocumentFilter[]  </td><td>在解析管道的最后按数组顺序追加自定义的处理组件（过滤器），必须为数组类型。</td></tr><tr><td>http://cyberneko.org/html/properties/default-encoding </td><td>Windows-1252</td><td>IANA encoding names</td><td>默认的HTML文件编码</td></tr><tr><td>http://cyberneko.org/html/properties/names/elems </td><td>upper</td><td>upper,lower,match</td><td>如果整理识别出的元素名称</td></tr><tr><td>http://cyberneko.org/html/properties/names/attrs </td><td>lower</td><td>upper,lower,no-change</td><td>如果整理识别出的属性名称</td></tr></table><br />
+</center><br />
+<h4>四、管道过滤器</h4><br />
+　　Xerces Native Interface (XNI)定义了一个解析器配置框架，在那儿一个个解析器以模块化组件的形式组成一个管道。这样一来，通过重新安排已有组件和/或新定制开发的组件，就可完成一个新的解析器配置工作。由于nekohtml是采用这个配置框架开发的，所以对解析器新增功能就很简单通过在默认的nekohtml解析管道的末端增加文档过滤器来实现。<br />
+　　要新开发一个过滤器，很简单地实现xerces2的org.apache.xerces.xni.parser包中的XMLDocumentFilter接口即可。这个接口，一方面使组件成为管道中上一级的事件处理器，另一方面又成为下级的信息源。针对nekohtml的过滤器开发，只需简单地扩展org.cyberneko.html.filters包中的DefaultFilter类即可。<br />
+　　将自行开发的过滤器加入管道，可参考以下两种办法：<div class="code"><pre>XMLDocumentFilter noop = new DefaultFilter();<br />
+XMLDocumentFilter[] filters = { noop };</p>
+
+<p>XMLParserConfiguration parser = new HTMLConfiguration();<br />
+parser.setProperty("http://cyberneko.org/html/properties/filters", filters);</pre></div><br />
+　　nekohtml的org.cyberneko.html.filters 包中有DefaultFilter、<br />
+ElementRemover、Identity、Writer，能实现动态插入内容、删除元素、序列化HTML文档等，不详细述。</p>
+
+<p>请参考：<br />
+DOMAPI学习<br />
+http://hedong.3322.org/archives/000228.html</p>
+
+<p>SAXAPI学习笔记（2）<br />
+http://hedong.3322.org/archives/000232.html</p>
+
+<span class="posted">Posted by Hilton at September 30, 2003 09:58 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=251.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=251" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="251" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

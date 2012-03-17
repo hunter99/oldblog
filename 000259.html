@@ -1,0 +1,275 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: bash编程学习笔记(4)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000255.html" tppabs="http://hedong.3322.org/archives/000255.html" title="bash编程学习笔记(3)" />
+
+<link rel="next" href="000256.html" tppabs="http://hedong.3322.org/archives/000256.html" title="bugzilla学习" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000259.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/181"
+    dc:title="bash编程学习笔记(4)"
+    dc:identifier="http://hedong.3322.org/archives/000259.html"
+    dc:subject="ItTech"
+    dc:description="　　引用，用引号“括”起来的字符串。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-03T00:19:41+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000259.html">
+<dc:title>bash编程学习笔记(4)</dc:title>
+<dc:description>　　引用，用引号“括”起来的字符串。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-03T00:19:41+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000255.html" tppabs="http://hedong.3322.org/archives/000255.html">&laquo; bash编程学习笔记(3)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000256.html" tppabs="http://hedong.3322.org/archives/000256.html">bugzilla学习 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 03, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">bash编程学习笔记(4)</h3>
+
+<p>　　引用，用引号“括”起来的字符串。</p>
+
+<a name="more"></a>
+<p>　　将字符串用引号括起来，主要是保护某些特殊字符（如＊）不被shell或脚本进上步的解释或扩展。引号分单引号与双引号，两者对字符的保护程度略有差异。<br />
+　　对双引号中的字符串，$和`和\仍有特殊意义，$可用来指明以变量的值代替"$变量名"所在的位置，`则是用命令执行的输出代替，而\则是转义符，\\和\$和\`和\"分别表示\和$和`和"这向个字符。<br />
+　　而单引号中的字符串，除不能出现单引号（因为表示串引用结束）或\外，其它都被保护。此时显示单引号，可采取先结束前面的串，再用双引号显示一个单引号或用\转义一个单引号，后面再用单引号串。如下例<div class="code">$echo 'Why can'\''t I write '"'"'s between single quotes'<br />
+Why can't I write 's between single quotes</div></p>
+
+<p>　　双引号可以保护命令行参数不被shell分拆或压缩参数值内空白。看下面的脚本及其解释。<div class="code">variable1="a variable containing five words"<br />
+COMMAND This is $variable1    # Executes COMMAND with 7 arguments:<br />
+# "This" "is" "a" "variable" "containing" "five" "words"</p>
+
+<p>COMMAND "This is $variable1"  # Executes COMMAND with 1 argument:<br />
+# "This is a variable containing five words"</p>
+
+<p>variable2=""    # Empty.<br />
+COMMAND $variable2 $variable2 $variable2        # Executes COMMAND with no arguments. <br />
+COMMAND "$variable2" "$variable2" "$variable2"  # Executes COMMAND with 3 empty arguments. <br />
+COMMAND "$variable2 $variable2 $variable2"      # Executes COMMAND with 1 argument (2 spaces). </div></p>
+
+<p>　　需要指出的是，上面提到的引用保护功能，只是对shell或shell脚本而言的，将被保护的串被传给某些命令时，这些命令仍会对某些特殊字符进行扩展或解释。例如：<div class="code"> bash$ grep '[Ff]irst' *.txt<br />
+ file1.txt:This is the first line of file1.txt.<br />
+ file2.txt:This is the First line of file2.txt.</div><br />
+　　最典型的是echo和sed命令(加参数-e)，会对很多的特殊字符自行重新解释或扩展，列表如下：<br />
+<table border="1"><tr><td>\n</td><td>换行</td></tr><tr><td>\r</td><td>回车</td></tr><tr><td>\t</td><td>一个制表符</td></tr><tr><td>\v</td><td>垂直制表符</td></tr><tr><td>\b</td><td>回删</td></tr><tr><td>\a</td><td>响铃</td></tr><tr><td>\0xx</td><td>显示xx编码对应的ASCII字符,当将这种串赋给变量时，要在串首引号前加$符号。</td></tr><tr><td>\"</td><td>"</td></tr><tr><td>\$</td><td>$ </td></tr><tr><td>\\</td><td>\</td></tr></table><br />
+说明，当\后面的字符不是上述字符时，则如果不在串中，则shell会将那个\去掉后传给echo或sed,如果是在串中（无论单或双引号），则\被传给命令。例如：<div class="code">echo \z               #  z<br />
+echo \\z              # \z<br />
+echo '\z'             # \z<br />
+echo '\\z'            # \\z<br />
+echo "\z"             # \z<br />
+echo "\\z"            # \z</p>
+
+<p>echo "\v\v\v\v"      # Prints \v\v\v\v literally.<br />
+# Use the -e option with 'echo' to print escaped characters.<br />
+echo -e "\v\v\v\v"   # Prints 4 vertical tabs.</div></p>
+
+<p>另外，在命令行中，\后加一个空格，会禁止shell根据此空格将串区分不同的参数，这对表达文字名字中含有空格的情况非常有用。<br />
+再外，\在命令行或脚本中一行的最后时，起到将两行的内容连在一起作用，这对长的命令行输入有帮助。</p>
+
+<p>　　看到这儿，晕了没？：）</p>
+
+<p>　　我觉得，要把握对串及转义符的理解，关键在于明了：<ins>shell的作用主要表现解析命令行，及变量赋值、表达式计算上，至于其它的则是某个命令特有的功能</ins>。用下列做验证<div class="code"> bash$ echo hello\!<br />
+ bash$ echo "hello\!"<br />
+ bash$ echo -e x\ty<br />
+ bash$ echo -e "x\ty"<br />
+</div><br />
+它们的执行结果分别是什么？好好想想！<br />
+<font color="white">hello!<br />
+hello\!<br />
+xty<br />
+x&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;y</font><br />
+按住鼠标左键，在上面空白处拖动就看到了。结果一样吗？</p>
+
+<span class="posted">Posted by Hilton at October  3, 2003 12:19 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=259.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=259" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>hi,看你天天都有在发言耶，看来国庆你没有放假？或者是放了也当没放？呵呵，我才玩回来，不论如何，国庆快乐！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;catlady&#64;km169&#46;net'" tppabs="http://hedong.3322.org/archives/mailto&#58;catlady&#64;km169&#46;net">catlady</a> at October  3, 2003 06:01 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="259" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

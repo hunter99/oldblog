@@ -1,0 +1,283 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: XML学习笔记（一）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000040.html" tppabs="http://hedong.3322.org/archives/000040.html" title="说起通宵" />
+
+<link rel="next" href="000042.html" tppabs="http://hedong.3322.org/archives/000042.html" title="台湾IT信息人士谈BLOG" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000041.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/45"
+    dc:title="XML学习笔记（一）"
+    dc:identifier="http://hedong.3322.org/archives/000041.html"
+    dc:subject="ItTech"
+    dc:description="　　这次快过一遍，再看点以XML为基础的东东...."
+    dc:creator="Hilton"
+    dc:date="2003-07-21T07:03:45+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000041.html">
+<dc:title>XML学习笔记（一）</dc:title>
+<dc:description>　　这次快过一遍，再看点以XML为基础的东东....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-21T07:03:45+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000040.html" tppabs="http://hedong.3322.org/archives/000040.html">&laquo; 说起通宵</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000042.html" tppabs="http://hedong.3322.org/archives/000042.html">台湾IT信息人士谈BLOG &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 21, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">XML学习笔记（一）</h3>
+
+<p>　　这次快过一遍，再看点以<acronym title="EXtensible Markup Language ">XML</acronym>为基础的东东.</p>
+
+<a name="more"></a>
+<p>　　1、简介<br />
+　　XML是一种标记语言，设计用来描述数据（HTML设计用显示数据），没有预定义的标签，它用Document Type Definition (DTD)或XML Schema描述数据，XML（带着DTD或XML Schema ）被设计成自描述的。<br />
+　　XML不是无所不能的，它只是用来描述数据的，至于数据如何显示、或传输、或处理，那是别的程序或语言的事。</p>
+
+<p>　　2、XML有哪些用途</p>
+
+<p>　　3、XML语法<br />
+　　XML语法既简单又严格，易学易用。<br />
+　　XML文件的开头，要用一个声明行如<div class="code">&lt;?xml version="1.0" encoding="ISO-8859-1"?&gt;</div>，用以说明版本和编码。<br />
+　　XML的所有元素都必须有一个结束标签，标签大小写敏感，标签嵌套必须准确，每个XML文件必须有一个根元素，属性值必须用双/单引号括起（要成对使用），XML中的空格被保留，新起一行的回车换行统一用换行符一个，XML中的注释跟HTML一样。</p>
+
+<p>　　4、XML元素<br />
+　　一个XML元素包括开始标签和结束标签以及它们之间的内容，可动态扩展，有父子关系或兄弟关系。一个元素的内容可以为空。<br />
+　　命名一个元素的要求：不能以数字、标点和XML（三个字符的大小组合，顺序不变）开头，不能有空格，由字母、数字或其它符构成的字符串。<br />
+　　不建议含有-或.或:或非英语字符，建议名字长度不要太长且要用描述性。</p>
+
+<p>　　5、XML元素属性<br />
+　　元素开始标签中可以含有属性，用以补充说明元素，但属性的值可以用来描述数据内容，但尽量不要这么用而尽可能地用子元素来完成这个任务。<br />
+　　用属性存放数据有以下弊端：不能含有多个值，不易扩展、不能描述数据结构、程序难以处理、不能用DTD来进行检查。<br />
+　　这个作者习惯有一个例外，就是ID或名，可以放在属性里。</p>
+
+<p>　　6、XML检查<br />
+　　一个好的XML文件，合于语法和DTD描述。<br />
+　　DTD定义了XML的合法元素，XML Schema是基于XML的DTD的替代物。<br />
+　　XML的错误，会终止处理程序。</p>
+
+<p>　　7、IE和NetScape对XML的支持</p>
+
+<p>　　8、一个用VBScript进行<a href="javascript:if(confirm('http://www.w3schools.com/dom/dom_validate.asp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3schools.com/dom/dom_validate.asp'" tppabs="http://www.w3schools.com/dom/dom_validate.asp" title="XML合法性检查程序">XML检查</a>的脚本。</p>
+
+<p>　　9、浏览器中显示XML文件，当XML有错误时会提示。</p>
+
+<p>　　10、用CSS显示XML文件<br />
+　　例子：<a href="cd_catalog.txt" tppabs="http://hedong.3322.org/archives/cd_catalog.txt" title="CSS文件内容">CSS文件</a>,<a href="cd_catalog.xml" tppabs="http://hedong.3322.org/archives/cd_catalog.xml" title="XML文件内容">XML文件</a>, <a href="cd_catalog_with_css.xml" tppabs="http://hedong.3322.org/archives/cd_catalog_with_css.xml" title="XML+CSS">显示效果</a>.<br />
+　　需要说明的是，XSL将取代CSS成为XML显示的标准，用XHTML而不是XML建立个人主页是不错的选择。</p>
+
+<p>　　11、用XSL显示XML文件<br />
+　　例子：<a href="simple.xsl.htm" tppabs="http://hedong.3322.org/archives/simple.xsl" title="XSL文件内容">XSL文件</a>,<a href="simple.xml" tppabs="http://hedong.3322.org/archives/simple.xml" title="XML文件内容">XML文件</a>, <a href="simplexsl.xml" tppabs="http://hedong.3322.org/archives/simplexsl.xml" title="XML+XSL">显示效果</a>.<br />
+　　XSL文件本身也是XML格式文件，其内容指明了如何转换XML数据。其中的foreach, 明显带有程序循环的意味。，也跟使用CSS一样，XML文件中只在第二行加了一行&lt;?xml-stylesheet type="text/xsl" href="simple.xsl" ?&gt;</p>
+
+<p>　　12、HTML页面内的数据岛<br />
+　　只有IE5以上支持。使用了HTML的一个标签&lt;xml&gt;,格式如下：<br />
+&lt;xml id=".."&gt;<br />
+...XML格式数据...<br />
+&lt;/XML&gt;<br />
+或&lt;xml id=".." src="....xml"&gt;&lt;/XML&gt;<br />
+　　数据岛可以与表格绑定，具体说来，就是在标签table中增加属性datasrc="内锚点即XML的ID”，然后利用span增加一个datafld属性指定一个字段。table内默认是循环显示XML数据，表头/表尾/表体（循环）用thead,tfoot,tbody来分开。<br />
+　　到这儿看<a href="javascript:if(confirm('http://www.w3schools.com/xml/tryit.asp?filename=cd_catalog_island_thead  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3schools.com/xml/tryit.asp?filename=cd_catalog_island_thead'" tppabs="http://www.w3schools.com/xml/tryit.asp?filename=cd_catalog_island_thead" title="数据岛与表格绑定例程">例程</a>.</p>
+
+<p>　　13、MS的XML解析器<br />
+　　随IE5一同发布。可以通过javascript及客户端或服务器端的Vbscript生成解析器的实例，然后可以对数据进行操作或显示。到这儿看<a href="javascript:if(confirm('http://www.w3schools.com/xml/tryit.asp?filename=note  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3schools.com/xml/tryit.asp?filename=note'" tppabs="http://www.w3schools.com/xml/tryit.asp?filename=note" title="MS的XML解析器例程">例程</a>.</p>
+
+<p>　　14、现实生活中的XML<br />
+　　常见的应用有用于新闻交互的XML。（RSS）？<br />
+　　<br />
+　　15、进入<a href="javascript:if(confirm('http://www.w3schools.com/xml/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3schools.com/xml/'" tppabs="http://www.w3schools.com/xml/" title="XML高级功能">高级部分</a>,在另一篇LOG中。<br />
+</p>
+
+<span class="posted">Posted by Hilton at July 21, 2003 07:03 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=41.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=41" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>sadfsdf</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.yihongsoft.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.yihongsoft.com/'" tppabs="http://www.yihongsoft.com/">fg</a> at November 17, 2003 03:22 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="41" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

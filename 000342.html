@@ -1,0 +1,276 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Apache的Mod_rewrite学习（一）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000341.html" tppabs="http://hedong.3322.org/archives/000341.html" title="Jmagick学习笔记" />
+
+<link rel="next" href="000344.html" tppabs="http://hedong.3322.org/archives/000344.html" title="Apache的Mod_rewrite学习（二）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000342.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/238"
+    dc:title="Apache的Mod_rewrite学习（一）"
+    dc:identifier="http://hedong.3322.org/archives/000342.html"
+    dc:subject="ItTech"
+    dc:description="　　车东很早就写了一篇文章来介绍利用mod_rewrite模块来达到用静态页面形式的链接隐藏后台的动态页面。 　　Apache的rewrite模块，提供了一个基于规则的重写(rewrite,也许译为重构更为合适)引擎，来实时重写发送到Apache的请求URL。因功能极其强大，被称为URL重写的“瑞士军刀”。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-30T23:25:37+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000342.html">
+<dc:title>Apache的Mod_rewrite学习（一）</dc:title>
+<dc:description>　　车东很早就写了一篇文章来介绍利用mod_rewrite模块来达到用静态页面形式的链接隐藏后台的动态页面。 　　Apache的rewrite模块，提供了一个基于规则的重写(rewrite,也许译为重构更为合适)引擎，来实时重写发送到Apache的请求URL。因功能极其强大，被称为URL重写的“瑞士军刀”。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-30T23:25:37+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000341.html" tppabs="http://hedong.3322.org/archives/000341.html">&laquo; Jmagick学习笔记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000344.html" tppabs="http://hedong.3322.org/archives/000344.html">Apache的Mod_rewrite学习（二） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 30, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Apache的Mod_rewrite学习（一）</h3>
+
+<p><img alt="apachelogo.gif" src="apachelogo.gif" tppabs="http://hedong.3322.org/archives/pics/apachelogo.gif" width="500" height="62" border="0" align="left"/>　　<a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">车东</a>很早就写了一篇文章来介绍<a href="javascript:if(confirm('http://www.chedong.com/tech/google_url.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/tech/google_url.html'" tppabs="http://www.chedong.com/tech/google_url.html" title="面向Google(Search Engine Friendly)的URL设计 ">利用mod_rewrite模块来达到用静态页面形式的链接隐藏后台的动态页面</a>。<br />
+　　Apache的rewrite模块，提供了一个基于规则的重写(rewrite,也许译为重构更为合适)引擎，来实时重写发送到Apache的请求URL。因功能极其强大，被称为URL重写的“瑞士军刀”。<br />
+</p>
+
+<a name="more"></a>
+<p>　　这个模块使用一个基于正则表达式解析器开发的重写引擎，根据web管理员定义的规则来实时(on the fly)重写请求URL。它支持任意数目的重写规则，以及附加到一条规则上的任意数目的规则条件，从而提供了一套非常灵活和功能强大的URL处理机制。URL处理操作的实施与否，依赖于各种各样的条件检查，如检查服务器变量、环境变量、HTTP头字段、时间戳的值，甚至外部数据库的检索结果。这个模块可以在服务器范围内(http.conf)、目录范围内(.htaccess)或请求串(query-string)的一部分处理有关的URL。重写的结果URL，可以指向一个站内的处理程序、指向站外的重定向或者一个站内的代理。与灵活和功能强大相随的是设置的复杂，别指望一天内弄明白整个模块。(所以，这个学习笔记也分了几部分：)<br />
+　　<h4>内部处理过程</h4><strong>API阶段</strong><br />
+　　首先，Apache处理HTTP请求是分阶段进行的,Apache API为每个阶段提供了一个钩子(hook)。Mod_rewrite使用了其中的两个钩子：一个用来在HTTP请求被读取但还没有访问授权验证之前进行URL_to_filename转换，一个用来在授权验证完成且目录设置文件(.htaccess)读取之后、但内容处理器(content handler)被调用之前激化，进行修补(fixup).因此，当一个请求到达，Apache决定了相关的服务器（或虚拟服务器）以后进行URL_to_filename阶段，重写引擎(rewrite engine)开始处理服务器设置中的重写指令(mod_rewrite directives).接下来几个阶段过后进入修补阶段，此时最终的数据所在的物理目录已经找到，目录配置中的重写指令开始执行。在这两个阶段，mod_rewrite都是将URL重写为新的URL或文件名，所以看起来并没有明显的区别。对API的这种应用，并不是一开始就是这样设计的，而是Apache1.x不得已而为之。为了搞清这个问题，以下两点需要记住。<br />
+　　1)虽然mod_rewrite能进行URL到URL、URL到文件名字甚至文件名字到文件名字的转换，API(1.x)目前提供了一个URL_to_filename转换。在Apache2.0中，这两个钩子会被加进去，整个过程会更加清晰。一个事实必须清楚的记得：Apache在URL_to_filename钩子中，做得比API设计的功能更多。<br />
+　　2)不可思议的是，mod_rewrite能在目录范围内（如根据.htaccess文件的指令配置）进行URL处理，虽然URL很早就已经被转换为文件名字了。只所以会如此，是因为.htaccess文件存在于文件系统中。也就是说，在这个阶段来进行URL处理，是非常晚的时候了。为了解决这个"先有鸡还是先有蛋"的问题，mod_rewrite用了一个小技巧：当在目<ins>录</ins>范围内处理URL/filename时，mod_rewrite先将文件名逆转回相关的URL(虽然通常是不可能的，但请参见下面用以实现这个技巧的RewriteBase指令)，然后据这个新URL生成一个站内的子请求(internal sub-request)，这又重开始了API进程。Mod_rewrite尽量使这些复杂的步骤对用户透明，但应要记住：虽然目录范围URL的真正处理过程很快很高效，但这一阶段会因为这个"鸡和蛋"的问题而变得很慢和低效。从另一方面来看，这也是mod_rewrite提供给普通用户进行目录范围内的URL处理的唯一途径.<br />
+<strong>规则集(RewriteRule指令集合)处理过程</strong><br />
+　　当mod_rewrite在上述的两个API阶段被激活时，它会从它的配置数据结构（在开始服务器上下文(per-server context)或目录上下文(per-directory context)时创建的）中读取配置的规则集，然后URL重写引擎启动来执行包含的规则集（一个或多条规则以及它们的条件）。两种上下文中的处理过程都是一样的，差别只是在最后的结果处理过程上。<br />
+　　规则集中规则的顺序是非常重要的，因为重写引擎以特定的顺序来处理它们。重写引擎顺序遍历规则集，当一条规则匹配时，引擎会去遍历与它相关的条件集(RewriteCond指令集合).由于历史的原因，条件集先被列出来，因此控制流流程有点曲折(long-winded).如图一所示：<img alt="mod_rewrite_fig1.gif" src="mod_rewrite_fig1.gif" tppabs="http://hedong.3322.org/archives/pics/mod_rewrite_fig1.gif" width="428" height="385" border="0" align="right"/><br />
+　　正如所看到的，首先URL会与每条规则的模板(pattern)比较，当匹配失败时，立即停止对当前规则的处理进入下一条规则。当匹配成功时，mod_rewrite寻找相关的规则条件。如果找不到相关的条件，则直接执行规则中定义的替换，然后回到规则遍历的过程。如果找到了相关的条件，则启动一个内部循环，依次检查各个条件。对于检查，我们不是拿一个模板来匹配当前的URL，而是先创建一个TestString串，将串内的变量、后向引用(bakc-reference)、查询结果(map lookups)等展开，然后用这个TestString和条件式中的CondPattern进行匹配，如果匹配失败，则整个条件集且这个规则都不再执行，重要回到规则遍历中；如果匹配成功，则检查下一个条件，如果所有的条件都满足，则执行规则中定义的替换动作。　　<br />
+<strong>特殊字符的转义</strong><br />
+　　既然基于正则式，则当然会有特殊字符的问题。在1.3.20版本的Apache中，通过在特殊字符前加一个“\”来将TestString或Sustitution串的特殊字符转义。<br />
+<strong>正则式的后向引用</strong><br />
+<img alt="mod_rewrite_fig2.gif" src="mod_rewrite_fig2.gif" tppabs="http://hedong.3322.org/archives/pics/mod_rewrite_fig2.gif" width="381" height="179" border="0" align="left"/>　　有一点需要记住：一旦在模板(pattern)或条件模板(CondPattern)中使用了括号，则后向引用已经自动产生了，你可以在Sustitution或TestString中通过$N或%N来引用相关的值。如图，描述了后向引用的值可以传到的位置。<br />
+<h4>配置指令(Configuration Directives)</h4><br />
+<table border="1"><tr><td>指令</td><td>语法</td><td>默认值</td><td>说明</td><td>备注</td></tr><tr><td>RewriteEngine</td><td>RewriteEngine on|off</td><td>Off</td><td>开关重构引擎</td><td>默认时不能继承，故每个虚拟主机都要有自己的开关指令。</td></tr><tr><td>RewriteOptions</td><td>RewriteOptions Option</td><td>MaxRedirects=10</td><td>设置一些特殊参数</td><td>inherit:配置是否继承，MaxRedirects=number:内部重定向次数</td></tr><tr><td>RewriteLog</td><td>RewriteLog file-path</td><td>None</td><td>设定重写log文件</td><td>用RewriteLogLevel 0来禁止日志</td></tr><tr><td>RewriteLogLevel</td><td>RewriteLogLevel Level</td><td>RewriteLogLevel 0</td><td>设置日志级别</td><td>0表示没有，2以上用于debug，9及以上表示全部信息</td></tr><tr><td>RewriteLock</td><td>RewriteLock file-path</td><td>None</td><td>设置RewriteMap程序的同步锁文件</td><td>要求是本地文件，此文件只对rewriting map-program有效。</td></tr><tr><td>RewriteMap</td><td>RewriteMap MapName MapType:MapSource</td><td>Notused per default</td><td>定义重写影射</td><td>具体说明参见<a href="000346.html" tppabs="http://hedong.3322.org/archives/000346.html">文档</a></td></tr><tr><td>RewriteBase</td><td>RewriteBase URL-path</td><td>physical directory path</td><td>设置目录范围内重写的基本URL</td><td>具体说明参见<a href="000346.html" tppabs="http://hedong.3322.org/archives/000346.html">文档</a></td></tr><tr><td>RewriteCond</td><td>RewriteCond TestString CondPattern</td><td>None</td><td>定义规则条件</td><td>具体说明参见<a href="000345.html" tppabs="http://hedong.3322.org/archives/000345.html">文档</a></td></tr><tr><td>RewriteRule</td><td>RewriteRule Pattern Substitution</td><td>None</td><td>定义重写规则</td><td>具体说明参见<a href="000344.html" tppabs="http://hedong.3322.org/archives/000344.html">文档</a></td></tr></table><br />
+参考资料：<br />
+http://httpd.apache.org/docs/mod/mod_rewrite.html<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 30, 2003 11:25 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=342.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=342" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>好东西.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:13 PM</span>
+</div>
+<div class="comments-body">
+<p>对linux</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:13 PM</span>
+</div>
+<div class="comments-body">
+<p>　　不会有循环，这两个规则是有先后的，且只执行一次。<br />
+　　另外，可以用L或R等flag来结束进一步的重写。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 28, 2003 03:57 PM</span>
+</div>
+<div class="comments-body">
+<p>会不会循环匹配?<br />
+比如<br />
+有一个规则把.jsp改写成.asp<br />
+又有一个规则把.asp改写成.jsp<br />
+两者同时存在时会不会循环匹配?<br />
+</p>
+<span class="comments-post">Posted by:  at November 28, 2003 02:50 PM</span>
+</div>
+<div class="comments-body">
+<p>确实是我输入遗漏。<br />
+已经补上，谢谢！</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November  3, 2003 02:31 PM</span>
+</div>
+<div class="comments-body">
+<p>"mod_rewrite用了一个小技巧：当在目范围内处理URL/filename时，"<br />
+少了一个"录"?</p>
+<span class="comments-post">Posted by:  at November  3, 2003 02:15 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="342" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,417 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 主页设计技术（3）：主页可用性的113条原则</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000176.html" tppabs="http://hedong.3322.org/archives/000176.html" title="三生石－－好一个美丽的传说" />
+
+<link rel="next" href="000179.html" tppabs="http://hedong.3322.org/archives/000179.html" title="用perl5.6为AWStats解析google检索的UTF8编码" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000177.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/114"
+    dc:title="主页设计技术（3）：主页可用性的113条原则"
+    dc:identifier="http://hedong.3322.org/archives/000177.html"
+    dc:subject="ItTech"
+    dc:description="　　Jakob博士分26类，列出了113条原则。下面，类的倒序一一摘录（每类中顺序不变）。 　　在录入的过程中，我渐渐发现只要找到每条原则所要达到的目的或要解决的问题，这样就可以据具体情况灵活的加以解决。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-20T21:26:40+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000177.html">
+<dc:title>主页设计技术（3）：主页可用性的113条原则</dc:title>
+<dc:description>　　Jakob博士分26类，列出了113条原则。下面，类的倒序一一摘录（每类中顺序不变）。 　　在录入的过程中，我渐渐发现只要找到每条原则所要达到的目的或要解决的问题，这样就可以据具体情况灵活的加以解决。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-20T21:26:40+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000176.html" tppabs="http://hedong.3322.org/archives/000176.html">&laquo; 三生石－－好一个美丽的传说</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000179.html" tppabs="http://hedong.3322.org/archives/000179.html">用perl5.6为AWStats解析google检索的UTF8编码 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 20, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">主页设计技术（3）：主页可用性的113条原则</h3>
+
+<p>　　Jakob博士分26类，列出了113条原则。下面，类的倒序一一摘录（每类中顺序不变）。<br />
+　　在录入的过程中，我渐渐发现只要找到每条原则所要达到的目的或要解决的问题，这样就可以据具体情况灵活的加以解决。</p>
+
+<a name="more"></a>
+<p>26、股票指数和显示数字<br />
+（110）给出变化的百分比，而不仅仅是股票指数增减的点数。<br />
+（111）除非缩写非常有名，如“IBM”，否则要写缩写的股票名称。<br />
+（112）如果数字有五位甚至更多位数，要使用千分位分隔符适当分隔数字。<br />
+（113）当显示一列数字时，要对齐小数点。</p>
+
+<p>25、日期和时间<br />
+（105）仅对时间敏感的信息显示日期和时间，如新闻条目、实时交谈、股票指数等。不必显示星期几。<br />
+（106）显示最后更新内容时的时间，而不是计算机生成的当前时间，并用“更新于＜日，时＞”语句说明。<br />
+（107）当引用时间时，要包括时区。如果有国际用户，要显示主页当地时间及相对于格林威治（GMT）时间。<br />
+（108）使用标准缩略语，比如“p.m.”或“P.M.”。<br />
+（109）给出月份的全拼或简写，而不要用数字。</p>
+
+<p>24、繁荣社会<br />
+（103）如果网站支持用户社区功能，例如提供聊天室或其它讨论工具，不要将它们当作一般的链接，要在主页上列出实际的讨论主题并提供任何有关日程表。<br />
+（104）在商业站点不要提供“访客簿”标记，这会使站点看起来有点业余。</p>
+
+<p>23、收集用户资料<br />
+（101）在主页上不要直接提供注册链接，而是要解释用户注册的好处（至少要链接到这样页面）。<br />
+（102）在索要用户的电子邮件地址前，要解注册的好处，说明公告发给用户的频率。还有，在索要用户email地址的地方的后面，链接一个样本邮件，并解释公司或网站的隐私政策。</p>
+
+<p>22、个性化<br />
+（99）如果主页上有为已知资料的用户提供定制信息的区域，对首次使用的用户不要提供一般内容－－要在特定区域中提供精心准备的、不同的内容。<br />
+（100）不要让用户定制主页基本外观的各种特性，比如颜色模式。要集中精力推出未来方便最大多数用户阅读的更好的设计界面，如字体要相对大小。</p>
+
+<p>21、页面重载和刷新<br />
+（97）不要自动刷新主页，将更新内容推给用户。对有实时更新要求的网站，考虑提供一个工具，使用户能得到实时的数据反馈。<br />
+（98）当刷新页面时，只更新改变的部分，比如更新新闻部分。</p>
+
+<p>20、赞誉<br />
+（95）不要浪费宝贵的空间夸赞网站的搜索引擎、设计公司、喜爱浏览的公司或者在界面背后的技术。对于面向技术的站点，不要将这些专业内容放在主页上，可以在“关于我们”的页面中包括此类的条目。<br />
+（96）要控制显示站点获得赞誉的内容。独立的权威机构发表的赞誉、认证和优秀站点的评价，尤其是关于产品质量或服务的奖项，可以用来提供网站的信任度。主页上可以放面向用户类的奖项，不要放去年如何何的奖项，其它的可以放入“关于我们”之中。</p>
+
+<p>19、通信技术问题和突发事件的处理<br />
+（93）如果站点瘫痪了，或者站点的某个重要部分不能用了，要在主页上明确说明，要说明大概恢复的时间及此期间用户可以做的事。<br />
+（94）有一个在紧急情况下处理网站上关键内容的计划。如准备主页的一个不同的设计版本，及一个简单地导般框架，以及提供返回正常站点的途径。突发事件的典型特征是短期内有超乎寻常的大量点击，主要是因为用户反复点击以取得最新进展，这要求备用主页要小巧。</p>
+
+<p>18、欢迎词<br />
+（92）不要只在字面上欢迎用户的到来，不要将主页上最重要的区域用于向用户打招呼，可以考虑将欢迎词作为一条标签行。对用户最后的欢迎是，让用户明确知道他们能在站点具体做什么，及从哪里开始。一个例外是主册用户登录后要欢迎。</p>
+
+<p>17、广告<br />
+（88）将公司外的广告放在页面的边缘。绝对不要把广告放在最重要的条目旁边，及将重要的条目放在广告之上，以免被用户忽视重要条目。<br />
+（89）外部广告（为其它公司做的广告）要慎重采用，要做得尽量小，并应尽量和主页的核心内容相关。<br />
+（90）如果将广告放置在页面上方标准的广告条区域之外，要给它们加标签，说明它们是广告，这样用户就不会把它们和网站的内容搞混了。<br />
+（91）避免用广告的惯用方式显示站点的常见特性。</p>
+
+<p>16、弹出窗口和分阶段的页面显示<br />
+（85）当用户键入主页网址时，或在别的页面上点击到站点的链接时，要将他们带到“真正的”主页上，必须取消纷纷弹出的窗口。一个例外是，如果站点内容对少数人不合适时，最好弹出一个窗口发出警告。<br />
+（86）要避免弹出式窗口，即使其含有有用信息，也会被用户当作广告忽略，且这类窗口会使用户远离站点内容。而且，用户一旦关掉，就找不到这些内容了。<br />
+（87）不要让用户使用站点导航图去选择自己的地理位置，除非你的站点具有多种语言版本，而不是只有一种主要语言的版本。</p>
+
+<p>15、新闻和新闻发布<br />
+（81）标题应该简洁，应该用传述语言，用尽量少的文字表达尽量多的信息。标题和它下面的内容提要的相关程序应该高于和整篇内文章的相关程度。<br />
+（82）精心写作和编辑在主页上重点突出的新闻内容提要。要尽量用具体内容吸引用户点击并阅读全文。<br />
+（83）将整篇新闻内容与标题而不是内容提要建立链接，或在提要后面提供一个“全部内容”的链接。<br />
+（84）只要在主页上的新闻是一个星期内发生的，就没有必要在每条新闻的内容提要中列出日期和时间，除非它确实是一条爆炸性新闻并且经常更新。在主页顶端的时间和日期中以说明新闻内容是现在的了。在一篇文章开头的显著位置显示日期是很重要的，为以后搜索和缓存考虑。基于同样的原因，正文中不该引述相对时间，如“今天”“下周”等。</p>
+
+<p>14、网址URL<br />
+（77）商业站点的主页应该有“http://www.公司名.com"的网址（或类似的国家级域名或其它类型的顶级域名），不要在域名后加复杂的代码甚至"index.html"等。要确保"www.公司名.com"和"公司名.com"都能访问站点。<br />
+（78）对任何和除美国之外特定国家密切相关的网站，要使用该国的顶级域名。如果站点还有国外的客户，再注册一个带".com"域名也是不错的主意。<br />
+（79）如果条件允许，要为站点名称注册不同的拼写、缩写或常见的拼写错误域名。<br />
+（80）如果域名有不同的拼写方法，选择一个作为正式版本，将用其它拼写访问站点的用户重定向到此域名上。</p>
+
+<p>13、窗口标题<br />
+（72）用最能传递信息的词语作为窗口标题的开头－－通常是公司的名称。<br />
+（73）不要在窗口标题中包括顶级域名，如".com"，除非它是公司名的一部分。<br />
+（74）不要在标题中包括“主页”、"homepage"等词汇，这是费话。每个页要用不同的标题。<br />
+（75）在窗口标题中包括站点的简短描述。可以考虑采用标签行的内容。<br />
+（76）要将窗口标题的字数限制在78个英文单词以内，不要超过64个字母。<br />
+这些都是便于收藏和检索引擎。</p>
+
+<p>12、用户界面上的小控件<br />
+（69）如果不想让用户点击，绝不要将控件作为屏幕的一部分。<br />
+（70）在主页上避免使用多行文字框，尤其在页面的上方，在那儿用户于查找查找属性。用户有时会将登录框与查找框混淆。<br />
+（71）尽量少用下拉菜单，尤其当其中的项目本身不能说明自身意思的情况下。</p>
+
+<p>11、图形设计<br />
+（63）在页面上要限制使用字体的样式和其它文本格式，例如文字大小颜色等，因为繁多的文字样式会分散用户对文字本身的注意力。<br />
+（64）使用高对比度的文字颜色和背景颜色，使文字尽量清晰。<br />
+（65）在800*600的分辨率下避免水平滚屏。<br />
+（66）在最流行的窗口大小下（该书写作是800*600)，最重要的页面元素应该不用滚屏就可以看到。<br />
+（67）使用动态的页面设置，使主页大小可根据屏幕分辨率来调整。<br />
+（68）慎重使用标志图案。除了站点本身的标志图案外，仅在用户了解标志图案的意思时，才能使用它们以吸引用户的注意。</p>
+
+<p>10、图形和动画<br />
+（56）用图形表现真正的内容，而不仅仅做主页的装饰。人们一般会被图片所吸引，所以和内容无关的图片会分散人们的注意力。<br />
+（57）如果图形和图片的意义在其伴随的情况的上下文中不太明确，要简短地解释它们。为人物的图片加说明通常是个好主意。<br />
+（58）以适当的尺寸编辑图像和图形。数量过多的照片和图形并不会传递更多信息，反而会使屏幕看起来很混乱。仅仅将大图片压小很多情况下并无帮助，不如删掉。<br />
+（59）避免使用带水印的图片（上面有文本的背景图片），它们会使界面更混乱，经常会减弱视觉效果。<br />
+（60）在主页上，不要仅为吸引注意力而使用动画，它在主页上几乎没有位置，因为它会减弱用户对其它元素的注意程度。动画适用于专门演示。<br />
+（61）绝不要用动画表示页面上的关键元素，如公司标志、提示行或主标题。因为用户易忽视看起来象广告的动画区域，且它们也难以阅读。<br />
+（62）在进入站点时，让用户选择他们是否想看动画而不要将动画作为默认设置。</p>
+
+<p>9、工具和任务快捷方式<br />
+（53）对主页上高优先权任务，要设置直接访问这些功能的方式。这些主页工具应用户直接访问主页上的任何数据或资料。如果可能的话，考虑给予用户不需要用鼠标点击就能得到所需要的结果的方法，换句话说，在主页上自动显示最常用的信息。这种功能一般来说只有能辩论用户和个性化页面的站点才能实现。<br />
+（54）不要包括与站点无关的工具。有用但未必适合，如非新闻站点的天气状况。<br />
+（55）不要提供与浏览器功能重复的工具，如果设默认页或收藏。</p>
+
+<p>8、查找<br />
+建议是看得见、使用简单、查找范围广范<br />
+（47）在主页上设置一个输入框，以做一日和尚撞一天钟输入查找内容，而不是仅给用户一个指向查找页面的链接。<br />
+（48）输入框应该足够宽，以便用户在站点能看到和编辑标准的查询。至少要25－30个字符宽。<br />
+（49）不要给查找区域加标签，而要在输入框右边使用“查找”等按钮。并将查找功能　放在页面主体的上方、页面顶部广告条或菜单栏的下方。<br />
+（50）除非高级查找功能是站点的标准功能，否则在主页上只提供简单查找功能，再加一个到高级查找或查找指南的链接即可。<br />
+（51）在主页上的查找功能应该默认查找整个站点。<br />
+（52）在站点的查找功能中，不要提供“查找web”功能。因为用户查找web有自己喜欢的搜索引擎。</p>
+
+<p>7、导航<br />
+导航区域应该显示站点最重要的内容，以便用户查看项级类别时就对查找的内容有很好的感觉。<br />
+（40）在显著位置放置主导航区域，最好在紧邻页面主体的正下方。避免在图形条顶端放置任何水平的导航条，因用户常把屏幕顶端的条区当成广告而忽略，是为“条盲”。<br />
+（41）在导航区域将条目分组，将相似的条目放在一起。<br />
+（42）对同一类型的链接，不要有多个导航区域。<br />
+（43）在主页上不要包括指向该主页的动态链接。如“主页”或“home”等，在所有页面都可有，主页上的要不可点击。<br />
+（44）在导航区域中不要使用自造词。类别名应能彼此明显区分开，如果用户不能理解你的自造词，就不可能区分各个类别。<br />
+（45）如果在站点上有购物车（很多商务站点上都有），庆在主页上包含一个指向它的链接。<br />
+（46）只有在图标能帮助用户立刻识别一类条目时，才使用它们。</p>
+
+<p>6、链接<br />
+（34）尽量区分链接并使它们更具可读性。要言简意赅，用带有更多的信息的文字做链接的开头，用户经常只据链接的一二个词决定是否阅读。<br />
+（35）不要用普通的指令作为链接指令，如“点这儿”。<br />
+（36）不要在一个列表后使用普通链接，如“更多。。。”或“More。。。”等。要告诉用户他们将得到更多的什么东西，如“更多新闻”。<br />
+（37）用不同的颜色表示已经访问的和未访问的链接。未访问的默认是蓝色，要用易区分的不太饱和的颜色表示已经访问过的链接。不要用灰色，它被用来表示按钮不可用且难以阅读，不要用黑色，它用来显示正文。<br />
+（38）在页面上不要用文字“链接”或“Links”来表示链接，而要用带下划线的蓝色文字表示。<br />
+（39）如果一个链接的作用不是打开另一个另一个web页面，而诸如链接一个pdf文件、打开一段声音或视频播放、发电子邮件、打开另一个应用程序等，注意要明确说明点击后要发生什么。</p>
+
+<p>5、文档和已往内容的访问<br />
+（33）要保证很容易地访问最近在主页上已经重点的任何内容。</p>
+
+<p>4、通过例子提示内容<br />
+例子能立即说明站点是什么的、揭示站点提供产品或服务的丰富程度、具体事例比一般性原则更有趣、并能成功地导航。<br />
+（29）用例子揭示站点的内容，而不仅仅是抽象的描述。<br />
+（30）在例子后面直接加一个到例子所属类别的详细内容的链接，而不是链接到一个能用父类的页面上。<br />
+（31）在特定例子后面提供一个到更广泛的类别的链接。<br />
+（32）要明确显示哪个链接指向例子的相关信息，哪个链接指向例子所属类别的一般信息。相关信息的链接放在例子之后，类别链接放得稍远一点。</p>
+
+<p>3、内容的书写<br />
+写出令人印象深刻的内容，用尽量少的词汇表达尽量多的消息。<br />
+（17）使用用户关注的语言，类别和科目要按照用户的取向划分，而不是按照所服务的公司的要求划分。<br />
+（18）避免冗余内容。为突出一个显著的内容，应将它放在一个清晰的位置则不是重复它　。<br />
+（19）不要使用成语、行话，否则用户很难明白你在说什么。<br />
+（20）使用一致的大小写和其它风格标准，否则用户可能会误解。<br />
+（21）如果页面上某区域中的内容已经有效地说明自身作用，不要给这个定义明确的区域贴上标签命名。<br />
+（22）避免单个词的类别和单个词的列表项。<br />
+（23）在短语中单词间使用不间断空格，使短语连接在一起，便于快速阅读和理解。<br />
+（24）仅在做法定或约定俗成的工作时，或做适当强调时，才使用诸如“输入城市或邮政编码”等命令式语言。要告诉用户这么有什么好处。<br />
+（25）在缩写、首写字母缩略词、简写第一次出现时，要紧跟着给出它们的全称。<br />
+（26）避免使用感叹号，感叹号并不属于专家写作范畴，尤其不应在主页上出现。记住，不要对用户喊叫。<br />
+（27）在格式化的风格中少用全大写字母的方式，甚至一点也不用。不易阅读。<br />
+（28）为表示强调效果，要避免不适当的使用空格或停顿。影响查找、减慢阅读速度及缺少亲和力。</p>
+
+<p>2、关于公司的通信信息<br />
+（8）在一个独立的区域组织好公司信息，例如“关于我们”、“投资关系”、“新闻发布”、“就业”和“关于公司”的其它消息。<br />
+（9）在主页上建立一个“关于我们”的链接，给用户一个公司的大致印象。建议叫“关于＜公司名＞”。<br />
+（10）如果想发布公司新闻，可在主页上放置一个“新闻发布室”或“新闻室”的链接。<br />
+（11）提供统一的表达方式，让顾客在站点中觉得是和公司而不是和页面本身打交道。提到公司网站时，用公司名而不是“公司名.com”。<br />
+（12）在主页上放置一个“联系我们”的链接，指向一个包含公司所有联系信息的页面。<br />
+（13）如果提供“反馈”机制，应说明链接的意图，以及是否将被用户服务机构或网站管理员阅读等。<br />
+（14）不要在公共的站点上包含公司的内部信息（这种信息针对的是雇员，应该在公司的内部网上发布）。<br />
+（15）如果站点要搜集用户信息，应在主页上放置一个“隐私政策”的链接。<br />
+（16）如果站点的赢利模式并不明显，应解释站点是怎么样赢利的。</p>
+
+<p>1、传送站点的目的<br />
+为更好地与用户沟通，主页必须适当强调商标、品牌和最重要的任务，还必须具有独特的、令人印象深刻的外观，以便用户能认出它是站点的起始页面。<br />
+（1）在显著的位置、以适当的大小显示公司名称和或公司标志。页面的左上角通常是最好的位置。<br />
+（2）包括一个能简明地概括站点或公司做什么的标签行。标签行要短小、一语中的，非常出名的公司或部门可不用标签行，有子站点时要对各子站进行描述。<br />
+（3）从用户的观点出发，强调站点的价值，以及公司和主要竞争对手的区别。<br />
+（4）强调最重要的任务或工作，以便用户对主页有清晰的第一印象。要把这些任务放在显要位置，如页面的中上方，并且不要排列太多信息。要限制核心工作的数量（1－4个）。这条原则的最具挑战性而且最关键的地方，是从客户角度决定什么才是最重要的任务或工作。<br />
+（5）为每个站点明确设计一个正式主页。　在站点内要限制“home”或“主页”等术语的使用范围。<br />
+（6）在主公司的站点上，“站点(website)”一词仅代表公司在因特网上全体站点，而不要有什么别的意思，尤其是不要指子站点。<br />
+（7）设计主页时，要使主页和站点上的所有其它页面有明显的区别。或者使用稍不同的外表设计，或导航部分有显著的位置指示器。</p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p><br />
+参考链接<br />
+http://www.umlchina.com/GUI/Newindex1.htm</p>
+
+<span class="posted">Posted by Hilton at August 20, 2003 09:26 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=177.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=177" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>有 ，你可以访问<a href="javascript:if(confirm('http://www.hongen.com/pc/homepage/css/css0101.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.hongen.com/pc/homepage/css/css0101.htm'" tppabs="http://www.hongen.com/pc/homepage/css/css0101.htm">http://www.hongen.com/pc/homepage/css/css0101.htm</a></p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.zj-jiatai.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.zj-jiatai.com/'" tppabs="http://www.zj-jiatai.com/">bamboo handles handbag handles wooden handles</a> at January 15, 2004 04:14 PM</span>
+</div>
+<div class="comments-body">
+<p>有没有简体中文CSS方面的东东呢?哎,我又想改改页面了:)</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.topku.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.topku.com/'" tppabs="http://www.topku.com/">topku</a> at August 21, 2003 08:05 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="177" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

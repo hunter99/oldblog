@@ -1,0 +1,291 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Apache的Mod_rewrite学习（三）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000344.html" tppabs="http://hedong.3322.org/archives/000344.html" title="Apache的Mod_rewrite学习（二）" />
+
+<link rel="next" href="000346.html" tppabs="http://hedong.3322.org/archives/000346.html" title="Apache的Mod_rewrite学习（四）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000345.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/240"
+    dc:title="Apache的Mod_rewrite学习（三）"
+    dc:identifier="http://hedong.3322.org/archives/000345.html"
+    dc:subject="ItTech"
+    dc:description="　　今天学习重写规则的条件。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-01T14:35:40+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000345.html">
+<dc:title>Apache的Mod_rewrite学习（三）</dc:title>
+<dc:description>　　今天学习重写规则的条件。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-01T14:35:40+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000344.html" tppabs="http://hedong.3322.org/archives/000344.html">&laquo; Apache的Mod_rewrite学习（二）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000346.html" tppabs="http://hedong.3322.org/archives/000346.html">Apache的Mod_rewrite学习（四） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 01, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Apache的Mod_rewrite学习（三）</h3>
+
+<p>　　今天学习重写规则的条件。</p>
+
+<a name="more"></a>
+<p><strong>RewriteCond</strong><br />
+Syntax: RewriteCond TestString CondPattern [flags]<br />
+　　RewriteCond指令定义一条规则条件。在一条RewriteRule指令前面可能会有一条或多条RewriteCond指令，只有当自身的模板(pattern)匹配成功且这些条件也满足时规则才被应用于当前URL处理。<br />
+　　TestString是一个字符串，除了包含普通的字符外，还可以包括下列的可扩展结构：<br />
+<ol><li>$N,RewriteRule后向引用，其中(0 <= N <= 9)<br />
+　　$N引用紧跟在RewriteCond后面的RewriteRule中模板中的括号中的模板在当前URL中匹配的数据。</li><br />
+<li>%N,RewriteCond后向引用，其中(0 <= N <= 9)<br />
+　　%N引用最后一个RewriteCond的模板中的括号中的模板在当前URL中匹配的数据。</li><br />
+<li>${mapname:key|default},RewriteMap扩展.<br />
+具体参见RewriteMap</li><br />
+<li>%{ NAME_OF_VARIABLE } ,服务器变量。<br />
+变量的名字如下表（分类显示）<br />
+<table border="1"><tr><td>HTTP headers: </td><td>connection & request: </td><td>server internals: </td><td>system stuff: </td></tr><tr><td>HTTP_USER_AGENT</td><td>REMOTE_ADDR</td><td>DOCUMENT_ROOT</td><td>TIME_YEAR</td></tr><tr><td>HTTP_REFERER</td><td>REMOTE_HOST</td><td>SERVER_ADMIN</td><td>TIME_MON</td></tr><tr><td>HTTP_COOKIE</td><td>REMOTE_USER</td><td>SERVER_NAME</td><td>TIME_DAY</td></tr><tr><td>HTTP_FORWARDED</td><td>REMOTE_IDENT</td><td>SERVER_ADDR</td><td>TIME_HOUR</td></tr><tr><td>HTTP_HOST</td><td>REQUEST_METHOD</td><td>SERVER_PORT</td><td>TIME_MIN</td></tr><tr><td>HTTP_PROXY_CONNECTION</td><td>SCRIPT_FILENAME</td><td>SERVER_PROTOCOL</td><td>TIME_SEC</td></tr><tr><td>HTTP_ACCEPT</td><td>PATH_INFO</td><td>SERVER_SOFTWARE</td><td>TIME_WDAY</td></tr><tr><td></td><td>QUERY_STRING</td><td></td><td>TIME</td></tr><tr><td></td><td>AUTH_TYPE</td><td></td><td></td></tr></table><br />
+<table border="1"><tr><td>specials: </td><td>说明</td></tr><tr><td>API_VERSION</td><td>Apache与模块间的接口的版本号</td></tr><tr><td>THE_REQUEST</td><td>客户端发送到来的HTTP请求行的整行信息，不含其它的头字段信息，如（"GET /index.html HTTP/1.1")</td></tr><tr><td>REQUEST_URI</td><td>HTTP请求行中请求的资源</td></tr><tr><td>REQUEST_FILENAME</td><td>请求中对应的服务器本地文件系统中全路径文件名</td></tr><tr><td>IS_SUBREQ</td><td>根据是否为SubRequest,分别值为”true”或”false”</td></tr></table><br />
+特别说明：<ul><li>SCRIPT_FILENAME和REQUEST_FILENAME变量含有相同的值，也就是Apache服务器内部数据结构request_rec的filename字段的值。第一个变量是一个CGI变量，而第二个则与REQUEST_URI(含有request_rec数据结构中uri字段的值)保持一致。</li><br />
+<li>%{ENV:variable}中的variable可以是任何环境变量的名字。对其值的查找，先通过Apache内部的数据结构，（如找不到）再在Apache服务器进程中通过getenv()查找。</li><br />
+<li>%{HTTP:header}中的header可以是任何HTTP MIME-header的名字，其值通过查找HTTP请求信息而得。</li></p>
+
+<p></p>
+
+<p><li>%{LA-U:variable} 用来引用后续API阶段中定义的、当前还不知道的值，具体实现是通过执行一个基于URL的内部的sub-request来决定的variable的最终的值。例如，假如你想在服务器范围内利用REMOTE_USER的值来完成重写，但这个值是在验证阶段设置的，而验证阶段是在URL转换阶段的后面。从另一方面讲，由于mod_rewrite在修补(fixup)API阶段进行目录范围的重写，而修补阶段在验证阶段的后面，所以此时只要用%{REMOTE_USER}就可以取得该值了。</li><br />
+<li>%{LA-F:variable}，执行一个基于文件名字(filename)的内部sub-request来决定variable的最终的值。大多数时间内，这和LA-U相同。</li></ul></li><br />
+</ol><br />
+　　CondPattern是一个条件模板，也就是说，是一个扩展正则式（extended regular expression），用与跟TestString进行匹配。作为一个标准的扩展正则式，CondPattern有以下补充：<br />
+<ol><li>可以在模板串前增加一个!前缀，以用表示不匹配模板。但并不是所有的test都可以加！前缀。</li><br />
+<li>CondPattern中可以使用以下特殊变量：<br />
+<ul><li>'<CondPattern' (小于，基于字母顺序)<br />
+将condPattern当作一个普通字符串，将它和TestString进行比较，当TestString 的字符小于CondPattern为真.</li><br />
+<li>'>CondPattern' (大于)<br />
+将condPattern当作一个普通字符串，将它和TestString进行比较，当TestString 的字符大于CondPattern为真.</li><br />
+<li>'=CondPattern' (等于)<br />
+将condPattern当作一个普通字符串，将它和TestString进行比较，当TestString 与CondPattern完全相同时为真.如果CondPattern只是 "" (两个引号紧挨在一起) 此时需TestString 为空字符串方为真.</li><br />
+<li>'-d' (是否为目录)<br />
+将testString当作一个目录名，检查它是否存在以及是否是一个目录.</li><br />
+<li>'-f' (是否是regular file)<br />
+将testString当作一个文件名，检查它是否存在以及是否是一个regular文件.</li><br />
+<li>'-s' (是否为长度不为0的regular文件)<br />
+将testString当作一个文件名，检查它是否存在以及是否是一个长度大于0的regular文件</li><br />
+<li>'-l' (是否为symbolic link)<br />
+将testString当作一个文件名，检查它是否存在以及是否是一个 symbolic link.</li><br />
+<li>'-F' (通过subrequest来检查某文件是否可访问)<br />
+检查TestString是否是一个合法的文件，而且通过服务器范围内的当前设置的访问控制进行访问。这个检查是通过一个内部subrequest完成的, 因此需要小心使用这个功能以降低服务器的性能。</li><br />
+<li>'-U' (通过subrequest来检查某个URL是否存在)<br />
+检查TestString是否是一个合法的URL，而且通过服务器范围内的当前设置的访问控制进行访问。这个检查是通过一个内部subrequest完成的, 因此需要小心使用这个功能以降低服务器的性能。</li></ul></li></ol><br />
+　　[flags]是第三个参数，多个标志之间用逗号分隔。<br />
+<ol><li>'nocase|NC' (不区分大小写)<br />
+　　在扩展后的TestString和CondPattern中，比较时不区分文本的大小写。注意，这个标志对文件系统和subrequest检查没有影响.</li><br />
+<li> 'ornext|OR' (建立与下一个条件的或的关系)<br />
+　　默认的情况下，二个条件之间是AND的关系，用这个标志将关系改为OR。例如：<div class="code"><br />
+RewriteCond %{REMOTE_HOST}  ^host1.*  [OR]<br />
+RewriteCond %{REMOTE_HOST}  ^host2.*  [OR]<br />
+RewriteCond %{REMOTE_HOST}  ^host3.*<br />
+RewriteRule ...</div><br />
+如果没有[OR]标志，需要写三个条件/规则.</li></ol><br />
+例子：根据客户端浏览器的不同，返回不同的首页面。<br />
+<div class="code">RewriteCond  %{HTTP_USER_AGENT}  ^Mozilla.*<br />
+RewriteRule  ^/$                 /homepage.max.html  [L]<br />
+RewriteCond  %{HTTP_USER_AGENT}  ^Lynx.*<br />
+RewriteRule  ^/$                 /homepage.min.html  [L]<br />
+RewriteRule  ^/$                 /homepage.std.html  [L]</div><br />
+</p>
+
+<span class="posted">Posted by Hilton at November  1, 2003 02:35 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=345.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=345" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>好.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:17 PM</span>
+</div>
+<div class="comments-body">
+<p>再看.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:15 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="345" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

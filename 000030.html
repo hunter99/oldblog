@@ -1,0 +1,540 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 打造更具亲和力的网站</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000029.html" tppabs="http://hedong.3322.org/archives/000029.html" title="WebService编程" />
+
+<link rel="next" href="000031.html" tppabs="http://hedong.3322.org/archives/000031.html" title="Google的使用统计" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000030.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/34"
+    dc:title="打造更具亲和力的网站"
+    dc:identifier="http://hedong.3322.org/archives/000030.html"
+    dc:subject="ItTech"
+    dc:description="　　将“Dive Into Accessibility”译成“打造更具亲和力的网站”，非常到位，尤其是“亲和力”译“Accessibility”非常贴切。 　　这是我所见到的第一篇免费的关于网站亲和力的书 ，读来很收获。本书获得2003 Weblog Awards的Best articl or essay about weblog...."
+    dc:creator="Hilton"
+    dc:date="2003-07-16T22:25:49+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000030.html">
+<dc:title>打造更具亲和力的网站</dc:title>
+<dc:description>　　将“Dive Into Accessibility”译成“打造更具亲和力的网站”，非常到位，尤其是“亲和力”译“Accessibility”非常贴切。 　　这是我所见到的第一篇免费的关于网站亲和力的书 ，读来很收获。本书获得2003 Weblog Awards的Best articl or essay about weblog....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-16T22:25:49+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000029.html" tppabs="http://hedong.3322.org/archives/000029.html">&laquo; WebService编程</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000031.html" tppabs="http://hedong.3322.org/archives/000031.html">Google的使用统计 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 16, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">打造更具亲和力的网站</h3>
+
+<p>　　将“Dive Into Accessibility”译成“打造更具亲和力的网站”，非常到位，尤其是“亲和力”译“Accessibility”非常贴切。</p>
+
+<p>　　这是我所见到的第一篇免费的关于网站亲和力的<a href="diveintoaccessibility-html.zip" tppabs="http://hedong.3322.org/archives/diveintoaccessibility-html.zip">书</a><br />
+，读来很收获。本书获得<a href="javascript:if(confirm('http://www.fairvue.com/?feature=awards2003  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.fairvue.com/?feature=awards2003'" tppabs="http://www.fairvue.com/?feature=awards2003">2003 Weblog Awards</a>的Best articl or essay about weblog.</p>
+
+<a name="more"></a>
+<p>　　这篇书作者<a href="javascript:if(confirm('http://diveintomark.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://diveintomark.org/'" tppabs="http://diveintomark.org/">Mark Pilgrim</a>将原作放在<a href="javascript:if(confirm('http://www.diveintoaccessibility.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.diveintoaccessibility.org/'" tppabs="http://www.diveintoaccessibility.org/">http://www.diveintoaccessibility.org/</a>，由<a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/articles/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/articles/'" tppabs="http://ccca.nctu.edu.tw/~hlb/articles/">hlb</a>和<a href="javascript:if(confirm('http://z6i.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://z6i.org/'" tppabs="http://z6i.org/">Jedi</a>合作翻译成<a href="javascript:if(confirm('http://dia.z6i.org/cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dia.z6i.org/cn/'" tppabs="http://dia.z6i.org/cn/">中文</a>，我的学习就以这书为课本的。</p>
+
+<p>　　第6天，选择DOCTYPE.<br />
+　　每个页面都要使用DOCTYPE,在html文件的第一行注明。为什么要用，可参考：<br />
+<ul><br />
+<li><cite>A List Apart</cite>：<a href="javascript:if(confirm('http://www.alistapart.com/stories/doctype/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.alistapart.com/stories/doctype/'" tppabs="http://www.alistapart.com/stories/doctype/">Fixing Your Site With The Right DOCTYPE</a></li><br />
+<li><cite><acronym title="Microsoft Developer Network">MSDN</acronym></cite>：<a href="javascript:if(confirm('http://msdn.microsoft.com/workshop/author/css/overview/cssenhancements.asp  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://msdn.microsoft.com/workshop/author/css/overview/cssenhancements.asp'" tppabs="http://msdn.microsoft.com/workshop/author/css/overview/cssenhancements.asp">Quirks mode in <acronym title="Internet Explorer">IE</acronym> 6</a> （注意：某些版本的 Netscape 跟 Mozilla 无法浏览这个网站；这是 Microsoft 的问题，不是我的。）</li><br />
+<li><a href="javascript:if(confirm('http://www.mozilla.org/docs/web-developer/quirks/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mozilla.org/docs/web-developer/quirks/'" tppabs="http://www.mozilla.org/docs/web-developer/quirks/">Quirks mode in Mozilla</a></li><br />
+</ul><br />
+　　有哪些DOCTYPE，可参考<a href="javascript:if(confirm('http://www.w3.org/QA/2002/04/valid-dtd-list.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/QA/2002/04/valid-dtd-list.html'" tppabs="http://www.w3.org/QA/2002/04/valid-dtd-list.html">http://www.w3.org/QA/2002/04/valid-dtd-list.html</a>.</p>
+
+<p>　　第7天，指定所用的语言。<br />
+　　语言的指定，要用<a href="javascript:if(confirm('http://www.loc.gov/standards/iso639-2/englangn.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.loc.gov/standards/iso639-2/englangn.html#cd'" tppabs="http://www.loc.gov/standards/iso639-2/englangn.html#cd">ISO 639-1</a>规定的两节字码。且根据DOCTYPE的不同，具体操作也有差异。<br />
+<ol><br />
+<li>HTML 4,&lt;html lang="en"&gt;</li><br />
+<li>XHTML 1.0,&lt;html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"&gt;</li><br />
+<li>XHTML 1.1,&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"&gt;</li><br />
+</ol></p>
+
+<div class="code"><pre>&lt;html lang="de"&gt;
+  ...
+  &lt;blockquote lang="en"&gt;
+    ...
+  &lt;/blockquote&gt;</pre></div>
+　　第8天，建立有意义的网页标题
+　　不但有助于理解、显示或朗读软件，而且会影响到GOOGLE的排名呢。
+
+<p>　　第9天，提供额外的导游帮助<br />
+　　利用<link>标签，这个标签在图形浏览器中不会显示，但会显示在lynx中，且有助于google的搜索。我根据书的建议，打算修改MT的模板，后来发现MT已经做了这个工作了。</p>
+
+<p>　　第10天,先呈现你的主要内容<br />
+　　以前没有注意过这个问题的实现技巧，现在终于明白了。浏览器，特别是字符型浏览器，是以字符流的顺序展示收到页面的内容的，先到者先显示。所以，想展示的主要内容，要放在文件的前面。可是，一般来说人们都习惯于将菜单栏放在顶端或左端，这些几乎在每个页面上都会显示的文字，抢占了非图形浏览器中人们的视野。下面这个小技巧，可以对付菜单在左边的情况。<br />
+<div class="code"><pre>&lt;table&gt;<br />
+&lt;tr&gt;<br />
+  &lt;!-- <a href="javascript:if(confirm('http://diveintoaccessibility.org/images/1.gif  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://diveintoaccessibility.org/images/1.gif'" tppabs="http://diveintoaccessibility.org/images/1.gif">spacer GIF</a> in upper-left cell --&gt;<br />
+  &lt;td&gt;&lt;img src="/images/1.gif" width="1" height="1" alt=""&gt;&lt;/td&gt;<br />
+  &lt;!-- main content cell first, with rowspan=2 --&gt;<br />
+  &lt;td valign="top" align="left" rowspan="2"&gt;<br />
+    ... main content ...<br />
+  &lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+  &lt;td valign="top" align="left" width="25%"&gt;<br />
+    ... navigation bar ...<br />
+  &lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;</pre></div></p>
+
+<p>　　第11天，跳过导航的链结<br />
+　　就是用一个在图形浏览器中不显示而在字符浏览器会显示出来的页内链接，跳过导航连接，直接到达主要显示内容。<br />
+　　链接的实现，需要在&lt;style&gt;后面定义.skiplink {display:none}；然后将链接定义为&lt;a class="skiplink" href="#startcontent"&gt;跳到主要内容&lt;/a&gt;即可。<br />
+　　而对页内的锚接定义，则因DOCTYPE的不同而有所不同，如下：<br />
+<ol><li>HTML 4,&lt;a name="startcontent"&gt;&lt;/a&gt;</li><br />
+<li>XHTML 1.0,&lt;a name="startcontent" id="startcontent"&gt;&lt;/a&gt;</li><br />
+<li>XHTML 1.1,&lt;a id="startcontent"&gt;&lt;/a&gt;</li></ol><br />
+　　我前几天检查页面死链时，就在分析其报告时，闹了笑话。</p>
+
+<p>　　第12天，安全地使用色彩<br />
+　　主要注意文字色与背景色不要太相近，及最后能在链接上加一些装饬如粗体、斜体及下划线等，以便照顾色弱者。用<a href="javascript:if(confirm('http://www.vischeck.com/vischeck/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.vischeck.com/vischeck/'" tppabs="http://www.vischeck.com/vischeck/">VisCheck</a>提供的Photoshop插件，可以模拟出色弱者看到屏幕状态。</p>
+
+<p>　　第13天，使用真实链接<br />
+　　如果一个链接是“javascript:...”，那么对使用不支持javascript的浏览器的读者来说是一种灾难。而且，这种链接也不会google所分析。<br />
+　　如果你非要用，可以如下变通，如：<div class="code"><br />
+&lt;a href="javascript:OpenComments(&lt;$MTEntryID$&gt;)">Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</div><br />
+　　改为<div class="code"><br />
+&lt;a href="&lt;$MTCGIPath$&gt;mt-comments.cgi?entry_id=&lt;$MTEntryID$&gt;" onclick="OpenComments(&lt;$MTEntryID$&gt;); return false"&gt;Comments (&lt;$MTEntryCommentCount$&gt;)&lt;/a&gt;</div><br />
+　　另外，如果javascript开新窗口，则可用 target="..." 来模拟。</p>
+
+<p>　　第14天，在链接上加入标题<br />
+　　在链接上加上标题，可以事先告诉用户要去什么地方或将看到什么内容或补充解释一下链接的文字，等，但也不要滥用哟。举个例子。<div class="code"><br />
+&lt;a title="referrers and other visitor statistics" href="/stats/"&gt;Statistics&lt;/a&gt;</div></p>
+
+<p>　　第15天，定义快捷键<br />
+　　HTML中链接和表单项可以定义快捷键，按下alt+快捷键（windows是alt,mac是control），前者可直接跳到相应的页面，后者可取得输入焦点。<br />
+　　约定俗成alt+1到主页，alt+2到主要内容，alt+9到写信。<br />
+　　我用的MT的单文档归档模板中，定义了alt+1,但没跳过导航菜单的链接，我作了修改并加了个alt+2键，我用NetScape7.1试了试，确实如此，但是对IE6.0好象只能跳到accesskey所在URL在页面中的位置。</p>
+
+<p>　　第16天，不要开出新窗口<br />
+　　不要开新窗口，或者由用户决定。如果非开不可，请明确告诉读者。<br />
+　　&lt;a&gt;的target是被反对使用的，且会使页面无法通过HTML4.0strict及XHTML 1.0 strict检测。</p>
+
+<p>　　第17天，定义首字母缩略词<br />
+　　定义&lt;acronym title="hypertext markup language">HTML&lt;/acronym&gt;;<br />
+　　显示&lt;style&gt; acronym{border-bottom: 1px dotted black;}&lt;/style&gt;<br />
+　　例如：<acronym title="Open Source World">OSW</acronym>.<br />
+　　当然，要想显示出下划虚线，当然要修改模板，并重建页面了。</p>
+
+<p>　　第18－20天，使用表格的标题，列头标题和表格摘要。<div class="code"><br />
+&lt;table summary="这是一个带有每天发文归档的日历"&gt;<br />
+&lt;caption&gt; 日历 &lt;/caption&gt;<br />
+&lt;tr&gt;&lt;th&gt;Sun&lt;/th&gt;&lt;th&gt;Mon&lt;/th&gt;&lt;th&gt;Tue&lt;/th&gt;&lt;th&gt;Wed&lt;/th&gt;&lt;th&gt;Thu&lt;/th&gt;&lt;th&gt;Fri&lt;/th&gt;&lt;th&gt;Sat&lt;/th&gt;&lt;/tr&gt;<br />
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;2&lt;/td&gt;&lt;td&gt;3&lt;/td&gt;&lt;td&gt;4&lt;/td&gt;&lt;td&gt;5&lt;/td&gt;&lt;td&gt;6&lt;/td&gt;&lt;td&gt;7&lt;/td&gt;&lt;/tr&gt;<br />
+&lt;/table&gt;</div><br />
+　　显示为：<table summary="这是一个带有每天发文归档的日历"><caption> 日历 </caption><tr><th>Sun</th><th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th></tr><br />
+<tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td></tr><br />
+</table></p>
+
+<p>　　第21天，让浏览器忽略占位图片<br />
+　　在&lt;img&gt;中置alt=""。占位图片，一般都不是用来显示的，大都与背景着色相同。如前面显示主要内容一节中的小图片。</p>
+
+<p>　　第22天，让<ul>显示更亲和。<br />
+　　可以利用<acronym title="Cascading Style Sheets ">CSS</acronym>，来控制显示每个<li>前的符号或图片，以及字串的对齐方式。如。<div class="code"><br />
+&lt;style&nbsp;type="text/css"&gt;<br />
+ul.blogroll&nbsp;{<br />
+&nbsp;&nbsp;list-style:&nbsp;url(/images/fancydot.gif)&nbsp;disc;<br />
+&nbsp;&nbsp;text-aling:&nbsp;right;<br />
+}<br />
+&lt;/style&gt;</div></p>
+
+<p>　　第23－24天，提供替代图片的文字<br />
+　　每一个页面里的每一张图片（包括地图&lt;map&gt;中的每超链区域），都该提供足以取代的文字部分，也就是所谓的「 alt 文字」；这是用 &lt;img&gt; 或&lt;area&gt;里用 alt 属性加以指定的。例如：<div class="code"<br />
+&lt;img <strong>alt="Site navigation links"</strong> src="footer.gif" width="500" height="212" usemap="#Map"&gt;<br />
+&lt;map name="Map"&gt;<br />
+&lt;area <strong>alt="previously..."</strong> shape="rect" coords="203,114,258,129" href="/archives.html"&gt;<br />
+&lt;area <strong>alt="by category"</strong> shape="rect" coords="277,113,348,129" href="/category/"&gt;<br />
+&lt;area <strong>alt="about the site"</strong> shape="rect" coords="364,113,401,128" href="links.html"&gt;<br />
+&lt;area <strong>alt="about leslie"</strong> shape="rect" coords="418,114,488,130" href="leslie.html"&gt;<br />
+&lt;area <strong>alt="Powered by Movable Type"</strong> shape="rect" coords="-4,190,131,210" href="http://www.moveabletype.org"&gt;<br />
+&lt;/map&gt;</div><br />
+　　第25天，使用华丽的水平分隔线<br />
+先这样定义：<div class="code"><br />
+div.hr&nbsp;{display:&nbsp;none}<br />
+/*/*/a{}<br />
+div.hr&nbsp;{<br />
+&nbsp;&nbsp;display:&nbsp;block;<br />
+&nbsp;&nbsp;height:&nbsp;25px;<br />
+&nbsp;&nbsp;background-image:&nbsp;url(/images/fancyrule.gif);<br />
+&nbsp;&nbsp;background-repeat:&nbsp;no-repeat;<br />
+&nbsp;&nbsp;background-position:&nbsp;center&nbsp;center;<br />
+&nbsp;&nbsp;margin:&nbsp;1em&nbsp;0&nbsp;1em&nbsp;0;<br />
+}<br />
+hr&nbsp;{display:none}<br />
+/*&nbsp;*/</div><br />
+然后这样使用：<br />
+&lt;div&nbsp;class="hr"&gt;&lt;/div&gt;&lt;hr&nbsp;/&gt;<br />
+　　第26天，使用相对字体大小<br />
+　　抄一段设定字体的技巧吧。<div class="code"><br />
+p&nbsp;{<br />
+&nbsp;&nbsp;font-size:&nbsp;12px;<br />
+}</p>
+
+<p>/*/*/a{}<br />
+body&nbsp;p&nbsp;{<br />
+&nbsp;&nbsp;font-size:&nbsp;x-small;<br />
+&nbsp;&nbsp;voice-family:&nbsp;"\"}\"";<br />
+&nbsp;&nbsp;voice-family:&nbsp;inherit;<br />
+&nbsp;&nbsp;font-size:&nbsp;small;<br />
+}<br />
+html&gt;body&nbsp;p&nbsp;{<br />
+&nbsp;&nbsp;font-size:&nbsp;small;<br />
+}<br />
+/*&nbsp;*/</div>接下来的都很重要，所以请注意。<br />
+1.首先，我们定义 &lt;p&gt; 的绝对尺寸 (12px) 。包括 Netscape 4 在内，所有的浏览器都会接受这个样式设定。 <br />
+2.接著我们加入「 /*/*/ 」这个古怪的批注。根据 Netscape 4 的错误，所有在这个批注之后的东西都会被忽略掉。如此一来，只有 Netscape 4 以外的浏览器才会看到之后的样式。 <br />
+3.紧接在那个古怪的批注之后，我们又加入一个空白的样式「 a {} 」。 Mac 上充满错误的 Opera 5 会忽略这个样式（只有这一个），而接受其它所有的。 <br />
+4.现在我们已经切出一个范围了，在这个范围内所定义的规则祇会套用在 Netscape 4 以外的其它浏览器上。接下来我们就可以开始定义相对字体尺寸（这也就是 Netscape 4 所无法处理的）了。首先我们要用「 body p 」选择子来重新定义 p 卷标的作用。因为 CSS 可行的关系，这将会覆写掉先前的 p 选择子（用技术名词来描述的话，就是「 body p 」选择子比「 p 」选择子还要更具特定性）。 <br />
+5.我们把所有 &lt;p&gt; 卷标的字体尺寸重新定义成 x-small 。这个字体尺寸关键词在预设的情况下，会被 Windows 上的 Internet Explorer 5 转译成 12px 。然而祇要使用者（从检视选单）更改了「字型」，这些文字就可能会依照使用者的设定而变得更大或更小。这也正是我们的目的（请注意：我们现在已经对 IE5/Win 定义了两次字体尺寸；不过这并没有关系，因为更特定的选择子总是会胜出，而让前一个选择子被忽略掉）。 <br />
+6.很不幸地 IE5/Win 在字体尺寸关键词上有一刻度的错误：世界上所有其它浏览器（包括 IE5/Mac 、 Netscape 6 、 Mozilla 、 IE6/Win）都会把 x-small 转译成 10px ，而非 12px 。不过很幸运地， IE5/Win 另外还有一个分析错误之处，可以被我们拿来加以利用：当他看到那个看起来很奇怪的 voice-family 时，会误以为整个「 body p 」选择子已经结束了，然后就忽略掉「 } 」之后的那几列。 <br />
+7.现在我们又切出了一个更小的范围了，在这个范围内所定义的规则祇会套用在 IE5/Win 以外（至于 Netscape 4 早就被排除在外了）的浏览器上。如此一来我们就可以再把字体尺寸重新定义成 small 了。这么一来，在非 IE5/Win （也就是会一路解读到这一层的那些）浏览器上就会被正确地解读成 12px 了（在预设的情况下）。当然，如果使用者把「字体尺寸」设成较大，这里的文字也会变得比较大。这仍旧是我们所想要有的功能。 <br />
+8.但是等一下！ Opera 5 也有跟 IE5/Win 一样的分析错误，所以有可能也会被 voice-family 黑克手法弄混，可是他又会正确地转译字体尺寸关键词，结果就是我们的文字在 Opera 5 底下将会变得太小。很幸运地， Opera 5 还支持第三种选择子：「 html&gt;body p 」（而且这个选择子比「 body p 」还要「更具特定性」，所以会覆写掉前一个选择子的内容）。 IE5/Win 并不支持这种选择子，所以会加以忽略，而这也正是我们所需要的（因为我们已经处理过那个一刻度的错误了，所以现在当然不会想要再把这个偏差放回去）。 IE6/Win 同样地也不支持这个选择子，不过这并没有甚么关系，因为在「 body p 」选择子里，我们把「 font-size: small 」放在黑克用的「 voice-family: inherit 」之后。所有其它的浏览器都支持「 html&gt;body 」选择子；所以对他们来说，我们足足定义了四次字体尺寸。这当然没有问题，因为祇有最具特定性的选择子才会生效，其它的都祇会被忽略掉。 <br />
+9.最后我们还得设定一个空批注： /* */ 。这样才会让 Netscape 4 继续分析之后的部分。任何在这个空批注之后定义的规则，也都会套用到所有的浏览器（包括 Netscape 4 ）上。 <br />
+现在让我们反过来看：</p>
+
+<p>1.无论使用者设定了甚么， Netscape 4 都会把 &lt;p&gt; 文字显示成 12px 。 <br />
+2.Windows 上的 Internet Explorer 5 会把 &lt;p&gt; 文字显示成 x-small 。依照预设值的话，也就是 12px ；不过如果你在检视选单里把「字型」设成较大的话，这里的文字看起来也会比较大。 <br />
+3.Windows 上的 Internet Explorer 6 会因为「 body p 」选择子里的「 font-size: small 」的关系，而把 &lt;p&gt; 文字显示成 small 。依照预设值的话，也就是 12px ；不过如果你在检视远单里把「字型」设成较大的话，这里的文字看起来也会比较大。 <br />
+4.Mac 上的 Internet Explorer 5 ，和所有平台上的 Opera 、 Netscape 6 、 Mozilla 以及（希望是啦）所有未来的浏览器都会因为「 html&gt;body p 」选择子里的「 font-size: small 」规则，而把 &lt;p&gt; 文字显示成 small 。依照预设值的话，也就是 12px ；不过如果你用了「字体缩放」功能时，这里的文字看起来也会比较大。 </p>
+
+<p>　　第27天，使用真正的标题头<br />
+　　以MT为例，网站名称、日期、文章题目，构成了三级标题，应用&lt;H1&gt;, &lt;H2&gt;,&lt;H&gt;分别标记它们。<br />
+　　Google竟会欣赏结构良好的页面，给标题里的关键词以较高的分值？有意思。</p>
+
+<p>　　第28天，加上对表单组件的描述<br />
+　　利用&lt;LABEL&gt;,&lt;FIELDSET&gt;,&lt;LEGEND&gt;使表单的组件的亲和力更强。从WebAIM的<a href="javascript:if(confirm('http://www.webaim.org/howto/forms  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webaim.org/howto/forms'" tppabs="http://www.webaim.org/howto/forms">How to Create Accessible Forms.</a>抄了一页过来，供以后参考吧。<br />
+<HR></p>
+
+<p><H2><LABEL for=name>Control type: INPUT:</LABEL></H2><br />
+<P><LABEL for=name>Name</LABEL> <INPUT id=name name=textfield> </P><br />
+<H3>HTML: </H3><br />
+<P class=codetext>&lt;label for="name"&gt;Name&lt;/label&gt; &lt;input <br />
+id="name" type="text" name="textfield"&gt;</P><br />
+<HR></p>
+
+<p><H2>Control type: TEXTAREA: </H2><br />
+<P><LABEL for=motives>Explain your motives:</LABEL><TEXTAREA id=motives name=textfield2></TEXTAREA> </P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;label for="motives"&gt;Explain your <br />
+motives:&lt;/label&gt;&lt;br&gt;&lt;textarea id="motives" <br />
+name="textfield2"&gt;&lt;/textarea&gt;</P><br />
+<HR></p>
+
+<p><H2>Control type: CHECKBOXES:</H2><br />
+<P></P><br />
+<FIELDSET><LEGEND>Choose a color:</LEGEND><INPUT id=blue type=checkbox <br />
+value=checkbox name=checkbox> <LABEL for=blue>Blue</LABEL><INPUT <br />
+id=green type=checkbox value=checkbox name=checkbox2> <LABEL <br />
+for=green>Green</LABEL><INPUT id=yellow type=checkbox value=checkbox <br />
+name=checkbox3> <LABEL for=yellow>Yellow</LABEL></FIELDSET> <br />
+<P></P><br />
+<H3>HTML</H3><br />
+<P class=codetext>&lt;fieldset&gt;&lt;legend&gt;Choose a <br />
+color:&lt;/legend&gt;&lt;br&gt;&lt;input id="blue" type="checkbox" <br />
+name="checkbox" value="checkbox"&gt;&lt;label <br />
+for="blue"&gt;Blue&lt;/label&gt;&lt;br&gt;&lt;input id="green" <br />
+type="checkbox" name="checkbox2" value="checkbox"&gt;&lt;label <br />
+for="green"&gt;Green&lt;/label&gt;&lt;br&gt;&lt;input id="yellow" <br />
+type="checkbox" name="checkbox3" value="checkbox"&gt;&lt;label <br />
+for="yellow"&gt;Yellow&lt;/label&gt;&lt;/fieldset&gt; </P><br />
+<HR></p>
+
+<p><H2>Control type: RADIO BUTTONS:</H2><br />
+<P></P><br />
+<FIELDSET><LEGEND>Choose a car:</LEGEND><INPUT id=pt type=radio <br />
+value=ptcruiser name=radio> <LABEL for=pt>Chrysler PT <br />
+Cruiser</LABEL><INPUT id=stratus type=radio value=stratus name=radio> <br />
+<LABEL for=stratus>Dodge Stratus</LABEL><INPUT id=pinto type=radio <br />
+value=pinto name=radio> <LABEL for=pinto>Ford Pinto</LABEL></FIELDSET><br />
+<P></P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;fieldset&gt;&lt;legend&gt;Choose a <br />
+car:&lt;/legend&gt;&lt;br&gt;&lt;input id="pt" type="radio" <br />
+name="radio" value="ptcruiser"&gt;&lt;label for="pt"&gt;Chrysler PT <br />
+Cruiser&lt;/label&gt;&lt;br&gt;&lt;input id="stratus" type="radio" <br />
+name="radio" value="stratus"&gt;&lt;label for="stratus"&gt;Dodge <br />
+Stratus&lt;/label&gt;&lt;br&gt;&lt;input id="pinto" type="radio" <br />
+name="radio" value="pinto"&gt;&lt;label for="pinto"&gt;Ford <br />
+Pinto&lt;/label&gt;&lt;/fieldset&gt;</P><br />
+<HR></p>
+
+<p><H2>Control type: SELECT</H2><br />
+<P><LABEL for=favcity>Which is your favorite city?</LABEL> <SELECT <br />
+id=favcity name=select> <OPTION value=1 selected>Amsterdam</OPTION> <br />
+  <OPTION value=3>Interlaken</OPTION> <OPTION value=4>Moscow</OPTION> <br />
+  <OPTION value=5>Dresden</OPTION> <OPTION value=2>New York</OPTION> <br />
+  <OPTION value=6>Salt Lake City</OPTION> <OPTION value=7>Logan</OPTION> <br />
+  <OPTION value=8>Buenos Aires</OPTION> <OPTION value=9>Asuncion</OPTION> <br />
+  <OPTION value=10>Hong Kong</OPTION> <OPTION value=11>Tokyo</OPTION> <br />
+  <OPTION value=12>New Dehli</OPTION></SELECT> </P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;label for="favcity"&gt;Which is your favorite <br />
+city?&lt;/label&gt; &lt;select id="favcity" <br />
+name="favcity"&gt;&lt;option <br />
+value="1"&gt;Amsterdam&lt;/option&gt;&lt;option <br />
+value="3"&gt;Interlaken&lt;/option&gt;&lt;option <br />
+value="4"&gt;Moscow&lt;/option&gt;&lt;option <br />
+value="5"&gt;Dresden&lt;/option&gt;&lt;option value="2"&gt;New <br />
+York&lt;/option&gt;&lt;option value="6"&gt;Salt Lake <br />
+City&lt;/option&gt;&lt;option <br />
+value="7"&gt;Logan&lt;/option&gt;&lt;option value="8"&gt;Buenos <br />
+Aires&lt;/option&gt;&lt;option <br />
+value="9"&gt;Asuncion&lt;/option&gt;&lt;option value="10"&gt;Hong <br />
+Kong&lt;/option&gt;&lt;option <br />
+value="11"&gt;Tokyo&lt;/option&gt;&lt;option value="12"&gt;New <br />
+Dehli&lt;/option&gt;&lt;/select&gt;</P><br />
+<P>To improve the accessibility of this list even further, we could add <br />
+OPTGROUP tags, to group the information (this feature is not yet widely <br />
+supported in browsers):</P><br />
+<P><LABEL for=favcity2>Which is your favorite city?</LABEL> <SELECT <br />
+id=favcity2 name=favcity2> <OPTGROUP label=Europe> <OPTION value=1 <br />
+    selected>Amsterdam</OPTION> <OPTION value=3>Interlaken</OPTION> <br />
+    <OPTION value=4>Moscow</OPTION> <OPTION value=5>Dresden</OPTION> <br />
+  </OPTGROUP> <OPTGROUP label="North America"> <OPTION value=2>New <br />
+    York</OPTION> <OPTION value=6>Salt Lake City</OPTION> <OPTION <br />
+    value=7>Montreal</OPTION> </OPTGROUP> <OPTGROUP label="South America"> <br />
+    <OPTION value=8>Buenos Aires</OPTION> <OPTION <br />
+    value=9>Asuncion</OPTION> </OPTGROUP> <OPTGROUP label=Asia> <OPTION <br />
+    value=10>Hong Kong</OPTION> <OPTION value=11>Tokyo</OPTION> <OPTION <br />
+    value=12>New Dehli</OPTION> </OPTGROUP></SELECT> </P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;label for="favcity2"&gt;Which is your favorite <br />
+city?&lt;/label&gt; &lt;select id="favcity2" <br />
+name="favcity2"&gt;&lt;optgroup label="Europe"&gt;&lt;option <br />
+value="1"&gt;Amsterdam&lt;/option&gt;&lt;option <br />
+value="3"&gt;Interlaken&lt;/option&gt;&lt;option <br />
+value="4"&gt;Moscow&lt;/option&gt;&lt;option <br />
+value="5"&gt;Dresden&lt;/option&gt;&lt;/optgroup&gt;&lt;optgroup <br />
+label="North America"&gt;&lt;option value="2"&gt;New <br />
+York&lt;/option&gt;&lt;option value="6"&gt;Salt Lake <br />
+City&lt;/option&gt;&lt;option <br />
+value="7"&gt;Montreal&lt;/option&gt;&lt;/optgroup&gt;&lt;optgroup <br />
+label="South America"&gt;&lt;option value="8"&gt;Buenos <br />
+Aires&lt;/option&gt;&lt;option <br />
+value="9"&gt;Asuncion&lt;/option&gt;&lt;/optgroup&gt;&lt;optgroup <br />
+label="Asia"&gt;&lt;option value="10"&gt;Hong <br />
+Kong&lt;/option&gt;&lt;option <br />
+value="11"&gt;Tokyo&lt;/option&gt;&lt;option value="12"&gt;New <br />
+Dehli&lt;/option&gt;&lt;/optgroup&gt;&lt;/select&gt;</P><br />
+<HR></p>
+
+<p><H2>Control Type: BUTTON</H2><br />
+<P>There are no special HTML tags for buttons. They are accessible as long <br />
+as you use a standard button. </P><br />
+<P><INPUT type=submit value=Submit name=Submit> <INPUT type=reset value=Reset name=Submit2> </P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;input type="submit" name="Submit" <br />
+value="Submit"&gt;&lt;input type="reset" name="Submit2" <br />
+value="Reset"&gt;</P><br />
+<HR></p>
+
+<p><H2>Control Type: IMAGE BUTTON</H2><br />
+<P>If you use a graphic rather than a standard button, you must include an <br />
+appropriate alt tag.</P><br />
+<P><INPUT type=image height=41 alt=Submit! width=109 <br />
+src="How to create accessible forms, page 4 of 4.files/submit.gif" <br />
+border=0 name=imageField> </P><br />
+<H3>HTML:</H3><br />
+<P class=codetext>&lt;input type="image" alt="submit!" border="0" <br />
+ name="imageField" src="graphics/submit.gif" width="109" <br />
+height="41"&gt;</P> <HR></p>
+
+<p>　　第29天，给网站加入检索功能<br />
+　　每个网站都需要检索，要让检索框很容易被看见，默认搜索全部内容，不要使用布尔逻辑、大小写敏感或正则表达式，要定义便捷键。</p>
+
+<p>　　第30天，撰写亲和力声明<br />
+　　告诉每个访问者，你在亲和方面的努力，以及一些热键等。</p>
+
+<span class="posted">Posted by Hilton at July 16, 2003 10:25 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=30.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=30" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="30" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

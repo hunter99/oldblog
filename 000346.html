@@ -1,0 +1,315 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Apache的Mod_rewrite学习（四）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000345.html" tppabs="http://hedong.3322.org/archives/000345.html" title="Apache的Mod_rewrite学习（三）" />
+
+<link rel="next" href="000347.html" tppabs="http://hedong.3322.org/archives/000347.html" title="构建企业web邮件服务器的两套方案" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000346.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/241"
+    dc:title="Apache的Mod_rewrite学习（四）"
+    dc:identifier="http://hedong.3322.org/archives/000346.html"
+    dc:subject="ItTech"
+    dc:description="　　今天学习重写影射等内容。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-02T15:19:36+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000346.html">
+<dc:title>Apache的Mod_rewrite学习（四）</dc:title>
+<dc:description>　　今天学习重写影射等内容。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-02T15:19:36+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000345.html" tppabs="http://hedong.3322.org/archives/000345.html">&laquo; Apache的Mod_rewrite学习（三）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000347.html" tppabs="http://hedong.3322.org/archives/000347.html">构建企业web邮件服务器的两套方案 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 02, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Apache的Mod_rewrite学习（四）</h3>
+
+<p>　　今天学习重写影射等内容。</p>
+
+<a name="more"></a>
+<p><strong>RewriteMap</strong><br />
+Syntax: RewriteMap MapName MapType:MapSource<br />
+　　RewriteMap指令定义一个重写影射(Rewriting Map),在规则的substitution串中，通过影射函数(mapping-functions)来查找关键字(key)，并用关键字对应的值来进行来行插入或替换操作。这个查找的对象，可以是各种各样的。<br />
+　　MapName是影射的名字，将用来通过下列的某种结构来为substitution定义影射函数:<br />
+${ MapName :  LookupKey }<br />
+${ MapName : LookupKey | DefaultValue } <br />
+当这些结构之一出现substitution串中时，重写引擎会到mapname影射中查找lookupkey关键字，如果找到了就用返回的值(substvalue)来替换该结构，如果找不到就用defaultvalue来替换该结构，如果没有defaultvalue，就用空串来替换。<br />
+　　MapType 和mapSource组合有以下几种：<br />
+<ol><li>标准的普通文本(Standard Plain Text)<br />
+MapType: txt, MapSource: Unix文件系统中合法的带有路径的regular file名<br />
+此种情况下，MapSource文件是一个普通的ASCII文本文件,可以含有空行、注释行（以＃打头），及以下结构的键值对行（每个键值对一行）。<br />
+    MatchingKey SubstValue <br />
+例如：Mapsource文件叫/path/to/file/map.txt,其内容为<div class="code">##<br />
+##  map.txt -- rewriting map<br />
+##<br />
+Ralf.S.Engelschall    rse   # Bastard Operator From Hell<br />
+Mr.Joe.Average        joe   # Mr. Average</div><br />
+在配置文件中则可以这样定义重写映射：<div class="code">RewriteMap real-to-user txt:/path/to/file/map.txt</div></li><br />
+<li>随机的普通文本(Randomized Plain Text)<br />
+MapType: rnd, MapSource: Unix文件系统中合法的带有路径的regular file名</p>
+
+<p>　　这种情况与标准普通文本情况很相似，差别只是在SubstValue的格式上：此时的SubstValue由一些用”|”分隔的值组成的串，这个“｜”是“或者”的意思。当根据键值找到对应的SubstValue后，mod_rewrite借助“｜”将此串分解为一些候选项，然后随机选择一项作为最终的SubstValue的值返回。这听起来有点疯狂或毫无用处，其实这是设计用来在反向代理(reverse proxy)的情况下做负载均衡，用来查找服务器的名字。<br />
+例如：MapSource文件的名字为/path/to/file/map.txt，内容如下：<div class="code">##<br />
+##  map.txt -- rewriting map<br />
+##<br />
+static   www1|www2|www3|www4<br />
+dynamic  www5|www6</div><br />
+在配置文件中定义的重写影射为：<div class="code">RewriteMap servers rnd:/path/to/file/map.txt</div></li><br />
+<li>Hash File<br />
+MapType: dbm, MapSource: Unix文件系统中合法的带有路径的regular file名</p>
+
+<p>　　这儿的Mapsource文件是一个二进制的NDBM格式的文件，含有与普通文本格式文件时相同的内容，为了实现快速查找进行了优化处理后以一种特殊的格式来表达。 可以用任何NDBM工具或者用下面的Perl脚本txt2dbm.pl来创建这种格式的文件：<br />
+<div class="code">#!/path/to/bin/perl<br />
+##<br />
+##  txt2dbm -- convert txt map to dbm format<br />
+##</p>
+
+<p>use NDBM_File;<br />
+use Fcntl;</p>
+
+<p>($txtmap, $dbmmap) = @ARGV;</p>
+
+<p>open(TXT, "<$txtmap") or die "Couldn't open $txtmap!\n";<br />
+tie (%DB, 'NDBM_File', $dbmmap,O_RDWR|O_TRUNC|O_CREAT, 0644) or die "Couldn't create $dbmmap!\n";</p>
+
+<p>while (<TXT>) {<br />
+  next if (/^\s*#/ or /^\s*$/);<br />
+  $DB{$1} = $2 if (/^\s*(\S+)\s+(\S+)/);<br />
+}</p>
+
+<p>untie %DB;<br />
+close(TXT);</div><br />
+此脚本的使用方法如下：<div class="code">$ perl txt2dbm.pl map.txt map.db</div></li><br />
+<li>Apache内部函数(Internal Function)<br />
+MapType: int, MapSource: Apache内部函数</p>
+
+<p>　　这时，MapSource是一个Apache内置函数，目前还不能创建自己的内部函数，只能使用Apache已经定义好的：<ul><li>toupper <br />
+将键值转换为大写</li><br />
+<li>tolower<br />
+将键值转换为小写</li><br />
+<li>escape<br />
+将键值中的特殊字符转换为以16进制表示。</li><br />
+<li>unescape<br />
+将键值中16进制表示的特殊字符转换为原来的样子。</li></ul></li><br />
+<li>外部重写程序（External Rewriting Program）<br />
+MapType: prg, MapSource: Unix文件系统中合法的带有路径的regular file名</p>
+
+<p>　　这儿的MapSource是一个程序而不是一个影射文件。你可以使用任何语言创建这个程序，但这个程序必须是可执行的（也就是说，要么是二进制码，要么是首行带有”#!/path/to/interpreter”格式的解释器的可执行脚本）。</p>
+
+<p>　　这个程序在Apache启动时被运行，然后它就用它的标准输入与标准输出的文件句柄与重写引擎通信（暗指程序能无限时等待标准输入，见下列）。对每个影射函数的查找要求，它把其标准输入中得到的字符串(newline-terminated string?)作为键值，然后通过标准输出返回查找到的值，如果找不到相应的值，则返回以四字符的字符串”NULL“。下面一个简单的例子，实现将键值作为查找结果返回：<div class="code">#!/usr/bin/perl<br />
+$| = 1;<br />
+while (<STDIN>) {<br />
+    # ...put here any transformations or lookups...<br />
+    print $_;<br />
+}</div><br />
+<ins>注意:</ins><ol><li>``Keep it simple, stupid'' (KISS),因为当规则执行时，一量这个外部程序挂起，整个Apache服务器就挂起了</li><br />
+<li>避免下述常见错误：缓存了标准输出的I/O。这会导致死循环。这也是为什么上例中有``$|=1''这么一行的原因</li><br />
+<li>用RewriteLock指令定义一个lockfile，以同步与外部程序的通信。默认情况下并没有这样的同步</li></ol><br />
+</li></ol><br />
+　　RewriteMap可以出现不只一次。每个影射函数用RewriteMap来声明它的影射文件. While you cannot declare a map in per-directory context it is of course possible to use this map in per-directory context.（？）对普通文本和DBM格式的文件，其键值被缓存在Apache内核中，直到影射文件的mtime 变化了或Apache重启动了。此时，可以将规则中的影射函数用于每个请求。<br />
+<strong>RewriteBase</strong><br />
+Syntax: RewriteBase URL-path<br />
+　　RewriteBase明确地指出目录范围内的重写结果的baseURL.RewriteRule指令可以用在目录范围内的配置文件里(.htaccess)。在目录范围的重写实施时，由本地路径信息构成的前缀已经被去掉，重写规则只对剩余的部分进行处理。处理结束后，被去掉的路径信息要自动加上，因为当对一个URL进行替换后，重新引擎需要将它重新插入到服务器的处理流程中去。如果服务器端的URL与文件的物理路径有直接有关系，则每当在.htacess文中定义重写规则时都需要用RewriteBase指URL-path。<br />
+<strong>杂项</strong>Environment Variables<br />
+　　mod_rewrite还维护着两个非标准的CGI/SSI环境变量，名为SCRIPT_URL和 SCRIPT_URI，存放着当前资源的逻辑web视图(logical Web-view)。标准的CGI/SSI变量SCRIPT_NAME 和 SCRIPT_FILENAME中存放着当前资源的物理系统视图(physical System-view)。请看例子：<div class="code">SCRIPT_NAME=/sw/lib/w3s/tree/global/u/rse/.www/index.html<br />
+SCRIPT_FILENAME=/u/rse/.www/index.html<br />
+SCRIPT_URL=/u/rse/<br />
+SCRIPT_URI=http://en1.engelschall.com/u/rse/</div><br />
+</p>
+
+<span class="posted">Posted by Hilton at November  2, 2003 03:19 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=346.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=346" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>Mod_rewrite</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:18 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="346" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

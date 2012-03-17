@@ -1,0 +1,291 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: XML学习笔记(二)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000042.html" tppabs="http://hedong.3322.org/archives/000042.html" title="台湾IT信息人士谈BLOG" />
+
+<link rel="next" href="000044.html" tppabs="http://hedong.3322.org/archives/000044.html" title="XSL学习笔记(一)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000043.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/47"
+    dc:title="XML学习笔记(二)"
+    dc:identifier="http://hedong.3322.org/archives/000043.html"
+    dc:subject="ItTech"
+    dc:description="　　还是在w3cschools学的。..."
+    dc:creator="Hilton"
+    dc:date="2003-07-22T01:12:51+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000043.html">
+<dc:title>XML学习笔记(二)</dc:title>
+<dc:description>　　还是在w3cschools学的。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-22T01:12:51+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000042.html" tppabs="http://hedong.3322.org/archives/000042.html">&laquo; 台湾IT信息人士谈BLOG</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000044.html" tppabs="http://hedong.3322.org/archives/000044.html">XSL学习笔记(一) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 22, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">XML学习笔记(二)</h3>
+
+<p>　　还是在w3cschools学的。</p>
+
+<a name="more"></a>
+<p>　　1、命名空间<br />
+　　提供了一种避免元素命名冲突的机制。通过在元素名前增加一个前缀来区分不同的元素，同时在开始标签中增xmlns属性来描述不同的URI指定的命名空间。例如：<br />
+<div class="code">&lt;f:table xmlns:f="http://www.w3schools.com/furniture"&gt;......&lt;/table&gt;<br />
+&lt;h:table xmlns:h="http://www.w3.org/TR/html4/"&gt;......&lt;/table&gt;</div><br />
+　　xmlns属性的语法是：<br />
+<div class="code">xmlns:namespace-prefix="namespace" </div><br />
+　　需要说明的是，这里的URL（即要求的URI）只是用来区别空间的不同，并不要求从那取得什么数据。<br />
+　　xmlns在现实中的典型应用是xsl，每个xsl中的非HTML标签都要指明xmlns.</p>
+
+<p>　　2、CDATA<br />
+　　除了CDATA片断外，一个XML文档中所有文本都要经过解析器解析，即使是两个标签中间的数据也不例外，这是因为标签可以嵌套的缘故。<br />
+　　XML预定义了五个<acronym title="Escape Character">特殊字符</acronym>，如下表所示，当在数据中出现这几字符时，需要用一个串来代替，其中前两个是必须的，后三个是建议的。<br />
+<div class="code"><table border=1><tr><td>&amp;lt;</td><td>&lt;</td><td>less than</td></tr><tr><td>&amp;gt;</td><td>&gt;</td><td>greater than</td></tr><tr><td>&amp;amp;</td><td>&amp;</td><td>ampersand&nbsp;</td></tr><tr><td>&amp;apos;</td><td>'</td><td>apostrophe</td></tr><tr><td>&amp;quot;</td><td>&quot;</td><td>quotation mark</td></tr></table></div><br />
+　　一个CDATA片断，由"<![CDATA["开始（不包括引号，下一个同），以"]]>"结束，所以其中间的内容不能含有"]]>"字符串。</p>
+
+<p>　　3、XML文档编码<br />
+　　在xml文档第一行声明中，指明文档所用的编码，如例：<br />
+<div class="code">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><br />
+　　需要注意的是，所用文本编辑器要要可以指定编码（如win2K的notepad），然后利用encoding属性指明所用的编码。win95/98的Notepad可不行。</p>
+
+<p>　　4、一个可生成XML应答的服务器<br />
+　　只需要在HTTP头部指明“ContentType="text/xml"”即可。</p>
+
+<p>　　5、IE中对数据岛中数据的操作的支持<br />
+　　除了前文中提到的数据岛可与TABLE或DIV或SPAN有绑定外，数据岛还有成员recordset和field等，recordset有前移、后移等动作，有取得和设定当前记录等功能。<br />
+　　<br />
+　　6、IE5以上可支持XMLHTTP请求。<br />
+　　引用两段javascript代码，供参考吧。<br />
+<div class="code">var objHTTP = new ActiveXObject("Microsoft.XMLHTTP")<br />
+objHTTP.Open('GET','httprequest.asp',false)<br />
+objHTTP.Send() <br />
+......<br />
+document.all['A1'].innerText= objHTTP.status<br />
+document.all['A2'].innerText= objHTTP.statusText<br />
+document.all['A3'].innerText= objHTTP.responseText </div><br />
+　　这样一来，跟服务器打交道，来去都可用XML了。</p>
+
+<p>　　7、XML格式的<acronym title="Behavior">行为</acronym>？<br />
+　　行为是MS的专有技术，本身是一个CSS属性选择器，即与对象绑定后，可据在对象上的操作动态的改态对象的一些显示属性。据说最终目的是把所有的script角本都从HTML页面中移去。</p>
+
+<p>　　8、XML相关技术（有几个都没接触过:(）<br />
+　　XHTML（其1.0是最后一个版本的HTML？），CSS，XSL，XSLT，XPath，XLink，XPointer，DTD，NameSpace，XSD（XML Schema），XDR，XQL，DOM，SAX。</p>
+
+<p><ins>自己测了一下，得分19分，错得一道是：我误认为XML标签是大小写敏感的了</ins></p>
+
+<span class="posted">Posted by Hilton at July 22, 2003 01:12 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=43.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=43" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>Perfect!</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;wxf0122&#64;163&#46;net'" tppabs="http://hedong.3322.org/archives/mailto&#58;wxf0122&#64;163&#46;net">Ayala Wang</a> at December 17, 2003 06:51 PM</span>
+</div>
+<div class="comments-body">
+<p>Perfect!</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;wxf0122&#64;163&#46;net'" tppabs="http://hedong.3322.org/archives/mailto&#58;wxf0122&#64;163&#46;net">Ayala Wang</a> at December 17, 2003 06:51 PM</span>
+</div>
+<div class="comments-body">
+<p>god</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://n/a  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://n/a'" tppabs="http://n/a">steven</a> at November 13, 2003 05:01 AM</span>
+</div>
+<div class="comments-body">
+<p>Thanks a lot for your encouragement.</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 22, 2003 04:22 PM</span>
+</div>
+<div class="comments-body">
+<p>Thank you.<br />
+Good chapter.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;maer2003&#64;mail&#46;china&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;maer2003&#64;mail&#46;china&#46;com">maer</a> at September 22, 2003 04:13 PM</span>
+</div>
+<div class="comments-body">
+<p>zzzz</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://zzz/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://zzz/'" tppabs="http://zzz/">zzz</a> at September 21, 2003 11:24 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="43" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

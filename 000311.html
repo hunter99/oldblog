@@ -1,0 +1,272 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: HttpClient学习(二)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000310.html" tppabs="http://hedong.3322.org/archives/000310.html" title="apache/commons/httpclient学习笔记(一)" />
+
+<link rel="next" href="000312.html" tppabs="http://hedong.3322.org/archives/000312.html" title="文本信息检索与Trec评测" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000311.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/209"
+    dc:title="HttpClient学习(二)"
+    dc:identifier="http://hedong.3322.org/archives/000311.html"
+    dc:subject="ItTech"
+    dc:description="　　下面学习与http客户端相关的认证、重定向等内容。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-17T21:53:02+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000311.html">
+<dc:title>HttpClient学习(二)</dc:title>
+<dc:description>　　下面学习与http客户端相关的认证、重定向等内容。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-17T21:53:02+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000310.html" tppabs="http://hedong.3322.org/archives/000310.html">&laquo; apache/commons/httpclient学习笔记(一)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000312.html" tppabs="http://hedong.3322.org/archives/000312.html">文本信息检索与Trec评测 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 17, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">HttpClient学习(二)</h3>
+
+<p>　　下面学习与http客户端相关的认证、重定向等内容。<br />
+</p>
+
+<a name="more"></a>
+<p><h4>1、认证</h4><br />
+　　HttpClient三种不同的认证方案: Basic, Digest and NTLM. 这些方案可用于服务器或代理对客户端的认证，简称服务器认证或代理认证。<br />
+1)服务器认证(Server Authentication)<br />
+　　HttpClient处理服务器认证几乎是透明的，仅需要开发人员提供登录信息(login credentials)。登录信息保存在HttpState类的实例中，可以通过 setCredentials(String realm, Credentials cred)和getCredentials(String realm)来获取或设置。注意，设定对非特定站点访问所需要的登录信息，将realm参数置为null. HttpClient内建的自动认证，可以通过HttpMethod类的setDoAuthentication(boolean doAuthentication)方法关闭，而且这次关闭只影响HttpMethod当前的实例。<br />
+　　抢先认证(Preemptive Authentication)可以通过下述方法打开.<div class="code">client.getState().setAuthenticationPreemptive(true);</div>在这种模式时，HttpClient会主动将basic认证应答信息传给服务器，即使在某种情况下服务器可能返回认证失败的应答，这样做主要是为了减少连接的建立。为使每个新建的 HttpState实例都实行抢先认证，可以如下设置系统属性。<div class="code">setSystemProperty(Authenticator.PREEMPTIVE_PROPERTY, "true");</div><br />
+Httpclient实现的抢先认证遵循rfc2617.<br />
+2)代理认证(proxy authentication)<br />
+　　除了登录信息需单独存放以外，代理认证与服务器认证几乎一致。用 setProxyCredentials(String realm, Credentials cred)和 getProxyCredentials(String realm)设、取登录信息。<br />
+3)认证方案(authentication schemes)<br />
+　　Basic<br />
+　　是HTTP中规定最早的也是最兼容(?)的方案，遗憾的是也是最不安全的一个方案，因为它以明码传送用户名和密码。它要求一个UsernamePasswordCredentials实例，可以指定服务器端的访问空间或采用默认的登录信息。<br />
+　　Digest<br />
+　　是在HTTP1.1中增加的一个方案，虽然不如Basic得到的软件支持多，但还是有广泛的使用。Digest方案比Basic方案安全得多，因它根本就不通过网络传送实际的密码，传送的是利用这个密码对从服务器传来的一个随机数(nonce)的加密串。它要求一个UsernamePasswordCredentials实例，可以指定服务器端的访问空间或采用默认的登录信息。<br />
+　　NTLM<br />
+　　这是HttpClient支持的最复杂的认证协议。它M$设计的一个私有协议，没有公开的规范说明。一开始由于设计的缺陷，NTLM的安全性比Digest差，后来经过一个ServicePack补丁后，安全性则比较Digest高。NTLM需要一个NTCredentials实例. 注意，由于NTLM不使用访问空间(realms)的概念，HttpClient利用服务器的域名作访问空间的名字。还需要注意，提供给NTCredentials的用户名，不要用域名的前缀 - 如: "adrian" 是正确的，而 "DOMAIN\adrian" 则是错的.<br />
+　　NTLM认证的工作机制与basic和digest有很大的差别。这些差别一般由HttpClient处理，但理解这些差别有助避免在使用NTLM认证时出现错误。<br />
+<ol><li>从HttpClientAPI的角度来看，NTLM与其它认证方式一样的工作，差别是需要提供'NTCredentials'实例而不是'UsernamePasswordCredentials'(其实，前者只是扩展了后者)</li><br />
+<li>对NTLM认证，访问空间是连接到的机器的域名，这对多域名主机会有一些麻烦.只有HttpClient连接中指定的域名才是认证用的域名。建议将realm设为null以使用默认的设置。</li><br />
+<li> NTLM只是认证了一个连接而不是一请求，所以每当一个新的连接建立就要进行一次认证，且在认证的过程中保持连接是非常重要的。 因此，NTLM不能同时用于代理认证和服务器认证，也不能用于http1.0连接或服务器不支持持久连接的情况。</li></ol></p>
+
+<p><h4>2、重定向</h4><br />
+　　由于技术限制，以及为保证2.0发布版API的稳定，HttpClient还不能自动处重定向，但对重定向到同一主机、同一端口且采用同一协议的情况HttpClient可以支持。不能自动的处理的情况，包括需要人工交互的情况，或超出httpclient的能力。<br />
+　　当服务器重定向指令指到不同的主机时，HttpClient只是简单地将重定向状态码作为应答状态。所有的300到399（包含两端）的返回码，都表示是重定向应答。常见的有：<br />
+<ol><li> 301 永久移动.  HttpStatus.SC_MOVED_PERMANENTLY</li><br />
+<li> 302 临时移动. HttpStatus.SC_MOVED_TEMPORARILY</li><br />
+<li> 303 See Other. HttpStatus.SC_SEE_OTHER</li><br />
+<li> 307 临时重定向. HttpStatus.SC_TEMPORARY_REDIRECT</li></ol><br />
+　　当收到简单的重定向时，程序应从HttpMethod对象中抽取新的URL并将其下载。另外,限制一下重定向次数是个好的主意，这可以避免递归循环。新的URL可以从头字段Location中抽取，如下：<div class="code">        String redirectLocation;<br />
+        Header locationHeader = method.getResponseHeader("location");<br />
+        if (locationHeader != null) {<br />
+            redirectLocation = locationHeader.getValue();<br />
+        } else {<br />
+            // The response is invalid and did not provide the new location for<br />
+            // the resource.  Report an error or possibly handle the response<br />
+            // like a 404 Not Found error.<br />
+        }</div> <br />
+特殊重定向：<br />
+<ol><li> 300 多重选择.  HttpStatus.SC_MULTIPLE_CHOICES</li><br />
+<li> 304 没有改动. HttpStatus.SC_NO T_MODIFIED</li><br />
+<li> 305 使用代理. HttpStatus.SC_USE_PROXY </li><br />
+</ol></p>
+
+<span class="posted">Posted by Hilton at October 17, 2003 09:53 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=311.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=311" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>好象有bug,在jbuilder里用这个httpclient有问题</p>
+<span class="comments-post">Posted by: Li Fang at October 30, 2003 05:17 PM</span>
+</div>
+<div class="comments-body">
+<p>bug</p>
+<span class="comments-post">Posted by: Li Fabf at October 30, 2003 05:16 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="311" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

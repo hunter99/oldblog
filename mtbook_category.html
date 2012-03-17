@@ -1,0 +1,103 @@
+<html>
+
+<head>
+  <title>第五章 ─ 管理類別</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第五章 ─ 管理類別</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#category">第五章 ─ 管理類別</a></li> 
+  <ul>
+    <li><a href="#add">新增類別</a></li>
+    <li><a href="#add_ontime">臨時新增類別</a></li>
+    <li><a href="#assign">指派文章所屬的類別</a></li>
+    <li><a href="#edit">編輯類別屬性</a></li>
+    <li><a href="#delete">刪除類別</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="category"></a>第五章 ─ 管理類別</h1>
+
+<p>除了按照時間來把文章彙整歸檔之外，妳也可以自己定義出不限數量的類別，然後把每一篇文章指派給若干類別；這其中的彈性相當之大，對於任何一篇文章來說，都可能處於下列狀況之一：</p>
+
+<p><ul><li>不屬於任何類別</li><li>祇屬於某個類別，這個類別也稱做這一篇文章的<code>主要類別</code></li><li>隸屬於多個類別，其中必定有一個類別是這一篇文章的<code>主要類別</code>，而其他類別對於這一篇文章來說都祇是<code>次要類別</code></ul></p>
+
+<p>而且妳可以在任何時候重新修改文章所屬的類別 ─ 妳可以更換文章的主要類別、新增或取消次要類別的隸屬關係、讓本來不屬於任何類別的文章加入某個類別、或讓某一篇文章完全不屬於任何類別。</p>
+
+<p>這種分類的能力讓妳的網誌得以更為清晰 ─ 或許妳的興趣十分廣泛，時而從事文字創作、時而報導科技新聞，天文地理歷史現在妳可以把文章放進不同的分類裡，再加以彙整管理，讓妳的讀者能夠更方便第一次覽盡所有相同領域的文章。</p>
+
+<p>值得注意的是 Movable Type 此刻尚未支援<code>巢狀類別</code>的架構；換而言之，雖然對於單一一篇文章來說，可以有<code>主要類別</code>與<code>次要類別</code>之分，但是這些類別實際上卻是平等的 ─ 沒有所謂的<code>父類別</code>與<code>子類別</code>的差別；某個類別可以是某篇文章的主要類別，卻又是另一篇文章的次要類別。</p>
+
+<p>當然妳可以實做出<code>「祇被當作次要類別」的類別</code>以及<code>「祇被當作主要類別」的類別</code>，甚至妳可以做出「兩個名稱一模一樣的類別」，系統都不會弄混；但是別忘了，系統也不會曉得妳在打的鬼主意，所以妳得對自己的陰謀瞭如指掌纔行。</p>
+
+<p>本章我們祇會介紹一些跟類別有關的基本操作和注意事項，至於各種奇技淫巧則會留待<a href="mtbook_practice.html#practice" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_practice.html#practice">第十章</a>纔來介紹。另外，由於妳的網誌一開始不會有任何預設的類別，所以 Movable Type 預設也不會啟用<code>分類彙整</code>的選項 ─ 妳得先有類別，纔能夠分類！關於分類彙整的設定方法及相關事項，也請參閱<a href="mtbook_archive.html#category" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#category">第八章的分類彙整小節</a>。</p>
+
+<h2><a id="add"></a>新增類別</h2>
+
+<p>以下我們將為各位介紹新增類別的正常途徑：</p>
+
+<p><ol>
+  <li><a id="add_01"></a>登入網誌管理介面後，請如<a href="#img_01">圖一</a>按下左方工具列上的「<strong>類別</strong>」按鈕。<div class="img"><a id="img_01"></a><img src="mtcategory_add_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_01.png" alt="按下左方工具列的「類別」按鈕"><br />圖一：按下左方工具列上的「類別」按鈕。</div></li>
+  <li><a id="add_02"></a>然後妳會看到如<a href="#img_02">圖二</a>的畫面。在這個畫面裡會列出妳既有的類別；因為我們還沒有新增過任何類別，所以現在畫面上應該甚麼也沒有。除此之外，妳應該還會看到畫面上有五個空白的欄位，這五個空白的欄位就是讓妳新增類別用的。請如<a href="#img_03">圖三</a>把新類別的名稱填入空白的欄位裡，一欄填一個，然後再按下底下的「<strong>儲存</strong>」按鈕。因為畫面上就祇有五個空白欄位，所以妳在新增類別的時候，一口氣最多也祇能新增五個；同時也請注意，由於在預設的情況下， Movable Type 會拿類別名稱來當作分類彙整的彙整檔名，所以妳應該盡可能<strong>不要使用中、日、韓文、空白、以及問號（ <code>?</code> ）、斜線（ <code>/</code> ）、反斜線（ <code>\</code> ）、管道符號（ <code>|</code> ）、分號（ <code>;</code> ）、星號（ <code>*</code> ）、大於符號（ <code>&gt;</code> ）、小於符號（ <code>&lt;</code> ）等特殊符號或<code> HTML 標籤</code>來當作類別名稱的一部份</strong>，否則很可能會出現預期外（或預期中）的錯誤。<div class="img"><a id="img_02"></a><img src="mtcategory_add_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_02.png" alt="編輯類別畫面中有五個空白欄位"><br />圖二：編輯類別畫面裡，有五個空白欄位，讓妳可以增加新的類別。</div><div class="img"><a id="img_03"></a><img src="mtcategory_add_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_03.png" alt="填入新類別的名稱 first 、 second 和 third 後，按下底下的「儲存」按鈕"><br />圖三：填入新類別的名稱後，按下底下的「儲存」按鈕；在這個範例中我們打算要新增的三個類別分別叫做 first 、 second 以及 third 。</div></li>
+  <li><a id="add_03"></a>類別新增完成後，妳會看到如<a href="#img_04">圖四</a>的畫面，按照<code>類別名稱</code>排序列出了所有的類別，每一個類別底下還會註明目前已經有多少篇文章被指派到該類別，同時妳也可以由此<a href="#edit">編輯類別屬性</a>。另一方面，無論妳一次新增了多少類別，當妳按下儲存後就會發現，新增類別用的空白欄位再度變成五個；就跟聚寶盆一樣，妳永遠不用擔心這些空白欄位會有用完的一天。<div class="img"><a id="img_04"></a><img src="mtcategory_add_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_04.png" alt="被新增出來的 first 、 second 以及 third 三個類別"><br />圖四：我們剛剛輸入的 first 、 second 以及 third 類別已經成功地被新增了；妳可以看到目前還沒有任何文章被指派到這些類別裡。</div><div class="img"><a id="img_05"></a><img src="mtcategory_add_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_05.png" alt="新增類別用的空白欄位再度變成五個"><br />圖五：無論妳剛剛一次新增了多少類別，妳會發現新增類別用的空白欄位始終會恢復成五個。</div></li>
+</ol></p>
+
+<h2><a id="add_ontime"></a>臨時新增類別</h2>
+
+<p>除了妥善規劃後，循規蹈矩地用<a href="#add">前一小節</a>的方法新增類別以外，妳也可以在新增或編輯文章的時候臨時新增類別，這麼一來妳就不需要打斷思緒先去新增類別再回來寫作，也不需要先把文章寫好纔去新增類別以及調整文章所屬類別。現在就讓我們來看看該怎麼做：</p>
+
+<p><ol>
+  <li><a id="add_ontime_01"></a>無論妳是在新增文章或編輯文章的時候，<code>主要類別</code>下拉式選單的最後一項總是「<strong>新增類別...</strong>」，請如<a href="#img_06">圖六</a>選擇這一個。<div class="img"><a id="img_06"></a><img src="mtcategory_add_ontime_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_ontime_01.png" alt="新增文章時從「主要類別」下拉式選單選擇「新增類別...」"><br />圖六：新增文章或編輯文章的時候，如果打算臨時新增類別，就從「主要類別」下拉式選單裡選擇「新增類別...」。</div></li>
+  <li><a id="add_ontime_02"></a>接下來會彈出一個如<a href="#img_07">圖七</a>的視窗，內有一個讓妳新增類別的欄位。請如<a href="#img_08">圖八</a>輸入新類別的名稱，然後按下「<strong>加入</strong>」鍵。<div class="img"><a id="img_07"></a><img src="mtcategory_add_ontime_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_ontime_02.png" alt="新增類別用的彈出式視窗，內有一個新增類別用的空白欄位"><br />圖七：這是新增類別用的彈出式視窗，有一個空白欄位讓妳填寫新類別的名稱。</div><div class="img"><a id="img_08"></a><img src="mtcategory_add_ontime_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_ontime_03.png" alt="在空白欄位裡輸入 others 然後按下「加入」按鈕"><br />圖八：在空白欄位裡輸入欲新增的類別的名稱，然後按下「加入」按鈕；這個範例裡新增的類別叫 others 。</div></li>
+  <li><a id="add_ontime_03"></a>就這樣，一個新的類別誕生了。同時妳也可以注意到，妳正在編輯或正在新增的那一篇文章，也會自動地把主要類別設定成妳剛剛所新增的類別。<div class="img"><a id="img_09"></a><img src="mtcategory_add_ontime_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_add_ontime_04.png" alt="這篇新文章的主要類別被自動設定成 others"><br />圖九：這篇新文章的主要類別被自動設定成我們剛剛臨時新增的類別；在這個範例中，這個類別也就是 others 。</div></li>
+</ol></p>
+
+<h2><a id="assign"></a>指派文章所屬的類別</h2>
+
+<p>當妳建立起各種類別之後，就能夠把文章指派給各個類別了。妳可以在<code>大量編輯模式</code>裡一次指派多篇文章的主要類別，也能夠在<code>文章編輯畫面</code>中，指派單一文章的主要類別跟次要類別。現在就讓我們逐一實做：</p>
+
+<p><ol>
+  <li><a id="assign_01"></a>我們在第三章的時候介紹過<a href="mtbook_entry.html#modify_power" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_entry.html#modify_power">大量編輯模式</a>，在這個模式中，妳可以一次修改多篇文章的各種欄位，而這其中也包括了<strong>主要類別</strong>。妳可以如<a href="#img_10">圖十</a>使用每一篇文章的主要類別下拉式選單，修改該篇文章的主要類別，最後再按下儲存就行了。<div class="img"><a id="img_10"></a><img src="mtcategory_assign_power_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_power_01.png" alt="在「大量編輯模式」裡一次修改多篇文章所屬的主要類別"><br />圖十：透過「大量編輯模式」，妳就可以一次修改多篇文章的主要類別。</div></li>
+  <li><a id="assign_02"></a>除此之外，妳也可以在新增文章或編輯文章的時候，從「主要類別」下拉式選單裡，調整該文章的主要類別。<div class="img"><a id="img_11"></a><img src="mtcategory_assign_entry_primary_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_primary_01.png" alt="編輯文章畫面裡，可以用下拉式選單改變文章的「主要類別」"><br />圖十一：妳在編輯文章的時候，就可以用「主要類別」下拉式選單，改變文章所屬的主要類別。</div></li>
+  <li><a id="assign_03"></a>除了設定主要類別之外，妳也可以在新增或編輯文章的畫面中，設定文章所屬的次要類別；請如<a href="#img_12">圖十二</a>按下主要類別下拉式選單旁邊的「<strong>指定多重類別</strong>」鏈結。<div class="img"><a id="img_12"></a><img src="mtcategory_assign_entry_secondary_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_01.png" alt="按下主要類別下拉式選單旁的「指定多重類別」鏈結"><br />圖十二：要指派次要類別的時候，請按下主要類別下拉式選單旁邊的「指定多重類別」鏈結。</div></li>
+  <li><a id="assign_04"></a>接下來會彈出如<a href="#img_13">圖十三</a>的視窗，在這個視窗左邊的欄位裡會列出目前存在於妳的網誌上（但沒有被設定成這篇文章所屬）的類別，右邊的欄位則是妳已經指派給這篇文章的類別。請如<a href="#img_14">圖十四</a>選取欲指定為該文章次要類別的類別名稱；如果妳想要一次選好幾個類別的話，妳可以按著 <code>Control</code> 鍵不放，再用滑鼠逐一點選。然後再如<a href="#img_15">圖十五</a>按下「 <strong>&gt;&gt;</strong> 」按鈕，就可以把這些被選取的類別移動到右邊的欄位去，也就是使他們成為這篇文章所屬的次要類別。另外，如果妳打算取消某個次要類別的話，也可以如<a href="#img_16">圖十六</a>從右方的欄位裡點選，一樣也可以按著 <code>Control</code> 鍵不放再用滑鼠一次點選多個類別，然後再如<a href="#img_17">圖十七</a>按下「 <strong>&lt;&lt;</strong> 」按鈕，就可以把這些被選定的類別移動到左邊的欄位去，也就是取消這些類別歸屬。<div class="img"><a id="img_13"></a><img src="mtcategory_assign_entry_secondary_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_02.png" alt="指派多重類別的彈出式視窗"><br />圖十三：這是指派多重類別用的彈出式視窗，左方的欄位會列出目前可以選擇、但尚未成為該文章所屬的類別名稱清單，右方的欄位則是已經被設定成該文章所屬的類別名稱清單。</div><div class="img"><a id="img_14"></a><img src="mtcategory_assign_entry_secondary_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_03.png" alt="選擇欲指派給該文章的類別"><br />圖十四：選擇欲指派給該文章的類別，在這個範例中選取的是 first 和 third 。</div><div class="img"><a id="img_15"></a><img src="mtcategory_assign_entry_secondary_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_04.png" alt="按下「 &gt;&gt; 」按鈕"><br />圖十五：按下「 &gt;&gt; 」按鈕就可以把被選取的類別移動到右邊的欄位去。</div><div class="img"><a id="img_16"></a><img src="mtcategory_assign_entry_secondary_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_05.png" alt="選擇欲取消的類別"><br />圖十六：選擇欲取消的類別，在這個範例中選取的是 third 。</div><div class="img"><a id="img_17"></a><img src="mtcategory_assign_entry_secondary_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_06.png" alt="按下「 &lt;&lt; 」按鈕"><br />圖十七：按下「 &lt;&lt; 」按鈕，就可以取消所選的類別。</div></li>
+  <li><a id="assign_05"></a>最後別忘了如<a href="#img_18">圖十八</a>按下「儲存」按鈕，然後等到如<a href="#img_19">圖十九</a>的畫面出現後再按下「關閉」按鈕來關閉這個彈出式視窗，這樣就完成多重（次要）類別的指派了。<div class="img"><a id="img_18"></a><img src="mtcategory_assign_entry_secondary_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_07.png" alt="按下「儲存」按鈕"><br />圖十八：按下「儲存」按鈕來儲存目前選定好的類別指派關係。</div><div class="img"><a id="img_19"></a><img src="mtcategory_assign_entry_secondary_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_assign_entry_secondary_08.png" alt="按下「關閉」按鈕"><br />圖十九：儲存完成後按下「關閉」按鈕來關閉這個彈出式視窗。</div></li>
+</ol></p>
+
+<h2><a id="edit"></a>編輯類別屬性</h2>
+
+<p>Movable Type 裡的類別並不是祇有一個名稱而已；對於每個類別來說，除了<code>類別名稱</code>之外，妳也可以任意地設定<code>類別描述</code>，而且每一個類別也都可以成為一個能夠<code>接受引用通告</code>的引用物件，也能夠設定整個類別的<code>自動通告網址</code>。其中後面兩者我們將留待<a href="mtbook_trackback.html#category" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_trackback.html#category">第七章</a>連同<strong>引用功能</strong>一併介紹，在此我們祇先說明如何修改<code>類別名稱</code>以及<code>類別描述</code>。</p>
+
+<p><ol>
+  <li><a id="edit_01"></a>如<a href="#img_20">圖二十</a>，在<code>編輯類別</code>畫面中，妳可以看到目前已經存在的類別，它們會按照名稱依序列出，同時妳也可以看到這些類別裡各有幾篇文章。當妳打算修改類別名稱的時候，就祇需要像<a href="#img_21">圖二十一</a>那樣直接修改類別名稱欄位的內容，然後再按下「儲存」按鈕即可。<div class="img"><a id="img_20"></a><img src="mtcategory_edit_name_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_name_01.png" alt="既有的類別，以及各自擁有的文章數量"><br />圖二十：在編輯類別畫面裡，可以看到既有的類別及其所擁有的文章數量。在這個範例裡我們可以看到除了 first 這一類裡有一篇文章外， others 、 second 和 third 這三個類別都還沒有包含任何文章。</div><div class="img"><a id="img_21"></a><img src="mtcategory_edit_name_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_name_02.png" alt="把 first 修改成 last 後，按下「儲存」按鈕"><br />圖二十一：我們打算把 first 類別改名為 last ，所以在這個範例中就直接把類別名稱欄位裡的 first 給改成 last ，然後再按下「儲存」按鈕。</div></li>
+  <li><a id="edit_02"></a>儲存後妳就會看到如<a href="#img_22">圖二十二</a>的畫面，不但類別名稱更換了，而且原先屬於該類別的文章也都跟著被改過來了 ─ 不需要重新指派文章分類，這真是太好了！<div class="img"><a id="img_22"></a><img src="mtcategory_edit_name_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_name_03.png" alt="first 類別現在叫做 last 類別了"><br />圖二十二： first 類別現在叫做 last 類別了，而且原來隸屬於 first 類別的文章，也都隸屬於 last 類別。</div></li>
+  <li><a id="edit_03"></a>除了類別文章外，妳還可以像<a href="#img_23">圖二十三</a>那樣點擊類別名稱後的「<strong>編輯類別屬性</strong>」鏈結，來編輯其他的類別屬性。<div class="img"><a id="img_23"></a><img src="mtcategory_edit_more_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_more_01.png" alt="點擊「編輯類別屬性」鏈結"><br />圖二十三：點擊 last 類別後面的「編輯類別屬性」鏈結，來編輯 last 類別的其他屬性。</div></li>
+  <li><a id="edit_04"></a>妳會看到如<a href="#img_24">圖二十四</a>的畫面，妳可以在此修改<code>類別描述</code>以及<code>引用設定</code>。我們現在祇有要修改<code>類別描述</code>，所以請按照<a href="#img_25">圖二十五</a>那樣任意地填寫類別描述，然後按下「<code>儲存</code>」按鈕，就能把類別描述給儲存起來了。填寫類別描述的時候可以使用任意的字符，也就是說妳可以在此使用中、日、韓文字，也可以使用各種特殊符號，甚至是 HTML 標籤都可以。換而言之，這就是做出特殊效果的關鍵所在了；我們不會在這一章討論到這些華麗把戲，請參考<a href="mtbook_practice.html#practice" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_practice.html#practice">第十章</a>的說明。<div class="img"><a id="img_24"></a><img src="mtcategory_edit_more_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_more_02.png" alt="last 類別的屬性編輯畫面"><br />圖二十四：這是 last 類別的屬性編輯畫面，可以修改的部分包括有類別描述以及引用設定。</div><div class="img"><a id="img_25"></a><img src="mtcategory_edit_more_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_more_03.png" alt="填寫類別描述後按下「儲存」按鈕"><br />圖二十五：在這個範例中，我們在 last 類別的類別描述中填寫了「 The Last category 」，然後按下「儲存」按鈕。</div><div class="img"><a id="img_26"></a><img src="mtcategory_edit_more_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_edit_more_04.png" alt="類別描述被儲存起來了"><br />圖二十六：類別描述被儲存起來了。</div></li>
+</ol></p>
+
+<h2><a id="delete"></a>刪除類別</h2>
+
+<p>有朝一日妳也會需要把不再有用的類別給刪除。這種事情最有可能發生在妳打算重新安排分類的時候 ─ 妳會把某幾類的文章併在一起，然後就會有一些再也用不到的類別了。</p>
+
+<p><ol>
+  <li><a id="delete_01"></a>錯誤的作法是像<a href="#img_27">圖二十七</a>那樣把類別名稱清除（改成空字串）然後儲存，這麼一來類別並不會真的被清掉，而祇會像<a href="#img_28">圖二十八</a>那樣，冒出「<code>沒有名稱的類別</code>」。<div class="img"><a id="img_27"></a><img src="mtcategory_delete_wrong_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_delete_wrong_01.png" alt="把類別名稱清空"><br />圖二十七：這是錯誤的作法，把類別名稱清空再存檔。</div><div class="img"><a id="img_28"></a><img src="mtcategory_delete_wrong_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_delete_wrong_02.png" alt="類別沒有被刪除，而祇是名稱變成空白"><br />圖二十八：結果這個類別沒有被清掉，而祇是變成沒有名稱的類別。</div></li>
+  <li><a id="delete_02"></a>唯一能夠刪除類別的地方是從<code>編輯類別</code>畫面中，如<a href="#img_29">圖二十九</a>核選欲刪除的類別後面的<code>刪除</code>核選框，然後再按下「<code>刪除核選的項目</code>」按鈕，這個方法對前面那個「<code>沒有名稱的類別</code>」也有效。接著會彈出如<a href="#img_30">圖三十</a>的視窗，要求妳確認要把所選的類別刪除；<strong>如果該類別裡有一些文章的話，這些文章仍然會存在</strong>，祇是不再屬於這個類別罷了。按下「刪除」按鈕後，妳就會看到如<a href="#img_31">圖三十一</a>的畫面，說明這些類別都被刪除了。<div class="img"><a id="img_29"></a><img src="mtcategory_delete_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_delete_01.png" alt="核選「刪除」核選框後按下「刪除核選的項目」按鈕"><br />圖二十九：核選「刪除」核選框後按下「刪除核選的項目」按鈕。</div><div class="img"><a id="img_30"></a><img src="mtcategory_delete_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_delete_02.png" alt="按下「刪除」按鈕"><br />圖三十：按下「刪除」按鈕，確定要刪除這些類別。</div><div class="img"><a id="img_31"></a><img src="mtcategory_delete_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcategory_delete_03.png" alt="剛剛被選取的類別都被刪除了"><br />圖三十一：剛剛被選取的類別都被刪除了。</div></li>
+</ol></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

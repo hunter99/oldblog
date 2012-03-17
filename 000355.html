@@ -1,0 +1,250 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: I18N和L10N（2）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000354.html" tppabs="http://hedong.3322.org/archives/000354.html" title="I18N和L10N（1）" />
+
+<link rel="next" href="000356.html" tppabs="http://hedong.3322.org/archives/000356.html" title="自由协作创造－－AKA" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000355.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/251"
+    dc:title="I18N和L10N（2）"
+    dc:identifier="http://hedong.3322.org/archives/000355.html"
+    dc:subject="ItTech"
+    dc:description="　　继续学习I18N。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-11T23:46:26+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000355.html">
+<dc:title>I18N和L10N（2）</dc:title>
+<dc:description>　　继续学习I18N。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-11T23:46:26+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000354.html" tppabs="http://hedong.3322.org/archives/000354.html">&laquo; I18N和L10N（1）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000356.html" tppabs="http://hedong.3322.org/archives/000356.html">自由协作创造－－AKA &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 11, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">I18N和L10N（2）</h3>
+
+<p>　　继续学习I18N。</p>
+
+<a name="more"></a>
+<p><h4>什么是”I18N"?</h4>　　I18N就是Internationalization(该单词的首字母I与尾字母N中间隔着18个字符)。它是一个代码修改的过程，目的是实现代码完全独立于任何特定的文化信息。这类信息保存在外部文件里，在程序运行的时候被装入。有些人可能想，只要把程序中所有特定文化有关的字符串(hard-coded strings)都抽取出来放在外部的文件中，就已为国际化做好准备了。其实，除了这个，还有一些事情需要考虑，主要包括：<br />
+<ol><li>将字符串、图标、图片从程序中抽取出来，以文本的形式表示</li><br />
+<li>选择编码页(code page)，如果需要并定义编码页转换</li><br />
+<li>修改所有的文本处理函数，以适应代码页的引入</li><br />
+<li>修改所有与格式化输出有关的函数（如日期、时间、货币、数值等）的实现逻辑</li><br />
+<li>修改整理/排除函数的实现逻辑</li></ol></p>
+
+<p><h4>什么是编码页(code page)?</h4>　　正如我们所知，计算机只懂得数值。因此，当我们想要它处理文本时，就把一门语言中每个字符都赋以特定的值。简单地说来，这种字符与数值的对照表就叫编码页。在这种情况下，你可能常会听到诸如字符集(charset)，字符表(charmap)，编码(encoding)，编码字符集(coded character set)等术语。虽然彼此间还有一些细微的差异，为理解的目的你可以认为它们都是指每种语言的字符、数值映射表。ASCII编码页就是一个很著名的例子，它把英文字母表和一些控制字符映射到一些特定的数值上去。</p>
+
+<p><h4>还有哪些编码页？围绕着编码页有哪些问题?</h4>　　ASCII编码映射了127个字符，因此7位(bit)二进制数足够用来表示127个字符。程序则典型地在8位的缓冲区内处理文本。这在处理其它的语言的编码页是会出问题。例如日语这种语言，有成千让万个字符，8位二制只能表示256个不同的字符，不可能唯一地表示每一个日语字符。因此，人们用几个字节来表示一个日语字符。现在，我们又遇到另一个问题。缓冲区的字节数不等于缓冲区中的字符数。每一个简单地字符串操作，都需要将字节组装成字符。<br />
+　　认识到这种复杂性，开发人员利用一种叫宽字符(wide-character)的技术来处理外语字符串。宽字符基本上是16位或32位的数据类型。容量够大，能满足亚洲语言的需求。处理字符串不再使用8位的缓冲区(char *)，而是使用16位的缓冲(unsigned short *)。因此每次移动指针，你都可以保证跳过了一个字符(而不是原先那可能是半个)。<br />
+　　不同的开发商使用不同的编码页，给这带来了混乱。也就是说，同一个日语字符，在一个机器上可能用0x95和0x5c两个字节表示，而在另外的机器的上则可能是0xc9和0xbd。这样一事每次交换数据都要进行一次转换(称为码表转换(charmap conversion)或码集转换(codeset conversion))。<br />
+<h4>什么是Unicode?它是如何解决这个问题的？</h4>　　每一种语言的不同的编码页，增加了那些需要支持不同语言的软件的复杂度。因而人们制定了一个世界标准，叫做unicode(http://www.unicode.org).Unicode为每个字符提供了唯一的特定数值，不论在什么平台上、不论在什么软件中，也不论什么语言。也就是说，它世界上使用的所有字符都列出来，并给每一个字符一个唯一特定数值。<br />
+<h4>什么是UTF－8？它与UNICODE是一回事吗？</h4>　　Unicode的最初目标，是用1个16位的编码来为超过65000字符提供映射。但这还不够，它不能覆盖全部历史上的文字，也不能解决传输的问题(implantation head-ache's)，尤其在那些基于网络的应用中。已有的软件必须做大量的工作来程序16位的数据。<br />
+　　因此，Unicode用一些基本的保留字符制定了三套编码方式。它们分别是UTF-8,UTF-16和UTF-32。正如名字所示，在UTF－8中，字符是以8位序列来编码的，用一个或几个字节来表示一个字符。这种方式的最大好处，是UTF－8保留了ASCII字符的编码做为它的一部分，例如，在UTF－8和ASCII中，“A”的编码都是0x41.<br />
+　　UTF－16和UTF－32分别是Unicode的16位和32位编码方式。考虑到最初的目的，通常说的Unicode就是指UTF-16。在讨论Unicode时，搞清楚哪种编码方式非常重要。Unicdoe相关的技术介绍参见http://www.unicode.org/unicode/standard/principles.html.<br />
+<h4>通常说的”特定文化信息(cultural specific information)”包含哪些内容？</h4>　　<ol><li>特定文化有关的字符串(hard-coded strings),程序中不能包含与特定文化有关的任何字符串，这类串都要放在外部文件中，从而能译成多种语言。</li><br />
+<li>字符分类(character classification) 如何对字符进行分类呢？例如，英文中可以将字符分为大写字符和小写字符，如果你是个C程序员，则可以用isupper()和islower()来检查。当面临多种语言时，需要考虑更多分类方法，有时候大小写分类法在某些语言中没有任何意义。</li><br />
+<li>数值和货币格式 货币符号，以及将数值中数位分组的方式，每个国家各不相同。</li><br />
+<li>日期和时间格式 年、月、日哪个写在最前面？</li><br />
+<li>整理/排序 如果比较字符”A”和“B”,你可以实际比较它们的ASCII值来决定它们的顺序。但是，在不同的编码页可能并不如此。因此必须用特殊的规则来决定字符顺序。</li></ol><br />
+</p>
+
+<span class="posted">Posted by Hilton at November 11, 2003 11:46 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=355.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=355" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>你用MSN吗？我想进一步和你讨论繁简体的问题。</p>
+
+<p>我的MSN：shizhao@ripp-sinopec.com</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://talk.blogbus.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://talk.blogbus.com/'" tppabs="http://talk.blogbus.com/">shizhao</a> at November 12, 2003 06:58 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="355" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

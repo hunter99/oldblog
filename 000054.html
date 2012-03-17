@@ -1,0 +1,291 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: DTD学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000053.html" tppabs="http://hedong.3322.org/archives/000053.html" title="把影集显示修改了一下" />
+
+<link rel="next" href="000055.html" tppabs="http://hedong.3322.org/archives/000055.html" title="XMLDOM学习笔记" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000054.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/58"
+    dc:title="DTD学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000054.html"
+    dc:subject="ItTech"
+    dc:description="　　DTD的目标，是定义一个XML文档的合法的构建块，它用一系列的合法的元素定义了文档的结构。..."
+    dc:creator="Hilton"
+    dc:date="2003-07-25T05:48:19+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000054.html">
+<dc:title>DTD学习笔记</dc:title>
+<dc:description>　　DTD的目标，是定义一个XML文档的合法的构建块，它用一系列的合法的元素定义了文档的结构。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-25T05:48:19+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000053.html" tppabs="http://hedong.3322.org/archives/000053.html">&laquo; 把影集显示修改了一下</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000055.html" tppabs="http://hedong.3322.org/archives/000055.html">XMLDOM学习笔记 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 25, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">DTD学习笔记</h3>
+
+<p>　　<acronym title="Document Type Definition">DTD</acronym>的目标，是定义一个XML文档的合法的<acronym title="building blocks">构建块</acronym>，它用一系列的合法的元素定义了文档的结构。</p>
+
+<a name="more"></a>
+<p>　　1、简介<br />
+　　DTD可以内嵌于XML文档，也可以单独成为一个文件。内嵌的语法是<div class="code">&lt;!DOCTYPE root-element [element-declarations]&gt</div><br />
+其中元素的定义语法是：<div class="code">&lt;!ELEMENT element-name category&gt;<br />
+&lt;!ELEMENT element-name (element-content)&gt;</div><br />
+　　XML文档对单独的DTD文件的引用方法：<div class="code">&lt;!DOCTYPE root-element SYSTEM "filename"&gt;</div>DTD文件中，只有元素的定义即可。</p>
+
+<p>　　2、构建块<br />
+　　从DTD的角度看去，XML是由下述构建块构成的：<br />
+　　（1）Elements,元素，是XML的主要构建块，<br />
+　　（2）Tags,标签，用来标记元素，<br />
+　　（3）Attributes,属性，关于元素的额外或补充信息，<br />
+　　（4）Entities,实体，也可以说是一种变量，用来存放或代表其它字符或字符串，XML预定义了&lt;&gt;&amp;&quot;&apos;五种实体，<br />
+　　（5）PCDATA,可解析数据，指开始标签和结束标签之间的数据，其中的标签或特殊字符在解析时会被扩展；<br />
+　　（6）CDATA,不解析数据，也是合法的数据，只是不被解析器进一步解析而已。</p>
+
+<p>　　3、Elements定义<br />
+　　category有EMPTY和ANY两种。<br />
+　　element-content有几种情况：<br />
+　　（1）#PCDATA,内容只含有字符；<br />
+　　（2）child-element[,child-element]<br />
+　　（3）child-name+,子元素只少出现一次<br />
+　　（4）child-name＊,子元素只少出现0次<br />
+　　（5）child-name？,子元素出现0次或1次<br />
+　　（6）child1|child2,两者之一出现</p>
+
+<p>　　4、Attributes属性定义<br />
+　　<div class="code">&lt;!ATTLIST element-name attr-name attr-type default-value&gt;</div>其中，attr-type有以下几种类型：<br />
+　　<div class="code"><table border=1><tr><td>属性类型</td><td>解释</td></tr><br />
+<tr><td>CDATA</td><td> 字符数据</td></tr><br />
+<tr><td>(en1|en2|...)</td><td>枚举，只能从其中取一值</td></tr><br />
+<tr><td>ID</td><td>唯一ID</td></tr><br />
+<tr><td>IDREF</td><td>另一个元素的ID引用</td></tr><br />
+<tr><td>IDREFS</td><td>一些其它ID</td></tr><br />
+<tr><td>NMTOKEN</td><td>一个合法的XML名字</td></tr><br />
+<tr><td>NMTOKENS</td><td>一些合法的XML名字</td></tr><br />
+<tr><td>ENTITY</td><td>一个实体</td></tr><br />
+<tr><td>ENTITIES</td><td>一些实体</td></tr><br />
+<tr><td>NOTATION</td><td>一个<acronym title="notation">符号</acronym>的名字</td></tr><br />
+<tr><td>xml:</td><td>预定XML值</td></tr></table></div><br />
+　　　<div class="code"><table border=1><tr><td>属性类型</td><td>解释</td></tr><br />
+<tr><td>value</td><td>实际值</td></tr><br />
+<tr><td>#REQUIRED</td><td>元素必须包含此属性</td></tr><br />
+<tr><td>#IMPLIED</td><td>元素不必包含此属性</td></tr><br />
+<tr><td>#FIXED value</td><td>是固定的值value</td></tr></table></div></p>
+
+<p>　　5、Entities,实体定义<br />
+　　有内部定义与外部定义两种形式：<div class="code">&lt;!ENTITY entity-name "value"&gt;<br />
+&lt;!ENTITY entity-name SYSTEM "URI/URL"&gt;</div>，例如：<br />
+<div class="code">DTD:<br />
+&lt;!ENTITY writer "Doglus More"&gt;<br />
+XML:<br />
+&lt;author&gt;&amp;writer;&lt;/auther&gt;</div></p>
+
+<p>　　6、在IE中用javascript调用XMLDOM进行XML文件的合法性检查<br />
+<div class="code">var xmlDoc = new ActiveXObject("Microsoft.XMLDOM")<br />
+xmlDoc.async="false"<br />
+xmlDoc.validateOnParse="true"<br />
+xmlDoc.load("note_dtd_error.xml")</p>
+
+<p>document.write("<br>Error Code: ")<br />
+document.write(xmlDoc.parseError.errorCode)<br />
+document.write("<br>Error Reason: ")<br />
+document.write(xmlDoc.parseError.reason)<br />
+document.write("<br>Error Line: ")<br />
+document.write(xmlDoc.parseError.line)<br />
+</div>其中，load()用来处理文件，处理字符串要用loadXML()。</p>
+
+<p><br />
+</p>
+
+<span class="posted">Posted by Hilton at July 25, 2003 05:48 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=54.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=54" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="54" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

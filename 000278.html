@@ -1,0 +1,263 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Python学习（三）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000277.html" tppabs="http://hedong.3322.org/archives/000277.html" title="Python学习（二）" />
+
+<link rel="next" href="000279.html" tppabs="http://hedong.3322.org/archives/000279.html" title="Python学习（四）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000278.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/196"
+    dc:title="Python学习（三）"
+    dc:identifier="http://hedong.3322.org/archives/000278.html"
+    dc:subject="ItTech"
+    dc:description="　　继续Dive Into Python...."
+    dc:creator="Hilton"
+    dc:date="2003-10-10T22:32:04+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000278.html">
+<dc:title>Python学习（三）</dc:title>
+<dc:description>　　继续Dive Into Python....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-10T22:32:04+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000277.html" tppabs="http://hedong.3322.org/archives/000277.html">&laquo; Python学习（二）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000279.html" tppabs="http://hedong.3322.org/archives/000279.html">Python学习（四） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 10, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Python学习（三）</h3>
+
+<p>　　继续Dive Into Python.</p>
+
+<a name="more"></a>
+<p>20、定义类<br />
+&nbsp;&nbsp;&nbsp;&nbsp;以FileInfo类的定义为例<br />
+from UserDict import UserDict<br />
+class FileInfo(UserDict):              <br />
+    "store file metadata"              <br />
+    def __init__(self, filename=None):   <br />
+        UserDict.__init__(self)        <br />
+        self["name"] = filename        <br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)父类放在类名后的小括号内；<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)类可以有文档字符串<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)__init__函数在对象被创建后被自动调用的第一个函数，可以指定任何个数的参数。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4)惯例，__init__应为类中第一个定义的方法，其第一个参数指向类的当前实例的第一个引用，且应命之为self。__init__中要显式地调用父类的__init__方法。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;5)__init__无返回值。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;6)__init__的定义是可选的，一旦定义必须显式调用父类的__init__方法。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;7)除了可自由定义的普通的类方法，还有一些可以定义的专用方法。专用方法是在特殊情况下或当使用特别语法时由Python替你调用的，而不是在代码中直接调用(象普通的方法那样)。也就是说，python提供了一种方法，可以将非方法调用语法映射到方法调用上。最常见是__getitem__和__setitem__方法。例如，在上例中增加两个方法的定义，就可以实现方便的取值和赋值：<br />
+def __getitem__(self, key): return self.data[key]<br />
+def __setitem__(self, key, item): self.data[key] = item<br />
+&gt;f = fileinfo.FileInfo("/music/_singles/kairo.mp3")<br />
+&gt;f[“name”]<br />
+&gt;f[“anothername”]=...<br />
+&nbsp;&nbsp;&nbsp;&nbsp;8)__repr__专用函数，返回一个对象的字符串表示。Python用内置函数repr来显示变量的值，如果repr的参数是某个对象时，那用它的类的__repr__返回对象的字符串表示。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;9)__cmp__专用函数，在比较类实例时被调用。即当作==比较时，被调用。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;10)__len__专用函数，当调用内置函数len(instance)时被调用，对字符串返回字符的个数，对字典返回关键字的个数，对序列或列表返回元素个数。对自由定义的类，可自由定义返回的len的值的含义。：)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;11)__delitem__专用函数， 在调用 del instance[key]被调用。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;12)__setitem__,__getitem__,__cmp__,__len__,等方法加入到类的定义中后，可以使任何类看起来象“字典”。还有其它的一些专用方法，可以使类看起来象数值一样可以对它进行运行。</p>
+
+<p>21、类的实例化和清除<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)象调用函数一样调用类，就可以实例化一个类，传入的参数是__init__定义的参数(参数是以从右向左的顺序传递给__init__的，python会自动添加self)，返回一个实例对象。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)一个类的所有实例，共享类的文档字符串，<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)python采用引用计数的技术进行垃圾回收，因而维护着对第一个创建的实例的引用的列表，当计数为0时，实例自动被破坏。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4)不用显式的释放一个实例，因为当变量超出作用域时自动失效，而至其所对应的实例的引用数减一。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;5)在Python中，你不能子类化象字符串、列表和字典的内置数据类型。作为补偿，Python附带了封装类，可以模拟这些内置的数据类型的行为： UserString，UserList，和 UserDict。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;6)子类中定义的方法覆盖父类的方法，python不支持函数重载。由此，子类的__init__与父类的__init__的参数序列可以有较大的不同。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;7)python支持数据属性，即C++中所谓的“数据成员”，对其值的引用需要以"实例名.属性名"的方式。<ins>注意，数据属性是类实例拥有的属性，还有一种属性是叫属性，是类所拥有的</ins><br />
+&nbsp;&nbsp;&nbsp;&nbsp;8)<br />
+22、当:号后面的块(即需要缩进的内容)只有一条语句时，可以直接将此语句放在:后面。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 10, 2003 10:32 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=278.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=278" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>sdfg</p>
+<span class="comments-post">Posted by: f at December 31, 2003 10:54 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="278" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

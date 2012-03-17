@@ -1,0 +1,310 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 学习struts笔记（2）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000366.html" tppabs="http://hedong.3322.org/archives/000366.html" title="在Apache HTTPD中使用DSO（编译)" />
+
+<link rel="next" href="000368.html" tppabs="http://hedong.3322.org/archives/000368.html" title="学习struts笔记（3）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000367.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/261"
+    dc:title="学习struts笔记（2）"
+    dc:identifier="http://hedong.3322.org/archives/000367.html"
+    dc:subject="ItTech"
+    dc:description="　　昨天开了小差，今天继续学习。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-20T23:07:59+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000367.html">
+<dc:title>学习struts笔记（2）</dc:title>
+<dc:description>　　昨天开了小差，今天继续学习。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-20T23:07:59+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000366.html" tppabs="http://hedong.3322.org/archives/000366.html">&laquo; 在Apache HTTPD中使用DSO（编译)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000368.html" tppabs="http://hedong.3322.org/archives/000368.html">学习struts笔记（3） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 20, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">学习struts笔记（2）</h3>
+
+<p>　　昨天开了小差，今天继续学习。</p>
+
+<a name="more"></a>
+<p><h4>学习struts</h4><br />
+　　 关于这个框架的官方文档，可以在线获得，也可以从随struts发布的一个自安装的struts-documentation.war程序包中得到。这个struts-documentation.war包括：<br />
+<ul><li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/userGuide/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/userGuide/index.html'" tppabs="http://jakarta.apache.org/struts/userGuide/index.html">用户和开发指南</a></li><br />
+<li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/api/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/api/index.html'" tppabs="http://jakarta.apache.org/struts/api/index.html">全面的API文档</a></li><br />
+<li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/faqs/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/faqs/index.html'" tppabs="http://jakarta.apache.org/struts/faqs/index.html">FAQ 和howto指南</a></li><br />
+<li>以及你在这儿找到的其它的内容<li></ul></p>
+
+<p>　　欢迎你先浏览一下在线文档，然后再于本地安装以就近学习。<br />
+注意: 如果你在浏览这个站点的文档，这一节的大多数链接都是指向每日创建的文档（ Nightly Build）. 当学习Struts时，一定要看与实际应用的struts版本一致的文档。在每个发布版本中，文档以一个应用程序的形式提供，你可以在本地安装和使用。</p>
+
+<p>　　简明的 <a href="javascript:if(confirm('http://jakarta.apache.org/struts/userGuide/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/userGuide/index.html'" tppabs="http://jakarta.apache.org/struts/userGuide/index.html">Struts 用户指南</a>，介绍了 Model-View-Controller 架构，以及它如何跟struts的基本组件联系起来。如果你想搞清楚 "Struts是如何工作的", 这就是一个开始的地方。除了这个架构的概述，用户指还包括安装指令的细节，以及struts这个框架的每个版本的发布说明。<br />
+　　开发指南则有struts中提供的组件和扩展的详细技术参考。除了有 Struts Utilities 和 Struts Validator的指南外，还有每个包的概述和每个struts标签库的API参考。开发指南被设计用来做每日参考的，来帮助你最有效地使用这些标准包。到各种开发指南的链接构成了用户指南菜单的一部分。</p>
+
+<p>　　要得到关于某个类或包的更多的细节，可以参考精心维护、非常完整的<a href="javascript:if(confirm('http://jakarta.apache.org/struts/api/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/api/index.html'" tppabs="http://jakarta.apache.org/struts/api/index.html">strutsAPI文档</a>。强烈建议你在开始使用某个类时参考一下它的API文档，这会确保你不会忽略了它的某些重要的功能或选项。那些你不知道的，就不能为你所用。<br />
+　　Struts FAQ被设计用来补充那些API文档、用户/开发指南的微小遗漏。<br />
+<ul><li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/faqs/kickstart.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/faqs/kickstart.html'" tppabs="http://jakarta.apache.org/struts/faqs/kickstart.html">Kickstart FAQ</a> 回答常见的关于struts的非技术问题</li><br />
+<li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/faqs/newbie.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/faqs/newbie.html'" tppabs="http://jakarta.apache.org/struts/faqs/newbie.html">Struts Newbie FAQ</a> 回答常见的第一次使用struts的新手提出的技术问题</li><br />
+<li><a href="javascript:if(confirm('http://jakarta.apache.org/struts/faqs/helping.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/faqs/helping.html'" tppabs="http://jakarta.apache.org/struts/faqs/helping.html">How to Help FAQ</a> 回答常见的关于使用struts开发的项目的发布的问题</li></ul>.</p>
+
+<p>　　Howto Guides 被设计用来帮助你使用可选的struts扩展和组件，包括了一些象在struts中使用Secure Socket Layer (SSL)协议及单元测试struts应用程序等此类的题目。</p>
+
+<p>　　<a href="javascript:if(confirm('http://nagoya.apache.org/wiki/apachewiki.cgi?StrutsProjectPages  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://nagoya.apache.org/wiki/apachewiki.cgi?StrutsProjectPages'" tppabs="http://nagoya.apache.org/wiki/apachewiki.cgi?StrutsProjectPages">Struts Wiki</a>是Struts documentation中一个相对崭新的成员。所有的Struts社区的成员都可以在wiki上发表评论，也包括用户列表。Wiki非常适合持续讨论你认为重要的话题，而邮件列表则重适合于讨论突发的问题。</p>
+
+<p>　　如果你想对在这儿看到的页面发表评论，你就可以据这个链接到wiki上发表。</p>
+
+<p>　　要获取更多的帮助，你可以试一下<a href="javascript:if(confirm('http://jguru.com/faq/Struts  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jguru.com/faq/Struts'" tppabs="http://jguru.com/faq/Struts">JGuru FAQ </a>和 <a href="javascript:if(confirm('http://jguru.com/forums/Struts  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jguru.com/forums/Struts'" tppabs="http://jguru.com/forums/Struts">Forum</a>的JGuru Struts知识库。</p>
+
+<p>　　当然，最好的文档是代码本身。如果你对Struts在实际中如何工作有疑问，不要犹豫阅读源码。整个struts框架的完整的可编译的源码，在<a href="javascript:if(confirm('http://jakarta.apache.org/site/sourceindex.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/site/sourceindex.html'" tppabs="http://jakarta.apache.org/site/sourceindex.html">struts分发源码</a>的src目录下。</p>
+
+<p><br />
+<h4>struts的例程</h4><br />
+　　为帮助你理解各部分是如何组合在一起工作的，发布struts有几个例程：<br />
+<ul><li> Blank - ，一个开发新的struts应用程序的简单模板</li><br />
+<li>Exercise-Taglib -,一组测试页面，同时展示了如何应用自定义标签</li><br />
+<li>Documentation - ,struts文档，同在网站上看到的一样</li><br />
+<li>MailReader - ，最原始的例程，<ins>先看一下这个</ins></li><br />
+<li>Tiles-Doc -, Tiles扩展的补充演示</li><br />
+<li>Upload -,演示使用文件上传功能（基于Commons Upload.)</li><br />
+<li>Validator - ，演示使用Validator扩展</li></ul>.</p>
+
+<p>　　在struts的二进制发布包中，每个程序都是一个独立的WAR文件。它们的源代码，对struts二进制发布则在各的WEB-INF/src目录下，对struts源码发布则在各web目录下。.</p>
+
+<p>　　还有很多第三方的例程供学习，包括：<br />
+<ul><li><a href="javascript:if(confirm('http://raibledesigns.com/wiki/Wiki.jsp?page=AppFuse  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://raibledesigns.com/wiki/Wiki.jsp?page=AppFuse'" tppabs="http://raibledesigns.com/wiki/Wiki.jsp?page=AppFuse">AppFuse</a> - ，演示在struts中使用XDoclet，还不同的安全包，以及实现数据持久性的Hibernate技术</li><br />
+<li> <a href="javascript:if(confirm('http://www.ibatis.com/jpetstore/jpetstore.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ibatis.com/jpetstore/jpetstore.html'" tppabs="http://www.ibatis.com/jpetstore/jpetstore.html">JPetStore </a>- ,Java Petstore应用的改进版本，用Struts 和 iBATIS实现。<br />
+<li> <a href="javascript:if(confirm('http://www.codeczar.com/products/logweb/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.codeczar.com/products/logweb/index.html'" tppabs="http://www.codeczar.com/products/logweb/index.html">LogWeb</a> - ,一个Struts应用程序，在一个servlet容器内动态配置Log4J.</li></ul></p>
+
+<p>　　请参见<a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/examples.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/examples.html'" tppabs="http://jakarta.apache.org/struts/resources/examples.html">资源一节</a>的完整的免费可得的Struts例程列表。<br />
+<h4>进一步学习</h4><br />
+　　<a href="javascript:if(confirm('http://jakarta.apache.org/struts/using.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/using.html#Lists'" tppabs="http://jakarta.apache.org/struts/using.html#Lists">Struts Mailing Lists </a>是非常有用的、交互的信息宝库。用户列表往往积累了大量的信息，因此在<a href="javascript:if(confirm('http://www.catb.org/~esr/faqs/smart-questions.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.catb.org/~esr/faqs/smart-questions.html'" tppabs="http://www.catb.org/~esr/faqs/smart-questions.html">张帖新问题</a>前，一定要先检查一下出版的文档和<a href="javascript:if(confirm('http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42'" tppabs="http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42">列表文档</a>。很有可能，这个问题已经有人问过并有了回答。<br />
+　　如果你在<a href="javascript:if(confirm('http://jakarta.apache.org/struts/learning.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/learning.html#faqs'" tppabs="http://jakarta.apache.org/struts/learning.html#faqs">FAQ</a>或<a href="javascript:if(confirm('http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42'" tppabs="http://nagoya.apache.org/eyebrowse/SummarizeList?listId=42">列表文档</a>中实在找不到问题的答案，你可将问题张帖到Struts 用户列表上 – 在张帖前，你必须已经订阅了<a href="mailto:struts-user-subscribe@jakarta.apache.org">列表</a>或<a href="mailto:struts-user-digest-subscribe@jakarta.apache.org">列表摘要</a>。.<br />
+　　注意，Struts User 流行 "轻松星期五（casual friday）". 只要在标题前加[FRIDAY]前缀，如struts无关的消息就可以发布，且为大家所接受。如果你不想为这类消息打扰，可以据此设置邮件过滤。强烈建议你不要在其它的工作日张帖 [FRIDAY] 信息。我们非常感谢你的合作。</p>
+
+<p>　　Struts资源页面提供了一些其它公开资源链接，包括<br />
+<ul><li> <a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/books.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/books.html'" tppabs="http://jakarta.apache.org/struts/resources/books.html">书</a>,</li><br />
+<li> <a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/articles.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/articles.html'" tppabs="http://jakarta.apache.org/struts/resources/articles.html">文章</a>,</li><br />
+<li> <a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/tutorials.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/tutorials.html'" tppabs="http://jakarta.apache.org/struts/resources/tutorials.html">教程,</a></li><br />
+<li> <a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/seminars.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/seminars.html'" tppabs="http://jakarta.apache.org/struts/resources/seminars.html">研讨会</a>, 及</li><br />
+<li> <a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/examples.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/examples.html'" tppabs="http://jakarta.apache.org/struts/resources/examples.html">例程.</a></li></ul></p>
+
+<p>　　<a href="javascript:if(confirm('http://jakarta.apache.org/struts/news/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/news/index.html'" tppabs="http://jakarta.apache.org/struts/news/index.html">Struts News & Status页面</a>报道影响struts的近期事件和概述当前项目的进展。</p>
+
+<p>　　<a href="javascript:if(confirm('http://jakarta.apache.org/struts/status.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/status.html'" tppabs="http://jakarta.apache.org/struts/status.html">Roadmap 页面</a>描述了我们未来开发的计划。</p>
+
+<p>　　Struts Wiki是Struts documentation中一个相对崭新的成员。欢迎所有的Struts社区的成员（包括你）在wiki上发表评论，. 然后,Wiki不是一个提交突发问题的地方。所有请求帮助的问题，要发到<a href="javascript:if(confirm('http://jakarta.apache.org/struts/using.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/using.html#Lists'" tppabs="http://jakarta.apache.org/struts/using.html#Lists">Struts用户列表</a> 或<a href="javascript:if(confirm('http://jakarta.apache.org/struts/resources/resources.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/resources/resources.html'" tppabs="http://jakarta.apache.org/struts/resources/resources.html">其它支持论坛</a>。</p>
+
+<p>　　还有一些Wiki 页面接收对文档的评论，点击这些页面底部的 "Comments?" 链接就可去发表评论。</p>
+
+<p>参考文献：<br />
+<a href="javascript:if(confirm('http://jakarta.apache.org/struts/learning.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/struts/learning.html'" tppabs="http://jakarta.apache.org/struts/learning.html">Learning About Struts</a></p>
+
+<span class="posted">Posted by Hilton at November 20, 2003 11:07 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=367.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=367" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>as</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://as/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://as/'" tppabs="http://as/">as</a> at December 30, 2003 11:13 AM</span>
+</div>
+<div class="comments-body">
+<p>111</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://11/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://11/'" tppabs="http://11/">11</a> at November 27, 2003 01:22 PM</span>
+</div>
+<div class="comments-body">
+<p>　　就是那个struts-example例程。<br />
+　　需要说明的是，这个例程中的文档是针对对旧版本的，与当前的例程代码有较大的出入。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 26, 2003 03:50 PM</span>
+</div>
+<div class="comments-body">
+<p>"MailReader - ，最原始的例程，先看一下这个"<br />
+这个webapp没看到啊? 是哪个版本附带的?</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;nomad7&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;nomad7&#64;sina&#46;com">nomad</a> at November 26, 2003 03:30 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="367" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

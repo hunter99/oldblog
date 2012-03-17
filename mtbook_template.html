@@ -1,0 +1,842 @@
+<html>
+
+<head>
+  <title>第九章 ─ 模版</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第九章 ─ 模版</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#template">第九章 ─ 模版</a></li>
+  <ul>
+    <li><a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/structure  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/structure'" tppabs="http://hedong.3322.org/mt/docs/zh/structure">模版架構</a></li>
+    <ul>
+      <li><a href="#structure_index">索引模版</a></li>
+      <li><a href="#structure_archive">彙整相關模版</a></li>
+      <li><a href="#structure_others">其他模版</a></li>
+      <li><a href="#structure_module">模版模組</a></li>
+      <li><a href="#structure_search">搜尋模組</a></li>
+    </ul>
+    <li><a href="#tag">模版標籤</a></li>
+    <ul>
+      <li><a href="#tag_philosophy">模版和標籤哲學</a></li>
+      <li><a href="#tag_types">標籤種類</a></li>
+      <ul>
+        <li><a href="#tag_types_container">容器標籤</a></li>
+        <li><a href="#tag_types_variable">變數標籤</a></li>
+      </ul>
+      <li><a href="#tag_syntax">標籤語法</a></li>
+      <li><a href="#tag_attributes">標籤屬性</a></li>
+      <li><a href="#tag_context">情境</a></li>
+    </ul>
+    <li><a href="#tags">標籤索引</a></li>
+    <ul>
+      <li><a href="#tags_weblog_data">網誌資料</a></li>
+      <li><a href="#tags_entry_listings_archive_pages">文章項目列示/彙整頁面</a></li>
+      <li><a href="#tags_comments">迴響</a></li>
+      <li><a href="#tags_comment_previewing">預覽迴響</a></li>
+      <li><a href="#tags_archive_templates_master_archive_index">彙整模版及彙整總索引</a></li>
+      <li><a href="#tags_category">與分類相關的標籤</a></li>
+      <li><a href="#tags_calendar">月曆顯示標籤</a></li>
+      <li><a href="#tags_trackback">引用功能標籤</a></li>
+      <li><a href="#tags_search_results">搜尋結果標籤</a></li>
+      <li><a href="#tags_miscellaneous">其他標籤</a></li>
+      <li><a href="#tags_global_attributes">全域標籤屬性</a></li>
+      <li><a href="#tags_date_tag_formats">日期標籤格式</a></li>
+    </ul>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="template"></a>第九章 ─ 模版</h1>
+
+<p>這一章的份量相當之多，前半段是比較抽象的論述以及注意事項，著重在觀念的釐清，接著是把這一章範圍內的使用者介面快速描述一遍；由於本章涉及大量的 HTML 碼，所以將不會以逐步驟抓圖的方式解說，否則將把篇幅拖得過於冗長。而後半段則主要是摘錄改寫自官方文件裡的資料。雖然本章對於初學乍練的讀者來說會比較難以吸收，但是對於稍微有些基礎的讀者來說，卻應該是相當豐富而實用的資料。</p>
+
+<h2><a id="structure"></a>模版結構</h2>
+
+<p>Movable Type 的模版能力恐怕正是其強大之處了。這套系統使得網誌的「內容」可以跟「形式」抽離；當妳在修改版面安排（形式）的時候，完全不會影響到內容；反之亦然。然而在 Movable Type 的預設模版裡，又更進一步地使用了 <acronym title="Cascading Style Sheets, 樣式表">CSS</acronym> ，把這個「形式」又拆解成「順序結構」跟「效果」；前者是 <acronym title="HyperText Markup Language">HTML</acronym> 或 <acronym title="eXtensible HyperText Markup Language">XHTML</acronym> 的部分，後者則是 CSS 的部分。藉由這樣的拆解，妳可以重新安置頁面中的各個元件，而不改變每個元件的呈現效果；也可以重新設計每個元件的呈現效果，而不會改變頁面元件的安置。</p>
+
+<p>像是這樣的設計理念，有一個說法稱做「模組化」，強調各自獨立的合作關係，不會一個地方爛掉就全部爛光光。而這也是妳在規劃模版的時候所該記在心裡面的。</p>
+
+<p>以下我們要討論的事情大概都發生在<code>模版編輯畫面</code>裡，任何時候妳都可以如<a href="#img_01">圖一</a>按下左方工具列上的「<strong>模版</strong>」按鈕，就可以開始把玩模版了。</p>
+
+<div class="img"><a id="img_01"></a><img src="mttemplate_structure_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_01.png" alt="按下「模版」按鈕"><br />圖一：按下左方工具列的「模版」按鈕。</div>
+
+<p>接下來讓我們一一仔細察看：</p>
+
+<h3><a id="structure_index"></a>索引模版</h3>
+
+<p>在<code>列出模版</code>畫面的第一區裡，列出的是索引模版。妳可以點擊<code>模版名稱</code>欄位裡的任何一個，就能夠加以編輯該模版，或者調整跟該模版有關的設定；另外在這個畫面裡還會標示出各個模版所會輸出的檔案名稱，也註明它們會不會在重建索引模版的時候一併被自動重建。當然妳還可以利用<code>刪除</code>核選框以及<code>刪除</code>按鈕來刪除不再使用的模版，或者是點擊「<code>建立新的索引模版</code>」鏈結來新增新的索引模版。</p>
+
+<p><div class="img"><a id="img_02"></a><img src="mttemplate_structure_index_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_01.png" alt="索引模版"><br />圖二：索引模版。</div><div class="img"><a id="img_03"></a><img src="mttemplate_structure_index_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_02.png" alt="模版名稱"><br />圖三：索引模版的模版名稱。</div><div class="img"><a id="img_04"></a><img src="mttemplate_structure_index_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_03.png" alt="輸出檔案"><br />圖四：索引模版的輸出檔案資訊。</div><div class="img"><a id="img_05"></a><img src="mttemplate_structure_index_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_04.png" alt="是否重建的資訊"><br />圖五：索引模版是否重建的資訊。</div><div class="img"><a id="img_06"></a><img src="mttemplate_structure_index_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_05.png" alt="刪除核選框及刪除按鈕"><br />圖六：索引模版的刪除核選框及刪除按鈕。</div><div class="img"><a id="img_07"></a><img src="mttemplate_structure_index_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_06.png" alt="「建立新的索引模版」鏈結"><br />圖七：「建立新的索引模版」鏈結。</div></p>
+
+<p>當妳新增或編輯索引模版的時候，妳首先就能夠修改這個模版的<code>模版名稱</code>，這個名稱就祇是用來顯示用的，所以妳甚至可以把好幾個模版都取做相同的名字 ─ 祇要妳自己不會弄混就好。</p>
+
+<p>除此之外妳也可以修改<code>輸出檔案</code>的檔名，這個設定就很重要了；由索引模版所產生出來的檔案會被放在<code>本機站台路徑</code>底下，檔案名稱就是妳在此所設定的名稱，其他讀者則可以由<code>站台網址</code>來讀取這個檔案。一旦妳修改了這一欄的設定值，原先的檔案並不會消失，但是更新過後的檔案卻會使用妳新設定的名稱；這意味著妳得記得一併修改相關的其他檔案或模版，讀者們（或搜尋引擎）纔不會祇看到老舊不更新的檔案。</p>
+
+<p>接下來還有一個「<code>重建索引模版時自動重建此模版</code>」的核選框，預設是核選著的，表示每當妳的索引模版需要更新（像是新增了文章、或儲存了文章修改）時，這個模版也會被一併重建成檔案。如果妳的模版並不會跟文章扯上關係，例如祇是單純的樣式表，那麼妳大可取消核選這個核選框，如此一來就可以減少系統每次需要重建的檔案數量，而降低系統負擔。</p>
+
+<p>「<code>將此模版連結到檔案</code>」是一個進階的功能，讓妳把這個模版內容實際存放到伺服器上的某個檔案；藉由這個功能，妳就能夠讓好幾份網誌使用完全相同的模版，而且它們也都會同步更新。不過這個功能也很有可能相當具有危險性 ─ 因為妳可以以此開啟系統裡的某個特定檔案，並且加以修改覆寫。如果妳沒有這麼複雜的需求，也不懂系統上各個目錄裡的東西的話，建議妳還是空著別動。</p>
+
+<p>最大的那一個欄位就是實際的模版內容了。妳可以在此任意地編輯修改模版內容。一旦妳修改了模版內容或者是上述的其他欄位後，別忘了還要按下「<code>儲存</code>」按鈕，纔會把妳所做的變更儲存回資料庫；接著妳還得按下「<code>重建</code>」按鈕，纔能以更新過的模版內容，製作新的靜態頁面檔案。</p>
+
+<p><div class="img"><a id="img_08"></a><img src="mttemplate_structure_index_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_07.png" alt="模版名稱"><br />圖八：可以加以編輯的「模版名稱」欄位。</div><div class="img"><a id="img_09"></a><img src="mttemplate_structure_index_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_08.png" alt="輸出檔案"><br />圖九：可以加以修改的「輸出檔案」欄位。</div><div class="img"><a id="img_10"></a><img src="mttemplate_structure_index_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_09.png" alt="「重建索引模版時自動重建此模版」核選框"><br />圖十：「重建索引模版時自動重建此模版」核選框。</div><div class="img"><a id="img_11"></a><img src="mttemplate_structure_index_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_10.png" alt="「將此模版連結到檔案」欄位"><br />圖十一：「將此模版連結到檔案」欄位。</div><div class="img"><a id="img_12"></a><img src="mttemplate_structure_index_11.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_11.png" alt="模版本體"><br />圖十二：模版本體。</div><div class="img"><a id="img_13"></a><img src="mttemplate_structure_index_12.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_12.png" alt="「儲存」按鈕"><br />圖十三：「儲存」按鈕。</div><div class="img"><a id="img_14"></a><img src="mttemplate_structure_index_13.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_index_13.png" alt="「重建」按鈕"><br />圖十四：「重建」按鈕。</div></p>
+
+<p>Movable Type 預設的主索引模版裡，除了提供幾個不同版本及功能的 RSS 模版之外，還有兩個可以用 CSS 調整版面的 HTML/XHTML 模版，分別是<code>主索引</code>模版以及<code>總彙整索引</code>模版。當然還少不了那個用來調整版面的 CSS 模版：<code>樣式表</code>模版。</p>
+
+<p>首先我們要來講講這個 HTML/XHTML 的部分。雖然說，有了 CSS 之力，妳可以隨意地安置各個元件，幾乎可以不要考慮他們的先後關聯，都有辦法做出整齊漂亮的版面；但是在這裡仍舊要強調，<strong>邏輯清晰的 HTML/XHTML 纔是建構優良頁面的基礎</strong>。</p>
+
+<p>為什麼呢？有幾個主要原因：</p>
+
+<p><ul>
+  <li>對於其他祇讀取 HTML/XHTML 的瀏覽器來說，妳所安排的元件順序幾乎就等同於他們所能取得資訊的順序。</li>對於那些因故無法使用妳我所熟知的瀏覽器的讀者來說，他們可能得仰賴其他科技的幫助，或者把網頁內容逐一轉換成點字、或者改以語音的方式逐一朗誦出來。在這種情況下，如果妳的 HTML/XHTML 撰寫得調理分明、層次清晰的話，也將能提供他們更多的語境線索。
+  <li>群組管理，維護方便。</li>把相關的元件放在一起，就可以很方便地套上相同的樣式；同時在 HTML/XHTML 源碼及網頁實際輸出上取得相似性的話，也比較能方便妳日後加以維護修改的工作。
+</ul></p>
+
+<p>切記，編撰 HTML/XHTML 模版的時候，妳應當揚棄以往使用表格來排版的方式，而把排版的工作留給 CSS 來處理。表格應剛祇在真的是「表格」的情況下纔使用。</p>
+
+<p>撰寫 HTML/XHTML 模版的時候，妳可能會需要具備基本的 HTML/XHTML 能力，另外可以參考 <a href="javascript:if(confirm('http://mtbook.org/mtmanual_tags.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mtbook.org/mtmanual_tags.html'" tppabs="http://mtbook.org/mtmanual_tags.html">Movable Type 使用手冊：模版標籤</a>來插入其他 MT 標籤；如果妳之前也有使用過其他的網誌系統或者出版管理系統，而且也用那些系統製作過模版的話，妳也許會想參考一下 <a href="javascript:if(confirm('http://mtbook.org/mttags.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mtbook.org/mttags.html'" tppabs="http://mtbook.org/mttags.html">Movable Type 模版</a>；這份文件裡有對於不同系統間模版差異的解釋，也有著簡單的模版作用機制說明，對於編撰模版來說，一定有所幫助。</p>
+
+<p>如果想要做出比好還要好的 HTML/XHTML 模版，也應該留意 Accessibility(親和力/無障礙) 的議題。妳可以看一下 <a href="javascript:if(confirm('http://www.w3.org/WAI/Overview.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/WAI/Overview.html'" tppabs="http://www.w3.org/WAI/Overview.html">W3C Web Accessibility Initiative</a> 的內容（有人正在把它翻譯成<a href="javascript:if(confirm('http://www2.csj.ks.edu.tw/~tch023/accessibility/overint.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www2.csj.ks.edu.tw/~tch023/accessibility/overint.htm'" tppabs="http://www2.csj.ks.edu.tw/~tch023/accessibility/overint.htm">中文版</a>）；另外也有幾份不錯而簡短的文件該讀一讀，像是我跟 <a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/articles/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/articles/index.html'" tppabs="http://ccca.nctu.edu.tw/~hlb/articles/index.html">hlb</a> 翻譯完的 <a href="javascript:if(confirm('http://dia.z6i.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://dia.z6i.org/'" tppabs="http://dia.z6i.org/">Dive Into Accessibility （深入親和力）</a>就是一本分量輕薄的小書，可以幫助妳在三十天內讓 Movalbe Type 做出來的網頁更棒。</p>
+
+<p>當妳寫出 HTML/XHTML 模版後，也可以用 <a href="javascript:if(confirm('http://validator.w3.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://validator.w3.org/'" tppabs="http://validator.w3.org/">W3C MarkUp Validation Service</a> 來驗證看看是不是有語法上的瑕疵；通常要修改這些瑕疵都會耗上大量的時間精力，但是卻可以幫助妳把 HTML/XHTML 寫得更合邏輯；事實上，這也可以鍛鍊妳的 HTML/XHTML 功力。</p>
+
+<p>CSS 是另外一門大學問；舉凡字形變化、邊框留白、顏色圖片乃至於游標音效，都幾乎可以透過 CSS 來達成。除此之外，可重複利用也是另一個 CSS 的特色；祇要妳規劃得當，就可以讓同一類的 HTML/XHTML 元件去取用相同的屬性變化，毫不囉唆。</p>
+
+<p>網路上可以找到的中文 CSS 相關文鍵不特別多，不過妳可以從 <a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/articles/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/articles/index.html'" tppabs="http://ccca.nctu.edu.tw/~hlb/articles/index.html">hlb</a> 翻譯的<a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/'" tppabs="http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/">CSS實務排版技巧、秘訣與技術</a>開始著手。大致上當妳一開始祇能夠修改既有的 CSS 檔案時，妳可以這麼做：</p>
+
+<p><ul>
+  <li>從 HTML 模版裡找出要修改的元件</li>這個元件通常會被包在 <strong>&lt;div&gt;</strong> 和 <strong>&lt;/div&gt;</strong> 標籤之間，所以妳可以在 <strong>&lt;div&gt;</strong> 標籤裡找到像是 <strong>class=&quot;divclass&quot;</strong> 或是 <strong>id=&quot;divid&quot;</strong> 這樣的屬性。有的時候這樣的屬性是放在 &lt;img&gt; 標籤裡或是其他地方，請自行判斷。
+  <li>到 CSS 模版裡找到相對應的 class 或 id</li>如果是 id ，那麼在 CSS 裡面就會是像 <strong>#divid</strong> 命名的區塊；如果是 class ，那麼在 CSS 裡面就會是像 <strong>.divclass</strong> 命名的區塊。如果多個 class 使用相同的屬性，也可以用 <strong>.divclass1, .divclass2, .divclass3</strong> 這樣子的方法來群組 class 。
+  <li>修改 CSS 屬性</li>每一個 CSS 區塊都會以 <strong>{</strong> 開頭、以 <strong>}</strong> 結束，其中列著許多屬性，每一個屬性後面都會有 <strong>:</strong> ，然後纔是列著多個不同的參數值，再以 <strong>;</strong> 來結束對這一個屬性的設定；參數值之間則是以空白來分隔。
+</ul></p>
+
+<p>另外一個 CSS 的重點是在於欄框的階層。 CSS 中任何元件預設都是「佔滿可用空間」的，如果妳要更動佔用空間的尺寸、位置的話，就得留意這個「<strong>頁(page) ─ 格(box) ─ 欄(margin) ─ 框(border) ─ 留白(padding) ─ 內容物</strong>」的先後關係：</p>
+
+<p><ul>
+  <li><strong>頁(page)</strong>是最大的單位，也是幾乎不能夠調整的。整個瀏覽器的可視範圍就是一個<strong>頁</strong>；所以妳不可能同時使用多個頁。</li>
+  <li>一頁裡面可以有好幾個<strong>格(box)</strong>；通常妳可以直接使用像是 <strong>top</strong>, <strong>bottom</strong>, <strong>left</strong>, <strong>right</strong> 這樣的屬性來指定<strong>格</strong>的四個邊界；這些數值都會直接參照頁的四個邊界來計算。</li>
+  <li>一格裡面還可以有好幾個<strong>欄(margin)</strong>；通常妳可以用像是 <strong>margin-top</strong>, <strong>margin-bottom</strong>, <strong>margin-left</strong>, <strong>margin-right</strong> 這樣的屬性來指定<strong>欄</strong>的四個邊界；這些數值都會參照這個欄所在的<strong>格</strong>的四個邊界來計算。</li>
+  <li>每個欄都還可以加<strong>框(border)</strong>，妳可以用 <strong>border</strong> 系列的屬性來指定這些框的顏色、樣式等。除了加框之外，框線往內還可以<strong>留白(padding)</strong>；通常妳可以用像是 <strong>padding-top</strong>, <strong>padding-bottom</strong>, <strong>padding-left</strong>, <strong>padding-right</strong> 這樣的屬性來指定四邊各要留多少空間，其內剩下來的區域纔是內容物所會佔用的空間。</li>
+</ul></p>
+
+<p>通常當妳很高興地安排完一整套的 CSS 欄框排版之後，很有可能出乎意料（或意料之中？）地發現，瀏覽器所畫出來的樣子跟妳原先所設想的完全不同！所以在嘗試及除錯的階段，妳可以先<strong>暫時</strong>地使用粗而明顯的邊框，來觀察看看到底瀏覽器把妳的欄框放到哪裡去了。以下是一個除錯用邊框的範例：<pre>border: red solid 10px;</pre></p>
+
+<p>妳可以等位置擺對了之後，再把這個邊框改回妳想要的樣子（或者把它去掉，如果妳不想要有邊框的話）。</p>
+
+<p>大致說來，妳可以任意地把玩 CSS 的各種屬性，無須擔心會損毀妳的內容跟架構。所以，盡情享樂吧！</p>
+
+<p>當妳寫出 CSS 模版後，也可以用 <a href="javascript:if(confirm('http://jigsaw.w3.org/css-validator/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jigsaw.w3.org/css-validator/'" tppabs="http://jigsaw.w3.org/css-validator/">W3C CSS Validation Service</a> 來驗證看看是不是有語法上的瑕疵。好消息是，這應該會比 HTML/XHTML 的驗證容易通過得多了。</p>
+
+<p>另外還有一個壞消息：目前號稱市場佔有率最高的 <acronym title="Internet Explorer">IE</acronym> 實際上對於 W3C CSS 的實做程度卻最低；所以妳可能祇需要花 20% 的時間就可以做出漂亮的版面，卻要再花上 80% 的時間來處理 IE 的相容性。事情當然還可以更糟，幾個月前微軟的 IE 團隊表示，三年內將不會有任何 IE 的更新檔出現，因此這些問題在接下來的幾年內也都不會被解決掉。</p>
+
+<p>額外給華文世界使用者的資訊： KKMan 的結果會更糟。</p>
+
+<p>至於 <acronym title="Resource Description Framework">RDF</acronym> 的用途是用來描述妳所能夠提供給其他人的資訊有哪些用的。透過 RDF 的架構，妳纔可以使用 <acronym title="RDF Site Summary">RSS</acronym> 來跟其他站台串聯彙整。</p>
+
+<p>如果妳對此毫無理解，那倒也沒有關係；因為 MT 內附的 RDF 模版其實已足堪用了。妳唯一應當注意的事情是，確定裡面關於內容語言的描述是否正確。如果妳的網誌內容是繁體中文，請確定妳用了 <strong>&lt;dc:language&gt;zh-tw&lt;/dc:language&gt;</strong>(RSS 1.0)  或 <strong>&lt;language&gt;zh-tw&lt;/language&gt;</strong>(RSS 0.91)。</p>
+
+<p>至於更深入的細節，則建議可以參考一下 <a href="javascript:if(confirm('http://www.w3.org/RDF/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/RDF/'" tppabs="http://www.w3.org/RDF/">Resource Description Framework (RDF) / W3C Semantic Web Activity</a> 以及 <a href="javascript:if(confirm('http://web.resource.org/rss/1.0/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://web.resource.org/rss/1.0/'" tppabs="http://web.resource.org/rss/1.0/">RDF Site Summary (RSS) 1.0</a></p>
+
+<p>實際上 RDF 的門派版本相當分歧雜亂，真的打算開始摸索的朋友恐怕得先有點心理準備纔行。</p>
+
+<h3><a id="structure_archive"></a>彙整相關模版</h3>
+
+<p>在<code>列出模版</code>畫面的第二區裡，列出的是彙整相關模版。妳可以點擊<code>模版名稱</code>欄位裡的任何一個，就能夠加以編輯該模版；妳也可以利用<code>刪除</code>核選框以及<code>刪除</code>按鈕來刪除不再使用的模版，或者是點擊「<code>建立新的彙整模版</code>」鏈結來新增新的彙整相關模版。</p>
+
+<p><div class="img"><a id="img_15"></a><img src="mttemplate_structure_archive_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_01.png" alt="彙整相關模版"><br />圖十五：彙整相關模版。</div><div class="img"><a id="img_16"></a><img src="mttemplate_structure_archive_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_02.png" alt="模版名稱"><br />圖十六：模版名稱。</div><div class="img"><a id="img_17"></a><img src="mttemplate_structure_archive_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_03.png" alt="刪除核選框及刪除按鈕"><br />圖十七：刪除核選框及刪除按鈕。</div><div class="img"><a id="img_18"></a><img src="mttemplate_structure_archive_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_04.png" alt="「建立新的彙整模版」鏈結"><br />圖十八：「建立新的彙整模版」鏈結。</div></p>
+
+<p>當妳新增或編輯彙整相關模版的時候，妳首先就能夠修改這個模版的<code>模版名稱</code>，這個名稱就祇是用來顯示用的，所以妳大可把好幾個模版都取做相同的名字 ─ 祇要妳自己不會弄混就好。</p>
+
+<p>跟索引模版不同的地方在於妳並不能修改<code>輸出檔案</code>的檔名，各種彙整檔案的檔名是在<code>網誌組態</code>的畫面裡設定的，請參考<a href="mtbook_archive.html#filename" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#filename">第八章</a>的介紹。</p>
+
+<p>「<code>將此模版連結到檔案</code>」是一個進階的功能，讓妳把這個模版內容實際存放到伺服器上的某個檔案；藉由這個功能，妳就能夠讓好幾份網誌使用完全相同的模版，而且它們也都會同步更新。不過這個功能也很有可能相當具有危險性 ─ 因為妳可以以此開啟系統裡的某個特定檔案，並且加以修改覆寫。如果妳沒有這麼複雜的需求，也不懂系統上各個目錄裡的東西的話，建議妳還是空著別動。</p>
+
+<p>最大的那一個欄位就是實際的模版內容了。妳可以在此任意地編輯修改模版內容。一旦妳修改了模版內容或者是上述的其他欄位後，別忘了還要按下「<code>儲存</code>」按鈕，纔會把妳所做的變更儲存回資料庫。</p>
+
+<p><div class="img"><a id="img_19"></a><img src="mttemplate_structure_archive_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_05.png" alt="「模版名稱」欄位"><br />圖十九：可加以編輯的「模版名稱」欄位。</div><div class="img"><a id="img_20"></a><img src="mttemplate_structure_archive_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_06.png" alt="「將此模版連結到檔案」欄位"><br />圖二十：「將此模版連結到檔案」欄位。</div><div class="img"><a id="img_21"></a><img src="mttemplate_structure_archive_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_07.png" alt="模版本體"><br />圖二十一：模版本體。</div><div class="img"><a id="img_22"></a><img src="mttemplate_structure_archive_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_archive_08.png" alt="「儲存」按鈕"><br />圖二十二：「儲存」按鈕。</div></p>
+
+<p>Movable Type 一開始就提供的三個彙整相關模版分別是<code>分類彙整</code>模版、<code>單篇彙整</code>模版和<code>按時彙整</code>模版。顧名思義，前兩個模版分別是拿來給<a href="mtbook_archive.html#type_category" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#type_category">分類彙整</a>以及<a href="mtbook_archive.html#type_individual" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#type_individual">單篇彙整</a>用的，而第三個模版則可以適用於<a href="mtbook_archive.html#type_timebased" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#type_timebased">逐月彙整、逐週彙整以及逐日彙整</a>。
+
+<h3><a id="structure_others"></a>其他模版</h3>
+
+<p>在<code>列出模版</code>畫面的第三區裡，列出的是其他模版。妳可以按下各個模版前面的<code>編輯</code>按鈕，來加以編輯該模版；這一區的模版都有特定的功能，因此妳既不能刪除任何一個，也無法新增這類的模版。</p>
+
+<p><div class="img"><a id="img_23"></a><img src="mttemplate_structure_other_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_01.png" alt="其他模版"><br />圖二十三：其他模版。</div><div class="img"><a id="img_24"></a><img src="mttemplate_structure_other_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_02.png" alt="其他模版的「編輯」按鈕"><br />圖二十四：其他模版的「編輯」按鈕。</div></p>
+
+<p>這一類的模版都是固定的，因此妳也不能夠更改各個模版的名稱 ─ 它們從存在之時就被賦予特殊的用途了，因此妳不能隨意地修改。</p>
+
+<p>「<code>將此模版連結到檔案</code>」是一個進階的功能，讓妳把這個模版內容實際存放到伺服器上的某個檔案；藉由這個功能，妳就能夠讓好幾份網誌使用完全相同的模版，而且它們也都會同步更新。不過這個功能也很有可能相當具有危險性 ─ 因為妳可以以此開啟系統裡的某個特定檔案，並且加以修改覆寫。如果妳沒有這麼複雜的需求，也不懂系統上各個目錄裡的東西的話，建議妳還是空著別動。</p>
+
+<p>最大的那一個欄位就是實際的模版內容了。妳可以在此任意地編輯修改模版內容。一旦妳修改了模版內容或者是上述的其他欄位後，別忘了還要按下「<code>儲存</code>」按鈕，纔會把妳所做的變更儲存回資料庫。</p>
+
+<p><div class="img"><a id="img_25"></a><img src="mttemplate_structure_other_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_03.png" alt="「模版名稱」不能加以編輯"><br />圖二十五：「模版名稱」是固定的，無法加以編輯。</div><div class="img"><a id="img_26"></a><img src="mttemplate_structure_other_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_04.png" alt="「將此模版連結到檔案」欄位"><br />圖二十六：「將此模版連結到檔案」欄位。</div><div class="img"><a id="img_27"></a><img src="mttemplate_structure_other_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_05.png" alt="模版本體"><br />圖二十七：模版本體。</div><div class="img"><a id="img_28"></a><img src="mttemplate_structure_other_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_other_06.png" alt="「儲存」按鈕"><br />圖二十八：「儲存」按鈕。</div></p>
+
+<p>這裡總共有五個模版。<code>迴響清單模版</code>是用來製作動態迴響清單的模版；<code>迴響預覽模版</code>所製作的動態頁面，也就是讀者預覽她們即將發表的迴響時，所看到的頁面；<code>迴響出錯模版</code>則會決定當讀者發表評論出錯的時候，要看到的錯誤訊息頁面的樣子；<code>引用清單模版</code>則是用來製作列出某篇文章的引用清單的動態頁面的模版；至於<code>彈出已上傳圖片模版</a>則是搭配<a href="mtbook_entry.html#upload_imagenewentry_popup" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_entry.html#upload_imagenewentry_popup">上傳圖片並做成彈出式圖片</a>的功能的模版。</p>
+
+<h3><a id="structure_module"></a>模版模組</h3>
+
+<p>在<code>列出模版</code>畫面的最後一區裡，列出的是模版模組。妳可以點擊<code>模版名稱</code>欄位裡的任何一個，就能夠加以編輯該模版；妳也可以利用<code>刪除</code>核選框以及<code>刪除</code>按鈕來刪除不再使用的模版，或者是點擊「<code>建立新的模版模組</code>」鏈結來新增新的模版模組。</p>
+
+<p><div class="img"><a id="img_29"></a><img src="mttemplate_structure_module_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_01.png" alt="模版模組"><br />圖二十九：模版模組。</div><div class="img"><a id="img_30"></a><img src="mttemplate_structure_module_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_02.png" alt="模版模組的「模版名稱」欄位"><br />圖三十：模版模組的「模版名稱」欄位。</div><div class="img"><a id="img_31"></a><img src="mttemplate_structure_module_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_03.png" alt="沒有內容的，模版模組的刪除核選框及刪除按鈕"><br />圖三十一：模版模組的刪除核選框及刪除按鈕，現在因為沒有東西，所以妳看不到核選框。</div><div class="img"><a id="img_32"></a><img src="mttemplate_structure_module_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_04.png" alt="「建立新的模版模組」鏈結"><br />圖三十二：「建立新的模版模組」鏈結。</div></p>
+
+<p>當妳新增或編輯模版模組的時候，妳也能夠修改這個模版的<code>模版名稱</code>，這個名稱卻不祇是用來顯示用而已，它們都會被拿來用於 <a href="#item_MTInclude"><code>&lt;MTInclude&gt;</code> 標籤</a>的 <code>module</code> 屬性，所以妳最好乖乖祇使用英文字母跟數字來當作模版名稱，而且連特殊符號也避免使用會比較好。當然名稱也就不能重複使用了。</p>
+
+<p>「<code>將此模版連結到檔案</code>」是一個進階的功能，讓妳把這個模版內容實際存放到伺服器上的某個檔案；藉由這個功能，妳就能夠讓好幾份網誌使用完全相同的模版，而且它們也都會同步更新。不過這個功能也很有可能相當具有危險性 ─ 因為妳可以以此開啟系統裡的某個特定檔案，並且加以修改覆寫。如果妳沒有這麼複雜的需求，也不懂系統上各個目錄裡的東西的話，建議妳還是空著別動。</p>
+
+<p>最大的那一個欄位就是實際的模版內容了。妳可以在此任意地編輯修改模版內容。一旦妳修改了模版內容或者是上述的其他欄位後，別忘了還要按下「<code>儲存</code>」按鈕，纔會把妳所做的變更儲存回資料庫。</p>
+
+<p><div class="img"><a id="img_33"></a><img src="mttemplate_structure_module_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_05.png" alt="「模版名稱」欄位"><br />圖三十三：可以加以修改的「模版名稱」欄位。</div><div class="img"><a id="img_34"></a><img src="mttemplate_structure_module_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_06.png" alt="「將此模版連結到檔案」欄位"><br />圖三十四：「將此模版連結到檔案」欄位。</div><div class="img"><a id="img_35"></a><img src="mttemplate_structure_module_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_07.png" alt="模版本體"><br />圖三十五：模版本體。</div><div class="img"><a id="img_36"></a><img src="mttemplate_structure_module_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttemplate_structure_module_08.png" alt="「儲存」按鈕"><br />圖三十六：「儲存」按鈕。</div></p>
+
+<p>一開始 Movable Type 並沒有提供任何預先建立好的模版模組的，這是因為 Movable Type 希望一開始不要把事情弄得太複雜 ─ 可不是每個人都能夠無痛接受「模版」的觀念的。但是隨著妳的模版越寫越複雜，妳會開始發現有一些重複的片段反覆出現在多個模版裡，這時候就是「模版模組」派上用場的時候了。</p>
+
+<p>妳可以把這些完全相同的片段抽出來，放到模版模組裡，再把 <a href="#item_MTInclude"><code>&lt;MTInclude&gt;</code> 標籤</a>放進原來這些片段會出現的地方。從此之後妳祇要修改這個模版模組，再重建所有的檔案，就可以一次更新眾多模版以及跟它們有關的靜態頁面檔案。</p>
+
+<p>這麼一來，無論是要維護更新模版或是挪動各個組件在某個模版裡的順序，都將無比容易。</p>
+
+<h3><a id="structure_search"></a>搜尋模版</h3>
+
+<p>搜尋模版跟 Movable Type 裡的其他模版管理起來並不同，因為他們並非依網誌為準的，所以放在編輯選單的『模版』區段中反而沒有意義。搜尋模版實際上是一些放在妳的 <i>search_templates/</i> 目錄中的檔案；這個目錄應該會跟 <i>mt.cgi</i> 位於同一個位置。</p>
+
+<p>對於 Windows 的使用者來說，這些<code>搜尋模版</code>應該位於像是 <code>C:\Program Files\OurInternet\Movable Type\mt\search_templates\</code> 的資料夾裡面；對於 UN*X 的使用者來說，則可能位於像是 <code>/usr/local/www/cgi-bin/mt/search_templates/</code> 的路徑裡。</p>
+
+<p>在妳的搜尋模版中，妳可以用<a href="#tags_search_results">一些特殊的模版標籤集合</a>來顯示搜尋結果。不過妳幾乎也可以用其他的 Movable Type 標籤；不過當然妳還是得要尊重整體的脈絡。除此之外，因為妳的搜尋結果頁面是動態隨著每一次有人搜尋妳的站台時所產生的，所以妳應該要避免使用那些會消耗伺服器大量資源來重建的標籤（像是 <code>&lt;MTArchiveList&gt;</code> 或 <code>&lt;MTCalendar&gt;</code> ）。</p>
+
+<p>妳也可以在妳的搜尋模版中使用 <code>&lt;MTInclude&gt;</code> 標籤，來包含某個搜尋模組或外部檔案。妳甚至可以把某個網誌當作是前後文（因為模版模組會依各個網誌而存），然後在 <code>&lt;MTSearchResults&gt;</code> 容器之外這麼用這個標籤。不過我們仍然要警告妳不要輕易使用這種方法，尤其是妳有多重網誌的時候更是如此。例如說，如果妳在某個模版中用了<pre>&lt;$MTInclude module=&quot;Header&quot;$&gt;</pre></p>
+
+<p>那麼系統就會知道它所要找的模組名為 <code>Header</code> 。如果搜尋結果是找到了，會很簡單地把網誌按照字母順序列出；反之要是沒有找到， Movable Type 就會試著從妳的資料庫裡載入某個網誌（被選擇的網誌則沒有定義）。</p>
+
+<p>在 Movable Type 的預設模版中包含有一個簡單的搜尋表單來搜尋妳的站台，它看起來像這樣：<pre>&lt;form method=&quot;get&quot; action=&quot;&lt;$MTCGIPath$&gt;&lt;$MTSearchScript$&gt;&quot;&gt;
+&lt;label for=&quot;search&quot; accesskey=&quot;4&quot;&gt;搜尋本站：&lt;/label&gt;&lt;br /&gt;
+&lt;input id=&quot;search&quot; name=&quot;search&quot; size=&quot;20&quot; /&gt;&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;搜尋&quot; /&gt;
+&lt;/form&gt;</pre></p>
+
+<p>至於顯示所有選項的搜尋表單，看起來可能會像這個樣子：<pre>&lt;form method=&quot;post&quot; action=&quot;&lt;$MTCGIPath$&gt;&lt;$MTSearchScript$&gt;&quot;&gt;
+&lt;input size=&quot;30&quot; name=&quot;search&quot; value=&quot;&lt;$MTSearchString$&gt;&quot; /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;Search&quot; /&gt;&lt;br /&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;CaseSearch&quot; /&gt; 大小寫吻合 
+&lt;input type=&quot;checkbox&quot; name=&quot;RegexSearch&quot; /&gt; 使用正規表示式&lt;br /&gt;
+&lt;b&gt;搜尋範圍：&lt;/b&gt;
+&lt;input type=&quot;radio&quot; name=&quot;SearchElement&quot; value=&quot;entries&quot; /&gt; 祇有文章項目 
+&lt;input type=&quot;radio&quot; name=&quot;SearchElement&quot; value=&quot;comments&quot; /&gt; 祇有評論 
+&lt;input type=&quot;radio&quot; name=&quot;SearchElement&quot; value=&quot;both&quot; /&gt; 文章項目和評論 &lt;br /&gt;
+&lt;b&gt;排序欄位：&lt;/b&gt;
+&lt;select name=&quot;SearchSortBy&quot;&gt;
+&lt;option value=&quot;created_on&quot;&gt;發表日期&lt;/option&gt;
+&lt;option value=&quot;title&quot;&gt;標題&lt;/option&gt;
+&lt;/select&gt;&lt;br /&gt;
+&lt;b&gt;拍序方式：&lt;/b&gt;
+&lt;select name=&quot;ResultDisplay&quot;&gt;
+&lt;option value=&quot;ascend&quot;&gt;遞增&lt;/option&gt;
+&lt;option value=&quot;descend&quot;&gt;遞減&lt;/option&gt;
+&lt;/select&gt;&lt;br /&gt;
+&lt;b&gt;排除下列網誌：&lt;/b&gt;
+&lt;MTBlogs&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;ExcludeBlogs&quot; value=&quot;&lt;$MTBlogID$&gt;&quot; /&gt; &lt;$MTBlogName$&gt;
+&lt;/MTBlogs&gt;&lt;br /&gt;
+&lt;b&gt;從下列時間範圍內搜尋文章項目：&lt;/b&gt;
+&lt;select name=&quot;SearchCutoff&quot;&gt;
+&lt;option value=&quot;9999999&quot;&gt;從頭開始&lt;/option&gt;
+&lt;option value=&quot;7&quot;&gt;從一週前開始&lt;/option&gt;
+&lt;option value=&quot;14&quot;&gt;從兩週前開始&lt;/option&gt;
+&lt;option value=&quot;30&quot;&gt;從一個月前開始&lt;/option&gt;
+&lt;option value=&quot;60&quot;&gt;從兩個月前開始&lt;/option&gt;
+&lt;option value=&quot;90&quot;&gt;從三個月前開始&lt;/option&gt;
+&lt;option value=&quot;365&quot;&gt;從一年前開始&lt;/option&gt;
+&lt;/select&gt;&lt;br /&gt;
+&lt;b&gt;每份網誌的搜尋結果上限：&lt;/b&gt;
+&lt;select name=&quot;MaxResults&quot;&gt;
+&lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+&lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+&lt;option value=&quot;25&quot;&gt;25&lt;/option&gt;
+&lt;option value=&quot;50&quot;&gt;50&lt;/option&gt;
+&lt;option value=&quot;100&quot;&gt;100&lt;/option&gt;
+&lt;option value=&quot;9999999&quot;&gt;無上限&lt;/option&gt;
+&lt;/select&gt;
+&lt;/form&gt;</pre></p>
+
+<p>這個搜尋表單就可以提供使用者更多改變搜尋參數的控制變項，讓她們得以指定像是大小寫吻合的屬性，或者是以正規表示式來進行搜尋，而非僅祇用布林字串查詢。搜尋也可以被限定在僅祇有項目或評論內（也可以兩者均是），請注意，評論搜尋會比文章項目搜尋花去更多的時間和資源。</p>
+
+<p>上面的表單同時也讓使用者在搜尋時可以排除特定的網誌，對於那些祇想要搜尋某幾個網誌的讀者來說會很好用。另一個替換<i>排除網誌</i>的作法像這樣：<pre>&lt;b&gt;包含下列網誌：&lt;/b&gt;
+&lt;MTBlogs&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;IncludeBlogs&quot; value=&quot;&lt;$MTBlogID$&gt;&quot; /&gt; &lt;$MTBlogName$&gt;
+&lt;/MTBlogs&gt;&lt;br /&gt;</pre></p>
+
+<p>基本上這就是跟<i>排除網誌</i>完全相反的作法，不過妳當然有可能因為任何理由而改採這一種作法。例如說，這樣的作法就可以讓妳祇搜尋特定的網誌，而不需要列出一堆要排除掉的網誌。妳祇需要把這一段加進表單裡：<pre>&lt;input type=&quot;hidden&quot; name=&quot;IncludeBlogs&quot; value=&quot;&lt;$MTBlogID$&gt;&quot; /&gt;</pre></p>
+
+<p><code>&lt;$MTBlogID$&gt;</code> 總是對應到現用的網誌，所以這個搜尋祇會被限制在目前被瀏覽的網誌裡。</p>
+
+<p>上面的範例是一個直接搜尋的例子，完整的新評論搜尋表單看起來應該像這樣：<pre>&lt;form method=&quot;post&quot; action=&quot;&lt;$MTCGIPath$&gt;&lt;$MTSearchScript$&gt;&quot;&gt;
+&lt;input type=&quot;hidden&quot; name=&quot;Type&quot; value=&quot;newcomments&quot; /&gt;
+&lt;b&gt;排除下列網誌：&lt;/b&gt;
+&lt;MTBlogs&gt;
+&lt;input type=&quot;checkbox&quot; name=&quot;ExcludeBlogs&quot; value=&quot;&lt;$MTBlogID$&gt;&quot; /&gt; &lt;$MTBlogName$&gt;
+&lt;/MTBlogs&gt;&lt;br /&gt;
+&lt;b&gt;從下列時間範圍內搜尋文章項目：&lt;/b&gt;
+&lt;select name=&quot;CommentSearchCutoff&quot;&gt;
+&lt;option value=&quot;9999999&quot;&gt;從頭開始&lt;/option&gt;
+&lt;option value=&quot;7&quot;&gt;從一週前開始&lt;/option&gt;
+&lt;option value=&quot;14&quot;&gt;從兩週前開始&lt;/option&gt;
+&lt;option value=&quot;30&quot;&gt;從一個月前開始&lt;/option&gt;
+&lt;option value=&quot;60&quot;&gt;從兩個月前開始&lt;/option&gt;
+&lt;option value=&quot;90&quot;&gt;從三個月前開始&lt;/option&gt;
+&lt;option value=&quot;365&quot;&gt;從一年前開始&lt;/option&gt;
+&lt;/select&gt;&lt;br /&gt;
+&lt;b&gt;文章項目搜尋結果上限：&lt;/b&gt;
+&lt;select name=&quot;MaxResults&quot;&gt;
+&lt;option value=&quot;5&quot;&gt;5&lt;/option&gt;
+&lt;option value=&quot;10&quot;&gt;10&lt;/option&gt;
+&lt;option value=&quot;25&quot;&gt;25&lt;/option&gt;
+&lt;option value=&quot;50&quot;&gt;50&lt;/option&gt;
+&lt;option value=&quot;100&quot;&gt;100&lt;/option&gt;
+&lt;option value=&quot;9999999&quot;&gt;無上限&lt;/option&gt;
+&lt;/select&gt;&lt;br /&gt;
+&lt;input type=&quot;submit&quot; value=&quot;尋找新迴響&quot; /&gt;
+&lt;/form&gt;</pre></p>
+
+<p>如果妳準備了多個不同的搜尋模版，那麼首先妳得用任何文字編輯器開啟妳的 <i>mt.cfg</i> 檔案，然後用 <i>AltTemplate</i> 指令來組態替換模版。例如說，如果妳有兩份網誌（ <code>Work</code> 和 <code>Play</code> ），而且妳想要讓妳的網誌有自己的模版，妳可能會加上這些東西：<pre>AltTemplate work work.tmpl
+AltTemplate play play.tmpl</pre></p>
+
+<p>接下來妳還得修改既有網誌的模版，讓它們在建造搜尋頁面的時候也使用特定模版；妳可以用一個隱藏的表單輸入。例如說妳就可以把下列的搜尋表單加入妳的 <code>Work</code> 網誌：<pre>&lt;input type=&quot;hidden&quot; name=&quot;Template&quot; value=&quot;work&quot; /&gt;</pre></p>
+
+<p><strong>注意：</strong>如果妳祇想要把搜尋範圍限定在祇有一個網誌內，妳也許也會想要在表單裡加上：<pre>&lt;input type=&quot;hidden&quot; name=&quot;IncludeBlogs&quot; value=&quot;&lt;$MTBlogID$&gt;&quot; /&gt;</pre></p>
+
+<p>同樣地，別忘了在妳的<code>搜尋模版</code>裡也應該做類似的調整，否則當使用著接下去搜尋的時候，就會發現搜尋結果頁面的樣子又變了！</p>
+
+<h2><a id="tag"></a>模版標籤</h2>
+
+<p>以下我們將先為各位概略描述用於 Movable Type 的模版標籤。</p>
+
+<h3><a id="tag_philosophy"></a>模版和標籤哲學</h3>
+
+<p>在 Movable Type 的模版標籤背後，有兩個主要的概念：</p>
+
+<p><ul>
+  <li>情境是決定能否使用特定標籤的關鍵。</li>
+  <li>容器標籤代表著清單及條件，而變數標籤則代表著變數替換。</li>
+</ul></p>
+
+<p>祇要妳掌握住這兩個概念，所有的標籤對妳來說就都不是難題了。</p>
+
+<h3><a id="tag_types"></a>標籤種類</h3>
+
+<p>Movable Type 的模版標籤可以分為兩類 ─ 容器和變數：</p>
+
+<h4><a id="tag_types_container"></a>容器標籤</h4>
+
+<p>有些 MT 標籤是『容器』標籤，裡面可能裝有被稱為子模版的東西；其實就是一些文字片段和 MT 標籤，然後被包在另外兩個 MT 標籤：容器的開頭和容器的結尾之間。舉例來說，如果有個叫做 <code>&lt;MTFoo&gt;</code> 的標籤，那麼妳也許會在妳的模版裡看到下列的組成元件：<pre>&lt;MTFoo&gt;
+Foo bar
+&lt;/MTFoo&gt;</pre></p>
+
+<p>這個容器的開頭標籤和結尾標籤看起來都很像標準的 HTML 標籤。</p>
+
+<p>容器標籤可能代表著一份清單或者是一種條件。</p>
+
+<p>如果容器代表著一份清單 ─ 例如像是 <code>&lt;MTEntries&gt;</code> 標籤 ─ 那麼容器內的子模版將會套用於清單上的每一項。舉例來說，如果妳用了一個 <code>&lt;MTEntries&gt;</code> 標籤，那麼在 &lt;MTEntries&gt; 標籤和 &lt;/MTEntries&gt; 標籤間的組成元件就會套用在清單上的每一則文章項目。</p>
+
+<p>如果容器代表著一種條件 ─ 例如像是 <code>&lt;MTEntryIfExtended&gt;</code> 標籤 ─ 那麼開頭標籤和結尾標籤間的組成元件就祇有<i>當</i>條件吻合時纔會顯示。舉例來說，在 <code>&lt;MTEntryIfExtended&gt;</code> 的情況下，條件考驗著是否文章項目有延伸的部分（『更多文字』）。</p>
+
+<h4><a id="tag_types_variable"></a>變數標籤</h4>
+
+<p>所有的非容器標籤通通都是單純的變數替換標籤。它們其實是資訊動態片段的位置保留器。舉例來說， <code>&lt;$MTEntryTitle$&gt;</code> 標籤就會被文章項目的標題代換掉。</p>
+
+<h3><a id="tag_syntax"></a>標籤語法</h3>
+
+<p>所有的 Movable Type 標籤都被包在小於和大於符號之間，就跟 HTML 標籤一樣。妳可以選擇在這些標誌裡插入 <code>$</code> ，就像這樣：<pre>&lt;$MTEntryBody$&gt;</pre></p>
+
+<p>透過這個技巧，妳就能夠迅速地判斷某個標籤到底是 HTML 標籤還是 Movable Type 標籤。</p>
+
+<p>這個 <code>$</code> 是選用性的；慣例上所有的預設模版和文件裡都會把變數標籤加上 <code>$</code> ，但是並不會加進容器標籤裡。一部份的原因是因為妳<i>不</i>該在容器標籤的結尾標籤裡用這個 <code>$</code> ，否則系統就會找不到結尾標籤。</p>
+
+<h3><a id="tag_attributes"></a>標籤屬性</h3>
+
+<p>有些 Movable Type 標籤會透過屬性來修改他們的預設作用。標籤屬性的作用就跟 HTML 標籤的屬性很像：他們是一連串的 <code>name=&quot;value&quot;</code> 配對，以空白隔開。舉例來說：<pre>&lt;MTEntries author=&quot;Foo&quot; category=&quot;Bar&quot;&gt;</pre></p>
+
+<p>屬性的值必須被包在引號中；否則就無法被正確地解讀。當妳在標籤中加入 <code>$</code> 時，必須把這個字符放在標籤的開始之後、結束之前；然後當妳要在這樣的標籤中加入標籤屬性時，妳得把這些屬性放在標籤結尾的 <code>$</code> 字符之前。像是：<pre>&lt;$MTEntryDate format=&quot;%B %e, %Y&quot;$&gt;</pre></p>
+
+<h3><a id="tag_context"></a>情境</h3>
+
+<p>大部分的 Movable Type 標籤都是仰賴情境的，這表示這些標籤祇應該在適當的情境中被使用。</p>
+
+<p>情境通常都是由附近的模版或者是附近的容器標籤所決定的：舉例來說，模版組成元件若被放在 <code>&lt;MTEntries&gt;</code> 標籤裡、在<code>單篇</code>彙整頁面裡、在<code>迴響清單</code>模版裡或者在<code>迴響預覽</code>模版裡的時候，就是在文章項目情境裡。因為這樣，所以在這些情境中使用 <code>&lt;$MTEntryTitle$&gt;</code> 標籤或 <code>&lt;MTComments&gt;</code> 容器時纔有意義。</p>
+
+<h2><a id="tags"></a>標籤索引</h2>
+
+<p>以下我們將分類列出所有能用於 Movable Type 模版裡的標籤：</p>
+
+<h3><a id="tags_weblog_data"></a>網誌資料</h3>
+
+<p><ul>
+  <li><a id="item_MTBlogs"></a><strong>MTBlogs</strong><br />這是一個會列出系統上所有網誌的容器標籤，會囊括所有妳（也就是可以編輯模版、重建檔案的人）可以存取的、以及所不可以存取的網誌。妳可以在這個容器標籤裡使用任何的 <code>&lt;$MTBlog*$&gt;</code> 標籤。</li>
+  <li><a id="item_MTBlogID"></a><strong>MTBlogID</strong><br />妳的網誌的數字型 ID 。</li>
+  <li><a id="item_MTBlogName"></a><strong>MTBlogName</strong><br />妳的網誌名稱，也就是會顯示在網誌組態畫面上的那一個。</li>
+  <li><a id="item_MTBlogDescription"></a><strong>MTBlogDescription</strong><br />妳的網誌描述，也就是會顯示在網誌組態畫面上的那一個。</li>
+  <li><a id="item_MTBlogURL"></a><strong>MTBlogURL</strong><br />妳的網誌的絕對網址，也就是會顯示在網誌組態畫面上的那一個。</li>
+  <li><a id="item_MTBlogArchiveURL"></a><strong>MTBlogArchiveURL</strong><br />妳的網誌的<code>彙整網址</code>，也就是會顯示在網誌組態畫面上的那一個。</li>
+  <li><a id="item_MTBlogRelativeURL"></a><strong>MTBlogRelativeURL</strong><br />妳的網誌的相對網址，就跟從網誌組態螢幕上<i>站台網址</i>所取得的一樣。這對於建立臨時站台來說非常好用，因為妳並不需要把任何網址寫死在妳的模版中。</li>
+  <li><a id="item_MTBlogSitePath"></a><strong>MTBlogSitePath</strong><br />妳的網誌的<i>本機站台路徑</i>，也就是會顯示在網誌組態畫面上的那一個。</li>
+  <li><a id="item_MTBlogHost"></a><strong>MTBlogHost</strong><br />妳的網誌絕對網址的主機名稱部分。舉例來說，如果妳的<code>站台網址</code>（在網誌組態畫面裡的那一個）是 <i><a href="javascript:if(confirm('http://www.your-site.com/blog/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.your-site.com/blog/'" tppabs="http://www.your-site.com/blog/">http://www.your-site.com/blog/</a></i> ，那麼主機名稱部分就會是 <code>www.your-site.com</code> 。</li>
+  <li><a id="item_MTBlogTimezone"></a><strong>MTBlogTimezone</strong><br />妳為網誌所選擇的時區，會被表示成從 UTC <code>+|-hh:mm</code> 的格式。例如說，領先 UTC <code>4</code> 小時的時區，就會被顯示成 <code>+04:00</code> 。</li>
+  <li><a id="item_MTBlogEntryCount"></a><strong>MTBlogEntryCount</strong><br />網誌的文章項目數量。</li>
+  <li><a id="item_MTBlogCommentCount"></a><strong>MTBlogCommentCount</strong><br />網誌的評論數量。</li>
+  <li><a id="item_MTBlogCCLicenseURL"></a><strong>MTBlogCCLicenseURL</strong><br />對應到妳所選擇的創意公用授權條款資訊的網址。</li>
+  <li><a id="item_MTCCLicenseRDF"></a><strong>MTCCLicenseRDF</strong><br />這會產生一份利於程序閱讀的 RDF ，內容就是妳所選擇的創意公用授權條款。<br />這個標籤的作用會依情境而異：如果妳把它用於文章情境的話，這份 RDF 就會包含跟這篇文章有關的額外資訊；否則它就祇會包含整體性的網誌資訊。</li>
+  <li><a id="item_MTBlogIfCCLicense"></a><strong>MTBlogIfCCLicense</strong><br />這個容器標籤裡的部分，祇有當妳在網誌組態中選擇了創意公用授權條款後，纔會被顯示出來。</li>
+</ul></p>
+
+<h3><a id="tags_entry_listings_archive_pages"></a>文章項目列示/彙整頁面</h3>
+
+<p><ul>
+  <li><a id="item_MTEntries"></a><strong>MTEntries</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照網誌上的文章項目清單。實際的文章清單可拿選用的屬性來加以配置；預設值是顯示最新 <code>N</code> 天的文章項目，這裡的 <code>N</code> 就是妳在這個網誌的組態中所設定的天數。當妳要改變這個作用的時候，妳可以加上下列的屬性：</li>
+  <ul>
+    <li><a id="item_lastn"></a><strong>lastn=&quot;N&quot;</strong><br />顯示這份網誌上最新的 <code>N</code> 篇文章項目；這裡的 <code>N</code> 是某個大於 0 的數字。</li>
+    <li><a id="item_offset"></a><strong>offset=&quot;M&quot;</strong><br />當這個屬性跟 <code>lastn</code> （如前述）一起用的時候，就先從頭數最新的 <code>M</code> 篇文章項目，然後纔顯示接在之後的 <code>N</code> 篇文章。舉個例子來說，如果妳用了下列的標籤：<pre>&lt;MTEntries lastn=&quot;5&quot; offset=&quot;5&quot;&gt;
+...
+&lt;/MTEntries&gt;</pre>那麼就會顯示第 6 到第 10 篇文章項目。<br /><strong>注意：</strong>祇有跟 <code>lastn</code> 一起用的時候纔有效。</li>
+    <li><a id="item_category"></a><strong>category=&quot;類別名稱&quot;</strong><br />顯示在<code>類別名稱</code>這個類別中的所有文章。請注意這很有可能會是一長串文章，所以妳應該會想要再加上 <code>lastn</code> 來限定顯示文章的篇數。<br />如果妳想要從多個類別裡把文章項目抓出來，或者是祇限定那些被指定到多個類別的文章時， <code>類別名稱</code> 也可以包含 <code>AND</code> 和 <code>OR</code> 這兩個布林邏輯算符。但是請注意，妳祇能用其中的一個；也就是說，妳沒辦法用 <code>Foo AND Bar OR Baz</code> ─ 這是行不通的！妳祇能用 <code>Foo AND Bar AND ...</code> 或者 <code>Foo OR Bar OR ...</code> 。<br />再舉一個例子說明，如果妳想要列出所有同時被指定到 <code>Foo</code> 和 <code>Bar</code> 這兩個類別的文章項目，妳可以用：<pre>&lt;MTEntries category=&quot;Foo AND Bar&quot;&gt;
+...
+&lt;/MTEntries&gt;</pre></li>
+    <li><a id="item_author"></a><strong>author=&quot;作者姓名&quot;</strong><br />依照作者的<code>作者姓名</code>顯示所有的文章。請注意這很有可能會是一長串文章，所以妳應該會想要再加上 <code>lastn</code> 來限定顯示文章的篇數。</li>
+    <li><a id="item_days%3D%22N%22"></a><strong>days=&quot;N&quot;</strong><br />顯示所有 <code>N</code> 天之內的文章。</li>
+    <li><a id="item_recently_commented_on"></a><strong>recently_commented_on=&quot;N&quot;</strong><br />顯示最新 <code>N</code> 篇有人發表評論的文章項目。每一則文章項目都祇會出現一次而已。所以如果文章甲有一篇評論，然後文章乙有一篇評論，接著又有人對文章甲發表評論，結果最後祇會顯示兩則文章項目：文章甲，然後顯示的是文章乙。</li>
+    <li><a id="item_sort_order"></a><strong>sort_order=&quot;ascend|descend&quot;</strong><br />指定目前使用的 <code>&lt;MTEntries&gt;</code> 標籤所要採用的排序方法。這裡的設定將會覆寫掉妳在網誌組態的文章項目排序的全域設定。有效的值分別是 <code>ascend</code> 和 <code>descend</code> 。<br />在這個情境下， <code>ascend</code> 和 <code>descend</code> 並不祇是依時間先後排序；事實上這個屬性還可以跟稍後會提到的 <code>sort_by</code> 一起用來排序。舉例來說，妳可以把文章項目標題排成從 A 到 Z (<code>ascend</code>) 或者是從 Z 到 A (<code>descend</code>) 。<br />預設值是 <code>descend</code> 。</li>
+    <li><a id="item_sort_by"></a><strong>sort_by=&quot;欄位名稱&quot;</strong><br />用寫作日期以外的欄位來排序文章項目。有效的<code>欄位名稱</code>值包含有 <code>title</code> 、 <code>status</code> 、 <code>modified_on</code> 、 <code>author_id</code> 或 <code>excerpt</code> 。<br />這個屬性最常見的用法是拿來把文章項目按照字母順序排列，而不是照他們的時間先後。舉例來說，假設妳拿 Movable Type 來顯示某個字典站台，所以妳會想拿字母來聚集部分的文章項目，所以妳就建立 26 個不同的類別，也就是從 A 到 Z 。當妳要顯示站台上所有的文章項目，而又想以字母來分類，以字母順序來排序（在此假設妳拿字或詞來當作每一則文章項目的標題）；妳可以這麼做：<pre>&lt;MTCategories&gt;
+&lt;$MTCategoryLabel$&gt;&lt;br /&gt;
+&lt;MTEntries sort_by=&quot;title&quot; sort_order=&quot;descend&quot;&gt;
+&lt;a href=&quot;&lt;$MTEntryPermalink$&gt;&quot;&gt;&lt;$MTEntryTitle$&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/MTEntries&gt;&lt;br /&gt;
+&lt;/MTCategories&gt;</pre></li>
+  </ul>
+  <i>請注意：</i>妳可以把 <code>lastn</code> 、 <code>category</code> 和 <code>author</code> 一起混用來篩選文章項目列示（其實還有 <code>days</code> 這個被此標籤自己用掉的屬性；然而祇要妳用了其他屬性，那麼這個屬性就會被覆寫掉）。舉例來說，妳可以把 <code>lastn</code> 和 <code>category</code> 一起用在 <a href="#item_MTEntries"><code>MTEntries</code></a> 裡，其結果就如妳所預期的一般：顯示該類別理最新得 N 則文章項目。如果妳想要再用作者姓名加以篩選，妳也可以把 <code>lastn</code> 、 <code>category</code> 和 <code>author</code> 三個都用上：<pre>&lt;MTEntries category=&quot;Fun&quot; author=&quot;Me&quot; lastn=&quot;10&quot;&gt;
+...
+&lt;/MTEntries&gt;</pre><br />這樣就會顯示 <code>Fun</code> 這個分類中，作者是 <code>Me</code> 的最新 10 則文章項目。
+  <li><a id="item_MTEntryTitle"></a><strong>MTEntryTitle</strong><br />文章項目的標題。</li>
+  <li><a id="item_MTEntryStatus"></a><strong>MTEntryStatus</strong><br />這則文章項目的出版狀態（可能是<code>草稿</code>或者是<code>定稿</code>）。在大多數的情況下，這個標籤其實沒有甚麼用。因為在妳的網誌上，祇有狀態為<code>定稿</code>的文章纔會被顯示出來。不過在匯出機制裡，或許妳會用到這個標籤。</li>
+  <li><a id="item_MTEntryExcerpt"></a><strong>MTEntryExcerpt</strong><br />這則文章項目的文章。如果妳沒有提供文摘的話，系統就會自動拿文章項目的前 20 個字，然後再加上刪節號（ <code>...</code> ）來當作文摘。<br />如果妳提供了文摘的話，請注意所有的換列或換段都不會被轉換，除非妳在這個標籤裡用了 <code>convert_breaks</code> 屬性：<pre>有斷行的文摘：
+&lt;$MTEntryExcerpt convert_breaks=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_MTEntryBody"></a><strong>MTEntryBody</strong><br />文章項目的主要文字部分。<br />如果妳在這則文章項目中核選了<code>轉換換列</code>而自動轉換換列和換段，那麼段落 ─ 用兩個換列所分隔出來的文字區塊 ─ 就會被包在 &lt;p&gt; 和 &lt;/p&gt; 標籤裡，而所有單一的換列都會維持著，並且插入一個 &lt;br /&gt; 標籤。<br />請注意，祇要妳在這個標籤中加上了 <code>convert_breaks</code> 屬性，就會覆寫掉針對該文章項目的<code>文字格式</code>設定。所以假設妳在文章項目中開啟了這項設定，卻想在特殊的情況下把它關閉，妳可以這樣做：<pre>&lt;$MTEntryBody convert_breaks=&quot;0&quot;$&gt;</pre>同時也請注意，如果妳祇想顯示文章本體的前 N 個字，那麼就可以用 <i>words</i> 屬性。再舉例來說，下列的例子就祇會顯示文章本體的前 5 個字。<pre>&lt;$MTEntryBody words=&quot;5&quot;$&gt;</pre>當尋找前 N 個字的時候，首先會從文章本體移去 HTML ，然後就祇會剩下字及字間空白了。</li>
+  <li><a id="item_MTEntryMore"></a><strong>MTEntryMore</strong><br />文章項目的延伸（『更多...』）文字部分。<br />如果妳在這則文章項目中核選了<code>轉換換列</code>而自動轉換換列和換段，那麼段落 ─ 用兩個換列所分隔出來的文字區塊 ─ 就會被包在 &lt;p&gt; 和 &lt;/p&gt; 標籤裡，而所有單一的換列都會維持著，並且插入一個 &lt;br /&gt; 標籤。<br />請注意，祇要妳在這個標籤中加上了 <code>convert_breaks</code> 屬性，就會覆寫掉針對該文章項目的<code>文字格式</code>設定。所以假設妳在文章項目中開啟了這項設定，卻想在特殊的情況下把它關閉，妳可以這樣做：<pre>&lt;$MTEntryMore convert_breaks=&quot;0&quot;$&gt;</pre></li>
+  <li><a id="item_MTEntryLink"></a><strong>MTEntryLink</strong><br />指到包含此文章項目的彙整頁面絕對網址；如果妳選擇了多重彙整類別，那麼這裡的彙整網址就會按照妳所選定的<code>偏好彙整類別</code>而定。這也是預設的動作，妳可以用 <code>archive_type</code> 屬性來加以覆寫成妳想要連結的彙整類別。<br />舉例來說，假設妳已經選擇了要用<a href="#item_Individual"><code>單篇</code></a>彙整來當作<code>偏好彙整類別</code>，那麼接下來這個標籤：<pre>&lt;$MTEntryLink$&gt;</pre>就會產生一個通往該文章項目所屬的單篇彙整頁面網址，文章的檔名將會是該則文章項目的 ID ，不滿六位數字的部分則補上零，最後再接上妳的網誌的<code>彙整檔案副檔名</code>（像是 <code>html</code>）。<br />如果妳在網誌裡同時也啟用了<code>分類</code>彙整，那麼妳也許會想改連到該則文章項目所屬的分類彙整頁面；這個時候妳就可以用這個標籤：<pre>&lt;$MTEntryLink archive_type=&quot;Category&quot;$&gt;</pre>這個標籤會被取代成一個到該文章項目的類別彙整頁面的鏈結。<br />如果妳想要真正的永久鏈結 ─ 也就是某一個永遠連到特定文章項目的鏈結，即使是跟許多其他文章項目一起被彙編到同一個頁面亦然 ─ 這時妳應該用 <code>&lt;$MTEntryPermalink$&gt;</code> 標籤。</li>
+  <li><a id="item_MTEntryPermalink"></a><strong>MTEntryPermalink</strong><br />一個指向包含該文章項目彙整頁面的絕對網址，後面並以定位錨 (<code>#</code>) 來（藉由 ID ）指向該則文章項目。這跟 <code>&lt;$MTEntryLink$&gt;</code> 很像，但聰明得多，因為他在單篇彙整以外的彙整中都會包含這個錨（在單篇彙整中如果還加上這個定位錨，就會顯得相當累贅）。<br />就跟 <code>&lt;$MTEntryLink$&gt;</code> 一樣，這個標籤也有選用的 <code>archive_type</code> 屬性來指定所要連結的彙整類別。</li>
+  <li><a id="item_MTEntryKeywords"></a><strong>MTEntryKeywords</strong><br />新增/編輯文章項目畫面中的<i>關鍵字</i>欄位的值。</li>
+  <li><a id="item_MTEntryAuthor"></a><strong>MTEntryAuthor</strong><br />該篇文章項目的作者名字。</li>
+  <li><a id="item_MTEntryAuthorNickname"></a><strong>MTEntryAuthorNickname</strong><br />該篇文章項目的作者暱稱。</li>
+  <li><a id="item_MTEntryAuthorEmail"></a><strong>MTEntryAuthorEmail</strong><br />該篇文章項目的作者 E-mail 地址。<br />如果妳加上了 <code>spam_protect</code> 屬性，那麼 E-mail 地址就會被加以修改，以免某些垃圾信機器人蒐集到妳的 E-mail 地址；然而在這種情況下，網頁瀏覽器卻仍舊能夠顯示出正確的 E-mail 地址。舉例來說，如果有個 E-mail 地址是 <code>foo@bar.com</code> ，然後妳用了<pre>&lt;$MTEntryAuthorEmail spam_protect=&quot;1&quot;$&gt;</pre>那麼這個 E-mail 地址就會被顯示成 <code>foo&amp;#64;bar&amp;#46;com</code> 。</li>
+  <li><a id="item_MTEntryAuthorURL"></a><strong>MTEntryAuthorURL</strong><br />這則文章項目作者的網站網址。</li>
+  <li><a id="item_MTEntryAuthorLink"></a><strong>MTEntryAuthorLink</strong><br />加上鏈結的作者名字。加上鏈結的規則是這樣的：如果作者有輸入網頁網址，那麼這裡的作者名字就會連到那個網址；如果作者祇有輸入 E-mail 地址而沒有輸入網址的話，這裡的作者名字就會連到他的 E-mail 地址；如果 E-mail 地址和網頁網址都沒有填寫的話，這裡就祇會顯示出作者名字，而不提供任何鏈結。<br />這個規則可以用 <i>show_email</i> 和 <i>show_url</i> 這兩個標籤屬性來加以覆寫。舉例來說，如過妳用了<pre>&lt;$MTEntryAuthorLink show_email=&quot;0&quot;$&gt;</pre>那麼作者的 E-mail 地址就永遠不會被顯示出來；於是整個規則就會變成：如果作者有輸入網頁網址，那麼作者名字就會連到那個網址；如果作者沒有填寫網址，那麼這裡就祇會顯示出作者名字，而不提供任何鏈結。<br />如果妳加上了 <code>spam_protect</code> 屬性，而又顯示了電子郵件鏈結的話，這裡的 E-mail 地址也同樣地會被加以修改，以免被某些垃圾信機器人蒐集到。然後在這種狀況下，網頁瀏覽器卻還是可以顯示出正確的 E-mail 地址。舉例來說，如果有個 E-mail 地址是 <code>foo@bar.com</code> ，然後妳用了<pre>&lt;$MTEntryAuthorLink spam_protect=&quot;1&quot;$&gt;</pre>那麼這個 E-mail 地址就會被顯示成 <code>foo&amp;#64;bar&amp;#46;com</code> 。</li>
+  <li><a id="item_MTEntryDate"></a><strong>MTEntryDate</strong><br />這則文章項目的日期。就跟所有的日期標籤一樣，這個標籤也有著選用的 <code>format</code> 屬性和 <code>language</code> 屬性。關於這些屬性的詳細資訊，請見<a href="#tags_date_tag_formats">日期標籤格式</a>小節。</li>
+  <li><a id="item_MTEntryCommentCount"></a><strong>MTEntryCommentCount</strong><br />這則文章項目的評論數量。</li>
+  <li><a id="item_MTEntryTrackbackCount"></a><strong>MTEntryTrackbackCount</strong><br />這則文章項目收到的引用通告數量。</li>
+  <li><a id="item_MTEntryTrackbackData"></a><strong>MTEntryTrackbackData</strong><br />給小書籤用的引用資料 RDF 傾印。這些傾印將不會被瀏覽器顯示出來。</li>
+  <li><a id="item_MTEntryTrackbackLink"></a><strong>MTEntryTrackbackLink</strong><br />如果這則文章項目的<i>允許通告</i>被打開了，那麼這個引用通告網址就可以被用來送出通告給這則文章項目。</li>
+  <li><a id="item_MTEntryTrackbackID"></a><strong>MTEntryTrackbackID</strong><br />如果某篇文章的<i>允許通告</i>被打開了的話，這個標籤就會對應到這篇文章的引用物件的數字型 ID 。妳也可以任意地用這個標籤來建立替換的引用通告網址。</li>
+  <li><a id="item_MTEntryIfExtended"></a><strong>MTEntryIfExtended</strong><br />這是一個容器標籤：被裝在其中的內容祇有在當文章項目的延伸文字區塊有被填寫的時候，纔會顯示出來。如果妳希望在索引模版中，祇有當文章項目還有『更多』文字的時候纔顯示出『尚有內容...』的鏈結時，就會非常有用。妳可以用像是這樣的東西：<pre>&lt;MTEntryIfExtended&gt;
+&lt;a href=&quot;&lt;$MTEntryLink$&gt;#&lt;$MTEntryID$&gt;&quot;&gt;尚有內容...&lt;/a&gt;
+&lt;/MTEntryIfExtended&gt;</pre></li>
+  <li><a id="item_MTEntryIfAllowComments"></a><strong>MTEntryIfAllowComments</strong><br />這是一個容器標籤：被裝在其中的內容祇有當該則文章項目允許發表評論（也就是如果該則文章項目的<code>編輯文章項目</code>畫面裡的<code>允許評論</code>被設定成<code>開啟</code>或<code>關閉</code>）的時候，纔會被顯示出來。妳可以用這個標籤來讓某個連到這則文章項目評論的鏈結，（當然）祇有在允許發表評論的時候纔顯示出來。<br />使用這個標籤的範例請見後面<i>文章項目</i>小節的<i>評論</i>區段。</li>
+  <li><a id="item_MTEntryIfCommentsOpen"></a><strong>MTEntryIfCommentsOpen</strong><br />這是一個容器標籤：被裝在其中的內容祇有當該則文章項目的<i>允許迴響</i>被設定成<code>開啟</code>時纔會被顯示出來。舉例來說，妳就可以用這個標籤來適時地顯示出『發表迴響』表單。</li>
+  <li><a id="item_MTEntryIfAllowPings"></a><strong>MTEntryIfAllowPings</strong><br />這是一個容器標籤：被裝在其中的內容祇有當該則文章項目允許使用引用通告（也就是如果該則文章項目的<code>編輯文章項目</code>畫面裡的<code>允許通告</code>設定被開啟）的時候，纔會被顯示出來。</li>
+  <li><a id="item_MTEntryID"></a><strong>MTEntryID</strong><br />該文章項目的數字型 ID 。拿來做為永久鏈結的定位錨時非常好用。在預設的情況下，這個文章項目 ID 並不會補滿零；也就是說，對於一個 ID <code>8</code> 的文章項目來說，這個標籤祇會產生 <code>8</code> 這個值。有的時候妳會比較希望妳的 ID 被補滿零；在這種情況下，妳可以在 <a href="#item_MTEntryID"><code>MTEntryID</code></a> 標籤裡使用 <i>pad</i>屬性：<pre>&lt;$MTEntryID pad=&quot;1&quot;$&gt;</pre>這會用零把文章項目 ID 補滿成六 (6) 位數字，像是 <code>000008</code> 。</li>
+  <li><a id="item_MTEntryCategory"></a><strong>MTEntryCategory</strong><br />這個文章項目被指定的主要類別名稱。</li>
+  <li><a id="item_MTEntryCategories"></a><strong>MTEntryCategories</strong><br />會顯示該文章項目所被指定的所有類別 ─ 包括主要類別 ─ 清單的容器標籤。在這個容器理妳可以用任何的 <code>&lt;$MTCategory*$&gt;</code> 標籤（<a href="#tags_category">說明文件</a>）來顯示關於每一個類別的資訊。<br />妳也可以在這個標籤裡用 <i>glue</i> 屬性來指定類別間的分隔字串。例如當妳想要用逗號來隔開類別名稱時就會很好用。請注意 <i>glue</i> 屬性的值不可以是單引號或雙引號。<br />舉例來說：<pre>這篇文章被歸類到下列的類別中：
+&lt;MTEntryCategories glue=&quot;, &quot;&gt;
+&lt;a href=&quot;&lt;$MTCategoryArchiveLink$&gt;&quot;&gt;&lt;$MTCategoryLabel$&gt;&lt;/a&gt;
+&lt;/MTEntryCategories&gt;</pre></li>
+  <li><a id="item_MTEntryFlag"></a><strong>MTEntryFlag</strong><br />該文章項目的某一個布林旗標的值。目前可用的兩個旗標分別是 <code>convert_breaks</code> 和 <code>allow_comments</code> 。如果旗標的值為真，那麼就會顯示 <code>1</code> 這個值；否則就會顯示 <code>0</code> 這個值。至於旗標的名稱則是以 <code>flag</code> 屬性來遞送。例如：<pre>&lt;$MTEntryFlag flag=&quot;allow_comments&quot;$&gt;</pre>這個標籤用於以匯出機制來匯出文章項目資料的情況裡。妳應該不需要在妳自己的模版裡用到。</li>
+  <li><a id="item_MTEntryPrevious"></a><strong>MTEntryPrevious</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照前一則文章項目。舉例來說，在這種 <a href="#item_MTEntryPrevious"><code>MTEntryPrevious</code></a> 情境中，某個 &lt;$MTEntryTitle$&gt; 標籤就會變成前一則文章項目的標題。在妳（用一個 &lt;/MTEntryPrevious&gt; 標籤）結束這個情境後，所有的標籤又會恢復成參照當前的文章項目。<br />使用這標籤的範例請見後面的 <a href="#item_MTEntryNext"><code>MTEntryNext</code></a> 段落。</li>
+  <li><a id="item_MTEntryNext"></a><strong>MTEntryNext</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照下一則文章項目。舉例來說，在這種 <a href="#item_MTEntryNext"><code>MTEntryNext</code></a> 情境中，某個 &lt;$MTEntryTitle$&gt; 標籤就會變成下一則文章項目的標題。在妳（用一個 &lt;/MTEntryNext&gt; 標籤）結束這個情境後，所有的標籤又會恢復成參照當前的文章項目。
+<p>接下來這個範例是個導覽列，讓妳連結到前一則和下一則文章項目，還有一個鏈結連回妳的網誌主索引。<pre>&lt;MTEntryPrevious&gt;
+&lt;a href=&quot;&lt;$MTEntryLink$&gt;&quot;&gt;&amp;lt;&amp;lt; &lt;$MTEntryTitle$&gt;&lt;/a&gt; |
+&lt;/MTEntryPrevious&gt;
+&lt;a href=&quot;&lt;$MTBlogURL$&gt;&quot;&gt;Main&lt;/a&gt;
+&lt;MTEntryNext&gt;
+| &lt;a href=&quot;&lt;$MTEntryLink$&gt;&quot;&gt;&lt;$MTEntryTitle$&gt; &amp;gt;&amp;gt;&lt;/a&gt;
+&lt;/MTEntryNext&gt;</pre></li>
+  <li><a id="item_MTDateHeader"></a><strong>MTDateHeader</strong><br />這是一個容器標籤：在這個容器裡的內容祇有當該文章項目會在文章項目清單上產生新的一天的時候纔會顯示出來。像這種標籤祇有在 <a href="#item_MTEntries"><code>MTEntries</code></a> 容器裡的時候纔會變得非常有用。舉例來說：<pre>&lt;MTEntries&gt;
+  &lt;MTDateHeader&gt;
+    &lt;$MTEntryDate format=&quot;%B %e, %Y&quot;$&gt;
+  &lt;/MTDateHeader&gt;
+  Title: &lt;$MTEntryTitle$&gt;
+&lt;/MTEntries&gt;</pre></li>
+  <li><a id="item_MTDateFooter"></a><strong>MTDateFooter</strong><br />這是一個容器標籤：在這個容器裡的內容祇有當該文章項目跟下一則文章項目的發表日期不同時纔會顯示出來。這個標籤可以跟 <a href="#item_MTDateHeader"><code>MTDateHeader</code></a> 標籤來把妳特定日期裡的所有文章排進某種結構（例如說 <code>div</code> ）裡。這個標籤就跟 <a href="#item_MTDateHeader"><code>MTDateHeader</code></a> 一樣，祇有在 <a href="#item_MTEntries"><code>MTEntries</code></a> 容器裡的時候纔會非常有用。舉例來說：<pre>&lt;MTEntries&gt;
+  &lt;MTDateHeader&gt;
+    &lt;div class=&quot;day&quot;&gt;
+    &lt;$MTEntryDate format=&quot;%B %e, %Y&quot;$&gt;
+  &lt;/MTDateHeader&gt;
+  Title: &lt;$MTEntryTitle$&gt;
+  &lt;MTDateFooter&gt;
+    &lt;/div&gt;
+  &lt;/MTDateFooter&gt;
+&lt;/MTEntries&gt;</pre></li>
+  <li><a id="item_MTEntriesHeader"></a><strong>MTEntriesHeader</strong><br />這是一個容器標籤：在這個容器裡的內容祇有當該文章項目是整個 <code>&lt;MTEntries&gt;</code> 容器裡的第一篇的時候纔會顯示出來。</li>
+  <li><a id="item_MTEntriesFooter"></a><strong>MTEntriesFooter</strong><br />這是一個容器標籤：在這個容器裡的內容祇有當該文章項目是整個 <code>&lt;MTEntries&gt;</code> 容器裡的最後一篇的時候纔會顯示出來。舉例來說，這可以用在妳的索引頁面上，連結到前一則文章項目的彙整頁面。例如當妳在使用逐日彙整時：<pre>&lt;MTEntries days=&quot;1&quot;&gt;
+...
+&lt;MTEntriesFooter&gt;
+&lt;MTEntryPrevious&gt;
+&lt;a href=&quot;&lt;$MTEntryLink archive_type=&quot;Daily&quot;$&gt;&quot;&gt;昨日彙整： &lt;$MTEntryDate format=&quot;%A, %B %d, %Y&quot;$&gt;&lt;/a&gt;
+&lt;/MTEntryPrevious&gt;
+&lt;/MTEntriesFooter&gt;
+&lt;/MTEntries&gt;</pre></li>
+</ul></p>
+
+<h3><a id="tags_comments"></a>迴響</h3>
+
+<p><ul>
+  <li><a id="item_MTComments"></a><strong>MTComments</strong><br />一個會列出特定文章項目或特定網誌裡（這得依 <code>lastn</code> 屬性使用的情境而定，詳見後述）所有迴響清單的容器標籤。<br />如果妳在這個標籤裡加上了 <a href="#item_lastn"><code>lastn=&quot;N&quot;</code></a> 屬性，這裡的 <code>N</code> 是妳想要顯示的迴響數量，那麼就會顯示當前文章項目 ─ 如果用在文章項目情境中 ─ 或網誌 ─ 如果用在其他地方 ─ 裡最新的 <code>N</code> 篇迴響。<br />如果妳使用這個標籤時沒有加上任何屬性，那麼 <code>&lt;MTComments&gt;</code> 就會列出所有當前文章項目的迴響。這表示當妳使用這個標籤而不加上任何屬性的時候，一定是用於文章項目情境：在<code>單篇彙整模版</code>、<code>迴響預覽模版</code>、<code>迴響清單模版</code>或<code>迴響出錯模版</code>裡，放進 <code>&lt;MTEntries&gt;</code> 中。<br />在預設的情況下，這些迴響會按照妳在網誌組態理指定的<i>迴響顯示順序</i>來排序並儲存。不過妳還是可以在這個標籤裡用 <code>sort_order</code> 屬性來覆寫這個設定；這個屬性的值可以是 <i>ascend</i> 或是 <i>descend</i> 。<br />舉例來說，要顯示妳的網誌上最近被發表的 6 篇迴響，絲毫不考慮他們各自所屬的文章項目，而以時間順序倒序排列（把最新的放在最前面）的話，妳可以把下列的標籤放到妳的主索引模版裡：<pre>&lt;MTComments lastn=&quot;6&quot; sort_order=&quot;descend&quot;&gt;
+&lt;p&gt;&lt;$MTCommentAuthor$&gt; 說道：&lt;br /&gt;
+&lt;$MTCommentBody$&gt;&lt;/p&gt;
+&lt;/MTComments&gt;</pre>對於迴響清單裡的每一篇來說，在容器內的文字及標籤都會被顯示出來。下列每一個標籤都用於顯示某篇迴響的特定變數區塊。</li>
+  <li><a id="item_MTCommentID"></a><strong>MTCommentID</strong><br />這篇迴響的數字型 ID 。拿來做為永久鏈結的定位錨時非常好用。在預設的情況下，這個文章項目 ID 並不會補滿零；也就是說，對於一個 ID <code>8</code> 的文章項目來說，這個標籤祇會產生 <code>8</code> 這個值。有的時候妳會比較希望妳的 ID 被補滿零；在這種情況下，妳可以在這個標籤裡使用 <i>pad</i> 屬性：<pre>&lt;$MTCommentID pad=&quot;1&quot;$&gt;</pre>這會用零把迴響 ID 補滿成六 (6) 位數字，像是 <code>000008</code> 。</li>
+  <li><a id="item_MTCommentEntryID"></a><strong>MTCommentEntryID</strong><br />這篇迴響所對應到的文章項目數字型 ID 。當妳在使用 <code>&lt;MTComments lastn=&quot;N&quot;&gt;</code> 的時候會相當有用，因為它會讓妳連到跟這篇迴響所對應到的特定文章項目。<br />這個標籤也有一個選用的 <code>pad</code> 屬性，其功能就跟前述的 <code>&lt;$MTCommentID$&gt;</code> 標籤中的 <code>pad</code> 屬性一模一樣。</li>
+  <li><a id="item_MTCommentIP"></a><strong>MTCommentIP</strong><br />發表迴響的作者的來源 IP 位址。</li>
+  <li><a id="item_MTCommentAuthor"></a><strong>MTCommentAuthor</strong><br />這篇迴響的作者名字。</li>
+  <li><a id="item_MTCommentAuthorLink"></a><strong>MTCommentAuthorLink</strong><br />加上鏈結的作者名字。加上鏈結的規則是這樣的：如果作者有輸入網頁網址，那麼這裡的作者名字就會連到那個網址；如果作者祇有輸入 E-mail 地址而沒有輸入網址的話，這裡的作者名字就會連到他的 E-mail 地址；如果 E-mail 地址和網頁網址都沒有填寫的話，這裡就祇會顯示出作者名字，而不提供任何鏈結。<br />這個規則可以用 <i>show_email</i> 和 <i>show_url</i> 這兩個標籤屬性來加以覆寫。舉例來說，如過妳用了<pre>&lt;$MTCommentAuthorLink show_email=&quot;0&quot;$&gt;</pre>那麼作者的 E-mail 地址就永遠不會被顯示出來；於是整個規則就會變成：如果作者有輸入網頁網址，那麼作者名字就會連到那個網址；如果作者沒有填寫網址，那麼這裡就祇會顯示出作者名字，而不提供任何鏈結。<br />如果妳希望強迫發表迴響的讀者一定要留下 E-mail 地址 ─ 這意味著妳不能夠在網誌組態裡核選<i>允許匿名迴響</i>核選框 ─ 而又不想在網誌上顯示她們的 E-mail 地址時會相當有用。<br />如果妳加上了 <code>spam_protect</code> 屬性，而又顯示了電子郵件鏈結的話，這裡的 E-mail 地址也同樣地會被加以修改，以免被某些垃圾信機器人蒐集到。然後在這種狀況下，網頁瀏覽器卻還是可以顯示出正確的 E-mail 地址。舉例來說，如果有個 E-mail 地址是 <code>foo@bar.com</code> ，然後妳用了<pre>&lt;$MTCommentAuthorLink spam_protect=&quot;1&quot;$&gt;</pre>那麼這個 E-mail 地址就會被顯示成 <code>foo&amp;#64;bar&amp;#46;com</code> 。</li>
+  <li><a id="item_MTCommentEmail"></a><strong>MTCommentEmail</strong><br />這篇迴響的作者 E-mail 地址。<br />如果妳加上了 <code>spam_protect</code> 屬性，那麼 E-mail 地址就會被加以修改，以免某些垃圾信機器人蒐集到妳的 E-mail 地址；然而在這種情況下，網頁瀏覽器卻仍舊能夠顯示出正確的 E-mail 地址。舉例來說，如果有個 E-mail 地址是 <code>foo@bar.com</code> ，然後妳用了<pre>&lt;$MTCommentEmail spam_protect=&quot;1&quot;$&gt;</pre>那麼這個 E-mail 地址就會被顯示成 <code>foo&amp;#64;bar&amp;#46;com</code> 。</li>
+  <li><a id="item_MTCommentURL"></a><strong>MTCommentURL</strong><br />這篇迴響的作者網站網址。</li>
+  <li><a id="item_MTCommentBody"></a><strong>MTCommentBody</strong><br />迴響的本體。如果妳在網誌組態裡選擇了<code>轉換換列和換段</code>，那麼段落 ─ 用兩個換列所分隔出來的文字區塊 ─ 就會被包在 &lt;p&gt; 和 &lt;/p&gt; 標籤裡，而所有單一的換列都會維持著，並且插入一個 &amp;lt;br /&amp;gt; 標籤。<br />請注意，祇要妳在這個標籤中加上了 <code>convert_breaks</code> 屬性，就會覆寫掉針對全域的<code>轉換換列和換段</code>設定。所以假設妳在全域設定中開啟了這項設定，卻想在特殊的情況下把它關閉，妳可以這樣做：<pre>&lt;$MTCommentBody convert_breaks=&quot;0&quot;$&gt;</pre></li>
+  <li><a id="item_MTCommentDate"></a><strong>MTCommentDate</strong><br />這篇迴響發表在妳的站台上的日期。就跟所有的日期標籤一樣，這個標籤也有著選用的 <code>format</code> 屬性和 <code>language</code> 屬性。關於這些屬性的詳細資訊，請見<a href="#tags_date_tag_formats">日期標籤格式</a>段落。</li>
+  <li><a id="item_MTCommentOrderNumber"></a><strong>MTCommentOrderNumber</strong><br />一連串迴響中，特定迴響的序數，從 <code>1</code> 開始。請注意這裡的順序是按照排序（遞增或遞減）而定的。</li>
+  <li><a id="item_MTCommentEntry"></a><strong>MTCommentEntry</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照迴響所對應到的文章項目，所以妳可以用 <code>&lt;$MTEntry*$&gt;</code> 標籤來參照該則文章項目。舉例來說，妳就可以這麼用：<pre>&lt;MTComments lastn=&quot;5&quot; sort_order=&quot;descend&quot;&gt;
+&lt;MTCommentEntry&gt;
+這篇迴響是針對 &lt;$MTEntryTitle$&gt; 這篇文章所發表的。
+&lt;/MTCommentEntry&gt;
+&lt;/MTComments&gt;</pre></li>
+</ul></p>
+
+<h3><a id="tags_comment_previewing"></a>預覽迴響</h3>
+
+<p>當妳做出<code>迴響預覽模版</code>的時候，妳應該要採用下列這些標籤。這些標籤全部都跟前述的<code>迴響</code>小節裡名稱相近的標籤作用相仿；唯一的不同是這些標籤祇能用於預覽之用，而不是用在 <code>&lt;MTComments&gt;</code> 區塊中。</p>
+
+<p><ul>
+  <li><a id="item_MTCommentPreviewAuthor"></a><strong>MTCommentPreviewAuthor</strong></li>
+  <li><a id="item_MTCommentPreviewIP"></a><strong>MTCommentPreviewIP</strong></li>
+  <li><a id="item_MTCommentPreviewAuthorLink"></a><strong>MTCommentPreviewAuthorLink</strong></li>
+  <li><a id="item_MTCommentPreviewEmail"></a><strong>MTCommentPreviewEmail</strong></li>
+  <li><a id="item_MTCommentPreviewURL"></a><strong>MTCommentPreviewURL</strong></li>
+  <li><a id="item_MTCommentPreviewBody"></a><strong>MTCommentPreviewBody</strong></li>
+  <li><a id="item_MTCommentPreviewDate"></a><strong>MTCommentPreviewDate</strong></li>
+</ul></p>
+
+<p>這些標籤全部都跟前述的<code>迴響</code>小節裡名稱相近的標籤意思相同。</p>
+
+<ul>
+  <li><a id="item_MTCommentPreviewIsStatic"></a><strong>MTCommentPreviewIsStatic</strong><br /這是一個神秘的隱藏標籤，妳應該把這個標籤放進妳的<code>迴響預覽</code>模版和<code>迴響出錯</code>模版裡，好讓系統得知發表完迴響後要把讀者轉送到哪裡。使用這個標籤時，把下面這個隱藏輸入欄位貼進妳的<code>迴響預覽</code>模版和<code>迴響</code>出錯模版裡：<pre>&lt;input type=&quot;hidden&quot; name=&quot;static&quot; value=&quot;&lt;$MTCommentPreviewIsStatic$&gt;&quot;&gt;</pre></li>
+  <li><a id="item_MTCommentPreviewState"></a><strong>MTCommentPreviewState</strong><br /><strong>注意：</strong>這個標籤到 Movable Type 1.4 版為止都不該使用。建立迴響預覽的建議方法是使用一個可編輯的表單來讓讀者得以編輯被預覽的迴響；在這種情況下，妳<strong>不</strong>應該使用 <code>&lt;$MTCommentPreviewState$&gt;</code> 標籤。<br />這是一個妳需要在迴響預覽頁面（<code>迴響預覽模版</code>）裡使用的神奇標籤。這個標籤會被取代成一切要發表迴響所需的迴響資料，以及迴響是從嵌入式迴響或彈出式迴響所發表的消息。</li>
+</ul></p>
+
+<h3><a id="tags_archive_templates_master_archive_index"></a>彙整模版及彙整總索引</h3>
+
+<p>下列的模版標籤和變數適用於妳的彙整頁面及彙整總索引。</p>
+
+<p><ul>
+  <li><a id="item_MTArchiveList"></a><strong>MTArchiveList</strong><br />這是一個表是妳所有彙整頁面清單的容器標籤。對每一個彙整頁面來說，妳都可以用任何後述的標籤變數；除此之外，妳也還可以用 <a href="#item_MTEntries"><code>MTEntries</code></a> 標籤來顯示該頁面上每一則文章項目的資訊。舉例來說：<pre>&lt;MTArchiveList&gt;
+  &lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTArchiveDate$&gt;&lt;/a&gt;&lt;br /&gt;
+  &lt;MTEntries&gt;
+    [&lt;$MTEntryTitle$&gt;]
+  &lt;/MTEntries&gt;
+  &lt;br /&gt;&lt;br /&gt;
+&lt;/MTArchiveList&gt;</pre>這會顯示一個連往彙整頁面的鏈結，後面再跟著那一個頁面上每一則文章項目的標題清單。<br />這個標籤有兩個屬性可用： <code>archive_type</code> 會指定彙整清單的類別，而 <code>lastn</code> 則會限制列出的彙整數量。</li>
+  <ul>
+    <li><code>archive_type</code><br />這個屬性是選用的；如果沒有這個屬性的時候，就會使用妳的偏好彙整類別，或者妳的彙整類別。不過這個屬性在妳選用了多於一種網誌彙整類別的，而妳又想要用不是妳的偏好彙整類別列出的時候會很好用。舉例來說，如果妳打算要保持<a href="#item_Individual"><code>單篇</code></a>彙整和<a href="#item_Daily"><code>逐日</code></a>彙整，而妳的偏好彙整類別是<a href="#item_Individual"><code>單篇</code></a>彙整時，妳可以用這個標籤來列出妳的<a href="#item_Daily"><code>逐日</code></a>彙整：<pre>&lt;MTArchiveList archive_type=&quot;Daily&quot;&gt;
+...
+&lt;/MTArchiveList&gt;</pre></li>
+    <li><code>lastn</code><br />屬性可以用來限制列出的彙整數量；舉例來說，如果妳的網誌上有多於 10 個月份量的彙整，但是妳祇想要列出最近的 5 個時，就用這個標籤：<pre>&lt;MTArchiveList archive_type=&quot;Monthly&quot; lastn=&quot;5&quot;&gt;
+...
+&lt;/MTArchiveList&gt;</pre></li>
+  </ul>
+  <li><a id="item_MTArchiveLink"></a><strong>MTArchiveLink</strong><br />連到這個彙整頁面的絕對網址。<br />根據預設值，這個鏈結會連到目前正在建立的彙整類別的彙整頁面；舉例來說，建立一連串的<a href="#item_Monthly"><code>逐月</code></a>彙整時， <code>&lt;$MTArchiveLink&gt;</code> 會產生連到特定的<a href="#item_Monthly"><code>逐月</code></a>彙整的鏈結。妳可以指定 <code>archive_type</code> 屬性來覆寫這個作用；這個屬性可以設成下列幾個值之一： <a href="#item_Individual"><code>Individual</code></a> 、 <a href="#item_Daily"><code>Daily</code></a> 、 <a href="#item_Weekly"><code>Weekly</code></a> 、 <a href="#item_Monthly"><code>Monthly</code></a> 或 <a href="#item_Category"><code>Category</code></a> 。</li>
+  <li><a id="item_MTArchiveTitle"></a><strong>MTArchiveTitle</strong><br />彙整頁面的『標題』。這個值會按照彙整的類別而決定：</li>
+  <ul>
+    <li><a id="item_Category"></a><strong>Category</strong><br />類別名稱。</li>
+    <li><a id="item_Daily"></a><strong>Daily</strong><br />用 <code>Month Day, YYYY</code> 格式表示的日期。</li>
+    <li><a id="item_Weekly"></a><strong>Weekly</strong><br />用 <code>Month Day, YYYY - Month Day, YYYY</code> 格式表示的該週日期範圍。</li>
+    <li><a id="item_Monthly"></a><strong>Monthly</strong><br />用 <code>Month YYYY</code> 格式表示的月份。</li>
+    <li><a id="item_Individual"></a><strong>Individual</strong><br />文章項目的標題。</li>
+  </ul>把 <a href="#item_MTArchiveTitle"><code>MTArchiveTitle</code></a> 跟 <a href="#item_MTArchiveLink"><code>MTArchiveLink</code></a> 放在一起用可以說是建立彙整總索引最簡單的方法了。因為 <a href="#item_MTArchiveTitle"><code>MTArchiveTitle</code></a> 的值會隨著任何妳選擇的類別而改寫。舉例來說：<pre>&lt;MTArchiveList&gt;
+&lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTArchiveTitle$&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/MTArchiveList&gt;</pre>不論妳選擇了哪一種彙整類別，都能夠顯示出有用的彙整頁面清單。
+  <li><a id="item_MTArchiveCount"></a><strong>MTArchiveCount</strong><br />在特定的彙整集合中的文章項目數量；舉例來說，如果妳正在使用逐月彙整，這就會反映出這個月的文章項目數量。這個標籤被放進 <code>&lt;MTArchiveList&gt;</code> 容器時會很有用，就像這樣：<pre>&lt;MTArchiveList&gt;
+&lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTArchiveTitle$&gt; (&lt;$MTArchiveCount$&gt;)&lt;/a&gt;&lt;br /&gt;
+&lt;/MTArchiveList&gt;</pre></li>
+  <li><a id="item_MTArchiveDate"></a><strong>MTArchiveDate</strong><br />彙整週期的開始日期。這個標籤祇有當妳在列出<a href="#item_Daily"><code>逐日</code></a>彙整、<a href="#item_Weekly"><code>逐週</code></a>彙整或者是<a href="#item_Monthly"><code>逐月</code></a>彙整時纔有意義。這也是標準的日期標籤，所以請參照後面會提到的<a href="#date tag formats">日期標籤格式</a>來自訂日期格式。<br />妳可以在某個 <a href="#item_MTArchiveList"><code>MTArchiveList</code></a> 容器裡使用這個標籤，也可以用於某個和按時彙整類別相關聯的彙整模版裡、在 <a href="#item_MTEntries"><code>MTEntries</code></a> 標籤<i>以外</i>的地方。妳可以用來顯示特定彙整頁面的日期檔頭 ─ 例如月份和年份：<pre>&lt;$MTBlogName$&gt; Archives: &lt;$MTArchiveDate format=&quot;%B %Y&quot;$&gt;
+&lt;MTEntries&gt;
+...
+&lt;/MTEntries&gt;</pre></li>
+  <li><a id="item_MTArchiveDateEnd"></a><strong>MTArchiveDateEnd</strong><br />彙整週期的結束日期。這個標籤祇有當妳在列出<a href="#item_Daily"><code>逐日</code></a>彙整、<a href="#item_Weekly"><code>逐週</code></a>彙整或者是<a href="#item_Monthly"><code>逐月</code></a>彙整時纔有意義；除此以外的情況都會失效。請參照後面會提到的<a href="#date tag formats">日期標籤格式</a>來自訂日期格式。<br />妳可以在 <code>&lt;$MTArchiveDate&gt;</code> 標籤所適用的相同情境中使用這個標籤。</li>
+  <li><a id="item_MTArchiveCategory"></a><strong>MTArchiveCategory</strong><br />這份彙整清單的名稱。這個標籤祇有當妳在列出<a href="#item_Category"><code>分類</code></a>彙整的時候纔有意義。<br />妳可以在某個 <a href="#item_MTArchiveList"><code>MTArchiveList</code></a> 容器中使用這個標籤，也可以用於某個和妳的<a href="#item_Category"><code>分類</code></a>彙整相關聯的彙整模版裡、在 <a href="#item_MTEntries"><code>MTEntries</code></a> 標籤<i>以外</i>的地方。妳可以用來顯示特定彙整頁面的類別檔頭，像是：<pre>&lt;$MTBlogName$&gt; Archives: &lt;$MTArchiveCategory$&gt;
+&lt;MTEntries&gt;
+...
+&lt;/MTEntries&gt;</pre></li>
+  <li><a id="item_MTArchivePrevious"></a><strong>MTArchivePrevious</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照前一個彙整。例如在 <a href="#item_MTArchivePrevious"><code>MTArchivePrevious</code></a> 情境中， &lt;$MTArchiveTitle$&gt; 標籤就會去參照前一個彙整的標題。當妳（用 &lt;/MTArchivePrevious&gt; 標籤）結束這個情境後，所有的標籤又會回來參照現用的彙整。<br />這個標籤可以用於妳指定與<a href="#item_Daily"><code>逐日</code></a>、<a href="#item_Weekly"><code>逐週</code></a>或<a href="#item_Monthly"><code>逐月</code></a>彙整相關聯的彙整模版中；如果妳想要在單篇文章彙整中也有相似的功能，請參考 <code>&lt;MTEntryPrevious&gt;</code> 標籤。<br />在預設的情況下，『前一份』彙整是按照彙整類別而定的 ─ 例如說，在<a href="#item_Daily"><code>逐日</code></a>彙整裡，『前一份』彙整指的是前一天的文章彙整。如果妳想要覆寫這樣的作用 ─ 像是妳更想要連結到前一個月份的彙整 ─ 時妳就可以用 <code>archive_type</code> 屬性（範例見後）。<br />使用這個標籤的範例請見後面的 <code>&lt;MTArchiveNext&gt;</code> 文件。</li>
+  <li><a id="item_MTArchiveNext"></a><strong>MTArchiveNext</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照下一個彙整。例如在 <a href="#item_MTArchiveNext"><code>MTArchiveNext</code></a> 情境中， &lt;$MTArchiveTitle$&gt; 標籤就會去參照下一個彙整的標題。當妳（用 &lt;/MTArchiveNext&gt; 標籤）結束這個情境後，所有的標籤又會回來參照現用的彙整。<br />這個標籤可以用於妳指定與<a href="#item_Daily"><code>逐日</code></a>、<a href="#item_Weekly"><code>逐週</code></a>或<a href="#item_Monthly"><code>逐月</code></a>彙整相關聯的彙整模版中；如果妳想要在單篇文章彙整中也有相似的功能，請參考 <code>&lt;MTEntryNext&gt;</code> 標籤。<br />在預設的情況下，『下一份』彙整是按照彙整類別而定的 ─ 例如說，在<a href="#item_Daily"><code>逐日</code></a>彙整裡，『下一份』彙整指的是前一天的文章彙整。如果妳想要覆寫這樣的作用 ─ 像是妳更想要連結到前一個月份的彙整 ─ 時妳就可以用 <code>archive_type</code> 屬性。<br />這個範例是一個導覽列，提供連往前一份彙整和下一份彙整的鏈結，以及一個連回妳的網誌主索引的鏈結。<pre>&lt;MTArchivePrevious&gt;
+&lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&amp;lt;&amp;lt; &lt;$MTArchiveTitle$&gt;&lt;/a&gt; |
+&lt;/MTArchivePrevious&gt;
+&lt;a href=&quot;&lt;$MTBlogURL$&gt;&quot;&gt;Main&lt;/a&gt;
+&lt;MTArchiveNext&gt;
+| &lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTArchiveTitle$&gt; &amp;gt;&amp;gt;&lt;/a&gt;
+&lt;/MTArchiveNext&gt;</pre>接下來這個導覽列的範例可以被用在<a href="#item_Daily"><code>逐日</code></a>彙整裡，用來連到前一個月份的彙整以及下一個月份的彙整。如果妳在妳所有的<a href="#item_Daily"><code>逐日</code></a>彙整裡都加上了月曆，然後想要連到前一個月份和下一個月份的月曆時，就會很有用。<pre>&lt;MTArchivePrevious archive_type=&quot;Monthly&quot;&gt;
+&lt;a href=&quot;&lt;$MTArchiveLink archive_type=&quot;Monthly&quot;$&gt;&quot;&gt;&lt;$MTArchiveDate format=&quot;%b&quot;$&gt;&lt;/a&gt;
+&lt;/MTArchivePrevious&gt;
+&lt;MTArchiveNext archive_type=&quot;Monthly&quot;&gt;
+&lt;a href=&quot;&lt;$MTArchiveLink archive_type=&quot;Monthly&quot;$&gt;&quot;&gt;&lt;$MTArchiveDate format=&quot;%b&quot;$&gt;&lt;/a&gt;
+&lt;/MTArchiveNext&gt;</pre></li>
+</ul></p>
+
+<h3><a id="tags_category"></a>與分類相關的標籤</h3>
+
+<p>接下來這些標籤可以用來顯示網誌上的類別清單，以及每一個類別的資訊（ ID 、標籤等）。</p>
+
+<p><ul>
+  <li><a id="item_MTCategories"></a><strong>MTCategories</strong><br />這個容器標籤會建立起一個情境，使得其內的所有標籤都會去參照網誌上的類別清單。對於每一個類別來說，妳都可以使用任何下列的標籤變數；除此之外，妳也可以用 <code>&lt;MTEntries&gt;</code> 標籤來顯示這個類別中每一個文章項目的資訊。例如：<pre>&lt;MTCategories&gt;
+  &lt;a href=&quot;&lt;$MTCategoryArchiveLink$&gt;&quot;&gt;&lt;$MTCategoryLabel$&gt;&lt;/a&gt;&lt;br /&gt;
+  &lt;MTEntries&gt;
+  &lt;$MTEntryTitle$&gt;&amp;nbsp;
+  &lt;/MTEntries&gt;
+  &lt;br /&gt;&lt;br /&gt;
+&lt;/MTCategories&gt;</pre>這會顯示連往每一個類別的鏈結，然後後面再個別跟著該類別的文章標題清單。<br />如果某個類別裡沒有包含任何文章項目的話，預設這個類別就不會包含在這個類別清單裡。這個預設的作用之所以會是這樣，主要因為它是從 <code>&lt;MTArchiveList&gt;</code> 的預設作用所複製而來的。請注意如果妳包括了連到分類彙整頁面的話，這樣也是建議的作法；因為空的類別不會產生彙整頁面。換而言之，連往空的類別的彙整鏈結會是一個壞掉的鏈結。<br />如果妳想要覆寫這個預設的作用，妳可以在這個標籤裡加進 <code>show_empty</code> 屬性。例如這些標籤：<pre>&lt;MTCategories show_empty=&quot;1&quot;&gt;
+&lt;$MTCategoryLabel$&gt;
+&lt;/MTCategories&gt;</pre>就會顯示<strong>所有</strong>的類別清單，即使是空的類別也會。</li>
+  <li><a id="item_MTCategoryID"></a><strong>MTCategoryID</strong><br />類別的數字型 ID 。</li>
+  <li><a id="item_MTCategoryLabel"></a><strong>MTCategoryLabel</strong><br />類別標籤。</li>
+  <li><a id="item_MTCategoryArchiveLink"></a><strong>MTCategoryArchiveLink</strong><br />這是一個連到該分類的彙整頁面的鏈結。這個標籤祇有在妳啟用了網誌的<a href="#item_Category"><code>分類</code></a>彙整時纔有效；否則妳就會在重建頁面的時候得到一個錯誤訊息。</li>
+  <li><a id="item_MTCategoryDescription"></a><strong>MTCategoryDescription</strong><br />該類別的描述。</li>
+  <li><a id="item_MTCategoryCount"></a><strong>MTCategoryCount</strong><br />該類別中的文章項目數量。</li>
+  <li><a id="item_MTCategoryTrackbackLink"></a><strong>MTCategoryTrackbackLink</strong><br />如果該類別已經被設定成<i>接受送進來的引用通告</i>那麼引用通告網址就可以用來發送通告給這個類別。這個標籤可以用在任何類別情境（分類彙整或者是在 <code>&lt;MTCategories&gt;</code> 裡面）中，不然妳也可以用 <i>category</i> 屬性來指明引用通告網址所要對應到的類別。舉例來說：<pre>&lt;$MTCategoryTrackbackLink category=&quot;Foo Bar&quot;$&gt;</pre>祇要妳指定了這個屬性，就可以在任何妳想要的地方使用這個標籤。</li>
+</ul></p>
+
+<h3><a id="tags_calendar"></a>月曆顯示標籤</h3>
+
+<p>下列的標籤可以用來在妳的文章項目裡畫出月曆。事實上並沒有任何限制說妳一定得要用 HTML 的表格來畫出月曆；這些標籤完全是泛用型的，因此妳可以利用她們來做出各種迥然不同樣子的月曆。</p>
+
+<p><ul>
+  <li><a id="item_MTCalendar"></a><strong>MTCalendar</strong><br />這個容器標籤代表著一個月長度的月曆，所有在 <code>&lt;MTCalendar&gt;</code> 標籤和 <code>&lt;/MTCalendar&gt;</code> 標籤之間的組成元件都代表著月曆裡的一個『格子』（有可能是一個月裡的某一天，或者是屬於別的月份的空白格子）。<br />這個標籤還可以加上選用的 <code>month</code> 屬性，用來指定要顯示哪一個月份和年份的月曆。如果這個屬性的值是 <code>this</code> 這個字串，就會建立起近期情境；這表示說，妳可以在彙整模版裡用<pre>&lt;MTCalendar month=&quot;this&quot;&gt;
+...
+&lt;/MTCalendar&gt;</pre>來表示正被檢視的彙整那個月份的月曆。這個標籤在<a href="#item_Individual"><code>單篇</code></a>彙整、<a href="#item_Daily"><code>逐日</code></a>彙整、<a href="#item_Weekly"><code>逐週</code></a>彙整和<a href="#item_Monthly"><code>逐月</code></a>彙整裡都可以用，但是妳不能拿進<a href="#item_Category"><code>分類</code></a>彙整用。<br />如果 <code>month</code> 屬性的值被設定成 <code>last</code> 的話，就會建立出相對目前日期的前一個月份的月曆。<br />如果妳想要建立特定月份的月曆，妳可以在 <code>month</code> 屬性中用 <code>YYYYMM</code> 格式（例如： <code>200112</code> ）來指定確切的月份和年份。<br />如果妳沒有加上 <code>month</code> 屬性的話，就會顯示當月的月曆。<br />如果妳祇想要在月曆裡顯示某個特定類別的文章，妳可以指定 <code>category</code> 屬性，並且指明該類別的名稱。舉例來說，下面這個標籤：<pre>&lt;MTCalendar month=&quot;200201&quot; category=&quot;Foo&quot;&gt;
+...
+&lt;/MTCalendar&gt;
+</pre>就祇會顯示 2002 年一月份所有 <code>Foo</code> 這個類別裡的文章項目。</li>
+  <li><a id="item_MTCalendarDay"></a><strong>MTCalendarDay</strong><br />用數字表示的日期（例如： <code>1</code> ）。妳可以在 <code>&lt;MTCalendarIfEntries&gt;</code> 容器和 <code>&lt;MTCalendarIfNoEntries&gt;</code> 容器裡用這個標籤。</li>
+  <li><a id="item_MTCalendarCellNumber"></a><strong>MTCalendarCellNumber</strong><br />月曆裡的『格子』號碼；第一個格子位於最左上角的角落裡，號碼是 <code>1</code> ，然後依序增加，往水平方向在月曆上橫跨。<br />這個標籤跟前述的 <code>&lt;$MTCalendarDay$&gt;</code> 不同，因為後者僅套用於非『空白』的格子（也就是代表著特定月份裡某個日子的項目）。</li>
+  <li><a id="item_MTCalendarDate"></a><strong>MTCalendarDate</strong><br />該月每一天的時間戳印；這個標籤接受標準的 <code>format</code> 屬性。如果妳祇想要顯示數字型的日期，那麼就祇需要用 <code>&lt;$MTCalendarDay$&gt;</code> 就可以了；祇有在妳想要顯示更多日期/時間資訊的時候，纔有必要使用這個標籤。</li>
+  <li><a id="item_MTCalendarWeekHeader"></a><strong>MTCalendarWeekHeader</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarWeekHeader&gt;</code> 標籤和 <code>&lt;/MTCalendarWeekHeader&gt;</code> 標籤間的組成元素都祇會在每一週的開始時被顯示出來。</li>
+  <li><a id="item_MTCalendarWeekFooter"></a><strong>MTCalendarWeekFooter</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarWeekFooter&gt;</code> 標籤和 <code>&lt;/MTCalendarWeekFooter&gt;</code> 標籤間的組成元素都祇會在每一週的結束時被顯示出來。</li>
+  <li><a id="item_MTCalendarIfBlank"></a><strong>MTCalendarIfBlank</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarIfBlank&gt;</code> 標籤和 <code>&lt;/MTCalendarIfBlank&gt;</code> 標籤間的組成元素都祇會在該格子是一個『空』格子 ─ 也就是不代表該月份任何一天的格子 ─ 時被顯示出來。</li>
+  <li><a id="item_MTCalendarIfEntries"></a><strong>MTCalendarIfEntries</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarIfEntries&gt;</code> 標籤和  <code>&lt;/MTCalendarIfEntries&gt;</code> 標籤間的組成元素都祇會在該格子裡的日期有任何文章項目時纔顯示出來。妳還可以用 <code>&lt;MTEntries&gt;</code> 標籤來顯示那一天裡所有的文章項目。<br />舉例來說：<pre>&lt;MTCalendarIfEntries&gt;
+    這一天裡的文章：
+    &lt;MTEntries&gt;
+    &lt;a href=&quot;&lt;$MTEntryLink$&gt;&quot;&gt;&lt;$MTEntryTitle$&gt;&lt;/a&gt;&lt;br /&gt;
+    &lt;/MTEntries&gt;
+&lt;/MTCalendarIfEntries&gt;</pre></li>
+  <li><a id="item_MTCalendarIfNoEntries"></a><strong>MTCalendarIfNoEntries</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarIfNoEntries&gt;</code> 標籤和 <code>&lt;/MTCalendarIfNoEntries&gt;</code> 標籤間的組成元素祇有在該格子裡的日期沒有任何文章項目的時候纔顯示出來。</li>
+  <li><a id="item_MTCalendarIfToday"></a><strong>MTCalendarIfToday</strong><br />這是一個容器標籤；在 <code>&lt;MTCalendarIfToday&gt;</code> 標籤和 <code>&lt;/MTCalendarIfToday&gt;</code> 標籤間的組成元素祇有在該格子裡的日期就是目前的日期時纔顯示出來。</li>
+</ul></p>
+
+<p>以下是一個標準的月曆顯示組成，會顯示出目前的月份。<pre>&lt;table border=&quot;0&quot; cellspacing=&quot;4&quot; cellpadding=&quot;0&quot; summary=&quot;Monthly calendar&quot;&gt;
+&lt;caption&gt;&lt;$MTDate format=&quot;%B %Y&quot;$&gt;&lt;/caption&gt;
+&lt;tr&gt;
+&lt;th abbr=&quot;星期日&quot; align=&quot;center&quot;&gt;Sun&lt;/th&gt;
+&lt;th abbr=&quot;星期一&quot; align=&quot;center&quot;&gt;Mon&lt;/th&gt;
+&lt;th abbr=&quot;星期二&quot; align=&quot;center&quot;&gt;Tue&lt;/th&gt;
+&lt;th abbr=&quot;星期三&quot; align=&quot;center&quot;&gt;Wed&lt;/th&gt;
+&lt;th abbr=&quot;星期四&quot; align=&quot;center&quot;&gt;Thu&lt;/th&gt;
+&lt;th abbr=&quot;星期五&quot; align=&quot;center&quot;&gt;Fri&lt;/th&gt;
+&lt;th abbr=&quot;星期六&quot; align=&quot;center&quot;&gt;Sat&lt;/th&gt;
+&lt;/tr&gt;
+&lt;MTCalendar&gt;
+&lt;MTCalendarWeekHeader&gt;&lt;tr&gt;&lt;/MTCalendarWeekHeader&gt;
+&lt;td &lt;MTCalendarIfToday&gt;bgcolor=&quot;#EEEEEE&quot;&lt;/MTCalendarIfToday&gt; align=&quot;center&quot;&gt;
+&lt;MTCalendarIfEntries&gt;&lt;MTEntries lastn=&quot;1&quot;&gt;&lt;a href=&quot;&lt;$MTEntryLink$&gt;&quot;&gt;&lt;$MTCalendarDay$&gt;
+&lt;/a&gt;&lt;/MTEntries&gt;&lt;/MTCalendarIfEntries&gt;
+&lt;MTCalendarIfNoEntries&gt;&lt;$MTCalendarDay$&gt;&lt;/MTCalendarIfNoEntries&gt;
+&lt;MTCalendarIfBlank&gt;&amp;nbsp;&lt;/MTCalendarIfBlank&gt;&lt;/td&gt;
+&lt;MTCalendarWeekFooter&gt;&lt;/tr&gt;&lt;/MTCalendarWeekFooter&gt;
+&lt;/MTCalendar&gt;
+&lt;/table&gt;</pre></p>
+
+<p><strong>請注意：</strong>計算出月曆顯示的代價相當高昂，所以如果妳想要在網站上的每一頁都擺上同樣的月曆，比較好的作法是在索引模版裡建立一個月力，然後用伺服器端的囊括功能或者是 PHP （或者是任何動態的網頁伺服器工具）來把這個檔案囊括到妳的每一頁裡。</p>
+
+<h3><a id="tags_trackback"></a>引用功能標籤</h3>
+
+<p>有一些標籤是和<a href="javascript:if(confirm('http://mtbook.org/mtmanual_trackback.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mtbook.org/mtmanual_trackback.html'" tppabs="http://mtbook.org/mtmanual_trackback.html">引用功能系統</a>有關的。</p>
+
+<p><ul>
+  <li><a id="item_MTPings"></a><strong>MTPings</strong><br />這個容器標籤會列出特定文章項目、特定類別或者是妳整個系統裡所有的通告。<br />如果妳在文章項目情境裡 ─ 舉例來說，像是在<i>引用清單模版</i>裡 ─ 使用這個標籤，那麼它就會列出所有送到該文章項目的引用通告。<br />如果是用在某個跟分類彙整相關聯的模版中，那麼這個標籤就會列出所有送到這個類別的引用通告。<br />如果適用在任何其他的情境中，那麼這個標籤就會列出所有（除非妳在標籤裡也用了 <i>lastn</i> 屬性 ─ 詳見後述）送到妳的系統的引用通告。<br />除此之外，如果妳指定列出某一個特定類別的通告的話，妳也可以在這個標籤裡用 <i>category</i> 屬性來提供該類別的名稱，像這樣：<pre>&lt;MTPings category=&quot;Foo&quot;&gt;
+...
+&lt;/MTPings&gt;</pre>同時妳也可以在這個標籤裡面使用 <i>sort_order</i> 屬性和 <i>lastn</i> 屬性，他們作用的情況會跟在其他 Movable Type 標籤裡的一樣。 <i>sort_order</i> 屬性的值可以是 <code>ascend</code> 或者是 <code>descend</code> ；而 <i>lastn</i> 屬性的職責應該是正整數，表示要列出最近 N 個引用通告。<br /><a id="mtpings_example"></a>舉例來說，要在頭版頁列出在 <code>Foo Bar</code> 這個類別中最新的 15 個通告的話，妳可以把下列這段加入妳的主索引模版之中：<pre>&lt;MTPings category=&quot;Foo Bar&quot; lastn=&quot;15&quot;&gt;
+&lt;a href=&quot;&lt;$MTPingURL$&gt;&quot;&gt;&lt;$MTPingTitle$&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/MTPings&gt;</pre></li>
+  <li><a id="item_MTPingID"></a><strong>MTPingID</strong><br />引用通告的數字型 ID 。</li>
+  <li><a id="item_MTPingTitle"></a><strong>MTPingTitle</strong><br />隨著引用通告被送過來的標題。通常這也就是遠端文章項目的標題。</li>
+  <li><a id="item_MTPingURL"></a><strong>MTPingURL</strong><br />隨著引用通告被送過來的網址。通常這也就是遠端文章項目的網址。</li>
+  <li><a id="item_MTPingExcerpt"></a><strong>MTPingExcerpt</strong><br />隨著引用通告被送過來的文摘。</li>
+  <li><a id="item_MTPingDate"></a><strong>MTPingDate</strong><br />引用通告被送到妳的站台的日期。就跟所有的日期標籤一樣，在這個標籤裡也能夠選用 <code>format</code> 屬性和 <code>language</code> 屬性。更多資訊請見<a href="#date tag formats">日期標籤格式</a>小節。</li>
+  <li><a id="item_MTPingBlogName"></a><strong>MTPingBlogName</strong><br />發表遠端文章項目的網誌名稱。</li>
+  <li><a id="item_MTPingIP"></a><strong>MTPingIP</strong><br />送出該通告的主機 IP 位址。</li>
+  <li><a id="item_MTPingsSent"></a><strong>MTPingsSent</strong><br />這個容器標籤代表著從某個文章項目送出去的引用通告列示。這些是引用通告網址，而不是永久鏈結。<br />舉例來說：<pre>&lt;MTPingsSent&gt;
+網址： &lt;$MTPingsSentURL$&gt;&lt;br /&gt;
+&lt;/MTPingsSent&gt;</pre></li>
+  <li><a id="item_MTPingsSentURL"></a><strong>MTPingsSentURL</strong><br />通告所用的網址；這個標籤得放在 <code>&lt;MTPingsSent&gt;</code> 標籤裡面使用。</li>
+</ul></p>
+
+<h3><a id="tags_search_results"></a>搜尋結果標籤</h3>
+
+<p>下列這些標籤祇能用於妳的搜尋模版裡。</p>
+
+<p><ul>
+  <li><a id="item_MTSearchResults"></a><strong>MTSearchResults</strong><br />這個容器代表著所行搜尋結果的列示。在這個容器標籤內，妳可以使用任何的 <code>&lt;$MTEntry*$&gt;</code> 標籤，因為搜尋結果所代表的項目會進入情境之中。妳也可以用任何的 <code>&lt;$MTBlog*$&gt;</code> 標籤來存取特定文章項目結果被找到的網誌資料。<br />舉例來說：<pre>&lt;MTSearchResults&gt;
+&lt;MTBlogResultHeader&gt;
+&lt;h2&gt;&lt;$MTBlogName$&gt;內的結果&lt;/h2&gt;
+&lt;/MTBlogResultHeader&gt;
+&lt;h3&gt;&lt;a href=&quot;&lt;$MTEntryLink$&gt;#&lt;$MTEntryID pad=&quot;1&quot;$&gt;&quot;&gt;&lt;$MTEntryTitle$&gt;&lt;/a&gt;&lt;/h3&gt;
+&lt;$MTEntryExcerpt$&gt; &lt;$MTEntryEditLink$&gt;&lt;br /&gt;
+&lt;div class=&quot;posted&quot;&gt;&lt;$MTEntryDate$&gt; 時，被發表在 &lt;$MTBlogName$&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;/MTSearchResults&gt;</pre></li>
+  <li><a id="item_MTSearchResultCount"></a><strong>MTSearchResultCount</strong><br />在所有的網誌內搜尋所找到的結果數量（換而言之，並不是各網誌的結果計數）。</li>
+  <li><a id="item_MTNoSearchResults"></a><strong>MTNoSearchResults</strong><br />這個容器標籤裡面的內容祇有當搜尋之後沒有找到任何資料時纔顯示出來。<br />舉例來說：<pre>&lt;MTNoSearchResults&gt;
+&lt;h2&gt;已搜尋 &quot;&lt;$MTSearchString$&gt;&quot;&lt;/h2&gt;
+&lt;p&gt;沒有找到任何包含有 &quot;&lt;$MTSearchString$&gt;&quot; 的頁面。&lt;/p&gt;
+&lt;/MTNoSearchResults&gt;</pre></li>
+  <li><a id="item_MTNoSearch"></a><strong>MTNoSearch</strong><br />這個容器標籤裡面的內容祇有當沒有任何實際的搜尋動作採行的時候纔顯示出來。使用的時機是當某個讀者直接在她的瀏覽器裡連到妳的 <i>mt-search.cgi</i> 頁面時：<pre>http://YOURDOMAIN.COM/PATH-TO/mt-search.cgi</pre>或者是在新迴響搜尋的情況下，有讀者直接到<pre>http://YOURDOMAIN.COM/PATH-TO/mt-search.cgi?Type=newcomments&amp;help=1</pre>正確使用這個標籤的方法可能是顯示搜尋指引，或者是提供更進階的搜尋表單。<br />例如像這樣：<pre>&lt;MTNoSearch&gt;
+&lt;h2&gt;指引&lt;/h2&gt;
+&lt;p&gt;... 這裡是一些搜尋指引 ...&lt;/p&gt;
+&lt;/MTNoSearch&gt;</pre></li>
+  <li><a id="item_MTBlogResultHeader"></a><strong>MTBlogResultHeader</strong><br />當顯示標準的搜尋結果（也就是指不是新迴響搜尋的搜尋結果）時，找到的結果會依網誌而被加以分組。<br />這個容器標籤裡面的內容祇有當搜尋的結果位於網誌分組裡的第一筆時纔顯示。要顯示網誌名稱、甚至是加上連往該網誌的主索引鏈結時，都很好用。</li>
+  <li><a id="item_MTEntryEditLink"></a><strong>MTEntryEditLink</strong><br />如果使用者顯示搜尋結果頁面的時候已經登入 Movable Type 了，而且具有編輯被列出的文章項目權限時，這個標籤就會提供編輯搜尋結果所列出的文章項目的鏈結。</li>
+  <li><a id="item_MTSearchString"></a><strong>MTSearchString</strong><br />用 HTML 編碼過的搜尋串列。</li>
+</ul></p>
+
+<h3><a id="tags_miscellaneous"></a>其他標籤</h3>
+
+<p>這些標籤並不適合放在上述任何一類裡。</p>
+
+<p><ul>
+  <li><a id="item_MTElse"></a><strong>MTElse</strong><br />妳可以用 <code>&lt;MTElse&gt;</code> 標籤來讓任何條件標籤支援『否則』條件。也就是說，通常適用於任何名稱裡含有 <code>If</code> 的標籤（例如像 <code>&lt;MTEntryIfExtended&gt;</code> ）。 <code>&lt;MTElse&gt;</code> 這個容器標籤裡面的內容祇有當條件<strong>不</strong>被符合時纔顯示。這個 <code>&lt;MTElse&gt;</code> 容器應該被<strong>放進</strong>能夠提供『否則』條件的條件標籤容器裡。<br />以下是一個用法的範例：<pre>&lt;MTEntryIfExtended&gt;
+這個文章項目具有延伸的內容。
+&lt;MTElse&gt;
+這個文章項目沒有延伸的內容。
+&lt;/MTElse&gt;
+&lt;/MTEntryIfExtended&gt;</pre></li>
+  <li><a id="item_MTInclude"></a><strong>MTInclude</strong><br />妳可以用 <a href="#item_MTInclude"><code>MTInclude</code></a> 標籤來把一個模版模組（請見前面提過的<i>模版模組</i>區段，這個區段位於<a href="javascript:if(confirm('http://mtbook.org/mtmanual_templates.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mtbook.org/mtmanual_templates.html'" tppabs="http://mtbook.org/mtmanual_templates.html">模版</a>小節裡）或外部檔案囊括進另一個模版裡。 <code>&lt;MTInclude&gt;</code> 會取用下列的屬性：</li>
+  <ul>
+    <li><a id="item_module"></a><strong>module</strong><br />在妳的模版清單中所定義的模版模組名稱。舉例來說，如果妳把某個常用的 HTML 片段拿來當作模版的檔頭，然後妳還想透過 Movable Type 來管理這個片段，那麼妳可以把這個片段拉進去，變成名叫 <code>Header</code> 的模版模組，再用 <code>&lt;MTInclude&gt;</code> 來囊括之：<pre>&lt;$MTInclude module=&quot;Header&quot;$&gt;</pre></li>
+    <li><a id="item_file"></a><strong>file</strong><br />要囊括進妳的模版的外部檔案路徑。這個路徑可以是完整的檔案系統路徑，也可以祇是在<code>本機站台路徑</code>目錄下或<code>本機彙整路徑</code>目錄下的單純檔名。舉例來說，如果妳的本機站台路徑目錄裡，有個叫 <i>foo.html</i> 的檔案，那麼妳可以像這樣將其囊括進某個模版裡：<pre>&lt;$MTInclude file=&quot;foo.html&quot;$&gt;</pre>這個檔案將在<i>頁面被重建</i>的時候被囊括進妳的模版；請注意這個作用不該和伺服器端囊括弄混，因為後者會在每次網頁伺服器收到該頁的需求時就把外部檔案囊括進去。所以每當妳變更了透過 <code>&lt;MTInclude&gt;</code> 標籤被囊括的外部檔案後，請別忘記得要重建這些頁面纔有辦法囊括這些被修訂過的部分。</li>
+  </ul>
+  <li><a id="item_MTLink"></a><strong>MTLink</strong><br />現在妳可以用 <code>&lt;MTLink&gt;</code> 標籤來自動產生索引模版或系統中某篇文章的網址。 <code>&lt;MTLink&gt;</code> 可以使用下列的屬性：</li>
+  <ul>
+    <li><a id="item_template"></a><strong>template</strong><br />在妳的模版清單中所定義的索引模版名稱。舉例來說，如果妳想要產生連結到妳稱做 <code>About Page</code> 的模版所產生的頁面的話，妳可以用：<pre>&lt;a href=&quot;&lt;$MTLink template=&quot;About Page&quot;$&gt;&quot;&gt;My About Page&lt;/a&gt;</pre></li>
+    <li><a id="item_entry_id"></a><strong>entry_id</strong><br />妳所要連結的文章的數字型 ID 。像是這樣：<pre>&lt;a href=&quot;&lt;$MTLink entry_id=&quot;562&quot;$&gt;&quot;&gt;Link to a certain entry&lt;/a&gt;</pre></li>
+  </ul>
+  <li><a id="item_MTDate"></a><strong>MTDate</strong><br />這是一個能夠代表頁面重建時的日期/時間的標準標籤。妳可以用在像是<code>最近更新於</code>的地方，例如：<pre>本頁面最後更新時間： &lt;$MTDate format=&quot;%B %d, %Y %I:%M %p&quot;$&gt;.</pre></li>
+  <li><a id="item_MTGoogleSearch"></a><strong>MTGoogleSearch</strong><br />利用 Google API 來維護特定查詢的結果清單，或者是列出一些跟目前頁面相似的頁面。<br /><p>這個標籤可以加上下列的屬性：</li>
+  <ul>
+    <li><a id="item_query"></a><strong>query</strong><br />搜尋串列。</li>
+    <li><a id="item_related"></a><strong>related</strong><br />要求 Google 傳回跟某一頁很像的頁面；這個值可以是一個網址，在這種情況下傳回的頁面會跟這個網址很像；這個值也可以是 <code>1</code> ，在這個情況下傳回的頁面會跟妳的頁面（假設妳在<i>站台網址</i>設定了妳的主頁網址）很像。範例請見後。</li>
+    <li><a id="item_title"></a><strong>title</strong><br />如果妳設定了 <i>title=&quot;1&quot;</i> 這樣的屬性，那麼送到 Google 的搜尋字串就會是目前文章項目的標題。</li>
+    <li><a id="item_excerpt"></a><strong>excerpt</strong><br />如果妳設定了 <i>excerpt=&quot;1&quot;</i> 這樣的屬性，那麼送到 Google 的搜尋字串就會是目前文章項目的文摘。</li>
+    <li><a id="item_keywords"></a><strong>keywords</strong><br />如果妳設定了 <i>keywords=&quot;1&quot;</i> 這樣的屬性，那麼送到 Google 的搜尋字串就會是目前文章項目的關鍵字。</li>
+    <li><a id="item_results"></a><strong>results</strong><br />要傳回的結果數量；目前 Google 對於每次查詢將不會傳回超過 10 筆查詢結果，所以（目前所能使用的）最大值就是 <code>10</code> 。</li>
+  </ul>舉例來說，如果妳想要列出查詢 <code>movable type</code> 的最前 5 筆搜尋結果：<pre>&lt;MTGoogleSearch query=&quot;movable type&quot; results=&quot;5&quot;&gt;
+&lt;a href=&quot;&lt;$MTGoogleSearchResult property=&quot;URL&quot;$&gt;&quot;&gt;&lt;$MTGoogleSearchResult property=&quot;title&quot;$&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/MTGoogleSearch&gt;</pre>或者是列出跟妳的頁面相似的其他頁面清單：<pre>&lt;MTGoogleSearch related=&quot;1&quot;&gt;
+&lt;a href=&quot;&lt;$MTGoogleSearchResult property=&quot;URL&quot;$&gt;&quot;&gt;&lt;$MTGoogleSearchResult property=&quot;title&quot;$&gt;&lt;/a&gt;&lt;br /&gt;
+&lt;/MTGoogleSearch&gt;</pre>請注意 <i>query</i> 、 <i>related</i> 、 <i>title</i> 以及 <i>excerpt</i> 這些屬性通通具有完全的排他性。<br />同時也請注意，如果妳在妳的單篇彙整模版裡使用 Google 搜尋標籤的話，搜尋結果清單也會在任何妳儲存文章項目的時候被產生；而這會拖慢重建的進度；甚至當妳發表的速度較快、或者當妳的站台總是有大量迴響時，妳可能很快就會用完 Google 所允許的每日查詢次數上限。<br /><strong>注意：</strong>使用這個標籤前妳得先取得一把 Google API 金鑰，並且將之貼進妳的網誌組態裡；同時妳還得先安裝 <i>SOAP::Lite</i> 模組和 <i>LWP::UserAgent</i> 模組（妳可以執行 <i>mt-check.cgi</i> 來看看妳是否已經安裝過這些模組了）。
+  <li><a id="item_MTGoogleSearchResult"></a><strong>MTGoogleSearchResult</strong><br />Google API 搜尋的單獨結果（請見上述的 <code>&lt;MTGoogleSearch&gt;</code> 標籤）。<br />這個標籤祇有一個額外的 <i>property</i> 屬性，用來指定要顯示的搜尋結果欄位（像是：標題、網址、摘要等等）。預設的 <i>property</i> 是 <a href="#item_title"><code>title</code></a> 。<br />有效的 <i>property</i> 值包括了： <code>summary</code> 、 <code>URL</code> 、 <code>snippet</code> 和 <a href="#item_title"><code>title</code></a> 。</p></li>
+  <li><a id="item_MTSetVar"></a><strong>MTSetVar</strong><br />這個標籤可以設定某個變數的值 ─ 妳可以用 <code>name</code> 屬性來設定變數名稱，然後用 <code>value</code> 屬性來設定變數值。然後妳就可以用 <code>&lt;MTGetVar&gt;</code> 標籤（如後述）來取得這個變數的值。</li>
+  <li><a id="item_MTGetVar"></a><strong>MTGetVar</strong><br />這個標籤會把自己代換成某個變數的值；要取用的變數名稱則由 <code>name</code> 屬性來指定。舉例來說，妳可以在外部模版中設定變數 <code>foo</code> 的值：<pre>&lt;MTSetVar name=&quot;foo&quot; value=&quot;bar&quot;&gt;</pre>然後在某個被囊括的模版模組裡，取得這個變數的值：<pre>&lt;MTGetVar name=&quot;foo&quot;&gt;</pre></li>
+  <li><a id="item_MTCGIPath"></a><strong>MTCGIPath</strong><br />包含有 Movable Type CGI 腳本的目錄的網址路徑。這個標籤會被組態檔案中 <code>CGIPath</code> 列的值（在安裝過程中所設定的；詳見安裝指引）代換掉。 <a href="#item_MTCGIPath"><code>MTCGIPath</code></a> 可以讓連往 Movable Type CGI 腳本 ─ 像是 <i>mt-comments.cgi</i> 和 <i>mt-add-notify.cgi</i> ─ 這件事變得相當簡單；妳不再需要老是在妳的模版裡使用這些 CGI 腳本的網址，而祇需要用這個標籤就可以了。舉例來說，當妳要建立發表迴響的表單時：<pre>&lt;form method=&quot;post&quot; action=&quot;&lt;$MTCGIPath$&gt;&lt;$MTCommentScript$&gt;&quot;&gt;</pre></li>
+  <li><a id="item_MTCommentScript"></a><strong>MTCommentScript</strong><br />妳的 <i>mt.cfg</i> 檔案裡的 <i>CommentScript</i> 設定；預設值是 <i>mt-comments.cgi</i> 。</li>
+  <li><a id="item_MTTrackbackScript"></a><strong>MTTrackbackScript</strong><br />妳的 <i>mt.cfg</i> 檔案裡的 <i>TrackbackScript</i> 設定，預設值是 <i>mt-tb.cgi</i> 。</li>
+  <li><a id="item_MTStaticWebPath"></a><strong>MTStaticWebPath</strong><br />妳的 <i>mt.cfg</i> 檔案裡的 <i>StaticWebPath</i> 設定值。</li>
+  <li><a id="item_MTImageURL"></a><strong>MTImageURL</strong><br />已上傳影像的絕對網址，用於<code>跳出已上傳影像模版</code>。</li>
+  <li><a id="item_MTImageWidth"></a><strong>MTImageWidth</strong><br />已上傳影像的寬度，用於<code>跳出已上傳影像模版</code>。</li>
+  <li><a id="item_MTImageHeight"></a><strong>MTImageHeight</strong><br />已上傳影像的高度，用於<code>跳出已上傳影像模版</code>。</li>
+  <li><a id="item_MTErrorMessage"></a><strong>MTErrorMessage</strong><br />這個標籤祇能被用在<code>迴響出錯模版</code>裡，它會被取代成送出迴響過程中所發生的錯誤訊息（例如像是無效或缺少了的E-mail 地址）。</li>
+  <li><a id="item_MTVersion"></a><strong>MTVersion</strong><br />妳所在使用的 Movable Type 版本。例如： <code>2.64</code> 。</li>
+  <li><a id="item_MTPublishCharset"></a><strong>MTPublishCharset</strong><br />妳在 <i>mt.cfg</i> 裡所設定的 <i>PublishCharset</i> ；如果妳沒有設定的話，預設值會是 <code>iso-8859-1</code> ，而這將導致中文顯示的不正確。所以請務必在 <i>mt.cfg</i> 裡將 <i>PublishCharset</i> 設成 <code>UTF-8</code> 。</li>
+</ul></p>
+
+<h3><a id="tags_global_attributes"></a>全域標籤屬性</h3>
+
+<p>全域標籤屬性可以被用於任何變數代換標籤（會被代換成某個值的標籤 ─ 這種標籤的對比就是會『容納』其他組成元素和標籤的容器標籤）。然而這並不意味著當他們被使用於任何標籤裡，都一定要<strong>有意義</strong>；實際上使用者得自己判斷特定的標籤屬性是否在實做上有意義。</p>
+
+<p>全域屬性的用法就跟標籤專一屬性的用法一樣：在標籤裡使用 <code>name=&quot;value&quot;</code> 配對。例如：<pre>&lt;$MTEntryExcerpt encode_html=&quot;1&quot;$&gt;
+</pre>這個標籤會被取代成以 HTML 編碼過的文摘。</p>
+
+<p>以下是全域標籤屬性的清單：</p>
+
+<p><ul>
+  <li><a id="item_filters"></a><strong>filters</strong><br />列出一組會被套用到標籤值裡的文字格式過濾器。這裡的過濾器名稱將會是能夠獨特地指定出過濾器的短名稱，而不是妳在文字格式選項裡所看到的長稱號。妳可以用逗號 (<code>,</code>) 來分隔過濾器名稱。如果妳指定了多重過濾器的話，它們將會按照妳所列出的順序先後被執行。舉例來說，如果妳定義了一個短名稱叫 <i>wiki</i> 、會執行 <i>Text::WikiFormat</i> 這個 CPAN 模組的過濾器的話，妳就可以這麼做：<pre>&lt;$MTEntryTitle filters=&quot;wiki&quot;$&gt;</pre>來把 <code>''這是一個標題''</code> 這樣的標題轉換成 <code>&lt;em&gt;這是一個標題&lt;/em&gt;</code> 。</li>
+  <li><a id="item_encode_html"></a><strong>encode_html</strong><br />當這個屬性被設成 <code>1</code> 的時候，標籤的值就會編碼成 HTML 。舉例來說，如果沒有這個屬性的時候標籤的值為 <code>Foo &amp; Bar -&gt; Baz</code> ，那麼編碼成 HTML 的版本就會變成 <code>Foo &amp;amp; Bar -&amp;gt; Baz</code> 。<br />使用範例：<pre>&lt;$MTEntryExcerpt encode_html=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_encode_xml"></a><strong>encode_xml</strong><br />當這個屬性被設成 <code>1</code> 的時候，就把該項目中任何 XML 裡需要加以編碼的字符予以編碼。這些字符包括有： <code>&amp;</code> 、 <code></code> 、 <code>&lt;</code> 和 <code>&gt;</code> 。<br />舉例來說，如果沒有這個屬性的時候標籤的值為 <code>Foo &amp; Bar -&gt; Baz</code> ，那麼編碼成 XML 的版本就會變成 <code>Foo &amp;amp; Bar -&amp;gt; Baz</code> 。<br />使用範例（於 RSS 模版中）：<pre>&lt;item&gt;
+    &lt;title&gt;&lt;$MTEntryTitle encode_xml=&quot;1&quot;$&gt;&lt;/title&gt;</pre>注意：這個屬性跟 <i>encode_html</i> 間的差異在於後者會把更多特殊字符編碼成 HTML 項目；如果妳安裝了 <i>HTML::Entities</i> 模組，那麼妳就不需要在 <i>mt.cfg</i> 裡開啟 <i>NoHTMLEntities</i> 選項。</li>
+  <li><a id="item_encode_js"></a><strong>encode_js</strong><br />當這個屬性被設成 <code>1</code> 的時候，就把標籤的值按照 Javascript 字串值的用法編碼成合適的格式。舉例來說，如果沒有這個屬性的時候標籤的值為 <code>Foo &quot;Bar&quot; Baz's 1/2 Quux</code> ，那麼編碼後的版本就會變成 <code>Foo \&quot;Bar\&quot; Baz\'s 1\/2 Quux</code> 。<br />使用範例：<pre>&lt;script type=&quot;text/javascript&quot;&gt;
+var str = '&lt;$MTEntryTitle encode_js=&quot;1&quot;$&gt;';
+&lt;/script&gt;</pre></li>
+  <li><a id="item_encode_php"></a><strong>encode_php</strong><br />把標籤的值按照三種 PHP 字串值： single-quote 、 double-quote 或 here document 其中之一的用法編碼成合適的格式。這個標籤屬性的值應該是 <code>q</code> (single-quote) 、 <code>qq</code> (double-quote) 或 <code>heredoc</code> (here document ─ 請注意此處的 <code>here</code> 對於一個 here document 來說仍然具有功效）。<br /><code>q</code> 的使用範例：<pre>&lt;?php
+$str = '&lt;$MTEntryTitle encode_php=&quot;q&quot;$&gt;'
+?&gt;</pre><code>heredoc</code> 的使用範例：<pre>&lt;?php
+$str = &lt;&lt;&lt;HERE
+&lt;$MTEntryBody encode_php=&quot;heredoc&quot;$&gt;
+HERE;
+?&gt;</pre></li>
+  <li><a id="item_encode_url"></a><strong>encode_url</strong><br />把標籤的值按照網址的用法編碼成合適的格式。這會把非字母的字符編碼成其十六進位等效字串。舉例來說， <code>foo bar</code> 這個字串就會被轉換成 <code>foo%20bar</code> 。<br />使用範例：<pre>&lt;a href=&quot;/search?q=&lt;$MTEntryTitle encode_url=&quot;1&quot;$&gt;&quot;&gt;搜尋&lt;/a&gt;</pre></li>
+  <li><a id="item_decode_html"></a><strong>decode_html</strong><br />當這個屬性被設成 <code>1</code> 的時候，把所有在這個標籤值裡的 HTML 項目加以解碼。舉例來說，如果沒有這個屬性的時候標籤的值為 <code>foo&amp;lt;br&amp;gt;</code> ，那麼 HTML 項目被解碼後的版本就會變成 <code>foo&lt;br&gt;</code> 。<br />用法範例：<pre>&lt;$MTEntryTitle decode_html=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_decode_xml"></a><strong>decode_xml</strong><br />當這個屬性被設成 <code>1</code> 的時候，把所有在這個標籤值裡的 XML 項目加以解碼。舉例來說，如果沒有這個屬性的時候標籤的值為 <code>foo&amp;lt;br&amp;gt;</code> ，那麼 XML 項目被解碼後的版本就會變成 <code>foo&lt;br /&gt;</code> 。<br />用法範例：<pre>&lt;$MTEntryTitle decode_xml=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_remove_html"></a><strong>remove_html</strong><br />當這個屬性被設成 <code>1</code> 的時候，就從標籤值裡刪掉所有的 HTML 標籤。舉例來說，如果沒有這個屬性的時候標籤的值為 <code>Foo&lt;br /&gt; Bar</code> ，那麼沒有 HTML 標籤的版本就會變成 <code>Foo Bar</code> 。<br />用法範例：<pre>&lt;$MTEntryTitle remove_html=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_dirify"></a><strong>dirify</strong><br />當這個屬性被設成 <code>1</code> 的時候，就把這個標籤值給『變成目錄』。這表示這個標籤的值會按照檔案或目錄名稱的用法，轉換成適當的樣子：首先這個值會全部被轉換成小寫，接著刪去所有的 HTML 標籤及項目，奇怪的字符接著也被刪去（所謂奇怪的字符指的就是那些不包含在：字母數字字符、底線 (<code>_</code>) 和空白），然後再把空白轉換成底線 (<code>_</code>) 。<br /><i>dirify</i> 同時也會把一些高-ASCII 字符（像是重音標記字符）轉換成相對應的低-ASCII 字符；這表示像 <code>crudit&eacute;</code> 這樣的東西將會被轉換成 <code>crudite</code> 。<br />舉例來說，如果沒有這個屬性的時候標籤的值為 <code>Foo &quot;Baz&quot; is&lt;br /&gt; Bar!</code> ，那麼變成目錄後的版本就會是 <code>foo_baz_is_bar</code> 。<br />用法範例：<pre>&lt;$MTArchiveCategory dirify=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_upper_case"></a><strong>upper_case</strong><br />把標籤的值轉為全部大寫。<br />用法範例：<pre>&lt;$MTEntryTitle upper_case=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_lower_case"></a><strong>lower_case</strong><br />把標籤的值轉為全部小寫。<br />用法範例：<pre>&lt;$MTArchiveDate format=&quot;%B&quot; lower_case=&quot;1&quot;$&gt;</pre></li>
+  <li><a id="item_trim_to"></a><strong>trim_to</strong><br />把標籤的值修剪成祇剩下前 N 個字符；這裡的 N 需要用這個屬性的值來指定。<br />用法範例：<pre>&lt;$MTEntryTitle trim_to=&quot;15&quot;$&gt;</pre>上面這個標籤將祇會顯示出文章項目標題的前 <code>15</code> 個字符。</li>
+  <li><a id="item_space_pad"></a><strong>space_pad</strong><br />在標籤的值之前插入空白，使其總長度變成 N 個字符長；這裡的 N 需要用這個屬性的值來指定。<br />用法範例：<pre>&lt;$MTCalendarDay space_pad=&quot;3&quot;$&gt;</pre>上面這個標籤會在 <code>3</code> 這個值前面插入空白，使其變成『<code>  3</code>』。</li>
+  <li><a id="item_zero_pad"></a><strong>zero_pad</strong><br />在標籤的值之前插入零，使其總長度變成 N 個字符長；這裡的 N 需要用這個屬性的值來指定。<br />用法範例：<pre>&lt;$MTCalendarDay zero_pad=&quot;5&quot;$&gt;</pre>上面這個標籤會在 <code>8</code> 這個值前面插入零，使其變成 <code>00008</code> 。</li>
+  <li><a id="item_sprintf"></a><strong>sprintf</strong><br />這是泛用型的<i>sprintf</i>格式制訂屬性。這個屬性的值應該要是格式字串；標籤的值會被當作參數遞送給<i>sprintf</i>。舉例來說， <i>zero_pad</i> 也可以這樣做：<pre>&lt;$MTCalendarDay sprintf=&quot;%05s&quot;$&gt;</pre></li>
+  <li><a id="item_sanitize"></a><strong>sanitize</strong><br />把討論中的文字送進消毒過濾器裡清理一番。如果這個屬性的值被設定成 <code>1</code> 的話，預設的消毒規格 ─ 不論是該網誌獨有的或是整體設定裡的 ─ 就會被採行。如果這個屬性的值被設定成 <code>0</code> 的話，這個標籤的消毒功能就會被關閉。如果這個屬性的值是任何其他的東西的話，也會被當成是要採行消毒規格。<br />用法範例<pre>&lt;$MTEntryBody sanitize=&quot;a href&quot;$&gt;</pre>這樣將會把文章中所有的 HTML 標籤清乾淨，祇留下 <code>&lt;a&gt;</code> （而且祇會留著帶有 <code>href</code> 屬性的）。</li>
+</ul></p>
+
+<h3><a id="tags_date_tag_formats"></a>日期標籤格式</h3>
+
+<p>Movable Type 用了標準的 <code>strftime</code> 格式字串來描述日期和時間。（然而，請注意 <code>strftime</code> 本身並不真的是拿來施用格式的。）在任何的日期標籤裡，妳都應該可以用 <code>format</code> 屬性來指定格式字串，就像這樣：<pre>&lt;$MTDate format=&quot;%B %e, %Y %I:%M %p&quot;$&gt;</pre>上面這個格式正是英文日期的預設格式，會做出像是這樣子的日期：<pre>September 20, 2001 11:44 PM</pre>妳可以在網誌組態的<code>顯示日期的語言</code>裡面選取不同的語言，這個語言會被套用在週裡的名稱、月份的名稱和上午/下午的說明。預設被使用的語言是<code>英文</code>。</p>
+
+<p>妳也可以用 <code>language</code> 屬性來指定語言，覆寫掉預設的設定；這祇會套用在妳正在制訂格式的那個日期字串上。以下是可用的語言標籤清單： <code>cz</code> 、 <code>dk</code> 、 <code>nl</code> 、 <code>en</code> 、 <code>fr</code> 、 <code>de</code> 、 <code>is</code> 、 <code>jp</code> 、 <code>it</code> 、 <code>no</code> 、 <code>pl</code> 、 <code>pt</code> 、 <code>si</code> 、 <code>es</code> 、 <code>fi</code> 、 <code>se</code> 。</p>
+
+<p>以下則是格式說明清單。</p>
+
+<p><ul>
+  <li><code>%a</code><br />一週裡的哪一天，以縮寫表示。例如： <code>Thu</code> 。</li>
+  <li><code>%A</code><br />一週裡的哪一天，以全稱表示。例如： <code>Thursday</code> 。</li>
+  <li><code>%b</code><br />月份名稱的縮寫。例如： <code>Sep</code> 。</li>
+  <li><code>%B</code><br />完整的月份名稱。例如： <code>September</code> 。</li>
+  <li><code>%d</code><br />該月的第幾天，以兩位數字表示；必要的時候在前面補 <code>0</code> 。例如： <code>09</code> 。</li>
+  <li><code>%e</code><br />該月的第幾天，必要的時候在前面補上空白。例如： <code> 9</code> 。</li>
+  <li><code>%H</code><br />時，以 24 時制（軍隊時制）表示成兩位數字，必要的時候在前面補 <code>0</code> 。例如： <code>16</code> 。</li>
+  <li><code>%I</code><br />時，以 12 時制表示成兩位數字，必要的時候在前面補 <code>0</code> 。例如： <code>04</code> 。</li>
+  <li><code>%j</code><br />該年的第幾天，以三位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>056</code> 。</li>
+  <li><code>%k</code><br />時，以 24 時制（軍隊時制）表示成兩位數字，必要的時候在前面補上空白。例如： <code> 9</code> 。</li>
+  <li><code>%l</code><br />時，以 12 時制表示成兩位數字，必要的時候在前面補上空白。例如： <code> 4</code> 。</li>
+  <li><code>%m</code><br />月份，以兩位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>09</code> 。</li>
+  <li><code>%M</code><br />分，以兩位數字表示，必要的時候在前面補 <code>0</code> 。例如： <code>02</code> 。</li>
+  <li><code>%p</code><br /><code>AM</code> 或 <code>PM</code> 。</li>
+  <li><code>%S</code><br />秒，以兩位數字表示，必要的時候在前面補 <code>0</code> ，例如： <code>04</code> 。</li>
+  <li><code>%x</code><br />按照語言決定的日期格式。對於多數的語言來說，就是 <i>%B %e, %Y</i> 。例如： <code>September 6, 2002</code> 。</li>
+  <li><code>%X</code><br />按照語言決定的時間格式。對於多數的語言來說，就是 <i>%I:%M %p</i> 。例如： <code>4:31 PM</code> 。</li>
+  <li><code>%y</code><br />年份，以兩位數字表示，必要的時候在前面補 <code>0</code> ，例如： <code>01</code> 。</li>
+  <li><code>%Y</code><br />年份，以四位數字表示。例如： <code>2001</code> 。</li>
+</ul></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

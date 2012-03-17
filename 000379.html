@@ -1,0 +1,234 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 由glibc不能安装到osf4想到</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000378.html" tppabs="http://hedong.3322.org/archives/000378.html" title="在Digital UNIX V4.0F装tomcat" />
+
+<link rel="next" href="000380.html" tppabs="http://hedong.3322.org/archives/000380.html" title="关于汉字编码的一些连接" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000379.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/272"
+    dc:title="由glibc不能安装到osf4想到"
+    dc:identifier="http://hedong.3322.org/archives/000379.html"
+    dc:subject="DailyLife"
+    dc:description="　　今天在Digital Unix V4.oF上装Apache v2,所有模块都编译并加载后，Apache不能启动。错误显示“Digest: error generating secret: No such file or directory”，到源码里一看，要求装truerand库。在网上查了半天，有人说只要安装了glibc就可以通过。下来glibc源码，运行configure得知：*** The GNU C library is currently not available for this platform. *** So far nobody cared to port it and if there is no volunteer it *** might..."
+    dc:creator="Hilton"
+    dc:date="2003-11-30T22:29:41+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000379.html">
+<dc:title>由glibc不能安装到osf4想到</dc:title>
+<dc:description>　　今天在Digital Unix V4.oF上装Apache v2,所有模块都编译并加载后，Apache不能启动。错误显示“Digest: error generating secret: No such file or directory”，到源码里一看，要求装truerand库。在网上查了半天，有人说只要安装了glibc就可以通过。下来glibc源码，运行configure得知：*** The GNU C library is currently not available for this platform. *** So far nobody cared to port it and if there is no volunteer it *** might...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-30T22:29:41+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000378.html" tppabs="http://hedong.3322.org/archives/000378.html">&laquo; 在Digital UNIX V4.0F装tomcat</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000380.html" tppabs="http://hedong.3322.org/archives/000380.html">关于汉字编码的一些连接 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 30, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">由glibc不能安装到osf4想到</h3>
+
+<p>　　今天在Digital Unix V4.oF上装Apache v2,所有模块都编译并加载后，Apache不能启动。错误显示“Digest: error generating secret: No such file or directory”，到源码里一看，要求装truerand库。在网上查了半天，有人说只要安装了glibc就可以通过。下来glibc源码，运行configure得知：<div class="code">*** The GNU C library is currently not available for this platform.<br />
+*** So far nobody cared to port it and if there is no volunteer it<br />
+*** might never happen.  So, if you have interest to see glibc on<br />
+*** this platform visit<br />
+***     http://www.gnu.org/software/libc/porting.html<br />
+*** and join the group of porters</div><br />
+</p>
+
+<a name="more"></a>
+<p>　　一直习惯于从gnu上、apache上下东西，从没考虑到为它们做点什么；一直希望能稳定地运行这些开源的软件，也从没觉得应该为它们做点什么。我一直不想承认自己是个自私的人，可我确实更多的在获取，说起来都惭愧。<br />
+　　前些日子在用归档email时，发现当编码为汉字时，归档后显示了乱码，只要取出编码信息就可以正确解码，我只好hack了一下。有朋友建议跟作者联系并反馈一下，我拖来拖去就把这事放下了，只觉得他们会在下版中改进的，即使他们可能不是中国人不太熟悉其它的编码系统。<br />
+　　做事总是太多的目的性，为国家、为单位、为个人，少想到无偿地为社会、为世界的技术应用做点什么。前些日子和<a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">车东</a>聊起开源软件少有国人参加，聊起中印两国软件技术的差距，只能把它们归结于中国还是一个发展中国家，衣食行住尚为人生头等大事，也许不远的或遥远的将来，一切都会好起来。<br />
+　　前些日子，见学生就业压力大，心情很是压抑。是的，我们无权希望那些在为了工作而四处奔波的人关注一些开源或共享项目，但那些不为工作奔波的人呢？象我。<br />
+　　我总是无言一对。<br />
+</p>
+
+<span class="posted">Posted by Hilton at November 30, 2003 10:29 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=379.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=379" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="379" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

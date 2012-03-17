@@ -1,0 +1,215 @@
+<html>
+
+<head>
+  <title>第二章 ─ 設定 Movable Type</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第二章 ─ 設定 Movable Type</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#config">第二章 ─ 設定 Movable Type</a></li> 
+  <ul>
+    <li><a href="#cfg">設定 mt.cfg</a></li>
+    <li><a href="#db">設定資料庫</a></li>
+    <li><a href="#init">第一次啟動系統</a></li>
+    <li><a href="#blog_config">網誌組態</a></li>
+      <ul>
+        <li><a href="#blog_config_core">核心設定</a></li>
+        <li><a href="#blog_config_pref">偏好</a></li>
+        <ul>
+          <li><a href="#blog_config_pref_general">一般設定</a></li>
+          <li><a href="#blog_config_pref_archiving">彙整</a></li>
+          <li><a href="#blog_config_pref_publicity">出版/遠端介面/引用</a></li>
+          <li><a href="#blog_config_pref_comments">迴響組態</a></li>
+        </ul>
+        <li><a href="#blog_config_arc">彙整</a></li>
+        <li><a href="#blog_config_profile">修改個人資料</a></li>
+      </ul>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="config"></a>第二章 ─ 設定 Movable Type</h1>
+
+<p>當妳按照<a href="mtbook_install.html#install" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_install.html#install">第一章</a>完成 Movable Type 安裝後，還需要先加以調整各項設定，然後纔能夠開始使用。</p>
+
+<p>以下我們將逐一加以說明，請務必按照本章指引來調整 Movable Type ，否則可能會發生意料之外的錯誤。</p>
+
+<h2><a id="cfg"></a>設定 mt.cfg</h2>
+
+<p>大部分的設定值都寫在一個叫做 <code>mt.cfg</code> 的檔案裡；無論妳是在甚麼作業系統上安裝了 Movable Type ，都會需要修改這個檔案內的設定。以下的步驟原則上是寫給 Windows 的使用者看的， FreeBSD 、 Linux 或其他 UN*X 作業系統的使用者，請用任何文字編輯器編輯 Movable Type 安裝目錄底下的 <code>mt.cfg</code> （例如 <code>/usr/local/www/cgi-bin/mt.cfg</code> ），然後一併按照<a href="#cfg_03">步驟三</a>之後的說明來加以修改。</p>
+
+<p><ol>
+  <li><a id="cfg_01"></a>執行<strong>開始 &raquo; 程式集 &raquo; 附屬應用程式 &raquo; 記事本</strong> 來開啟 記事本 。</li>
+  <li><a id="cfg_02"></a>如<a href="#img_01">圖一</a>，開啟 <strong>C:\Program Files\OurInternet\Movable Type\mt\mt.cfg</strong> 這個檔案。<br />請注意，妳可能得在<code>檔案類型</code>裡選擇<strong>所有檔案</strong>，纔有辦法看到這個檔案。<div class="img"><img src="mtcfg_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_01.png"><br />圖一：在 <code>記事本</code> 中開啟 <code>C:\Program Files\OurInternet\Movable Type\mt\mt.cfg</code> 。</div></li>
+  <li><a id="cfg_03"></a>如<a href="#img_02">圖二</a>，在這個檔案裡找到寫著以下內容的那一列：<pre>CGIPath http://localhost/</pre><div class="img"><a id="img_02"></a><img src="mtcfg_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_02.png" alt="找到寫著「 CGIPath http://localhost/ 」的這一列"><br />圖二：在 <code>mt.cfg</code> 裡找到寫著 <code>CGIPath http://localhost/</code> 的那一列。</div></li>
+  <li><a id="cfg_04"></a>在<a href="#cfg_03">步驟三</a>我們所找到的那一列，是用來設定 Movable Type 的 CGI 路徑的。這一個設定項目如果沒有設好的話，將會導致妳的網頁讀者沒辦法順利使用迴響及引用功能。如果妳按照了第零章／<a href="mtbook_domain.html#free" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#free">免費的網域名稱</a>小節的說明申請了免費網址，或按照第零章／<a href="mtbook_domain.html#dynamic" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#dynamic">浮動 IP 的解決方案</a>小節的說明申請了免費的浮動網域名稱的話，妳就應該把這一列中的 <code>localhost</code> 改成妳所設定的網域名稱（如果是免費的網域名稱的話，就是在<a href="mtbook_domain.html#free_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#free_11">步驟十一</a>；如果是浮動網域名稱的話，則是在<a href="mtbook_domain.html#dynamic_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#dynamic_11">步驟十一</a>），最後面別忘記加上一個 <strong>/</strong> 符號，如<a href="#img_03">圖三</a>。如果妳是 UN*X 平台（如 FreeBSD 或 Linux ）的使用者，或者妳重新修改過網頁伺服器，把 CGI 路徑指到別的目錄的話，妳也該在這裡做出相對應的修改，例如把這一列改成 <code>CGIPath http://Jedimt.dyndns.org/cgi-bin/</code> 。<div class="img"><a id="img_03"></a><img src="mtcfg_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_03.png" alt="修改 CGIPath 的設定值"><br />圖三：修改 CGIPath 的設定值。在這個範例中，我把這一列改成 <code>CGIPath http://Jedimt.dyndns.org/</code> 。</div></li>
+  <li><a id="cfg_05"></a>接下來這兩個步驟祇有 Windows 的使用者（或者需要用 SMTP 來寄信的 UN*X 使用者）纔會用到。一般 UN*X 的使用者請直接跳到<a href="#cfg_07">步驟七</a>；另外也請確定妳已經按照<a href="mtbook_install.html#win32_sendmail" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_install.html#win32_sendmail">第一章的指示</a>安裝了 <code>Mail::Sendmail</code> 模組，接下來這幾個步驟所做的修改纔會有效。請繼續在 <code>mt.cfg</code> 裡尋找以下兩列的內容，如<a href="#img_04">圖四</a>：<pre># MailTransfer smtp
+# SMTPServer smtp.your-site.com</pre><div class="img"><a id="img_04"></a><img src="mtcfg_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_04.png" alt="尋找關於寄信的設定"><br />圖四：在 <code>mt.cfg</code> 裡尋找跟 SMTP 有關的設定。</div></li>
+  <li><a id="cfg_06"></a>對於 Windows 的使用者來說，要寄信祇得用 SMTP 協定，因此我們得修改<a href="#cfg_05">步驟五</a>找到的那兩列。請先把「 <code># MailTransfer smtp</code> 」這一列前面的「 <strong># </strong> 」刪除，如<a href="#img_05">圖五</a>；然後「 <code># SMTPServer smtp.your-site.com</code> 」這一列中，除了也要把「 <strong># </strong> 」刪除之外，還得把「 <strong>smtp.your-site.com</strong> 」修改成妳能夠使用的送信主機。舉例來說，如果妳用的是 HiNet 的 ADSL 的話，妳就可以把 <code>smtp.your-site.com</code> 改成 <code>ms1.hinet.net</code> ，如<a href="#img_06">圖六</a>。<div class="img"><a id="img_05"></a><img src="mtcfg_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_05.png" alt="啟用 SMTP"><br />圖五：啟用 Movable Type 的 SMTP 功能。</div><div class="img"><a id="img_06"></a><img src="mtcfg_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_06.png" alt="設定妳的 SMTP 伺服器"><br />圖六：設定 SMTP 伺服器。在這個範例中設定的是 <code>ms1.hinet.net</code> 。</div></li>
+  <li><a id="cfg_07"></a>讓我們繼續在 <code>mt.cfg</code> 往後尋找。妳應該要看到有一列寫著 <strong>NoHTMLEntities 1</strong> ，如果這一列前面有 <strong># </strong> 的話，請加以刪除，務必確定這一列祇有以下的內容，如<a href="#img_07">圖七</a>，否則妳將會在文章編輯欄位中看到一堆亂碼：<pre>NoHTMLEntities 1</pre><div class="img"><a id="img_07"></a><img src="mtcfg_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_07.png" alt="不要把內容編碼成 HTML 本體"><br />圖七：不要把內容編碼成 HTML 本體。</div></li>
+  <li><a id="cfg_08"></a>如果妳的伺服器位於防火牆之後，而必須使用另外的代理伺服器 (Proxy Server) 纔有辦法連線出去的話，妳就得如<a href="#img_08">圖八</a>自己加上這一列指令：<pre>PingProxy http://代理伺服器位址:代理伺服器連接埠</pre>這一列指令可以加在 <code>mt.cfg</code> 裡的任何位置，如果妳在儲存文章時發生了「<code>發送引用通告出錯</code>」的錯誤訊息，那麼妳就該設定這一項指令了。<div class="img"><a id="img_08"></a><img src="mtcfg_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_08.png" alt="設定引用功能的代理伺服器為 proxy.hinet.net:80"><br />圖八：設定引用功能會用到的代理伺服器，在這個範例中我們設定的是「 http://proxy.hinet.net:80 」。</li>
+  <li><a id="cfg_09"></a>繼續在 <code>mt.cfg</code> 往後尋找，看看有沒有一列寫著 <strong>PublishCharset UTF-8</strong> ；這是用來處理萬國碼 (UNICODE) 中文字的。如果妳找不到這一列的話，請按照<a href="#img_09">圖九</a>，自己加上這一列：<pre>PublishCharset UTF-8</pre><div class="img"><a id="img_09"></a><img src="mtcfg_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_09.png" alt="設定出版字元集設定為 UTF-8"><br />圖九：設定出版字元集設定為 <code>UTF-8</code> 。</div></li>
+  <li><a id="cfg_10"></a>現在我們要存檔了。請如<a href="#img_10">圖十</a>從<code>檔案</code>選單裡選擇<strong>儲存檔案</strong>，最後再如<a href="#img_11">圖十一</a>按下關閉圖示即可。恭喜妳完成設定了。<div class="img"><a id="img_10"></a><img src="mtcfg_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_10.png" alt="儲存檔案"><br />圖十：儲存檔案。</div><div class="img"><a id="img_11"></a><img src="mtcfg_11.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtcfg_11.png" alt="按下關閉圖示"><br />圖十一：按下 <code>記事本</code> 的<strong>關閉圖示</strong>。</div></li>
+</ol></p>
+
+<h2><a id="db"></a>設定資料庫</h2>
+
+<p>Movable Type 如果不加以調整設定的話，會用 <code>Berkeley DB</code> 來當作資料庫後端；實際上對於一般的使用者來說，這樣也就夠了。但是如果妳決定要用 <code>MySQL</code> 或 <code>PostgreSQL</code> 來當資料庫後端的話，就必須按照本節的內容加以設定纔行。</p>
+
+<p>如果妳是 <code>Windows</code> 的使用者，而且用了我們在<a href="mtbook_install.html#win32" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_install.html#win32">第一章提到的安裝檔</a>的話，就可以直接跳過這一個小節，因為這個安裝檔裡，使用的是 <code>Berkeley DB</code> 。除非妳自己另外裝了 <code>MySQL</code> ，纔有必要繼續讀這一節。</p>
+
+<p>設定資料庫所會動到的檔案祇有兩個，分別是 <code>mt.cfg</code> 和 <code>mt-db-pass.cgi</code> ，請按照以下的步驟逐一修改其內容：</p>
+
+<p><ol>
+  <li><a id="db_01"></a>用文字編輯器開啟 <code>mt.cfg</code> 。</li>
+  <li><a id="db_02"></a>在 <code>mt.cfg</code> 裡加入這一列：「 <strong>ObjectDriver 驅動程式_名稱</strong>」。這裡的「<code>驅動程式_名稱</code>」可能會是「<strong>DBI::mysql</strong>」（如果妳用的是 <code>MySQL</code> ）、「<strong>DBI::postgres</strong>」（如果妳用的是 <code>PostgreSQL</code> ）或「<strong>DBI::sqlite</strong>」（如果妳用的是 <code>SQLite</code> ）</li>
+  <li><a id="db_03"></a>在 <code>mt.cfg</code> 裡加入這一列：「 <strong>Database 資料庫_名稱</strong>」。這裡的「<code>資料庫_名稱</code>」指的是<strong>妳要用來存放資料的 SQL 資料庫名稱</strong>。</li>
+  <li><a id="db_04"></a>在 <code>mt.cfg</code> 裡加入這一列：「 <strong>DBUser 資料庫_使用者</strong>」。這裡的「<code>資料庫_使用者</code>」指的是<strong>妳要用來連接到資料庫的使用者名稱</strong>。</li>
+  <li><a id="db_05"></a>如果妳的 SQL 伺服器位於不同的主機上的話，也請在 <code>mt.cfg</code> 裡加入這一列：「 <strong>DBHost 資料庫_主機</strong>」。這裡的「<code>資料庫_主機</code>」指的是<strong>妳的 SQL 主機名稱</strong>。</li>
+  <li>如果妳的 SQL 伺服器位於本地端，但是 socket 卻不是在標準的位置上時，則請在 <code><a id="db_06"></a>mt.cfg</code> 裡加入這一列：「 <strong>DBSocket /路徑/指到/mysql.sock</strong> 」。這裡的「 <code>/路徑/指到/mysql.sock</code> 」指的是<strong>妳的 SQL 的 socket 路徑</strong>。</li>
+  <li><a id="db_07"></a>儲存並關閉 <code>mt.cfg</code> 。</li>
+  <li><a id="db_08"></a>接下來的步驟祇有用 <code>MySQL</code> 或 <code>PostgreSQL</code> 的使用者纔需要設定；如果妳用的是 <code>SQLite</code> 的話，可以直接跳到<a href=#init">下一節</a>去。現在請用文字編輯器開啟 <code>mt-db-pass.cgi</code> 。</li>
+  <li><a id="db_09"></a>在這個檔案裡祇需要寫一列，這一列的內容就是<strong>妳的 SQL 資料庫密碼</strong>。</li>
+  <li><a id="db_10"></a>儲存並關閉 <code>mt-db-pass.cgi</code> 。這樣就完成資料庫設定了。</li>
+</ol></p>
+
+<h2><a id="init"></a>第一次啟動系統</h2>
+
+<p>如果妳是 <code>Windows</code> 的使用者，而且用了我們在<a href="mtbook_install.html#win32" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_install.html#win32">第一章提到的安裝檔</a>的話，一樣可以直接跳過這個小節，因為安裝程式已經幫妳做完這件事了。</p>
+
+<p>對於其他平台的使用者、或者選擇手動安裝的使用者來說，妳的 Movable Type 還不能正式開始運作；我們還得先把資料庫的架構準備好，纔能夠開始使用 Movable Type ，否則連預設的使用者帳號密碼都沒有。請按照以下的步驟：</p>
+
+<p><ol>
+  <li><a id="init_01"></a>用瀏覽器連到 Movable Type 的 <strong>mt-load.cgi</strong> 。舉例來說，如果妳的網頁伺服器位於 <code>http://Jedimt.dyndns.org/</code> ，而 CGI 腳本放在 <code>cgi-bin/</code> 的話，那妳就應該要連到 <code>http://Jedimt.dyndns.org/cgi-bin/mt-load.cgi</code> 去。</li>
+  <li><a id="init_02"></a>妳應該會看到如<a href="#img_12">圖十二</a>的畫面，這個時候就表示資料庫初始化完成了。請按下瀏覽器裡的「<code>進入設定畫面</code>」鏈結，並繼續參考<a href="#blog_config">下一節</a>的內容組態妳的網誌。<br />注意：<strong>一旦妳完成資料庫的初始化後，妳最好把 <code>mt-load.cgi</code> 這個檔案給刪除掉，以免發生預期外的安全性漏洞。</strong><div class="img"><a id="img_12"></a><img src="mtwin32_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtwin32_06.png" alt="資料庫初始化"><br />圖十二：資料庫初始化完成了，請按下「<code>進入設定畫面</code>」的鏈結。</div></li>
+</ol></p>
+
+<h2><a id="blog_config"></a>網誌組態</h2>
+
+<p>雖然我們已經完成了 <code>mt.cfg</code> 的設定，也把資料庫的架構建起來了，但是此時 Movable Type 內的各項設定值都還是預設值，妳應該按照本節的內容加以調整，纔能夠符合妳自己的實際設置狀況：</p>
+
+<p><ol>
+  <li><a id="blog_config_01"></a>如果妳還沒有登入 Movable Type ，請用瀏覽器連到 Movable Type 的 <strong>mt.cgi</strong> 。舉例來說，如果妳的網頁伺服器位於 <code>http://Jedimt.dyndns.org/</code> ，而 CGI 腳本放在 <code>cgi-bin/</code> 的話，那妳就應該要連到 <code>http://Jedimt.dyndns.org/cgi-bin/mt.cgi</code> 去；把 Movable Type 安裝到 Windows 的使用者則應該是連到 <code>http://Jedimt.dyndns.org/mt.cgi</code> 之類的網址去，因為 Windows 的安裝檔會把 CGI 腳本放在網頁伺服器的 <code>/</code> 裡。<br />如果妳早就登入 Movable Type 了的話，請直接跳到「<a href="#blog_config_core">核心設定</a>」的部分。</li>
+  <li><a id="blog_config_02"></a>第一次登入系統的時候，請使用預設的帳號來登入。如<a href="#img_13">圖十三</a>，預設的<code>使用者</code>帳號 (<code>Username</code>) 是 <strong>Melody</strong> ，而預設的<code>密碼</code> (<code>Password</code>) 則是 <strong>Nelson</strong> ；依圖填妥後，請按下「<code>登入</code> (<code>LOG IN</code>)」按鈕。<br />注意：如果妳有在用<code>自然輸入法</code>的話，請務必<strong>不要把自然輸入法設成預設輸入法</strong>，否則會發生登入錯誤的狀況。<div class="img"><a id="img_13"></a><img src="mtconfig_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_01.png" alt="用 Melody/Nelson 來登入"><br />圖十三：用 <strong>Melody</strong>/<strong>Nelson</strong> 的使用者帳號/密碼來登入 Movable Type 。</div></li>
+  <li><a id="blog_config_03"></a>登入 Movable Type 之後，妳應該會看到如<a href="#img_14">圖十四</a>的系統主畫面；請先按下畫面上的「<code>管理網誌</code>」鏈結，再依<a href="#img_15">圖十五</a>按下左方工具列上的「<code>網誌組態</code>」按鈕，然後參照「<a href="#blog_config_core">核心設定</a>」的部分加以設定。<div class="img"><a id="img_14"></a><img src="mtwin32_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtwin32_07.png" alt="按「管理網誌」"><br />圖十四：這是 Movable Type 的系統主畫面，請按下「<code>管理網誌</code>」的鏈結。</div><div class="img"><a id="img_15"></a><img src="mtwin32_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtwin32_08.png" alt="按「網誌組態」"><br />圖十五：請按下左方工具列上的「<code>網誌組態</code>」按鈕。</div></li>
+</ol></p>
+
+<h3><a id="blog_config_core"></a>核心設定</h3>
+
+<p><ol>
+  <li><a id="blog_config_core_01"></a>在「<code>網誌名稱</code>」這一欄裡，設定的是妳的網誌名稱。妳可以把它想成就是一個站台的名稱，例如「<code>飛雪連天電子報</code>」之類的東西。請依<a href="#img_16">圖十六</a>把預設的「<code>我的網誌</code>」改掉。<div class="img"><a id="img_16"></a><img src="mtconfig_core_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_01.png" alt="設定網誌名稱"><br />圖十六：設定<code>網誌名稱</code>。在這個範例中所填入的是「光劍格鬥學院」。</div></li>
+  <li><a id="blog_config_core_02"></a>「<code>本機站台路徑</code>」指的是說妳要把 Movable Type 產生出來的網頁檔案放在硬碟上的那個地方；除非妳知道妳自己正在做些甚麼，否則妳最好不要亂動這一欄的設定值。</li>
+  <li><a id="blog_config_core_03"></a>「<code>站台網址</code>」指的是妳的索引頁面網址（不含檔名）；對於把 Movable Type 安裝在 Windows 上的使用者來說，祇需要把 <strong>localhost</strong> 這個字串替換成妳申請到的網域名稱就可以了；這也就是妳在第零章<a href="mtbook_domain.html#free_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#free_11">「免費的網域名稱」小節步驟十一</a>設定的網域名稱，或<a href="mtbook_domain.html#dynamic_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#dynamic_11">「浮動 IP 的解決方案」小節步驟十一</a>設定的動態網域名稱。<br />請依<a href="#img_17">圖十七</a>把 <code>localhost</code> 改成妳的網域名稱，並務必保留前面的 <strong>http://</strong> 和最後的 <strong>/</strong> ，否則別人將難以瀏覽妳的網誌。<div class="img"><a id="img_17"></a><img src="mtconfig_core_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_02.png" alt="填寫站台網址"><br />圖十七：填寫站台網址。在這個範例中填寫的是 <code>http://Jedimt.dyndns.org/</code> 。</div></li>
+  <li><a id="blog_config_core_04"></a>「<code>本機彙整路徑</code>」指的是說妳要把 Movable Type 產生出來的網頁彙整檔案放在硬碟上的那個地方；除非妳知道妳自己正在做些甚麼，否則妳最好不要亂動這一欄的設定值。<br />理論上這一欄可以填得跟「<code>本機站台路徑</code>」一樣，不過這麼一來，妳的「<code>彙整網址</code>」就也得要跟「<code>站台網址</code>」設成一樣纔行。</li>
+  <li><a id="blog_config_core_05"></a>「<code>彙整網址</code>」指的是妳的彙整頁面網址（不含檔名），這個網址應該會跟妳的「<code>站台網址</code>」有關纔對；對於把 Movable Type 安裝在 Windows 上的使用者來說，祇需要把 <strong>localhost</strong> 這個字串替換成妳申請到的網域名稱就可以了；這也就是妳在第零章<a href="mtbook_domain.html#free_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#free_11">「免費的網域名稱」小節步驟十一</a>設定的網域名稱，或<a href="mtbook_domain.html#dynamic_11" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_domain.html#dynamic_11">「浮動 IP 的解決方案」小節步驟十一</a>設定的動態網域名稱。<br />請依<a href="#img_18">圖十八</a>把 <code>localhost</code> 改成妳的網域名稱，並務必保留前面的 <strong>http://</strong> 和最後的 <strong>/</strong> ，否則別人將難以瀏覽妳的網誌。<div class="img"><a id="img_18"></a><img src="mtconfig_core_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_03.png" alt="填寫彙整網址"><br />圖十八：填寫彙整網址。在這個範例中填寫的是 <code>http://Jedimt.dyndns.org/archives/</code> 。</div></li>
+  <li><a id="blog_config_core_06"></a>把畫面往下捲動，「<code>時區</code>」這一欄應該是個下拉式選單；妳應該從這個下拉式選單裡選擇<strong>妳本人所在地的時區</strong>（而不是伺服器所在位置的時區）。對於住在台灣的使用者來說，妳應該如<a href="#img_19">圖十九</a>選「<strong>UTC+8 (中國沿海, 台灣)</strong>」。<div class="img"><a id="img_19"></a><img src="mtconfig_core_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_04.png" alt="選擇時區"><br />圖十九：從<code>時區</code>中選擇 <strong>UTC+8 (中國沿海, 台灣)</strong> 。</div></li>
+  <li><a id="blog_config_core_07"></a>上述的設定都修改過之後，請如<a href="#img_20">圖二十</a>按下「<conde>儲存</code>」按鈕。<div class="img"><a id="img_20"></a><img src="mtconfig_core_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_05.png" alt="按下「儲存」"><br />圖二十：按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="blog_config_core_08"></a>設定儲存起來後，妳應該會看到如<a href="#img_21">圖二十一</a>的畫面。現在我們要繼續調整別的設定，請按下「<code>偏好</code>」鏈結，然後參照<a href="#blog_config_pref">下一小節</a>的指引。<div class="img"><a id="img_21"></a><img src="mtconfig_core_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_core_06.png" alt="儲存後按下「偏好」鏈結"><br />圖二十一：設定儲存後，按下「<code>偏好</code>」鏈結。</div></li>
+</ol></p>
+
+<h3><a id="blog_config_pref"></a>偏好</h3>
+
+<p>在這個頁面裡的設定比較多，大致又可以分成四類：<a href="#blog_config_pref_general">一般設定</a>、<a href="#blog_config_pref_archiving">彙整</a>、<a href="#blog_config_pref_publicity">出版/遠端介面/引用</a>、以及<a href="#blog_config_pref_comments">迴響組態</a>。讓我們一類一類地加以設定：</p>
+
+<h4><a id="blog_config_pref_01"></a><a id="blog_config_pref_general"></a>一般設定</h4>
+
+<p><ol>
+  <li><a id="blog_config_pref_general_01"></a>「<code>網誌描述</code>」這一欄是用來填寫妳的網誌的描述用的。一般說來，這裡可以用來填寫像是<strong>標語或口號</strong>之類的東西，例如「和平、奮鬥、救中國」。這一欄可以留空不填，也可以如<a href="#img_22">圖二十二</a>這樣填入任意的文字內容。<div class="img"><a id="img_22"></a><img src="mtconfig_pref_general_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_01.png" alt="填寫網誌描述"><br />圖二十二：填寫網誌描述，在這個範例中填寫的是「<code>如光似影／人劍合一</code>」。</div></li>
+  <li><a id="blog_config_pref_general_02"></a>「<code>文章顯示天數範圍</code>」指的是<strong>妳要在首頁（也就是主索引頁面）放多少天內的新文章</strong>。這個值祇是一個預設值而已，妳隨時都可以修改模版，來做出不同的效果，像是改成祇放最後幾篇新文章之類的。妳應該視文章實際的新增頻率來調整這裡的數值：如果妳的文章增加得很快的話，就應該設小一點，反之就應該設大一點。如果妳完全不知道該設成多少的話，按照<a href="#img_23">圖二十三</a>這樣保留預設值 <strong>7 天</strong>或許也是個好主意。<div class="img"><a id="img_23"></a><img src="mtconfig_pref_general_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_02.png" alt="設定文章顯示天數範圍"><br />圖二十三：設定文章顯示天數範圍，在這個範例中我們保留 <code>7</code> 天的預設值。</div></li>
+  <li><a id="blog_config_pref_general_03"></a>「<code>顯示日期用的語言</code>」會影響到妳的頁面中任何日期的顯示方法。 Movable Type 截至目前為止還沒有做出中文日期的顯示格式，所以請如<a href="#img_24">圖二十四</a>這樣在下拉式選單中選擇「<strong>英語</strong>」。<div class="img"><a id="img_24"></a><img src="mtconfig_pref_general_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_03.png" alt="設定顯示日期用的語言為英語"><br />圖二十四：設定顯示日期用的語言，請依圖示選擇<code>英語</code>。</div></li>
+  <li><a id="blog_config_pref_general_04"></a>「<code>文章顯示順序</code>」會影響到任何有兩篇（或更多）文章同時出現的頁面中，文章排列的順序。祇要妳的文章更新頻率沒有太低的話，妳就應該如<a href="#img_25">圖二十五</a>照預設值選「<strong>遞減</strong>」，這麼一來新的文章纔會出現在頁面的開端，（假想中的）讀者一旦能夠輕易地發現妳的新文章，就更會常常晃過來看妳的東西。<div class="img"><a id="img_25"></a><img src="mtconfig_pref_general_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_04.png" alt="設定文章顯示順序為遞減"><br />圖二十五：設定文章顯示順序，在這個範例中我們保留了<code>遞減</code>的預設值。</div></li>
+  <li><a id="blog_config_pref_general_05"></a>「<code>Default Text Formatting for new entries</code> （新文章的預設文字格式）」指的是發表文章時的預設文字格式。除非妳有特殊需求，不然妳應該如<a href="#img_26">圖二十六</a>這般，用預設值「<strong>轉換換列</strong>」來自動處理文章中的<code>段落</code>（自動加上 <code>&lt;p&gt;</code> 與 <code>&lt;/p&gt;</code> ）及<code>換列</code>（自動加上 <code>&lt;br /&gt;</code> ）。<div class="img"><a id="img_26"></a><img src="mtconfig_pref_general_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_05.png" alt="設定新文章的預設文字格式為「轉換換列」"><br />圖二十六：設定新文章的預設文字格式，在這個範例中我們保留了<code>轉換換列</code>的預設值。</div></li>
+  <li><a id="blog_config_pref_general_06"></a>文章的出版狀態如果是「<code>草稿</code>」的話，就不會顯示在網頁上；祇有出版狀態為「<code>定稿</code>」的文章纔會顯示出來。「<code>預設的文章出版狀態</code>」就是在設定文章出版狀態的預設值的。當然妳在發表新文章或編輯舊文章的時候，仍然可以隨時改變出版狀態；但是如果妳沒有特殊需要的話，在這裡就按照<a href="#img_27">圖二十七</a>設定成「<strong>定稿</strong>」顯然會方便許多。<div class="img"><a id="img_27"></a><img src="mtconfig_pref_general_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_06.png" alt="設定預設的文章出版狀態為「定稿」"><br />圖二十七：設定預設的文章出版狀態，在這個範例中我們設定成「<code>定稿</code>」。</div></li>
+  <li><a id="blog_config_pref_general_07"></a>新增文章的時候，可以在<code>文摘</code>欄位裡填寫這一篇文章的文摘；如果妳沒有填寫那一欄的話， Movable Type 就會拿「<code>主要文章本體</code>」這一欄的前幾個字來當作文摘。這裡的「<code>文摘字數</code>」就是在設定這個的。如果妳不知道要設成多少，就如<a href="#img_28">圖二十八</a>保留預設值 <strong>20</strong> 個字吧。<div class="img"><a id="img_28"></a><img src="mtconfig_pref_general_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_07.png" alt="設定文摘字數"><br />圖二十八：設定文摘字數，在這個範例中我們保留了 <code>20</code> 個字的預設值。</div></li>
+  <li><a id="blog_config_pref_general_08"></a>「<code>消毒規格</code>」會決定迴響裡可以用的 HTML 標籤。如果妳甚麼都不懂，就如<a href="#img_29">圖二十九</a>這樣，選「<strong>按照預設值</strong>」吧。<div class="img"><a id="img_29"></a><img src="mtconfig_pref_general_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_08.png" alt="設定消毒規格為「按照預設值」"><br />圖二十九：設定消毒規格，在這個範例中我們選了「<code>按照預設值<code>」。</div></li>
+  <li><a id="blog_config_pref_general_09"></a><a href="#img_30">圖三十</a>裡的「<code>歡迎訊息</code>」大概祇有在同一份網誌有許多不同作者一起維護的時候，纔會有用，所以我們在此就先不寫了。至於「<code>創意公用授權條款</code>」的部分，請見<a href="mtbook_cc.html#cc" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_cc.html#cc">附錄二</a>的介紹；<strong>如果妳對於甚麼是<code>創意公用授權條款</code>完全沒概念的話，現在最好啥也別碰</strong>。<div class="img"><a id="img_30"></a><img src="mtconfig_pref_general_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_general_09.png" alt="歡迎訊息與創意公用授權條款"><br />圖三十：歡迎訊息與創意公用授權條款。在這個範例中我們甚麼事也不做。</div></li>
+</ol></p>
+
+<h4><a id="blog_config_pref_02"></a><a id="blog_config_pref_archiving"></a>彙整</h4>
+
+<p>這一個區塊中的設定選項都與彙整 (archiving) 有關，妳可以一併參照<a href="mtbook_archive.html#archive" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#archive">第八章</a>的介紹。</p>
+
+<p><ol>
+  <li><a id="blog_config_pref_archiving_01"></a>Movable Type 除了能讓妳很容易新增文章之外，也會按照妳指定的方法自動地幫妳把文章蒐集起來彙整歸檔，這一個「<code>偏好彙整類別</code>」就是讓妳設定妳最慣用的彙整方法的。在多數的情況下，妳應該會想要跟<a href="#img_31">圖三十一</a>一樣，選擇「<strong>單篇彙整</strong>」；這麼一來，從妳的首頁（也就是主索引頁面）點選任何一篇文章的時候，就會連到祇有該篇文章的彙整頁面去。<div class="img"><a id="img_31"></a><img src="mtconfig_pref_archiving_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_archiving_01.png" alt="設定偏好彙整類別為「單篇彙整」"><br />圖三十一：設定偏好彙整類別，在這個範例中我們用了<code>單篇彙整</code>的預設值。</div></li>
+  <li><a id="blog_config_pref_archiving_02"></a>「<code>彙整檔案副檔名</code>」是讓妳設定產生出來的網頁檔案副檔名的。如果妳懂得 PHP 或其他各種語言的話，就能夠善用這個設定；除此之外，如<a href="#img_32">圖三十二</a>用預設值 <strong>html</strong> 顯然會是個好主意。<div class="img"><a id="img_32"></a><img src="mtconfig_pref_archiving_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_archiving_02.png" alt="設定彙整檔案副檔名為 html"><br />圖三十二：設定彙整檔案副檔名，在這個範例中我們保留了 <code>html</code> 這個預設值。</div></li>
+</ol></p>
+
+<h4><a id="blog_config_pref_03"></a><a id="blog_config_pref_publicity"></a>出版/遠端介面/引用</h4>
+
+<p><ol>
+  <li><a id="blog_config_pref_publicity_01"></a>「<code>當我更新我的網誌時通知下列網站</code>」選項跟「<code>通告</code> (<code>ping</code>) 」功能有關：有一些伺服器，像是 <code>blo.gs</code> 和 <code>weblogs.com</code> 都會列出近期更新過的網誌（或網站）。這些伺服器當然不可能整天花費大量的力氣去察看全世界的的網站頁面有沒有更新，他們之所以能夠知道頁面有所更新，是因為他們能接受及處理<code>更新通告</code>。<br />Movable Type 就能夠送出這種<code>更新通告</code>，所以為了打響妳的知名度，請按照<a href="#img_33">圖三十三</a>核選 <code>blo.gs</code> 和 <code>weblogs.com</code> 這兩個核選框吧。如果妳還知道其他伺服器也能處理這種<code>更新通告</code>的話，也可以再填進下面那一個欄位裡，並以換列作為間隔。<div class="img"><a id="img_33"></a><img src="mtconfig_pref_publicity_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_publicity_01.png" alt="核選 blo.gs 和 weblogs.com"><br />圖三十三：核選 <code>blo.gs</code> 和 <code>weblogs.com</code> ，讓妳的網誌更廣為人知。</div></li>
+  <li><a id="blog_config_pref_publicity_02"></a>「<code>近期更新金鑰</code>」祇對有捐錢給 Six Apart （這是 Movable Type 的公司）或購買了 Movable Type 商用許可的使用者有用；在這裡填入了近期更新金鑰後，妳的 Movable Type 纔會發送<code>更新通告</code>給 Movable Type 的官方網站。<br />對於一般的使用者來說，留著空白不填就可以了。</li>
+  <li><a id="blog_config_pref_publicity_03"></a>「<code>Google API 金鑰</code>」祇對有用到 Google API 的人纔有用。如果妳會用到 Google API 的話，請先去 Google 申請一份 Google API 金鑰，然後填到這裡來。<br />對於一般的使用者來說，留著空白不填就可以了。</li>
+  <li><a id="blog_config_pref_publicity_04"></a>「<code>預設允許通告</code>」選項跟<code>引用功能</code>有關，妳可以參考<a href="mtbook_trackback.html#trackback" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_trackback.html#trackback">第七章</a>的介紹。大致上來說，設定了這個選項之後，能夠讓讀者們更容易接觸到與妳的文章相關的其他文章，也比較能夠讓妳的網誌與其他人的網誌間有更好、更頻繁的互動。所以強烈建議妳按照<a href="#img_34">圖三十四</a>核選這個核選框。<div class="img"><a id="img_34"></a><img src="mtconfig_pref_publicity_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_publicity_02.png" alt="核選預設允許通告的核選框"><br />圖三十四：核選預設允許通告的核選框。</div></li>
+  <li><a id="blog_config_pref_publicity_05"></a>「<code>用 Email 通知新的引用通告</code>」選項一旦被核選之後，祇要有人引用了妳的文章， Movable Type 就會寄一封信通知妳。不過在平常的狀況下，這是沒有必要的，因為祇要有合適的模版，妳連到自己的網誌上的時候就自然會看到了嘛。有誰會在沒有特殊需求的情況下，還希望一直收到信件打攪呢？<br />這個選項跟<code>引用功能</code>有關，妳可以參考<a href="mtbook_trackback.html#trackback" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_trackback.html#trackback">第七章</a>的介紹。</li>
+  <li><a id="blog_config_pref_publicity_06"></a>「<code>啟用引用自動發掘功能</code>」選項跟<code>引用功能</code>有關，妳可以參考<a href="mtbook_trackback.html#trackback" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_trackback.html#trackback">第七章</a>的介紹。這個選項強烈建議核選，因為一旦核選之後，祇要妳的文章中有其他網站的鏈結， Movable Type 就會自動送出<code>引用通告</code>；簡單來說，就是自動幫妳在別人的文章裡打廣告。<br />這種這麼方便的功能，不用實在太對不起自己了。所以請參照<a href="#img_35">圖三十五</a>核選這個核選框。<div class="img"><a id="img_35"></a><img src="mtconfig_pref_publicity_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_publicity_03.png" alt="核選「啟用引用自動發掘功能」"><br />圖三十五：核選「啟用引用自動發掘功能」的核選框。</div></li>
+</ol></p>
+
+<h4><a id="blog_config_pref_04"></a><a id="blog_config_pref_comments"></a>迴響組態</h4>
+
+<p>這一個區塊中的設定選項都跟迴響 (comments) 功能有關，妳可以一併參照<a href="mtbook_comment.html#comment" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_comment.html#comment">第六章</a>的介紹。</p>
+
+<p><ol>
+  <li><a id="blog_config_pref_comments_01"></a>一旦妳勾選了「<code>允許匿名迴響</code>」的核選框後，讀者發表迴響時就可以完全不需要填寫姓名（暱稱）、 Email 地址以及網址。雖然說，就算妳不要核選這個核選框，也沒辦法阻止讀者發表迴響時留下假資料，但是這麼做還是有點好處的：因為讀者可能祇是「忘記填寫基本資料」而已，而如<a href="#img_36">圖三十六</a>保留這個核選框不勾選的話，就會在這種情況下提醒讀者說，「啊，妳忘記填寫基本資料了呦！」<div class="img"><a id="img_36"></a><img src="mtconfig_pref_comments_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_01.png" alt="不要核選「允許匿名迴響」"><br />圖三十六：不要核選「允許匿名迴響」的核選框。</div></li>
+  <li><a id="blog_config_pref_comments_02"></a>「<code>迴響顯示的順序</code>」會決定同一篇文章裡，迴響呈現的先後次序。在<a href="#blog_config_pref_general_04">文章顯示順序的設定</a>中，我們提到了文章排列時，越新的應該放在越前面纔方便讀者閱讀，不過對於<code>迴響</code>來說，情況卻不同。<br />因為文章可以祇按照時間來透露重要性（越近期被寫下的，越能代表作者最近的心境），但是跟著某一篇文章的迴響，彼此間卻會出現脈絡性，所以越新的迴響應該出現在越後面，其他讀者纔能夠循著脈絡讀下去。<br />基於這個原因，我們按照<a href="#img_37">圖三十七</a>保留預設的<strong>遞增</strong>。<div class="img"><a id="img_37"></a><img src="mtconfig_pref_comments_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_02.png" alt="設定迴響顯示的順序為「遞增」"><br />圖三十七：設定迴響顯示的順序，在這個範例中我們保留了預設的<code>遞增</code>。</div></li>
+  <li><a id="blog_config_pref_comments_03"></a>「<code>有新的迴響時寄給我</code>」核選框就跟<a href="#blog_config_pref_publicity_05">「<code>用 Email 通知新的引用通告</code>」核選框</a>一樣，在正常的情況下實在不需要加以核選，因為妳祇要瀏覽自己的網誌，頂多略微修改一下模版就夠了。何必跟自己的信箱過不去呢？</li>
+  <li><a id="blog_config_pref_comments_04"></a>「<code>迴響文字格式</code>」指的是讀者發表迴響時的文字格式。除非妳有特殊需求，不然妳應該如<a href="#img_38">圖三十八</a>這般，用預設值「<strong>轉換換列</strong>」來自動處理迴響中的段落（自動加上 <code>&lt;p&gt;</code> 與 <code>&lt;/p&gt;</code> ）及換列（自動加上 <code>&lt;br /&gt;</code> ）。<div class="img"><a id="img_38"></a><img src="mtconfig_pref_comments_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_03.png" alt="設定迴響文字格式為「轉換換列」"><br />圖三十八：設定迴響文字格式，在這個範例中我們保留了預設的<code>轉換換列</code>。</div></li>
+  <li><a id="blog_config_pref_comments_05"></a>如果妳核選了「<code>允許迴響使用 HTML 語法</code>」的核選框，那麼要發表迴響的讀者就可以在迴響中使用各種 HTML 標籤。這麼做的好處是，讀者發表迴響時也可以有很大的自由度，但是相對來說，她們甚至有機會在妳的頁面裡加入奇怪的背景音樂，或者其他可能會危及其他讀者的動作（當然妳還是可以透過<a href="#blog_config_pref_general_08">消毒規格</a>來加以限制她們可用的 HTML 標籤）。因此在<a href="#img_39">圖三十九</a>的範例中，我們並不核選這個核選框。<div class="img"><a id="img_39"></a><img src="mtconfig_pref_comments_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_04.png" alt="不要允許迴響使用 HTML 語法"><br />圖三十九：不要允許迴響使用 HTML 語法。</div></li>
+  <li><a id="blog_config_pref_comments_06"></a>祇要妳沒有<a href="#blog_config_pref_comments_05">允許迴響使用 HTML 語法</a>，妳就應該要如<a href="#img_40">圖四十</a>核選「<code>自動連結網址</code>」核選框。這麼一來， Movable Type 就會把任何在迴響裡出現的網址，通通轉換成可以直接按下的超連結，於是讀者就不需要自己再複製一次網址了。<div class="img"><a id="img_40"></a><img src="mtconfig_pref_comments_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_05.png" alt="核選「自動連結網址」"><br />圖四十：核選「自動連結網址」的核選框。</div></li>
+  <li><a id="blog_config_pref_comments_07"></a>「<code>預設允許迴響</code>」選項會決定妳的文章在預設的情況下，要不要讓讀者們能夠發表迴響。除非妳要做成公告式的站台，否則開啟迴響功能可以說是利多於弊，因為這將讓讀者跟妳有更好的互動，而這種互動則會吸引更多讀者前來閱讀妳們所寫下的東西。因此，請如<a href="#img_41">圖四十一</a>，在這個選項選用預設的「<strong>開啟</strong>」。<div class="img"><a id="img_41"></a><img src="mtconfig_pref_comments_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_comments_06.png" alt="開啟預設允許迴響"><br />圖四十一：開啟<code>預設允許迴響</code>的選項。</div></li>
+</ol></p>
+
+<p>以上就是在<code>偏好</code>頁面中的設定。全部設定完後請別忘了要把它們儲存起來，請這樣做：</p>
+
+<p><ol>
+  <li><a id="blog_config_pref_05"></a>如<a href="#img_42">圖四十二</a>按下「<code>儲存</code>」按鈕。<div class="img"><a id="img_42"></a><img src="mtconfig_pref_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_01.png" alt="按下「儲存」按鈕"><br />圖四十二：按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="blog_config_pref_06"></a><code>偏好</code>被儲存後，妳會看到如<a href="#img_43">圖四十三</a>的畫面，提示妳<code>偏好</code>已被儲存了。由於我們還要設定彙整方式，所以請依圖按下<code>偏好</code>旁的「<strong>彙整</strong>」鏈結，並按照<a href="#blog_config_arc">下一節</a>的說明來繼續設定。<div class="img"><a id="img_43"></a><img src="mtconfig_pref_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_pref_02.png" alt="按下「彙整」的鏈結"><br />圖四十三：<code>偏好</code>被儲存後，按下<strong>彙整</strong>鏈結。</div></li>
+</ol></p>
+
+<h3><a id="blog_config_arc"></a>彙整</h3>
+
+<p>這個頁面主要是用來設定妳所想採用的彙整方式，以及訂定彙整檔案的檔名規則的。關於彙整的各項細節，妳可以參考<a href="mtbook_archive.html#archive" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_archive.html#archive">第八章</a>的介紹。</p>
+
+<p><ol>
+  <li><a id="blog_config_arc_01"></a>在「<code>彙整類別</code>」這一欄中，妳可以勾選妳想使用的彙整方式；預設的彙整類別是<code>單篇彙整</code>以及<code>逐月彙整</code>，這意味著每一篇文章都會被單獨做成一頁，另外相同月份的所有文章也會被做成一頁。這似乎是在兼顧節省硬碟使用以及提高便利性的雙重考量下，相當不錯的一種作法。<br />由於每一份網誌在剛設立的時候，是沒有任何<code>類別</code>的，所以<code>類別</code>這一項並沒有被核選。不過我們在<a href="mtbook_practice.html#practice" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_practice.html#practice">後面的章節</a>就會提到該如何運用<code>分類彙整</code>，所以現在不妨就按照<a href="#img_44">圖四十四</a>這樣，把<strong>類別</strong>給選起來。<div class="img"><a id="img_44"></a><img src="mtconfig_arc_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_arc_01.png" alt="核選「類別」"><br />圖四十四：選擇妳所想採行的彙整方式，在本範例中我們除了預設值外，還加選了「<code>類別</code>」。</div></li>
+  <li><a id="blog_config_arc_02"></a>勾選好了之後，請按下「<code>儲存</code>」按鈕。<div class="img"><a id="img_45"></a><img src="mtconfig_arc_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_arc_02.png" alt="按下「儲存」按鈕"><br />圖四十五：選好彙整方式後按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="blog_config_arc_03"></a>儲存好後，妳就會看到像<a href="#img_46">圖四十六</a>這樣的畫面。我們現在還要修改妳的個人資料，所以請如<a href="#img_46">圖</a>按下畫面右上方的 <strong>Melody</strong> ，然後參照<a href="#blog_config_profile">下一節</a>的內容加以修改。<div class="img"><a id="img_46"></a><img src="mtconfig_arc_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_arc_03.png" alt="按下畫面右上方的 Melody"><br />圖四十六：儲存好後，按下畫面右上方的 <strong>Melody</strong> 鏈結。</div></li>
+</ol></p>
+
+<h3><a id="blog_config_profile"></a>修改個人資料</h3>
+
+<p>到此為止，妳的身份仍舊叫做 <code>Melody</code> ，然後妳的密碼則是 <code>Nelson</code> 。很不幸地，全世界讀過 <a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/index.html'" tppabs="http://hedong.3322.org/mt/docs/zh/index.html">Movable Type 文件</a>的人都知道這回事。換而言之，這些陌生人都可以很快樂地連線到妳的 Movable Type ，然後用這組預設的帳號跟密碼登入，並大肆破壞。</p>
+
+<p>沒有人真的希望這種事情發生，所以請務必按照下列的步驟來把預設的帳號修改掉：</p>
+
+<p><ol>
+  <li><a id="blog_config_profile_01"></a>「<code>使用者</code>」欄位中的是妳用來登入 Movable Type 系統的使用者名字；預設的使用者是 <code>Melody</code> ，請隨意修改成妳自己想用的名字，如<a href="#img_47">圖四十七</a>。這裡不建議使用中文字，妳最好還是祇使用英文字母跟數字來當作使用者名字；就算真的要用中文名字，也建議填到<a href="#blog_config_profile_02">暱稱</a>那一欄去。<div class="img"><a id="img_47"></a><img src="mtconfig_profile_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_01.png" alt="修改使用者名字"><br />圖四十七：修改<code>使用者</code>欄位，在這個範例中我們把 <code>Melody</code> 換成了 <code>Jedi</code> 。</div></li>
+  <li><a id="blog_config_profile_02"></a>「<code>暱稱</code>」欄位可填可不填；妳的使用者名字不能跟其他使用者相同，但是暱稱可以。所以遇到多位作者習慣用的名字重複時，就可以設在<code>暱稱</code>裡，而繼續使用不同的使用者帳號來登入。另外，<code>暱稱</code>當然也可以跟使用者名字相同，如<a href="#img_48">圖四十八</a>。<div class="img"><a id="img_48"></a><img src="mtconfig_profile_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_02.png" alt="填入暱稱"><br />圖四十八：填入<code>暱稱</code>，在這個範例中填入的是 <code>Jedi</code> 。</div></li>
+  <li><a id="blog_config_profile_03"></a>「 <code>Email 地址</code>」這一欄雖然可以不填，但是妳最好還是如<a href="#img_49">圖四十九</a>加以填寫；因為如果不幸妳忘記自己的密碼時， Movable Type 就得要知道妳的 Email 地址，纔有辦法把新的密碼寄給妳。<div class="img"><a id="img_49"></a><img src="mtconfig_profile_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_03.png" alt="填寫 Email 地址"><br />圖四十九：填寫 Email 地址，在這個範例中填入的是 <code>JediMT@Jedism.org</code> 。</div></li>
+  <li><a id="blog_config_profile_04"></a>如果妳自己有另外的網站時，也可以如<a href="#img_50">圖五十</a>在「<code>網站網址</code>」加以填寫。<div class="img"><a id="img_50"></a><img src="mtconfig_profile_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_04.png" alt="填寫網站網址"><br />圖五十：填寫網站網址，在這個範例中填入的是 <code>http://blog.elixus.org/jedi/</code> 。</div></li>
+  <li><a id="blog_config_profile_05"></a>「<code>偏好語言</code>」不但會改變妳的 Movable Type 的各項介面、訊息所使用的語言，甚至也會改變說明文件的語言，以及妳所建立的新網誌中的預設模版語言。請如<a href="#img_51">圖五十一</a>從下拉式選單裡選擇 <strong>Taiwan Chinese</strong> （繁體中文）。<div class="img"><a id="img_51"></a><img src="mtconfig_profile_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_05.png" alt="選擇偏好語言為「 Taiwan Chinese 」"><br />圖五十一：選擇偏好語言，在這個範例中所選擇的是 <code>Taiwan Chinese</code> 。</div></li>
+  <li><a id="blog_config_profile_06"></a>現在我們還要把預設的密碼 (<code>Nelson</code>) 給換掉纔安全。請在「<code>密碼</code>」欄位裡填入妳想要用的密碼，大小寫是不一樣的。<div class="img"><a id="img_52"></a><img src="mtconfig_profile_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_06.png" alt="填入新密碼"><br />圖五十二：填入新密碼。</div></li>
+  <li><a id="blog_config_profile_07"></a>在「<code>密碼確認</code>」欄位裡把妳剛剛填入的密碼再填一次，以確認妳沒有不慎打錯字。<div class="img"><a id="img_53"></a><img src="mtconfig_profile_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_07.png" alt="在「密碼確認」欄位裡再打一次密碼"><br />圖五十三：確認密碼有沒有打錯。</div></li>
+  <li><a id="blog_config_profile_08"></a>如果妳不甚忘記密碼了， Movable Type 還可以用最後的<code>密碼恢復</code>機制來讓妳挽回。在這種情況下， Movable Type 會詢問妳的出生地為何，這個時候妳就得回答妳在這邊的「<code>出生地</code>」欄位裡所填寫的東西。因此這一欄的內容妳也應該保密，不要讓其他人輕易得知（不過這一欄的答案就算外洩了，妳還有機會保有秘密，因為 Movable Type 祇會把密碼寄到妳在<a href="#blog_config_profile_03">步驟三</a>所設定的 Email 地址去）。<div class="img"><a id="img_54"></a><img src="mtconfig_profile_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_08.png" alt="填寫出生地"><br />圖五十四：填寫恢復密碼功能會用到的出生地資訊，在這個範例中填寫的是 <code>Mars</code> 。</div></li>
+  <li><a id="blog_config_profile_09"></a>以上的欄位都填／改完後，請如<a href="#img_55">圖五十五</a>按下「<code>儲存</code>」按鈕。<div class="img"><a id="img_55"></a><img src="mtconfig_profile_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_09.png" alt="按下「儲存」按鈕"><br />圖五十五：按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="blog_config_profile_10"></a>個人資料儲存起來後，妳應該會看到如<a href="#img_56">圖五十六</a>的訊息，提示妳個人資料已經儲存起來了。這個時候妳的使用者名字、密碼等資訊都已經更新了，所以妳毋須重新登入 Movable Type 。<div class="img"><a id="img_56"></a><img src="mtconfig_profile_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtconfig_profile_10.png" alt="個人資料已儲存"><br />圖五十六：妳的個人資料皆已更新了。</div></li>
+</ol></p>
+
+<p>以上就是妳第一次登入 Movable Type 後，應該加以修改／設定的選項。接下來請閱讀<a href="mtbook_entry.html#entry" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_entry.html#entry">後面的章節</a>來學著如何使用 Movable Type 。
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

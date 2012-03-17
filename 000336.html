@@ -1,0 +1,371 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Digester学习笔记(二)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000335.html" tppabs="http://hedong.3322.org/archives/000335.html" title="NetCat的使用" />
+
+<link rel="next" href="000337.html" tppabs="http://hedong.3322.org/archives/000337.html" title="Digester学习笔记(三)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000336.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/232"
+    dc:title="Digester学习笔记(二)"
+    dc:identifier="http://hedong.3322.org/archives/000336.html"
+    dc:subject="ItTech"
+    dc:description="　　为便于理解，将笔记的内容结构作了一些调整。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-26T23:46:33+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000336.html">
+<dc:title>Digester学习笔记(二)</dc:title>
+<dc:description>　　为便于理解，将笔记的内容结构作了一些调整。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-26T23:46:33+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000335.html" tppabs="http://hedong.3322.org/archives/000335.html">&laquo; NetCat的使用</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000337.html" tppabs="http://hedong.3322.org/archives/000337.html">Digester学习笔记(三) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 26, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Digester学习笔记(二)</h3>
+
+<p>　　为便于理解，将笔记的内容结构作了一些调整。</p>
+
+<a name="more"></a>
+<p><h4>对象栈</h4>　　对digester技术最普通的应用，是用来动态创建一个由Java对象构成的树结构，各对象的属性以及对象间的关系，基于XML文档的内容来设置(XML文档就是一棵树)。为实现这种应用，Digester提供了一个对象栈，以供在相关的模板识别后被激活的处理规则操作。此栈的基本操作包括：<br />
+<ol><li>clear(),清空栈的内容</li><br />
+<li>peek(),返回对栈顶对象的引用</li><br />
+<li>pop(),将栈顶对象弹出并返回</li><br />
+<li>push(),将一个新的对象压入栈顶</li></ol><br />
+　　用栈的原因，就是当识别出一个XML元素的“开始”时，将相关对象生成并压入栈顶，这个对象在处理该元素的子元素的过程中一直在栈中，当所有子元素都处理完后，解析器遇到这个元素的“结束”时，则弹出此对象，并进行相关的处理。<br />
+　　如何描述对象间的关系呢？将栈顶的对象做为一个参数，传递给第二栈顶(即先于栈顶对象入栈的那个对象，在栈顶对象的下面)的一个方法，就可以简单地建立起一种“父子关系”，从而可以简单地建立起1：1的关系(第二栈顶对象与栈顶对象之间)和1：N的关系(第二栈顶对象不动，N次压栈顶弹栈顶对象).<br />
+　　如果取得生成的第一个对象呢？可以让parse()方法返回，或者在调用parse()方法前，先行压入一个对象，在parse()方法结束后弹出这个对象，则其子对象即为我们想要的第一个对象。<br />
+<h4>日志(logging)</h4><br />
+　　日志是一个调试Digester规则集的非常重要的工具，它可以记录非常丰富的信息，因它在使用Digester之前有必要了解日志是如何工作的。<br />
+　　Digester使用Jakarta Commons Logging，这个模块并不是具体的日志实现，而只是一个可设置的接口。可以设置它将各种日志信息传递它自身带的基本记录器，或者传递给其它的更复杂的日志工具。具体请参考commons logging的文档，或<a href="000316.html" tppabs="http://hedong.3322.org/archives/000316.html">Jakarta Commons Logging学习笔记</a><br />
+　　Digester主要使用两个记录器：<ol><li>SAX相关的信息，被送往org.apache.commons.digester.Digester.sax记录器，记录了Digester收到的SAX的事件的信息。</li><li>其它的所有信息，都被送往org.apache.commons.digester.Digester记录器，这个记录器在调试Digester时打开而在产品中常将其关闭</li></ol><br />
+　　假定用commons logging自带的基本日志工具，并以DEBUG级别记录Digester调试信息以及INFO级别记录SAX事件信息，则对logging的配置文件设置如下：<div class="code">  org.apache.commons.logging.Log=org.apache.commons.logging.impl.SimpleLog org.apache.commons.logging.simplelog.log.org.apache.commons.digester.Digester=debug  org.apache.commons.logging.simplelog.log.org.apache.commons.digester.Digester.sax=info</div><br />
+<h4>Digester包中的例子</h4><div class="code">***********Example.xml**********<br />
+&lt;address-book&gt;<br />
+&nbsp;&nbsp;&lt;person&nbsp;id="1"&nbsp;category="acquaintance"&nbsp;try="would&nbsp;be&nbsp;ignored"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Gonzo&lt;/name&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;email&nbsp;type="business"&gt;gonzo@muppets.com&lt;/email&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;gender&nbsp;result="the&nbsp;whole&nbsp;tag&nbsp;would&nbsp;be&nbsp;ignored"&gt;male&lt;/gender&gt;<br />
+&nbsp;&nbsp;&lt;/person&gt;<br />
+&nbsp;&nbsp;&lt;person&nbsp;id="2"&nbsp;category="rolemodel"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;name&gt;Kermit&lt;/name&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;email&nbsp;type="business"&gt;kermit@muppets.com&lt;/email&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;email&nbsp;type="home"&gt;kermie@acme.com&lt;/email&gt;<br />
+&nbsp;&nbsp;&lt;/person&gt;<br />
+&lt;/address-book&gt;**********Person.java************<br />
+import&nbsp;java.util.HashMap;<br />
+import&nbsp;java.util.Iterator;<br />
+public&nbsp;class&nbsp;Person&nbsp;{<br />
+&nbsp;&nbsp;private&nbsp;int&nbsp;id;<br />
+&nbsp;&nbsp;private&nbsp;String&nbsp;category;<br />
+&nbsp;&nbsp;private&nbsp;String&nbsp;name;<br />
+&nbsp;&nbsp;private&nbsp;HashMap&nbsp;emails&nbsp;=&nbsp;new&nbsp;HashMap();<br />
+&nbsp;&nbsp;//下面的两个方法的名字中set以后的部分，与&lt;person&gt;的属性名字对映。当从xml文件中识别出&lt;person&gt;的属性时，如果有要求(即调用过addSetProperties方法),Digester会依据这种对映关系自动调用相应的方法。<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;setId(int&nbsp;id)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.id&nbsp;=&nbsp;id;<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;setCategory(String&nbsp;category)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.category&nbsp;=&nbsp;category;<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;//对name而言，因为其值来自&lt;name&gt;标签的内容而非属性值，需要用addCallMethod指定识别&lt;name&gt;后的要调用此方法(想自动调用也要可以，需要addBeanPropertySetter，参见第下一个例子)。<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;setName(String&nbsp;name)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;this.name&nbsp;=&nbsp;name;<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;//同name，此时还要一一指定addEmail的参数值的来源。<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;addEmail(String&nbsp;type,&nbsp;String&nbsp;address)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;emails.put(type,&nbsp;address);<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;print()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Person&nbsp;#"&nbsp;+&nbsp;id);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("&nbsp;&nbsp;category="&nbsp;+&nbsp;category);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("&nbsp;&nbsp;name="&nbsp;+&nbsp;name);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(Iterator&nbsp;i&nbsp;=&nbsp;emails.keySet().iterator();&nbsp;i.hasNext();&nbsp;)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;type&nbsp;=&nbsp;(String)&nbsp;i.next();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;address&nbsp;=&nbsp;(String)&nbsp;emails.get(type);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("&nbsp;&nbsp;email&nbsp;(type&nbsp;"&nbsp;+&nbsp;type&nbsp;+&nbsp;")&nbsp;:&nbsp;"&nbsp;+&nbsp;address);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;}<br />
+}<br />
+**********AddressBook.java***********<br />
+import&nbsp;java.util.LinkedList;<br />
+import&nbsp;java.util.Iterator;<br />
+public&nbsp;class&nbsp;AddressBook&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;LinkedList&nbsp;people&nbsp;=&nbsp;new&nbsp;LinkedList();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;addPerson(Person&nbsp;p)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;people.addLast(p);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;void&nbsp;print()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Address&nbsp;book&nbsp;has&nbsp;"&nbsp;+&nbsp;people.size()&nbsp;+&nbsp;"&nbsp;entries");</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(Iterator&nbsp;i&nbsp;=&nbsp;people.iterator();&nbsp;i.hasNext();&nbsp;)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Person&nbsp;p&nbsp;=&nbsp;(Person)&nbsp;i.next();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p.print();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+************AddressBookDigester*********<br />
+import&nbsp;org.apache.commons.digester.Digester;<br />
+/**<br />
+&nbsp;*&nbsp;Usage:&nbsp;java&nbsp;Example1&nbsp;example.xml<br />
+&nbsp;*/<br />
+public&nbsp;class&nbsp;AddressBookDigester&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(args.length&nbsp;!=&nbsp;1)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;usage();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(-1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;filename&nbsp;=&nbsp;args[0];<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;创建一个Digester实例<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Digester&nbsp;d&nbsp;=&nbsp;new&nbsp;Digester();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;创建AddressBook实例，并将其压入栈顶。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;AddressBook&nbsp;book&nbsp;=&nbsp;new&nbsp;AddressBook();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.push(book);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;增加规则<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;addRules(d);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;处理输入的xml文件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;java.io.File&nbsp;srcfile&nbsp;=&nbsp;new&nbsp;java.io.File(filename);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.parse(srcfile);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(java.io.IOException&nbsp;ioe)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Error&nbsp;reading&nbsp;input&nbsp;file:"&nbsp;+&nbsp;ioe.getMessage());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(-1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;catch(org.xml.sax.SAXException&nbsp;se)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Error&nbsp;parsing&nbsp;input&nbsp;file:"&nbsp;+&nbsp;se.getMessage());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(-1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;将解析出的地址数据打印出来<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;book.print();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;void&nbsp;addRules(Digester&nbsp;d)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;当遇到&lt;person&gt;时，创建类Person的一个实例，并将其压入栈顶<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addObjectCreate("address-book/person",&nbsp;Person.class);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;将&lt;person&gt;标签的属性(attribute)与栈顶Person类对象的属性(property)设置方法根据各自的名字进行映射，(例如，将标签属性id与属性设置方法setId进行映射，将标签属性category与属性设置方法setCategory进行映射)，然后将属性的值作参数传递给执行相应的方法。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;如果某标签属性没法通过名字找到相应的属性设置方法，则此标签属性被忽略(如example.xml中第一个&lt;person&gt;的try属性)。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addSetProperties("address-book/person");</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;调用第二栈顶对象(AddressBook实例)的addPerson方法，以栈对象(Person实例)的对象为参数<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addSetNext("address-book/person",&nbsp;"addPerson");&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;当遇到&lt;person&gt;的子元素&lt;name&gt;时，调用栈顶对象(Person实例)的setName方法。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;此处addCallMethod方法的第一参数是规则，第二个参数是方法的名字，第三个是参数的数量(为0时，表示只有一个参数，且参数的值是元素的内容)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addCallMethod("address-book/person/name",&nbsp;"setName",&nbsp;0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;当遇到&lt;person&gt;的子元素&lt;email&gt;时，调用栈顶对象(Person实例)的addEmail方法,addEmail方法有两个参数，取值分别来自&lt;email&gt;的属性type的值和&lt;email&gt;本身的内容。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;此处addCallParam方法的第一参数是规则，第二个参数是指明被调用方法(addEmail)参数的序号，第三个是参数为字符串时指属性的名字)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addCallMethod("address-book/person/email",&nbsp;"addEmail",&nbsp;2);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addCallParam("address-book/person/email",&nbsp;0,&nbsp;"type");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;d.addCallParam("address-book/person/email",&nbsp;1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;private&nbsp;static&nbsp;void&nbsp;usage()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Usage:&nbsp;java&nbsp;Example1&nbsp;example.xml");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}</div>运行结果如下（运行时可能需要xml-crimson,一个源sun的XML解析器，可到http://xml.apache.org/crimson/下载)<div class="code">Address&nbsp;book&nbsp;has&nbsp;2&nbsp;entries<br />
+Person&nbsp;#1<br />
+&nbsp;&nbsp;category=acquaintance<br />
+&nbsp;&nbsp;name=Gonzo<br />
+&nbsp;&nbsp;email&nbsp;(type&nbsp;business)&nbsp;:&nbsp;gonzo@muppets.com<br />
+Person&nbsp;#2<br />
+&nbsp;&nbsp;category=rolemodel<br />
+&nbsp;&nbsp;name=Kermit<br />
+&nbsp;&nbsp;email&nbsp;(type&nbsp;business)&nbsp;:&nbsp;kermit@muppets.com<br />
+&nbsp;&nbsp;email&nbsp;(type&nbsp;home)&nbsp;:&nbsp;kermie@acme.com</div></p>
+
+<span class="posted">Posted by Hilton at October 26, 2003 11:46 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=336.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=336" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="336" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,350 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: ImageMagick的FAQ摘录</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000339.html" tppabs="http://hedong.3322.org/archives/000339.html" title="ImageMagick学习" />
+
+<link rel="next" href="000341.html" tppabs="http://hedong.3322.org/archives/000341.html" title="Jmagick学习笔记" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000340.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/236"
+    dc:title="ImageMagick的FAQ摘录"
+    dc:identifier="http://hedong.3322.org/archives/000340.html"
+    dc:subject="ItTech"
+    dc:description="　　FAQ中提供了很多的例子，非常有借鉴意义。 　　没摘的部分并非没有用，是因为我也不懂。：（..."
+    dc:creator="Hilton"
+    dc:date="2003-10-28T23:02:07+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000340.html">
+<dc:title>ImageMagick的FAQ摘录</dc:title>
+<dc:description>　　FAQ中提供了很多的例子，非常有借鉴意义。 　　没摘的部分并非没有用，是因为我也不懂。：（...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-28T23:02:07+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000339.html" tppabs="http://hedong.3322.org/archives/000339.html">&laquo; ImageMagick学习</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000341.html" tppabs="http://hedong.3322.org/archives/000341.html">Jmagick学习笔记 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 28, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">ImageMagick的FAQ摘录</h3>
+
+<p>　　FAQ中提供了很多的例子，非常有借鉴意义。<br />
+　　没摘的部分并非没有用，是因为我也不懂。：（</p>
+
+<a name="more"></a>
+<p><br />
+4. 如何让animate在显示图片的过程保持窗口的标题不变？<br />
+ animate -title "My Image Sequence" images.</p>
+
+<p>5. import抓得的图片与X服务器上显示的不一致怎么办？<br />
+ import -descend image.miff</p>
+
+<p>6. 如何动画显示YUV 图片序列?<br />
+ animate -geometry 352x240 -scene 0-71 yuv3:frame%d</p>
+
+<p>7. 如果只看一个RGB图片的红色通道(red channel)?<br />
+ display -gamma 1.0,0.0,0.0 image.miff</p>
+
+<p>8. 如何改变PostScript默认纸张大小?<br />
+    要改变默认的612x792大小，修改magick/image.h中的PSPageGeometry的值并重编译.</p>
+
+<p>10. 如何自左至右无边无框无文字半三幅画连接在一起？<br />
+ convert +append image1.ppm image2.ppm image3.ppm side_by_side.miff<br />
+或<br />
+ convert -size 350x500 xc:black composite.miff<br />
+ composite -geometry +0+0 composite.miff image1.gif composite.miff<br />
+ composite -geometry +100+0 composite.miff image2.gif composite.miff<br />
+ composite -geometry +0+300 composite.miff image3.gif composite.miff<br />
+ composite -geometry +0+375 composite.miff image4.gif composite.miff</p>
+
+<p>11. 如何生成gif动画?<br />
+ convert -delay 20 frame*.gif animation.gif<br />
+ convert -delay 20 frame1.gif -delay 10 frame2.gif  -delay 5 frame3.gif animation.gif<br />
+ convert frame1.gif -page +50+100 frame2.gif -page +0+100  frame3.gif animation.gif<br />
+ convert -loop 50 frame*.gif animation.gif<br />
+ convert +adjoin images.* frames%d.gif</p>
+
+<p>12. 如果完整的显示PostScript图片？<br />
+ display -page letter image.ps</p>
+
+<p>13. 什么是图片目录？如何使用它们?<br />
+    图片目录（visual image directory ，VID）的创建：<br />
+ montage *.jpg directory.vid<br />
+ convert 'vid:*.jpg' directory.vid<br />
+　　显示图片目录<br />
+ display directory.vid<br />
+ display vid:movie.mpg</p>
+
+<p>15. 如果带框架保存一个窗口?<br />
+ xwininfo -frame<br />
+ import -frame -window ID window.miff</p>
+
+<p>16. 图片以单一颜色（a solid color）显示，是怎么回事？<br />
+    图片被破坏，或含有值为0的matte层，试着:<br />
+ display +matte image.miff</p>
+
+<p>17. 出现 "???? library is not available ..."是怎么回事?<br />
+　　没安装相关的函数库。参见安装说明。</p>
+
+<p>18. 如何查看图片不光滑层(matte channel)的值？<br />
+ convert image.tiff image.matte<br />
+ display -size 640x480 gray:image.matte</p>
+
+<p>19. 运行"Convert in.gif out.png" 时显示 "Invalid Parameter - out.png"<br />
+    你运行的convert是windows的分区类型转换程序。</p>
+
+<p>20. 如何在图片增加斜角?<br />
+对图片边缘的处理共分四类。<br />
+    1）增加有色边<br />
+ convert -bordercolor red -border 25x25 image.jpg image.gif<br />
+　　2）加亮或变暗图片边缘，以增强3D效果<br />
+ convert -raise 25 image.jpg image.gif<br />
+　　3）在图片周围增加装饰性框架。<br />
+ convert -mattecolor gray -frame 25x25 image.jpg image.gif<br />
+　　4）在图片边缘增加升、降斜角<br />
+ convert -mattecolor gray -frame 25x25+0+25 image.jpg image.gif<br />
+ convert -mattecolor gray -frame 25x25+25+0 image.jpg image.gif</p>
+
+<p>21. 用窗口管理器运行display失败了，怎么办?<br />
+    用下列命令之一来确认display运行在一个交互环境中：<br />
+ display logo:Untitled<br />
+ display < /dev/console</p>
+
+<p>22. 将PostScript文件转换为其它格式时，如何改善文字的外观？</p>
+
+<p> convert -density 288 -geometry 25% image.ps image.gif</p>
+
+<p>23. 如何用2－3英寸高的文字注释一个图片?<br />
+    先检查有无可缩放字体：<br />
+ xlsfonts -fn '*-0-0-0-0-*'<br />
+　　有则：<br />
+ convert -font '-*-helvetica-*-*-*--300-300-*-*-*-*-iso8859-1' -fill green -draw 'text 50,300 Magick' image.gif annotated.gif<br />
+If you have the FreeType support built into ImageMagick, just increase your pointsize and/or density:<br />
+ convert -font Helvetica -pointsize 100 -density 300 ...</p>
+
+<p>24. 如何将gif文件分析为一系列的单个图片？<br />
+    convert animation.gif frame%02d.gif</p>
+
+<p>25. 用NetScape显示的图片，如何去掉周围的背景色？<br />
+    对convert用+page参数：<br />
+    convert +page alpha.gif beta.gif</p>
+
+<p>26. 如何用web安全的颜色（Web safe colors）创建GIF或PNG图片？<br />
+    对convert用 -map 参数：<br />
+    convert -map netscape: alpha.gif beta.gif</p>
+
+<p>27. 为何Adobe Acrobat 2.1不能读ImageMagick's制作的PDF?<br />
+    用 Acrobat 3.0或以上版本，来阅读这种经zip压缩的pdf，或制作PDF时不进行压缩。<br />
+    convert +compress images.tiff image.pdf</p>
+
+<p>28. 如何在图片上增加一个不光滑层(matte channel)?<br />
+    convert image.gif -matte temp.miff<br />
+    composite -compose CopyOpacity mask.xbm temp.miff transparent.gif</p>
+
+<p>29. 在NT环境下如何用convert在图片上写字？<br />
+    convert -font Arial -fill blue -draw "text 10,10 'your text here'" d:\test.tif png:d:\test.png<br />
+    convert.exe -pointsize 18 -draw "text 0,0 "This is my text!"" C:\blank.gif c:\text.gif</p>
+
+<p>30. 为何GIF文件比期望的大?<br />
+    需要在编译源码时加 --enable-lzw 参数，来打开LZW压缩功能。</p>
+
+<p>31. 为何JPEG文件比期望的大?<br />
+    可能嵌入Exif或IPTC等"profiles", 或者含有没压缩的thumbnails. 可以用命令行参数 +profile "*"或相关的API来将它们去掉。</p>
+
+<p>32. 如何从图片文件中抽取第一张图片？<br />
+ convert "Image.gif[0]" first.gif</p>
+
+<p>33. 如何创建一张空白图片？<br />
+    convert -size 800x600 xc:"#ddddff" ltblue.ppm<br />
+    convert -size 800x600 null:white white.ppm<br />
+    convert in.png -threshold 100% black.ppm &lt;--与in.png同大小<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 28, 2003 11:02 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=340.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=340" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="340" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

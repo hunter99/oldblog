@@ -1,0 +1,280 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Apache的Mod_rewrite学习（二）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000342.html" tppabs="http://hedong.3322.org/archives/000342.html" title="Apache的Mod_rewrite学习（一）" />
+
+<link rel="next" href="000345.html" tppabs="http://hedong.3322.org/archives/000345.html" title="Apache的Mod_rewrite学习（三）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000344.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/239"
+    dc:title="Apache的Mod_rewrite学习（二）"
+    dc:identifier="http://hedong.3322.org/archives/000344.html"
+    dc:subject="ItTech"
+    dc:description="　　今天学习重写规则的语法。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-31T23:12:04+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000344.html">
+<dc:title>Apache的Mod_rewrite学习（二）</dc:title>
+<dc:description>　　今天学习重写规则的语法。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-31T23:12:04+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000342.html" tppabs="http://hedong.3322.org/archives/000342.html">&laquo; Apache的Mod_rewrite学习（一）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000345.html" tppabs="http://hedong.3322.org/archives/000345.html">Apache的Mod_rewrite学习（三） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 31, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Apache的Mod_rewrite学习（二）</h3>
+
+<p>　　今天学习重写规则的语法。</p>
+
+<a name="more"></a>
+<p><strong>RewriteRule</strong><br />
+Syntax: RewriteRule Pattern Substitution  [flags]  <br />
+　　一条RewriteRule指令，定义一条重写规则，规则间的顺序非常重要。对Apache1.2及以后的版本，模板(pattern)是一个POSIX正则式，用以匹配当前的URL。当前的URL不一定是用记最初提交的URL，因为可能用一些规则在此规则前已经对URL进行了处理。<br />
+　　对mod_rewrite来说，！是个合法的模板前缀，表示“非”的意思，这对描述“不满足某种匹配条件”的情况非常方便，或用作最后一条默认规则。当使用！时，不能在模板中有分组的通配符，也不能做后向引用。<br />
+　　当匹配成功后，Substitution会被用来替换相应的匹配，它除了可以是普通的字符串以外，还可以包括：<ol><li>$N,引用RewriteRule模板中匹配的相关字串，N表示序号,N=0..9 </li><li>%N,引用最后一个RewriteCond模板中匹配的数据，N表示序号</li><li>%{VARNAME},服务器变量</li><li>${mapname:key|default},映射函数调用</li></ol>这些特殊内容的扩展，按上述顺序进行。<br />
+　　一个URL的全部相关部分都会被Substitution替换，而且这个替换过程会一直持续到所有的规则都被执行完，除非明确地用L标志中断处理过程。<br />
+　　当susbstitution有”-”前缀时，表示不进行替换，只做匹配检查。<br />
+　　利用RewriteRule，可定义含有请求串(Query String)的URL，此时只需在Sustitution中加入一个？，表示此后的内容放入QUERY_STRING变量中。如果要清空一个QUERY_STRING变量，只需要以？结束Substitution串即可。<br />
+　　如果给一个Substitution增加一个http://thishost[:port]的前缀，则mod_rewrite会自动将此前缀去掉。因此，利用http://thisthost做一个无条件的重定向到自己，将难以奏效。要实现这种效果，必须使用R标志。<br />
+　　Flags是可选参数，当有多个标志同时出现时，彼此间以逗号分隔。<br />
+<ol><li> 'redirect|R  [=code]' (强制重定向)<br />
+　　给当前的URI增加前缀http://thishost[:thisport]/， 从而生成一个新的URL，强制生成一个外部重定向(external redirection，指生的URL发送到客户端，由客户端再次以新的URL发出请求，虽然新URL仍指向当前的服务器). 如果没有指定的code值，则HTTP应答以状态值302 (MOVED TEMPORARILY)，如果想使用300-400（不含400）间的其它值可以通过在code的位置以相应的数字指定，也可以用标志名指定： temp (默认值), permanent, seeother.<br />
+　　注意，当使用这个标志时，要确实substitution是个合法的URL，这个标志只是在URL前增加http://thishost[:thisport]/前缀而已，重写操作会继续进行。如果要立即将新URL重定向，用L标志来中重写流程。</li><br />
+<li>'forbidden|F' (强制禁止访问URL所指的资源)<br />
+　　立即返回状态值403 (FORBIDDEN)的应答包。将这个标志与合适的RewriteConds 联合使用，可以阻断访问某些URL。</li><br />
+<li>'gone|G' (强制返回URL所指资源为不存在(gone))<br />
+　　立即返回状态值410 (GONE)的应答包。用这个标志来标记URL所指的资源永久消失了.</li><br />
+<li>#  'proxy|P' (强制将当前URL送往代理模块（proxy module）)<br />
+　　这个标志，强制将substitution当作一个发向代理模块的请求，并立即将共送往代理模块。因此，必须确保substitution串是一个合法的URI (如, 典型的情况是以http://hostname开头)，否则会从代理模块得到一个错误. 这个标志，是ProxyPass指令的一个更强劲的实现，将远程请求(remote stuff)映射到本地服务器的名字空间(namespace)中来。<br />
+　　注意，使用这个功能必须确保代理模块已经编译到Apache 服务器程序中了. 可以用“httpd -l ”命令，来检查输出中是否含有mod_proxy.c来确认一下。如果没有，而又需要使用这个功能，则需要重新编译``httpd''程序并使用mod_proxy有效。</li><br />
+<li>'last|L' (最后一条规则)<br />
+　　中止重写流程，不再对当前URL施加更多的重写规则。这相当于perl的last命令或C的break命令。</li><br />
+<li>'next|N' (下一轮)<br />
+　　重新从第一条重写规则开始执行重写过程，新开的过程中的URL不应当与最初的URL相同。 这相当于Perl的next命令或C的continue命令. 千万小心不要产生死循环。</li><br />
+<li># 'chain|C' (将当前的规则与其后续规则綑绑(chained))<br />
+　　当规则匹配时，处理过程与没有綑绑一样；如果规则不匹配，则綑绑在一起的后续规则也不在检查和执行。</li><br />
+<li> 'type|T=MIME-type' (强制MIME类型)<br />
+　　强制将目标文件的MIME-type为某MIME类型。例如，这可用来模仿mod_alias模块对某目录的ScriptAlias指定，通过强制将该目录下的所有文件的类型改为 “application/x-httpd-cgi”.</li><br />
+<li> 'nosubreq|NS' (used only if no internal sub-request )<br />
+　　这个标志强制重写引擎跳过为内部sub-request的重写规则.例如，当mod_include试图找到某一目录下的默认文件时 (index.xxx)，sub-requests 会在Apache内部发生. Sub-requests并非总是有用的，在某些情况下如果整个规则集施加到它上面，会产生错误。利用这个标志可排除执行一些规则。</li><br />
+<li>'nocase|NC' (模板不区分大小写)<br />
+　　这个标志会使得模板匹配当前URL时忽略大小写的差别。</li><br />
+<li>'qsappend|QSA' (追加请求串(query string))<br />
+　　这个标志，强制重写引擎为Substitution的请求串追加一部分串，则不是替换掉原来的。借助这个标志，可以使用一个重写规则给请求串增加更多的数据。</li><br />
+<li> 'noescape|NE' (不对输出结果中的特殊字符进行转义处理)<br />
+　　通常情况下，mod_write的输出结果中，特殊字符（如'%', '$', ';', 等)会转义为它们的16进制形式(如分别为'%25', '%24', and '%3B'）。这个标志会禁止mod_rewrite对输出结果进行此类操作。 这个标志只能在 Apache 1.3.20及以后的版本中使用。</li><br />
+<li> 'passthrough|PT' (通过下一个处理器)<br />
+　　这个标志强制重写引擎用filename字段的值来替换内部request_rec数据结构中uri字段的值。. 使用这个标志，可以使后续的其它URI－to-filename转换器的Alias、ScriptAlias、Redirect等指令，也能正常处理RewriteRule指令的输出结果。用一个小例子来说明它的语义：如果要用mod_rewrite的重写引擎将/abc转换为/def,然后用mod_alas将/def重写为ghi，则要：<br />
+    RewriteRule ^/abc(.*)  /def$1 [PT]<br />
+    Alias       /def       /ghi<br />
+如果PT标志被忽略，则mod_rewrite也能很好完成工作,如果., 将 uri=/abc/... 转换为filename=/def/... ，完全符合一个URI-to-filename转换器的动作。接下来 mod_alias 试图做 URI-to-filename 转换时就会出问题。<br />
+注意:如果要混合都含有URL－to-filename转换器的不同的模块的指令，必须用这个标志。最典型的例子是mod_alias和mod_rewrite的使用。 </li><br />
+<li>'skip|S=num' (跳过后面的num个规则)<br />
+　　当前规则匹配时，强制重写引擎跳过后续的num个规则。用这个可以来模仿if-then-else结构：then子句的最后一条rule的标志是skip=N，而N是else子句的规则条数。</li><br />
+<li>'env|E=VAR:VAL' (设置环境变量)<br />
+　　设置名为VAR的环境变量的值为VAL,其中VAL中可以含有正则式的后向引用($N或%N)。这个标志可以使用多次，以设置多个环境变量。这儿设置的变量，可以在多种情况下被引用，如在XSSI或CGI中。另外，也可以在RewriteCond模板中以%{ENV:VAR}的形式被引用。</li><br />
+<li></li></ol><br />
+注意：一定不要忘记，在服务器范围内的配置文件中，模板(pattern)用以匹配整个URL;而在目录范围内的配置文件中，目录前缀总是被自动去掉后再进行模板匹配的，且在替换完成后自动再加上这个前缀。这个功能对很多种类的重写是非常重要的，因为如果没有去前缀，则要进行父目录的匹配，而父目录的信息并不是总能得到的。一个例外是，当substitution中有http://打头时，则不再自动增加前缀了，如果P标志出现，则会强制转向代理。<br />
+注意：如果要在某个目录范围内启动重写引擎，则需要在相应的目录配置文件中设置“RewriteEngine on”，且目录的“Options FollowSymLinks”必须设置。如果管理员由于安全原因没有打开FollowSymLinks，则不能使用重写引擎。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 31, 2003 11:12 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=344.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=344" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>不错.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:14 PM</span>
+</div>
+<div class="comments-body">
+<p>没用过.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:14 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="344" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

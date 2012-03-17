@@ -1,0 +1,252 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 第二章安装Squid</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000405.html" tppabs="http://hedong.3322.org/archives/000405.html" title="第二章安装Squid" />
+
+<link rel="next" href="000407.html" tppabs="http://hedong.3322.org/archives/000407.html" title="第二章安装Squid" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000406.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/295"
+    dc:title="第二章安装Squid"
+    dc:identifier="http://hedong.3322.org/archives/000406.html"
+    dc:subject=""
+    dc:description="基本的系统配置..."
+    dc:creator="Hilton"
+    dc:date="2003-12-18T23:53:01+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000406.html">
+<dc:title>第二章安装Squid</dc:title>
+<dc:description>基本的系统配置...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-18T23:53:01+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000405.html" tppabs="http://hedong.3322.org/archives/000405.html">&laquo; 第二章安装Squid</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000407.html" tppabs="http://hedong.3322.org/archives/000407.html">第二章安装Squid &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 18, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">第二章安装Squid</h3>
+
+<p><strong>基本的系统配置</strong></p>
+
+<a name="more"></a>
+<p>基本的系统配置<br />
+即使是在安装操作系统之前，最好也要设想一下Squid运行时的状况。这样在进行硬盘分区的时候，使分区挂接的目录与squid的默认配置一致。<br />
+squid默认的目录结构<br />
+通常情况下squid的目录树结构如下：<br />
+　usr/<br />
+　　 local/<br />
+　　　　　squid/<br />
+　　　　　　　　bin/<br />
+　　　　　　　　cache/<br />
+　　　　　　　　etc/<br />
+　　　　　　　　src/<br />
+　　　　　　　　　　squid-2.0/<br />
+下面按上面显示的顺序，一一介绍/usr/local/squid目录下的子目录：<br />
+bin.存放squid的二进制代码和相关的工具程序。有一些工具包含在squid原码中，可用来帮助你管理和调整你的缓存服务器。<br />
+cache.squid需要将缓存数据存放在硬盘的某个地方，默认的路径就是/usr/local/squid/cache.通过编辑squid配置文件，可以修改存放路径。<br />
+etc.存放squid的配置文件。这里最常改动的是squid.conf文件。下一章我们会讨论这个文件中那些基本标签。<br />
+src.由于你可能从网上下载squid的源码，所以把它保存在一个易找到的地方，可以便于编译它。我通常会创建一个src目录，将原码解压到这个目录中。这样，我可以很容易地恢复以前的版本，而不必每次都从网上下载。如果你喜欢，将原码保存在/usr/local/src目录下也不费什么事，或者在二进制程序安装以后将原码删除也未尝不可。<br />
+再回到cache目录：如果你准备将缓存数据存放在多个分区(译者：是不是作者说的是一个硬盘只有一个分区的情况？)中，你可以在缓存目录中为每个文件系统创建一个子目录。通常人们会命名这个目录为cache1,cache2,cache3等等。你的那些存放数据的缓存目录，可能会挂接(mount)到这样的名字/usr/local/squid/cache/1/和/usr/local/squid/cache/2/。如果你只有一个缓存盘，可以简单地命名这个目录为/usr/local/squid/cache/.<br />
+在squid-1.1中，缓存目录必须大小相同。以后版本就没这个限制了，因此如果你升级到squid2.0，你可以改动你的缓存分区的大小。然后，这样做你必须重新分区和重新格式化。<br />
+当打算你升级到squid的最新版本时，一个明智的做法，是将整个旧的原码及编译的二进制程序目录保存在另一个地方。这样一旦运行新版本的Squid遇到问题，只需要杀掉squid进程，到旧的原码目录中重新安装一下即可。这样一来，事情就快多了，否则你要回忆起正常运行的版本、下载、编译、打补丁和重新安装。<br />
+用户和组ID<br />
+象unix机器上大多数守护进程一样，squid通常以用户nobody和组nogroup的身份运行。<br />
+为了尽可能灵活地让root和非root用户都能进行squid的配置，你应该创建一个新用户和两个新组，对squid系统尤其不要用nobody和nogroup.本文档从头至尾，都假定你已经创建了一个名为squid的用户和一个名为squid的组，以及一个名叫squidadm的管理组。squid用户的基本组是squid,它的home目录是/usr/local/squid(默认的squid软件安装的目录).<br />
+当一个缓存机器有多个管理员时，专门建立一个squidadm组非常有用，辅助管理员都加到这个组中。这样，当修改squid配置时就不必切换到root用户了。加入到squidadm组中的用户，可能需要系统访问权限，所以不要将没有系统访问权限的用户加入到这个squidadm组中。<br />
+当配置文件被改动以后，需要将一个信号发送给squid进程，以使它重新装入配置文件。如果信号的发送者与信息号的接收者的用户id不同，则不能成功发送信号（除非为root用户）。其它的配置文件维护者，需得到允许，将他们的用户id改为root用户或运行squid的那个用户id(通过su命令或以另一个身份登录).<br />
+在有些情况下，缓存软件维护人员没有系统访问权，用户nobody也不允许登录。最好的解决办法是允许那些可以修改配置文件的人用sudo运行一个重加载脚本。sudo在很多系统中都有，原代码也可以得到。<br />
+在第四章中，我们讨论修改squid运行时用户id身份，因而squid创建的文件都被用户squid和组squid拥有。squid的二进制代码归root拥有，配置文件归squidadm组拥有。</p>
+
+<p><br />
+</p>
+
+<span class="posted">Posted by Hilton at December 18, 2003 11:53 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=406.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=406" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="406" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

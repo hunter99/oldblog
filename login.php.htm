@@ -1,0 +1,57 @@
+<html>
+
+<html>
+<head>
+  <title>登入到 浮光掠影</title>
+  <link rel="stylesheet" type="text/css" href="embedded_style.css.default" tppabs="http://hedong.3322.org/gallery/css/embedded_style.css.default">
+<link rel="stylesheet" type="text/css" href="standalone_style.css.default" tppabs="http://hedong.3322.org/gallery/css/standalone_style.css.default"></head>
+<body>
+
+<center>
+<span class="popuphead">欢迎登入 浮光掠影</span>
+<br>
+<br>
+
+<form action="http://hedong.3322.org/gallery/login.php"  name="login_form" method="POST">
+<input type=hidden name="" value="">
+使用者登入后，即会有检视、新建、
+<br>
+整理、删除相簿等的权限。
+<p>
+<table>
+
+ <tr>
+  <td>
+   使用者名称
+  </td>
+  <td>
+   <input type=text name="uname" value=>
+  </td>
+ </tr>
+
+
+ <tr>
+  <td>
+   密　　　码
+  </td>
+  <td>
+   <input type=password name="gallerypassword">
+  </td>
+ </tr>
+
+
+</table>
+<p>
+<input type=submit name="submit" value="登入">
+<input type=submit name="submit" value="取消" onclick='parent.close()'>
+</form>
+
+<script language="javascript1.2">
+<!--
+// position cursor in top form field
+document.login_form.uname.focus();
+//--> 
+</script>
+
+</body>
+</html>

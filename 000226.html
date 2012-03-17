@@ -1,0 +1,255 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: HttpUnit学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000225.html" tppabs="http://hedong.3322.org/archives/000225.html" title="PowerPoint的一个问题" />
+
+<link rel="next" href="000227.html" tppabs="http://hedong.3322.org/archives/000227.html" title="再提XML" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000226.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/151"
+    dc:title="HttpUnit学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000226.html"
+    dc:subject="ItTech"
+    dc:description="　　HttpUnit 能模拟浏览器的动作，如提交表单、JavaScript运行、基本HTTP认证、cookies建立以及自动页面重定向，通过编写代码可以处理取回来的文本、XML　DOM或表单、表、链接。当与Junit等框架结合时，就能非常容易地进行一个网站的功能测试了。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-14T20:07:54+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000226.html">
+<dc:title>HttpUnit学习笔记</dc:title>
+<dc:description>　　HttpUnit 能模拟浏览器的动作，如提交表单、JavaScript运行、基本HTTP认证、cookies建立以及自动页面重定向，通过编写代码可以处理取回来的文本、XML　DOM或表单、表、链接。当与Junit等框架结合时，就能非常容易地进行一个网站的功能测试了。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-14T20:07:54+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000225.html" tppabs="http://hedong.3322.org/archives/000225.html">&laquo; PowerPoint的一个问题</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000227.html" tppabs="http://hedong.3322.org/archives/000227.html">再提XML &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 14, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">HttpUnit学习笔记</h3>
+
+<p><img alt="HttpUnit.jpg" src="HttpUnit.jpg" tppabs="http://hedong.3322.org/archives/pics/HttpUnit.jpg" width="167" height="60" border="0" align="left" />　　<a href="javascript:if(confirm('http://httpunit.sourceforge.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://httpunit.sourceforge.net/'" tppabs="http://httpunit.sourceforge.net/" title="HttpUnit">HttpUnit</a> 能模拟浏览器的动作，如提交表单、JavaScript运行、基本HTTP认证、cookies建立以及自动页面重定向，通过编写代码可以处理取回来的文本、XML　DOM或表单、表、链接。当与Junit等框架结合时，就能非常容易地进行一个网站的功能测试了。</p>
+
+<a name="more"></a>
+<p>　　当进行servlet等测试时，可以不需要启动相关的web或应用服务器，HttpUnit可以通过读取并分析web.xml来自动定位相应的类。也就是说，在网站开发的过程中，使用了HttpUnit的测试程序可以在服务器端进行网站的测试。<br />
+1、下载安装<br />
+　　到HttpUnit的主页下载目前最新版本1.5.4的压缩包httpunit-1.5.41.zip，解压缩到$HTTPUNITHOME目录。<br />
+<div class="code">cd $HTTUNITHOME<br />
+ant</div>会在$HTTPUNITHOME/lib下生成httpunit.jar文件。</p>
+
+<p>2、教程学习<br />
+　　安教程指导一步步地来，非常简单。在第一步下载的zip文件中，也有一个task1.zip。<br />
+　　需要说明的是：1）运行例程代码需要下列jar文件：<div class="code">httpunit.jar nekohtml.jar servlet.jar xml-apis.jar junit.jar newjs.jar xercesImpl.jar</div>2)其中的newjs.jar即是打补丁之后的js.jar，可以从<a href="newjs.jar" tppabs="http://hedong.3322.org/archives/docs/newjs.jar">这儿下载这个新jar文件</a>，其它的jar文件如果不喜欢用httpunit包中带的那些，junit.jar可到<a href="javascript:if(confirm('http://www.junit.org/index.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.junit.org/index.htm'" tppabs="http://www.junit.org/index.htm" title="Junit">http://www.junit.org/index.htm</a>下载，xml-apis.jar和xercesImpl.jar可到<a href="javascript:if(confirm('http://xml.apache.org/xerces2-j/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xml.apache.org/xerces2-j/index.html'" tppabs="http://xml.apache.org/xerces2-j/index.html" title="Xerces">http://xml.apache.org/xerces2-j/index.html</a>下载，nekohtml.jar可到<a href="javascript:if(confirm('http://www.apache.org/~andyc/neko/doc/html/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.apache.org/~andyc/neko/doc/html/'" tppabs="http://www.apache.org/~andyc/neko/doc/html/" titl="NekoHtml">http://www.apache.org/~andyc/neko/doc/html/</a>下载，没打补丁的js.jar可到<a href="javascript:if(confirm('http://www.mozilla.org/rhino/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mozilla.org/rhino/'" tppabs="http://www.mozilla.org/rhino/" title="Rhino">http://www.mozilla.org/rhino/</a>下载,servlet.jar可直接到tomcat的目录下：）。<br />
+　　具体操作可以参考下面：<div class="code">$mkdir $HTTPUNITHOME/task1<br />
+$cd $HTTPUNITHOME/task1<br />
+$cp ~/task1.zip .<br />
+$unzip task1.zip <ins>&lt;---win下可用winzip或winrar解压缩，但注意要解到$HTTPUNITHOME/task1目录下。</ins><br />
+<ins>然后据tutorial提示，在src/tutorial目录下建立PoolEditorTest.java和PoolEditorServlet.java两个文件</ins><br />
+<ins>再将1）中所说的jar文件都放到$HTTPUNITHOME/task1/jars目录下。</ins><br />
+$ant</div><br />
+如果一切正常，就会出现类似下面的显示：<div class="code">Buildfile: build.xml<br />
+compile:<br />
+test:<br />
+     [java] ..<br />
+     [java] Time: 1.282<br />
+     [java] OK (1 tests)</p>
+
+<p>BUILD SUCCESSFUL<br />
+Total time: 2 seconds</div></p>
+
+<span class="posted">Posted by Hilton at September 14, 2003 08:07 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=226.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=226" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>80890</p>
+<span class="comments-post">Posted by:  at December 12, 2003 11:39 PM</span>
+</div>
+<div class="comments-body">
+<p>af</p>
+<span class="comments-post">Posted by:  at November  3, 2003 02:34 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="226" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

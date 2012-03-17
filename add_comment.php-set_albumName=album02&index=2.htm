@@ -1,0 +1,38 @@
+<html>
+<head>
+  <title>发表高见</title>
+  <link rel="stylesheet" type="text/css" href="embedded_style.css.default" tppabs="http://hedong.3322.org/gallery/css/embedded_style.css.default">
+<link rel="stylesheet" type="text/css" href="standalone_style.css.default" tppabs="http://hedong.3322.org/gallery/css/standalone_style.css.default"></head>
+<body>
+
+<center>
+在下面输入您的大名或E-mail，以及你的高见... ^_^.
+<br><br>
+<img src="littlewood.thumb.jpg" tppabs="http://hedong.3322.org/albums/album02/littlewood.thumb.jpg" width=103 height=150  border=0>
+<form action="http://hedong.3322.org/gallery/add_comment.php"  name="theform" method="POST">
+<input type=hidden name="" value="">
+<input type=hidden name="index" value="2">
+<table border=0 cellpadding=5>
+<tr>
+  <td>大名或Email:</td>
+  <td><input name="commenter_name" value="" size=30></td>
+</tr>
+<tr>
+  <td colspan=2><textarea name="comment_text" rows=5 cols=40></textarea></td>
+</tr>
+</table>
+<br>
+<input type=submit name="submit" value="送出">
+<input type=button value="取消" onclick='parent.close()'>
+
+</form>
+
+<script language="javascript1.2">
+<!--   
+// position cursor in top form field
+document.theform.commenter_name.focus();
+//-->
+</script>
+
+</body>
+</html>

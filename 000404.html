@@ -1,0 +1,303 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 第二章安装Squid</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000403.html" tppabs="http://hedong.3322.org/archives/000403.html" title="第一章历史和致谢(History and Credits)" />
+
+<link rel="next" href="000405.html" tppabs="http://hedong.3322.org/archives/000405.html" title="第二章安装Squid" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000404.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/293"
+    dc:title="第二章安装Squid"
+    dc:identifier="http://hedong.3322.org/archives/000404.html"
+    dc:subject=""
+    dc:description="　　硬件需求..."
+    dc:creator="Hilton"
+    dc:date="2003-12-17T22:32:31+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000404.html">
+<dc:title>第二章安装Squid</dc:title>
+<dc:description>　　硬件需求...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-17T22:32:31+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000403.html" tppabs="http://hedong.3322.org/archives/000403.html">&laquo; 第一章历史和致谢(History and Credits)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000405.html" tppabs="http://hedong.3322.org/archives/000405.html">第二章安装Squid &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 17, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">第二章安装Squid</h3>
+
+<p><h4>　　硬件需求</h4><br />
+</p>
+
+<a name="more"></a>
+<p>　　相对于其它系统而言，缓存系统更看重硬件子系统。虽然缓存系统的高性能关键来自整个系统的高性能，但下列因素对性能的影响非常明显，据重要性按由高到低排列:<br />
+磁盘随机访问时间<br />
+系统内存的容量<br />
+磁盘的持续吞吐量<br />
+CPU能力</p>
+
+<p>　　上述任何一个子系统的不足，都将明显影响缓存系统性能。在出现硬件灾难的情况下，必须有预备的替换部件。如果你的缓存非常重要，应该有一个（正在运行的）安装了操作系统和squid的冗余机器，这样可以时刻准备着进行瞬时切换。那当然，这会增加成本，也是需要考虑的。第13章详细讲述了备用过程。</p>
+
+<p>　　收集统计信息</p>
+
+<p>　　当决定你的缓存服务器的马力的时候，要考试许多因素。为决定使用的机器，需要知道它要承受的负载: 每秒请求数量的峰值。这个数值指示了客户端从这儿下载的对象的数目，可以用来预测缓存服务器的负载。</p>
+
+<p>　　计算请求的峰值比较困难，因为它依赖于用户的浏览习惯。 反过来，这也导致难以决定需要的硬件。如果你没有关于互联网使用方面的统计数据，安装一个测试缓存服务器（利用你手边的任何一台机器）可能是值得的，并且让一些你的同事来使用它。利用比率，你可以预测一个很大的用户基数时的请求的数量。</p>
+
+<p>　　当收集统计数据时，确实你得到的是请求的“峰值”而不是平均值。收集一天的请求数，然后做除法是不适合的，由于峰值（如，在中午时的请求数）会比平均值高几倍。</p>
+
+<p>　　高估一点硬件的需求是明智的。 因为当缓存系统超载时，一旦遇到瞬时的网络问题它会迅速失去控制。如果由于某种原因(如 DNS 中断)，新来的请求不能得到及时处理, 缓存系统仍会继续接收到来的请求，因它希望自己能处理它们。 如果一个请求也处理不了，那么并行连接的数量将会以请求到达的速度增加。</p>
+
+<p>　　如果你的缓存系统以接近性能极限的状态运行，一个临时的“脉冲”将会极大地增加并行的、处于等待状态的请求的数目。如果你的缓存系统不能处理这么多数量的已建立的连接，它可能就永远恢复不了正常状态了，因为这些连接永远也清理不完。</p>
+
+<p>　　在支持Posix线程的操作系统中，可以设置Squid 2.0来使用线程完成异步的I/O.使用异步I/O可以极大地减少缓存系统的反应时间，从而可以使用低性能的机器。遗憾的是，并不是所有的操作系统都正确地支持Posix线程，所以对硬件的选择可能要依赖于操作系统的能力。下一节将讨论操作系统的选择，在那儿可以看到你的操作系统是否支持线程。</p>
+
+<p>硬盘</p>
+
+<p>　　在购买硬盘时需要考虑很多的事情。前面我们提到了一个随机访问速度快且高吞吐量的硬盘的重要性。 然而，如果只能装很小量的数据，那么它即使是世上最快的硬盘也没什么用处。为了提高缓存的效率，硬盘需要保存大量的下载数据，而且硬盘要足够快不致于导致你的缓存蠕虫爬行般运行。</p>
+
+<p>　　如果建设缓存系统，硬盘的查找时间（Seek time）是一个首先要考虑的内容。 看一下硬盘的说明文档，通常会有一个随机查找时间的数字。这个数字的值越小越好: 它是磁头从一个随机磁道移到另一个磁道的平均时间（以毫秒为单位）。 操作系统做了各种有意思的事情（这儿不讨论这些）以试图提高硬盘访问速度: 对硬盘操作的等待会急剧降低机器的运行速度。 操作系统的这些功能，使得难以估算运行因硬盘访问速度（而非网络速度）而变慢以前，一秒钟内缓存系统可以处理多少请求。在以下的几个段落中，我们忽略操作系统的预读、内结点更新查找和其它一些事情: it's a back of the envelope approximation for your use.</p>
+
+<p>　　如果你的缓存系统不使用异步I/O(稍后操作系统一节有详述), 你的缓存将无法得到多硬盘带来的好处。如果要求你的缓存有较好的负载能力(or is running anywhere approaching capacity according to the formulae below) ，你必须确保你的操作系统支持Posix线程！</p>
+
+<p>　　只有一个硬盘的缓存处理一次请求至少访问一次硬盘(忽略硬盘的RAM缓冲和结点更新次数). 如果只有一个硬盘, 计算一秒内硬盘查找次数（由此而得一秒内的请求数）的计算公式非常简单:</p>
+
+<p>    每秒请求数 = 1000/查找时间</p>
+
+<p>　　Squid负载均衡，会在不同的硬盘间交叉写盘，因此如果你有不只一个硬盘，每个硬盘的每秒查找次数会低一些。 几乎所有的操作系统，当增加硬盘后，随机查找时间呈半线性方式增加. 如果你在等式中增加磁盘的数量，每秒请求数会更接近! 同时为了简化，我们假定你用的硬盘都有相同的查找时间，从而公式变为：</p>
+
+<p>     　　　　　　　　　　　　　　1000<br />
+    每秒请求数的理论值 =  -----------------<br />
+     　　　　　　　　　　(查找时间)/(硬盘数)</p>
+
+<p>让我们看一个例子: 有3个硬盘 - 它们的查找时间都是12ms.,因而理论上的请求处理速度，</p>
+
+<p>    每秒请求次数 = 1000/(12/3) = 1000/4 = 250 次/秒</p>
+
+<p>　　当我们写在该主题时，很多人询问在缓存系统中使用IDE的问题. 现今的IDE 硬盘的查找时间通常与scsi的非常相近，而且(带有DMA兼容的IDE控制器)数据传输速度不会降低整个机器的运行速度。</p>
+
+<p>　　决定为squid分配多少硬盘空间是很难的。在小规模的试验中，你可以为它分配几M空间，但对一个缓存产品来说不可能够用。</p>
+
+<p>　　硬盘空间的需求数量依赖于众多的因素.</p>
+
+<p>　　假定你打算只为自己运行一个缓存系统。如果你为缓存分配了1G的硬盘空间，且你的浏览器以10M/天的速度浏览页面，那么填满这个空间至少需要100天的时间。</p>
+
+<p>　　由此，你可以看到向缓存发送请求的速度影响分配的硬盘空间的数量。</p>
+
+<p>　　如果你从另一个角度来看，假定你有10M的硬盘空间，而且每秒有10请求到来，你就会发现以这样的速度你的硬盘不会坚持多久。 当请到来时，对象可能已经被缓存丢弃，因此要想命中一个缓存对象，要求两个人几乎同时访问这个对象。注意后面的这种情况几乎不可能，但它只会在缓存已经满了的时候发生。</p>
+
+<p>　　上述的确看起来很简单，但是许多人却不能外推出来。 当决定分配给缓存的硬盘空间数量时，应该确定每天经过缓存的数据的大约数量。如果你不能确定这个，你可以简单地以你的通讯线缆的理论最大传输速度为基础。一个 1mb/s 的线缆每秒大约传输125000字节. 如果所有客户端都来访问这个缓存, 硬盘将以每秒125k的速度被使用，也就是说450M字节. 如果全速传输一天，你大约传输了3.6 G字节. 我们假定每天传输2G字节，如果你要保存一天中所有的数据，则要分配给squid一个2G的空间。</p>
+
+<p>　　缓存的可行性，依赖于2个或更多的用户访问同一个页面，当这个对象还在硬盘的缓冲区内时。这在一个大的站点上非常可能发生(search engines, and the default home pages in respective browsers), 但一个用户访问同一个不明显的页面的机会很小，只是因为网页的数量很大。在很多情况下，不明显的页面在最慢地连接上，也阻碍了用户的访问。用户访问越多的页面，要缓存的时间也越长些，从而不同用户访问相同页面的机会就高些。 然而决定这个值非常困难，因为它还依赖于对象的平均大小，这反过来又依赖于用户的习惯。</p>
+
+<p>　　一些使用RAID系统来建造缓存系统. 这可以显著地增加数据的可用性，但一个RAID-5系统严重地降低硬盘的吞吐量。如果你非常关心系统的正常运行时间，选择一个RAID系统确实不错. 但是，由于缓存中存储的数据并不重要，你可手工清除这些数据,重新格式化或替换磁盘. 当然，你的缓存在一小段时间内的命中率可能会很低，但你可以很简单地对比出这个时间耗费与硬件自动清除内容的时间耗费的差别。</p>
+
+<p>　　你可能需要根据上述的带宽来购买硬盘，利用11章讲述的数据来决定何时增加硬盘。</p>
+
+<p>RAM 需求</p>
+
+<p>　　Squid在内存中维护着一个对象表格。由于Squid需要检查一个对象是否已经缓存，所以对这个表的快速查找非常重要。当这个表的一部分在放在交换分区中时，squid的性能显著下降。</p>
+
+<p>　　由于squid是一个很大的进程，所以对它做进程交换将严重影响其性能。如果操作系统必须交换数据，squid被放入'睡眠任务'队列后, 将不能处理其它已经建立的请求连接. (? hmm. it will actually get woken up straight away. I wonder if this is relevant ?)</p>
+
+<p>　　每一个缓存在硬盘上的对象，其索引项大约占用75个字节的内存。互联网上每个对象的平均大小约为13K, 因此如果你有一个1G的硬盘空间，你可以存放大约80000个对象。</p>
+
+<p>　　一个对象75字节RAM, 80 000对象大约需要6M内存。如果你有8G硬盘空间，则需要48M内存来建立对象索引。这并不包括操作系统、Squid二进制代码、运送中的对象以及硬盘缓存使用的内存，明白这一点很重要。</p>
+
+<p>　　那么，硬盘的持续吞吐量又将如何？Squid倾向于取小的数据块,所以吞吐量的重要性不比随机访问时间。通常，能快速查找的硬盘有很大的吞吐量，而硬盘越多(在现在，即使是IDE硬盘) 能传输越多的数据，从而超过客户端所能从缓存下载数据的速度。 如果购买高速硬盘的预算不能通过，就寻找低查找时间的－或者增加更多的硬盘。</p>
+
+<p>CPU 能力</p>
+
+<p>　　一般说来，Squid不理一个CPU密集型程序. 在启动时，Squid会使用大量的CPU来查找缓存里有哪些内容，一个低速的CPU会降低刚启动后几分钟内的缓存访问速度。一个奔腾133 机器，就可以轻松地在1秒钟内处理接收7个 TCP请求。一个多处理器的机器通常不会明显地增加访问速度: 只有一部分Squid代码可以跑多线程。这个代码片段也不是CPU密集的: 这些代码只是squid在等待操作系统完成某些事情。一个多处理器的机器通常不会降低这些等待时间: 此时更多的内存或更多的硬盘会更有用。<br />
+</p>
+
+<span class="posted">Posted by Hilton at December 17, 2003 10:32 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=404.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=404" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="404" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

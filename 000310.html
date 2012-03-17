@@ -1,0 +1,298 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: apache/commons/httpclient学习笔记(一)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000309.html" tppabs="http://hedong.3322.org/archives/000309.html" title="处理正则表达式的java包:regexp" />
+
+<link rel="next" href="000311.html" tppabs="http://hedong.3322.org/archives/000311.html" title="HttpClient学习(二)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000310.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/208"
+    dc:title="apache/commons/httpclient学习笔记(一)"
+    dc:identifier="http://hedong.3322.org/archives/000310.html"
+    dc:subject="ItTech"
+    dc:description="　　虽然用telnet这样的程序都可把页面取回来，但是在与web服务器的交互中，如果涉及cookie或https或ssl等内容，一般功能相对完备的http客户端还是非常必要的。IE或NetScape等浏览器确实不错，可是如果为实现持续互动而在程序调用浏览器，我个人认为其中的工作量还是不小的，这还没考虑版权问题。最好的办法，就是能有一个开源的包，能实现http客户端的功能，供我们开发的程序调用。httpclient就是这么一个包，我相信可能有比它的实现更好的，但目前我只关注这个。：）..."
+    dc:creator="Hilton"
+    dc:date="2003-10-16T23:04:07+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000310.html">
+<dc:title>apache/commons/httpclient学习笔记(一)</dc:title>
+<dc:description>　　虽然用telnet这样的程序都可把页面取回来，但是在与web服务器的交互中，如果涉及cookie或https或ssl等内容，一般功能相对完备的http客户端还是非常必要的。IE或NetScape等浏览器确实不错，可是如果为实现持续互动而在程序调用浏览器，我个人认为其中的工作量还是不小的，这还没考虑版权问题。最好的办法，就是能有一个开源的包，能实现http客户端的功能，供我们开发的程序调用。httpclient就是这么一个包，我相信可能有比它的实现更好的，但目前我只关注这个。：）...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-16T23:04:07+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000309.html" tppabs="http://hedong.3322.org/archives/000309.html">&laquo; 处理正则表达式的java包:regexp</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000311.html" tppabs="http://hedong.3322.org/archives/000311.html">HttpClient学习(二) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 16, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">apache/commons/httpclient学习笔记(一)</h3>
+
+<p><img alt="httpclient_logo.png" src="httpclient_logo.png" tppabs="http://hedong.3322.org/archives/pics/httpclient_logo.png" width="325" height="100" border="0" align="left"/>　　虽然用telnet这样的程序都可把页面取回来，但是在与web服务器的交互中，如果涉及cookie或https或ssl等内容，一般功能相对完备的http客户端还是非常必要的。IE或NetScape等浏览器确实不错，可是如果为实现持续互动而在程序调用浏览器，我个人认为其中的工作量还是不小的，这还没考虑版权问题。最好的办法，就是能有一个开源的包，能实现http客户端的功能，供我们开发的程序调用。<a href="javascript:if(confirm('http://jakarta.apache.org/commons/httpclient/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/commons/httpclient/'" tppabs="http://jakarta.apache.org/commons/httpclient/">httpclient</a>就是这么一个包，我相信可能有比它的实现更好的，但目前我只关注这个。：）<br />
+</p>
+
+<a name="more"></a>
+<p>　　下面是nogoop做的功能比较表：<br />
+<table border="1"><tr><td>Features</td><td>nogoop</td><td>Sun JRE < 1.4.2</td><td>Sun JRE 1.4.2</td><td>Innovation</td><td>Apache/Jakarta</td></tr><tr><td>cookies</td><td></td><td></td><td></td><td>X</td><td>X</td></tr><tr><td>plug compatible</td><td>X</td><td>X</td><td>X</td><td>X</td><td>[partial]</td></tr><tr><td>true request output stream</td><td></td><td></td><td></td><td>X</td><td>X</td></tr><tr><td>true response input stream</td><td>X</td><td></td><td></td><td>X</td><td>X</td></tr><tr><td>connection keep alive</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>connection pool throttling</td><td>X</td><td></td><td></td><td></td><td>X</td></tr><tr><td>connection/request timeout</td><td>X</td><td></td><td>X [uns]</td><td>X</td><td>X</td></tr><tr><td>idle connection timeout</td><td>X</td><td></td><td></td><td></td><td>X</td></tr><tr><td>pipelining of requests</td><td></td><td></td><td></td><td>X</td><td></td></tr><tr><td>alternate DNS resolution (dnsjava)</td><td>X</td><td></td><td></td><td></td><td></td></tr><tr><td>SSL</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>basic authentication</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>digest authentication</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>NTLM authentication</td><td>X</td><td></td><td>[Windows only]</td><td></td><td>X</td></tr><tr><td>proxy authentication</td><td>X</td><td>X</td><td>X</td><td>X</td><td>X</td></tr><tr><td>minimum JRE version</td><td>1.2</td><td>1</td><td>01年4月2日</td><td>1.2</td><td>1.2</td></tr><tr><td>price</td><td>$499</td><td>free</td><td>free</td><td>free</td><td>free</td></tr><tr><td>source available</td><td>X</td><td></td><td></td><td>X</td><td>X</td></tr><tr><td>diagnostic tracing</td><td>X</td><td></td><td></td><td>X</td><td>X</td></tr><tr><td>actively supported</td><td>X</td><td>X</td><td>X</td><td></td><td>X</td></tr><tr><td>fix turnaround</td><td>fast</td><td>slow</td><td>slow</td><td>none</td><td>medium</td></tr><tr><td>license</td><td>purchase</td><td>Sun JRE</td><td>Sun JRE</td><td>LGPL</td><td>Apache</td></tr></table><br />
+<h4>1、HttpClient的功能</h4><br />
+<OL><br />
+	<LI>基于标准，纯正java，实现了http1.0和1.1。</LI><br />
+	<LI>在一个可扩展的OO框架内，实现了HTTP的全部方法(GET, POST, <br />
+PUT, DELETE, HEAD, OPTIONS, and TRACE)</LI><br />
+	<LI>支持HTTPS(ssl上的HTTP)的加密操作</LI><br />
+	<LI>透明地穿过HTTP代理建立连接</LI><br />
+	<LI>通过CONNECT方法，利用通过建立穿过HTTP代理的HTTPS连接</LI><br />
+	<LI>利用本地Java socket，透明地穿过SOCKS(版本5和4）代理建立连接</LI><br />
+	<LI>支持利用Basic、Digest和NTLM加密的认证</LI><br />
+	<LI>支持用于上传大文件的Multi-Part表单POST方法</LI><br />
+	<LI>插件式安全socket实现，易于使用第三方的解决方案</LI><br />
+	<LI>连接管理，支持多线程应用，支持设定单个主机总连接和最高连接数量,自动检测和关闭失效连接</LI><br />
+	<li>直接将请求信息流送到服务器的端口</li><br />
+    <li>直接读取从服务器的端口送出的应答信息</li><br />
+    <li>支持HTTP/1.0中用KeepAlive和HTTP/1.1中用persistance设置的持久连接</li><br />
+	<li>直接访问由服务器送出的应答代码和头部信息</LI><br />
+	<LI>可设置连接超时时间<LI><br />
+    <LI>HttpMethods 实现Command Pattern，以允许并行请求或高效连接复用</li><br />
+    <LI>遵循the Apache Software License协议，源码免费可得</li> <br />
+</OL><br />
+<h4>2、预备工作</h4><br />
+　　对jre1.3.*，如果要HttpClient支持https，则需要下载并安装<a href="javascript:if(confirm('http://java.sun.com/products/jsse/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/products/jsse/'" tppabs="http://java.sun.com/products/jsse/">jsse</a>和<a href="javascript:if(confirm('http://java.sun.com/products/jce/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/products/jce/'" tppabs="http://java.sun.com/products/jce/">jce</a>.安装的步骤如下：<br />
+1)下载jsse和jce.<br />
+2)检查CLASSPATH中没有与jsse和jce相关的jar包<br />
+3)将 US_export_policy.jar、local_policy.jar、jsse.jar、jnet.jar、jce1_2_x.jar、sunjce_provider.jar、jcert.jar复制到目录：<br />
+UNIX:$JDK_HOME/jre/lib/ext<br />
+Windows:%JDK_HOME%\jre\lib\ext<br />
+4)修改下述目录下的java.security文件。<br />
+UNIX:$JDK_HOME/jre/lib/security/<br />
+Windows:%JDK_HOME%\jre\lib\security\<br />
+5)<div class="code">将<br />
+#<br />
+# List of providers and their preference orders:<br />
+#<br />
+security.provider.1=sun.security.provider.Sun<br />
+security.provider.2=com.sun.rsajca.Provider<br />
+改为：<br />
+#<br />
+# List of providers and their preference orders:<br />
+#<br />
+security.provider.1=com.sun.crypto.provider.SunJCE<br />
+security.provider.2=sun.security.provider.Sun<br />
+security.provider.3=com.sun.rsajca.Provider<br />
+security.provider.4=com.sun.net.ssl.internal.ssl.Provider</div><br />
+　　HttpClient还要求安装commons-logging，下面跟httpclient一块安装。<br />
+<h4>3、取得源码</h4><br />
+<div class="code">cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic login<br />
+password: anoncvs<br />
+cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic checkout jakarta-commons/logging<br />
+cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic checkout jakarta-commons/httpclient</div><br />
+　　编译：<div class="code">cd jakarta-commons/logging<br />
+ant dist<br />
+cp dis/*.jar ../httpclient/lib/<br />
+cd ../httpclient<br />
+ant dist</div><br />
+<h4>4、使用HttpClient编程的基本步聚</h4><br />
+<ol><li> 创建 HttpClient 的一个实例.</li><br />
+<li> 创建某个方法（DeleteMethod，EntityEnclosingMethod，ExpectContinueMethod，GetMethod，HeadMethod，MultipartPostMethod，OptionsMethod，PostMethod，PutMethod，TraceMethod）的一个实例，一般可用要目标URL为参数。</li><br />
+<li> 让 HttpClient 执行这个方法.</li><br />
+<li> 读取应答信息.</li><br />
+<li> 释放连接.</li><br />
+<li> 处理应答.</li><br />
+</ol><br />
+　　在执行方法的过程中，有两种异常，一种是HttpRecoverableException，表示偶然性错误发生，一般再试可能成功，另一种是IOException，严重错误。<br />
+　　这儿有这个教程中的一个例程，可以<a href="HttpClientTutorial.java" tppabs="http://hedong.3322.org/archives/docs/HttpClientTutorial.java">下载</a>。</p>
+
+<p></p>
+
+<p> </p>
+
+<p>参考资料：<br />
+http://www.systinet.com/doc/wasp_uddi/uddi/igpreliminary.html</p>
+
+<span class="posted">Posted by Hilton at October 16, 2003 11:04 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=310.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=310" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="310" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

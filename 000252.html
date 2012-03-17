@@ -1,0 +1,339 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: JTidy学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000257.html" tppabs="http://hedong.3322.org/archives/000257.html" title="自动监控主页，篡改短信通知" />
+
+<link rel="next" href="000255.html" tppabs="http://hedong.3322.org/archives/000255.html" title="bash编程学习笔记(3)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000252.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/175"
+    dc:title="JTidy学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000252.html"
+    dc:subject="ItTech"
+    dc:description=" 　　JTidy是HTML Tidy(一个HTML语法检查器和优雅的打印编排工具）的Java移植，除了本身具有的清除HTML文件难看或错误内容的功能外，还提供了一个DOM接口，程序员可以将JTidy当作一个处理HTML文件的DOM解析器来使用。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-02T14:35:57+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000252.html">
+<dc:title>JTidy学习笔记</dc:title>
+<dc:description> 　　JTidy是HTML Tidy(一个HTML语法检查器和优雅的打印编排工具）的Java移植，除了本身具有的清除HTML文件难看或错误内容的功能外，还提供了一个DOM接口，程序员可以将JTidy当作一个处理HTML文件的DOM解析器来使用。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-02T14:35:57+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000257.html" tppabs="http://hedong.3322.org/archives/000257.html">&laquo; 自动监控主页，篡改短信通知</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000255.html" tppabs="http://hedong.3322.org/archives/000255.html">bash编程学习笔记(3) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 02, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">JTidy学习笔记</h3>
+
+<p><img alt="jtidy.gif" src="jtidy.gif" tppabs="http://hedong.3322.org/archives/pics/jtidy.gif" width="588" height="63" border="0" /><br />
+　　<a href="javascript:if(confirm('http://lempinen.net/sami/jtidy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://lempinen.net/sami/jtidy/'" tppabs="http://lempinen.net/sami/jtidy/" title="jtidy的主页">JTidy</a>是<a href="javascript:if(confirm('http://www.w3.org/People/Raggett/tidy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/People/Raggett/tidy/'" tppabs="http://www.w3.org/People/Raggett/tidy/">HTML Tidy</a>(一个HTML语法检查器和优雅的打印编排工具）的Java移植，除了本身具有的清除HTML文件难看或错误内容的功能外，还提供了一个DOM接口，程序员可以将JTidy当作一个处理HTML文件的DOM解析器来使用。</p>
+
+<a name="more"></a>
+<p><h4>一、下载及编译</h4><br />
+　　jtidy是个<a href="javascript:if(confirm('http://sourceforge.net/projects/jtidy/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://sourceforge.net/projects/jtidy/'" tppabs="http://sourceforge.net/projects/jtidy/" title="jtidy项目">sourceforge的开源项目</a>，可不知为什么，不能通过CVS来下载其最新代码，只好下载了<a href="javascript:if(confirm('http://sourceforge.net/project/showfiles.php?group_id=13153&release_id=46326  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://sourceforge.net/project/showfiles.php?group_id=13153&release_id=46326'" tppabs="http://sourceforge.net/project/showfiles.php?group_id=13153&release_id=46326">2001年8月1日的发布版</a>。<br />
+　　下载之后，运行一下ant就可以了，不用加什么参数，结果是重新生成了doc文档和build/Tidy.jar.</p>
+
+<p><h4>二、使用Tidy.jar</h4><br />
+1、整理HTML文件<br />
+　　在jtidy项目的文档中，有一个例程Test16.java，用以演示将一个URL所对应的HTML文件进行整理后以xml格式输出。这个例程在处理汉字时有问题，主要是汉字成了乱码。用tidy.setRawOut(true)方法强制输出也不能成功。经摸索，发现需对char-encoding进行设置方可。文后一个附表，是HTMLtidy支持的参数，我没有全部测试，估计能全部被JTidy支持。由此，将此例程进行修改名为Test17.java，并重新定义命令参数如下：<div class="code'">java Test17 &lt;html_file&gt; &lt;new_html_file&gt; &lt;log_file&gt; &lt;config_file&gt;</div>，此时会根据配置文件的设定，直接处理HTML文件。<br />
+　　源码如下<div class="code"><pre>import org.w3c.tidy.Tidy;</p>
+
+<p>import java.io.BufferedInputStream;<br />
+import java.io.FileInputStream;<br />
+import java.io.FileOutputStream;<br />
+import java.io.FileWriter;<br />
+import java.io.IOException;<br />
+import java.io.PrintWriter;</p>
+
+<p></p>
+
+<p>/**<br />
+ * HTML文件整理<br />
+ * <br />
+ * 从Test16.java修改而来<br />
+ *<br />
+ * 运行参数 <br />
+ * java Test17 &lt;html_file&gt; &lt;new_html_file&gt; &lt;log_file&gt; &lt;config_file&gt;<br />
+ * <br />
+ */<br />
+public class Test17 implements Runnable {<br />
+    private String srcFileName;<br />
+    private String outFileName;<br />
+    private String errOutFileName;<br />
+    private String configFileName;</p>
+
+<p>    public Test17(String srcFileName, String outFileName, String errOutFileName,<br />
+        String confName) {<br />
+        this.srcFileName = srcFileName;<br />
+        this.outFileName = outFileName;<br />
+        this.errOutFileName = errOutFileName;<br />
+        this.configFileName= confName;<br />
+    }</p>
+
+<p>    public void run() {<br />
+        BufferedInputStream in;<br />
+        FileOutputStream out;<br />
+        Tidy tidy = new Tidy();<br />
+		tidy.setConfigurationFromFile(configFileName);<br />
+        try {<br />
+            tidy.setErrout(new PrintWriter(new FileWriter(errOutFileName), true));<br />
+            in = new BufferedInputStream(new FileInputStream(srcFileName));<br />
+            out = new FileOutputStream(outFileName);<br />
+            tidy.parse(in, out);<br />
+        } catch (IOException e) {<br />
+            System.out.println(this.toString() + e.toString());<br />
+        }<br />
+    }</p>
+
+<p>    public static void main(String[] args) {<br />
+        Test17 t1 = new Test17(args[0], args[1], args[2], args[3]);<br />
+        Thread th1 = new Thread(t1);<br />
+        th1.start();<br />
+    }<br />
+}</pre></div><br />
+JTidy设置文件参考如下：<div class="code">// sample config file for HTML tidy<br />
+indent: auto<br />
+indent-spaces: 2<br />
+wrap: 72<br />
+markup: yes<br />
+output-xml: yes<br />
+input-xml: no<br />
+show-warnings: yes<br />
+numeric-entities: yes<br />
+quote-marks: yes<br />
+quote-nbsp: yes<br />
+quote-ampersand: no<br />
+break-before-br: no<br />
+uppercase-tags: no<br />
+uppercase-attributes: no<br />
+char-encoding: raw<br />
+new-inline-tags: cfif, cfelse, math, mroot, <br />
+  mrow, mi, mn, mo, msqrt, mfrac, msubsup, munderover,<br />
+  munder, mover, mmultiscripts, msup, msub, mtext,<br />
+  mprescripts, mtable, mtr, mtd, mth<br />
+new-blocklevel-tags: cfoutput, cfquery<br />
+new-empty-tags: cfelse</div><br />
+2、利用其JDOM接口处理HTML文件内容<br />
+　　文档中的例程TestDOM.java，通过DOM接口实现了对HTML内容进行显示。有两个问题需要注意一下，一是对输入的HTML文件要求比较严格，我试用时只有经过整理的XHTML文件才被接受；二是汉字显示的问题，我用以下面的函数进行显示前处理。<br />
+<div class="code">    public static String converttoGB(String s)<br />
+    {<br />
+        try<br />
+        {<br />
+            byte abyte0[] = s.getBytes("ISO-8859-1");<br />
+            return new String(abyte0, "gb2312");<br />
+        }<br />
+        catch(Exception exception)<br />
+        {<br />
+            return s;<br />
+        }<br />
+    }</div></p>
+
+<p><h4>三、JTidy与NekoHTML</h4><br />
+　　对这两者进行比较，似乎勉为其难。不过，我看NekoHTML时，发现JTidy也有解析HTML的功能，这就是我看JTidy的原因。<br />
+　　JTidy最新的班本是2001年8月发布的，一看日期就让我失望。所以，如果要解析HTML的话，用NekoHTML应是个不错的选择。这也是众多开源项目解析HTML时，少用JTidy的缘故吧。<br />
+　　毕竟，JTidy主要是整理（tidy）HTML文件的，更多的是关注HTML的规范，尤其是当我看到那一堆设置参数时，不由得喜欢起来。要想整理HTML，用JTidy没错。</p>
+
+<p>附表：HTML Tidy设置参考列表。<br />
+<table border="1"><tr><td>选项</td><td>值域</td><td>解释</td></tr><tr><td>tidy-mark</td><td>bool</td><td>If set to yes (the default) Tidy will add a meta element to the document head to indicate that the document has been tidied. To suppress this, set tidy-mark to no. Tidy won't add a meta element if one is already present.</td></tr><tr><td>markup</td><td>bool</td><td>Determines whether Tidy generates a pretty printed version of the markup. Bool values are either yes or no. Note that Tidy won't generate a pretty printed version if it finds unknown tags, or missing trailing quotes on attribute values, or missing trailing '&gt;' on tags. The default is yes.</td></tr><tr><td>wrap</td><td>number</td><td>Sets the right margin for line wrapping. Tidy tries to wrap lines so that they do not exceed this length. The default is 66. Set wrap to zero if you want to disable line wrapping.</td></tr><tr><td>wrap-attributes</td><td>bool</td><td>If set to yes, attribute values may be wrapped across lines for easier editing. The default is no. This option can be set independently of wrap-scriptlets</td></tr><tr><td>wrap-script-literals</td><td>bool</td><td>If set to yes, this allows lines to be wrapped within string literals that appear in script attributes. The default is no. The example shows how Tidy wraps a really really long script string literal inserting a backslash character before the linebreak:</td></tr><tr><td>wrap-asp</td><td>bool</td><td>If set to no, this prevents lines from being wrapped within ASP pseudo elements, which look like: &lt;%?? ...?? %&gt;. The default is yes.</td></tr><tr><td>wrap-jste</td><td>bool</td><td>If set to no, this prevents lines from being wrapped within JSTE pseudo elements, which look like: &lt;#?? ...?? #&gt;. The default is yes.</td></tr><tr><td>wrap-php</td><td>bool</td><td>If set to no, this prevents lines from being wrapped within PHP pseudo elements. The default is yes.</td></tr><tr><td>literal-attributes</td><td>bool</td><td>If set to yes, this ensures that whitespace characters within attribute values are passed through unchanged. The default is no.</td></tr><tr><td>tab-size</td><td>number</td><td>Sets the number of columns between successive tab stops. The default is 4. It is used to map tabs to spaces when reading files. Tidy never outputs files with tabs.</td></tr><tr><td>indent</td><td>no, yes or auto</td><td>If set to yes, Tidy will indent block-level tags. The default is no. If set to auto Tidy will decide whether or not to indent the content of tags such as title, h1-h6, li, td, th, or p depending on whether or not the content includes a block-level element. You are advised to avoid setting indent to yes as this can expose layout bugs in some browsers.</td></tr><tr><td>indent-spaces</td><td>number</td><td>Sets the number of spaces to indent content when indentation is enabled. The default is 2 spaces.</td></tr><tr><td>indent-attributes</td><td>bool</td><td>If set to yes, each attribute will begin on a new line. The default is no.</td></tr><tr><td>hide-endtags</td><td>bool</td><td>If set to yes, optional end-tags will be omitted when generating the pretty printed markup. This option is ignored if you are outputting to XML. The default is no.</td></tr><tr><td>input-xml</td><td>bool</td><td>If set to yes, Tidy will use the XML parser rather than the error correcting HTML parser. The default is no.</td></tr><tr><td>output-xml</td><td>bool</td><td>If set to yes, Tidy will generate the pretty printed output writing it as well-formed XML. Any entities not defined in XML 1.0 will be written as numeric entities to allow them to be parsed by an XML parser. The tags and attributes will be in the case used in the input document, regardless of other options. The default is no.</td></tr><tr><td>add-xml-pi</td><td>bool</td><td></td></tr><tr><td>add-xml-decl</td><td>bool</td><td>If set to yes, Tidy will add the XML declatation when outputting XML or XHTML. The default is no. Note that if the input document includes an &lt;?xml?&gt; declaration then it will appear in the output independent of the value of this option.</td></tr><tr><td>output-xhtml</td><td>bool</td><td>If set to yes, Tidy will generate the pretty printed output writing it as extensible HTML. The default is no. This option causes Tidy to set the doctype and default namespace as appropriate to XHTML. If a doctype or namespace is given they will checked for consistency with the content of the document. In the case of an inconsistency, the corrected values will appear in the output. For XHTML, entities can be written as named or numeric entities according to the value of the "numeric-entities" property. The tags and attributes will be output in the case used in the input document, regardless of other options.</td></tr><tr><td>doctype</td><td>omit, auto, strict, loose or &lt;fpi&gt;</td><td>This property controls the doctype declaration generated by Tidy. If set to omit the output file won't contain a doctype declaration. If set to auto (the default) Tidy will use an educated guess based upon the contents of the document. If set to strict, Tidy will set the doctype to the strict DTD. If set to loose, the doctype is set to the loose (transitional) DTD. Alternatively, you can supply a string for the formal public identifier (fpi) for example:  If you specify the fpi for an XHTML document, Tidy will set the system identifier to the empty string. Tidy leaves the document type for generic XML documents unchanged.</td></tr><tr><td>char-encoding</td><td>raw, ascii, latin1, utf8 or iso2022</td><td>Determines how Tidy interprets character streams. For ascii, Tidy will accept Latin-1 character values, but will use entities for all characters whose value &gt; 127. For raw, Tidy will output values above 127 without translating them into entities. For latin1 characters above 255 will be written as entities. For utf8, Tidy assumes that both input and output is encoded as UTF-8. You can use iso2022 for files encoded using the ISO2022 family of encodings e.g. ISO 2022-JP. The default is ascii.</td></tr><tr><td>numeric-entities</td><td>bool</td><td>Causes entities other than the basic XML 1.0 named entities to be written in the numeric rather than the named entity form. The default is no</td></tr><tr><td>quote-marks</td><td>bool</td><td>If set to yes, this causes " characters to be written out as &amp;quot; as is preferred by some editing environments. The apostrophe character ' is written out as &amp;#39; since many web browsers don't yet support &amp;apos;. The default is no.</td></tr><tr><td>quote-nbsp</td><td>bool</td><td>If set to yes, this causes non-breaking space characters to be written out as entities, rather than as the Unicode character value 160 (decimal). The default is yes.</td></tr><tr><td>quote-ampersand</td><td>bool</td><td>If set to yes, this causes unadorned &amp; characters to be written out as &amp;amp;. The default is yes.</td></tr><tr><td>assume-xml-procins</td><td>bool</td><td>If set to yes, this changes the parsing of processing instructions to require ?&gt; as the terminator rather than &gt;. The default is no. This option is automatically set if the input is in XML.</td></tr><tr><td>fix-backslash</td><td>bool</td><td>If set to yes, this causes backslash characters "\" in URLs to be replaced by forward slashes "/". The default is yes.</td></tr><tr><td>break-before-br</td><td>bool</td><td>If set to yes, Tidy will output a line break before each &lt;br&gt; element. The default is no.</td></tr><tr><td>uppercase-tags</td><td>bool</td><td>Causes tag names to be output in upper case. The default is no resulting in lowercase, except for XML input where the original case is preserved.</td></tr><tr><td>uppercase-attributes</td><td>bool</td><td>If set to yes attribute names are output in upper case. The default is no resulting in lowercase, except for XML where the original case is preserved.</td></tr><tr><td>word-2000</td><td>bool</td><td>If set to yes, Tidy will go to great pains to strip out all the surplus stuff Microsoft Word 2000 inserts when you save Word documents as "Web pages". The default is no. Note that Tidy doesn't yet know what to do with VML markup from Word, but in future I hope to be able to map VML to SVG. Microsoft has developed its own optional filter for exporting to HTML, and the 2.0 version is much improved. You can download the filter free from the Microsoft Office Update site.</td></tr><tr><td>clean</td><td>bool</td><td>If set to yes, causes Tidy to strip out surplus presentational tags and attributes replacing them by style rules and structural markup as appropriate. It works well on the html saved from Microsoft Office'97. The default is no.</td></tr><tr><td>logical-emphasis</td><td>bool</td><td>If set to yes, causes Tidy to replace any occurrence of i by em and any occurrence of b by strong. In both cases, the attributes are preserved unchanged. The default is no. This option can now be set independently of the clean and drop-font-tags options.</td></tr><tr><td>drop-empty-paras</td><td>bool</td><td>If set to yes, empty paragraphs will be discarded. If set to no, empty paragraphs are replaced by a pair of br elements as HTML4 precludes empty paragraphs. The default is yes.</td></tr><tr><td>drop-font-tags</td><td>bool</td><td>If set to yes together with the clean option (see above), Tidy will discard font and center tags rather than creating the corresponding style rules. The default is no.</td></tr><tr><td>enclose-text</td><td>bool</td><td>If set to yes, this causes Tidy to enclose any text it finds in the body element within a p element. This is useful when you want to take an existing html file and use it with a style sheet. Any text at the body level will screw up the margins, but wrap the text within a p element and all is well! The default is no.</td></tr><tr><td>enclose-block-text</td><td>bool</td><td>If set to yes, this causes Tidy to insert a p element to enclose any text it finds in any element that allows mixed content for HTML transitional but not HTML strict. The default is no.</td></tr><tr><td>fix-bad-comments</td><td>bool</td><td>If set to yes, this causes Tidy to replace unexpected hyphens with "=" characters when it comes across adjacent hyphens. The default is yes. This option is provided for users of Cold Fusion which uses the comment syntax: &lt;!---?? ---&gt;</td></tr><tr><td>add-xml-space</td><td>bool</td><td>If set to yes, this causes Tidy to add xml:space="preserve" to elements such as pre, style and script when generating XML. This is needed if the whitespace in such elements is to be parsed appropriately without having access to the DTD. The default is no.</td></tr><tr><td>alt-text</td><td>string</td><td>This allows you to set the default alt text for img attributes. This feature is dangerous as it suppresses further accessibility warnings. YOU ARE RESPONSIBLE FOR MAKING YOUR DOCUMENTS ACCESSIBLE TO PEOPLE WHO CAN'T SEE THE IMAGES!!!</td></tr><tr><td>write-back</td><td>bool</td><td>If set to yes, Tidy will write back the tidied markup to the same file it read from. The default is no. You are advised to keep copies of important files before tidying them as on rare occasions the result may not always be what you expect.</td></tr><tr><td>keep-time</td><td>bool</td><td>If set to yes, Tidy won't alter the last modified time for files it writes back to. The default is yes. This allows you to tidy files without effecting which ones will be uploaded to the Web server when using a tool such as 'SiteCopy'. Note that this feature may not work on some platforms.</td></tr><tr><td>error-file</td><td>filename</td><td>Writes errors and warnings to the named file rather than to stderr.</td></tr><tr><td>show-warnings</td><td>bool</td><td>If set to no, warnings are suppressed. This can be useful when a few errors are hidden in a flurry of warnings. The default is yes.</td></tr><tr><td>quiet</td><td>bool</td><td>If set to yes, Tidy won't output the welcome message or the summary of the numbers of errors and warnings. The default is no.</td></tr><tr><td>gnu-emacs</td><td>bool</td><td>If set to yes, Tidy changes the format for reporting errors and warnings to a format that is more easily parsed by GNU Emacs. The default is no.</td></tr><tr><td>split</td><td>bool</td><td>If set to yes Tidy will use the input file to create a sequence of slides, splitting the markup prior to each successive &lt;h2&gt;. You can see an example of the results in a recent talk I made on XHTML. The slides are written to "slide1.html", "slide2.html" etc. The default is no.</td></tr><tr><td>new-empty-tags</td><td>tag1, tag2, tag3</td><td>Use this to declare new empty inline tags. The option takes a space or comma separated list of tag names. Unless you declare new tags, Tidy will refuse to generate a tidied file if the input includes previously unknown tags. Remember to also declare empty tags as either inline or blocklevel, see below.</td></tr><tr><td>new-inline-tags</td><td>tag1, tag2, tag3</td><td>Use this to declare new non-empty inline tags. The option takes a space or comma separated list of tag names. Unless you declare new tags, Tidy will refuse to generate a tidied file if the input includes previously unknown tags.</td></tr><tr><td>new-blocklevel-tags</td><td>tag1, tag2, tag3</td><td>Use this to declare new block-level tags. The option takes a space or comma separated list of tag names. Unless you declare new tags, Tidy will refuse to generate a tidied file if the input includes previously unknown tags. Note you can't change the content model for elements such as table, ul, ol and dl. This is explained in more detail in the release notes.</td></tr><tr><td>new-pre-tags</td><td>tag1, tag2, tag3</td><td>Use this to declare new tags that are to be processed in exactly the same way as HTML's pre element. The option takes a space or comma separated list of tag names. Unless you declare new tags, Tidy will refuse to generate a tidied file if the input includes previously unknown tags. Note you can't as yet add new CDATA elements (similar to script).</td></tr></table></p>
+
+<span class="posted">Posted by Hilton at October  2, 2003 02:35 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=252.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=252" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>　　我觉得容错性好象不如nekohtml，毕竟它是从htmltidy移植过来的，只是个语法检查器和打印排版工具。<br />
+　　以上只是我的感觉，我没有做详细的测试。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October  3, 2003 09:42 AM</span>
+</div>
+<div class="comments-body">
+<p>JTidy对HTML代码的容错性如何？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">Che Dong</a> at October  3, 2003 12:47 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="252" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

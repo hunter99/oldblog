@@ -1,0 +1,354 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 利用apache-commons-fileupload写jsp上传文件</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000191.html" tppabs="http://hedong.3322.org/archives/000191.html" title="今天才发现对MT的了解太不够了" />
+
+<link rel="next" href="000193.html" tppabs="http://hedong.3322.org/archives/000193.html" title="Log4J学习笔记（1）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000192.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/123"
+    dc:title="利用apache-commons-fileupload写jsp上传文件"
+    dc:identifier="http://hedong.3322.org/archives/000192.html"
+    dc:subject="ItTech"
+    dc:description="　　需要下载fileupload和beanutils两个包，代码如下。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-25T11:00:54+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000192.html">
+<dc:title>利用apache-commons-fileupload写jsp上传文件</dc:title>
+<dc:description>　　需要下载fileupload和beanutils两个包，代码如下。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-25T11:00:54+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000191.html" tppabs="http://hedong.3322.org/archives/000191.html">&laquo; 今天才发现对MT的了解太不够了</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000193.html" tppabs="http://hedong.3322.org/archives/000193.html">Log4J学习笔记（1） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 25, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">利用apache-commons-fileupload写jsp上传文件</h3>
+
+<p><a href="logo.gif" tppabs="http://hedong.3322.org/archives/pics/logo.gif"><img alt="logo.gif" src="logo-thumb.gif" tppabs="http://hedong.3322.org/archives/pics/logo-thumb.gif" width="100" height="53" border="0" /></a>　　需要下载fileupload和beanutils两个包，代码如下。</p>
+
+<a name="more"></a>
+<div class="code">&lt;%@&nbsp;page&nbsp;language="java"&nbsp;contentType="text/html;charset=gb2312"%&gt;
+
+<p>&lt;%@&nbsp;page&nbsp;import="java.util.*"%&gt;</p>
+
+<p>&lt;%@&nbsp;page&nbsp;import="java.io.*"%&gt;</p>
+
+<p>&lt;%@&nbsp;page&nbsp;import="org.apache.commons.fileupload.*"%&gt;</p>
+
+<p>&lt;%!<br />
+String&nbsp;Mkdir(String&nbsp;path)&nbsp;{</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;String&nbsp;msg=null;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;java.io.File&nbsp;dir;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;新建文件对象<br />
+&nbsp;&nbsp;&nbsp;&nbsp;dir&nbsp;=new&nbsp;java.io.File(path);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dir&nbsp;==&nbsp;null)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;=&nbsp;"错误原因:&lt;BR&gt;对不起，不能创建空目录！";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;msg;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(dir.isFile())&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;=&nbsp;"错误原因:&lt;BR&gt;已有同名文件&lt;B&gt;"&nbsp;+&nbsp;dir.getAbsolutePath()&nbsp;+&nbsp;"&lt;/B&gt;存在。";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;msg;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(!dir.exists())&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean&nbsp;result&nbsp;=&nbsp;dir.mkdirs();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;(result&nbsp;==&nbsp;false)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;=&nbsp;"错误原因:&lt;BR&gt;目录&lt;b&gt;"&nbsp;+&nbsp;dir.getAbsolutePath()&nbsp;+&nbsp;"&lt;/B&gt;创建失败，原因不明！";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;msg;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;如果成功创建目录，则无输出。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;msg&nbsp;="成功创建目录:&nbsp;&lt;B&gt;"&nbsp;+&nbsp;dir.getAbsolutePath()&nbsp;+&nbsp;"&lt;/B&gt;";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;msg;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;&nbsp;&nbsp;&nbsp;msg&nbsp;=&nbsp;"错误原因:&lt;BR&gt;目录&lt;b&gt;"&nbsp;+&nbsp;dir.getAbsolutePath()&nbsp;+&nbsp;"&lt;/b&gt;已存在。";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;msg;<br />
+}<br />
+String&nbsp;getCurDate(){<br />
+&nbsp;&nbsp;&nbsp;&nbsp;GregorianCalendar&nbsp;gcDate&nbsp;=&nbsp;new&nbsp;GregorianCalendar();&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;year&nbsp;&nbsp;=&nbsp;gcDate.get(GregorianCalendar.YEAR);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;month&nbsp;=&nbsp;gcDate.get(GregorianCalendar.MONTH);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;int&nbsp;day&nbsp;&nbsp;&nbsp;=&nbsp;gcDate.get(GregorianCalendar.DAY_OF_MONTH);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;return&nbsp;""+year+month+day;<br />
+}<br />
+%&gt;&nbsp;<br />
+&lt;%<br />
+&nbsp;String&nbsp;msg&nbsp;="";<br />
+&nbsp;String&nbsp;img=null;</p>
+
+<p>&nbsp;DiskFileUpload&nbsp;fu&nbsp;=&nbsp;new&nbsp;DiskFileUpload();<br />
+&nbsp;//&nbsp;设置允许用户上传文件大小,单位:字节<br />
+&nbsp;fu.setSizeMax(10000000);<br />
+&nbsp;//&nbsp;maximum&nbsp;size&nbsp;that&nbsp;will&nbsp;be&nbsp;stored&nbsp;in&nbsp;memory?<br />
+&nbsp;//&nbsp;设置最多只允许在内存中存储的数据,单位:字节<br />
+&nbsp;fu.setSizeThreshold(4096);<br />
+&nbsp;//&nbsp;设置一旦文件大小超过getSizeThreshold()的值时数据存放在硬盘的目录<br />
+&nbsp;fu.setRepositoryPath("/tmp");<br />
+&nbsp;//开始读取上传信息</p>
+
+<p>&nbsp;List&nbsp;fileItems&nbsp;=&nbsp;fu.parseRequest(request);</p>
+
+<p>&nbsp;//&nbsp;依次处理每个上传的文件<br />
+&nbsp;Iterator&nbsp;iter&nbsp;=&nbsp;fileItems.iterator();<br />
+&nbsp;String&nbsp;updir="/dbweb/upics/";<br />
+&nbsp;String&nbsp;updir2="/upics/";<br />
+&nbsp;String&nbsp;curdate=getCurDate();<br />
+&nbsp;String&nbsp;filepath&nbsp;=&nbsp;getServletContext().getRealPath(updir2)+"/"+curdate;//<ins>&lt;---好象在tomcat下getrealpath有点问题</ins><br />
+&nbsp;String&nbsp;opmsg&nbsp;=&nbsp;Mkdir(filepath);<br />
+&nbsp;if(&nbsp;opmsg&nbsp;==&nbsp;null)&nbsp;{</p>
+
+<p>&nbsp;while&nbsp;(iter.hasNext())&nbsp;{<br />
+&nbsp;&nbsp;FileItem&nbsp;item&nbsp;=&nbsp;(FileItem)&nbsp;iter.next();<br />
+&nbsp;&nbsp;//忽略其他不是文件域的所有表单信息<br />
+&nbsp;&nbsp;if&nbsp;(!item.isFormField())&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;String&nbsp;name&nbsp;=&nbsp;item.getName();<br />
+&nbsp;&nbsp;&nbsp;long&nbsp;size&nbsp;=&nbsp;item.getSize();<br />
+&nbsp;&nbsp;&nbsp;if((name==null||name.equals(""))&nbsp;&&&nbsp;size==0)<br />
+&nbsp;&nbsp;&nbsp;continue;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;注意item.getName()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;会返回上载文件在客户端的完整路径名称，这似乎是一个BUG。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;//&nbsp;为解决这个问题，这里使用了fullFile.getName()。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;name=name.replace('\\','/');<br />
+&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;fullFile&nbsp;=&nbsp;new&nbsp;File(name);&nbsp;</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;File&nbsp;savedFile&nbsp;=&nbsp;new&nbsp;File(filepath,fullFile.getName());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;item.write(savedFile);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;msg="&lt;img&nbsp;alt='"+fullFile.getName()+"'&nbsp;src='"+updir+curdate+"/"+fullFile.getName()+"'&nbsp;/&gt;";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;img="&lt;img&nbsp;alt='"+fullFile.getName()+"'&nbsp;src='"+updir+curdate+"/"+fullFile.getName()+"'&nbsp;/&gt;";<br />
+&nbsp;&nbsp;}<br />
+&nbsp;}<br />
+}//opmsg=null<br />
+%&gt;<br />
+</div><br />
+参考文献：<br />
+1、用fileupload处理文件上传  <br />
+作者：◇ 刘冬 发文时间：2003.07.09 15:52:43 ，http://tech.ccidnet.com/pub/disp/Article?columnID=322&articleID=53966&pageNO=1<br />
+讲得非常清楚<br />
+2、Jakarta Commons:巧用类和组件1 （2） 作者：Vikram Goyal 仙人掌工作室译 ，http://www.uml.org.cn/j2ee/j2eeh2.htm</p>
+
+<p>3、Jsp如何实现网页的重定向  ，2002-05-16· ·包路跃··Yesky，http://www.yesky.com/SoftChannel/72342371945283584/20020424/1608521.shtml</p>
+
+<p>4、判断文件或文件夹是否存在，作者：罗会涛，http://www.fawcette.com/china/XmlFile.aspx?ID=205</p>
+
+<p>5、java.util中的Date类,By Wing, 出处：处处,http://www.linuxaid.com.cn/articles/1/1/119413536.shtml</p>
+
+<p>6、计算Java日期－－学习怎样创建和使用日期，作者：Robert Nielsen ，http://www.javaresearch.org/article/showarticle.jsp?column=1&thread=497</p>
+
+<p> <br />
+</p>
+
+<span class="posted">Posted by Hilton at August 25, 2003 11:00 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=192.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=192" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>好</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.zj-jiatai.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.zj-jiatai.com/'" tppabs="http://www.zj-jiatai.com/">bamboo handles handbag handles wooden handles</a> at January 15, 2004 04:16 PM</span>
+</div>
+<div class="comments-body">
+<p><a href="javascript:if(confirm('http://jakarta.apache.org/commons/fileupload/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/commons/fileupload/'" tppabs="http://jakarta.apache.org/commons/fileupload/">http://jakarta.apache.org/commons/fileupload/</a></p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January  6, 2004 10:42 AM</span>
+</div>
+<div class="comments-body">
+<p>org.apache.commons.fileupload.*</p>
+
+<p>该包在哪里下载？？？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;class_ok&#64;126&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;class_ok&#64;126&#46;com">class</a> at January  5, 2004 10:47 AM</span>
+</div>
+<div class="comments-body">
+<p>?</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 11, 2003 02:08 PM</span>
+</div>
+<div class="comments-body">
+<p>xnbnx</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;appleguoguo&#64;163&#46;net'" tppabs="http://hedong.3322.org/archives/mailto&#58;appleguoguo&#64;163&#46;net">gf</a> at September 11, 2003 10:24 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="192" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

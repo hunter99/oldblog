@@ -1,0 +1,280 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: I18N和L10N（1）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000353.html" tppabs="http://hedong.3322.org/archives/000353.html" title="Apache的Mod_rewrite学习（六）" />
+
+<link rel="next" href="000355.html" tppabs="http://hedong.3322.org/archives/000355.html" title="I18N和L10N（2）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000354.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/249"
+    dc:title="I18N和L10N（1）"
+    dc:identifier="http://hedong.3322.org/archives/000354.html"
+    dc:subject="ItTech"
+    dc:description="　　无论是I18N还是L10N，从技术角度简单地说，其本质上都是字符编码的问题。 　　http://www.i18nfaq.com以FAQ的形式，对I18N和L10N做一些解释，并提供了一些工具，对遇到字符编码难题的朋友，也许会有一些价值。下面是对网站一些文章的学习笔记。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-10T23:02:51+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000354.html">
+<dc:title>I18N和L10N（1）</dc:title>
+<dc:description>　　无论是I18N还是L10N，从技术角度简单地说，其本质上都是字符编码的问题。 　　http://www.i18nfaq.com以FAQ的形式，对I18N和L10N做一些解释，并提供了一些工具，对遇到字符编码难题的朋友，也许会有一些价值。下面是对网站一些文章的学习笔记。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-10T23:02:51+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000353.html" tppabs="http://hedong.3322.org/archives/000353.html">&laquo; Apache的Mod_rewrite学习（六）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000355.html" tppabs="http://hedong.3322.org/archives/000355.html">I18N和L10N（2） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 10, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">I18N和L10N（1）</h3>
+
+<p><img alt="i18n.jpg" src="i18n.jpg" tppabs="http://hedong.3322.org/archives/pics/i18n.jpg" width="135" height="27" border="0" align="left"/>　　无论是I18N还是L10N，从技术角度简单地说，其本质上都是字符编码的问题。<br />
+　　<a href="javascript:if(confirm('http://www.i18nfaq.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.i18nfaq.com/'" tppabs="http://www.i18nfaq.com/">http://www.i18nfaq.com</a>以FAQ的形式，对I18N和L10N做一些解释，并提供了一些工具，对遇到字符编码难题的朋友，也许会有一些价值。下面是对网站一些文章的学习笔记。</p>
+
+<a name="more"></a>
+<p><h4>三个概念</h4><table border="1"><tr><td>I18N</td><td>即internationalization，软件国际化。一个过程，通过修改代码实现代码的文化独立性，即代码不依赖于任何特定文化的信息(cultural specific information)。</td></tr><tr><td>L10N</td><td>即localization，软件本地化。一个过程，为每一种支持的人类语言来定制软件。</td></tr><tr><td>Code Page</td><td>即所谓代码页，它是一个字符和数值进行映射的表。</td></tr></table></p>
+
+<p><h4>一些资源</h4><table border="1">	<tr><td></td><td></td><td>资源</td><td>备注信息</td></tr><tr><td>语言类</td><td>Java</td><td>Tutorial http://java.sun.com/docs/books/tutorial/i18n/  FAQ http://www.sun.com/developers/gadc/faq/java/ </td><td></td></tr><tr><td></td><td>C/C++(Unix)</td><td>POSIX Locale http://www.opengroup.org/onlinepubs/007904975/basedefs/xbd_chap07.html International Components for Unicode (ICU) http://oss.software.ibm.com/icu/</td><td></td></tr><tr><td></td><td>VC++(WIN)</td><td>http://msdn.microsoft.com/library/default.asp?url=/library/en-us/intl/nls_9w2t.asp</td><td></td></tr><tr><td></td><td>Perl</td><td>http://rf.net/~james/perli18n.html</td><td></td></tr><tr><td></td><td>JavaScript</td><td>http://groups.yahoo.com/group/i18n-prog/message/32 http://groups.yahoo.com/group/i18n-prog/message/37  </td><td></td></tr><tr><td></td><td>VB</td><td>http://msdn.microsoft.com/library/default.asp?url=/library/en-us/vbcon98/html/vbconinternationalissues.asp</td><td></td></tr><tr><td></td><td>JSP</td><td>http://jakarta.apache.org/taglibs/doc/i18n-doc/intro.html</td><td></td></tr><tr><td></td><td>ASP</td><td>http://msdn.microsoft.com/msdnmag/issues/0700/localize/default.aspx</td><td></td></tr><tr><td></td><td>PHP</td><td>http://news.php.net/group.php?group=php.i18n</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>标志语言</td><td>HTML</td><td>http://w4.systranlinks.com/config  http://w4.systranlinks.com/config Altavista machine translation  http://world.altavista.com/ Google machine translation.  http://www.google.com/language_tools?hl=en</td><td><META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=...."> </td></tr><tr><td></td><td>XML</td><td>http://www.opentag.com/xmli18nfaq.htm</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>数据库</td><td>ORACLE</td><td>http://technet.oracle.com/products/oracle8i/htdocs/faq_combined.htm</td><td></td></tr><tr><td></td><td>Sybase</td><td>http://my.sybase.com/detail?id=1009199</td><td></td></tr><tr><td></td><td>Informix</td><td></td><td></td></tr><tr><td></td><td>M$SQL</td><td></td><td></td></tr><tr><td></td><td>MYSQL</td><td>http://scarab.tigris.org/mysql-internationalization.html</td><td></td></tr><tr><td></td><td></td><td></td><td></td></tr><tr><td>操作系统</td><td>Unix</td><td></td><td>locale -a ;locale ;locale -ck d_t_fmt </td></tr><tr><td></td><td>NT</td><td>http://www.microsoft.com/globaldev/default.asp</td><td>Start=>Settings=>Control Panel=>Regional settings.  HKEY_CURRENT_USER=>ControlPanel=>International=>* </td></tr></table></p>
+
+<span class="posted">Posted by Hilton at November 10, 2003 11:02 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=354.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=354" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>你的问题有两个方面：<br />
+1）繁简体输入<br />
+<a href="javascript:if(confirm('http://www.haiyan.com/steelk/navigator/help/gbgbk.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.haiyan.com/steelk/navigator/help/gbgbk.htm'" tppabs="http://www.haiyan.com/steelk/navigator/help/gbgbk.htm">http://www.haiyan.com/steelk/navigator/help/gbgbk.htm</a><br />
+　　这儿有一些关于繁简体输入法的列表。<br />
+<a href="javascript:if(confirm('http://www.mingbu.com/cxwb/util.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mingbu.com/cxwb/util.htm'" tppabs="http://www.mingbu.com/cxwb/util.htm">http://www.mingbu.com/cxwb/util.htm</a><br />
+　　这儿也有一种繁简输入法。<br />
+　　当每繁简体同时输入时，汉字的编码是用GBK还是用UNICODE或是别的，要引起注意。</p>
+
+<p>2）关于繁简转换的问题<br />
+　　如果只是在浏览器IE中输入一些繁/简体，如果是GBK编码，则IE能完成自动转换。<br />
+　　但是当大量的繁简体混合的文字加工时，选择编码就需要同时考虑显示软件的有无自动转换功能，以及是否需要将繁、简视同两种语言来提供两种页面。</p>
+
+<p>编码的问题，历来让人头疼。希望上述，能对你们的工作有所帮助。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 12, 2003 05:00 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢你的帮助，只是我们还需要支持繁简体的混合输入，然后显示的页面则根据访问者习惯自动显示为繁体或简体，如果可能，您能帮助我们吗？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://talk.blogbus.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://talk.blogbus.com/'" tppabs="http://talk.blogbus.com/">shizhao</a> at November 12, 2003 04:13 PM</span>
+</div>
+<div class="comments-body">
+<p>To Shizhao,</p>
+
+<p>　　php提供了对iconv的包装，可以用这个进行转换，而无需自己进行繁简映射。至于同时显示繁简，我这个人觉得只要找一种编码，能同时覆盖繁、间编码，如utf-8等，就应该可以吧。</p>
+
+<p>　　我不知是否理解了你的问题，以上回答供参考。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 11, 2003 02:44 PM</span>
+</div>
+<div class="comments-body">
+<p>To Conch,</p>
+
+<p>　　谢谢你的鼓励！</p>
+
+<p>　　去看了你的blog，也很棒啊！以后再遇到英文翻译方面的困难，就去找你。：）</p>
+
+<p>Hilton<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 11, 2003 02:38 PM</span>
+</div>
+<div class="comments-body">
+<p>你好，我想请教一个问题，关于PHP的繁简体自动转码问题。我们在<a href="javascript:if(confirm('http://zh.wikipedia.org/wiki/Wikipedia_talk:%E7%B9%81%E7%AE%80%E4%BD%93%E9%97%AE%E9%A2%98  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://zh.wikipedia.org/wiki/Wikipedia_talk:%E7%B9%81%E7%AE%80%E4%BD%93%E9%97%AE%E9%A2%98'" tppabs="http://zh.wikipedia.org/wiki/Wikipedia_talk:%E7%B9%81%E7%AE%80%E4%BD%93%E9%97%AE%E9%A2%98">http://zh.wikipedia.org/wiki/Wikipedia_talk:%E7%B9%81%E7%AE%80%E4%BD%93%E9%97%AE%E9%A2%98</a><br />
+有许多讨论，<a href="javascript:if(confirm('http://zh.wikipedia.org/wiki/Wikipedia:%E8%81%8A%E5%A4%A9  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://zh.wikipedia.org/wiki/Wikipedia:%E8%81%8A%E5%A4%A9#同一条目中简繁体共存的问题'" tppabs="http://zh.wikipedia.org/wiki/Wikipedia:%E8%81%8A%E5%A4%A9#同一条目中简繁体共存的问题">http://zh.wikipedia.org/wiki/Wikipedia:%E8%81%8A%E5%A4%A9#同一条目中简繁体共存的问题</a></p>
+
+<p>这里也有讨论，您有办法嘛？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://talk.blogbus.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://talk.blogbus.com/'" tppabs="http://talk.blogbus.com/">shizhao</a> at November 10, 2003 11:17 PM</span>
+</div>
+<div class="comments-body">
+<p>hedong，实在难得你能记录的这样详细。你每天都能写出这么好的笔记吗？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://conch.blogbus.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://conch.blogbus.com/'" tppabs="http://conch.blogbus.com/">conch</a> at November 10, 2003 11:13 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="354" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

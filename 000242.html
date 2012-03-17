@@ -1,0 +1,262 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 在java源码中为Javadoc编写文档注释(1)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000241.html" tppabs="http://hedong.3322.org/archives/000241.html" title="城市联盟！Snap Cities！" />
+
+<link rel="next" href="000243.html" tppabs="http://hedong.3322.org/archives/000243.html" title="一些网站PageRank的变化" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000242.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/165"
+    dc:title="在java源码中为Javadoc编写文档注释(1)"
+    dc:identifier="http://hedong.3322.org/archives/000242.html"
+    dc:subject="ItTech"
+    dc:description="　　在java编码规范中，提到了文档注释可被javadoc用来生成API文档。具体的写法，另有说明。下面是学习笔记，主要是摘了一些值得注意的要点。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-25T23:30:00+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000242.html">
+<dc:title>在java源码中为Javadoc编写文档注释(1)</dc:title>
+<dc:description>　　在java编码规范中，提到了文档注释可被javadoc用来生成API文档。具体的写法，另有说明。下面是学习笔记，主要是摘了一些值得注意的要点。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-25T23:30:00+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000241.html" tppabs="http://hedong.3322.org/archives/000241.html">&laquo; 城市联盟！Snap Cities！</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000243.html" tppabs="http://hedong.3322.org/archives/000243.html">一些网站PageRank的变化 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 25, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">在java源码中为Javadoc编写文档注释(1)</h3>
+
+<p><img alt="v4_java_logo.gif" src="v4_java_logo.gif" tppabs="http://hedong.3322.org/archives/pics/v4_java_logo.gif" width="38" height="66" border="0" align="left"/>　　在<a href="javascript:if(confirm('http://java.sun.com/docs/codeconv/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/docs/codeconv/'" tppabs="http://java.sun.com/docs/codeconv/" title="Code Conventions for the Java Programming Language">java编码规范</a>中，提到了<acronym title="Documentation comments">文档注释</acronym>可被<a href="javascript:if(confirm('http://java.sun.com/j2se/javadoc/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/j2se/javadoc/'" tppabs="http://java.sun.com/j2se/javadoc/" title="Javadoc Tool Home Page">javadoc</a>用来生成API文档。具体的写法，<a href="javascript:if(confirm('http://java.sun.com/j2se/javadoc/writingdoccomments/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/j2se/javadoc/writingdoccomments/'" tppabs="http://java.sun.com/j2se/javadoc/writingdoccomments/" title="How to Write Doc Comments for the JavadocTM Tool">另有说明</a>。下面是学习笔记，主要是摘了一些值得注意的要点。</p>
+
+<a name="more"></a>
+<p><h3>1、javadoc的获取</h3><br />
+　　只能从相应的JDK中取得，安装后在bin目录下。具体如下：<br />
+    * Javadoc 1.4 is included in Java 2 SDK, Standard Edition v 1.4<br />
+    * Javadoc 1.3 is included in Java 2 SDK, Standard Edition v 1.3<br />
+    * Javadoc 1.2 is included in Java 2 SDK, Standard Edition v 1.2<br />
+    * Javadoc 1.1 is included in JDK 1.1 <br />
+<h3>2、文档注释编写(principles)</h3><br />
+<ul><li>Java平台API文档由源码中的文档注释定义，且任何此类文档皆从此类注释取得</li><br />
+<li>Java平台API文档是调用者(caller)和实现之间的契约(contract)</li><br />
+<li>除非另有说明，Java平台API文档声明(assertion)应为与具体实现无关(implelementation-independent)</li><br />
+<li>Java平台API文档应有足够的声明，以使得软件质量保证部门能写出完全的JCK (Java Compatibility Kit)测试。</li></ul><br />
+<h3>3、文档注释编写细则</h3><br />
+<ol><li>每个文档注释的第一句，应是个概要句，简明但无遗地描述API项。第一句在第一个后跟空格的点号前结束。当句中出现非结束意义的点加空格时，需要空格进行转义，如&amp;nbsp;等。<li><br />
+<li>自动重利用父类/接口方法（method）的注释，当（1）一个类方法重写(override)父类的方法时，或（2）一个接口方法重写父接口的方法时，或（3）一个类方法实现一个接口方法时。如果当前方法没文档注释，则从父方法复制，如果有，则不复制而是前两者有小标题"Overrides",后者有"Specified by".</li><br />
+<li>用&lt;code&gt;...&lt;/code&gt;来标注关键词或名字</li><br />
+<li>节约使用行内链接{@link}</li><br />
+<li>对方法和构建函数的说明，要去掉括号</li><br />
+<li>可以为了简短使用短语而不是句子</li><br />
+<li>使用第3人称而不是第2人称</li><br />
+<li>以一个动词短语开始对一个方法的描述</li><br />
+<li>对类/接口/字段(field)的描述，可以忽略主语</li><br />
+<li>用"this"而不是“the"来引用从当前类生成的对象</li><br />
+<li>不要仅是简单地把API名字里的单词展开来做描述，要增加一些信息。</li><br />
+<li>当作用"field"一词时，注意它易引起混淆</li><br />
+<li>避免拉丁语缩写</li><br />
+<li>标签顺序<br />
+<ol><li>@author，多个作者时按参考修改代码的年代为序</li><li>@version</li><li>@param，多个参数时以方法声明中的顺序为序，单个@param后跟参数名（不要相应的类型），再加描述</li><br />
+<li>@return</li><li>@exception，多个异常时以异常名字的字母顺序为序</li><li>@see，多个参见时据#field,#Constructor(Type, Type...),#Constructor(Type id, Type id...),#method(Type, Type,...),#method(Type id, Type, id...),Class,Class#field,Class#Constructor(Type, Type...),Class#Constructor(Type id, Type id),Class#method(Type, Type,...),Class#method(Type id, Type id,...),package.Class,package.Class#field,package.Class#Constructor(Type, Type...),package.Class#Constructor(Type id, Type id),package.Class#method(Type, Type,...),package.Class#method(Type id, Type, id),package排序</li><li>@since</li><br />
+<li>@serial</li><li>@deprcated</li></ol></li><br />
+<li>＠param和@return(当返回不是void时)都是必须的</li><br />
+<li></li><br />
+</ol></p>
+
+<span class="posted">Posted by Hilton at September 25, 2003 11:30 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=242.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=242" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>＆lt;和＆gt;</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 26, 2003 02:49 PM</span>
+</div>
+<div class="comments-body">
+<p>如何去除&lt;>,比如我想在注释说明中显示，现在用javadoc无法显示&lt;>中的内容。他认为是html标记，而且是非法的，该怎么办呢？</p>
+<span class="comments-post">Posted by:  at December 26, 2003 02:47 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="242" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

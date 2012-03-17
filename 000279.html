@@ -1,0 +1,259 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Python学习（四）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000278.html" tppabs="http://hedong.3322.org/archives/000278.html" title="Python学习（三）" />
+
+<link rel="next" href="000280.html" tppabs="http://hedong.3322.org/archives/000280.html" title="用汉语编程" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000279.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/197"
+    dc:title="Python学习（四）"
+    dc:identifier="http://hedong.3322.org/archives/000279.html"
+    dc:subject="ItTech"
+    dc:description="　　Div into Python的最后一篇笔记..."
+    dc:creator="Hilton"
+    dc:date="2003-10-11T17:16:46+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000279.html">
+<dc:title>Python学习（四）</dc:title>
+<dc:description>　　Div into Python的最后一篇笔记...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-11T17:16:46+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000278.html" tppabs="http://hedong.3322.org/archives/000278.html">&laquo; Python学习（三）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000280.html" tppabs="http://hedong.3322.org/archives/000280.html">用汉语编程 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 11, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Python学习（四）</h3>
+
+<p>　　Div into Python的最后一篇笔记</p>
+
+<a name="more"></a>
+<p>23、类属性<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)类属性是一个类的属性，在创建任何类实例之前就有效了。类属性既可以通过直接对类的引用，也可以通过对类的任意实例的引用来使用。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)类属性可以作为类级别的常量来使用，但是它们不是真正的常量，可以修改它们。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)__class__ 是每个类实例的一个内置属性(也是每个类的),它是一个类的引用，而 self 是一个类的实例</p>
+
+<p>24、私有<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)python有私有函数、私有类方法和私有属性，它们不能被从模块外（或类外）调用。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)如果一个Python函数的名字，类方法，或属性以两个下划线开始(但不是结束)，它是私有的；其它所有的都是公有的。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)Python没有类方法保护的概念(只能用于它们自已的类和子父中)。类方法要不私有(只能在它们自已的类中使用)要不公有(任何地方都可使用)。</p>
+
+<p>25、异常<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)一个 try...except ,try后面的块是要监听的块，有异常时执行except后的块。还可以有一条 else 子句，就象 if 语句。如果在 try 块中没有异常引发，然后 else 子句被执行。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)一个try ... finally，finally后的块总被执行。</p>
+
+<p>26、文件对象<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)Python有一个内置函数open，用来打开在磁盘上的文件。open 返回一个文件对象，它拥有一些方法和属性，可以得到打开文件的信息，和对打开文件进行操作。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)open 方法可以接收三个参数：文件名，模式，和缓冲区参数。只有第一个参数，文件名，是必须的；其它两个是可选的。如果没有指定，文件以文本方式打开。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)文件对象的mode属性，标明文件属性以何种方式被打开<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4)文件对象的 name 属性标明文件对象所打开的文件名。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;5)文件对象的 tell 方法指明在打开文件中的当前位置<br />
+&nbsp;&nbsp;&nbsp;&nbsp;6)文件对象的 seek 方法在打开文件中移动到另一个位置。第二个参数指出第一个参数是什么意思：0 表示移动到一个绝对位置(从文件开始算起)，1 表示移到一个相对位置(从当前位置算起)，还有 2 表示对于文件尾的一个相对位置。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;7)read 方法从打开文件中读取指定个数的字节，并且返回含有读取数据的字符串。可选参数指定了读取的最大字节数。如果没有指定参数，read 将读到文件末尾。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;8)文件对象的 closed 属性表示对象是否打开或关闭了文件<br />
+&nbsp;&nbsp;&nbsp;&nbsp;9)调用文件对象的 close 方法来关闭一个文件，以释放掉你加在文件上的锁(如果有的话)，刷新被缓冲的系统确实还未写入的输出(如果有的话)，并且翻放系统资源。closed 属性证实了文件被关闭了。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;10)当文件被关闭后，文件对象所对应的变量仍然存在，直到超出作用域，或被删除，此时所有的对文件的操作（close除外）都会抛出异常，close只是静静地失败。</p>
+
+<p>27、python有for循环<br />
+28、赋值<br />
+&nbsp;&nbsp;&nbsp;&nbsp;1)使用一个序列或列表一次给多个变量赋值，如下例<br />
+&gt;&gt;&gt; v = ('a', 'b', 'e')<br />
+&gt;&gt;&gt; (x, y, z) = v <br />
+&gt;&gt;&gt; (x, y, z) = range(3) <br />
+&nbsp;&nbsp;&nbsp;&nbsp;2)内置函数range接受一个表示上限的参数，返回一个从0开始的整数列表。<br />
+&nbsp;&nbsp;&nbsp;&nbsp;3)如果一个函数返回一个序列或列表，则可将它组赋值给一组变量，就象函数一次返回一组值一样。如：<br />
+&gt;&gt;&gt; (filepath, filename) = os.path.split("/music/ap/mahadeva.mp3") <br />
+&gt;&gt;&gt; (shortname, extension) = os.path.splitext(filename)            <br />
+</p>
+
+<span class="posted">Posted by Hilton at October 11, 2003 05:16 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=279.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=279" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="279" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

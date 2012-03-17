@@ -1,0 +1,358 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: XSL-FO学习笔记(2)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000235.html" tppabs="http://hedong.3322.org/archives/000235.html" title="XSL-FO学习笔记(1)" />
+
+<link rel="next" href="000237.html" tppabs="http://hedong.3322.org/archives/000237.html" title="北京建都850周年" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000236.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/160"
+    dc:title="XSL-FO学习笔记(2)"
+    dc:identifier="http://hedong.3322.org/archives/000236.html"
+    dc:subject="ItTech"
+    dc:description="　　这次主要学习列表(list)、表格(table)、多页布局、页脚页眉、页编码、链接(link)等在FO的定义。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-20T15:38:08+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000236.html">
+<dc:title>XSL-FO学习笔记(2)</dc:title>
+<dc:description>　　这次主要学习列表(list)、表格(table)、多页布局、页脚页眉、页编码、链接(link)等在FO的定义。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-20T15:38:08+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000235.html" tppabs="http://hedong.3322.org/archives/000235.html">&laquo; XSL-FO学习笔记(1)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000237.html" tppabs="http://hedong.3322.org/archives/000237.html">北京建都850周年 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 20, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">XSL-FO学习笔记(2)</h3>
+
+<p><img alt="foplogo2.jpg" src="foplogo2.jpg" tppabs="http://hedong.3322.org/archives/pics/foplogo2.jpg" width="150" height="50" border="0" align="left" />　　这次主要学习列表(list)、表格(table)、多页布局、页脚页眉、页编码、链接(link)等在FO的定义。</p>
+
+<a name="more"></a>
+<p>1、列表<br />
+主体结构如下：<div class="code"><table border="1"><tr><td>&lt;fo:list-block&gt;</td><td>主结构</td></tr><tr><td>&nbsp;&nbsp;&lt;fo:list-item&gt;</td><td>列表项定义</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:list-item-label&gt;</td><td>Label定义</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block/&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:list-item-label&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:list-item-body&gt;</td><td>Label说明信息定义</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block/&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:list-item-body&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&lt;/fo:list-item&gt;</td><td></td></tr><br />
+<tr><td>&nbsp;&nbsp;...&nbsp;更多&nbsp;&lt;fo:list-item&gt;项&nbsp;...</td><td></td></tr><tr><td>&lt;/fo:list-block&gt;</td><td></td></tr></table></div></p>
+
+<p><img alt="xsl-fo-list1.jpg" src="xsl-fo-list1.jpg" tppabs="http://hedong.3322.org/archives/pics/xsl-fo-list1.jpg" width="270" height="156" border="0" align="right" /><br />
+&lt;fo-listblock&gt;元素的provisional-distance-between-starts 特性定义 &lt;fo:list-item-label&gt; 的开始部分与 &lt;fo:list-item-body&gt; 的开始部分之间的距离。provisional-label-separation 特性定义 &lt;fo:list-item-label&gt; 的结束部分与 &lt;fo:list-item-block&gt; 的开始部分之间的距离。</p>
+
+<p><img alt="xsl-fo-list2.jpg" src="xsl-fo-list2.jpg" tppabs="http://hedong.3322.org/archives/pics/xsl-fo-list2.jpg" width="270" height="156" border="0" align="left" /> &lt;fo:list-item-label&gt; 和 &lt;fo:list-item-block&gt; 元素的 start-indent 特性分别定义了从正常的起始页边距（列表之上段落的起始位置）到 &lt;fo:list-item-label&gt; 或 &lt;fo:list-item-body&gt; 的开始部分的距离。</p>
+
+<p><img alt="xsl-fo-list3.jpg" src="xsl-fo-list3.jpg" tppabs="http://hedong.3322.org/archives/pics/xsl-fo-list3.jpg" width="260" height="156" border="0" align="right"/><br />
+&lt;fo:list-item-label&gt; 和 &lt;fo:list-item-body&gt; 元素的end-indent 特性定义从正常的结束页边距（列表之上段落的结束位置）和 &lt;fo:list-item-body&gt; 元素的结束之间的距离。</p>
+
+<p>编号列表&lt;OL&gt;<br />
+<div class="code">    &lt;fo:list-item-label end-indent="label-end()&gt;<br />
+      &lt;fo:block&gt;<br />
+        &lt;xsl:number value="position()" format="1."/&gt;<br />
+      &lt;/fo:block&gt;<br />
+    &lt;/fo:list-item-label&gt;</div></p>
+
+<p>符号列表&lt;UL&gt;，用UTF-8定义字符<br />
+<div class="code">    &lt;fo:list-item-label end-indent="label-end()&gt;<br />
+      &lt;fo:block&gt;&#x2022;&lt;/block&gt;<br />
+    &lt;/fo:list-item-label&gt;</div></p>
+
+<p>对自定义列表，最简单的办法是将术语(label)放在单个行上并以黑体字显示它，接着在下一行开始该术语(label)的定义.</p>
+
+<p>2、表格(table)<br />
+xsl-fo与html对照<br />
+<table border="1"><tr><th>XSL-FO 元素</th><th>HTML 元素</th></tr><tr><td>&lt;fo:table&gt;</td><td>&lt;table&gt;</td></tr><tr><td>&lt;fo:table-body&gt;</td><td>&lt;tbody&gt; （未普遍使用）</td></tr><tr><td>&lt;fo:table-column&gt;</td><td>该信息在 HTML &lt;table&gt; 元素的 cols 属性中。</td></tr><tr><td>&lt;fo:table-row&gt;</td><td>&lt;tr&gt;</td></tr><tr><td>&lt;fo:table-cell&gt;</td><td>&lt;td&gt;</td></tr><tr><td>&lt;fo:table-caption&gt;</td><td>&lt;caption&gt;，虽然 XSL-FO 对标题和表必须出现在源文档中的方式施加了更多限制。</td></tr></table><br />
+有例如下：<div class="code">&lt;fo:table&nbsp;table-layout="fixed"&gt;<br />
+&nbsp;&nbsp;&lt;fo:table-column&nbsp;column-width="150pt"/&gt;<br />
+&nbsp;&nbsp;&lt;fo:table-column&nbsp;column-width="150pt"/&gt;<br />
+&nbsp;&nbsp;&lt;fo:table-body&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-row&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-cell&nbsp;border-style="solid"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color="black"&nbsp;border-width="1pt"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-before="3pt"&nbsp;padding-after="3pt"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-start="3pt"&nbsp;padding-end="3pt"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&gt;Some&nbsp;text&lt;/fo:block&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-cell&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-cell&nbsp;border-style="solid"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color="black"&nbsp;border-width="1pt"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-before="3pt"&nbsp;padding-after="3pt"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-start="3pt"&nbsp;padding-end="3pt"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&gt;Some&nbsp;more&nbsp;text&lt;/fo:block&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-cell&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-row&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-row&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-cell&nbsp;border-style="solid"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color="black"&nbsp;border-width="1pt"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-before="3pt"&nbsp;padding-after="3pt"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-start="3pt"&nbsp;padding-end="3pt"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&gt;First&nbsp;cell,&nbsp;last&nbsp;row&lt;/fo:block&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-cell&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:table-cell&nbsp;border-style="solid"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;border-color="black"&nbsp;border-width="1pt"<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-before="3pt"&nbsp;padding-after="3pt"&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;padding-start="3pt"&nbsp;padding-end="3pt"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&gt;Last&nbsp;cell,&nbsp;last&nbsp;row&lt;/fo:block&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-cell&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:table-row&gt;<br />
+&nbsp;&nbsp;&lt;/fo:table-body&gt;<br />
+&lt;/fo:table&gt;</div><br />
+合并单元格<br />
+&lt;fo:table-cell&gt;的 number-columns-spanned 和 number-rows-spanned属性可以将单元格合并起来，其值集是数值。</p>
+
+<p>表头<br />
+&lt;fo:table-head&gt;可含有几个&lt;table-row&gt;，下面一级就是&lt;table-cell&gt;了。</p>
+
+<p>表标题，使用如下：<div class="code">&lt;fo:table-and-caption&gt;<br />
+&nbsp;&nbsp;&lt;fo:table-caption&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+&nbsp;&nbsp;&lt;/fo:table-caption&gt;<br />
+&nbsp;&nbsp;&lt;fo:table&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;...<br />
+&nbsp;&nbsp;&lt;/fo:table&gt;<br />
+&lt;/fo:table-and-caption&gt;</div></p>
+
+<p>3、多页布局序列<br />
+通过利用&lt;fo:conditional-page-master-reference&gt;并借助其master-reference指明布局名，page-position或odd-or-even指明页面条件。<br />
+<div class="code">&lt;fo:page-sequence-master&nbsp;master-name="standard"&gt;<br />
+&nbsp;&nbsp;&lt;fo:repeatable-page-master-alternatives&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:conditional-page-master-reference&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master-reference="first"&nbsp;page-position="first"/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:conditional-page-master-reference&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master-reference="left"&nbsp;odd-or-even="even"/&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:conditional-page-master-reference&nbsp;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;master-reference="right"&nbsp;odd-or-even="odd"/&gt;<br />
+&nbsp;&nbsp;&lt;/fo:repeatable-page-master-alternatives&gt;<br />
+&lt;/fo:page-sequence-master&gt;</div></p>
+
+<p>4、页脚页眉<br />
+要在页面上创建浮于文本主体上下的页眉和页脚，可以使用 <fo:static-content> 元素，其属性flow-name 分别为 xsl-region-before 和xsl-region-after。常见的是，&lt;fo:simple-page-master&gt;中定义了区域名其属性，在此只引用区域名(region-name)即可。</p>
+
+<p>5、页码编号<br />
+用&lt;fo:page-number/&gt;获得，用&lt;fo:page-sequence master-reference="standard"   initial-page-number="57" format="i" /&gt;来设定显示格式（罗马）和开始编号（57）</p>
+
+<p>6、链接<br />
+将id属性加入任何一元素，都可以生成锚点(anchor)。利用fo:basic-link 元素的 internal-destination属性指定锚点即可建立链接。在这fo:basic-link元素与其结束标签之间是链接文本。</p>
+
+<p>特殊的页号引用<br />
+&lt;fo:page-number-citation &gt;元素的ref-id属性指定的锚点，在显示时可以转换为锚点所在页面的页码显示。</p>
+
+<p>对于链接到web的链接，可以用fo:basic-link的external-destination属性来指定，如例：<div class="code">&lt; fo:basic-link color="blue" external-destination= "http://hedong.3322.org" &gt; 竹笋炒肉 &lt;/fo:basic-link&gt;</div></p>
+
+<p>7、fop对xsl-fo进行了扩展，提供了定义pdf文件的“书签”的功能。</p>
+
+<p>8、汉字文档<br />
+显示汉字需要特别处理。<br />
+1）建立font metrics文件，对ttc或ttf有不同的方法。<div class="code">java org.apache.fop.fonts.apps.TTFReader C:\WINNT\Fonts\simkai.ttf simkai.xml<br />
+java org.apache.fop.fonts.apps.TTFReader -ttcname "SimSun" C:\WINNT\Fonts\simsun.ttc simsun.xml</div><br />
+-ttcname后面指定需要从ttc文件中提取的字体名称,两个命令中都要注意大小写。<br />
+2）修改$FOPHOME/confi/userconfig.xml，在&lt;/fonts&gt;前面增加<div class="code">&lt;font&nbsp;metrics-file="simsun.xml"&nbsp;kerning="yes"&nbsp;embed-file="c:\WINNT\fonts\simsun.ttc"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;font-triplet&nbsp;name="mysimsun"&nbsp;style="normal"&nbsp;weight="normal"/&gt;<br />
+&lt;/font&gt;<br />
+&lt;font&nbsp;metrics-file="simkai.xml"&nbsp;kerning="yes"&nbsp;embed-file="c:\WINNT\fonts\simkai.ttf"&gt;<br />
+&nbsp;&nbsp;&nbsp;&lt;font-triplet&nbsp;name="mysimkai"&nbsp;style="normal"&nbsp;weight="normal"/&gt;<br />
+&lt;/font&gt;</div></p>
+
+<p>3）将simkai.xml, simsun.xml放在$FOPHOME目录下，因为fop.sh或fop.bat就在这个目录下。运行<div class="code">fop -c conf/userconfig.xml 1.fo 1.pdf</div>生成1.pdf.</p>
+
+<p>4）1.fo可以从<a href="1.fo.htm" tppabs="http://hedong.3322.org/archives/docs/1.fo">这儿下载</a>。1.fo是根据参考文献2修改而来。</p>
+
+<p></p>
+
+<p><center><a href="000235.html" tppabs="http://hedong.3322.org/archives/000235.html" title="学习笔记（1）">XSL-FO学习笔记（1）</a></center></p>
+
+<p>参考文献：<br />
+1、XSL－FO高级技术<br />
+http://www-900.ibm.com/developerWorks/cn/education/xml/x-xslfo2/tutorial/index.html</p>
+
+<p>2、如何在程序中嵌入FOP<br />
+http://www-900.ibm.com/developerWorks/cn/xml/x-fop/index.shtml</p>
+
+<p>3、FOP相关技术<br />
+http://www.javaresearch.org/article/showarticle.jsp?column=46&thread=2042</p>
+
+<span class="posted">Posted by Hilton at September 20, 2003 03:38 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=236.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=236" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="236" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

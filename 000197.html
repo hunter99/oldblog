@@ -1,0 +1,302 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Log4J学习笔记（3）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000196.html" tppabs="http://hedong.3322.org/archives/000196.html" title="bzip2和gzip的比较" />
+
+<link rel="next" href="000199.html" tppabs="http://hedong.3322.org/archives/000199.html" title="Google的PageRank算法学习" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000197.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/128"
+    dc:title="Log4J学习笔记（3）"
+    dc:identifier="http://hedong.3322.org/archives/000197.html"
+    dc:subject="ItTech"
+    dc:description="　　我这儿有两个程序，一个是普通的java程序，实现了一个“九九表”；另一个是servlet。我这儿用的tomcat是4.1.12，J2SE是1.3.1，log4j的版本是1.2.8...."
+    dc:creator="Hilton"
+    dc:date="2003-08-27T22:59:26+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000197.html">
+<dc:title>Log4J学习笔记（3）</dc:title>
+<dc:description>　　我这儿有两个程序，一个是普通的java程序，实现了一个“九九表”；另一个是servlet。我这儿用的tomcat是4.1.12，J2SE是1.3.1，log4j的版本是1.2.8....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-27T22:59:26+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000196.html" tppabs="http://hedong.3322.org/archives/000196.html">&laquo; bzip2和gzip的比较</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000199.html" tppabs="http://hedong.3322.org/archives/000199.html">Google的PageRank算法学习 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 27, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Log4J学习笔记（3）</h3>
+
+<p>　　我这儿有两个程序，一个是普通的java程序，实现了一个“九九表”；另一个是servlet。我这儿用的tomcat是4.1.12，J2SE是1.3.1，log4j的版本是1.2.8.</p>
+
+<a name="more"></a>
+<p>一、九九表。<br />
+环境设置：需要将log4j-1.2.8.jar放入CLASSPATH变量中。<br />
+Hello.java文件的内容如下：<br />
+<div class="code"><pre>import org.apache.log4j.*;<br>public class Hello{<br>	static Logger logger = Logger.getLogger(Hello.class);<br>	public static void main(String[] args) {<br>	int i,j;<br>//	  BasicConfigurator.configure();<br>	  PropertyConfigurator.configure(args[0]);<br><br>      logger.info("Entering application.");<br>      for(i=1;i&lt;10;i++){<br>	    logger.debug(""+i);<br>      	for (j=1;j&lt;=i;j++){<br>      		logger.warn(""+j);<br>      		System.out.print(i*j);<br>      		System.out.print("\t");<br>      	}<br>      	System.out.println("");<br>    	}<br>      logger.info("Exiting application.");	  <br>}<br></pre></div><br />
+log4j的配置文件log4j.inf的内容如下：<div class="code"><pre>log4j.rootLogger=WARN, stdout, R<br><br>log4j.appender.stdout=org.apache.log4j.ConsoleAppender<br>log4j.appender.stdout.layout=org.apache.log4j.PatternLayout<br><br># Pattern to output the caller's file name and line number.<br>#log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n<br># Print the date in ISO 8601 format<br>log4j.appender.stdout.layout.ConversionPattern=%d [%t] %-5p %c - %m%n<br><br>log4j.appender.R=org.apache.log4j.RollingFileAppender<br>log4j.appender.R.File=example.log<br><br>log4j.appender.R.MaxFileSize=100KB<br># Keep one backup file<br>log4j.appender.R.MaxBackupIndex=1<br><br>log4j.appender.R.layout=org.apache.log4j.PatternLayout<br>log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n<br><br># Print only messages of level WARN or above in the package com.foo.<br>log4j.logger.com.foo=WARN</pre></div><br />
+运行：<div class="code">javac Hello.java<br />
+java Hello log4j.inf</div><br />
+结果会在屏幕上显示，并在example.log文件中记录。</p>
+
+<p>二、servlet<br />
+环境设置：将log4j-1.2.8.jar及servlet.jar放入环境变量CLASSPATH中，并且要将log4j-1.2.8复制到$TOMCAT_HOME/common/lib目录下。<br />
+假定，有一个布署到tomcat的应用叫myweb。<br />
+servlet程序Log4jInit.java的位置在$TOMCAT_HOME/webapps/myweb/WEB-INF/classes/com/hedong/learning/log4j/目录下，内容如下：<div class="code"><pre>package com.hedong.learning.log4j;<br>import org.apache.log4j.*;<br>import javax.servlet.http.HttpServlet;<br>import javax.servlet.http.HttpServletRequest;<br>import javax.servlet.http.HttpServletResponse;<br>public class Log4jInit extends HttpServlet {<br>  public void init() {<br>        String prefix =  getServletContext().getRealPath("/");<br>        String file = getInitParameter("log4j");<br>        // if the log4j-init-file is not set, then no point in trying<br>        System.out.println("................log4j start");<br>        if(file != null) {<br>          PropertyConfigurator.configure(prefix+file);<br>        }<br>  }<br>public void doGet(HttpServletRequest req, HttpServletResponse res) {<br>  }<br>}</pre></div><br />
+在Log4jInit.java所在目录下编译它:<div class="code"><pre>javac Log4jInit.java</pre></div><br />
+myweb的设置文件web.xml在$TOMCAT_HOME/webapps/myweb/WEB-INF/目录下，增加如下红色部分。<div class="code"><pre>&lt;/web-app&gt;<br>  ...........<br><ins>  &lt;servlet&gt;<br>    &lt;servlet-name&gt;log4j-init&lt;/servlet-name&gt;<br>    &lt;servlet-class&gt;com.hedong.learning.log4j.Log4jInit&lt;/servlet-class&gt;<br>    &lt;init-param&gt;<br>      &lt;param-name&gt;log4j&lt;/param-name&gt;<br>      &lt;param-value&gt;WEB-INF/log4j.properties&lt;/param-value&gt;<br>    &lt;/init-param&gt;<br>    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;<br>  &lt;/servlet&gt;</ins><br>&lt;/web-app&gt;</pre></div><br />
+同时，在这个目录下建一个文件名叫log4j.properties，内容如下：<div class="code"><pre>log4j.rootLogger=INFO, A1 , R<br>log4j.appender.A1=org.apache.log4j.ConsoleAppender <br>log4j.appender.A1.layout=org.apache.log4j.PatternLayout <br>log4j.appender.A1.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n <br>log4j.appender.R=org.apache.log4j.RollingFileAppender<br>log4j.appender.R.File=$TOMCAT_HOME/webapps/dbweb/logs/log4j.log<ins>&lt;----将$TOMCAT_HOME换成tomcat的安装目录</ins><br>log4j.appender.R.MaxFileSize=100KB<br>log4j.appender.R.MaxBackupIndex=1<br>log4j.appender.R.layout=org.apache.log4j.PatternLayout<br>log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n</pre></div><br />
+记住，别忘了创建目录$TOMCAT_HOME/webapps/dbweb/logs/，如果它不存在的话。<br />
+创建目录$TOMCAT_HOME/webapps/dbweb/test/，然后在这个目录下新建一个文件test.jsp,内容如下：<div class="code"><pre>&lt;%@ page contentType="text/html; charset=GB2312" %&gt;<br>&lt;%@ page import="org.apache.log4j.*" %&gt;<br>&lt;%<br>       Logger logger = Logger.getLogger("test.jsp");<br>       logger.info("befor say hi");<br>%&gt;<br>&lt;h1&gt; Hi&lt;/h1&gt;<br>&lt;%<br>        logger.info("after say hi");<br>%&gt;</pre></div><br />
+然后，重新启动tomcat，通过浏览器访问这个jsp页面，如http://yourdomain.com:8080/myweb/test/test.jsp，如果一切正常，会看到一个大大的HI。然后，在服务器上的$TOMCAT_HOME/webapps/dbweb/logs/log4j.log文件中看到如下的信息：<div class="code">INFO HttpProcessor[8080][4] test.jsp - befor say hi<br />
+INFO HttpProcessor[8080][4] test.jsp - after say hi</div>。在默认的情况下，tomcat的屏幕输出被重定向到$TOMCAT_HOME/logs/catalina.out文件中，在文件的最后也应看到上述的输出。<br />
+<center><a href="000195.html" tppabs="http://hedong.3322.org/archives/000195.html">Log4J学习笔记（2）</a></center></p>
+
+<p>一般情况下，遵循什么样的原则，来确实一条log信息的级别呢？请参考<a href="000316.html" tppabs="http://hedong.3322.org/archives/000316.html">Jakarta Commons Logging学习笔记</a></p>
+
+<span class="posted">Posted by Hilton at August 27, 2003 10:59 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=197.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=197" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>准备重新学习一次！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">google</a> at January 14, 2004 01:53 PM</span>
+</div>
+<div class="comments-body">
+<p>好多次都想学习java.但是都中途而费了！</p>
+
+<p>java好想很难学！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://http;//www.xagoogle.com  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://http;//www.xagoogle.com'" tppabs="http://http;//www.xagoogle.com">google</a> at January 14, 2004 01:52 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gissky.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gissky.net/'" tppabs="http://www.gissky.net/">kelvin</a> at January  8, 2004 10:00 AM</span>
+</div>
+<div class="comments-body">
+<p>站长高人呀！我发现你这儿的知识可真多呀！<br />
+准备全部详细学习！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">wang</a> at January  7, 2004 02:34 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢站长。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 12:46 PM</span>
+</div>
+<div class="comments-body">
+<p>学习哦。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">qqba</a> at December 30, 2003 12:45 PM</span>
+</div>
+<div class="comments-body">
+<p>log4j.properties放到WEB-INF/classes下就行了<br />
+不用专门写个servlet来load</p>
+<span class="comments-post">Posted by: 路人丙 at December 26, 2003 04:29 PM</span>
+</div>
+<div class="comments-body">
+<p>test</p>
+<span class="comments-post">Posted by: 路人丙 at December 26, 2003 04:28 PM</span>
+</div>
+<div class="comments-body">
+<p>To Ryan;</p>
+
+<p>　　我不清楚你这个绝对路径是指log4j.properties文件自身的路径，还是指log4j.properties中定义的log文件的路径，<br />
+　1）对于前者，其路径的取得是通过编码实现的，如本页中的log4jinit.java文件所示，只要略加修改，你就可以把log4j.properties文件放在任何你喜欢的地方；<br />
+　2）对于后者，你需要自己定义一个appender,具体可以参考BasicConfigurator.configure()方法的原码。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 11, 2003 09:51 PM</span>
+</div>
+<div class="comments-body">
+<p>log4j.properties文件的路径到底应该如何设置，我不希望设置绝对路径。特别是Application,我有些疑惑，希望大家给我答案。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;ryan&#46;lee&#64;bnslink&#46;com">RYAN</a> at December 11, 2003 11:33 AM</span>
+</div>
+<div class="comments-body">
+<p><a href="javascript:if(confirm('http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1'" tppabs="http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1">http://www.onjava.com/pub/a/onjava/2002/08/07/log4j.html?page=1</a></p>
+
+<p>谢谢你的文章。<br />
+在Production环境下，考虑到Servlet多线程，可能需要增加一个标示客户端信息的功能。用NDC或者MDC</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;daniel_kwo&#64;msn&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;daniel_kwo&#64;msn&#46;com">yafeng</a> at October 27, 2003 10:26 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="197" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

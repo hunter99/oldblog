@@ -1,0 +1,289 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on NetCat的使用</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: NetCat的使用</div>
+
+
+<div class="comments-body">
+<p>不客气.我也是个初学者,学习就是个交流的过程:)<br />
+不知什么原因,最后的一部分居然没加上,我说怎么看着不对劲:(</p>
+
+<p>四.ftp服务器<br />
+nc可以从任何地方接受输入,不仅仅是-e指定的程序,还可以是文件;nc可以将输入重定向到任何地方,不仅仅是默认的屏幕.指定的方法很简单,使用 > 和 somefile<br />
+例2; server: nc -l -c -p 1234 >somefile<br />
+     client: nc 192.168.0.1 1234 /check/host.disk1<br />
+然后,可以利用linux内核的loopback特性,把host.disk以只读的方式mount上,然后就可以做取证分析了.<br />
+[如果真的做取证分析,一定不要在原始的受害主机硬盘上find和类似的操作,因为这会修改时间标记而破坏原始的证据]</p>
+
+<p><br />
+例4. 将文件压缩后再传送.<br />
+如果你的文件很大,何不先压缩它呢,利用管道,我们甚至不用生成压缩后的中间文件!<br />
+源主机: tar czf - work|nc -l -c -p 1234 <br />
+目的主机: nc 192.168.0.1 1234|tar xzvf -</p>
+
+<p>[tar打包时最好不要使用绝对路径,虽然GNU的tar能把它转换成相对路径,但不是所有的平台都能做到,所以如果不想把你的文件系统搞乱的话,就使用相对路径吧!]</p>
+
+<p><br />
+…………</p>
+
+<p>这里的server和client的组合是可以互换的，以第六节中例1来说明：<br />
+你也可以这样：<br />
+干净主机： nc -l -p 1234 -c |md5sum -c -|grep -v OK<br />
+被入侵主机：find /etc -type f|xargs md5sum|nc 192.168.0.2 1234</p>
+
+<p>其实，这些都不是固定的程式，根据你的实际需要，你可以想出更多的使用方法。因为，你是在使用UNIX,这就是UNIX。<br />
+that's all.抛砖引玉,写到这里吧,这就是"瑞士军刀",觉得怎么样?其实netcat还有许多许多其他的用法,唯一限制就是你的想象力,把你知道的告诉我,OK?</p>
+
+<p>当然还有些方面我没有写出来,比如,netcat中继的问题.某些黑客就拿netcat中继功能用做跳板来躲避追踪的<br />
+这方面没有怎么研究过,再者也没有时间,如果哪位高手知道,请告诉我. :)</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;linxd&#64;peoplemail&#46;com&#46;cn'" tppabs="http://hedong.3322.org/mt/mailto&#58;linxd&#64;peoplemail&#46;com&#46;cn">linxd</a> at December 12, 2003 08:22 AM</span>
+</div>
+<div class="comments-body">
+<p>　　非常感谢linxd的文字。<br />
+　　同样是这么一个程序，在不同的人手中，发挥的功能就差别很大。从你的文字中，我学到了很多。谢谢！</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 11, 2003 09:53 PM</span>
+</div>
+<div class="comments-body">
+<p>有关netcat的文章实在是太多了,关于它的强大我就不再复述了.<br />
+netcat可以作为类似于telent的客户端,也可以监听某个端口作为服务器,还可以作为扫描工具扫描对方主机的端口,还可以用来传输文件,不相信吗?听我慢慢道来:)<br />
+首先我们要弄明白netcat的工作原理,其实netcat的原理很简单,它就是从网络的一端读入数据,然后输出到网络的另一端,它可以使用tcp和udp协议.之所以叫做netcat,因为它是网络上的cat,想象一下cat的功能,读出一个文件的内容,然后输出到屏幕上(默认的stdout是屏幕,当然可以重定向到其他地方).netcat也是如此,它读取一端的输入,然后传送到网络的另一端,<br />
+就这么简单.但是千万不要小看了它,netcat可以完成很多任务,,尤其是和其他程序组合时.好了,废话少说,进入正题吧.:p <br />
+网上有两种版本的netcat,一个是@stake公司的netcat,<a href="javascript:if(confirm('http://www.atstake.com/research/tools/network_utilities/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.atstake.com/research/tools/network_utilities/'" tppabs="http://www.atstake.com/research/tools/network_utilities/">http://www.atstake.com/research/tools/network_utilities/</a> 也就是最初的版本,还有一个是GNU的netcat.<a href="javascript:if(confirm('http://netcat.sourceforge.net/download.php  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://netcat.sourceforge.net/download.php'" tppabs="http://netcat.sourceforge.net/download.php">http://netcat.sourceforge.net/download.php</a> 我个人更倾向于使用GNU的netcat,因为它的功能更多,不过GNU的没有windows平台的版本:confused: <br />
+至于编译和安装我想就不用说了,如果这关都过不了,我想也有点太……，看看readme和install文件，一般情况下./configure&&make&&make install就ok了，具体的./configure选项看看帮助。</p>
+
+<p>netcat的命令行程序名字为nc,是netcat的缩写,安装完了是找不到netcat这个程序的.:)</p>
+
+<p>root@mail etc #nc -h<br />
+GNU netcat 0.7.0, a rewrite of the famous networking tool.<br />
+Basic usages:<br />
+connect to somewhere:  nc [options] hostname port [port] ...<br />
+listen for inbound:    nc -l -p port [options] [hostname] [port] ...<br />
+tunnel to somewhere:   nc -L hostname:port -p port [options]</p>
+
+<p>Mandatory arguments to long options are mandatory for short options too.<br />
+Options:<br />
+  -c, --close                close connection on EOF from stdin<br />
+  -e, --exec=PROGRAM         program to exec after connect<br />
+  -g, --gateway=LIST         source-routing hop point[s], up to 8<br />
+  -G, --pointer=NUM          source-routing pointer: 4, 8, 12, ...<br />
+  -h, --help                 display this help and exit<br />
+  -i, --interval=SECS        delay interval for lines sent, ports scanned<br />
+  -l, --listen               listen mode, for inbound connects<br />
+  -L, --tunnel=ADDRESS:PORT  forward local port to remote address<br />
+  -n, --dont-resolve         numeric-only IP addresses, no DNS<br />
+  -o, --output=FILE          output hexdump traffic to FILE (implies -x)<br />
+  -p, --local-port=NUM       local port number<br />
+  -r, --randomize            randomize local and remote ports<br />
+  -s, --source=ADDRESS       local source address (ip or hostname)<br />
+  -t, --tcp                  TCP mode (default)<br />
+  -T, --telnet               answer using TELNET negotiation<br />
+  -u, --udp                  UDP mode<br />
+  -v, --verbose              verbose (use twice to be more verbose)<br />
+  -V, --version              output version information and exit<br />
+  -x, --hexdump              hexdump incoming and outgoing traffic<br />
+  -w, --wait=SECS            timeout for connects and final net reads<br />
+  -z, --zero                 zero-I/O mode (used for scanning)</p>
+
+<p>Remote port number can also be specified as range.  Example: '1-1024'</p>
+
+<p>我用的是GNU的netcat,比起@stake公司的netcat多了-c选项,不过这是很有用的一个选项,后面我们会讲到.还有GNU的-L,-t ,-T选项和@stake的-L -t用途是不一样的,自己琢磨吧.</p>
+
+<p>一.客户端<br />
+这是最简单的使用方式,nc  <br />
+nc www.apache.org 80<br />
+get / http/1.1<br />
+HTTP/1.1 400 Bad Request<br />
+Date: Mon, 08 Dec 2003 06:23:31 GMT<br />
+Server: Apache/2.0.48-dev (Unix)<br />
+Content-Length: 310<br />
+Connection: close<br />
+Content-Type: text/html; charset=iso-8859-1</p>
+
+<p></p>
+
+<p>400 Bad Request</p>
+
+<p>Bad Request<br />
+Your browser sent a request that this server could not understand.</p>
+
+<p><br />
+Apache/2.0.48-dev (Unix) Server at www.apache.org Port 80</p>
+
+<p>呵呵,看到了什么,我什么也没说哦:p</p>
+
+<p>二.简单服务器<br />
+nc -l -p  //这里-l参数表明nc处于监听模式,-p指定端口号.<br />
+nc -l -p 1234[假设这台主机ip为192.168.0.1]<br />
+然后从客户端输入,nc 192.168.0.1 1234 然后你从任一端输入的数据就会显示在另一端了.其实netcat的server和client的区别并不大,区别仅仅在于谁执行了-l来监听端口,一旦连接建立以后,就没有什么区别了.从这里我们也可以了解netcat的工作原理了,通过网络链接读写数据.[It is a simple Unix utility which reads and writes data across network connections, using TCP or UDP protocol]--@stake主页是这么说的.</p>
+
+<p>三.telnet服务器<br />
+nc有一个-e的选项,用来指定在连接后执行的程序.<br />
+在windows平台上可以指定-e cmd.exe[winxp,win2000,]如果是98就指定command.exe.linux则指定-e bash,或者任何你喜欢的shell,或者是你自己编写的程序,通常是做为后门:p<br />
+指定-e的效果是由你指定的程序代替了nc自己来接受另一端的输入,并把输入(命令)后反馈的结果显示到另一端.<br />
+server: nc -l -p 1234 -e bash<br />
+client: nc 192.168.0.1 1234 就可以远程登陆server了<br />
+其实我们不一定非要在server端指定-e,也可以在client端指定.<br />
+server: nc -l -p 1234<br />
+client: nc -e 192.168.0.1 1234 .这样,就相当于在server上远程登陆client了.我前面说过,有关client和server的区分是没有什么意义的.谁做为telnet server的标准只有一个,谁执行了-e [shell].</p>
+
+<p>四.ftp服务器<br />
+nc可以从任何地方接受输入,不仅仅是-e指定的程序,还可以是文件;nc可以将输入重定向到任何地方,不仅仅是默认的屏幕.指定的方法很简单,使用 > 和 somefile<br />
+例2; server: nc -l -c -p 1234 >somefile<br />
+     client: nc 192.168.0.1 1234 /check/host.disk1<br />
+然后,可以利用linux内核的loopback特性,把host.disk以只读的方式mount上,然后就可以做取证分析了.<br />
+[如果真的做取证分析,一定不要在原始的受害主机硬盘上find和类似的操作,因为这会修改时间标记而破坏原始的证据]</p>
+
+<p><br />
+例4. 将文件压缩后再传送.<br />
+如果你的文件很大,何不先压缩它呢,利用管道,我们甚至不用生成压缩后的中间文件!<br />
+源主机: tar czf - work|nc -l -c -p 1234 <br />
+目的主机: nc 192.168.0.1 1234|tar xzvf -</p>
+
+<p>[tar打包时最好不要使用绝对路径,虽然GNU的tar能把它转换成相对路径,但不是所有的平台都能做到,所以如果不想把你的文件系统搞乱的话,就使用相对路径吧!]</p>
+
+<p><br />
+…………</p>
+
+<p>这里的server和client的组合是可以互换的，以第六节中例1来说明：<br />
+你也可以这样：<br />
+干净主机： nc -l -p 1234 -c |md5sum -c -|grep -v OK<br />
+被入侵主机：find /etc -type f|xargs md5sum|nc 192.168.0.2 1234</p>
+
+<p>其实，这些都不是固定的程式，根据你的实际需要，你可以想出更多的使用方法。因为，你是在使用UNIX,这就是UNIX。<br />
+that's all.抛砖引玉,写到这里吧,这就是"瑞士军刀",觉得怎么样?其实netcat还有许多许多其他的用法,唯一限制就是你的想象力,把你知道的告诉我,OK?</p>
+
+<p>当然还有些方面我没有写出来,比如,netcat中继的问题.某些黑客就拿netcat中继功能用做跳板来躲避追踪的<br />
+这方面没有怎么研究过,再者也没有时间,如果哪位高手知道,请告诉我. :)</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;linxd&#64;peoplemail&#46;com&#46;cn'" tppabs="http://hedong.3322.org/mt/mailto&#58;linxd&#64;peoplemail&#46;com&#46;cn">linxd</a> at December 11, 2003 01:24 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="335" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

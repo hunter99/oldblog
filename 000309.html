@@ -1,0 +1,312 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 处理正则表达式的java包:regexp</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000308.html" tppabs="http://hedong.3322.org/archives/000308.html" title="MT的XML-RPC API
+" />
+
+<link rel="next" href="000310.html" tppabs="http://hedong.3322.org/archives/000310.html" title="apache/commons/httpclient学习笔记(一)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000309.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/207"
+    dc:title="处理正则表达式的java包:regexp"
+    dc:identifier="http://hedong.3322.org/archives/000309.html"
+    dc:subject="ItTech"
+    dc:description="　　虽然apache认为JakartaORO是一个更完备的正则表达式处理包，但regexp的应用也是非常广泛，大概是因为它的简单吧。下面是regexp的学习笔记。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-15T23:49:31+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000309.html">
+<dc:title>处理正则表达式的java包:regexp</dc:title>
+<dc:description>　　虽然apache认为JakartaORO是一个更完备的正则表达式处理包，但regexp的应用也是非常广泛，大概是因为它的简单吧。下面是regexp的学习笔记。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-15T23:49:31+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000308.html" tppabs="http://hedong.3322.org/archives/000308.html">&laquo; MT的XML-RPC API
+</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000310.html" tppabs="http://hedong.3322.org/archives/000310.html">apache/commons/httpclient学习笔记(一) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 15, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">处理正则表达式的java包:regexp</h3>
+
+<p>　　虽然apache认为<a href="javascript:if(confirm('http://jakarta.apache.org/oro/index.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/oro/index.html'" tppabs="http://jakarta.apache.org/oro/index.html">JakartaORO</a>是一个更完备的<acronym title="regular expression">正则表达式</acronym>处理包，但<a href="javascript:if(confirm('http://jakarta.apache.org/regexp/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/regexp/'" tppabs="http://jakarta.apache.org/regexp/">regexp</a>的应用也是非常广泛，大概是因为它的简单吧。下面是regexp的学习笔记。<br />
+</p>
+
+<a name="more"></a>
+<p><h4>1、下载安装</h4><br />
+下载源码<br />
+<div class="code">cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic login<br />
+password: anoncvs<br />
+cvs -d :pserver:anoncvs@cvs.apache.org:/home/cvspublic checkout jakarta-regexp</div><br />
+或下载编译好的包<br />
+<div class="code">wget http://apache.linuxforum.net/dist/jakarta/regexp/binaries/jakarta-regexp-1.3.tar.gz</div><br />
+<h4>2、基本情况</h4><br />
+1)Regexp是一个由100%纯java正则式处理包，是<a href="javascript:if(confirm('http://www.muppetlabs.com/~jonl/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.muppetlabs.com/~jonl/'" tppabs="http://www.muppetlabs.com/~jonl/">Jonathan Locke</a>捐给Apache软件基金会的。 他最初开发这个软件是在1996年，在时间的考验面前RegExp表达非常坚挺:)。 它包括完整的Javadoc文档，以及一个简单的Applet来做可视化调试和兼容性测试.</p>
+
+<p>2)RE类regexp包中非常重要的一个类，它是一个高效的、轻量级的正则式计算器/匹配器的类，RE是regular expression的缩写。正则式是能够进行复杂的字符串匹配的模板，而且当一个字符串能匹配某个模板时，你可以抽取出那些匹配的部分，这在进行文本解析时非常有用。下面讨论一下正则式的语法。<br />
+　　为了编译一个正则式，你需要简单地以模板为参数构造一个RE匹配器对象来完成，然后就可调用任一个RE.match方法来对一个字符串进行匹配检查，如果匹配成功/失败，则返回真/假值。例如：<div class="code">RE r = new RE("a*b");<br />
+boolean matched = r.match("aaaab");</div></p>
+
+<p>　　RE.getParen可以取回匹配的字符序列，或者匹配的字符序列的某一部分（如果模板中有相应的括号的话），以及它们的位置、长度等属性。如：<div class="code">  RE r = new RE("(a*)b");                  // Compile expression<br />
+  boolean matched = r.match("xaaaab");     // Match against "xaaaab"</p>
+
+<p>  String wholeExpr = r.getParen(0);        // wholeExpr will be 'aaaab'<br />
+  String insideParens = r.getParen(1);     // insideParens will be 'aaaa'</p>
+
+<p>  int startWholeExpr = r.getParenStart(0);   // startWholeExpr will be index 1<br />
+  int endWholeExpr = r.getParenEnd(0);       // endWholeExpr will be index 6<br />
+  int lenWholeExpr = r.getParenLength(0);    // lenWholeExpr will be 5</p>
+
+<p>  int startInside = r.getParenStart(1);    // startInside will be index 1<br />
+  int endInside = r.getParenEnd(1);        // endInside will be index 5<br />
+  int lenInside = r.getParenLength(1);     // lenInside will be 4</div></p>
+
+<p>　　RE支持正则式的后向引用，如：<div class="code">  ([0-9]+)=\1<br />
+匹配 n=n (象 0=0 or 2=2)这样的字符串</div></p>
+
+<p>3)RE支持的正则式的语法如下：<br />
+字符<br />
+<table border="1"><tr><td> unicodeChar </td><td>Matches any identical unicode character</td></tr><tr><td> \ </td><td>Used to quote a meta-character (like '*')</td></tr><tr><td> \\ </td><td>Matches a single '\' character</td></tr><tr><td> \0nnn </td><td>Matches a given octal character</td></tr><tr><td> \xhh </td><td>Matches a given 8-bit hexadecimal character</td></tr><tr><td> \\uhhhh </td><td>Matches a given 16-bit hexadecimal character</td></tr><tr><td> \t </td><td>Matches an ASCII tab character</td></tr><tr><td> \n </td><td>Matches an ASCII newline character</td></tr><tr><td> \r </td><td>Matches an ASCII return character</td></tr><tr><td> \f </td><td>Matches an ASCII form feed character</td></tr></table><br />
+字符集<br />
+<table border="1"><tr><td> [abc] </td><td>简单字符集</td></tr><tr><td> [a-zA-Z] </td><td>带区间的字符集</td></tr><tr><td> [^abc] </td><td>字符集的否定</td></tr></table><br />
+标准POSIX 字符集<br />
+<table border="1"><tr><td> [:alnum:] </td><td>Alphanumeric characters.</td></tr><tr><td> [:alpha:] </td><td>Alphabetic characters.</td></tr><tr><td> [:blank:] </td><td>Space and tab characters.</td></tr><tr><td> [:cntrl:] </td><td>Control characters.</td></tr><tr><td> [:digit:] </td><td>Numeric characters.</td></tr><tr><td> [:graph:] </td><td>Characters that are printable and are also visible.(A space is printable, but not visible, while an `a' is both.)</td></tr><tr><td> [:lower:] </td><td>Lower-case alphabetic characters.</td></tr><tr><td> [:print:] </td><td>Printable characters (characters that are not control characters.)</td></tr><tr><td> [:punct:] </td><td>Punctuation characters (characters that are not letter,digits, control characters, or space characters).</td></tr><tr><td> [:space:] </td><td>Space characters (such as space, tab, and formfeed, to name a few).</td></tr><tr><td> [:upper:] </td><td>Upper-case alphabetic characters.</td></tr><tr><td> [:xdigit:] </td><td>Characters that are hexadecimal digits.</td></tr></table><br />
+非标准的 POSIX样式的字符集<br />
+<table border="1"><tr><td> [:javastart:] </td><td>Start of a Java identifier</td></tr><tr><td> [:javapart:] </td><td>Part of a Java identifier</td></tr></table><br />
+预定义的字符集<br />
+<table border="1"><tr><td> . </td><td>Matches any character other than newline</td></tr><tr><td> \w </td><td>Matches a "word" character (alphanumeric plus "_")</td></tr><tr><td> \W </td><td>Matches a non-word character</td></tr><tr><td> \s </td><td>Matches a whitespace character</td></tr><tr><td> \S </td><td>Matches a non-whitespace character</td></tr><tr><td> \d </td><td>Matches a digit character</td></tr><tr><td> \D </td><td>Matches a non-digit character</td></tr></table><br />
+边界匹配符<br />
+<table border="1"><tr><td> ^ </td><td>Matches only at the beginning of a line</td></tr><tr><td> $ </td><td>Matches only at the end of a line</td></tr><tr><td> \b </td><td>Matches only at a word boundary</td></tr><tr><td> \B </td><td>Matches only at a non-word boundary</td></tr></table><br />
+贪婪匹配限定符<br />
+<table border="1"><tr><td> A* </td><td>Matches A 0 or more times (greedy)</td></tr><tr><td> A+ </td><td>Matches A 1 or more times (greedy)</td></tr><tr><td> A? </td><td>Matches A 1 or 0 times (greedy)</td></tr><tr><td> A{n} </td><td>Matches A exactly n times (greedy)</td></tr><tr><td> A{n,} </td><td>Matches A at least n times (greedy)</td></tr></table> <br />
+非贪婪匹配限定符 <br />
+<table border="1"><tr><td> A*? </td><td>Matches A 0 or more times (reluctant)</td></tr><tr><td> A+? </td><td>Matches A 1 or more times (reluctant)</td></tr><tr><td> A?? </td><td>Matches A 0 or 1 times (reluctant)</td></tr></table><br />
+逻辑运算符<br />
+<table border="1"><tr><td> AB </td><td>Matches A followed by B</td></tr><tr><td> A|B </td><td>Matches either A or B</td></tr><tr><td> (A) </td><td>Used for subexpression grouping</td></tr><tr><td> (?:A) </td><td>Used for subexpression clustering (just like grouping but no backrefs)</td></tr></table><br />
+后向引用符<br />
+<table border="1"><tr><td> \1 </td><td>Backreference to 1st parenthesized subexpression</td></tr><tr><td> \2 </td><td>Backreference to 2nd parenthesized subexpression</td></tr><tr><td> \3 </td><td>Backreference to 3rd parenthesized subexpression</td></tr><tr><td> \4 </td><td>Backreference to 4th parenthesized subexpression</td></tr><tr><td> \5 </td><td>Backreference to 5th parenthesized subexpression</td></tr><tr><td> \6 </td><td>Backreference to 6th parenthesized subexpression</td></tr><tr><td> \7 </td><td>Backreference to 7th parenthesized subexpression</td></tr><tr><td> \8 </td><td>Backreference to 8th parenthesized subexpression</td></tr><tr><td> \9 </td><td>Backreference to 9th parenthesized subexpression</td></tr></table></p>
+
+<p>RE运行的程序先经过RECompiler类的编译. 由于效率的原因，RE匹配器没有包括正则式的编译类. 实际上，如果要预编译1个或多个正则式，可以通过命令行运行'recompile'类,如<div class="code">java org.apache.regexp.recompile a*b</div>则产生类似下面的编译输出（最后一行不是）：<br />
+<div class="code">    // Pre-compiled regular expression "a*b"<br />
+    char[] re1Instructions =<br />
+    {<br />
+        0x007c, 0x0000, 0x001a, 0x007c, 0x0000, 0x000d, 0x0041,<br />
+        0x0001, 0x0004, 0x0061, 0x007c, 0x0000, 0x0003, 0x0047,<br />
+        0x0000, 0xfff6, 0x007c, 0x0000, 0x0003, 0x004e, 0x0000,<br />
+        0x0003, 0x0041, 0x0001, 0x0004, 0x0062, 0x0045, 0x0000,<br />
+        0x0000,<br />
+    };<br />
+    REProgram re1 = new REProgram(re1Instructions);<br />
+    RE r = new RE(re1);</div></p>
+
+<p>　　通过利用预编译的req来构建RE匹配器对象，可以避免运行时进行编译的成本。 如果需要动态的构造正则式，则可以创建单独一个RECompiler对象，并利用它来编译每个正则式。注意，RE 和 RECompiler 都不是threadsafe的（出于效率的原因）, 因此当多线程运行时，你需要为每个线程分别创建编译器和匹配器。<br />
+<h4>3、例程</h4><br />
+1)regexp包中带有一个applet写的小程序，运行如下:<div class="code">java org.apache.regexp.REDemo</div><br />
+2)Jeffer Hunter写了一个例程，可以<a href="RegDemoApache.java" tppabs="http://hedong.3322.org/archives/docs/RegDemoApache.java">下载</a>。<br />
+3)regexp自带的测试例程，也很有参考价值。它把所有正则式及相关的字符串以及结果都放在一个单独的文件里，在$REGEXPHOME/docs/RETest.txt中。当然，这个例程的运行也要在$REGEXPHOME目录下。<div class="code">cd $REGEXPHOME<br />
+java org.apache.regexp.RETest</div></p>
+
+<p><br />
+参考资料<br />
+1、 Jeffrey Hunter's  README_regular_expressions.txt |<br />
+http://www.idevelopment.info/topics/topics.cgi?LEVEL=programming</p>
+
+<p>2、The Jakarta Site – CVS Repository<br />
+http://jakarta.apache.org/site/cvsindex.html</p>
+
+<p><br />
+</p>
+
+<span class="posted">Posted by Hilton at October 15, 2003 11:49 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=309.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=309" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>　　突然想起，当用cvs将源码chckout之后，编译前一般要修改一下build.xml文件中jakarta-site2.dir的值，我是改为"."后，然后在build.xml所在的目录建立了一个子目录./lib,然后运行ant package-all的。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 16, 2003 02:15 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="309" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

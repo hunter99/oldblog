@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="gb2312"?>
+<!--测试文件，并将测试报告发送到开发人员指定的信箱 by biggie(biggie@hns-soft.com)-->
+<project name="test" default="build" basedir=".">
+    <property environment="env"/>
+    <property name="j2ee" value="env.j2ee_home"/>
+    <property name="base.dir" value="." />
+    <!--定义测试源文件-->
+    <property name="src" value="${base.dir}/test" />
+    <!--定义输出位置-->
+    <property name="classes" value="${base.dir}/defaultroot/WEB-INF/classes"/>
+    <!--定义lib-->
+    <property name="lib" value="${base.dir}/lib"/>
+    <!--定义classpath-->
+    <path id="appclasspath">
+        <pathelement path="${java.class.path}"/>
+        <fileset dir="${base.dir}/defaultroot/WEB-INF/lib">
+            <include name="*.jar"/>
+        </fileset>
+        <pathelement location="${base.dir}/defaultroot/WEB-INF/classes"/>
+        <pathelement location="D:/j2sdkee1.3.1/lib/j2ee.jar"/>
+    </path>
+    <!--initialization-->
+    <target name="init">
+           <tstamp/>
+           <mkdir dir="${classes}"/>
+    </target>
+    <target name="compiletest" depends="init">
+           <!--javac-->
+           <javac srcdir="${src}" destdir="${classes}" debug="off">
+               <classpath refid="appclasspath"/>
+               <include name="**/*.java" />
+           </javac>
+     </target>
+     <target name="build" depends="compiletest,run">
+         <tstamp/>
+         <exec executable="${base.dir}/email.bat" >
+         </exec>
+     </target>
+     <target name="run">
+         <junit>
+             <classpath refid="appclasspath"/>
+             <classpath>
+                 <pathelement location="${base.dir}/defaultroot/WEB-INF/classes"/>
+             </classpath>
+             <formatter type="xml"/>
+             <test name="test.AllTests" haltonfailure="no" outfile="result"/>
+         </junit>
+         <junitreport todir="./report">
+             <fileset dir=".">
+                 <include name="result.xml"/>
+             </fileset>
+             <report format="noframes" todir="./report"/>
+         </junitreport>
+     </target>
+</project>
+

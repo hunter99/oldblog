@@ -1,0 +1,289 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Digester学习笔记(三)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000336.html" tppabs="http://hedong.3322.org/archives/000336.html" title="Digester学习笔记(二)" />
+
+<link rel="next" href="000339.html" tppabs="http://hedong.3322.org/archives/000339.html" title="ImageMagick学习" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000337.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/233"
+    dc:title="Digester学习笔记(三)"
+    dc:identifier="http://hedong.3322.org/archives/000337.html"
+    dc:subject="ItTech"
+    dc:description="　　总觉得，Digester不仅仅能作配置文件解析，而且可以作得更多。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-27T21:44:10+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000337.html">
+<dc:title>Digester学习笔记(三)</dc:title>
+<dc:description>　　总觉得，Digester不仅仅能作配置文件解析，而且可以作得更多。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-27T21:44:10+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000336.html" tppabs="http://hedong.3322.org/archives/000336.html">&laquo; Digester学习笔记(二)</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000339.html" tppabs="http://hedong.3322.org/archives/000339.html">ImageMagick学习 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 27, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Digester学习笔记(三)</h3>
+
+<p>　　总觉得，Digester不仅仅能作配置文件解析，而且可以作得更多。</p>
+
+<a name="more"></a>
+<p><h4>配置属性</h4>　　Digester用来解析应用系统的配置文件，其本身也有很可配置的属性。<br />
+<table border="1"><tr><td>属性</td><td>描述</td></tr><tr><td>classLoader </td><td>指定类装载器(class loader)。ObjectCreateRule 和 FactoryCreateRule两个规则中，需要动态加载一些类（如那些盛放XML解析出来的数据的javaBean等），装载器可以在次指定。如果不指定，对这此类的加载将会利用线程上下文中的加载器（当useContextClassLoader值为真时）或利用加载Digester的那个加载器。</td></tr><tr><td>errorHandler </td><td>指定 SAX ErrorHandler，以在出现此类错误时调用。默认情况下，任何解析错误都会被记入日志，Digest会继续进行解析。</td></tr><tr><td>namespaceAware </td><td>一个布尔值，为真时对XML文件的解析时会考虑元素的域名空间（如不同的域名空间的同名元素会视为不同的元素）</td></tr><tr><td>ruleNamespaceURI </td><td>指定后续加入的规则所属的命名空间，如果此值为null,则加入的规则不与任何命名空间相联系。</td></tr><tr><td>rules </td><td>设定规则模板与XML元素的匹配处理程序。由于这个匹配程序是插件式的，所以匹配工作的完成可以用用户定义的匹配程序未完成。默认情况下，使用Digester提供的匹配器。</td></tr><tr><td>useContextClassLoader </td><td>一个布尔值，为真时FactoryCreateRule 和 ObjectCreateRule 两个规则中对类的装载将会采用当前线程上下文中指定的加载器。默认情况下，对类的动态加载会利用加载Digester的那个装载器。</td></tr><tr><td>validating </td><td>一个布尔值，为真时解析器会根据DTD内容对XML文档进行合法性检查，默认值是假，解析器只是检查XML是否格式良好(well formed).</td></tr></table><br />
+　　除了上述属性外，还可以注册一个本地DTD，以供DOCTYPE声明引用。这样的注册告诉XML解析器，当遇到DOCTYPE声明时，应使用刚注册的DTD的内容，而不是DOCTYPE声明中的标识符(identifier)。<br />
+　　例如，Struect框架控制器中，使用下述的注册，告诉Structs使用一个本地的DTD中的相关内容来处理Structs配置文件，这样可以适用于那些没有连接到互联网的应用环境，而在连到互联网的环境中可以加快运行速度(因为它避免了通过网络去取相关的资源)。<div class=”code”>URL url = new URL("/org/apache/struts/resources/struts-config_1_0.dtd");<br />
+digester.register("-//Apache Software Foundation//DTD Struts Configuration 1.0//EN",url.toString());<div><br />
+<h4>规则集打包</h4><br />
+　　通常情况下，一个规则被创建后，接着便注册，然后等在event时被调用，这些规则集很难为其它应用程序直接复用。一个解决方法是将所有规则都放在一个类中，此由这些规则可以很简单地被装载然后被注册使用。RuleSet接口就是为些而设计，一般是通过扩展RuleSetBase类来开发规则集类。如例：<div class="code">public&nbsp;class&nbsp;MyRuleSet&nbsp;extends&nbsp;RuleSetBase&nbsp;{<br />
+&nbsp;&nbsp;public&nbsp;MyRuleSet()&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;this("");<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;public&nbsp;MyRuleSet(String&nbsp;prefix)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;super();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;this.prefix&nbsp;=&nbsp;prefix;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;this.namespaceURI&nbsp;=&nbsp;"http://www.mycompany.com/MyNamespace";<br />
+&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;protected&nbsp;String&nbsp;prefix&nbsp;=&nbsp;null;<br />
+&nbsp;&nbsp;public&nbsp;void&nbsp;addRuleInstances(Digester&nbsp;digester)&nbsp;{<br />
+&nbsp;&nbsp;&nbsp;&nbsp;digester.addObjectCreate(prefix&nbsp;+&nbsp;"foo/bar",<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;"com.mycompany.MyFoo");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;digester.addSetProperties(prefix&nbsp;+&nbsp;"foo/bar");<br />
+&nbsp;&nbsp;}<br />
+}</div>可以这样使用这个规则集<div class="code">  Digester digester = new Digester();<br />
+  ... 一些配置Digester ...<br />
+  digester.addRuleSet(new MyRuleSet("baz/"));</div><br />
+<h4>带命名空间的XML解析</h4><br />
+　　这种情况下，使用Digester的步骤为：<ol><li>在Digester初始化部分，指明要考虑命名空间。<div class="code"> digester.setNamespaceAware(true);</div></li><br />
+<li>指明一些规则的命名空间,如<div class="code">digester.setRuleNamespaceURI("http://www.mycompany.com/MyNamespace");</div></li><br />
+<li>接下来定义一些与此命名空间有关的规则，此时可以省却前缀，如<div class="code">    digester.addObjectCreate("foo/bar", "com.mycompany.MyFoo");<br />
+    digester.addSetProperties("foo/bar");</div></li><br />
+<li>对其它命名空间，重复前面的2步</li></ol><br />
+　　另外，在指明要digester考虑命名空间之后，在定义匹配模板时，可以将命名空间别名加“：”作为元素名称的一部分使用。这与无命名空间时是一致的。<br />
+<h4>开发定制的匹配处理过程</h4><br />
+　　通过实现 org.apache.commons.digester.Rules接口或扩展org.apache.commons.digester.RulesBase类来达到定制匹配过程的目的。<br />
+　　Digester提供ExtendedBaseRules来扩展了匹配模板的定义，引入了特殊通配字符?和＊以及!,提供RegexRules来支持以正则式的语法定义匹配模板，提供WithDefaultsRulesWrapper来支持默认规则（即其它规则都不匹配时的处理规则）。<br />
+<h4>一些认识</h4><br />
+　　通过看说明材料，尤其在学习Digester包中的Catalog例子以后，有一些认识：<br />
+　　1、由于xml对属性名字的定义要求，与Java中对方法名字的定义要求不一致，导致出现不能自动映射的情况，如year-made标签属性，就不可能有方法setYear-made;<br />
+　　2、对于根元素，与其子元素建立联系，有几种办法：一种是先生成根元素实例，压入栈，然后解析，将调用方法规则建立联系；另一种是解析的过程中第一个创建它，然后用getRoot的方法得到。<br />
+　　3、如果某对象类构造都要参数，则此时需要扩展AbstractObjectCreationFactory类为这种对象建立一个Factory,在这个Factory中取得初始化参数值然后再创建一个对象实例。<br />
+　　4、设有某个标签，要想自动用该标签子元素的内容填充该标签对应的对象的属性，则需要用digester.setRules(new ExtendedBaseRules()),然后addRules(),然后再调用addBeanPropertySetter("bala/lala/?");进行规则定义,注意此模板中有通配符。<br />
+　　5、如果对象的属性是整型，则Digester自动将xml文件中字符串值转换为整型。<br />
+　　6、在指明要digester考虑命名空间之后，如果不会引起歧义，完全可以忽略命名空间的存在，除非你要针对特定的命名空间进行特定的处理。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October 27, 2003 09:44 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=337.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=337" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>很实用的文章。<br />
+真的非常感谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;greateWei&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;greateWei&#64;hotmail&#46;com">greateWei</a> at January 15, 2004 05:19 PM</span>
+</div>
+<div class="comments-body">
+<p>Thanks for your comments.</p>
+
+<p>hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January  3, 2004 02:42 PM</span>
+</div>
+<div class="comments-body">
+<p>可以看看:<a href="javascript:if(confirm('http://www-106.ibm.com/developerworks/java/library/j-lucene/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www-106.ibm.com/developerworks/java/library/j-lucene/'" tppabs="http://www-106.ibm.com/developerworks/java/library/j-lucene/">http://www-106.ibm.com/developerworks/java/library/j-lucene/</a><br />
+<a href="javascript:if(confirm('http://www.onjava.com/pub/a/onjava/2002/10/23/digester.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.onjava.com/pub/a/onjava/2002/10/23/digester.html'" tppabs="http://www.onjava.com/pub/a/onjava/2002/10/23/digester.html">http://www.onjava.com/pub/a/onjava/2002/10/23/digester.html</a></p>
+<span class="comments-post">Posted by: OK at January  3, 2004 12:26 AM</span>
+</div>
+<div class="comments-body">
+<p>good</p>
+<span class="comments-post">Posted by:  at December 11, 2003 06:30 PM</span>
+</div>
+<div class="comments-body">
+<p>好东西,谢谢啦</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;seawolfxp&#64;yahoo&#46;com&#46;cn'" tppabs="http://hedong.3322.org/archives/mailto&#58;seawolfxp&#64;yahoo&#46;com&#46;cn">seawolfxp</a> at October 30, 2003 10:45 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="337" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

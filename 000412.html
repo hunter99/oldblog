@@ -1,0 +1,421 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Jmagick在osf4上的安装</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000411.html" tppabs="http://hedong.3322.org/archives/000411.html" title="gcc崩溃了" />
+
+<link rel="next" href="000413.html" tppabs="http://hedong.3322.org/archives/000413.html" title="用bean进行图片压缩的另一种思路" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000412.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/301"
+    dc:title="Jmagick在osf4上的安装"
+    dc:identifier="http://hedong.3322.org/archives/000412.html"
+    dc:subject="ItTech"
+    dc:description="　　终于试出来了。..."
+    dc:creator="Hilton"
+    dc:date="2003-12-23T23:32:35+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000412.html">
+<dc:title>Jmagick在osf4上的安装</dc:title>
+<dc:description>　　终于试出来了。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-23T23:32:35+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000411.html" tppabs="http://hedong.3322.org/archives/000411.html">&laquo; gcc崩溃了</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000413.html" tppabs="http://hedong.3322.org/archives/000413.html">用bean进行图片压缩的另一种思路 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 23, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Jmagick在osf4上的安装</h3>
+
+<p>　　终于试出来了。</p>
+
+<a name="more"></a>
+<div class="code">$cvs -d :pserver:anonymous@jmagick.yeo.nu:/var/cvs/jmagick login
+
+<p>password:JMagick</p>
+
+<p>$cvs -d :pserver:anonymous@jmagick.yeo.nu:/var/cvs/jmagick checkout JMagick</p>
+
+<p>$cd JMagick</p>
+
+<p>$autoconf</p>
+
+<p>$./configure --with-java-includes=/usr/opt/java141/include/alpha</p>
+
+<p>$make all</p>
+
+<p>$make</p>
+
+<p>$cd generated</p>
+
+<p>$sh 1.sh</p>
+
+<p>$cd src/magick</p>
+
+<p>$sh l.sh</p>
+
+<p>$cd ../../</p>
+
+<p>$make all</p>
+
+<p>$make test</p>
+
+<p>$su</p>
+
+<p>#make install</div><br />
+其中，1.sh的内容如下：<div class="code">cp _DrawInfo.h magick/magick_DrawInfo.h</p>
+
+<p>cp _Magick.h magick/magick_Magick.h</p>
+
+<p>cp _MagickInfo.h magick/magick_MagickInfo.h</p>
+
+<p>cp _PixelPacket.h magick/magick_PixelPacket.h</p>
+
+<p>cp _ImageInfo.h magick/magick_ImageInfo.h</p>
+
+<p>cp _MagickImage.h magick/magick_MagickImage.h</p>
+
+<p>cp _MontageInfo.h magick/magick_MontageInfo.h</p>
+
+<p>cp _QuantizeInfo.h magick/magick_QuantizeInfo.h</p>
+
+<p>cp PixelPacket.h magick/</div>l.sh文件内容如下：<br />
+<div class="code">echo ---------------------------init------------------------------------------</p>
+
+<p>rm -f /home/ali/JMagick/obj/magick/*o</p>
+
+<p>echo ---------------------------c--lo------------------------------------------</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \</p>
+
+<p> -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \</p>
+
+<p> -c magick_PixelPacket.c -o /home/ali/JMagick/obj/magick/magick_PixelPacket.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \</p>
+
+<p> -c magick_PixelPacket.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_PixelPacket.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_ImageInfo.c -o /home/ali/JMagick/obj/magick/magick_ImageInfo.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_ImageInfo.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_ImageInfo.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_QuantizeInfo.c -o /home/ali/JMagick/obj/magick/magick_QuantizeInfo.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_QuantizeInfo.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_QuantizeInfo.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_DrawInfo.c -o /home/ali/JMagick/obj/magick/magick_DrawInfo.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_DrawInfo.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_DrawInfo.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MagickImage.c -o /home/ali/JMagick/obj/magick/magick_MagickImage.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MagickImage.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_MagickImage.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MontageInfo.c -o /home/ali/JMagick/obj/magick/magick_MontageInfo.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MontageInfo.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_MontageInfo.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_Magick.c -o /home/ali/JMagick/obj/magick/magick_Magick.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_Magick.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_Magick.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MagickInfo.c -o /home/ali/JMagick/obj/magick/magick_MagickInfo.lo</p>
+
+<p>gcc -I/home/ali/JMagick/generated/magick -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c magick_MagickInfo.c  -fPIC -DPIC -o /home/ali/JMagick/obj/magick/magick_MagickInfo.lo</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=compile gcc \<br />
+ -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c jmagick.c -o /home/ali/JMagick/obj/magick/jmagick.lo</p>
+
+<p>gcc -I/usr/local/include -I/usr/opt/java141/include/alpha \<br />
+ -c jmagick.c  -fPIC -DPIC \<br />
+    -o /home/ali/JMagick/obj/magick/jmagick.lo</p>
+
+<p>echo ---------------------------link------------------------------------------</p>
+
+<p>/bin/sh /home/ali/JMagick/libtool --mode=link gcc \<br />
+             -version-info 5:560:0         \<br />
+             -rpath /usr/local/lib -shared -L/usr/local/lib  -L/usr/lib             \<br />
+             -o JMagick                                        \<br />
+             -o /home/ali/JMagick/lib/libJMagick.la      \<br />
+             /home/ali/JMagick/obj/magick/magick_PixelPacket.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_ImageInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_QuantizeInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_DrawInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MagickImage.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MontageInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_Magick.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MagickInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/jmagick.lo \<br />
+		-L/usr/local/lib -ftest-coverage -fprofile-arcs -pg -p\<br />
+		 -lMagick  -ljpeg -lXext   -lX11  </p>
+
+<p>echo ---------------------------mkdir------------------------------------------</p>
+
+<p>mkdir /home/ali/JMagick/lib/.libs</p>
+
+<p>rm -fr /home/ali/JMagick/lib/.libs/libJMagick.la \<br />
+       /home/ali/JMagick/lib/.libs/libJMagick.* \<br />
+       /home/ali/JMagick/lib/.libs/libJMagick.*</p>
+
+<p>echo ---------------------------create link------------------------------------------</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_PixelPacket.lo magick_PixelPacket.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_ImageInfo.lo magick_ImageInfo.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_QuantizeInfo.lo magick_QuantizeInfo.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_DrawInfo.lo magick_DrawInfo.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_MagickImage.lo magick_MagickImage.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_MontageInfo.lo magick_MontageInfo.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_Magick.lo magick_Magick.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s magick_MagickInfo.lo magick_MagickInfo.o)</p>
+
+<p>(cd /home/ali/JMagick/obj/magick && ln -s jmagick.lo jmagick.o)</p>
+
+<p>echo ---------------------------build shared------------------------------------------</p>
+
+<p>gcc -shared  /home/ali/JMagick/obj/magick/magick_PixelPacket.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_ImageInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_QuantizeInfo.lo\<br />
+		  /home/ali/JMagick/obj/magick/magick_DrawInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MagickImage.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MontageInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_Magick.lo \<br />
+		 /home/ali/JMagick/obj/magick/magick_MagickInfo.lo \<br />
+		 /home/ali/JMagick/obj/magick/jmagick.lo -Wl \<br />
+		 /usr/local/lib/libMagick.a -Wl -L/usr/local/lib  -L/usr/lib \<br />
+		 /usr/local/lib/libMagick.a  /usr/local/lib/libjpeg.so \<br />
+		 /path/to/libgcc.a \<br />
+		 -L/usr/local/lib -ftest-coverage -fprofile-arcs -pg -p\<br />
+		 -lX11 -lXext -lz -lm -Wl,-soname  -Wl,libJMagick.so.5 -o \<br />
+		 /home/ali/JMagick/lib/.libs/libJMagick.so.5.0.560</p>
+
+<p>(cd /home/ali/JMagick/lib/.libs && rm -f libJMagick.so.5 && ln -s libJMagick.so.5.0.560 libJMagick.so.5)</p>
+
+<p>(cd /home/ali/JMagick/lib/.libs && rm -f libJMagick.so && ln -s libJMagick.so.5.0.560 libJMagick.so)</p>
+
+<p>#creating /home/ali/JMagick/lib/libJMagick.la</p>
+
+<p>(cd /home/ali/JMagick/lib/.libs && rm -f libJMagick.la && ln -s ../libJMagick.la libJMagick.la)<br />
+</div><br />
+说明1：此处的版本号可能有问题<br />
+2：过几天，eric也许会生成一个新的版本。那时，就不用这么费力了。<br />
+</p>
+
+<span class="posted">Posted by Hilton at December 23, 2003 11:32 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=412.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=412" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="412" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

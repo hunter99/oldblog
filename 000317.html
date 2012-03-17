@@ -1,0 +1,319 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: HttpClient学习（四）
+</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000316.html" tppabs="http://hedong.3322.org/archives/000316.html" title="Jakarta Commons Logging学习笔记" />
+
+<link rel="next" href="000331.html" tppabs="http://hedong.3322.org/archives/000331.html" title="Blog
+" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000317.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/214"
+    dc:title="HttpClient学习（四）
+"
+    dc:identifier="http://hedong.3322.org/archives/000317.html"
+    dc:subject="MtUsage"
+    dc:description="　　 关于SSL、多线程处理部分。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-20T23:13:04+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000317.html">
+<dc:title>HttpClient学习（四）
+</dc:title>
+<dc:description>　　 关于SSL、多线程处理部分。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-20T23:13:04+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000316.html" tppabs="http://hedong.3322.org/archives/000316.html">&laquo; Jakarta Commons Logging学习笔记</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000331.html" tppabs="http://hedong.3322.org/archives/000331.html">Blog
+ &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 20, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">HttpClient学习（四）
+</h3>
+
+<p>　　 关于SSL、多线程处理部分。<br />
+</p>
+
+<a name="more"></a>
+<p>　　<h4>1、SSL</h4><br />
+　　借助Java Secure Socket Extension (JSSE)，HttpClient全面支持Secure Sockets Layer (SSL)或IETF Transport Layer Security (TLS)协议上的HTTP。JSSE已经jre1.4及以后的版本中，以前的版本则需要手工安装设置，具体过程参见<a href ="javascript:if(confirm('http://java.sun.com/products/jsse/doc/guide/API_users_guide.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation'" tppabs="http://java.sun.com/products/jsse/doc/guide/API_users_guide.html#Installation">Sun网站</a>或<a href="000310.html" tppabs="http://hedong.3322.org/archives/000310.html">学习笔记一</a><br />
+　　HttpClient中使用SSL非常简单，参考下面两个例子:<div class="code">HttpClient httpclient = new HttpClient();<br />
+  GetMethod httpget = new GetMethod("https://www.verisign.com/"); <br />
+  httpclient.executeMethod(httpget);<br />
+  System.out.println(httpget.getStatusLine().toString());</div>，如果通过需要授权的代理，则如下：<div class="code">HttpClient httpclient = new HttpClient();<br />
+  httpclient.getHostConfiguration().setProxy("myproxyhost", 8080);<br />
+  httpclient.getState().setProxyCredentials("my-proxy-realm", " myproxyhost",<br />
+  new UsernamePasswordCredentials("my-proxy-username", "my-proxy-password"));<br />
+  GetMethod httpget = new GetMethod("https://www.verisign.com/"); <br />
+  httpclient.executeMethod(httpget);<br />
+  System.out.println(httpget.getStatusLine().toString());</div><br />
+　　在HttpClient中定制SSL的步骤如下：<br />
+<ol><li> 提供了一个实现了org.apache.commons.httpclient.protocol.SecureProtocolSocketFactory接口的socket factory。这个 socket factory负责打一个到服务器的端口，使用标准的或第三方的SSL函数库，并进行象连接握手等初始化操作。通常情况下，这个初始化操作在端口被创建时自动进行的。</li><br />
+<li> 实例化一个org.apache.commons.httpclient.protocol.Protocol对象。创建这个实例时，需要一个合法的协议类型(如https)，一个定制的socket factory，和一个默认的端中号(如https的443端口).<div class="code">Protocol myhttps = new Protocol("https", new MySSLSocketFactory(), 443);</div>然后，这个实例可被设置为协议的处理器。<div class="code">HttpClient httpclient = new HttpClient();<br />
+httpclient.getHostConfiguration().setHost("www.whatever.com", 443, myhttps);<br />
+GetMethod httpget = new GetMethod("/");<br />
+httpclient.executeMethod(httpget);</div></li><br />
+<li>通过调用Protocol.registerProtocol方法，将此定制的实例，注册为某一特定协议的默认的处理器。由此，可以很方便地定制自己的协议类型(如myhttps)。<div class="code">Protocol.registerProtocol("myhttps", <br />
+new Protocol("https", new MySSLSocketFactory(), 9443));<br />
+...<br />
+HttpClient httpclient = new HttpClient();<br />
+GetMethod httpget = new GetMethod("myhttps://www.whatever.com/");<br />
+httpclient.executeMethod(httpget);</div>如果想用自己定制的处理器取代https默认的处理器，只需要将其注册为"https"即可。<div class="code">Protocol.registerProtocol("https", <br />
+new Protocol("https", new MySSLSocketFactory(), 443));<br />
+HttpClient httpclient = new HttpClient();<br />
+GetMethod httpget = new GetMethod("https://www.whatever.com/");<br />
+httpclient.executeMethod(httpget);</div></li></ol><br />
+　　已知的限制和问题<br />
+<ol><li>持续的SSL连接在Sun的低于1.4JVM上不能工作，这是由于JVM的bug造成。</li><br />
+<li>通过代理访问服务器时，非抢先认证（ Non-preemptive authentication）会失败，这是由于HttpClient的设计缺陷造成的，以后的版本中会修改。</li></ol><br />
+　　遇到问题的处理<br />
+　　很多问题，特别是在jvm低于1.4时，是由jsse的安装造成的。<br />
+　　下面的代码，可作为最终的检测手段。<br />
+<div class="code">  import java.io.BufferedReader;<br />
+  import java.io.InputStreamReader;<br />
+  import java.io.OutputStreamWriter;<br />
+  import java.io.Writer;<br />
+  import java.net.Socket;</p>
+
+<p>  import javax.net.ssl.SSLSocketFactory;</p>
+
+<p>  public class Test {<br />
+        <br />
+     public static final String TARGET_HTTPS_SERVER = "www.verisign.com"; <br />
+     public static final int    TARGET_HTTPS_PORT   = 443; <br />
+        <br />
+     public static void main(String[] args) throws Exception {<br />
+        <br />
+       Socket socket = SSLSocketFactory.getDefault().<br />
+         createSocket(TARGET_HTTPS_SERVER, TARGET_HTTPS_PORT);<br />
+       try {<br />
+         Writer out = new OutputStreamWriter(<br />
+            socket.getOutputStream(), "ISO-8859-1");<br />
+         out.write("GET / HTTP/1.1\r\n");  <br />
+         out.write("Host: " + TARGET_HTTPS_SERVER + ":" + <br />
+             TARGET_HTTPS_PORT + "\r\n");  <br />
+         out.write("Agent: SSL-TEST\r\n");  <br />
+         out.write("\r\n");  <br />
+         out.flush();  <br />
+         BufferedReader in = new BufferedReader(<br />
+            new InputStreamReader(socket.getInputStream(), "ISO-8859-1"));<br />
+         String line = null;<br />
+         while ((line = in.readLine()) != null) {<br />
+            System.out.println(line);<br />
+         }<br />
+       } finally {<br />
+         socket.close(); <br />
+       }<br />
+     }<br />
+  }</div><br />
+　　<h4>2、httpclient的多线程处理</h4><br />
+　　使用多线程的主要目的，是为了实现并行的下载。在httpclient运行的过程中，每个http协议的方法，使用一个HttpConnection实例。由于连接是一种有限的资源，每个连接在某一时刻只能供一个线程和方法使用，所以需要确保在需要时正确地分配连接。HttpClient采用了一种类似jdbc连接池的方法来管理连接，这个管理工作由  MultiThreadedHttpConnectionManager完成。<div class="code">MultiThreadedHttpConnectionManager connectionManager = <br />
+		new MultiThreadedHttpConnectionManager();<br />
+HttpClient client = new HttpClient(connectionManager);</div>此是，client可以在多个线程中被用来执行多个方法。每次调用HttpClient.executeMethod() 方法，都会去链接管理器申请一个连接实例，申请成功这个链接实例被签出(checkout)，随之在链接使用完后必须归还管理器。管理器支持两个设置：<table border="1"><tr><td> maxConnectionsPerHost</td><td>每个主机的最大并行链接数，默认为2</td></tr><tr><td>maxTotalConnections</td><td>客户端总并行链接最大数，默认为20</td></tr></table><br />
+　　管理器重新利用链接时，采取早归还者先重用的方式（least recently used approach）。<br />
+　　由于是使用HttpClient的程序而不是HttpClient本身来读取应答包的主体，所以HttpClient无法决定什么时间连接不再使用了，这也就要求在读完应答包的主体后必须手工显式地调用releaseConnection()来释放申请的链接。<div class="code">MultiThreadedHttpConnectionManager connectionManager = new MultiThreadedHttpConnectionManager();<br />
+HttpClient client = new HttpClient(connectionManager);<br />
+	...<br />
+// 在某个线程中。<br />
+GetMethod get = new GetMethod("http://jakarta.apache.org/");<br />
+try {<br />
+    client.executeMethod(get);<br />
+    // print response to stdout<br />
+    System.out.println(get.getResponseBodyAsStream());<br />
+} finally {<br />
+    // be sure the connection is released back to the connection <br />
+    // manager<br />
+    get.releaseConnection();<br />
+}</div>对每一个HttpClient.executeMethod须有一个method.releaseConnection()与之匹配.</p>
+
+<span class="posted">Posted by Hilton at October 20, 2003 11:13 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=317.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=317" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="317" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

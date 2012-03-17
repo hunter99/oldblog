@@ -1,0 +1,380 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 会话EJB的学习</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000439.html" tppabs="http://hedong.3322.org/archives/000439.html" title="北京下雪了" />
+
+<link rel="next" href="000441.html" tppabs="http://hedong.3322.org/archives/000441.html" title="今天、明天" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000440.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/328"
+    dc:title="会话EJB的学习"
+    dc:identifier="http://hedong.3322.org/archives/000440.html"
+    dc:subject="ItTech"
+    dc:description="　　继续学习j2ee Tutorial...."
+    dc:creator="Hilton"
+    dc:date="2004-01-12T23:37:29+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000440.html">
+<dc:title>会话EJB的学习</dc:title>
+<dc:description>　　继续学习j2ee Tutorial....</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2004-01-12T23:37:29+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000439.html" tppabs="http://hedong.3322.org/archives/000439.html">&laquo; 北京下雪了</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000441.html" tppabs="http://hedong.3322.org/archives/000441.html">今天、明天 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">January 12, 2004</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">会话EJB的学习</h3>
+
+<p>　　继续学习j2ee Tutorial.</p>
+
+<a name="more"></a>
+<p>　　创建一个允许远程访问的会话EJB,需要分属三个文件的三类代码：会话EJB类、Home接口、远程接口。<br />
+会话EJB类的取名要示为***Bean，且要满足以下要求：<br />
+<ul><li>实现SessionBean接口</li><li>类须声明为public</li><li>不能声明为abstract或final</li><li>实现一个或多个ejbCreate方法，以及EjbRemove、ejbActivate、ejbPassivate和setSessionContext方法各一</li><li>实现业务方法</li><li>实现一个参数的pulic类型的构造器</li><li>不能定义finalize方法</li></ul></p>
+
+<p>ejbCreate方法<br />
+EJB运行在EJB容器中，客户不能直接实例化它们，只有EJB容器能够实例化EJB，过程如下：<br />
+<ol><li>客户调用home对象的create方法</li><li>EJB容器实例化该EJB</li><li>EJB容器调用EJB类中的ejbCreate方法</li></ol></p>
+
+<p>业务方法<br />
+要求如下：<br />
+<ul><li>方法名不能与EJB架构中的定义的方法名冲突。</li><li>访问控制修饰符须为public</li><li>如果允许远程访问，参数和返回类型必须是Java RMI API所支持的合法类型。</li><li>修饰符不能是static或final.</li></ul></p>
+
+<p>Home接口<br />
+对会话EJB而言，其HOME接口主要用于远程客户可能调用的create方法。Home中的每一个create方法，在EJB类中都有对应的ejbCreate方法。<br />
+Home接口的create方法的要求如下：<br />
+<ul><li>create方法的参数数量与类型一定要和对应的ejbCreate方法匹配</li><li>create方法的参数和返回类型必须是有效的RMI类型</li><li>create方法的返回类型为EJB的远程接口</li><li>create方法的throws子句要包括java.rmi.RemoteException和javax.ejb.CreateException.</li></ul></p>
+
+<p>远程接口<br />
+定义远程客户调用的业务方法。<br />
+远程接口中的方法定义要求如下：<br />
+<ul><li>远程接口中的每个方法要和EJB类相匹配</li><li>远程接口中的方法签名必须和EJB类中的对应方法相同</li><li>参数和返回值一定要是RMI类型</li><li>throws子句要包括java.rmi.RemoteException。</li></ul></p>
+
+<p>相关代码<br />
+三个主要文件<br />
+=====Cart.java=====<br />
+import java.util.*;<br />
+import javax.ejb.EJBObject;<br />
+import java.rmi.RemoteException;<br />
+public interface Cart extends EJBObject {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void addBook(String title) throws RemoteException;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void removeBook(String title) throws BookException, RemoteException;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public Vector getContents() throws RemoteException;<br />
+}<br />
+=====CartHome.java=====<br />
+import java.io.Serializable;<br />
+import java.rmi.RemoteException;<br />
+import javax.ejb.CreateException;<br />
+import javax.ejb.EJBHome;<br />
+public interface CartHome extends EJBHome {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Cart create(String person) throws RemoteException, CreateException;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Cart create(String person, String id) throws RemoteException, CreateException; <br />
+}<br />
+=====CartBean.java=====<br />
+import java.util.*;<br />
+import javax.ejb.*;<br />
+public class CartBean implements SessionBean {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;String customerName;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;String customerId;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Vector contents;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void ejbCreate(String person) throws CreateException {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (person == null) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new CreateException("Null person not allowed.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customerName = person;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customerId = "0";<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents = new Vector();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void ejbCreate(String person, String id) throws CreateException {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (person == null) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new CreateException("Null person not allowed.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customerName = person;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IdVerifier idChecker = new IdVerifier();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (idChecker.validate(id)) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;customerId = id;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} else {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new CreateException("Invalid id: " + id);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents = new Vector();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void addBook(String title) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;contents.addElement(title);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void removeBook(String title) throws BookException {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean result = contents.removeElement(title);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (result == false) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;throw new BookException(title + " not in cart.");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public Vector getContents() {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return contents;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public CartBean() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void ejbRemove() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void ejbActivate() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void ejbPassivate() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public void setSessionContext(SessionContext sc) {}<br />
+} <br />
+两个辅助类<br />
+=====IdVerifier.java=====<br />
+public class IdVerifier {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public IdVerifier() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public boolean validate(String id) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;boolean result = true;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for (int i = 0; i &lt; id.length(); i++) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if (Character.isDigit(id.charAt(i)) == false) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;result = false;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;return result;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+=====BookException.java=====<br />
+public class BookException extends Exception {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public BookException() {}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public BookException(String msg) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;super(msg);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+}<br />
+客户端<br />
+=====CartClient.java=====<br />
+import java.util.*;<br />
+import javax.naming.Context;<br />
+import javax.naming.InitialContext;<br />
+import javax.rmi.PortableRemoteObject;<br />
+public class CartClient {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;public static void main(String[] args) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Context initial = new InitialContext();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Object objref = initial.lookup("java:comp/env/ejb/SimpleCart");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CartHome home = (CartHome) PortableRemoteObject.narrow(objref,CartHome.class);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Cart shoppingCart = home.create("Duke DeEarl", "123");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shoppingCart.addBook("The Martian Chronicles");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shoppingCart.addBook("2001 A Space Odyssey");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shoppingCart.addBook("The Left Hand of Darkness");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Vector bookList = new Vector();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bookList = shoppingCart.getContents();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Enumeration enumer = bookList.elements();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;while (enumer.hasMoreElements()) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String title = (String) enumer.nextElement();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.out.println(title);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shoppingCart.removeBook("Alice in Wonderland");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;shoppingCart.remove();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (BookException ex) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.err.println("Caught a BookException: " + ex.getMessage());<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(0);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;} catch (Exception ex) {<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.err.println("Caught an unexpected exception!");<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ex.printStackTrace();<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;System.exit(1);<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;} <br />
+} <br />
+运行结果如图：<img alt="statefulejbres.gif" src="statefulejbres.gif" tppabs="http://hedong.3322.org/archives/pics/statefulejbres.gif" width="782" height="492" border="0" /></p>
+
+<p>需要注意的问题：<br />
+1、在布署应用时，一定要选中Return Client Jar这个单选框。<br />
+2、要注意ejb ref的定义，参考下图，其中方框中的ejb/SimpleCart要在CartClient的基本属性中定义。<br />
+<img alt="statefulejbref.gif" src="statefulejbref.gif" tppabs="http://hedong.3322.org/archives/pics/statefulejbref.gif" width="709" height="387" border="0" /><br />
+3、具体的编译、打包及部署过程，请参考<a href="000438.html" tppabs="http://hedong.3322.org/archives/000438.html">前一篇blog</a>.</p>
+
+<span class="posted">Posted by Hilton at January 12, 2004 11:37 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=440.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=440" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>不错，简明扼要，要是介绍一下，配置是使用其它的应用服务器，就好了。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.allcom.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.allcom.cn/'" tppabs="http://www.allcom.cn/">魔戒</a> at January 14, 2004 06:28 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="440" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

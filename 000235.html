@@ -1,0 +1,277 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: XSL-FO学习笔记(1)</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000234.html" tppabs="http://hedong.3322.org/archives/000234.html" title="邮件列表的转&lt;del&gt;换&lt;/deL&gt;&lt;ins&gt;移&lt;/ins&gt;" />
+
+<link rel="next" href="000236.html" tppabs="http://hedong.3322.org/archives/000236.html" title="XSL-FO学习笔记(2)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000235.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/159"
+    dc:title="XSL-FO学习笔记(1)"
+    dc:identifier="http://hedong.3322.org/archives/000235.html"
+    dc:subject="ItTech"
+    dc:description="　　能够生成PDF文件，总是件让我感到很神秘的事情。我以前用过的生成PDF的方法有1）将相关文件用相应的软件打开，“打印”到一个文件如ali.prn，然后手工将ali.prn改为ali.ps,再用GostView打开ali.ps,最后用其convert功能生成pdf文件，有一定比率的不成功；2）利用Acrobat Distiller；3）利用Acrobat PDFWriter。 　　现在，可以通过xsl-fo和apache fop编程实现，总让我感到兴奋。..."
+    dc:creator="Hilton"
+    dc:date="2003-09-19T22:42:12+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000235.html">
+<dc:title>XSL-FO学习笔记(1)</dc:title>
+<dc:description>　　能够生成PDF文件，总是件让我感到很神秘的事情。我以前用过的生成PDF的方法有1）将相关文件用相应的软件打开，“打印”到一个文件如ali.prn，然后手工将ali.prn改为ali.ps,再用GostView打开ali.ps,最后用其convert功能生成pdf文件，有一定比率的不成功；2）利用Acrobat Distiller；3）利用Acrobat PDFWriter。 　　现在，可以通过xsl-fo和apache fop编程实现，总让我感到兴奋。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-09-19T22:42:12+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000234.html" tppabs="http://hedong.3322.org/archives/000234.html">&laquo; 邮件列表的转<del>换</deL><ins>移</ins></a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000236.html" tppabs="http://hedong.3322.org/archives/000236.html">XSL-FO学习笔记(2) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">September 19, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">XSL-FO学习笔记(1)</h3>
+
+<p><img alt="fop_logo.jpg" src="fop_logo.jpg" tppabs="http://hedong.3322.org/archives/pics/fop_logo.jpg" width="212" height="122" border="0" align="left"/>　　能够生成PDF文件，总是件让我感到很神秘的事情。我以前用过的生成PDF的方法有1）将相关文件用相应的软件打开，“打印”到一个文件如ali.prn，然后手工将ali.prn改为ali.ps,再用GostView打开ali.ps,最后用其convert功能生成pdf文件，有一定比率的不成功；2）利用Acrobat Distiller；3）利用Acrobat PDFWriter。<br />
+　　现在，可以通过xsl-fo和apache fop编程实现，总让我感到兴奋。<br />
+</p>
+
+<a name="more"></a>
+<p>1、下载安装及运行fop<br />
+　　去<a href="javascript:if(confirm('http://xml.apache.org/fop/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xml.apache.org/fop/'" tppabs="http://xml.apache.org/fop/" title="Formatting Objects Processor">fop主页</a>下载fop，有两个版本一个是维护版一个是设计版，我下的维护版的0.20.5版binary包。解压缩到$FOPHOME，此目录下有fop.cmd(for windows)或fop.sh(for *nix)。<br />
+　　从这儿<a href="sample.fo.htm" tppabs="http://hedong.3322.org/archives/docs/sample.fo">下载示例sample.fo文件</a>，运行<div class="code">fop.cmd sample.fo sample.pdf</div>，OK生成sample.pdf了。</p>
+
+<p>2、将 XML 文档转换为 PDF 文件需要两个基本步骤：<br />
+<img alt="fop-xml-pdf.gif" src="fop-xml-pdf.gif" tppabs="http://hedong.3322.org/archives/pics/fop-xml-pdf.gif" width="338" height="134" border="0" align="right"/>1)用 XSLT 样式表将 XML 文档转换为由 XSL-FO 元素构成的文件。要执行这一转换，只需用调用 XSLT 处理器。 <br />
+2)用某种显示引擎将 XSL-FO 元素转换为 PDF 文件。</p>
+
+<p>3、XSL-FO 文档定义了制作高质量可打印文档时非常重要的几件事情：<br />
+1)有关页面的实际大小的信息（信纸和 A4 等等） <br />
+2)有关页边距（顶部、左边、底部和右边）、页眉和页脚和页面其它特性的信息 <br />
+3)有关文本的字体、字体大小、颜色和其它特征的信息 <br />
+4)要打印的实际文本，由描述段落、突出显示、表等类似物的元素来标记 </p>
+
+<p>4、XSL-FO文档结构<br />
+<img alt="fop-structure.gif" src="fop-structure.gif" tppabs="http://hedong.3322.org/archives/pics/fop-structure.gif" width="327" height="224" border="0" /><br />
+&lt;fo:root&gt; 元素包含 &lt;fo:layout-master-set&gt; 和 &lt;fo:page-sequence&gt;。<br />
+&lt;fo:layout-master-set&gt; 通常包含关于页面布局的信息，而 &lt;fo:page-sequence&gt; 包含您正在格式化的实际内容。</p>
+
+<p>5、示例讲解<br />
+<table border=1><tr><td>sample.fo</td><td>说明</td></tr><tr><td>&lt;fo:root&nbsp;xmlns:fo="http://www.w3.org/1999/XSL/Format"&gt;</td><td>根元素&lt;fo:root&gt;,fo为命名空间前缀,包含一个&nbsp;&lt;fo:layout-master-set&gt;，然后是一个或多个&nbsp;&lt;fo:page-sequence&gt;。</td></tr><tr><td>&nbsp;&nbsp;&lt;fo:layout-master-set&gt;</td><td>指定页面定义,可以使用&nbsp;&lt;fo:simple-page-master&gt;&nbsp;元素来定义所需的每一种页面布局.</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:simple-page-master&nbsp;master-name="main"&nbsp;</td><td>定义某个特定页面的布局,&nbsp;maste-name是该页面master的名称。</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-top="36pt"&nbsp;margin-bottom="36pt"&nbsp;</td><td>页面顶底边距</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;page-width="8.5in"&nbsp;page-height="11in"&nbsp;</td><td>页面实际宽高</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin-left="72pt"&nbsp;margin-right="72pt"&gt;</td><td>页面左右边距</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:region-body&nbsp;margin-bottom="50pt"&nbsp;margin-top="50pt"/&gt;</td><td>为&nbsp;region-body&nbsp;区域定义了长度为&nbsp;50&nbsp;点的顶部和底部页边距,页面上还有region-before/region-after/region-start/region-end四区域。</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:simple-page-master&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&lt;/fo:layout-master-set&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&lt;fo:page-sequence&nbsp;master-reference="main"&gt;</td><td>&lt;fo:page-sequence&gt;&nbsp;定义文档内使用的页面布局的序列,此处将main用于所有页面</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:flow&nbsp;flow-name="xsl-region-body"&gt;</td><td>&lt;fo:flow&gt;定义在指定区域内显示的内容,&nbsp;由于显示引擎(如fop)可以自动或据指定规则计算换行、分栏、分页符,&nbsp;故称之为流。</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:block&nbsp;font-size="14pt"&nbsp;line-height="17pt"&gt;</td><td>&lt;fo:block&gt;&nbsp;是最基本的元素，用于格式化一个文本块,&nbsp;它类似于&nbsp;HTML&nbsp;中的&nbsp;p&nbsp;元素&lt;fo:block&gt;&nbsp;元素总是会产生一个换行。此处定义字体大小和行高，有行间距为3，此值一般为3－6。</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This&nbsp;is&nbsp;a&nbsp;paragraph&nbsp;of&nbsp;text.&nbsp;&nbsp;Notice&nbsp;that&nbsp;as&nbsp;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;fo:inline&nbsp;font-style="italic"&gt;this&nbsp;meaningless&nbsp;</td><td>&lt;fo:inline&gt;&nbsp;在现有&nbsp;&lt;fo:block&gt;&nbsp;内定义一些新的文本特性.</td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;prose&lt;/fo:inline&gt;&nbsp;drones&nbsp;on&nbsp;and&nbsp;on,&nbsp;the&nbsp;FOP&nbsp;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;software&nbsp;automatically&nbsp;calculates&nbsp;line&nbsp;breaks&nbsp;for&nbsp;us.&nbsp;&nbsp;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Isn't&nbsp;that&nbsp;fascinating?</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:block&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&lt;/fo:flow&gt;</td><td></td></tr><tr><td>&nbsp;&nbsp;&lt;/fo:page-sequence&gt;</td><td></td></tr><tr><td>&lt;/fo:root&gt;</td><td></td></tr></table></p>
+
+<p>6、两个概念<br />
+页面布局(layout)主要设置与纸有关的信息；页面则是指用以打印的区域。页面又分为5个区域(region)，如右图。<img alt="fo-regions.gif" src="fo-regions.gif" tppabs="http://hedong.3322.org/archives/pics/fo-regions.gif" width="179" height="205" border="0" align="right"/>上例中只用到了region-body区域。</p>
+
+<p>7、xsl-fo中关于距离的单位<br />
+<table border=1><tr><td>单位</td><td>含义</td></tr><tr><td>cm </td><td>厘米</td></tr><tr><td>mm </td><td>毫米</td></tr><tr><td>in </td><td>英寸</td></tr><tr><td>pt </td><td>点（72 点 = 1 英寸）</td></tr><tr><td>pc </td><td>派卡（12 点 = 1 派卡，6 派卡 = 1 英寸）</td></tr><tr><td>px </td><td>像素（有时随格式化程序或设备的不同而有所不同，所以要小心使用）</td></tr><tr><td>em </td><td>一个大写 M 的宽度</td></tr></table></p>
+
+<p>8、&lt;fo:inline&gt;元素<br />
+设置粗体用font-weight="bold",斜体字用font-style="italic",字体如等宽字体font-family="monospace".</p>
+
+<p>9、&lt;fo:block&gt;元素<br />
+text-align/text-align-last定义文本行/最后一行文本如何对齐，两者的值集都是start、center、end 和 justify,分别指左、中、右和左右对齐。<br />
+space-before 和 space-after用来指定块前块后的间距。可以再附以.minimum、.maximum、.optimum 和 .precedence 等后缀，由此可得10个属性。<br />
+keep-with-next、keep-with-previous 和 keep-together用来设置与前块、与后块及块内的显示控制，可赋之以.within-line、.within-column 和 .within-page 等后缀，可得12种属性。值集为auto/数值/always,优先级由低到高。<br />
+break-before和break-after分别定义块前块后放置分隔符，值有五个，如表<table border="1"><tr><th>属性值</th><th width="350pt">值的作用</th></tr><tr><td><code>auto</code></td><td width="350pt">让显示引擎自行处理</td></tr><tr><td><code>column</code></td><td width="350pt">在这个块的前面放置分栏符</td></tr><tr><td><code>page</code></td><td width="350pt">在这个块的前面放置分页符</td></tr><tr><td><code>odd-page</code></td><td width="350pt">显示引擎插入一个分页符（或两个，如有必要的话），以便这一块在奇数页上开始。换句话说，如果一个分页符会使这个块在偶数页上开始的话，FOP 会插入第二个分页符。</td></tr><tr><td><code>even-page</code></td><td width="350pt">显示引擎插入一个分页符（或两个，如有必要的话），以便这一块在偶数页上开始。</td></tr></table><br />
+widows 特性定义了当一个块在页面底部开始显示时，必须一起出现的最小行数；缺省值是 2。<br />
+orphans 特性定义了当一个块在当前页面显示不下时其最后几行在下页顶部显示时必须一起出现的最小行数。其缺省值也是 2。<br />
+10、图形<br />
+外部的gif/jpg/svg文件，可以用&lt;fo:external-graphic src="..."&gt;来指定。svg文件可以嵌入fo文件本身，用&lt;fo:instream-foreign-object&gt;.只有把这些元素单独放到block中才能有换行的效果。<br />
+11、水平线<br />
+用&lt;fo:leader&gt;来实现，有属性leader-pattern，可取值space/rule/dots分别表空白/实线/虚线,有属性leader-length指明长度，默认忹列等宽。</p>
+
+<p><center><a href="000236.html" tppabs="http://hedong.3322.org/archives/000236.html" title="学习笔记（2）">XSL-FO学习笔记（2）</a></center></p>
+
+<p><br />
+参考文献：<br />
+1、FOP主页<br />
+http://xml.apache.org/fop/<br />
+2、XSL 格式化对象（XSL-FO）基础知识<br />
+http://www-900.ibm.com/developerWorks/cn/cnedu.nsf/xml-onlinecourse-bytitle/3B308072632F949FC8256D320006CA3F?OpenDocument<br />
+3、XSL规范<br />
+http://www.w3.org/TR/xsl/Overview.html</p>
+
+<span class="posted">Posted by Hilton at September 19, 2003 10:42 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=235.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=235" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="235" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

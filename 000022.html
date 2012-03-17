@@ -1,0 +1,397 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: OSW:12.CVS设置与应用</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000021.html" tppabs="http://hedong.3322.org/archives/000021.html" title="OSW:11.IPTables学习" />
+
+<link rel="next" href="000023.html" tppabs="http://hedong.3322.org/archives/000023.html" title="OSW:13.WebLog的分析" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000022.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/26"
+    dc:title="OSW:12.CVS设置与应用"
+    dc:identifier="http://hedong.3322.org/archives/000022.html"
+    dc:subject="ItTech"
+    dc:description="　　最近连续见几篇文章，在谈CVS的使用，想起以前在solaris配置CVS的一篇笔记。..."
+    dc:creator="Hilton"
+    dc:date="2003-07-13T03:34:52+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000022.html">
+<dc:title>OSW:12.CVS设置与应用</dc:title>
+<dc:description>　　最近连续见几篇文章，在谈CVS的使用，想起以前在solaris配置CVS的一篇笔记。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-13T03:34:52+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000021.html" tppabs="http://hedong.3322.org/archives/000021.html">&laquo; OSW:11.IPTables学习</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000023.html" tppabs="http://hedong.3322.org/archives/000023.html">OSW:13.WebLog的分析 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 13, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">OSW:12.CVS设置与应用</h3>
+
+<p>　　最近连续见几篇文章，在谈CVS的使用，想起以前在solaris配置CVS的一篇笔记。</p>
+
+<a name="more"></a>
+<p>预备工作</p>
+
+<p>安装rcs</p>
+
+<p>－－－－－－－安装－－－－－－－<br />
+1)从 www.cvshome.org 下载　cvs-1.11.2.tar.gz<br />
+2)上传至unix<br />
+3)gunzip -c cvs-1.11.2.tar.gz|tar xvf -<br />
+4)cd cvs-1.11.2<br />
+4.5)./configure  //可能要运行<br />
+5)make<br />
+6)make check<br />
+        可能出现错误信息，但编译正常<br />
+7)su <br />
+8)make install<br />
+9)vi /etc/services，增加二行<br />
+cvspserver      2401/tcp                        # cvs client/server operations<br />
+cvspserver      2401/udp                        # cvs client/server operations<br />
+  vi /etc/inetd.conf,增加一行<br />
+cvspserver stream tcp nowait root  /usr/local/bin/cvs -f --allow-root=/export/home0/cvsroot pserver<br />
+10)vi /etc/profile,增加一行<br />
+CVSROOT=/export/home0/cvsroot;export CVSROOT<br />
+   vi /.profile,增加一行<br />
+CVSROOT=/export/home0/cvsroot;export CVSROOT   <br />
+11)/usr/sbin/groupadd cvs<br />
+12)/usr/sbin/useradd -g cvs -d /export/home0/cvsroot -m cvsroot<br />
+   passwd cvsroot<br />
+   /usr/sbin/useradd cvspub<br />
+   /usr/sbin/usermod -G cvs cvspub<br />
+13)chmod 755 /export/home0/cvsroot<br />
+14)ps -aef|grep inetd<br />
+   kill inetd<br />
+   /usr/sbin/inetd -s<br />
+15)su - cvsroot<br />
+16)cvs -d /export/home0/cvsroot init<br />
+17)cvs -d :pserver:cvsroot@localhost:/export/home0/cvsroot login<br />
+   [input the password of cvsroot]</p>
+
+<p>－－－－－－－管理－－－－－－－   <br />
+1)su - cvsroot<br />
+2)cd $CVSROOT/*T<br />
+3)/usr/local/apache/bin/htpasswd -b passwd ali alipwd<br />
+  /usr/local/apache/bin/htpasswd -b passwd hehe hehepwd<br />
+4)vi passwd 在每行后面加  <br />
+        :cvspub  <br />
+5)vi writers<br />
+        ali<br />
+6)vi readers<br />
+        hehe</p>
+
+<p>----------------使用-----------------------</p>
+
+<p><br />
+1、初始，将所有文件上传至cvs<br />
+cd qacodes<br />
+cvs import -m "qa:codes2 .h " qacodes yoyo start 　　<br />
+下行作参考<br />
+cvs import -m "this is a cvstest project" cvstest v_0_0_1 start</p>
+
+<p>2、在当前工作目录下，将修改诉文件上传<br />
+cd qacodes<br />
+cvs commit -m "Made some useful changes on some files" </p>
+
+<p>3、增加新的文件<br />
+cd qacodes<br />
+cvs add new.c new.h<br />
+cvs commit -m "add 2 files:new.c new.h" new.c new.h </p>
+
+<p><br />
+4、删除文件<br />
+cd qacodes<br />
+rm new.h<br />
+cvs remove new.h<br />
+cvs commit -m "delete new.h" new.h</p>
+
+<p>5、定版本<br />
+cvs tag v0_0_1<br />
+取指定版本<br />
+cvs checkout -r v0_0_1 qacodes<br />
+6、更新工作目录中的文件<br />
+cvs update</p>
+
+<p>--------------------------wincvs配置及使用------------------------<br />
+1)菜单<br />
+　admin->preference->general<br />
+  "Enter the CVSROOT"<br />
+  :pserver:ali@168.160.1.106:/export/home0/cvsroot<br />
+  "Authentication"<br />
+  "passwd" file on the cvs server<br />
+2)菜单<br />
+　admin->login<br />
+3)上传</p>
+
+<p>  左上modules中选定存放原文件的目录。<br />
+  菜单<br />
+　create->import module<br />
+4)checkout<br />
+  菜单<br />
+　create->checkout module<br />
+5)菜单<br />
+　admin->logout</p>
+
+<p><br />
+使用cvs                                <br />
+1)cvs checkout workdir  //检出并生成一个工作目录,<br />
+    U ...<br />
+    .....</p>
+
+<p>  cd workdir<br />
+  ls -l<br />
+2)cvs update    //当工作目录中的文件被修改，并要做检入保存<br />
+　　U......某一文件被他人修改了，但你未修改<br />
+　　Merging...<br />
+    M file      你与别人改了同一个文件file，但没有行冲突，故cvs将两者合并<br />
+  cvs update    //再次确认没有别的人改了这个文件<br />
+    M file       确实只有你修改了这个文件<br />
+  cvs commit file //只提交这个文件就可 <br />
+3)cvs log file //查看file的修改历史<br />
+4)cvs diff -c -r 1.6 -r 1.7 file //比较file的1.6与1.7版的具体差异　<br />
+        此时的输出中，旧本从****开始，新的从----开始，数字是行号<br />
+        如果***一行与----一行紧挨在一起，且一些行前有+，则是新对增加了几行。<br />
+5)ls newfile    //增加一个新的文件<br />
+  cvs update<br />
+        ? newfile<br />
+  cvs add newfile<br />
+  cvs update<br />
+        A newfile<br />
+  cvs commit newfile<br />
+6)rm afile<br />
+  cvs rm afile<br />
+  cvs commit<br />
+7)cvs update<br />
+        ...<br />
+        C afile//冲突<br />
+  看文件冲突</p>
+
+<p>8)cvs tag v_0_0_1 先标记一个版本： </p>
+
+<p>	然后你可以发布并删除你自己的工作目录里这个版本的文件（注意：不是删除仓库里的．）： </p>
+
+<p> $cvs release -d nasdaq </p>
+
+<p> 然后你再生成一个新分支： </p>
+
+<p> $cvs rtag -b -r v_0_0_1 v_0_0_1_1 nasdaq </p>
+
+<p> 然后再建立v_0_0_1_1的分支 </p>
+
+<p> $cvs checkout -r v_0_0_1_1 nasdaq </p>
+
+<p> 编辑并修改这个分支的文件，这样的做法比较好</p>
+
+<p>------------------------------------------------------<br />
+需要说明的是，如果在linux用xinetd启动服务的话，前面的设置会有些不同。<br />
+即需要在/etc/xinetd.d/目录下增加一名为cvspserver的文件，内容如下：<br />
+service cvspserver<br />
+{<br />
+        socket_type         = stream<br />
+        protocol            = tcp<br />
+        wait                = no<br />
+        user                =root<br />
+        passenv             =<br />
+        server              = /usr/local/bin/cvs<br />
+        server_args         = --allow-root=/usr/cvsroot pserver -f<br />
+        disable             = no<br />
+}</p>
+
+<p></p>
+
+<p>  </p>
+
+<p></p>
+
+<p><br />
+</p>
+
+<span class="posted">Posted by Hilton at July 13, 2003 03:34 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=22.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=22" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="22" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

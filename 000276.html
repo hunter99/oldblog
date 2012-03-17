@@ -1,0 +1,382 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Python学习（一）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000275.html" tppabs="http://hedong.3322.org/archives/000275.html" title="RSS 2.0规范" />
+
+<link rel="next" href="000277.html" tppabs="http://hedong.3322.org/archives/000277.html" title="Python学习（二）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000276.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/194"
+    dc:title="Python学习（一）"
+    dc:identifier="http://hedong.3322.org/archives/000276.html"
+    dc:subject="ItTech"
+    dc:description="　　主要是学习《Dive into Python》..."
+    dc:creator="Hilton"
+    dc:date="2003-10-08T20:00:30+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000276.html">
+<dc:title>Python学习（一）</dc:title>
+<dc:description>　　主要是学习《Dive into Python》...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-08T20:00:30+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000275.html" tppabs="http://hedong.3322.org/archives/000275.html">&laquo; RSS 2.0规范</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000277.html" tppabs="http://hedong.3322.org/archives/000277.html">Python学习（二） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 08, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Python学习（一）</h3>
+
+<p>　　主要是学习<a href="javascript:if(confirm('http://web.resource.org/rss/1.0/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://web.resource.org/rss/1.0/'" tppabs="http://web.resource.org/rss/1.0/">《Dive into Python》</a></p>
+
+<a name="more"></a>
+<p><br />
+一、下载安装<br />
+最新版本:2.3.2<br />
+Windows<br />
+　　下载 Python-2.3.2.exe,运行安装</p>
+
+<p>其它平台<br />
+　　下载 Python-2.3.2.tgz 或 Python-2.3.2.tar.bz2,<br />
+　　tar -zxvf Python-2.3.2.tgz 或bzcat Python-2.3.2.tar.bz2 | tar -xf -<br />
+　　./configure<br />
+　　make<br />
+　　make install<br />
+二、语法<br />
+1、函数声明<br />
+	关键字 def 为函数声明的开始，不区分有返回值的函数与无返回值的函数。它没有子程序，全部都是函数。<br />
+	函数没有定义返回的数据类型。如果函数执行了一个 return 语句，它将返回一个值，否则会返回 None (Python的空值)。<br />
+	参数 params 并不需要指明数据类型</p>
+
+<p>2、文档字符串<br />
+	任何在三重双引号中的东西都是函数的文档字符串，它们用来说明函数可以做什么。<br />
+	如果存在文档字符串，它必须要在函数中的被首先定义(也就是说在冒号后面被定义)。<br />
+	文档字符串在运行时可作为函数的属性。</p>
+
+<p>3、在Python中每个东西都是对象<br />
+	并且几乎每个东西都有属性和方法。<br />
+	所有的函数都有一个内置的属性 __doc__，它会返回在函数源代码中定义的文档字符串。</p>
+
+<p>4、缩排代码<br />
+	Python函数没有明显的 begin 或 end，或任何括号或大括号来标识函数开始结束。唯一的分隔是通过一个冒号(:)和代码本身的缩排来表示。<br />
+	代码块(函数，if 语句，for 循环，等等)通过它们的缩排来定义。缩排表示块的开始，非缩排表示结束，不存在明显的括号，大括号，或关键字。这就意味着空白是有意义的，并且要一致。</p>
+
+<p>5、if __name__<br />
+	在 if 表达式周围不需要小括号<br />
+	象C语言一样，Python使用 == 进行比较，使用 = 进行赋值。<br />
+	模块是对象，并且所有的模块都有一个内置属性 __name__。如果 import 模块，那么 __name__ 的值通常为模块的文件名，不带路径或者文件扩展名。如果直接运行模块， __name__ 的值将是一个特别的缺省值， __main__。<br />
+	通过在程序中加入下一个if，就可以很简单地实现单元测试。<br />
+	if __name__ == "__main__":</p>
+
+<p>6、字典<br />
+	Python的内置数据类型之一是字典，它在关键字与值之间定义了一对一的关系。这一点就象Perl中的关联数组，Java中的 Map ，或VBScipt中的 Scripting.Dictionary 对象。如：<br />
+&gt;&gt;&gt; d = {"server":"mpilgrim", "database":"master"}<br />
+	1)每一个元素都是一个键-值对，整个元素集合用大括号括起来,赋值给变量d.<br />
+	2)server 是一个键字，它所关联的值为 mpilgrim，用 d["server"] 来引用.<br />
+	3)你可以通过键字来得到值，但是不能通过值得到键字。<br />
+&gt;&gt;&gt; d["database"] = "pubs"<br />
+	4)可如上式一样修改字典.<br />
+	5)不能在一个字典中有重复的键字。给一个存在的键字赋值会抹掉原来的值。<br />
+	6)可以在任何时候加入新的键-值对。这种语法同修改存在的值一样。<br />
+	7)字典没有元素顺序的概念。<br />
+	8)字典的值可以是任意数据类型，包括字符串，整数，对象，或者甚至其它的字典。<br />
+	9)字典的关键字要严格一些，但是它们可以是字符串，整数和几种其它的类型<br />
+&gt;&gt;&gt; del d['server'] <br />
+	10)可如上式一样删除元素<br />
+&gt;&gt;&gt; d.clear()<br />
+	11)可如上式一样清空所有元素</p>
+
+<p>7、列表<br />
+	1)个列表是一个用方括号包括的有序元素集。<br />
+&gt;&gt;&gt; li = ["a", "b", "mpilgrim", "z", "example"]<br />
+	2)可如上式定义列表<br />
+	3)一个列表可以象一个以0开始的数组一样使用。任何一个非空列表的第一个元素总是 xxx[0]。<br />
+	4)负数索引从列表的尾部开始向后计数存取元素。li[n] == li[n – len(li)]，如：<br />
+&gt;&gt;&gt; li[-3]<br />
+结果为"mpilgrim"。<br />
+	5)任何一个非空的列表最后一个元素总是 li[-1]。<br />
+	6)你可以通过指定2个索引得到列表的子集，叫做一个“分片”。返回值是一个新的列表，它包含了列表中按顺序从第一个分片索引开始，直到但是不包括第二个分片索引的所有元素。<br />
+	7)如果一个或两个分片索引是负数，分片也可以工作,但如果两个索引的所代表的位置大者在前则返回空列表。<br />
+	8)如果任一个分片索引为0，你可以将其省略，默认为0。所以li[:3]同li[0:3] 一样。<br />
+	9)li[:n] 将总是返回前 n 个元素，而 li[n:] 将返回其它的元素。<br />
+	10)如果两个分片索引均省略，将包括列表的所有元素。但是与原始的列表 li 不是同一个，它是一个新的列表，恰好拥有与 li 全部一样的元素。li[:] 是生成一个列表拷贝的缩写。<br />
+	11)append 增加单个元素到列表的尾部。如：<br />
+&gt;&gt;&gt; li.append("new")<br />
+	12)insert 在列表中插入单个元素。数值参数是使得列表增加的第一个元素的索引(注意，不是序号).如下：<br />
+&gt;&gt;&gt; li.insert(2, "new") <br />
+	13)列表元素不需要唯一<br />
+	14)用extend 连接列表。注意不要用多个参数调用 extend ，要使用一个列表参数调用。如下：<br />
+&gt;&gt;&gt; li.extend(["two", "elements"])<br />
+	15)index 在列表中查找值第一次的出现并返回索引值<br />
+&gt;&gt;&gt; li.index("example")<br />
+	16)如果在列表中没有找到值，Python会引发一个异常<br />
+	17)要测试一个值是否在列表内，使用 in，如果值找到了，它返回 1 ，或者没找到则为 0 。(在Python中不存在布尔类型。在一个布尔上下文中(象 if 语句)，0 是假，所有其它的数值为真。这一点也可以扩展到其它类型。一个空串("")，一个空列表([])，和一个空字典({})都是假，所有其它的字符串，列表，和字典是真。)如：<br />
+&gt;&gt;&gt; "new" in li <br />
+	18)remove 从列表中除掉第一次出现的值。(仅第一次出现的值),如：<br />
+&gt;&gt;&gt; li.remove("new")<br />
+	19)如果在列表中没有找到值，Python引发一个异常。它反映了 index 方法的行为。<br />
+	20)用pop除掉列表的最后一个元素，然后返回除掉的值。注意这一点同 li[-1]不同，后者返回一个值但不改变列表，也不同于 li.remove(value)，后者改变列表但不返回值。如：<br />
+&gt;&gt;&gt; li.pop() <br />
+	21)列表也可以用 + 操作符连接起来。list = list + otherlist 相当于 list.extend(otherlist)。但是 + 操作符将连接后的列表作为一个值返回，而 extend 仅修改存在的列表。如：<br />
+&gt;&gt;&gt; li = li + ['example', 'new']<br />
+	22)Python支持 += 操作符。li += ['two'] 相当于 li = li + ['two']。+= 操作符可用于列表，字符串，和整数，并且它也可以在用户定义类中被重载。<br />
+	23)* 操作符作为一个重复符可用在列表上。li = [1, 2] * 3 相当于 li = [1, 2] + [1, 2] + [1, 2]， 将三个列表连成一个。</p>
+
+<p>8、序列<br />
+	1)序列是不可变列表。一旦创建了一个序列就不能以任何方式改变它。<br />
+	2)序列的定义同列表的定义方式相同，除了整个元素集是用小括号包围的而不是方括号<br />
+	3)当分割一个列表时，会得到一个新的列表；当分割一个序列时，会得到一个新的序列。<br />
+	4)序列没有方法,所以不能查找、删除和增加元素，但可以用in来检查元素是否在序列里。<br />
+	5)序列比列表操作速度快。<br />
+	6)序列可以在字典中被用作关键字，但是列表不行。<br />
+	7)内置的 tuple 函数接收一个列表，返回一个有着相同元素的序列。而 list 函数接收一个序列，返回一个列表。从效果上看，tuple 冻结一个列表，而 list 解冻一个序列。<br />
+	8)序列用在字符串格式化.<br />
+9、变量<br />
+	1)Python象大多数其它语言一样有局部和全局变量，但是它没有明显的变量声明。变量通过赋值产生，当超出作用范围时自动消灭。<br />
+	2)当一条命令用续行符(“\”)分割成多行时，后续的行可以以任何方式缩排，Python通常的严格的缩排规则不需遵守。<br />
+	3)严格地讲，在小括号，方括号或大括号中的表达式(如定义字典)可以用或者不用续行符(“\”)分割成多行。<br />
+	4)Python不允许你引用一个未被赋值的变量，试图这样做会引发一个异常。</p>
+
+<p>10、字符串格式化<br />
+	1)基本语法如下：<br />
+"带占位符的字符串" % (参数序列)<br />
+	2)试图将一个字符串同一个非字符串连接会引发一个异常。字符串连接只能在每个都是字符串时起作用。此时选择格式化串会是个不错的主意。</p>
+
+<p>11、映射<br />
+	1)基本语法如下：<br />
+[ 函数或表达式 for 循环变量 in 列表/序列 ]<br />
+	2)映射是通过循环遍历一个列表/序列，并对每个元素应用一个函数，然后返回一个包含为计算后的值的新列表。<br />
+	3)注意列表映射不改变被映射的列表。<br />
+	4)新列表拥有与原有列表/序列拥有相同数量的元素数。<br />
+</p>
+
+<span class="posted">Posted by Hilton at October  8, 2003 08:00 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=276.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=276" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>都还不够基础，能举一些具体的例子吗？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;yatree&#64;sina&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;yatree&#64;sina&#46;com">yatree</a> at December  8, 2003 10:01 AM</span>
+</div>
+<div class="comments-body">
+<p>To Ceil,</p>
+
+<p>　　指点谈不上，共同学习吧。<br />
+　　<br />
+　　我有一个建议，就是看完dive to python之后，迅速转向phyton的文档，因为前者为了入门，省了很多的内容。<br />
+　　另外，一定要下载python最新的版本，2.0之前的版本与2.0及以后的版本差别太大了。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 22, 2003 10:31 AM</span>
+</div>
+<div class="comments-body">
+<p>我正在进行的一个项目正用到Python,<br />
+但是初次接触,什么都不懂.看了你的文章,觉得很有帮助.</p>
+
+<p>盼望可以得到你的指点.<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;dorothy&#46;net&#64;sohu&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;dorothy&#46;net&#64;sohu&#46;com">Ciel</a> at October 22, 2003 10:24 AM</span>
+</div>
+<div class="comments-body">
+<p>赫赫，最近没上msn，当然无法想见！<br />
+我也喜欢python.<br />
+希望能看到python笔记3,4,5... </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://knaps.txt.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://knaps.txt.cn/'" tppabs="http://knaps.txt.cn/">keke</a> at October 10, 2003 04:25 AM</span>
+</div>
+<div class="comments-body">
+<p>过奖过奖！</p>
+
+<p>由于时差，最近很少在msn上见到你了。你在国外还适应吧？</p>
+
+<p>祝一切顺利！</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October  9, 2003 10:28 PM</span>
+</div>
+<div class="comments-body">
+<p>真勤奋！<br />
+let's 刚八代！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://knaps.txt.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://knaps.txt.cn/'" tppabs="http://knaps.txt.cn/">keke</a> at October  9, 2003 03:46 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="276" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

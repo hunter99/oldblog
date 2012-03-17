@@ -1,0 +1,275 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: I18N和L10N（4）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000360.html" tppabs="http://hedong.3322.org/archives/000360.html" title="I18N和L10N（3）" />
+
+<link rel="next" href="000362.html" tppabs="http://hedong.3322.org/archives/000362.html" title="I18N和L10N（5）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000361.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/256"
+    dc:title="I18N和L10N（4）"
+    dc:identifier="http://hedong.3322.org/archives/000361.html"
+    dc:subject="ItTech"
+    dc:description="　　主要学习JCharDet，一个猜测字符串编码集的程序包..."
+    dc:creator="Hilton"
+    dc:date="2003-11-15T23:52:11+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000361.html">
+<dc:title>I18N和L10N（4）</dc:title>
+<dc:description>　　主要学习JCharDet，一个猜测字符串编码集的程序包...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-15T23:52:11+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000360.html" tppabs="http://hedong.3322.org/archives/000360.html">&laquo; I18N和L10N（3）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000362.html" tppabs="http://hedong.3322.org/archives/000362.html">I18N和L10N（5） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 15, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">I18N和L10N（4）</h3>
+
+<p>　　主要学习JCharDet，一个猜测字符串编码集的程序包</p>
+
+<a name="more"></a>
+<p><h4>什么是jchardet?</h4><br />
+jchardet是mozilla自动字符集探测算法代码的java移植,其源代码可以从<a href="javascript:if(confirm('http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192'" tppabs="http://sourceforge.net/project/showfiles.php?group_id=85452&release_id=171192">sourceforge</a>下载。这个算法的最初作者是frank Tang,C++源代码在<a href="javascript:if(confirm('http://lxr.mozilla.org/mozilla/source/intl/chardet/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://lxr.mozilla.org/mozilla/source/intl/chardet/'" tppabs="http://lxr.mozilla.org/mozilla/source/intl/chardet/">http://lxr.mozilla.org/mozilla/source/intl/chardet/</a>，可以从<a href="javascript:if(confirm('http://www.mozilla.org/projects/intl/chardet.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.mozilla.org/projects/intl/chardet.html'" tppabs="http://www.mozilla.org/projects/intl/chardet.html">http://www.mozilla.org/projects/intl/chardet.html</a>得到更多关于这个算法的信息。<br />
+<h4>编译及应用</h4><br />
+　　将下载后的chardet.zip解压缩后，到~/mozilla/intl/chardet/java/目录下，运行ant即可在dist/lib目录下生成chardet.jar，将这个jar包加入CLASSPATH.然后<div class="code">运行：java org.mozilla.intl.chardet.HtmlCharsetDetector http://hedong.3322.org<br />
+结果：CHARSET = GB18030<br />
+运行：java org.mozilla.intl.chardet.HtmlCharsetDetector http://www.wesnapcity.com/                                                           <br />
+结果：CHARSET = ASCII<br />
+运行：java org.mozilla.intl.chardet.HtmlCharsetDetector http://www.wesnapcity.com/blog/                                                      <br />
+结果：CHARSET = UTF-8</div><br />
+<h4>编程使用</h4><br />
+　　下面就jchardet.jar中的HtmlCharsetDetector.java,对调用jchardet过程予以说明：<br />
+<div class="code">//实现nsICharsetDetectionObserver接口，这个接口只有一个Notify()方法.当jchardet引擎自己认为已经识别出字符串的字符集后(不论识别的对错)，都会调用这个Notify方法。<br />
+nsICharsetDetectionObserver cdo=new nsICharsetDetectionObserver() {<br />
+&nbsp;&nbsp;public void Notify(String charset) {<br />
+&nbsp;&nbsp;    HtmlCharsetDetector.found = true ;<br />
+&nbsp;&nbsp;    System.out.println("CHARSET = " + charset);<br />
+&nbsp;&nbsp;}<br />
+};<br />
+/**<br />
+  * 初始化nsDetector()<br />
+  *lang为一个整数，用以提示语言线索，可以提供的语言线索有以下几个： <br />
+  *<ol><li>Japanese</li><li>Chinese</li><li>Simplified Chinese</li><li>Traditional Chinese</li><li>Korean</li><li>Dont know (默认)</li></ol><br />
+  */<br />
+nsDetector det = new nsDetector(lang) ;<br />
+// 设置一个Oberver<br />
+det.Init(cdo);<br />
+BufferedInputStream imp = new BufferedInputStream(url.openStream());<br />
+byte[] buf = new byte[1024] ;<br />
+boolean done = false ;&nbsp;&nbsp;//是否已经确定某种字符集<br />
+boolean isAscii = true ;//假定当前的串是ASCII编码<br />
+while( (len=imp.read(buf,0,buf.length)) != -1) {<br />
+&nbsp;&nbsp;// 检查是不是全是ascii字符，当有一个字符不是ASC编码时，则所有的数据即不是ASCII编码了。<br />
+&nbsp;&nbsp;if (isAscii) isAscii = det.isAscii(buf,len);<br />
+&nbsp;&nbsp;// 如果不是ascii字符，则调用DoIt方法.<br />
+&nbsp;&nbsp;if (!isAscii && !done) done = det.DoIt(buf,len, false);//如果不是ASCII，又还没确定编码集，则继续检测。<br />
+}<br />
+det.DataEnd();//最后要调用此方法，此时，Notify被调用。<br />
+if (isAscii) {<br />
+   System.out.println("CHARSET = ASCII");<br />
+   found = true ;<br />
+}<br />
+if (!found) {//如果没找到，则找到最可能的那些字符集<br />
+   String prob[] = det.getProbableCharsets() ;<br />
+   for(int i=0; i<prob.length; i++) {<br />
+&nbsp;&nbsp;System.out.println("Probable Charset = " + prob[i]);<br />
+   }<br />
+}</div><br />
+<h4>jchardet主要解决什么样的问题？</h4><br />
+　　Java字符串（及字符）类以Unicode编码保存数据。当处理来自外部的国际性文本时，我们需要提供关于这些文本的编码，以便准确地将它们转换为Unicode。这意味着你必须知道你的java代码要处理的所有文件的编码。许多基于Internet的Java应用程序，要处理来自随机数据源的数据，而很多数据的编码不能确切的知道。例如，一个HTML页面中的数据，如果没有元数据标签明确地指定页面的字符集，就很难确实其编码，将其转换为Java Unicode字符串时也会误用而终止。</p>
+
+<p><h4>这个算法是如何工作的？</h4><br />
+　　浏览器处理这个问题的方法，是对数据一个字节一个字节的检查，以力图测试字符集（当你点击菜单View-&gt;Auto-select或auto-detect时）。这个算法（最初由Frank Tang开发）检查字节序列，基于每个字节的值，利用逐步消除法(elimination logic)逐步缩小以至最后确定字符集。如果这个方法仍难以确定，就利用另一个方法，根据某种语言的字符的频次统计来确实字符集。<br />
+</p>
+
+<span class="posted">Posted by Hilton at November 15, 2003 11:52 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=361.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=361" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="361" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

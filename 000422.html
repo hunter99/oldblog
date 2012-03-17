@@ -1,0 +1,255 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: linux启动的修复</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000421.html" tppabs="http://hedong.3322.org/archives/000421.html" title="我第一次相信，石头也会开花" />
+
+<link rel="next" href="000423.html" tppabs="http://hedong.3322.org/archives/000423.html" title="Java极限编程的学习笔记" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000422.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/311"
+    dc:title="linux启动的修复"
+    dc:identifier="http://hedong.3322.org/archives/000422.html"
+    dc:subject="ItTech"
+    dc:description="　　如果你的机器是多操作系统启动，且硬盘上有一个fat32分区，当此系统的linux不能启动时，可以参考下列步骤恢复：..."
+    dc:creator="Hilton"
+    dc:date="2003-12-31T11:44:25+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000422.html">
+<dc:title>linux启动的修复</dc:title>
+<dc:description>　　如果你的机器是多操作系统启动，且硬盘上有一个fat32分区，当此系统的linux不能启动时，可以参考下列步骤恢复：...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-31T11:44:25+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000421.html" tppabs="http://hedong.3322.org/archives/000421.html">&laquo; 我第一次相信，石头也会开花</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000423.html" tppabs="http://hedong.3322.org/archives/000423.html">Java极限编程的学习笔记 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 31, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">linux启动的修复</h3>
+
+<p>　　如果你的机器是多操作系统启动，且硬盘上有一个fat32分区，当此系统的linux不能启动时，可以参考下列步骤恢复：</p>
+
+<a name="more"></a>
+<p>0、准备工作<br />
+<ul><li>找一个windows98的启动软盘或安装光盘</li><br />
+<li>linux系统安装盘</li><br />
+<li>将另一个与你的linux版本相同的机器上的boot目录下的所有文件打包为boot.tar.gz</li></ul><br />
+假定：<ul><li>你的系统使用的是ntloader来管理多系统启动</li><br />
+<li>fat32分区在windows是D盘，对应于linux则是设备/dev/hda5</li><br />
+<li>你的linux的root在/dev/hda8上。</li></ul></p>
+
+<p>1、正常进入windows系统<br />
+　　将linux安装盘的dostools下面的loadlinux.exe文件复制到D:\boot下，将boot.tar.gz中的所有文件解压缩到d:\boot目录下。如果vmlinuz文件的长度为0，则将vmlinuz*文件中长度不为0的copy一个为vmlinuz</p>
+
+<p>2、重启系统，通过启动软盘或win98安装光盘进入dos状态<br />
+　　此时，如果你在windows下的C盘的分区类型不是fat32或fat的话，则原来的D盘现在显示为C盘。<br />
+　　进入c:\boot，运行loadlinux vmlinuz root=/dev/hda8 ro<br />
+　　如果顺利，此时可以正常进入linux操作系统。<br />
+　　如果以后再次不幸的不能正常启动linux，可以只运行第2步来试图启动linux.</p>
+
+<p>3、进入linux<br />
+　　编辑/etc/lilo.conf文件，将其中的boot值改为/dev/hda8<br />
+　　运行lilo<br />
+　　运行dd if=/dev/hda8 of=/root/linboot.sct bs=512 count=1<br />
+　　运行mount -t vfat /dev/hda8 /mnt<br />
+　　运行cp /root/linboot.sct /mnt<br />
+　　运行reboot</p>
+
+<p>4、正常进入windows<br />
+　　将d:\linboot.sct复制到c:\<br />
+　　编辑c:\boot.ini文件，做相应的配置。</p>
+
+<p>5、OK.<br />
+　　如果一切顺利。</p>
+
+<p>该法在win2k advsvr + linux7.3的系统测试通过。</p>
+
+<span class="posted">Posted by Hilton at December 31, 2003 11:44 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=422.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=422" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="422" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

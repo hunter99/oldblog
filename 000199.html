@@ -1,0 +1,533 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Google的PageRank算法学习</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000197.html" tppabs="http://hedong.3322.org/archives/000197.html" title="Log4J学习笔记（3）" />
+
+<link rel="next" href="000201.html" tppabs="http://hedong.3322.org/archives/000201.html" title="Google的PageRank算法学习(2)" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000199.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/129"
+    dc:title="Google的PageRank算法学习"
+    dc:identifier="http://hedong.3322.org/archives/000199.html"
+    dc:subject="ItTech"
+    dc:description="据车东在CNBLOG推荐文章，作的学习笔记。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-28T10:05:09+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000199.html">
+<dc:title>Google的PageRank算法学习</dc:title>
+<dc:description>据车东在CNBLOG推荐文章，作的学习笔记。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-28T10:05:09+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000197.html" tppabs="http://hedong.3322.org/archives/000197.html">&laquo; Log4J学习笔记（3）</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000201.html" tppabs="http://hedong.3322.org/archives/000201.html">Google的PageRank算法学习(2) &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 28, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Google的PageRank算法学习</h3>
+
+<p><a href="javascript:if(confirm('http://www.google.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google.com/'" tppabs="http://www.google.com/" title="An excellent Search Engine"><img alt="google_white.gif" src="google_white.gif" tppabs="http://hedong.3322.org/archives/pics/google_white.gif" width="128" height="53" border="0" align="left" /></a>据<a href="javascript:if(confirm('http://chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://chedong.com/'" tppabs="http://chedong.com/">车东</a>在<a href="javascript:if(confirm('http://www.cnblog.org/blog/archives/2003_06_15_cnblog_archive.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cnblog.org/blog/archives/2003_06_15_cnblog_archive.html'" tppabs="http://www.cnblog.org/blog/archives/2003_06_15_cnblog_archive.html">CNBLOG</a>推荐文章，作的学习笔记。<br />
+</p>
+
+<a name="more"></a>
+<p>1、PageRank(网页级别)的概念<br />
+　　互联网发展早期的搜索引擎，对web页面的排序，是根据搜索的词组（短语）在页面中的出现次数（occurence ），并用页面长度和html标签的重要性提示等进行权重修订。链接名气(link popularity)技术通过其它文档链接到当前页面（inbound links）的链接数量来决定当前页的重要性，这样可以有效地抵制被人为加工的页面欺骗搜索引擎的手法。<br />
+　　PageRank计算页面的重要性，对每个链入(inbound)赋以不同的权值，链接提供页面的越重要则此链接入越高。当前页的重要性，是由其它页面的重要性决定的。</p>
+
+<p>2、PageRank算法1<br />
+<div class="code">　　PR(A) = (1-d) + d (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn)) <br />
+其中：PR(A):页面A的网页级别, <br />
+PR(Ti)：页面Ti的网页级别，页面Ti链向页面A， <br />
+C(Ti)：页面Ti链出的链接数量，<br />
+d：阻尼系数，取值在0－1之间. </div><br />
+由此可见，1）这个算法不以站点排序，页面网页级别由一个个独立的页面决定；2）页面的网页级别由链向它的页面的网页级别决定，但每个链入页面的贡献的值是不同的。如果Ti页面中链出越多，它对当前页面A的贡献就越小。A的链入页面越多，其网页级别也越高；3）阻尼系数的使用，减少了其它页面对当前页面A的排序贡献。</p>
+
+<p>3、随机冲浪模型<br />
+　　Lawrence Page 和 Sergey Brin 提出了用户行为的随机冲浪模型，来解释上述算法。他们把用户点击链接的行为，视为一种不关心内容的随机行为。而用户点击页面内的链接的概率，完全由页面上链接数量的多少决定的，这也是上面PR(Ti)/C(Ti)的原因。一个页面通过随机冲浪到达的概率就是链入它的别的页面上的链接的被点击概率的和。阻尼系数d的引入，是因为用户不可能无限的点击链接，常常因劳累而随机跳入另一个页面。d可以视为用户无限点击下去的概率，（1－d）则就是页面本身所具有的网页级别。</p>
+
+<p>4、PageRank算法2（对算法1的修订）<br />
+<div class="code">PR(A) = (1-d) / N + d (PR(T1)/C(T1) + ... + PR(Tn)/C(Tn)) <br />
+其中N是互联网上所有网页的数量</div><br />
+由此，所有页面的网页级别形成的一个概率分布，所有页面的网页级别之和是1。在算法1中，随机冲浪访问某个页面的概率由互联网的总页数决定，在算法2中，网页级别是一个页面被随机访问的期望值。<br />
+　　以下讲解，皆基于算法1，主要是计算简单，因为不用考虑N的值。</p>
+
+<p>5、PageRank的特性<br />
+　　所有页面的网页级别之和等于互联网的总页数。在网页数比较少的情况下，网页级别方程可以解出，而面对互联网上成亿的网页，再解方程是不可能的。<br />
+<img alt="pagerank_ex1.gif" src="pagerank_ex1.gif" tppabs="http://hedong.3322.org/archives/pics/pagerank_ex1.gif" width="145" height="157" border="0" align="left" />　　此处设阻尼系数为0.5，虽然Lawrence Page 和 Sergey Brin在实际将其设为0.85.<br />
+<div class="code">PR(A) = 0.5 + 0.5 PR(C)<br />
+PR(B) = 0.5 + 0.5 (PR(A) / 2)<br />
+PR(C) = 0.5 + 0.5 (PR(A) / 2 + PR(B))<br />
+解得：<br />
+PR(A) = 14/13 = 1.07692308<br />
+PR(B) = 10/13 = 0.76923077<br />
+PR(C) = 15/13 = 1.15384615<br />
+有：<br />
+PR(A)+PR(B)+PR(C)=3</div></p>
+
+<p>6、迭代计算pagerank<br />
+　　Google采用一种近似的迭代的方法计算网页的网页级别的，也就是先给每个网页一个初始值，然后利用上面的公式，循环进行有限次运算得到近似的网页级别。根据Lawrence Page 和 Sergey Brin公开发表的文章，他们实际需要进行100次迭代才能得到整个互联网的满意的网页级别值，这儿的例子只用了10多次就可以了。在迭代的过程中，每个网页的网页级别的和是收敛于整个网络的页面数的。所以，每个页面的平均网页级别是1，实际上的值在（1－d）和(dN+(1-d))之间。<br />
+<div class="code"><table><tr><td>迭代次数</td><td>PR(A)</td><td>PR(B)</td><td>PR(C)</td></tr><tr><td>0</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>1</td><td>0.75</td><td>1.125</td></tr><tr><td>2</td><td>1.0625</td><td>0.765625</td><td>1.1484375</td></tr><tr><td>3</td><td>1.07421875</td><td>0.76855469</td><td>1.15283203</td></tr><tr><td>4</td><td>1.07641602</td><td>0.76910400</td><td>1.15365601</td></tr><tr><td>5</td><td>1.07682800</td><td>0.76920700</td><td>1.15381050</td></tr><tr><td>6</td><td>1.07690525</td><td>0.76922631</td><td>1.15383947</td></tr><tr><td>7</td><td>1.07691973</td><td>0.76922993</td><td>1.15384490</td></tr><tr><td>8</td><td>1.07692245</td><td>0.76923061</td><td>1.15384592</td></tr><tr><td>9</td><td>1.07692296</td><td>0.76923074</td><td>1.15384611</td></tr><tr><td>10</td><td>1.07692305</td><td>0.76923076</td><td>1.15384615</td></tr><tr><td>11</td><td>1.07692307</td><td>0.76923077</td><td>1.15384615</td></tr><tr><td>12</td><td>1.07692308</td><td>0.76923077</td><td>1.15384615</td></tr></table></div></p>
+
+<p>7、Google搜索引擎的网页级别的实现<br />
+　　有三个因素决定的网页的等级：网页特定性因素、入链锚的文本、网页级别。<br />
+　　网页特定性因素包括网页的内容、标题及URL等。<br />
+　　为提供检索结果，Google根据网页特定性因素和入链锚的文本计算出网页的IR值，这个值被检索项在页面中的位置和重要性加权，以决定网页和检索请求相关性。IR值和网页级别联合标志网页的基本重要程度，这两个值<del>的联合方式有多种，但</del><ins>要做乘法运算</ins>，明显的是不能相加的。<br />
+　　由于网页级别只对非特定的单个词的检索请求影响比较明显，对于由多个检索词构成的检索请求，内容相关性的分级标准的影响更大。</p>
+
+<p>8、用Google工具条显示当前页面的网页级别<br />
+　　Google工具条是Google公司开发的IE插件，需要从Google下载并安装。注意，显示网页级别的功能是其高级功能，这时会自动收集用户的信息，并会自动升级工具条。<br />
+　　这个工具条显示的网页级别分为0－10共11级，如果根据理论用(Nd+(1-d))测算，假定d=0.85,则推测实际网级别的对数即为显示的级别，且对数的基数在6-7之间。<br />
+　　参考文献1中给出了一个方法，可以不经过toolbar就可以取得网站主页的网页级别，可惜因为版本或别的原因，已经不可行。下面我根据提示在IE缓冲目录里找到http://hedong.3322.org的获取URL.<div class="code">http://216.239.33.104/search?client=navclient-auto&amp;ch=5766303732&amp;ie=UTF-8&amp;oe=UTF-8&amp;features=Rank:FVN&amp;q=info:http%3A%2F%2Fhedong%2E3322%2Eorg%2F</div><br />
+　　我的主页的网页级别是0。:( isaac和chedong的分别是5和4。</p>
+
+<p>9、Google的目录服务可以显示网站的级别<img alt="directory_toolbar.gif" src="directory_toolbar.gif" tppabs="http://hedong.3322.org/archives/pics/directory_toolbar.gif" width="400" height="108" border="0" align="right" /><br />
+　　此处级别分为7级。有人对两种级别进行了比较。　　</p>
+
+<p><center><a href="000201.html" tppabs="http://hedong.3322.org/archives/000201.html">Google的PageRank算法学习(2)</a></center><br />
+参考文献：<br />
+1、A Survey of Google's PageRank，http://pr.efactory.de/<br />
+2、认真从计算方法角度阐述PageRank机制2篇文章，chedong, http://www.cnblog.org/blog/archives/2003_06_15_cnblog_archive.html#95908517</p>
+
+<span class="posted">Posted by Hilton at August 28, 2003 10:05 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=199.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=199" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>支持！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gxwindows.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gxwindows.com/'" tppabs="http://www.gxwindows.com/">gxwindows</a> at January 17, 2004 11:36 AM</span>
+</div>
+<div class="comments-body">
+<p>其实我觉得最重要的还是交换链接。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.laptop-battery.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.laptop-battery.org/'" tppabs="http://www.laptop-battery.org/">jerry</a> at January 16, 2004 09:09 PM</span>
+</div>
+<div class="comments-body">
+<p>一点小失误而已，你对于整篇文章的把握理解相当精准。<br />
+我也挺无聊的，对照着再去看了一遍……无论如何，谢谢你的鼓励。（能顺便给个连接就最好了，呵呵。）</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xdanger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xdanger.com/'" tppabs="http://www.xdanger.com/">xdanger</a> at January 16, 2004 12:34 PM</span>
+</div>
+<div class="comments-body">
+<p>To xdanger;<br />
+  此处确实应为“乘”的意思，我的翻译和理解都错了。<br />
+  非常感谢你的提醒!<br />
+  Sorry to all reader here!</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January 16, 2004 08:05 AM</span>
+</div>
+<div class="comments-body">
+<p>其中第7点你提到：<br />
+IR值和网页级别联合标志网页的基本重要程度，这两个值的联合方式有多种，但明显的是不能相加的。</p>
+
+<p>原文为：<br />
+To combine the IR score with PageRank the two values are multiplicated. It is obvious that they cannot be added.</p>
+
+<p>我想了一下，这里的multiplicated似乎应该作为动词，也就是“乘”。意思是IR×PR决定网页在搜索结果中的排序，如果IR=0，也就是说网页与检索查询语句完全不相关的话，PR再高也不会出现在搜索结果中，所以原文接下来给出肯定不是相加的原因：otherwise pages with a very high PageRank would rank high in search results even if the page is not related to the search query.</p>
+
+<p>我的英语很不怎么地，如果不对表笑我啊:-)</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xdanger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xdanger.com/'" tppabs="http://www.xdanger.com/">xdanger</a> at January 16, 2004 01:17 AM</span>
+</div>
+<div class="comments-body">
+<p>写的太好了，和东，感谢。回去好好研究一下。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.jzhrb.com.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.jzhrb.com.cn/'" tppabs="http://www.jzhrb.com.cn/">美容减肥网</a> at January 15, 2004 11:29 PM</span>
+</div>
+<div class="comments-body">
+<p>PR固然重要 相关性也非常重要</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.zj-jiatai.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.zj-jiatai.com/'" tppabs="http://www.zj-jiatai.com/">bamboo handles handbag handles wooden handles</a> at January 15, 2004 03:48 PM</span>
+</div>
+<div class="comments-body">
+<p>不错的文章！！收藏后慢慢看！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.cxhdl.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.cxhdl.com/'" tppabs="http://www.cxhdl.com/">coverer.com</a> at January 14, 2004 08:43 AM</span>
+</div>
+<div class="comments-body">
+<p>Google最近对于PAGERANK重视度降低了很多 个人感觉<br />
+PR提高很多，排名没有见提高多少 </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.e2buy.com/dragon-posters-store.htm  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.e2buy.com/dragon-posters-store.htm'" tppabs="http://www.e2buy.com/dragon-posters-store.htm">chinese dragon</a> at January 12, 2004 04:00 PM</span>
+</div>
+<div class="comments-body">
+<p>非常捧，感谢。回去好好研究一下。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.531shop.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.531shop.com/'" tppabs="http://www.531shop.com/">531精品网</a> at January 12, 2004 12:13 PM</span>
+</div>
+<div class="comments-body">
+<p>好文!Google的算法还是应该好好研究研究.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gissky.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gissky.net/'" tppabs="http://www.gissky.net/">boy</a> at January 11, 2004 08:29 PM</span>
+</div>
+<div class="comments-body">
+<p>好象google也在不断的调整它的算法，期待新的研究文章的出现。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.voguey.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.voguey.com/'" tppabs="http://www.voguey.com/">Lifestyle</a> at January  9, 2004 03:12 PM</span>
+</div>
+<div class="comments-body">
+<p>十分感谢!顶~</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gissky.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gissky.net/'" tppabs="http://www.gissky.net/">gissky</a> at January  8, 2004 09:58 AM</span>
+</div>
+<div class="comments-body">
+<p>站长的网站排名很高！<br />
+可否给我一点排名的建议！<br />
+我的网站<br />
+<a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">http://www.xagoogle.com</a></p>
+
+<p>非常感谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">wang</a> at January  7, 2004 02:36 PM</span>
+</div>
+<div class="comments-body">
+<p>很好!</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.gxwindows.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.gxwindows.com/'" tppabs="http://www.gxwindows.com/">gxwindows</a> at January  6, 2004 05:16 PM</span>
+</div>
+<div class="comments-body">
+<p>Hilton，你好!很感谢的文章。对于站内的链接页面的PageRank，Google似乎是以递减1的方式。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.webshu.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.webshu.com/'" tppabs="http://www.webshu.com/">自由勇</a> at January  4, 2004 08:04 PM</span>
+</div>
+<div class="comments-body">
+<p>好东东，不错不错。对webmaster来说，看了绝对有帮助。谢谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.bravochina.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.bravochina.com/'" tppabs="http://www.bravochina.com/">Chinese</a> at January  4, 2004 12:28 PM</span>
+</div>
+<div class="comments-body">
+<p>非常精彩，学习中，谢谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.h-feng.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.h-feng.com/'" tppabs="http://www.h-feng.com/">Feng</a> at January  4, 2004 02:05 AM</span>
+</div>
+<div class="comments-body">
+<p>多谢兄台翻译给我们看！由衷的感谢，如果需要蜂产品免费！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.sino-bee.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.sino-bee.com/'" tppabs="http://www.sino-bee.com/">蜂胶</a> at December 30, 2003 10:04 PM</span>
+</div>
+<div class="comments-body">
+<p>好呀。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">qqba</a> at December 30, 2003 12:44 PM</span>
+</div>
+<div class="comments-body">
+<p>To 52TV;</p>
+
+<p>　　我个人感觉好象二级域名比目录会更好一些。</p>
+
+<p>　　你可以看一下“心灵小屋”这个blog,链到这个blog的页面很多都是pagerank很高的，但难以理解的是，它的pagerank一直是0。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 27, 2003 02:59 PM</span>
+</div>
+<div class="comments-body">
+<p>写的不错，希望和大家交换连接。<br />
+我的网址：<br />
+<a href="javascript:if(confirm('http://xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xagoogle.com/'" tppabs="http://xagoogle.com/">http://xagoogle.com</a><br />
+可以给我发邮件<br />
+harryxin7277@sina.com</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://xagoogle.com/'" tppabs="http://xagoogle.com/">lixin</a> at December 25, 2003 04:27 PM</span>
+</div>
+<div class="comments-body">
+<p>又看一次,体会不少,谢谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.google8.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google8.net/'" tppabs="http://www.google8.net/">区区</a> at December 23, 2003 03:51 PM</span>
+</div>
+<div class="comments-body">
+<p>看一下，这篇文章写得不错。加油啊。！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.hello88.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.hello88.com/'" tppabs="http://www.hello88.com/">www.hello88.com</a> at December 20, 2003 05:30 PM</span>
+</div>
+<div class="comments-body">
+<p>hao !</p>
+<span class="comments-post">Posted by:  at December 10, 2003 10:24 AM</span>
+</div>
+<div class="comments-body">
+<p>很是不错的翻译,有所收获,google排名的算法研究,google排名的策略很有帮助</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.51web.biz/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.51web.biz/'" tppabs="http://www.51web.biz/">无忧网业</a> at December  9, 2003 12:48 PM</span>
+</div>
+<div class="comments-body">
+<p>第二种情况是不是情况的描述好象有问题。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December  8, 2003 10:56 PM</span>
+</div>
+<div class="comments-body">
+<p>思考一个问题：<br />
+假设A的链出连接为B和C，而BC和的入链只有A，分两种情况：1.A页面中有3个链接其中2个连接转向B一个转向C，2.A页面中有个链接其中一个连接转向B一个转向C。这两种情况BC各自的PR值相同吗？如果不相同，为了提高B页面的PR值，就可以在A页面中添加足够多的转向B的连接，而只设一个转向C的连接。根据随机冲浪模型，B的被点击概率应该比较大，所以PR值就更高。GOOGLE的排序理论实际上是这样的吗？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;my126com&#64;126&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;my126com&#64;126&#46;com">小鸟</a> at December  8, 2003 09:34 AM</span>
+</div>
+<div class="comments-body">
+<p>谢谢，受益匪浅</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.verycd.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.verycd.com/'" tppabs="http://www.verycd.com/">Dash</a> at December  6, 2003 10:48 PM</span>
+</div>
+<div class="comments-body">
+<p>决定重修概率论……</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xdanger.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xdanger.com/'" tppabs="http://www.xdanger.com/">xdanger</a> at December  6, 2003 10:45 PM</span>
+</div>
+<div class="comments-body">
+<p>TO hilton:<br />
+   我对GOOGLE比较感兴趣,看了你这篇文章很有收获!<br />
+   能否交换一个首页文字链接:<br />
+   网站名称:投影机<br />
+   链接地址:<a href="javascript:if(confirm('http://www.digital-projector.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.digital-projector.net/'" tppabs="http://www.digital-projector.net/">http://www.digital-projector.net</a><br />
+   (我已经做好贵站首页文字链接)<br />
+   </p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.digital-projector.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.digital-projector.net/'" tppabs="http://www.digital-projector.net/">投影机</a> at December  6, 2003 10:24 PM</span>
+</div>
+<div class="comments-body">
+<p>To Bill 、网络推广：</p>
+
+<p>　　你们好！</p>
+
+<p>　　我看了一下你们的网站，好象都是商业性质的网站。我这儿的文章里面有很多的引用，如果用于商业目的可能会引起一些权益方面的问题，所以选择的连接都是技术性或个人的网站，也请你们谅解。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December  5, 2003 02:27 PM</span>
+</div>
+<div class="comments-body">
+<p>翻译的非常好 写的也很专业 对SEO研究人士绝对是太有帮助了 谢谢何东啊 我觉得你的学习笔记都做的相当不错，不知道可不可以和你的首页交换一个连接啊 提高一下PR和访问？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.ehow.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ehow.cn/'" tppabs="http://www.ehow.cn/">网络推广</a> at December  5, 2003 11:15 AM</span>
+</div>
+<div class="comments-body">
+<p>可以帮助我们提高排名吗？www.shjob.cn 33040824-22 bill</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.shjob.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.shjob.cn/'" tppabs="http://www.shjob.cn/">bill</a> at December  3, 2003 05:22 PM</span>
+</div>
+<div class="comments-body">
+<p>　　我觉得可能是log格式的问题。<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 29, 2003 04:17 PM</span>
+</div>
+<div class="comments-body">
+<p>我检查了我的weblogic的access.log，300M，40多天的，可是，grep -i Googlebot access.log居然什么都没有查到。</p>
+
+<p>可是，google是有我的最近新闻的，为什么呢？请指教。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://nosmoking.blogone.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://nosmoking.blogone.net/'" tppabs="http://nosmoking.blogone.net/">nosmoking</a> at October 29, 2003 03:52 PM</span>
+</div>
+<div class="comments-body">
+<p>我觉得计算这个要变一套程序比较容易！</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chinaseo.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chinaseo.org/'" tppabs="http://www.chinaseo.org/">中国seo</a> at October 28, 2003 12:51 AM</span>
+</div>
+<div class="comments-body">
+<p>有在上海的朋友吗？见面谈谈如何？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://no/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://no/'" tppabs="http://no/">napoleoncn</a> at September 26, 2003 09:24 AM</span>
+</div>
+<div class="comments-body">
+<p>TO Hilton</p>
+
+<p>其实最近我在做大量调整，以前那里是做好的，不过现在看了你的文章，为了减少出站连接，把无关紧要的连接全部去掉了，而且把首页已经去掉了一半内容，哈哈！狂砍中……</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.china0519.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.china0519.com/'" tppabs="http://www.china0519.com/">屏风</a> at September 16, 2003 11:24 PM</span>
+</div>
+<div class="comments-body">
+<p>to 屏风;<br />
+  　非常感谢你的鼓励！</p>
+
+<p>　　当初做这个blog，只想与搞技术的朋友的互相交流，没敢期望多红火。</p>
+
+<p>　　去了你的网站，做得很PP啊。</p>
+
+<p>　　不过，检索与下载好象没做完。　　</p>
+
+<p>Hilton<br />
+</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 16, 2003 10:40 PM</span>
+</div>
+<div class="comments-body">
+<p>Hilton 你好，其实这篇原文我看过，不过看不懂，能翻译到你这水平，不懂Google还真不行。非常感谢你的翻译和无私共享。屏风连接的网站是我的，你应该知道我为什么用这名字和用这连接的意义，尽管你这网页的PR现在还不高，但我相信你的Blog会红起来的。</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.china0519.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.china0519.com/'" tppabs="http://www.china0519.com/">屏风</a> at September 16, 2003 10:02 PM</span>
+</div>
+<div class="comments-body">
+<p>To van basten ,  屏风:<br />
+　　非常高兴这些文字能对你们有所帮助。<br />
+　　需要说明的是，这些内容主要是根据参考文献译过来的，再加一点自己的体会，可能有误解，建议看原文。</p>
+
+<p>　　非常高兴同两就google的内容进行探讨。</p>
+
+<p>　　你们俩留的地址都是商业网站，是你们自己的公司吗？</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 16, 2003 01:59 PM</span>
+</div>
+<div class="comments-body">
+<p>你的文章写得太好了<br />
+对我很有参考价值<br />
+我也喜欢研究Google</p>
+
+<p>有机会交流一下？</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.china0519.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.china0519.com/'" tppabs="http://www.china0519.com/">屏风</a> at September 16, 2003 01:45 PM</span>
+</div>
+<div class="comments-body">
+<p>十分感谢您的文章!<br />
+我是源源<br />
+正在关注Google这领域! <br />
+希望建立联系!</p>
+
+<p>有道是：<br />
+源源则水流，水流则鱼生之!<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.metalchina.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.metalchina.com/'" tppabs="http://www.metalchina.com/">van basten</a> at September 11, 2003 04:45 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="199" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

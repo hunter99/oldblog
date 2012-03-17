@@ -1,0 +1,472 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Log4J学习笔记（2）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000194.html" tppabs="http://hedong.3322.org/archives/000194.html" title="This is my first Moblog with Mfop2!" />
+
+<link rel="next" href="000196.html" tppabs="http://hedong.3322.org/archives/000196.html" title="bzip2和gzip的比较" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000195.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/126"
+    dc:title="Log4J学习笔记（2）"
+    dc:identifier="http://hedong.3322.org/archives/000195.html"
+    dc:subject="ItTech"
+    dc:description="　　前面主要记了一些原理，今天是实务。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-26T17:12:28+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000195.html">
+<dc:title>Log4J学习笔记（2）</dc:title>
+<dc:description>　　前面主要记了一些原理，今天是实务。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-26T17:12:28+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000194.html" tppabs="http://hedong.3322.org/archives/000194.html">&laquo; This is my first Moblog with Mfop2!</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000196.html" tppabs="http://hedong.3322.org/archives/000196.html">bzip2和gzip的比较 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 26, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Log4J学习笔记（2）</h3>
+
+<p>　　前面主要记了一些原理，今天是实务。</p>
+
+<a name="more"></a>
+<p>1、研究发现，一个系统中4%的代码是用来作logging的。<br />
+2、Log4J的配置文件(Configuration File)就是用来设置记录器的级别、存放器和布局的，它可接key=value格式的设置或xml格式的设置信息。通过配置，可以创建出Log4J的运行环境。<br />
+　　Log4J运行时，不对环境做任何假定，尤其是没有默认的存放器。<br />
+3、有几种方式可以配置Log4J<br />
+1）在程序中调用BasicConfigurator.configure()方法；<br />
+2）配置放在文件里，通过命令行参数传递文件名字，通过PropertyConfigurator.configure(args[x])解析并配置；<br />
+3）配置放在文件里，通过环境变量传递文件名等信息，利用log4j默认的初始化过程解析并配置；<br />
+4）配置放在文件里，通过应用服务器配置传递文件名等信息，利用一个特殊的servlet来完成配置。<br />
+看下面的例子：<div class="code"><pre>import com.foo.Bar;<br />
+ // Import log4j classes.<br />
+ import org.apache.log4j.Logger;<br />
+ import org.apache.log4j.BasicConfigurator;<br />
+ public class MyApp {<br />
+   // Define a static logger variable so that it references the<br />
+   // Logger instance named "MyApp".<br />
+<ins>   static Logger logger = Logger.getLogger(MyApp.class);</ins><br />
+   public static void main(String[] args) {<br />
+     // Set up a simple configuration that logs on the console.<br />
+<ins>     BasicConfigurator.configure();</ins><br />
+     logger.info("Entering application.");<br />
+     Bar bar = new Bar();<br />
+     bar.doIt();<br />
+     logger.info("Exiting application.");<br />
+   }<br />
+ }</pre></div><br />
+<div class="code"><pre> package com.foo;<br />
+ import org.apache.log4j.Logger;</p>
+
+<p> public class Bar {<br />
+<ins>   static Logger logger = Logger.getLogger(Bar.class);</ins><br />
+   public void doIt() {<br />
+     logger.debug("Did it again!");<br />
+   }<br />
+ }</pre></div><br />
+　　BasicConfigurator.configure给根记录器增加一个ConsoleAppender，输出格式通过PatternLayout设为"%-4r [%t] %-5p %c %x - %m%n"，还有根记录器的默认级别是Level.DEBUG. <br />
+　　记录器之间的关系如下图：<br />
+　　<center><img alt="log4jexample.gif" src="log4jexample.gif" tppabs="http://hedong.3322.org/archives/pics/log4jexample.gif" width="596" height="288" border="0" /></center><br />
+　　输出结果如下：<div class="code">0    [main] INFO  MyApp  - Entering application.<br />
+36   [main] DEBUG com.foo.Bar  - Did it again!<br />
+51   [main] INFO  MyApp  - Exiting application.</div><br />
+　　下面的代码结合配置信息，会得到与上述程序一样的结果。<div class="code"><pre>import com.foo.Bar;<br />
+ import org.apache.log4j.Logger;<br />
+<ins> import org.apache.log4j.PropertyConfigurator;</ins><br />
+ public class MyApp {<br />
+   static Logger logger = Logger.getLogger(MyApp.class.getName());<br />
+   public static void main(String[] args) {<br />
+     // BasicConfigurator replaced with PropertyConfigurator.<br />
+<ins>     PropertyConfigurator.configure(args[0]);</ins><br />
+     logger.info("Entering application.");<br />
+     Bar bar = new Bar();<br />
+     bar.doIt();<br />
+     logger.info("Exiting application.");<br />
+   }<br />
+ }<br />
+</pre></div>配置文件的内容如下：<div class="code"># Set root logger level to DEBUG and its only appender to A1.<br />
+log4j.rootLogger=DEBUG, A1</p>
+
+<p># A1 is set to be a ConsoleAppender.<br />
+log4j.appender.A1=org.apache.log4j.ConsoleAppender</p>
+
+<p># A1 uses PatternLayout.<br />
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout<br />
+log4j.appender.A1.layout.ConversionPattern=%-4r [%t] %-5p %c %x - %m%n</div>利用配置文件，可以很方便地修改配置。如下例<div class="code">log4j.rootLogger=debug, stdout, R</p>
+
+<p>log4j.appender.stdout=org.apache.log4j.ConsoleAppender<br />
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout</p>
+
+<p># Pattern to output the caller's file name and line number.<br />
+#log4j.appender.stdout.layout.ConversionPattern=%5p [%t] (%F:%L) - %m%n<br />
+# Print the date in ISO 8601 format<br />
+log4j.appender.stdout.layout.ConversionPattern=%d [%t] %-5p %c - %m%n</p>
+
+<p>log4j.appender.R=org.apache.log4j.RollingFileAppender<br />
+log4j.appender.R.File=example.log</p>
+
+<p>log4j.appender.R.MaxFileSize=100KB<br />
+# Keep one backup file<br />
+log4j.appender.R.MaxBackupIndex=1</p>
+
+<p>log4j.appender.R.layout=org.apache.log4j.PatternLayout<br />
+log4j.appender.R.layout.ConversionPattern=%p %t %c - %m%n</p>
+
+<p># Print only messages of level WARN or above in the package com.foo.<br />
+log4j.logger.com.foo=WARN</div><br />
+对于tomcat4，利用环境变量传递参数的，可参见以下几个例子<div class="code">   <br />
+unix设置<br />
+export CATALINA_OPTS ="-Dlog4j.configuration=foobar.txt"<ins>&lt;===用PropertyConfigurator解析</ins><br />
+export CATALINA_OPTS ="-Dlog4j.debug -Dlog4j.configuration=foobar.xml"<ins>&lt;===用DOMConfigurator解析</ins><br />
+以下是windows设置<br />
+set CATALINA_OPTS =-Dlog4j.configuration=foobar.lcf -Dlog4j.configuratorClass=com.foo.BarConfigurator<ins>&lt;===用com.foo.BarConfigurator解析</ins><br />
+set CATALINA_OPTS =-Dlog4j.configuration=file:/c:/foobar.lcf</div>配置文件位置如果没有明确指明，则要放在WEB-INF/classes目录下。<br />
+4、用servlet配置log4j<br />
+    以下都是参考冰之火的文章，抄来放在这儿，并做了一些必要的修改。需要说明的是，下面的代码需要自己写并发布，下的jar中没有这个类。<del>待我以后写一个，也放上来。</del>我也写了两个，在<a href="000197.html" tppabs="http://hedong.3322.org/archives/000197.html">笔记（三）</a>中。<br />
+在Application目录下的web.xml文件加入以后代码<br />
+<div class="code"><pre>  &lt;servlet&gt;<br />
+    &lt;servlet-name&gt;<del>log4j</del><ins>log4j-init</ins>&lt;/servlet-name&gt;<br />
+    &lt;servlet-class&gt;com.apache.jakarta.log4j.Log4jInit&lt;/servlet-class&gt;<br />
+    &lt;init-param&gt;<br />
+      &lt;param-name&gt;log4j&lt;/param-name&gt;<br />
+      &lt;param-value&gt;<del>/</del>WEB-INF/log4j.properties&lt;/param-value&gt;<br />
+    &lt;/init-param&gt;<br />
+    &lt;load-on-startup&gt;1&lt;/load-on-startup&gt;<br />
+  &lt;/servlet&gt;</pre></div><br />
+  这段代码的意思是说，在Tomcat启动时加载com.apache.jakarta.log4j.Log4jInit这个名叫Log4jInit.class这个类文件。<br />
+其中Log4jInit.class的源代码如下<div class="code"><pre> <br />
+package com.apache.jakarta.log4j;<br />
+import org.apache.log4j.PropertyConfigurator;<br />
+import javax.servlet.http.HttpServlet;<br />
+import javax.servlet.http.HttpServletRequest;<br />
+import javax.servlet.http.HttpServletResponse;<br />
+public class Log4jInit extends HttpServlet {</p>
+
+<p>  public void init() {<br />
+	String prefix =  getServletContext().getRealPath("/");<br />
+	String file = getInitParameter("log4j");<br />
+	// if the log4j-init-file is not set, then no point in trying<br />
+	System.out.println("................log4j start");<br />
+	if(file != null) {<br />
+	  PropertyConfigurator.configure(prefix+file);<br />
+	}<br />
+  }<br />
+public void doGet(HttpServletRequest req, HttpServletResponse res) {<br />
+  }<br />
+}</pre></div><br />
+在加载的过程中，程序会读取/WEB-INF/log4j.properties这个文件。<br />
+配置文件讲解如下：<div class="code"># Set root logger level to DEBUG and its only appender to A1 <br />
+#log4j中有五级logger <br />
+#FATAL 0 <br />
+#ERROR 3 <br />
+#WARN 4 <br />
+#INFO 6 <br />
+#DEBUG 7 <br />
+#配置根Logger，其语法为：<br />
+#log4j.rootLogger = [ level ] , appenderName, appenderName, …<br />
+log4j.rootLogger=INFO, A1 ,R<br />
+#这一句设置以为着所有的log都输出<br />
+#如果为log4j.rootLogger=WARN, 则意味着只有WARN,ERROR,FATAL<br />
+#被输出，DEBUG,INFO将被屏蔽掉.<br />
+# A1 is set to be a ConsoleAppender. <br />
+#log4j中Appender有几层如控制台、文件、GUI组件、甚至是套接口服务器、NT的事件记录器、UNIX Syslog守护进程等<br />
+#ConsoleAppender输出到控制台 <br />
+log4j.appender.A1=org.apache.log4j.ConsoleAppender <br />
+# A1 使用的输出布局，其中log4j提供4种布局. org.apache.log4j.HTMLLayout（以HTML表格形式布局）<br />
+#org.apache.log4j.PatternLayout（可以灵活地指定布局模式），<br />
+#org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），<br />
+#org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）</p>
+
+<p>log4j.appender.A1.layout=org.apache.log4j.PatternLayout <br />
+#灵活定义输出格式 具体查看log4j javadoc org.apache.log4j.PatternLayout <br />
+#d 时间 .... <br />
+log4j.appender.A1.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n <br />
+#R 输出到文件 RollingFileAppender的扩展，可以提供一种日志的备份功能。<br />
+log4j.appender.R=org.apache.log4j.RollingFileAppender <br />
+#日志文件的名称<br />
+log4j.appender.R.File=log4j.log <br />
+#日志文件的大小<br />
+log4j.appender.R.MaxFileSize=100KB <br />
+# 保存一个备份文件<br />
+log4j.appender.R.MaxBackupIndex=1 </p>
+
+<p>log4j.appender.R.layout=org.apache.log4j.TTCCLayout<br />
+#log4j.appender.R.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n</div><br />
+配置根Logger，其语法为：<br />
+<div class="code">log4j.rootLogger = [ level ] , appenderName, appenderName, ...</div><br />
+level 是日志记录的优先级<br />
+appenderName就是指定日志信息输出到哪个地方。您可以同时指定多个输出目的地。</p>
+
+<p>配置日志信息输出目的地Appender，其语法为<br />
+<div class="code">log4j.appender.appenderName = fully.qualified.name.of.appender.class<br />
+log4j.appender.appenderName.option1 = value1<br />
+...<br />
+log4j.appender.appenderName.option = valueN</div><br />
+Log4j提供的appender有以下几种：<br />
+org.apache.log4j.ConsoleAppender（控制台），<br />
+org.apache.log4j.FileAppender（文件），<br />
+org.apache.log4j.DailyRollingFileAppender（每天产生一个日志文件），<br />
+org.apache.log4j.RollingFileAppender（文件大小到达指定尺寸的时候产生一个新的文件），<br />
+org.apache.log4j.WriterAppender（将日志信息以流格式发送到任意指定的地方）</p>
+
+<p>配置日志信息的格式（布局），其语法为：<br />
+<div class="div">log4j.appender.appenderName.layout = fully.qualified.name.of.layout.class<br />
+log4j.appender.appenderName.layout.option1 = value1<br />
+....<br />
+log4j.appender.appenderName.layout.option = valueN</div><br />
+Log4j提供的layout有以下几种：<br />
+org.apache.log4j.HTMLLayout（以HTML表格形式布局），<br />
+org.apache.log4j.PatternLayout（可以灵活地指定布局模式），<br />
+org.apache.log4j.SimpleLayout（包含日志信息的级别和信息字符串），<br />
+org.apache.log4j.TTCCLayout（包含日志产生的时间、线程、类别等等信息）</p>
+
+<p><center><a href="000193.html" tppabs="http://hedong.3322.org/archives/000193.html">Log4J学习笔记（1）</a>&nbsp;<a href="000197.html" tppabs="http://hedong.3322.org/archives/000197.html">Log4J学习笔记（3）</a></center></p>
+
+<span class="posted">Posted by Hilton at August 26, 2003 05:12 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=195.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=195" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>Good!</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.e2buy.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.e2buy.com/'" tppabs="http://www.e2buy.com/">Internet Shopping Mall</a> at January 15, 2004 04:24 PM</span>
+</div>
+<div class="comments-body">
+<p>好文章</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.chinasspp.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chinasspp.com/'" tppabs="http://www.chinasspp.com/">服装</a> at January 15, 2004 04:22 PM</span>
+</div>
+<div class="comments-body">
+<p>顶</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.e2buy.com/cash  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.e2buy.com/cash'" tppabs="http://www.e2buy.com/cash">网络赚钱</a> at January 15, 2004 04:21 PM</span>
+</div>
+<div class="comments-body">
+<p>觉得自己好渺小</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.ehow.cn/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.ehow.cn/'" tppabs="http://www.ehow.cn/">GOOGLE排名</a> at January 15, 2004 04:20 PM</span>
+</div>
+<div class="comments-body">
+<p>要达到这个境界非一日之寒啊 加油啊</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.zj-jiatai.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.zj-jiatai.com/'" tppabs="http://www.zj-jiatai.com/">bamboo handles handbag handles wooden handles</a> at January 15, 2004 04:19 PM</span>
+</div>
+<div class="comments-body">
+<p>看不懂了<br />
+看来还要花时间再看！<br />
+哎</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.xagoogle.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.xagoogle.com/'" tppabs="http://www.xagoogle.com/">google</a> at January 15, 2004 02:24 PM</span>
+</div>
+<div class="comments-body">
+<p>非常感谢！</p>
+<span class="comments-post">Posted by:  at January  7, 2004 08:19 PM</span>
+</div>
+<div class="comments-body">
+<p> 这几天经常到这里来,给我许多有益的启发,谢谢</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.google8.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.google8.net/'" tppabs="http://www.google8.net/">区区</a> at January  4, 2004 10:52 PM</span>
+</div>
+<div class="comments-body">
+<p>不过我现在学C#<br />
+asp.net</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 12:48 PM</span>
+</div>
+<div class="comments-body">
+<p>感谢</p>
+<span class="comments-post">Posted by: Roger at December  4, 2003 10:45 AM</span>
+</div>
+<div class="comments-body">
+<p>不错</p>
+<span class="comments-post">Posted by:  at October 17, 2003 05:53 PM</span>
+</div>
+<div class="comments-body">
+<p>To ZeE:</p>
+
+<p>  非常感谢你的热情鼓励！</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October  9, 2003 10:25 PM</span>
+</div>
+<div class="comments-body">
+<p>Log4j和junit的文章很不错，没想到有这么好的技术网站，蛮新</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;zee_ho&#64;yahoo&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;zee_ho&#64;yahoo&#46;com">ZeE</a> at October  9, 2003 11:18 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="195" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

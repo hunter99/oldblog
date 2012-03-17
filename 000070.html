@@ -1,0 +1,311 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: TWIKI手记（一）：安装</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000069.html" tppabs="http://hedong.3322.org/archives/000069.html" title="用gogle搜索TWiki时出现的问题" />
+
+<link rel="next" href="000071.html" tppabs="http://hedong.3322.org/archives/000071.html" title="TWIKI手记（二）：用户设置" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000070.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/74"
+    dc:title="TWIKI手记（一）：安装"
+    dc:identifier="http://hedong.3322.org/archives/000070.html"
+    dc:subject="ItTech"
+    dc:description="　　TWIKI据说是功能最强大的wiki，它的主页在大陆不能直接访问，自己找个代理吧。：） 　　因为功能多，所以复杂的很，加上用google搜twiki受限，难以找到网友们的安装和使用记录，只好自己硬着头皮看英文文档了。 　　下面是我的一些安装使用手记，希望能为后来者提供一些帮助吧。..."
+    dc:creator="Hilton"
+    dc:date="2003-08-01T23:59:17+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000070.html">
+<dc:title>TWIKI手记（一）：安装</dc:title>
+<dc:description>　　TWIKI据说是功能最强大的wiki，它的主页在大陆不能直接访问，自己找个代理吧。：） 　　因为功能多，所以复杂的很，加上用google搜twiki受限，难以找到网友们的安装和使用记录，只好自己硬着头皮看英文文档了。 　　下面是我的一些安装使用手记，希望能为后来者提供一些帮助吧。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-08-01T23:59:17+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000069.html" tppabs="http://hedong.3322.org/archives/000069.html">&laquo; 用gogle搜索TWiki时出现的问题</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000071.html" tppabs="http://hedong.3322.org/archives/000071.html">TWIKI手记（二）：用户设置 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">August 01, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">TWIKI手记（一）：安装</h3>
+
+<p>　　<a href="javascript:if(confirm('http://twiki.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://twiki.org/'" tppabs="http://twiki.org/" title="TWIKI的主页">TWIKI</a>据说是功能最强大的wiki，它的主页在大陆不能直接访问，自己找个代理吧。：）<br />
+　　因为功能多，所以复杂的很，加上用google搜twiki受限，难以找到网友们的安装和使用记录，只好自己硬着头皮看英文文档了。<br />
+　　下面是我的一些安装使用手记，希望能为后来者提供一些帮助吧。</p>
+
+<a name="more"></a>
+<p>　　我将TWIKI安装在一台有apache的linux的机器上，有root权限，设置起来方便，对那些找主机放WIKI的朋友，只能供参考了。</p>
+
+<p>　　我下载是TWiki20030201.tar.gz（0.85M）。建议在安装前，先在本地建一个临时目录如c:\temp,将这个文件用winzip或别的程序展开到这个目录下。此时，应该有一个文件叫TWikiDocumentation.html被释放出来了，安装前一定要读读一它，至少要读一遍安装部分啊。</p>
+
+<p>　　然后将这个包上传到服务器(域名叫kickali.com)，建个合适的目录，展开。<br />
+<div class="code">cd /home/ali &lt;----假定用户叫ali吧。<br />
+mkdir twiki &lt;----我建的目录叫twiki,你可以叫wikit，没人会反对的。<br />
+tar zxvf ../TWiki20030201.tar.gz &lt;----找找你把TWiki20030201.tar.gz传到什么地方了，我的在上级目录中。</div></p>
+
+<p>　　修改APACHE的配置文件httpd.conf,增加以下几行。<br />
+<div class="code"> ScriptAlias /twiki/bin/ "/home/ali/twiki/bin/"<br />
+ Alias /twiki/ "/home/ali/twiki/"<br />
+ &lt;Directory "/home/ali/twiki/bin"&gt;<br />
+    Options +ExecCGI<br />
+    SetHandler cgi-script<br />
+    Allow from all<br />
+ &lt;/Directory&gt;<br />
+ &lt;Directory "/home/ali/twiki/pub"&gt;<br />
+    Options FollowSymLinks +Includes<br />
+    AllowOverride None<br />
+    Allow from all<br />
+ &lt;/Directory&gt;<br />
+ &lt;Directory "/home/ali/twiki/data"&gt;<br />
+    deny from all<br />
+ &lt;/Directory&gt;<br />
+ &lt;Directory "/home/ali/twiki/templates"&gt;<br />
+    deny from all<br />
+ &lt;/Directory&gt;</div></p>
+
+<p>　　重新启动apache;<div class="code">su -<br />
+service httpd restart</div></p>
+
+<p>　　在本地计算机的浏览器中输入http://kickali.com/twiki/bin/,然后看到“Forbidden. You don't have permission to access /twiki/bin/ on this server”，这就说明设置对了。（我一直也搞不懂文档中会用这个地址进行测试，有很多别的办法啊）。</p>
+
+<p>　　检查perl装了没，有没有/usr/bin/perl。如果装了perl后没有/usr/bin/perl，可以root身份用下述命令建一个。假定你的perl在/usr/lib/perl，则：<div class="code">ln -sf /usr/lib/perl /usr/bin/perl</div></p>
+
+<p>　　TWIKI默认的CGI执行用户是nobody，如果不是，请看文档修改吧。以下都是以nobody为默认的。置/home/ali/twiki/bin/下的程序可执行，twiki/pub和twiki/data下的内容nobody可写（为省事，改成777吧，因为有些文件被保护了）.同时，检查rcs装了没，diff有没有，还要检查有没有/usr/sbin/sendmail。<br />
+<div class="code">cd /home/ali/twiki/bin<br />
+chmod 755 -R *<br />
+cd ../pub<br />
+chmod 777 -R *<br />
+cd ../data<br />
+chmod 777 -R *<br />
+chmod 777 -R  .*<br />
+rcs <br />
+diff -v<br />
+ls /usr/sbin/sendmail</div></p>
+
+<p>　　下面修改/home/ali/twiki/lib/TWiki.cfg文件，作如下修改<div class="code">$defaultUrlHost   = "http://kickali.com";<br />
+$pubDir           = "/home/ali/twiki/pub";<br />
+$templateDir      = "/home/ali/twiki/templates";<br />
+$dataDir          = "/home/ali/twiki/data";<br />
+$storeTopicImpl = "RcsLite";<br />
+$useLocale = 1;<br />
+$siteLocale = "zh_CN.UTF-8";</div></p>
+
+<p>　　好了，现在本地访问“http://kickali.com/twiki/bin/testenv”，检查有没红字提示，如果提示是安全原因目录或文件权限，暂且不必理它，其它的红字标明设置有错，需要修改。</p>
+
+<p>　　对服务器的mail进行一些设置。访问http://kickali.com/twiki/bin/view/TWiki/TWikiPreferences,点击页左下角"edit"，在输入框中找到* Set WIKIWEBMASTER = ，等号后面写你的email,如果要用sendmail发信，则找到 * Set SMTPMAILHOST =，将等号后面的mail去掉，然后preview，然后save.</p>
+
+<p>　　OK！今天就到这儿，下次讲用户认证和受权。<br />
+</p>
+
+<span class="posted">Posted by Hilton at August  1, 2003 11:59 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=70.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=70" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>你先生成gb2312的rss试试，看看汉字是不是乱码？<br />
+我猜可能是汉字编码混乱所致。</p>
+<span class="comments-post">Posted by: <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at January  6, 2004 11:12 AM</span>
+</div>
+<div class="comments-body">
+<p>hedong,你好!</p>
+
+<p>我用Twiki做自己的笔记系统, 其中中文的设置是在配置文件中设<br />
+$useLocale = 1;<br />
+$siteLocale = "zh_CN.UTF-8";</p>
+
+<p>最近想试试能不能用RSS读写自己的Twiki,格式是<br />
+<a href="javascript:if(confirm('http://server/cgi-bin/view//WebRss?skin=rss  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://server/cgi-bin/view//WebRss?skin=rss'" tppabs="http://server/cgi-bin/view//WebRss?skin=rss">http://server/cgi-bin/view//WebRss?skin=rss</a> </p>
+
+<p>倒是可以读出来, 编码是UTF8的, 但中文全部是乱码. 我看其他的中文RSS文件, 编码是UTF8, 中文是可以读的.</p>
+
+<p>不知道怎么设置才能用RSS方式读写Twiki的中文? 你有这方面的经验吗? 谢谢! :-)<br />
+</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://hedong.3322.org/archives/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/archives/mailto&#58;suhoiy&#64;21cn&#46;com'" tppabs="http://hedong.3322.org/archives/mailto&#58;suhoiy&#64;21cn&#46;com">suhoiy</a> at January  6, 2004 11:02 AM</span>
+</div>
+<div class="comments-body">
+<p>今天无意间看到这个网站，感觉这里的东西很奇怪，也很奇特.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.hello88.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.hello88.com/'" tppabs="http://www.hello88.com/">www.hello88.com</a> at December 21, 2003 08:42 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="70" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

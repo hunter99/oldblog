@@ -1,0 +1,499 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: OSW:7.认证中心</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000016.html" tppabs="http://hedong.3322.org/archives/000016.html" title="OSW:6.Samba" />
+
+<link rel="next" href="000018.html" tppabs="http://hedong.3322.org/archives/000018.html" title="OSW:8.Linux上的服务管理" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000017.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/21"
+    dc:title="OSW:7.认证中心"
+    dc:identifier="http://hedong.3322.org/archives/000017.html"
+    dc:subject="ItTech"
+    dc:description="　　海龙讲PKI时，以算法和体系讲得很细，可是没讲怎么搭建。在一次讲座后去问另一个人，好象也没问出个结果。郝大说他自己搭了个认证服务器，很得意，又见他在研究应用密码学，便猜这东东一定不会容易。想向他打听吧，又怕需要的背景知识太多，只好作罢。 　　有文说用OpenSSL可以做，过几天试试去。根据文章指点，step by step,：）..."
+    dc:creator="Hilton"
+    dc:date="2003-07-09T03:06:46+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000017.html">
+<dc:title>OSW:7.认证中心</dc:title>
+<dc:description>　　海龙讲PKI时，以算法和体系讲得很细，可是没讲怎么搭建。在一次讲座后去问另一个人，好象也没问出个结果。郝大说他自己搭了个认证服务器，很得意，又见他在研究应用密码学，便猜这东东一定不会容易。想向他打听吧，又怕需要的背景知识太多，只好作罢。 　　有文说用OpenSSL可以做，过几天试试去。根据文章指点，step by step,：）...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-09T03:06:46+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000016.html" tppabs="http://hedong.3322.org/archives/000016.html">&laquo; OSW:6.Samba</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000018.html" tppabs="http://hedong.3322.org/archives/000018.html">OSW:8.Linux上的服务管理 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 09, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">OSW:7.认证中心</h3>
+
+<p>　　海龙讲PKI时，以算法和体系讲得很细，可是没讲怎么搭建。在一次讲座后去问另一个人，好象也没问出个结果。郝大说他自己搭了个认证服务器，很得意，又见他在研究应用密码学，便猜这东东一定不会容易。想向他打听吧，又怕需要的背景知识太多，只好作罢。</p>
+
+<p>　　有文说用OpenSSL可以做，过几天试试去。根据文章指点，step by step,：）<br />
+</p>
+
+<a name="more"></a>
+<p>　　<a name="top" id="top"></a>目录<br />
+----------------------------<ol><li><a href="#capp">用户申请证书</a></li><br />
+<li><a href="#self">服务方自频证书(只能一次)</a></li><br />
+<li><a href="#s2c">服务方频发证书</a></li><br />
+<li><a href="#use">用户使用证书</a></li><br />
+</ol><br />
+-----------------------------</p>
+
+<p>　　一些假定：我叫aliali,我有一朋友叫boxbox,当前目录是$home/candel。</p>
+
+<p>　　<a name="capp" id="capp" ></a><strong>用户申请证书</strong>&nbsp;<a href="#top">top</a></p>
+
+<p>    1、生成私钥</p>
+
+<p>$openssl&nbsp;genrsa&nbsp;-des3&nbsp;-out&nbsp;aliali.key&nbsp;1024</p>
+
+<p>显示<br />
+Generating&nbsp;RSA&nbsp;private&nbsp;key,&nbsp;1024&nbsp;bit&nbsp;long&nbsp;modulus<br />
+.......++++++<br />
+.++++++<br />
+e&nbsp;is&nbsp;65537&nbsp;(0x10001)<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+Verifying&nbsp;password&nbsp;-&nbsp;Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:</p>
+
+<p>生成名为aliali.key的一个文件，内容如下：<br />
+-----BEGIN&nbsp;RSA&nbsp;PRIVATE&nbsp;KEY-----<br />
+Proc-Type:&nbsp;4,ENCRYPTED<br />
+DEK-Info:&nbsp;DES-EDE3-CBC,BB03146A74BE076E</p>
+
+<p>HwsUT6Slujin4b7p7X3KLCxUSRMgK0WVHU1zRJwV+LeQQYOvW4YOvl1w1TJVuwtx<br />
+............<br />
+I5GbgPGfP7tb0dHKx6SMv/EOQitkx98SpPQlKwGvhimcUqg0QM+UJw==<br />
+-----END&nbsp;RSA&nbsp;PRIVATE&nbsp;KEY-----</p>
+
+<p>　　可以用下面的指令查看私钥内容<br />
+$openssl&nbsp;rsa&nbsp;-noout&nbsp;-text&nbsp;-in&nbsp;aliali.key<br />
+显示：<br />
+read&nbsp;RSA&nbsp;key<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+Private-Key:&nbsp;(1024&nbsp;bit)<br />
+modulus:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:d1:bd:28:78:e7:bb:17:c0:44:97:ec:43:b0:48:<br />
+.........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;6c:02:6c:35:fc:c0:97:16:eb<br />
+publicExponent:&nbsp;65537&nbsp;(0x10001)<br />
+privateExponent:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;22:c1:61:af:87:56:ed:7c:a2:e1:39:f9:8d:80:a9:<br />
+..........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;06:bd:e4:da:81:39:61:c1<br />
+prime1:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:f9:e4:ca:a5:3a:b2:da:27:69:e0:47:d3:80:e4:<br />
+..........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;08:ab:3c:fc:33<br />
+prime2:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:d6:dd:2d:a6:99:b6:11:2b:84:76:e1:af:eb:c0:<br />
+...........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;80:e7:b7:c2:69<br />
+exponent1:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:ef:6a:61:30:5e:85:9e:76:e6:7c:47:b4:7e:a8:<br />
+...........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;e6:b1:50:d3:7b<br />
+exponent2:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:a5:26:0a:01:a4:e2:09:5e:7e:89:75:bc:e7:23:<br />
+...........<br />
+&nbsp;&nbsp;&nbsp;&nbsp;63:c7:37:3a:09<br />
+coefficient:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;00:c7:e0:04:e3:83:d7:9d:aa:55:d4:b2:ae:da:2b:<br />
+............<br />
+&nbsp;&nbsp;&nbsp;&nbsp;4e:4f:64:f0:d4</p>
+
+<p>　　用下列命令可生成不需要口令访问的私钥<br />
+$openssl&nbsp;rsa&nbsp;-in&nbsp;tom.key&nbsp;-out&nbsp;tom.key.unsecure<br />
+显示，不知道，没试。</p>
+
+<p>　　2、用如上的私钥生成一个证书签名申请（CSR）：<br />
+$openssl&nbsp;req&nbsp;-new&nbsp;-key&nbsp;aliali.key&nbsp;-out&nbsp;aliali.csr<br />
+显示：<br />
+Using&nbsp;configuration&nbsp;from&nbsp;/usr/share/ssl/openssl.cnf<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+You&nbsp;are&nbsp;about&nbsp;to&nbsp;be&nbsp;asked&nbsp;to&nbsp;enter&nbsp;information&nbsp;that&nbsp;will&nbsp;be&nbsp;incorporated<br />
+into&nbsp;your&nbsp;certificate&nbsp;request.<br />
+What&nbsp;you&nbsp;are&nbsp;about&nbsp;to&nbsp;enter&nbsp;is&nbsp;what&nbsp;is&nbsp;called&nbsp;a&nbsp;Distinguished&nbsp;Name&nbsp;or&nbsp;a&nbsp;DN.<br />
+There&nbsp;are&nbsp;quite&nbsp;a&nbsp;few&nbsp;fields&nbsp;but&nbsp;you&nbsp;can&nbsp;leave&nbsp;some&nbsp;blank<br />
+For&nbsp;some&nbsp;fields&nbsp;there&nbsp;will&nbsp;be&nbsp;a&nbsp;default&nbsp;value,<br />
+If&nbsp;you&nbsp;enter&nbsp;'.',&nbsp;the&nbsp;field&nbsp;will&nbsp;be&nbsp;left&nbsp;blank.<br />
+-----<br />
+Country&nbsp;Name&nbsp;(2&nbsp;letter&nbsp;code)&nbsp;[AU]:CN<br />
+State&nbsp;or&nbsp;Province&nbsp;Name&nbsp;(full&nbsp;name)&nbsp;[Some-State]:Beijing<br />
+Locality&nbsp;Name&nbsp;(eg,&nbsp;city)&nbsp;[]:<br />
+Organization&nbsp;Name&nbsp;(eg,&nbsp;company)&nbsp;[Internet&nbsp;Widgits&nbsp;Pty&nbsp;Ltd]:aliali.com<br />
+Organizational&nbsp;Unit&nbsp;Name&nbsp;(eg,&nbsp;section)&nbsp;[]:management&nbsp;center&nbsp;of&nbsp;network<br />
+Common&nbsp;Name&nbsp;(eg,&nbsp;your&nbsp;name&nbsp;or&nbsp;your&nbsp;server's&nbsp;hostname)&nbsp;[]:aliali<br />
+Email&nbsp;Address&nbsp;[]:hitonyang@yahoo.com.cn</p>
+
+<p>Please&nbsp;enter&nbsp;the&nbsp;following&nbsp;'extra'&nbsp;attributes<br />
+to&nbsp;be&nbsp;sent&nbsp;with&nbsp;your&nbsp;certificate&nbsp;request<br />
+A&nbsp;challenge&nbsp;password&nbsp;[]:alia&nbsp;&nbsp;&nbsp;<br />
+An&nbsp;optional&nbsp;company&nbsp;name&nbsp;[]:istic</p>
+
+<p>生成文件aliali.csr,内容如下：<br />
+-----BEGIN&nbsp;CERTIFICATE&nbsp;REQUEST-----<br />
+MIIB/zCCAWgCAQAwgZMxCzAJBgNVBAYTAkNOMRAwDgYDVQQIEwdCZWlqaW5nMRMw<br />
+...........<br />
+r6djmppuuS5beTZNASdzpC8FSEokg66a9Xgfz4K2joX/gK0=<br />
+-----END&nbsp;CERTIFICATE&nbsp;REQUEST-----</p>
+
+<p>用$openssl&nbsp;req&nbsp;-noout&nbsp;-text&nbsp;-in&nbsp;aliali.csr看请求内容，显示如下：<br />
+Using&nbsp;configuration&nbsp;from&nbsp;/usr/share/ssl/openssl.cnf<br />
+Certificate&nbsp;Request:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Data:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version:&nbsp;0&nbsp;(0x0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject:&nbsp;C=CN,&nbsp;ST=Beijing,&nbsp;O=aliali.com,&nbsp;OU=management&nbsp;center&nbsp;of&nbsp;network,&nbsp;CN=aliali/Email=hitonyang@yahoo.com.cn<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject&nbsp;Public&nbsp;Key&nbsp;Info:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public&nbsp;Key&nbsp;Algorithm:&nbsp;rsaEncryption<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RSA&nbsp;Public&nbsp;Key:&nbsp;(1024&nbsp;bit)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modulus&nbsp;(1024&nbsp;bit):<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00:d1:bd:28:78:e7:bb:17:c0:44:97:ec:43:b0:48:<br />
+................<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6c:02:6c:35:fc:c0:97:16:eb<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exponent:&nbsp;65537&nbsp;(0x10001)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Attributes:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;challengePassword&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:alia<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;unstructuredName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:istic<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;Algorithm:&nbsp;md5WithRSAEncryption<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;a0:af:9f:9a:6e:48:a9:12:b5:ed:db:3a:8a:ec:ae:8f:cb:48:<br />
+.............</p>
+
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;80:ad</p>
+
+<p>　　<a name="self" id="self" ></a><strong>服务方在发证书需要有自己的key和crt，如果没有则要生成</strong>&nbsp;<a href="#top">top</a><br />
+　　生成服务方的私钥<br />
+$&nbsp;openssl&nbsp;genrsa&nbsp;-des3&nbsp;-out&nbsp;ca.key&nbsp;1024<br />
+显示<br />
+Generating&nbsp;RSA&nbsp;private&nbsp;key,&nbsp;1024&nbsp;bit&nbsp;long&nbsp;modulus<br />
+.............................................++++++<br />
+...++++++<br />
+e&nbsp;is&nbsp;65537&nbsp;(0x10001)<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+Verifying&nbsp;password&nbsp;-&nbsp;Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:</p>
+
+<p>　　生成CA的x509自签名<br />
+$&nbsp;openssl&nbsp;req&nbsp;-new&nbsp;-x509&nbsp;-days&nbsp;365&nbsp;-key&nbsp;ca.key&nbsp;-out&nbsp;ca.crt&nbsp;<br />
+显示<br />
+Using&nbsp;configuration&nbsp;from&nbsp;/usr/share/ssl/openssl.cnf<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+You&nbsp;are&nbsp;about&nbsp;to&nbsp;be&nbsp;asked&nbsp;to&nbsp;enter&nbsp;information&nbsp;that&nbsp;will&nbsp;be&nbsp;incorporated<br />
+into&nbsp;your&nbsp;certificate&nbsp;request.<br />
+What&nbsp;you&nbsp;are&nbsp;about&nbsp;to&nbsp;enter&nbsp;is&nbsp;what&nbsp;is&nbsp;called&nbsp;a&nbsp;Distinguished&nbsp;Name&nbsp;or&nbsp;a&nbsp;DN.<br />
+There&nbsp;are&nbsp;quite&nbsp;a&nbsp;few&nbsp;fields&nbsp;but&nbsp;you&nbsp;can&nbsp;leave&nbsp;some&nbsp;blank<br />
+For&nbsp;some&nbsp;fields&nbsp;there&nbsp;will&nbsp;be&nbsp;a&nbsp;default&nbsp;value,<br />
+If&nbsp;you&nbsp;enter&nbsp;'.',&nbsp;the&nbsp;field&nbsp;will&nbsp;be&nbsp;left&nbsp;blank.<br />
+-----<br />
+Country&nbsp;Name&nbsp;(2&nbsp;letter&nbsp;code)&nbsp;[AU]:CN<br />
+State&nbsp;or&nbsp;Province&nbsp;Name&nbsp;(full&nbsp;name)&nbsp;[Some-State]:Beijing<br />
+Locality&nbsp;Name&nbsp;(eg,&nbsp;city)&nbsp;[]:<br />
+Organization&nbsp;Name&nbsp;(eg,&nbsp;company)&nbsp;[Internet&nbsp;Widgits&nbsp;Pty&nbsp;Ltd]:ISTIC<br />
+Organizational&nbsp;Unit&nbsp;Name&nbsp;(eg,&nbsp;section)&nbsp;[]:<br />
+Common&nbsp;Name&nbsp;(eg,&nbsp;your&nbsp;name&nbsp;or&nbsp;your&nbsp;server's&nbsp;hostname)&nbsp;[]:<br />
+Email&nbsp;Address&nbsp;[]:<br />
+　　<br />
+　　<a name="s2c" id="s2c" ></a><strong>服务方颁发证书</strong>&nbsp;<a href="#top">top</a><br />
+$sign.sh&nbsp;aliali.csr<br />
+显示<br />
+CA&nbsp;signing:&nbsp;aliali.csr&nbsp;->&nbsp;aliali.crt:<br />
+Using&nbsp;configuration&nbsp;from&nbsp;ca.config<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+Check&nbsp;that&nbsp;the&nbsp;request&nbsp;matches&nbsp;the&nbsp;signature<br />
+Signature&nbsp;ok<br />
+The&nbsp;Subjects&nbsp;Distinguished&nbsp;Name&nbsp;is&nbsp;as&nbsp;follows<br />
+countryName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:PRINTABLE:'CN'<br />
+stateOrProvinceName&nbsp;&nbsp;&nbsp;:PRINTABLE:'Beijing'<br />
+organizationName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:PRINTABLE:'aliali.com'<br />
+organizationalUnitName:PRINTABLE:'management&nbsp;center&nbsp;of&nbsp;network'<br />
+commonName&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:PRINTABLE:'aliali'<br />
+emailAddress&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:IA5STRING:'hitonyang@yahoo.com.cn'<br />
+Certificate&nbsp;is&nbsp;to&nbsp;be&nbsp;certified&nbsp;until&nbsp;Jan&nbsp;&nbsp;2&nbsp;10:22:08&nbsp;2009&nbsp;GMT&nbsp;(2002&nbsp;days)<br />
+Sign&nbsp;the&nbsp;certificate?&nbsp;[y/n]:y</p>
+
+<p><br />
+1&nbsp;out&nbsp;of&nbsp;1&nbsp;certificate&nbsp;requests&nbsp;certified,&nbsp;commit?&nbsp;[y/n]y<br />
+Write&nbsp;out&nbsp;database&nbsp;with&nbsp;1&nbsp;new&nbsp;entries<br />
+Data&nbsp;Base&nbsp;Updated<br />
+CA&nbsp;verifying:&nbsp;aliali.crt&nbsp;<->&nbsp;CA&nbsp;cert<br />
+aliali.crt:&nbsp;OK</p>
+
+<p>所用的sign.sh可以<a href="sign.sh.txt.htm" tppabs="http://hedong.3322.org/archives/sign.sh.txt">从这下载</a>。<br />
+　　OK！aliali的证书aliali.crt终于生成了,内容如下：<br />
+Certificate:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Data:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Version:&nbsp;1&nbsp;(0x0)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Serial&nbsp;Number:&nbsp;1&nbsp;(0x1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;Algorithm:&nbsp;md5WithRSAEncryption<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Issuer:&nbsp;C=CN,&nbsp;ST=Beijing,&nbsp;O=ISTIC<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Validity<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not&nbsp;Before:&nbsp;Jul&nbsp;11&nbsp;10:22:08&nbsp;2003&nbsp;GMT<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Not&nbsp;After&nbsp;:&nbsp;Jan&nbsp;&nbsp;2&nbsp;10:22:08&nbsp;2009&nbsp;GMT<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject:&nbsp;C=CN,&nbsp;ST=Beijing,&nbsp;O=aliali.com,&nbsp;OU=management&nbsp;center&nbsp;of&nbsp;network,&nbsp;CN=aliali/Email=hitonyang@yahoo.com.cn<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subject&nbsp;Public&nbsp;Key&nbsp;Info:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Public&nbsp;Key&nbsp;Algorithm:&nbsp;rsaEncryption<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;RSA&nbsp;Public&nbsp;Key:&nbsp;(1024&nbsp;bit)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Modulus&nbsp;(1024&nbsp;bit):<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;00:d1:bd:28:78:e7:bb:17:c0:44:97:ec:43:b0:48:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.............<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;6c:02:6c:35:fc:c0:97:16:eb<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Exponent:&nbsp;65537&nbsp;(0x10001)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Signature&nbsp;Algorithm:&nbsp;md5WithRSAEncryption<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2a:2f:80:22:24:94:94:c5:c8:ec:f8:b4:5f:1c:89:e3:d9:5e:<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;....................<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;91:7b<br />
+-----BEGIN&nbsp;CERTIFICATE-----<br />
+MIICMjCCAZsCAQEwDQYJKoZIhvcNAQEEBQAwLzELMAkGA1UEBhMCQ04xEDAOBgNV<br />
+.............................<br />
+tCMO03/DkL1dBTnwJdS5U7FONj3OW4cW0I1Sn84IbHMCL8u5kXs=<br />
+-----END&nbsp;CERTIFICATE-----</p>
+
+<p><br />
+　　不要修改"-----BEGIN&nbsp;CERTIFICATE-----"和"-----END&nbsp;CERTIFICATE-----"及两者中间的内容，其它内容可以去掉。</p>
+
+<p>　　对于那些不能识别PEM格式证书的程序，可以用下面的指令生成DER格式的证书：<br />
+$openssl&nbsp;x509&nbsp;-in&nbsp;aliali.crt&nbsp;-out&nbsp;aliali.der&nbsp;-outform&nbsp;DER</p>
+
+<p>　　<a name="use" id="use" ></a><strong>用户使用证书</strong>&nbsp;<a href="#top">top</a><br />
+　　前期准备：按aliali的历程生成boxbox.crt，然后：<br />
+$mkdir&nbsp;usage<br />
+$cd&nbsp;usage<br />
+$mkdir&nbsp;ali<br />
+$mkdir&nbsp;box<br />
+$cd&nbsp;ali<br />
+$cp&nbsp;../../*.crt&nbsp;.<br />
+$cp&nbsp;../../aliali.key&nbsp;.<br />
+$echo&nbsp;"Hello&nbsp;World"&nbsp;>original.txt</p>
+
+<p>$cd&nbsp;../box<br />
+$cp&nbsp;../../*.crt&nbsp;.<br />
+$cp&nbsp;../../boxbox.key&nbsp;.</p>
+
+<p>　　1、数字签名<br />
+$cd&nbsp;../ali<br />
+$ln&nbsp;-s&nbsp;original.txt&nbsp;txt_need_sign.txt<br />
+$openssl&nbsp;smime&nbsp;-sign&nbsp;-in&nbsp;txt_need_sign.txt&nbsp;-out&nbsp;txt_need_sign.2box.fromali.sign&nbsp;-inkey&nbsp;aliali.key&nbsp;-signer&nbsp;aliali.crt<br />
+$cp&nbsp;txt_need_sign.2box.fromali.sign&nbsp;../box/txt_need_verify_sign.fromali.sign<br />
+　　2、验证签名<br />
+$cd&nbsp;../box<br />
+$openssl&nbsp;smime&nbsp;-verify&nbsp;-out&nbsp;org.txt2&nbsp;-in&nbsp;txt_need_verify_sign.fromali.sign&nbsp;-certfile&nbsp;aliali.crt&nbsp;-CAfile&nbsp;ca.crt<br />
+显示：<br />
+Verification&nbsp;Successful</p>
+
+<p>　　3、数字信封（加密）<br />
+$cd&nbsp;../ali<br />
+$ln&nbsp;-s&nbsp;original.txt&nbsp;txt_need_enc.txt<br />
+$openssl&nbsp;smime&nbsp;-encrypt&nbsp;-in&nbsp;txt_need_enc.txt&nbsp;-out&nbsp;txt_need_enc.4box.fromali.enc&nbsp;boxbox.crt<br />
+$cp&nbsp;txt_need_enc.4box.fromali.enc&nbsp;../box/txt_need_dec.fromali.enc</p>
+
+<p>　　4、数字信封（解密）<br />
+$cd&nbsp;../box<br />
+$openssl&nbsp;smime&nbsp;-decrypt&nbsp;-in&nbsp;txt_need_dec.fromali.enc&nbsp;-out&nbsp;org.txt3&nbsp;-inkey&nbsp;boxbox.key&nbsp;-recip&nbsp;boxbox.crt</p>
+
+<p>　　5、签名后加密<br />
+$cd&nbsp;../ali<br />
+$ln&nbsp;-s&nbsp;original.txt&nbsp;txt_need_sign_enc.txt<br />
+$openssl&nbsp;smime&nbsp;-sign&nbsp;-in&nbsp;txt_need_sign_enc.txt&nbsp;-out&nbsp;txt_signedbyali_need_enc.sign&nbsp;-inkey&nbsp;aliali.key&nbsp;-signer&nbsp;aliali.crt<br />
+$openssl&nbsp;smime&nbsp;-encrypt&nbsp;-in&nbsp;txt_signedbyali_need_enc.sign&nbsp;-out&nbsp;txt_signbyali_need_dec.4box.fromali.sign.enc&nbsp;boxbox.crt<br />
+$cp&nbsp;txt_signbyali_need_dec.4box.fromali.sign.enc&nbsp;../box/txt_singed_need_dec.fromali.sign.enc</p>
+
+<p>　　6、生成一个包含私钥的数字证书　　<br />
+　　包含私角的数字证书用于证书导入、导出和保存，这样的证书标准为pcks12.<br />
+$openssl&nbsp;pkcs12&nbsp;-export&nbsp;-in&nbsp;aliali.crt&nbsp;-out&nbsp;aliali.p12&nbsp;-inkey&nbsp;aliali.key&nbsp;-name&nbsp;"ali's&nbsp;key&nbsp;and&nbsp;certificate"<br />
+显示：<br />
+Enter&nbsp;PEM&nbsp;pass&nbsp;phrase:<br />
+Enter&nbsp;Export&nbsp;Password:<br />
+Verifying&nbsp;password&nbsp;-&nbsp;Enter&nbsp;Export&nbsp;Password:</p>
+
+<p><hr /><br />
+pki.com.cn是一个关于pki的论坛，我以aliali注册了，上面有很多有用的资料，写在这儿，备忘吧。</p>
+
+<span class="posted">Posted by Hilton at July  9, 2003 03:06 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=17.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=17" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="17" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

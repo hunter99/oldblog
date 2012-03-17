@@ -1,0 +1,316 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: OSW:13.WebLog的分析</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000022.html" tppabs="http://hedong.3322.org/archives/000022.html" title="OSW:12.CVS设置与应用" />
+
+<link rel="next" href="000024.html" tppabs="http://hedong.3322.org/archives/000024.html" title="OSW:14.WebMail的搭建" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000023.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/27"
+    dc:title="OSW:13.WebLog的分析"
+    dc:identifier="http://hedong.3322.org/archives/000023.html"
+    dc:subject="ItTech"
+    dc:description="　　车东的文章精而不多，但WebLog分析的文章就占了两篇。看了他给BlogChina所做的分析，确实比较有价值。..."
+    dc:creator="Hilton"
+    dc:date="2003-07-14T05:22:10+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000023.html">
+<dc:title>OSW:13.WebLog的分析</dc:title>
+<dc:description>　　车东的文章精而不多，但WebLog分析的文章就占了两篇。看了他给BlogChina所做的分析，确实比较有价值。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-07-14T05:22:10+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000022.html" tppabs="http://hedong.3322.org/archives/000022.html">&laquo; OSW:12.CVS设置与应用</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000024.html" tppabs="http://hedong.3322.org/archives/000024.html">OSW:14.WebMail的搭建 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">July 14, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">OSW:13.WebLog的分析</h3>
+
+<p>　　车东的文章精而不多，但WebLog分析的文章就占了两篇。看了他给BlogChina所做的分析，确实比较有价值。</p>
+
+<a name="more"></a>
+<p>　　我自己以前也做过一个，用的是webalizer-2.01_06-11,可以通过http://egroups.istic.ac.cn/wa/访问。</p>
+
+<p>　　现把安装<acronym title="Advanced Web Statistics">AWStats</acronym>过程列在下面，供有志者参考。</p>
+
+<p>　　1、去<a href="javascript:if(confirm('http://awstats.sourceforge.net/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://awstats.sourceforge.net/'" tppabs="http://awstats.sourceforge.net/" title="Web log 分析软件AWStats的项目主页">AWStats项目主页</a>把awstats-5.6.tgz下载下来，上传到服务器，并将其解到/tmp/awstats-5.6目录下（正式安装时不要在tmp目录下啊).<br />
+<div class="code">cd /tmp<br />
+cp ~/awstats-5.6.tgz .<br />
+tar zxvf awstats-5.6.tgz</div></p>
+
+<p>　　2、修改<acronym title="一个流行的http服务器的名字">Apache</acronym>配置文件了。我的是/etc/httpd/conf/httpd.conf,你的我可不知道在哪个目录下，名字应该一致吧。在Awstats的安装说明中，是将目录分放在不同的目录下，我怕麻烦，就不分目录了。设设置如下：<br />
+增加：<br />
+<div class="code">Alias /awstat/ "/tmp/awstats-5.6/wwwroot/"<br />
+&lt;Directory&nbsp;"/tmp/awstats-5.6/wwwroot"&gt;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Options&nbsp;Indexes&nbsp;MultiViews&nbsp;Includes&nbsp;FollowSymLinks&nbsp;+ExecCGI<br />
+&nbsp;&nbsp;&nbsp;&nbsp;AllowOverride&nbsp;All<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Order&nbsp;allow,deny<br />
+&nbsp;&nbsp;&nbsp;&nbsp;Allow&nbsp;from&nbsp;all<br />
+&lt;/Directory&gt;</div><br />
+修改：<br />
+<div class="code">AddHandler cgi-script .cgi .pl<br />
+CustomLog logs/access_log combined</div></p>
+
+<p>　　3、修改awstats.conf，最困难的时刻来了。<br />
+<div class="code">cd /temp/awstats-5.6<br />
+mkdir data<br />
+chmod 777 data</p>
+
+<p>cd  /tmp/awstats-5.6/wwwroot/cgi-bin/<br />
+cp awstats.model.conf awstats.conf</div><br />
+我diff了一下，修改以下几行：<br />
+<div class="code">LogFile="/etc/httpd/logs/access_log"　&lt;--我的log在这儿，你的自己找啊。<br />
+SiteDomain="你的域名"<br />
+DirData="/tmp/awstats-5.6/wwwroot/data"<br />
+DirCgi="/awstat/cgi-bin"<br />
+DirIcons="/awstat/icon"<br />
+MiscTrackerUrl="/awstat/js/awstats_misc_tracker.js"<br />
+Lang="cn"<br />
+ShowFlagLinks="cn en fr de nl es"<br />
+LoadPlugin="tooltips"<br />
+LoadPlugin="geoip"<br />
+LoadPlugin="urlalias"<br />
+LoadPlugin="hashfiles"<br />
+LoadPlugin="timehires"<br />
+<del>LoadPlugin="timezone +8"</del><ins>此处不用，这个plugin是针对IIS的</ins></div><br />
+　　<br />
+　　4、安装Plugin，很费劲，以下是我的安装过程，<br />
+　　安装GeoIPfree 时需要先安装Geo::IPfree version 0.2+ (from Graciliano M.P.) ，而后者需要Memoize.pm;最后运行时发现，不能找到LookUp.al错误，来不及hack了，只能放弃这个插件。<br />
+　　安装GeoIP 时需要先安装 Geo::IP or Geo::IP::PurePerl (from Maxmind) ，其中要要先装<a href="javascript:if(confirm('http://www.maxmind.com/app/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.maxmind.com/app/'" tppabs="http://www.maxmind.com/app/" title="一个程序包">C版的GeoIP包</a>。（此时发现服务器的不能连接域名服务器了，后来发现是由于防火啬设定的问题，我的IP不能访问DNS服务器，后来用了个sina和网上一个朋友提供的）。</p>
+
+<p>　　5、初始化数据分析结果，生成index.html文件。<br />
+<div class="code">cd  /tmp/awstats-5.6/wwwroot/cgi-bin/<br />
+perl awstats.pl -update</p>
+
+<p>su -<br />
+echo "/tmp/awstats-5.6/wwwroot/cgi-bin/awstats.pl -config=awstats.conf -update -output > /tmp/awstats-5.6/wwwroot/index.html" > /etc/cron.daily/awstats.cron<br />
+chmod 755 /etc/cron.daily/awstats.cron<br />
+exit</p>
+
+<p>cd plugins<br />
+perl ../../../tools/urlaliasbuilder.pl  -urllistfile=../../data/awstats072003.txt -site=你的域名<br />
+/etc/cron.daily/awstats.cron<br />
+</div></p>
+
+<p>　　6、如果一切正常，在客户端通过ie访问http://你的域名/awstat/就可以看到结果了。</p>
+
+<p>　　7、车东的文章里有一些hack，可以加上啊。<br />
+　　参考他的文章，由于我已经加了timezone插件，所以他对时区的hack就不用做了。根据他的提示，增加了163和3721两个中文搜索引擎。但是，对google的UTF－8的解码问题仍没有解决，表现为显示页面上有乱码。但却有一行不乱，怪哉！</p>
+
+<p>意外收获：　安装了N多perl包，学会perl程序的一般安装过程：<br />
+<div class="code">perl Makefile.pl<br />
+make<br />
+make test<br />
+su -<br />
+make install</div><br />
+:)</p>
+
+<p>　　对于多服务器日志用cronlog合并的问题，http://www.yesky.com/SoftChannel/72341272332861440/20030314/1657184.shtml　一文讲得很细，从原理到命令，还有比较。</p>
+
+<p>　　如何解决google的UTF－8编码，参见<a href="000179.html" tppabs="http://hedong.3322.org/archives/000179.html" title="用perl5.6为AWStats解析google检索的UTF8编码">用perl5.6为AWStats解析google检索的UTF8编码</a>.<br />
+　　先把链接放在这儿吧，以后可用作参考：<br />
+1）BlogChina的访问分析<br />
+http://www.blogchina.com:8080/cgi-bin/awstats/awstats.pl?config=blogchina#TOP</p>
+
+<p>2）AWStats的主页<br />
+http://awstats.sourceforge.net/</p>
+
+<p>3）车东的文章<br />
+http://www.chedong.com/tech/awstats.html</p>
+
+<p>4）Awstats　Web分析。<br />
+http://hahaha.ks.edu.tw/awstats.htm</p>
+
+<p>5）perl的包的列表。<br />
+http://www.cpan.org/modules/</p>
+
+<span class="posted">Posted by Hilton at July 14, 2003 05:22 AM
+| <a href="mt-tb.cgi-__mode=view&entry_id=23.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=23" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="23" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

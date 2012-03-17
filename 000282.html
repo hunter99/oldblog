@@ -1,0 +1,234 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 性能测试工具</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000281.html" tppabs="http://hedong.3322.org/archives/000281.html" title="22种测试" />
+
+<link rel="next" href="000283.html" tppabs="http://hedong.3322.org/archives/000283.html" title="rss1.0规范" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000282.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/200"
+    dc:title="性能测试工具"
+    dc:identifier="http://hedong.3322.org/archives/000282.html"
+    dc:subject="ItTech"
+    dc:description="　　啄木鸟部落的新作＜如何选择性能测试工具＞，刊于程序员2003年10期。..."
+    dc:creator="Hilton"
+    dc:date="2003-10-11T20:52:37+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000282.html">
+<dc:title>性能测试工具</dc:title>
+<dc:description>　　啄木鸟部落的新作＜如何选择性能测试工具＞，刊于程序员2003年10期。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-10-11T20:52:37+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000281.html" tppabs="http://hedong.3322.org/archives/000281.html">&laquo; 22种测试</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000283.html" tppabs="http://hedong.3322.org/archives/000283.html">rss1.0规范 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">October 11, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">性能测试工具</h3>
+
+<p>　　啄木鸟部落的新作＜如何选择性能测试工具＞，刊于程序员2003年10期。</p>
+
+<a name="more"></a>
+<p>　　性能测试是测试软件的运行性能，常常与强度测试结合进行，需要事先对被测软件提出性能指标，如传输连接的最长时限，传输的错误率，计算的精度，记录的精度，响应的时限和恢复时限等。<br />
+　　性能测试工具的原理通常是通过录制、回放脚本、采用花枝模拟用户创建住址负载的方式，产生并记录各种性能指标，生成分析结果，从而完成性能测试的任务。<br />
+　　有两款免费的测试软件：<br />
+	1)OpenSTA<br />
+	开源项目，网址是http://www.opensta.org.<br />
+	功能强大，自定义功能设置完备，但设置通过script来完成，必须学习script编写。<br />
+	2)WAS, M$ Web Application Stress Tool<br />
+	微软，<br />
+	输出结果是纯文本，而非HTML格式，但内容不逊色。<br />
+<h4><center>主流商业性能测试工具的比较</center></h4><br />
+<table border="1"><tr><td>属性</td><td>LoadRunner</td><td>QALoad</td><td>WebLoad</td></tr><tr><td>出品公司</td><td>MI</td><td>Compuware</td><td>Radview</td></tr><tr><td>价格</td><td>昂贵</td><td>较贵</td><td>一般</td></tr><tr><td>安装配置的复杂性</td><td>简单</td><td>简单</td><td>一般</td></tr><tr><td>操作性</td><td>较复杂</td><td>简单</td><td>简单</td></tr><tr><td>支持测试对象</td><td>各种中间件/数据库/应用服务器的性能监控/企业架构(j2ee和.net)的测试</td><td>客户/服务器系统、企业资源配置(ERP)和电子商务应用</td><td>Web Application</td></tr><tr><td>支持平台</td><td>windows,unix或linux</td><td>HP-UX, IBM AIX,Sun Solaris, Linux, NT/2k</td><td>Unix Windows</td></tr><tr><td>支持数据库</td><td>DB2,SQLserver,Orcale,Sybase</td><td>ADO, DB2,Oracle,Sybase,SQLserver,Odbc</td><td>ADO,DB2,Oracle,Sybase,SQLserver,Odbc</td></tr><tr><td>支持协议　</td><td>web,http(s),soap,streaming,wap,winsock,xml</td><td>http,ssl,soap,xml,streaming,media</td><td>xml,java,ejb,activex,wap,http,snmp,real/m$streaming</td></tr><tr><td>脚本语言</td><td>类似C++</td><td>C/C++和VC++</td><td>Javascript</td></tr><tr><td>自动数据生成</td><td>Y</td><td>Y</td><td>Y</td></tr><tr><td>脚本调试</td><td>Y</td><td>Y</td><td>Y</td></tr><tr><td>报表定制功能</td><td>Y</td><td>Y</td><td>Y</td></tr><tr><td>功能点</td><td>创建虚拟用户，创建真实的负载，定位性能问题，分析结果以精确定位问题所在，重复测试保证系统发布的高性能等</td><td>预测系统性能、通过重复测试寻找瓶颈问题、从控制中心管理全局负载测试、快速创建仿真的测试、验证应用的可扩展性。</td><td>强大的专业网站性能测试，虚拟多用户</td></tr><tr><td>虚拟用户上限数量</td><td>成千上万</td><td>成百上千</td><td>理论上无限，不过受机器的限制，同时运行太多影响结果的准确性</td></tr><tr><td>公司网址</td><td>Http://www.merc-int.com</td><td>http://www.compuware-china.com</td><td>http://www.radview.com</td></tr></table><br />
+</p>
+
+<span class="posted">Posted by Hilton at October 11, 2003 08:52 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=282.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=282" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="282" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,107 @@
+<html>
+
+<head>
+  <title>第七章 ─ 引用功能</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第七章 ─ 引用功能</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#trackback">第七章 ─ 引用功能</a></li> 
+  <ul>
+    <li><a href="#intro">什麼是引用</a></li>
+    <li><a href="#enable">啟用引用功能</a></li>
+    <li><a href="#bookmarklet">MT it!</a></li>
+    <li><a href="#category">類別與引用功能</a></li>
+    <li><a href="#ban">禁用 IP</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="trackback"></a>第七章 ─ 引用功能</h1>
+
+<p>如果妳能夠弄懂<a href="mtbook_comment.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_comment.html">前一章</a>介紹的<code>迴響功能</code>的話，此時正是妳乘勝追擊，進一步弄懂<strong>引用功能</strong>的大好時機。照例，這一章祇會介紹各種與引用功能有關的設定與用途，但不會談及跟引用功能有關的模版寫作。實際上對於多數人來說，這樣也就夠了。</p>
+
+<h2><a id="intro"></a>甚麼是引用</h2>
+
+<p>請讀者諸君回憶一下我們在<a href="mtbook_comment.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_comment.html">前一章</a>介紹的迴響功能，這個功能能夠讓讀者在妳的網誌發表迴響；反過來說，如果妳就是那個去逛別人網誌的讀者，那麼妳就能夠利用迴響功能，在別人的站台上發表妳的迴響。</p>
+
+<p>問題來了，如果妳想要把迴響發表在自己的網誌上，該怎麼辦？當然妳可以寫一篇文章，然後在裡面加上一個鏈結，連回原本的那一篇文章。這樣似乎能夠解決問題，不過這會兒又會冒出新的問題。如果今天有另外一位讀者，從來沒有瀏覽過妳的網誌，不過卻也跟妳一樣讀到了原本的那一篇文章，那麼她並不會知道其實妳為那一篇文章寫過一篇迴響─而且這還可能是一篇洋洋灑灑、萬分精彩的迴響（所以妳纔會想要專文放回自己的網誌）。於是，妳所精心撰寫的迴響就沒辦法被很多人讀過，這個討論串就此分叉了，沒辦法很方便地讓人們看到多樣而精彩的文字交流。</p>
+
+<p>問題看起來很麻煩，不過<code>引用功能</code>正是妳的救星。</p>
+
+<p>在前面的例子裡，如果文章原作者啟用了引用功能，那麼妳在撰寫這篇迴響專文的時候，就能夠<strong>引用</strong>回原本的那一篇文章。妳的文章照樣被儲存、顯示在妳的網誌裡，就跟以前一模一樣；但是原本那一篇文章的網誌，此時也發生了變化。</p>
+
+<p>原本文章所在的網誌，在妳（在自己的網誌上）發表文章的時候，會收到一個來自妳自己網誌的<code>引用通告</code>，這個引用通告不祇是用來通知說「嘿！有人引用這篇文章了」，它還會挾帶許多其他的資訊，包括了：妳的文章的<code>標題</code>、<code>文摘</code>、<code>靜態鏈結</code>，以及妳的<code>網誌的名稱</code>。這些資訊將可以被顯示在原本文章所在的網誌上，而且是妳一寫完文章，該站台上就馬上會出現這些資訊。</p>
+
+<p>現在對於其他讀者來說，當她們讀過那一篇原本的文章後，不但能夠看到直接附加在那一篇文章後面的迴響（如果原作者有啟用迴響功能的話），還能夠看到<code>前來引用的文章</code>。她們甚至能先讀到這些文章的文摘，再決定要不會花費這些時間與頻寬，連到其他的網誌或站台去。</p>
+
+<p>讓我們來看看實際的使用範例：</p>
+
+<p><ol>
+  <li><a id="intro_01"></a>假設我在 Jedi 的網誌上看到了一篇文章，有感而發想要寫些東西；我在這一篇文章看到了一個像<a href="#img_01">圖一</a>裡的「<strong>引用</strong>」鏈結，於是就加以點擊這個鏈結。這個時候就會彈出一個如<a href="#img_02">圖二</a>的視窗，除了會列出跟這一篇文章有關的引用項目外，也會標示出這一篇文章的「<strong>引用鏈結</strong>」；這個時候請如<a href="#img_03">圖三</a>選取這個鏈結網址，再按滑鼠右鍵複製起來（也可以按 <code>Ctrl</code> - <code>C</code> 來複製）。<div class="img"><a id="img_01"></a><img src="mttrackback_intro_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_01.png" alt="Jedi 的「本類別宣告」文章"><br />圖一：在 䩥摩 的「本類別宣告」文章（ <a href="javascript:if(confirm('http://blog.elixus.org/jedi/archives/000810.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.elixus.org/jedi/archives/000810.html'" tppabs="http://blog.elixus.org/jedi/archives/000810.html">http://blog.elixus.org/jedi/archives/000810.html</a> ）頁面中，有一個「引用」的鏈結。</div><div class="img"><a id="img_02"></a><img src="mttrackback_intro_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_02.png" alt="鏈結網址是「 http://blog.elixus.org/cgi-bin/mt-tb.cgi/513 」"><br />圖二：按下「引用」鏈結後，彈出的視窗裡會寫著該篇文章的「引用網址」。在這個範例裡的是「 <a href="javascript:if(confirm('http://blog.elixus.org/cgi-bin/mt-tb.cgi/513  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.elixus.org/cgi-bin/mt-tb.cgi/513'" tppabs="http://blog.elixus.org/cgi-bin/mt-tb.cgi/513">http://blog.elixus.org/cgi-bin/mt-tb.cgi/513</a> 」。</div><div class="img"><a id="img_03"></a><img src="mttrackback_intro_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_03.png" alt="選取並複製引用網址"><br />圖三：用滑鼠選取這個視窗裡的引用網址，並複製起來。</div></li>
+  <li><a id="intro_02"></a>接著可以在自己的網誌上如<a href="#img_04">圖四</a>發表文章，然後儲存之前記得如<a href="#img_05">圖五</a>那樣把稍早複製起來的<code>引用網址</code>貼到<strong>要通告的網址</strong>欄位裡。<div class="img"><a id="img_04"></a><img src="mttrackback_intro_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_04.png" alt="發表文章"><br />圖四：在自己的網誌上發表新文章，在這個範例裡我們填寫的文章標題是「心有戚戚焉」，主要文章本體裡也寫了一些內容；除此之外我們還在「文摘」欄位裡寫進了這一篇文章的文摘（如果妳沒有填寫文摘內容的話， Movable Type 就會自動拿「主要文章本體」裡的前幾個字來當作文摘）。</div><div class="img"><a id="img_05"></a><img src="mttrackback_intro_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_05.png" alt="在「要通告的網址」裡貼上了「 http://blog.elixus.org/cgi-bin/mt-tb.cgi/513 」"><br />圖五：在「要通告的網址」裡貼上了「 <a href="javascript:if(confirm('http://blog.elixus.org/cgi-bin/mt-tb.cgi/513  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.elixus.org/cgi-bin/mt-tb.cgi/513'" tppabs="http://blog.elixus.org/cgi-bin/mt-tb.cgi/513">http://blog.elixus.org/cgi-bin/mt-tb.cgi/513</a> 」。</div></li>
+  <li><a id="intro_03"></a>當妳按下「儲存」按鈕後，還會看到如<a href="#img_06">圖六</a>的畫面，表示妳的 Movable Type 正在送出一個<code>引用通告</code>給妳指定的網址。<div class="img"><a id="img_06"></a><img src="mttrackback_intro_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_06.png" alt="正在送出通告給 http://blog.elixus.org/cgi-bin/mt-tb.cgi/513"><br />圖六：儲存文章後，正在送出引用通告。在這個範例裡通告被送到 http://blog.elixus.org/cgi-bin/mt-tb.cgi/513 。</div></li>
+  <li><a id="intro_04"></a>送出通告後，任何人再次閱讀 Jedi 的那一篇文章時，就會發現「引用」鏈結後面的數字如<a href="#img_07">圖七</a>增加了一，按下「引用」鏈結後所彈出的視窗也如<a href="#img_08">圖八</a>那樣，會出現妳剛剛所發表文章的<strong>標題</strong>、<strong>鏈結</strong>、<strong>文摘</strong>還有<strong>引用時間</strong>，另外也會列出妳的<strong>網誌名稱</strong>。<div class="img"><a id="img_07"></a><img src="mttrackback_intro_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_07.png" alt="「引用」鏈結後面的數字多了一"><br />圖七：「引用」鏈結後面的數字多了一，表示這個站台又多收到了一個引用通告。</div><div class="img"><a id="img_08"></a><img src="mttrackback_intro_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_intro_08.png" alt="引用清單視窗裡多了一份妳剛剛所發表的文章的資訊"><br />圖八：在彈出的引用清單視窗裡，多了一份妳剛剛所發表的文章的資訊，包含了站台名稱、文章標題、文章摘要、引用時間和網址。</div></li>
+</ol></p>
+
+<h2><a id="enable"></a>啟用引用功能</h2>
+
+<p>同樣地，妳也可以在自己的網誌啟用引用功能，讓別人能夠引用妳的文章；妳祇需要在發表文章的時候，如<a href="#img_09">圖九</a>核選「允許通告」就可以了。當然妳也可以在事後編輯文章的時候重新調整這裡的設定。<div class="img"><a id="img_09"></a><img src="mttrackback_enable_entry_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_enable_entry_01.png" alt="核選「允許通告」"><br />圖九：新增或編輯文章的時候，核選「允許通告」就能夠啟用這個功能。</div></p>
+
+<p>當然妳也可以直接把這個選項設成預設值，這麼一來妳就不需要每次核選這個核選框了。方法如下：</p>
+
+<p><ol>
+  <li><a id="enable_01"></a>請如<a href="#img_10">圖十</a>按下左方工具列的「網誌組態」按鈕，然後如<a href="#img_11">圖十一</a>按下「偏好」鏈結，再如<a href="#img_12">圖十二</a>按下「<strong>出版/遠端介面/引用</strong>」鏈結。<div class="img"><a id="img_10"></a><img src="mttrackback_enable_default_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_enable_default_01.png" alt="按下工具列的「網誌組態」按鈕"><br />圖十：按下左方工具列的「網誌組態」按鈕。</div><div class="img"><a id="img_11"></a><img src="mttrackback_enable_default_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_enable_default_02.png" alt="點選「偏好」鏈結"><br />圖十一：點選偏好鏈結。</div><div class="img"><a id="img_12"></a><img src="mttrackback_enable_default_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_enable_default_03.png" alt="點選「出版/遠端介面/引用」鏈結"><br />圖十二：點選「出版/遠端介面/引用」鏈結。</div></li>
+  <li><a id="enable_02"></a>就在「<code>出版/遠端介面/引用</code>」段落的第四項設定值，就是用來設定預設要不要啟用引用功能的。請如<a href="#img_13">圖十三</a>核選「<strong>預設允許通告</strong>」的核選框，再按「儲存」按鈕。這麼一來之後所有的文章就都會預設核選「允許通告」核選框了。<div class="img"><a id="img_13"></a><img src="mttrackback_enable_default_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_enable_default_04.png" alt=""><br />圖十三：核選「預設允許通告」核選框。</div></li>
+</ol></p>
+
+<h2><a id="bookmarklet"></a>MT It!</h2>
+
+<p>隨著妳涉獵的網誌越來越多，妳發出<code>引用通告</code>的機會也會越來越多；如果每一次妳都得像<a href="#intro">第一小節</a>那樣子辛苦地複製<code>引用網址</code>顯然過於麻煩。 Movable Type 提供了一個稱做「<strong>小書籤</strong>」的功能，會挖掘出藏在頁面裡的文章資訊，自動取用隱藏在頁面裡的引用網址（對，這些資訊其實都在頁面裡了，祇是妳看不到而已），這絕對能讓妳更順手。以下我們將說明安裝小書籤的功能，並示範小書籤的用途：</p>
+
+<p><ol>
+  <li><a id="bookmarklet_01"></a>如<a href="#img_14">圖十四</a>點擊網誌<code>主選單</code>裡的「<strong>安裝小書籤</strong>」鏈結。<div class="img"><a id="img_14"></a><img src="mttrackback_bookmarklet_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_bookmarklet_01.png" alt="點擊主選單裡的「安裝小書籤」鏈結"><br />圖十四：點擊主選單裡的「安裝小書籤」鏈結。</div></li>
+  <li><a id="bookmarklet_02"></a>在如<a href="#img_15">圖十五</a>的畫面中，請先核選妳發表文章時比較會動用到的欄位，然後再按下「建立」按鈕。<div class="img"><a id="img_15"></a><img src="mttrackback_bookmarklet_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_bookmarklet_02.png" alt="核選會用到的欄位再按下「建立」按鈕"><br />圖十五：核選會用到的欄位再按下「建立」按鈕，在這個範例中核選的是「類別」和「額外文章內容」。</div></li>
+  <li><a id="bookmarklet_03"></a>接著妳會看到如<a href="#img_16">圖十六</a>的畫面，請如圖點擊那個「<strong>把 MT It! 加入 Windows 的右鍵選單裡</strong>」的鏈結。<div class="img"><a id="img_16"></a><img src="mttrackback_bookmarklet_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_bookmarklet_03.png" alt="點擊「把 MT It! 加入 Windows 的右鍵選單裡」"><br />圖十六：點擊「把 MT It! 加入 Windows 的右鍵選單裡」的鏈結。</div></li>
+  <li><a id="bookmarklet_04"></a>從此之後，當妳瀏覽到任何一篇文章而想要馬上引用來寫作時，就可以在該頁面按下滑鼠右鍵，並如<a href="#img_17">圖十七</a>那樣選擇「<strong> MT It! </strong>」，隨即就會彈出如<a href="#img_18">圖十八</a>的視窗，妳可以直接用這個介面撰寫新文章，而毋須另外登入 Movable Type ，更不用大費周章地去複製引用網址。如果妳手上有好幾份網誌的話，妳也能夠在這裡選擇要發表在哪一份網誌上。<div class="img"><a id="img_17"></a><img src="mttrackback_bookmarklet_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_bookmarklet_04.png" alt="從右鍵選單裡選擇「 MT It! 」"><br />圖十七：在文章頁面裡按滑鼠右鍵，並從右鍵選單裡選擇「 MT It! 」。</div><div class="img"><a id="img_18"></a><img src="mttrackback_bookmarklet_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_bookmarklet_05.png" alt="MT It! 的彈出式視窗"><br />圖十八： MT It! 的彈出式視窗，妳可以直接用這個介面撰寫新文章，而毋須另外登入 Movable Type ，更不用大費周章地去複製引用網址。</div></li>
+</ol></p>
+
+<h2><a id="category"></a>類別與引用功能</h2>
+
+<p>現在我們所要介紹的功能是比較鮮為人知的。一般人祇知道每一篇文章都可以去引用別的文章，也能夠被別的文章所引用，不過其實「類別」也可以。讓我們說明白點，「類別」其實可以接受來自某一篇文章所發出的通告，同時妳也可以設定祇要是某個類別裡的文章，就都要發送一份通告到某幾個特定的通告網址去。讓我們看一看實際的例子與作法：</p>
+
+<p><ol>
+  <li><a id="category_01"></a>如<a href="#img_19">圖十九</a>，這是<a href="javascript:if(confirm('http://blog.elixus.org/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://blog.elixus.org/'" tppabs="http://blog.elixus.org/">藝立協繁體中文 blog 中心</a>的首頁；妳可以看到在最右邊那一欄裡列出了好幾個不同類別的<code>引用網址</code>，而最左邊這一欄的內容，確實就是按照這些類別來分別列出來自不同網誌的新文章的。祇要任何一篇文章發出了通告到這裡列出的引用網址，那麼這一篇文章就會被匯集進來。如果妳自己的網誌裡，剛好有某個類別跟藝立協繁體中文 blog 中心的某個類別剛好能夠相呼應的話，當妳發表該類別的文章時，就都得把這個引用網址給貼進去 ─ 這樣實在不夠科學；實際上我們可以如<a href="#img_20">圖二十</a>在<code>編輯類別屬性畫面</code>裡，預先把這個引用網址填到引用設定裡，以後就不需要自己填寫了。<div class="img"><a id="img_19"></a><img src="mttrackback_category_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_category_01.png" alt="藝立協繁體中文 blog 中心利用類別的引用網址來處理主動式的文章分類匯集"><br />圖十九：藝立協繁體中文 blog 中心利用類別的引用網址來處理主動式的文章分類匯集。</div><div class="img"><a id="img_20"></a><img src="mttrackback_category_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_category_02.png" alt="在「編輯類別屬性」的畫面裡預填預設要發送通告的網址"><br />圖二十：在「編輯類別屬性」的畫面裡，預填此類別預設要發送通告的網址。在這個範例中填寫的是「 http://blog.elixus.org/cgi-bin/mt-tb.cgi/690 」。</div></li>
+  <li><a id="category_02"></a>如果妳也想做類似的事，首先妳得讓妳的類別也要能夠接受通告。方法是如<a href="#img_21">圖二十一</a>在<code>編輯類別屬性畫面</code>裡啟用「<strong>接受送進來的引用通告</strong>」，儲存後妳就會看到如<a href="#img_22">圖二十二</a>那樣，多顯示出一個屬於這個類別的<code>引用網址</code>，接下來妳就祇需要修改模版，並且把這個引用網址昭告天下了。<div class="img"><a id="img_21"></a><img src="mttrackback_category_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_category_03.png" alt="啟用「接受送進來的引用通告」"><br />圖二十一：在「編輯類別屬性」畫面裡，啟用「接受送進來的引用通告」。</div><div class="img"><a id="img_22"></a><img src="mttrackback_category_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_category_04.png" alt="「編輯類別屬性」畫面裡出現了 http://Jedimt.dyndns.org/mt-tb.cgi/184"><br />圖二十二：「編輯類別屬性」畫面裡出現了該類別的引用網址，在這個範例中是「 <a href="javascript:if(confirm('http://jedimt.dyndns.org/mt-tb.cgi/184  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jedimt.dyndns.org/mt-tb.cgi/184'" tppabs="http://jedimt.dyndns.org/mt-tb.cgi/184">http://Jedimt.dyndns.org/mt-tb.cgi/184</a> 」。</div></li>
+  <li><a id="category_03"></a>如果妳希望讓這個類別能夠接受別人送出來的引用通告，但是又希望稍微管理，不要讓閒雜人等也都能任意發送通告過來的話，妳也可以如<a href="#img_23">圖二十三</a>設定密碼，那麼就祇有知道密碼的人，纔有辦法發送通告給妳了。<div class="img"><a id="img_23"></a><img src="mttrackback_category_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_category_05.png" alt="把密碼設為 test"><br />圖二十三：設定這個類別的引用網址的密碼，在這個範例中密碼是「 test 」。</div></li>
+</ol></p>
+
+<h2><a id="ban"></a>禁用 IP</h2>
+
+<p><code>迴響功能</code>可以禁用 IP ，同樣地<code>引用功能</code>也行。實際上它們叫用的是同一份清單，這意味著不能發表迴響的 IP 地址，也將不能發送引用通告給妳。如果妳發現有人發瘋似地不斷發送引用通告到妳的站台，那麼妳就可以透過這個功能先阻斷這些通告，再想辦法聯絡上那位不斷發送通告的仁兄，看看到底是哪兒出了差錯。此時，所有的其他使用者卻都不會因此而受影響。請見下列的步驟：</p>
+
+<p><ol>
+  <li><a id="ban_01"></a>請如<a href="#img_24">圖二十四</a>按下網誌管理介面左方工具列上的「<strong>網誌組態</strong>」按鈕，然後如<a href="#img_25">圖二十五</a>點擊網誌組態畫面上方的「<strong>禁用 IP </strong>」鏈結。<div class="img"><a id="img_24"></a><img src="mttrackback_ban_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_01.png" alt="按下「網誌組態」按鈕"><br />圖二十四：按下左方工具列上的「網誌組態」按鈕。</div><div class="img"><a id="img_25"></a><img src="mttrackback_ban_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_02.png" alt="點擊「禁用 IP 」鏈結"><br />圖二十五：點擊「禁用 IP 」鏈結。</div></li>
+  <li><a id="ban_02"></a>把妳打算要禁用的 IP 地址如<a href="#img_26">圖二十六</a>填入 IP 地址的欄位，然後再如<a href="#img_27">圖二十七</a>按下「<strong>加入</strong>」按鈕。<div class="img"><a id="img_26"></a><img src="mttrackback_ban_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_03.png" alt="填入要禁用的 IP 地址"><br />圖二十六：填入要禁用的 IP 地址，在這個範例裡我們填的是「 192.168.1.99 」。</div><div class="img"><a id="img_27"></a><img src="mttrackback_ban_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_04.png" alt="按下「加入」按鈕"><br />圖二十七：按下「加入」按鈕，把我們所填寫的 IP 地址加進<code> IP 禁用清單</code>裡。</div></li>
+  <li><a id="ban_03"></a>妳會看到如<a href="#img_28">圖二十八</a>的畫面，在<code> IP 禁用清單</code>裡會列出已被禁用的 IP 地址。<div class="img"><a id="img_28"></a><img src="mttrackback_ban_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_05.png" alt="IP 禁用清單"><br />圖二十八： IP 禁用清單裡會列出已被禁用的 IP 地址，在這個範例裡的是「 192.168.1.99 」。</div></li>
+  <li><a id="ban_04"></a>如果妳打算取消對某幾個 IP 地址的禁用令的話，請如<a href="#img_29">圖二十九</a>核選這些 IP 地址後面的核選框，再如<a href="#img_30">圖三十</a>按下「<strong>刪除</strong>」按鈕。<div class="img"><a id="img_29"></a><img src="mttrackback_ban_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_06.png" alt="核選欲取消禁用的 IP 地址"><br />圖二十九：核選欲取消禁用的 IP 地址，在這個範例裡我們核選了「 192.168.1.99 」後的核選框。</div><div class="img"><a id="img_30"></a><img src="mttrackback_ban_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_07.png" alt="按下「刪除」按鈕"><br />圖三十：按下「刪除」按鈕，來把被核選的 IP 地址移出 IP 禁用清單。</div></li>
+  <li><a id="ban_05"></a>接著會彈出如<a href="#img_31">圖三十一</a>的視窗，請按「<strong>刪除</strong>」按鈕，來確定刪除這些 IP 地址的禁用令。<div class="img"><a id="img_31"></a><img src="mttrackback_ban_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_08.png" alt="按下「刪除」按鈕"><br />圖三十一：按下「刪除」按鈕。</div></li>
+  <li><a id="ban_06"></a>如<a href="#img_32">圖三十二</a>，這樣子來自這些 IP 的讀者就又能夠在妳的網誌上發表迴響了。<div class="img"><a id="img_32"></a><img src="mttrackback_ban_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mttrackback_ban_09.png" alt="指定的 IP 地址被取消禁用了"><br />圖三十二：指定的 IP 地址被取消禁用了。</div></li>
+</ol></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

@@ -1,0 +1,236 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Apache的Mod_rewrite学习（五）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000347.html" tppabs="http://hedong.3322.org/archives/000347.html" title="构建企业web邮件服务器的两套方案" />
+
+<link rel="next" href="000348.html" tppabs="http://hedong.3322.org/archives/000348.html" title="蠕虫与狭义病毒的区别" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000349.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/244"
+    dc:title="Apache的Mod_rewrite学习（五）"
+    dc:identifier="http://hedong.3322.org/archives/000349.html"
+    dc:subject="ItTech"
+    dc:description="　　今天主要列出一些例子。由于有些例子是针对特殊路径或特别情况的，列出供大家在思路上参考。因为它们就是些例子。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-04T23:28:54+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000349.html">
+<dc:title>Apache的Mod_rewrite学习（五）</dc:title>
+<dc:description>　　今天主要列出一些例子。由于有些例子是针对特殊路径或特别情况的，列出供大家在思路上参考。因为它们就是些例子。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-04T23:28:54+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000347.html" tppabs="http://hedong.3322.org/archives/000347.html">&laquo; 构建企业web邮件服务器的两套方案</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000348.html" tppabs="http://hedong.3322.org/archives/000348.html">蠕虫与狭义病毒的区别 &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 04, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">Apache的Mod_rewrite学习（五）</h3>
+
+<p>　　今天主要列出一些例子。由于有些例子是针对特殊路径或特别情况的，列出供大家在思路上参考。因为它们就是些例子。</p>
+
+<a name="more"></a>
+<table border="1"><tr><td>目标</td><td>重写设置</td><td>说明</td></tr><tr><td>规范化URL</td><td>RewriteRule   ^/~([^/]+)/?(.*)    /u/$1/$2  [R] </td><td>将/~user重写为/u/user的形式</td></tr><tr><td></td><td>RewriteRule   ^/([uge])/([^/]+)$  /$1/$2/   [R]</td><td>将/u/user末尾漏掉的/补上</td></tr><tr><td></td><td></td><td></td></tr><tr><td>规范化HostName</td><td>RewriteCond %{HTTP_HOST}   !^fully\.qualified\.domain\.name [NC]</td><td>域名不合格</td></tr><tr><td></td><td>RewriteCond %{HTTP_HOST}   !^$</td><td>不空</td></tr><tr><td></td><td>RewriteCond %{SERVER_PORT} !^80$</td><td>不是80端口</td></tr><tr><td></td><td>RewriteRule ^/(.*)         http://fully.qualified.domain.name:%{SERVER_PORT}/$1 [L,R]</td><td>重写</td></tr><tr><td></td><td>RewriteCond %{HTTP_HOST}   !^fully\.qualified\.domain\.name [NC]</td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_HOST}   !^$</td><td></td></tr><tr><td></td><td>RewriteRule ^/(.*)         http://fully.qualified.domain.name/$1 [L,R]</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>URL根目录转移</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteRule   ^/$  /e/www/  [R]</td><td>从/移到/e/www/</td></tr><tr><td></td><td></td><td></td></tr><tr><td>末尾目录补斜线</td><td>RewriteEngine  on</td><td></td></tr><tr><td>（目录范围内）</td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^foo$  foo/  [R]</td><td>/~quux/foo是一个目录，补/</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>RewriteEngine  on</td><td></td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteCond    %{REQUEST_FILENAME}  -d</td><td>如果请文件名是个目录</td></tr><tr><td></td><td>RewriteRule    ^(.+[^/])$           $1/  [R]</td><td>URL末尾不是斜线时补上</td></tr><tr><td></td><td></td><td></td></tr><tr><td>Web集群</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteMap      user-to-host   txt:/path/to/map.user-to-host</td><td>用户－服务器映射</td></tr><tr><td></td><td>RewriteMap     group-to-host   txt:/path/to/map.group-to-host</td><td>组－服务器映射</td></tr><tr><td></td><td>RewriteMap    entity-to-host   txt:/path/to/map.entity-to-host</td><td>实体－服务器映射</td></tr><tr><td></td><td>RewriteRule   ^/u/([^/]+)/?(.*)   http://${user-to-host:$1|server0}/u/$1/$2</td><td>用户均衡</td></tr><tr><td></td><td>RewriteRule   ^/g/([^/]+)/?(.*)  http://${group-to-host:$1|server0}/g/$1/$2</td><td>组均衡</td></tr><tr><td></td><td>RewriteRule   ^/e/([^/]+)/?(.*) http://${entity-to-host:$1|server0}/e/$1/$2</td><td>实体均衡</td></tr><tr><td></td><td>RewriteRule   ^/([uge])/([^/]+)/?$          /$1/$2/.www/</td><td></td></tr><tr><td></td><td>RewriteRule   ^/([uge])/([^/]+)/([^.]+.+)   /$1/$2/.www/$3\ </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>URL根目录搬迁</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteRule   ^/~(.+)  http://newserver/~$1  [R,L] </td><td>到其它服务器</td></tr><tr><td></td><td></td><td></td></tr><tr><td>所用户名首字母分</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteRule   ^/~(([a-z])[a-z0-9]+)(.*)  /home/$2/$1/.www$3 </td><td>内一层括号为$2</td></tr><tr><td></td><td></td><td></td></tr><tr><td>NCSA imagemap移</td><td>RewriteEngine  on</td><td></td></tr><tr><td>植为mod_imap</td><td>RewriteRule    ^/cgi-bin/imagemap(.*)  $1  [PT] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>多目录查找资源</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>#   first try to find it in custom/...</td><td></td></tr><tr><td></td><td>RewriteCond         /your/docroot/dir1/%{REQUEST_FILENAME}  -f</td><td></td></tr><tr><td></td><td>RewriteRule  ^(.+)  /your/docroot/dir1/$1  [L]</td><td></td></tr><tr><td></td><td>#   second try to find it in pub/...</td><td></td></tr><tr><td></td><td>RewriteCond         /your/docroot/dir2/%{REQUEST_FILENAME}  -f</td><td></td></tr><tr><td></td><td>RewriteRule  ^(.+)  /your/docroot/dir2/$1  [L]</td><td></td></tr><tr><td></td><td>#   else go on for other Alias or ScriptAlias directives,</td><td></td></tr><tr><td></td><td>RewriteRule   ^(.+)  -  [PT] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>据URL设置环境变量</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteRule   ^(.*)/S=([^/]+)/(.*)    $1/$3 [E=STATUS:$2] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>虚拟主机</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteCond   %{HTTP_HOST}                 ^www\.[^.]+\.host\.com$</td><td>基于用户名</td></tr><tr><td></td><td>RewriteRule   ^(.+)                        %{HTTP_HOST}$1          [C]</td><td></td></tr><tr><td></td><td>RewriteRule   ^www\.([^.]+)\.host\.com(.*) /home/$1$2 </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>内外人有别</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteCond   %{REMOTE_HOST}  !^.+\.ourdomain\.com$</td><td>基于远程主机</td></tr><tr><td></td><td>RewriteRule   ^(/~.+)         http://www.somewhere.com/$1 [R,L] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>错误重定向</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteCond   /your/docroot/%{REQUEST_FILENAME} !-f</td><td>不是regular文件</td></tr><tr><td></td><td>RewriteRule   ^(.+)                             http://webserverB.dom/$1 </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>程序处理特殊协议</td><td>RewriteRule ^xredirect:(.+) /path/to/nph-xredirect.cgi/$1 \</td><td>Xredirect协议</td></tr><tr><td></td><td>            [T=application/x-httpd-cgi,L] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>最近镜像下载</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteMap    multiplex                txt:/path/to/map.cxan</td><td>顶级域名与最近ftp服务器映射</td></tr><tr><td></td><td>RewriteRule   ^/CxAN/(.*)              %{REMOTE_HOST}::$1       [C]</td><td></td></tr><tr><td></td><td>RewriteRule ^.+\.([a-zA-Z]+)::(.*)$  ${multiplex:$1|ftp.default.dom}$2 [R,L] </td><td>据顶级域名不同提供不同的FTP服务器</td></tr><tr><td></td><td></td><td></td></tr><tr><td>基于时间重写</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteCond   %{TIME_HOUR}%{TIME_MIN} &gt;0700</td><td></td></tr><tr><td></td><td>RewriteCond   %{TIME_HOUR}%{TIME_MIN} &lt;1900</td><td></td></tr><tr><td></td><td>RewriteRule   ^foo\.html$             foo.day.html</td><td>白天为早晚7点间</td></tr><tr><td></td><td>RewriteRule   ^foo\.html$             foo.night.html </td><td>其余为夜间</td></tr><tr><td></td><td></td><td></td></tr><tr><td>向前兼容扩展名</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteBase   /~quux/</td><td></td></tr><tr><td></td><td>#   parse out basename, but remember the fact</td><td></td></tr><tr><td></td><td>RewriteRule   ^(.*)\.html$              $1      [C,E=WasHTML:yes]</td><td></td></tr><tr><td></td><td>#   rewrite to document.phtml if exists</td><td></td></tr><tr><td></td><td>RewriteCond   %{REQUEST_FILENAME}.phtml -f</td><td>如果存在$1.phtml则重写</td></tr><tr><td></td><td>RewriteRule   ^(.*)$ $1.phtml                   [S=1]</td><td></td></tr><tr><td></td><td>#   else reverse the previous basename cutout</td><td></td></tr><tr><td></td><td>RewriteCond   %{ENV:WasHTML}            ^yes$</td><td>如果不存在$1.phtml，则保持不变</td></tr><tr><td></td><td>RewriteRule   ^(.*)$ $1.html </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>文件改名（目录级）</td><td>RewriteEngine  on</td><td>内部重写</td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^foo\.html$  bar.html </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>RewriteEngine  on</td><td>重定向由客户端再次提交</td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^foo\.html$  bar.html  [R] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>据浏览器类型重写</td><td>RewriteCond %{HTTP_USER_AGENT}  ^Mozilla/3.*</td><td></td></tr><tr><td></td><td>RewriteRule ^foo\.html$         foo.NS.html          [L]</td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_USER_AGENT}  ^Lynx/.*         [OR]</td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_USER_AGENT}  ^Mozilla/[12].*</td><td></td></tr><tr><td></td><td>RewriteRule ^foo\.html$         foo.20.html          [L]</td><td></td></tr><tr><td></td><td>RewriteRule ^foo\.html$         foo.32.html          [L] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>动态镜像远程资源</td><td>RewriteEngine  on</td><td></td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^hotsheet/(.*)$  http://www.tstimpreso.com/hotsheet/$1  [P]</td><td>利用了代理模块</td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>RewriteEngine  on</td><td></td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^usa-news\.html$   http://www.quux-corp.com/news/index.html  [P]</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>反向动态镜像</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteCond   /mirror/of/remotesite/$1           -U </td><td></td></tr><tr><td></td><td>RewriteRule   ^http://www\.remotesite\.com/(.*)$ /mirror/of/remotesite/$1 </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>负载均衡</td><td>RewriteEngine on</td><td>利用代理实现round-robin效果</td></tr><tr><td></td><td>RewriteMap    lb      prg:/path/to/lb.pl</td><td></td></tr><tr><td></td><td>RewriteRule   ^/(.+)$ ${lb:$1}           [P,L]</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>#!/path/to/perl</td><td></td></tr><tr><td></td><td>$| = 1;</td><td></td></tr><tr><td></td><td>$name   = "www";     # the hostname base</td><td></td></tr><tr><td></td><td>$first  = 1;         # the first server (not 0 here, because 0 is myself) </td><td></td></tr><tr><td></td><td>$last   = 5;         # the last server in the round-robin</td><td></td></tr><tr><td></td><td>$domain = "foo.dom"; # the domainname</td><td></td></tr><tr><td></td><td>$cnt = 0;</td><td></td></tr><tr><td></td><td>while (&lt;STDIN&gt;) {</td><td></td></tr><tr><td></td><td>    $cnt = (($cnt+1) % ($last+1-$first));</td><td></td></tr><tr><td></td><td>    $server = sprintf("%s%d.%s", $name, $cnt+$first, $domain);</td><td></td></tr><tr><td></td><td>    print "http://$server/$_";</td><td></td></tr><tr><td></td><td>}</td><td></td></tr><tr><td></td><td>##EOF##</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>静态页面变脚本</td><td>RewriteEngine  on</td><td></td></tr><tr><td></td><td>RewriteBase    /~quux/</td><td></td></tr><tr><td></td><td>RewriteRule    ^foo\.html$  foo.cgi  [T=application/x-httpd-cgi] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>阻击机器人</td><td>RewriteCond %{HTTP_USER_AGENT}   ^NameOfBadRobot.*      </td><td></td></tr><tr><td></td><td>RewriteCond %{REMOTE_ADDR}       ^123\.45\.67\.[8-9]$</td><td></td></tr><tr><td></td><td>RewriteRule ^/~quux/foo/arc/.+   -   [F] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>阻止盗连你的图片</td><td>RewriteCond %{HTTP_REFERER} !^$                                  </td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_REFERER} !^http://www.quux-corp.de/~quux/.*$ [NC]</td><td>自己的连接可不能被阻止</td></tr><tr><td></td><td>RewriteRule .*\.gif$        -                                    [F]</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_REFERER}         !^$                                  </td><td></td></tr><tr><td></td><td>RewriteCond %{HTTP_REFERER}         !.*/foo-with-gif\.html$</td><td></td></tr><tr><td></td><td>RewriteRule ^inlined-in-foo\.gif$   -                        [F]</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>拒绝某些主机访问</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteMap    hosts-deny  txt:/path/to/hosts.deny</td><td></td></tr><tr><td></td><td>RewriteCond   ${hosts-deny:%{REMOTE_HOST}|NOT-FOUND} !=NOT-FOUND [OR]</td><td></td></tr><tr><td></td><td>RewriteCond   ${hosts-deny:%{REMOTE_ADDR}|NOT-FOUND} !=NOT-FOUND</td><td></td></tr><tr><td></td><td>RewriteRule   ^/.*  -  [F] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>用户授权</td><td>RewriteCond %{REMOTE_IDENT}@%{REMOTE_HOST} !^friend1@client1.quux-corp\.com$ </td><td></td></tr><tr><td></td><td>RewriteCond %{REMOTE_IDENT}@%{REMOTE_HOST} !^friend2@client2.quux-corp\.com$ </td><td></td></tr><tr><td></td><td>RewriteCond %{REMOTE_IDENT}@%{REMOTE_HOST} !^friend3@client3.quux-corp\.com$ </td><td></td></tr><tr><td></td><td>RewriteRule ^/~quux/only-for-friends/      -                          [F] </td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>外部重写程序模板</td><td>RewriteEngine on</td><td></td></tr><tr><td></td><td>RewriteMap    quux-map       prg:/path/to/map.quux.pl</td><td></td></tr><tr><td></td><td>RewriteRule   ^/~quux/(.*)$  /~quux/${quux-map:$1}</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td></td><td>#!/path/to/perl</td><td></td></tr><tr><td></td><td>$| = 1;</td><td></td></tr><tr><td></td><td>while (&lt;&gt;) {</td><td></td></tr><tr><td></td><td>    s|^foo/|bar/|;</td><td></td></tr><tr><td></td><td>    print $_;</td><td></td></tr><tr><td></td><td>}</td><td></td></tr><tr><td></td><td></td><td></td></tr><tr><td>搜索引擎友好</td><td> RewriteRule ^/products$ /content.php </td><td></td></tr><tr><td></td><td> RewriteRule ^/products/([0-9]+)$ /content.php?id=$1 </td><td></td></tr><tr><td></td><td> RewriteRule ^/products/([0-9]+),([ad]*),([0-9]{0,3}),([0-9]*),([0-9]*$) /marso/content.php?id=$1&amp;sort=$2&amp;order=$3&amp;start=$4</td><td></td></tr></table>
+
+<p>参考文献：<br />
+ URL Rewriting Guide<br />
+http://httpd.apache.org/docs/misc/rewriteguide.html</p>
+
+<p>mod_rewrite: A Beginner's Guide to URL Rewriting<br />
+http://www.sitepoint.com/article/910</p>
+
+<span class="posted">Posted by Hilton at November  4, 2003 11:28 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=349.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=349" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+<div class="comments-body">
+<p>Web集群?<br />
+可以解释下吗?<br />
+谢谢.</p>
+<span class="comments-post">Posted by: <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:21 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="349" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

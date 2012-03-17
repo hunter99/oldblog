@@ -1,0 +1,332 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: CLI学习笔记</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000357.html" tppabs="http://hedong.3322.org/archives/000357.html" title="如何得到unix服务器的字长和架构体系？" />
+
+<link rel="next" href="000360.html" tppabs="http://hedong.3322.org/archives/000360.html" title="I18N和L10N（3）" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000359.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/254"
+    dc:title="CLI学习笔记"
+    dc:identifier="http://hedong.3322.org/archives/000359.html"
+    dc:subject="ItTech"
+    dc:description="　　如果曾经用过unix或曾经用过C编程，getopts一定不陌生，CLI跟getopts一样，是一个用来处理命令行参数或选项的Java API。 　　其实，相对而言对命令行的处理并不复杂，但如果采用一个能用的命令行处理接口，可能更容易让用户接受你的命令行设置。而对Java程序而言，似乎用XML文件来进行配置更为常见，这大概是java更多地被用于web应用编程有关。 　　如果有兴趣，就继续往下看。..."
+    dc:creator="Hilton"
+    dc:date="2003-11-13T21:27:16+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000359.html">
+<dc:title>CLI学习笔记</dc:title>
+<dc:description>　　如果曾经用过unix或曾经用过C编程，getopts一定不陌生，CLI跟getopts一样，是一个用来处理命令行参数或选项的Java API。 　　其实，相对而言对命令行的处理并不复杂，但如果采用一个能用的命令行处理接口，可能更容易让用户接受你的命令行设置。而对Java程序而言，似乎用XML文件来进行配置更为常见，这大概是java更多地被用于web应用编程有关。 　　如果有兴趣，就继续往下看。...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-11-13T21:27:16+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000357.html" tppabs="http://hedong.3322.org/archives/000357.html">&laquo; 如何得到unix服务器的字长和架构体系？</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000360.html" tppabs="http://hedong.3322.org/archives/000360.html">I18N和L10N（3） &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">November 13, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">CLI学习笔记</h3>
+
+<p>　　如果曾经用过unix或曾经用过C编程，getopts一定不陌生，<a href="javascript:if(confirm('http://jakarta.apache.org/commons/cli/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://jakarta.apache.org/commons/cli/'" tppabs="http://jakarta.apache.org/commons/cli/" title="Command Line Interface">CLI</a>跟getopts一样，是一个用来处理命令行参数或选项的Java API。<br />
+　　其实，相对而言对命令行的处理并不复杂，但如果采用一个能用的命令行处理接口，可能更容易让用户接受你的命令行设置。而对Java程序而言，似乎用XML文件来进行配置更为常见，这大概是java更多地被用于web应用编程有关。<br />
+　　如果有兴趣，就继续往下看。<br />
+</p>
+
+<a name="more"></a>
+<p>　　为了不致引起混乱，先说明一下几个术语。假定下面是某次执行命令cmd时的情况，<div class="code">$cmd -a -b c -d e=f g</div>，这里:<ol><li>整个” cmd -a -b c -d e=f g”被称为命令行</li><li>“-a -b c -d e=f g”被称为命令行参数，与命令行的差别就是没有命令“cmd”。现实中，在不引起混乱的情况下，也将命令行参数简称为“命令行”</li><li>“-a”、“-b c”、“-d e=f”都是选项(option),此处恰好代表了不同的常见类型</li><li>”c”称为“-b”的参数，同理”e=f”是”-d”的参数。</li></ol></p>
+
+<p><h4>三个阶段</h4>　　命令行的处理过程包括：定义、解析和查询三个阶段。下面就依次讨论每一个阶段，并说明CLI是如何实现的。<br />
+　　CLI处理命令行的思路是这样的：首先将程序要接收的选项及选项的要求，放入一个Options对象，然后将此对象及命令行字符串一起作参数传递给一个Parser对象的parse解析函数，解析函数将Options对象的内容与命令行进行对照解析，将结果保存在CommanLine对象中，最后用户的程序调用CommandLine对象的hasOption()方法来查询某个选项是否存在，如果此选项有参数则可用getOptionValue取回它的参数值。<br />
+<strong>定义阶段</strong><br />
+　　每个命令行都会定义一些选项，以用它们定义应用程序的用户交互界面。CLI使用Options类，作为一容器来存放Option实例。在CLI中创建Option实例的方法有两种，一是通过构造函数constuctors,另一个是通过Options中工厂(factory)方法. <br />
+　　该阶段的结果，是一个Options实例。<br />
+<strong>解析阶段</strong><br />
+　　该阶段是那些通过命令行传递给应用程序的文本信息被实际进行处理的阶段。解析器根据定义阶段的定义的规则(选项及要求)来处理命令行文本信息。CommandLineParser 的parse方法，接收一个Options实例和一个String[]作为参数，返回一个CommandLine实例 . <br />
+　　该阶段的结果，是一个 CommandLine 实例. <br />
+<strong>查询(Interrogation)阶段</strong><br />
+　　在该阶段，应用程序查询CommandLine，根据一些布尔选项的值决定执行哪些子程序，并根据选项的值来取得提供给应用程序的数据。这个阶段，由用户的代码实现。CommanLine提供一些查询的方法供用户代码使用。<br />
+<h4>例子</h4><br />
+<strong>例1</strong><br />
+　　假定有一个DateApp程序，用来显示日期，如果给它一个“－t”选项，它可以同时把时间也显示出来。这个”-t”选项，是个布尔选项，也就是说，这种选项在命令行中出现与否，直接表示了选项值的真/假，或者假/真。DateApp的命令行处理过程如下：<div class="code">...<br />
+// create Options object<br />
+Options options = new Options();<br />
+// add t option<br />
+options.addOption("t", false, "display current time");<br />
+...<br />
+CommandLineParser parser = new PosixParser();<br />
+CommandLine cmd = parser.parse( options, args);<br />
+...<br />
+if(cmd.hasOption("t")) {<br />
+    // print the date and time<br />
+}else {<br />
+    // print the date<br />
+}</div>此中的addOption方法接收三个参数，第一个是选项名，第二个用是指明是否为布尔选项（即此选项有无参数），第三个是对该参数的解释。<br />
+　　CLI能自动生成命令的使用说明(Usage)，第三个参数就是供生成使用说明之用的。<br />
+　　现在DateApp程序的功能有了扩展，它可以以某个国家本地的格式显示日期（及时间），这就需要一个新的先项”-c country”，来指明国家的信息。这类参数的处理方法如下：<div class="code">...<br />
+// add c option<br />
+options.addOption("c", true, "country code");<br />
+...<br />
+// get c option value<br />
+String countryCode = options.getOptionValue("c");<br />
+if(countryCode == null) {<br />
+    // print default date<br />
+}else {<br />
+    // print date for country specified by countryCode<br />
+}</div>此中的getOptionValue,当选项C的参数值在命令行没有提供时，则返回null.<br />
+<strong>例2</strong><br />
+　　下面，以ant的命令行处理为例，说明其它的Option实例生成方法。ant的用法<div class="code">ant [options] [target [target2 [target3] ...]]<br />
+  Options: <br />
+  -help                  print this message<br />
+  -projecthelp           print project help information<br />
+  -version               print the version information and exit<br />
+  -quiet                 be extra quiet<br />
+  -verbose               be extra verbose<br />
+  -debug                 print debugging information<br />
+  -emacs                 produce logging information without adornments<br />
+  -logfile <file>        use given file for log<br />
+  -logger <classname>    the class which is to perform logging<br />
+  -listener <classname>  add an instance of class as a project listener<br />
+  -buildfile <file>      use given buildfile<br />
+  -D<property>=<value>   use value for given property<br />
+  -find <file>           search for buildfile towards the root of the filesystem and use it</div>其中，布尔选项的定义如下：<div class="code">Option help = new Option( "help", "print this message" );<br />
+Option projecthelp = new Option( "projecthelp", "print project help information" );<br />
+Option version = new Option( "version", "print the version information and exit" );<br />
+Option quiet = new Option( "quiet", "be extra quiet" );<br />
+Option verbose = new Option( "verbose", "be extra verbose" );<br />
+Option debug = new Option( "debug", "print debugging information" );<br />
+Option emacs = new Option( "emacs", "produce logging information without adornments" );</div>带参数的选项的定义如下：<div class="code">Option logfile   = OptionBuilder.withArgName( "file" ).hasArg().withDescription(  "use given file for log" ).create( "file" );</p>
+
+<p>Option logger    = OptionBuilder.withArgName( "classname" ).hasArg().withDescription( "the class which it to perform logging" ).create( "logger" );</p>
+
+<p>Option listener  = OptionBuilder.withArgName( "classname" ).hasArg().withDescription( "add an instance of class as a project listener" ).create( "listener"); </p>
+
+<p>Option buildfile = OptionBuilder.withArgName( "file" ).hasArg().withDescription(  "use given buildfile" ).create( "buildfile");</p>
+
+<p>Option find      = OptionBuilder.withArgName( "file" ).hasArg().withDescription( "search for buildfile towards the root of the filesystem and use it" ).create( "find" );</div>以buildfile为例说明一下，“＝”前面的buildfile是实例（或说变量）名字，可以任意指定，建议与选项名相同；withArgName中的”file”是选项buildfile的参数的名字，在显示使用说明时会将此名字显示出来，而实际运行命令是用户会输入具体的值（如具体某个文件的名字）；create()中的”buildfile”是选项的名字，不能搞错，如果错成别的名字，则就成了别的名字的选项了。<br />
+　　Java属性的选项定义如下：<div class="code">Option property  = OptionBuilder.withArgName( "property=value" ).hasArgs().withValueSeparator().withDescription( "use value for given property" ).create( "D" );</div>生成Options实例<div class="code">Options options = new Options();<br />
+options.addOption( help );<br />
+options.addOption( projecthelp );<br />
+options.addOption( version );<br />
+options.addOption( quiet );<br />
+options.addOption( verbose );<br />
+options.addOption( debug );<br />
+options.addOption( emacs );<br />
+options.addOption( logfile );<br />
+options.addOption( logger );<br />
+options.addOption( listener );<br />
+options.addOption( buildfile );<br />
+options.addOption( find );<br />
+options.addOption( property );</div>创建解析器<div class="code">public static void main( String[] args ) {<br />
+    // create the parser<br />
+    CommandLineParser parser = new GnuParser();<br />
+    try {<br />
+        // parse the command line arguments<br />
+        CommandLine line = parser.parse( options, args );<br />
+    }<br />
+    catch( ParseException exp ) {<br />
+        // oops, something went wrong<br />
+        System.err.println( "Parsing failed.  Reason: " + exp.getMessage() );<br />
+    }<br />
+}</div>查询选项值<div class="code">// has the buildfile argument been passed?<br />
+if( line.hasOption( "buildfile" ) ) {<br />
+    // initialise the member variable<br />
+    this.buildfile = line.getValue( "buildfile" );<br />
+}</div><br />
+　　需要说明的是，上面的例子中，对于一个选项出现两次时的情况，第二次的值都被忽略了，除非你在生成Option时调用过hasArgs()(不是hasArg)。如果程序中要对同一个选项出现的次数不同而采取不同的执行过程时，可以用Option的getValues()返回一个String[]，里面存放着所有的参数值,也可以用getValue()以一个整数值作参数指定返回第几个参数值（对于Java属性类型的选项，“＝”前后的两个串CLI是当作两个参数值来处理的）。<br />
+　　对于非定义的选项，命令中出现的其它字符串，可以用CommandLine的getArgs()返回一个存放它们的String[].<br />
+　　另外，cli能根据你对选项的定义，生成用法说明，代码如下：<div class="code">// automatically generate the help statement<br />
+HelpFormatter formatter = new HelpFormatter();<br />
+formatter.printHelp( "ant", options );</div><br />
+附：Option类的属性表<br />
+<table border="1"><tr><td>属性名</td><td>类型</td><td>描述</td></tr><tr><td>opt </td><td>java.lang.String </td><td> Option.的唯一标志串</td></tr><tr><td>longOpt </td><td>java.lang.String </td><td>别名及描述性的唯一标志串</td></tr><tr><td>description </td><td>java.lang.String </td><td>Option的功能描述</td></tr><tr><td>required </td><td>boolean </td><td>一个是否要求该Option必须在命令行出现的标志</td></tr><tr><td>multipleArgs </td><td>boolean </td><td>该option是否有多参数值的标志</td></tr><tr><td>arg </td><td>boolean </td><td>该option是否有参数的标志</td></tr><tr><td>args </td><td>boolean </td><td>该option是否有不只一个参数的标志</td></tr><tr><td>optionalArg </td><td>boolean </td><td>该option的参数是否是可选的（即不是必须的）</td></tr><tr><td>argName </td><td>java.lang.String </td><td>在显示命令用法时显示的参数的名子</td></tr><tr><td>valueSeparator </td><td>char </td><td>参数值串的分隔符，连接着多个参数值的各个参数。如，如果分隔符是“,”且参数串为“a,b,c”则选项有三个参数值a,b和c.</td></tr></table><ins>注</ins>：不知什么原因，API文档包括CLI站点的文档中的例子，有比较多的疏漏，建议参考上面的代码进行学习。<br />
+</p>
+
+<span class="posted">Posted by Hilton at November 13, 2003 09:27 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=359.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=359" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="359" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

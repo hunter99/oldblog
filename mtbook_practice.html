@@ -1,0 +1,262 @@
+<html>
+
+<head>
+  <title>第十章 ─ 動手做做看</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第十章 ─ 動手做做看</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#practice">第十章 ─ 動手做做看</a></li>
+  <ul>
+    <li><a href="#category">中文類別名稱/在索引頁面加入分類彙整的鏈結</a></li>
+    <li><a href="#icon">分類圖示</a></li>
+    <li><a href="#calendar">把月曆上特定日期連到相對應的逐日彙整</a></li>
+    <li><a href="#recent_comment">顯示最近的迴響</a></li>
+    <li><a href="#question_mark">問號游標</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="practice"></a>第十章 ─ 動手做做看</h1>
+
+<p>接下來這一章中，我將會實地操演一些模版撰寫的技巧。這些技巧也多半可以直接套用在妳自己的模版上。不過希望各位抄用之餘，也要看看為什麼我這樣子寫；畢竟網頁寫作變化萬千，唯有觀念奠立了，纔能夠隨意之所至地撰寫出合用的模版。</p>
+
+<h2><a id="category"></a>中文類別名稱/在索引頁面加入分類彙整的鏈結</h2>
+
+<p>在前面的章節裡有提到，由於 Movable Type 預設會使用類別名稱來當作分類彙整檔名的一部份，所以妳不能夠在這裡使用中文字。權變的方法是在類別名稱用英文，然後在<strong>類別描述</strong>裡纔使用中文。</p>
+
+<p>可是這麼一來，當妳在模版裡使用 &lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTArchiveTitle$&gt;&lt;/a&gt;  標籤時，顯示出來的就會是英文的類別名稱。妳很有可能想要顯示的是中文的類別描述，所以得用這樣的標籤組合：<pre><code>&lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt;&lt;$MTCategoryDescription$&gt;&lt;/a&gt;</code></pre></p>
+
+<p>請注意，為了要使用 &lt;$MTArchiveLink$&gt; 標籤，妳得把上面這些標籤包在<strong>彙整清單情境</strong>裡，也就是用 &lt;MTArchiveList&gt; 和 &lt;/MTArchiveList&gt; 包起來；此外為了要使用 &lt;$MTCategoryDescription$&gt; 標籤，妳也得把上面這些標籤包在<strong>類別清單情境</strong>裡，也就是要用 &lt;MTCategories&gt; 和 &lt;/MTCategories&gt; 包起來，或者是用 &lt;MTEntryCategories&gt; 和 &lt;/MTEntryCategories&gt; 包起來。</p>
+
+<p>另外，當然，妳還得先在「網誌組態」的「彙整」裡，啟用「分類彙整」的選項纔能夠做出連結到分類彙整頁面的鏈結。</p>
+
+<p>以下是在文章標題前面加上中文類別描述的範例：<pre><div class="codenote">&lt;!-- 「文章」情境開始 --&gt;</div><strong>&lt;MTEntries&gt;</strong>
+<div class="codenote">&lt;!-- 「引用」資料，不會被顯示出來 --&gt;</div>  &lt;$MTEntryTrackbackData$&gt;
+<div class="codenote">&lt;!-- 「如果這是這一天的第一篇」情境開始 --&gt;</div>  &lt;MTDateHeader&gt;
+<div class="codenote">&lt;!-- 就用「date」這個 <acronym title="Cascading Style Sheets">CSS</acronym> class 樣式做出第二級標題字 --&gt;</div>    &lt;h2 class=&quot;date&quot;&gt;
+<div class="codenote">&lt;!-- 然後按照 %x 格式顯示日期 --&gt;</div>      &lt;$MTEntryDate format=&quot;%x&quot;$&gt;
+<div class="codenote">&lt;!-- 對應 &lt;h2 class=&quot;date&quot;&gt; --&gt;</div>    &lt;/h2&gt;
+<div class="codenote">&lt;!-- 「如果這是這一天的第一篇」情境結束 --&gt;</div>  &lt;/MTDateHeader&gt;
+<div class="codenote">&lt;!-- 用「blogbody」這個 CSS class 樣式做出一個欄框 --&gt;</div>  &lt;div class=&quot;blogbody&quot;&gt;
+<div class="codenote">&lt;!-- 用文章 ID 來當「錨」 --&gt;</div>    &lt;a id=&quot;entry&lt;$MTEntryID pad=&quot;1&quot;$&gt;&quot;&gt;&lt;/a&gt;
+<div class="codenote">&lt;!-- 用「title」這個 CSS class 樣式做出第三級標題字 --&gt;</div>    &lt;h3 class=&quot;title&quot;&gt;
+<div class="codenote">&lt;!-- 「文章所屬類別」情境開始 --&gt;</div>      <strong>&lt;MTEntryCategories glue=&quot;, &quot;&gt;</strong>
+<div class="codenote">&lt;!-- 分類彙整的鏈結 --&gt;</div>        <strong>&lt;a href=&quot;archives/cat_&lt;$MTEntryCategory$&gt;.html&quot;&gt;</strong>
+<div class="codenote">&lt;!-- 顯示中文類別描述 --&gt;</div>        <strong>&lt;$MTCategoryDescription$&gt;&lt;/a&gt;</strong>
+<div class="codenote">&lt;!-- 「文章所屬類別」情境結束 --&gt;</div>      <strong>&lt;/MTEntryCategories&gt;</strong>
+<div class="codenote">&lt;!-- 冒號以及文章標題 --&gt;</div>      : &lt;$MTEntryTitle$&gt;
+<div class="codenote">&lt;!-- 對應 &lt;h3 class=&quot;title&quot;&gt; --&gt;</div>    &lt;/h3&gt;
+<div class="codenote">&lt;!-- 文章內容 --&gt;</div>    &lt;$MTEntryBody$&gt;
+<div class="codenote">&lt;!-- 「如果文章有延伸內容」情境開始 --&gt;</div>    &lt;MTEntryIfExtended&gt;
+<div class="codenote">&lt;!-- 用「extended」這個 CSS class 樣式做出一個區塊 --&gt;</div>      &lt;span class=&quot;extended&quot;&gt;
+<div class="codenote">&lt;!-- 就顯示「深入閱讀」的鏈結 --&gt;</div>        &lt;a href=&quot;&lt;$MTEntryPermalink$&gt;&quot;&gt;深入閱讀&lt;/a&gt;
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;extended&quot;&gt; --&gt;</div>      &lt;/span&gt;&lt;br /&gt;
+<div class="codenote">&lt;!-- 「如果文章有延伸內容」情境結束 --&gt;</div>    &lt;/MTEntryIfExtended&gt;
+<div class="codenote">&lt;!-- 用「posted」這個 CSS class 樣式做出一個欄框 --&gt;</div>    &lt;div class=&quot;posted&quot;&gt;
+<div class="codenote">&lt;!-- 顯示作者 --&gt;</div>      由 &lt;$MTEntryAuthor$&gt; 
+<div class="codenote">&lt;!-- 建立連結到文章單篇彙整的鏈結 --&gt;</div>      於 &lt;a href=&quot;&lt;$MTEntryPermalink$&gt;&quot;&gt;
+<div class="codenote">&lt;!-- 按照 %X 格式顯示出版時間 --&gt;</div>      &lt;$MTEntryDate format=&quot;%X&quot;$&gt;
+      &lt;/a&gt; 所發表
+<div class="codenote">&lt;!-- 「如果文章允許評論」情境開始 --&gt;</div>      &lt;MTEntryIfAllowComments&gt;
+<div class="codenote">&lt;!-- 就顯示「迴響」鏈結 --&gt;</div>        | &lt;a 
+        href=&quot;&lt;$MTCGIPath$&gt;&lt;$MTCommentScript$&gt;?entry_id=&lt;$MTEntryID$&gt;&quot; 
+        onclick=&quot;OpenComments(this.href); return false&quot;&gt;
+        迴響&lt;/a&gt;
+<div class="codenote">&lt;!-- 「如果文章允許評論」情境結束 --&gt;</div>      &lt;/MTEntryIfAllowComments&gt;
+<div class="codenote">&lt;!-- 「如果文章接受引用通告」情境開始 --&gt;</div>      &lt;MTEntryIfAllowPings&gt;
+<div class="codenote">&lt;!-- 就顯示「引用」鏈結 --&gt;</div>        | &lt;a 
+        href=&quot;&lt;$MTCGIPath$&gt;&lt;$MTTrackbackScript$&gt;?__mode=view&amp;entry_id=&lt;$MTEntryID$&gt;&quot; 
+        onclick=&quot;OpenTrackback(this.href); return false&quot;>
+        引用&lt;/a&gt;
+<div class="codenote">&lt;!-- 「如果文章接受引用通告」情境結束 --&gt;</div>      &lt;/MTEntryIfAllowPings&gt;
+<div class="codenote">&lt;!-- 對應 &lt;div class=&quot;posted&quot;&gt; --&gt;</div>    &lt;/div&gt;
+<div class="codenote">&lt;!-- 對應 &lt;div class=&quot;blogbody&quot;&gt; --&gt;</div>  &lt;/div&gt;
+<div class="codenote">&lt;!-- 「文章情境」結束 --&gt;</div><strong>&lt;/MTEntries&gt;</strong></pre></p>
+
+<p>請注意：在上面這個範例中，我用了 <code>&lt;a href=&quot;archives/cat_&lt;$MTEntryCategory$&gt;.html&quot;&gt;</code> 標籤來取代彙整清單情境中的 &lt;a href=&quot;&lt;$MTArchiveLink$&gt;&quot;&gt; 標籤，這樣子就不需要叫用彙整清單情境了。</p>
+
+<p>以下是列出所有類別、並且讓他們各自連到自己的分類彙整頁面的範例：<pre><div class="codenote">&lt;!-- 先顯示一個 | --&gt;</div>|
+<div class="codenote">&lt;!-- 「類別清單」情境開始 --&gt;</div><strong>&lt;MTCategories&gt;</strong>
+<div class="codenote">&lt;!-- 空一格後建立起連結到分類彙整的鏈結 --&gt;</div>  &lt;a href=&quot;<strong>&lt;$MTCategoryArchiveLink$&gt;</strong>&quot;&gt;
+<div class="codenote">&lt;!-- 顯示中文類別描述 --&gt;</div> <strong>&lt;$MTCategoryDescription$&gt;</strong>
+<div class="codenote">&lt;!-- 空一格後再顯示一個 | --&gt;</div> &lt;/a&gt; |
+<div class="codenote">&lt;!-- 「類別清單」情境結束 --&gt;</div><strong>&lt;/MTCategories&gt;</strong></pre></p>
+
+<p>妳可以把這一段 HTML 標籤放在 Banner 區下方，類別與類別之間、最前面以及最後面都會用 | 符號來隔開；或者妳也可以加以修改（像是加入 <code>&lt;br /&gt</code> 來換列，並且重新調整 | 的位置）後放到旁邊的連結列去。</p>
+
+<h2><a id="icon"></a>分類圖示</h2>
+
+<p>使用分類圖示的秘訣在於<strong>類別描述可以使用 HTML 標籤</strong>。所以搭配前一節的範例，妳就可以在文章標題前面顯示分類圖示，或者在 Banner 底下列出所有的分類圖示，連結到各個分類彙整去。</p>
+
+<p>以下是用於<strong>類別描述</strong>的範例：<pre><div class="codenote">&lt;!-- 開始放一張圖片 --&gt;</div>&lt;img 
+<div class="codenote">&lt;!-- 不能顯示圖片時，就顯示中文類別描述，前後用中刮號夾住，再空一格空白 --&gt;</div>alt=&quot;[中文類別描述] &quot; 
+<div class="codenote">&lt;!-- 游標指到圖片上時，就顯示中文類別描述 --&gt;</div>title=&quot;中文類別描述&quot; 
+<div class="codenote">&lt;!-- 用 foo.png 這個圖檔來當作圖示 --&gt;</div>src=&quot;foo.png&quot; 
+<div class="codenote">&lt;!-- 指定圖示樣式為「不要有邊框」 --&gt;</div>style=&quot;border:0&quot; /></pre></p>
+
+<p>請注意：使用圖示固然可以更精簡地傳達複雜的意涵，但是妳在使用圖示的時候應當要考量到：圖檔大小（下載時間會不會太久）、顏色對比（色盲是不是看得清楚），同時也應該提供<strong>替換文字</strong>（也就是 <strong>alt</strong> 這個屬性），這樣其他使用純文字模式瀏覽器、甚至是非視覺介面瀏覽器的讀者，纔能夠知道這裡到底有些甚麼東西。</p>
+
+<p>另外，別忘記這個圖檔 (foo.png) 妳也得上傳到伺服器上；同時注意要清楚地指定到正確的路徑。</p>
+
+<h2><a id="calendar"></a>把月曆上特定日期連到相對應的逐日彙整</h2>
+
+<p>預設的模版裡，月曆上的日期在那一天有文章被發表時，就建立連往該日第一篇文章靜態頁面的鏈結；但是如果妳有製作「逐日彙整」的時候，把這個鏈結連到「逐日彙整」去。</p>
+
+<p>關鍵的要點就是在 <strong>&lt;$MTEntryPermalink$&gt;</strong> 標籤中把 <strong>archive_type</strong> 屬性指定成 <strong>=&quot;Daily&quot;</strong> 就可以了。</p>
+
+<p>以下就是這樣子的月曆範例：<pre><div class="codenote">&lt;!-- 做一個欄框，把整個月曆放進去 --&gt;</div>&lt;div align=&quot;center&quot; class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 欄框的內容全部置中對齊 --&gt;</div>
+<div class="codenote">&lt;!-- 這個欄框會採用「calendar」這個 CSS class 的樣式 --&gt;</div>
+
+<div class="codenote">&lt;!-- 做一個表格來放月曆（本來就是一格一格的） --&gt;</div>  &lt;table border=&quot;0&quot; cellspacing=&quot;4&quot; 
+  cellpadding=&quot;0&quot; summary=&quot;當月月曆以及連往每日彙整的連結&quot;&gt;
+<div class="codenote">&lt;!-- 這個表格不要有外框 --&gt;</div>
+<div class="codenote">&lt;!-- 表格裡，格子與格子之間的間隔是 4 個點 --&gt;</div>
+<div class="codenote">&lt;!-- 表格裡，每個格子內不要再多留白 --&gt;</div>
+<div class="codenote">&lt;!-- 並設定表格的摘要 --&gt;</div>
+
+<div class="codenote">&lt;!-- 表格的標題 --&gt;</div>    &lt;caption class=&quot;calendarhead&quot;&gt;
+<div class="codenote">&lt;!-- 按照 %Y-%m 的格式顯示目前的日期 --&gt;</div>      &lt;$MTDate format=&quot;%Y-%m&quot;$&gt;
+<div class="codenote">&lt;!-- 對應 &lt;caption class=&quot;calendarhead&quot;&gt; --&gt;</div>    &lt;/caption&gt;
+
+<div class="codenote">&lt;!-- 顯示星期幾的那一列 --&gt;</div>    &lt;tr&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期日」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期日&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「日」 --&gt;</div>          日
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期日&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期一」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期一&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「一」 --&gt;</div>          一
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期一&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期二」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期二&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「二」 --&gt;</div>          二
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期二&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期三」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期三&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「三」 --&gt;</div>          三
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期三&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期四」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期四&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「四」 --&gt;</div>          四
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期四&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期五」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期五&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「五」 --&gt;</div>          五
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期五&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 這一欄是「星期六」的縮寫，置中排列 --&gt;</div>      &lt;th abbr=&quot;星期六&quot; align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 按照「calendar」這個 CSS class 樣式做一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「六」 --&gt;</div>          六
+<div class="codenote">&lt;!-- 對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 對應 &lt;th abbr=&quot;星期六&quot; align=&quot;center&quot;&gt; --&gt;</div>      &lt;/th&gt;
+<div class="codenote">&lt;!-- 對應 &lt;tr&gt; --&gt;</div>    &lt;/tr&gt;
+
+<div class="codenote">&lt;!-- 「月曆」情境開始 --&gt;</div>    &lt;MTCalendar&gt;
+
+<div class="codenote">&lt;!-- 「如果這是一週的第一天」情境開始 --&gt;</div>      &lt;MTCalendarWeekHeader&gt;
+<div class="codenote">&lt;!-- 就開始新的一列 --&gt;</div>        &lt;tr&gt;
+<div class="codenote">&lt;!-- 「如果這是一週的第一天」情境結束 --&gt;</div>      &lt;/MTCalendarWeekHeader&gt;
+
+<div class="codenote">&lt;!-- 這一欄的內容要置中對齊 --&gt;</div>      &lt;td align=&quot;center&quot;&gt;
+<div class="codenote">&lt;!-- 用「claendar」這個 CSS class 樣式做出一個區塊 --&gt;</div>        &lt;span class=&quot;calendar&quot;&gt;
+
+<div class="codenote">&lt;!-- 「如果這一天有文章」情境開始 --&gt;</div>          &lt;MTCalendarIfEntries&gt;
+<div class="codenote">&lt;!-- 就讓「文章」情境開始 --&gt;</div>            &lt;MTEntries lastn=&quot;1&quot;&gt;
+<div class="codenote">&lt;!-- 但是祇採用最後一篇文章的資訊 --&gt;</div>
+<div class="codenote">&lt;!-- 建立鏈結 --&gt;</div>              &lt;a href=&quot;&lt;$MTEntryPermalink <strong>archive_type=&quot;Daily&quot;</strong>$&gt;&quot;&gt;
+<div class="codenote">&lt;!-- <strong>指定連到逐日彙整</strong>的靜態頁面 --&gt;</div>
+<div class="codenote">&lt;!-- 同時也顯示日期 --&gt;</div>                &lt;$MTCalendarDay$&gt;
+<div class="codenote">&lt;!-- 鏈結結束 --&gt;</div>              &lt;/a&gt;
+<div class="codenote">&lt;!-- 「文章」情境結束 --&gt;</div>            &lt;/MTEntries&gt;
+<div class="codenote">&lt;!-- 「如果這一天有文章」情境結束 --&gt;</div>          &lt;/MTCalendarIfEntries&gt;
+
+<div class="codenote">&lt;!-- 「如果這一天沒有文章」情境開始 --&gt;</div>          &lt;MTCalendarIfNoEntries&gt;
+<div class="codenote">&lt;!-- 就祇顯示日期就好 --&gt;</div>            &lt;$MTCalendarDay$&gt;
+<div class="codenote">&lt;!-- 「如果這一天沒有文章」情境結束 --&gt;</div>          &lt;/MTCalendarIfNoEntries&gt;
+
+<div class="codenote">&lt;!-- 「如果這個格子不是這個月份的日期」情境開始 --&gt;</div>          &lt;MTCalendarIfBlank&gt;
+<div class="codenote">&lt;!-- 就顯示一個空白 --&gt;</div>            &amp;nbsp;
+<div class="codenote">&lt;!-- 「如果這個格子不是這個月份的日期」情境結束 --&gt;</div>          &lt;/MTCalendarIfBlank&gt;
+
+<div class="codenote">&lt;!-- 區塊結束，對應 &lt;span class=&quot;calendar&quot;&gt; --&gt;</div>        &lt;/span&gt;
+<div class="codenote">&lt;!-- 這一欄結束，對應 &lt;td align=&quot;center&quot;&gt; --&gt;</div>      &lt;/td&gt;
+
+<div class="codenote">&lt;!-- 「如果這是一週的最後一天」情境開始 --&gt;</div>      &lt;MTCalendarWeekFooter&gt;
+<div class="codenote">&lt;!-- 就把這一列結束 --&gt;</div>        &lt;/tr&gt;
+<div class="codenote">&lt;!-- 「如果這是一週的最後一天」情境結束 --&gt;</div>      &lt;/MTCalendarWeekFooter&gt;
+
+<div class="codenote">&lt;!-- 「月曆」情境結束 --&gt;</div>    &lt;/MTCalendar&gt;
+
+<div class="codenote">&lt;!-- 表格的結尾 --&gt;</div>  &lt;/table&gt;
+<div class="codenote">&lt;!-- 欄框的結尾 --&gt;</div>&lt;/div&gt;</pre></p>
+
+<h2><a id="recent_comment"></a>顯示最近的迴響</h2>
+
+<p>預設的模版中，並不會列出最近的迴響；但是如果妳打算做出相當活躍的網誌的話，意味著可能會有許多訪客前來發表迴響。這個時候如果妳能夠列出最近被發表的迴響，就可以在某種程度上促進讀者交流互動 ─ 因為讀者（當然妳自己也是）能夠一眼就看到「最近又有哪些話題是大家在熱烈討論的」了。</p>
+
+<p>以下就是列出近 10 篇迴響的範例：<pre><div class="codenote">&lt;!-- 以「sidetitle」這個 CSS class 樣式做出一個欄框 --&gt;</div>&lt;div class=&quot;sidetitle&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「最近的迴響」 --&gt;</div>  最近的迴響
+<div class="codenote">&lt;!-- 對應 &lt;div class=&quot;sidetitle&quot;&gt; --&gt;</div>&lt;/div&gt;
+
+<div class="codenote">&lt;!-- 以「side」這個 CSS class 樣式做出一個欄框 --&gt;</div>&lt;div class=&quot;side&quot;&gt;
+<div class="codenote">&lt;!-- 「評論」情境開始 --&gt;</div>  &lt;MTComments lastn=&quot;10&quot; 
+  sort_order=&quot;descend&quot;&gt;
+<div class="codenote">&lt;!-- 新的評論在前面，祇列出最新 10 項 --&gt;</div>
+<div class="codenote">&lt;!-- 「評論對應文章項目」情境開始 --&gt;</div>    &lt;MTCommentEntry&gt;
+<div class="codenote">&lt;!-- 建立起評論鏈結 --&gt;</div>      &lt;a 
+      href=&quot;&lt;$MTCGIPath$&gt;&lt;$MTCommentScript$&gt;?entry_id=&lt;$MTCommentEntryID$&gt;&quot;&gt;
+<div class="codenote">&lt;!-- 顯示「Re: 」--&gt;</div>        Re: 
+<div class="codenote">&lt;!-- 文章標題 --&gt;</div>        &lt;$MTEntryTitle$&gt;
+<div class="codenote">&lt;!-- 建立鏈結的部分到此為止 --&gt;</div>      &lt;/a&gt;
+<div class="codenote">&lt;!-- 「評論對應文章項目」情境結束 --&gt;</div>    &lt;/MTCommentEntry&gt;
+<div class="codenote">&lt;!-- 顯示「, by 」--&gt;</div>    , by 
+<div class="codenote">&lt;!-- 評論作者 --&gt;</div>    &lt;$MTCommentAuthor$&gt;
+<div class="codenote">&lt;!-- 顯示「 (」 --&gt;</div>     (
+<div class="codenote">&lt;!-- 以 %b %d 的格式顯示評論發表日期 --&gt;</div>    &lt;$MTCommentDate format=&quot;%b %d&quot;$&gt;
+<div class="codenote">&lt;!-- 顯示「)」 --&gt;</div>    )
+<div class="codenote">&lt;!-- 換一列 --&gt;</div>    &lt;br /&gt;
+<div class="codenote">&lt;!-- 「評論」情境結束 --&gt;</div>  &lt;/MTComments&gt;
+<div class="codenote">&lt;!-- 對應 &lt;div class=&quot;side&quot;&gt; --&gt;</div>&lt;/div&gt;</pre></p>
+
+<p>在這個範例中，我們會用 Re: 後面接上原來的文章標題，表示這是對這一篇文章的迴響；並且建立起鏈結，連到迴響頁面去。接著，還會在標題後面接上逗號，並以 by 來指出這一篇迴響是由誰所發表的；為了不要讓版面太複雜（充斥著鏈結），所以這裡的迴響作者並不會附上任何鏈結。最後並用刮號註明這一篇迴響發表的日期。</p>
+
+<p>妳可以把上面這一段插入到 &lt;div id=&quot;links&quot;&gt; 和 &lt;/div&gt; 之間、盡量靠近版面上方的位置，讓讀者載入頁面之後，不需要往下捲動太多就可以看得到這份清單。</p>
+
+<h2><a id="question_mark"></a>問號游標</h2>
+
+<p>這個技巧是我在 <a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/articles/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/articles/'" tppabs="http://ccca.nctu.edu.tw/~hlb/articles/">hlb</a> 所<a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/articles/archives/000238.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/articles/archives/000238.html'" tppabs="http://ccca.nctu.edu.tw/~hlb/articles/archives/000238.html">翻譯</a>的 <a href="javascript:if(confirm('http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/'" tppabs="http://ccca.nctu.edu.tw/~hlb/trans/practicalcss/">CSS實務排版技巧、秘訣與技術</a>一文中學到的。茲重新整理節錄如下：</p>
+
+<p>acronym(頭字語) 與 abbr(縮寫) 標籤雖然只在少數情況派上用場，卻有不錯的實用價值，可以配合著 title 屬性來解釋頭字語或縮寫。但即使網頁有提供文字來協助網站參觀者瞭解縮寫或頭字語的意義，現在大部分的瀏覽器卻不會為這個標籤作出任何的警示。所以讓我們從 CSS 來著手。</p>
+
+<p>你可以在樣式表裡為這些標籤加上底線，讓它們能引起注意。透過瀏覽器的支援，你也可以用 CSS 把游標換成「求助」符號 (通常用問號表示)。當然你也可以不用被 HTML 標籤限制：創造一個叫 .help 的類別，再用 span 來為那些容易讓讀者混淆的字詞添加資訊。</p>
+
+<p>以下是實際的範例：<pre>	abbr, acronym, .help {
+		border-bottom:1px dotted #333;
+		<strong>cursor:help;</strong>
+	}</pre></p>
+
+<p>這個 CSS 配合縮寫或頭字語標籤的 title 屬性使用，可以產生跟超連結不一樣的底線效果。把游標改成「求助」暗示著這些文字是不能按的，而 title 屬性則會解釋縮寫或頭字語。</p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

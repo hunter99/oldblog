@@ -1,0 +1,372 @@
+<html>
+
+<head>
+  <title>第三章 ─ 管理文章</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta http-equiv="Content-Language" content="zh-tw" />
+  <link rel="stylesheet" href="doc-styles.css" tppabs="http://hedong.3322.org/mt/docs/zh/doc-styles.css" type="text/css">
+</head>
+
+<body>
+
+<h3>Movable Type 完全手冊：第三章 ─ 管理文章</h3>
+<p><a href="mtbook.html" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook.html" accesskey="1">&laquo; 目錄</a></p>
+
+<a id="__index__"></a>
+<ul>
+  <li><a href="#entry">第三章 ─ 管理文章</a></li>
+  <ul>
+    <li><a href="#login">登入 Movable Type</a></li>
+    <li><a href="#post">張貼文章</a></li>
+    <ul>
+      <li><a href="#post_1st">發表妳的第一篇文章</a></li>
+      <li><a href="#post_extended">讓文章分出層次</a></li>
+      <li><a href="#post_buttom">超連結與文字變化</a></li>
+      <ul>
+        <li><a href="#post_buttom_bold">粗體</a></li>
+        <li><a href="#post_buttom_italic">斜體</a></li>
+        <li><a href="#post_buttom_underline">底線</a></li>
+        <li><a href="#post_buttom_url">鏈結</a></li>
+      </ul>
+      <li><a href="#post_note">補充資訊</a></li>
+    </ul>
+    <li><a href="#modify">修改文章</a></li>
+    <ul>
+      <li><a href="#modify_general">修改某一篇文章</a></li>
+      <li><a href="#modify_search">找出要修改的文章</a></li>
+      <ul>
+        <li><a href="#modify_search_recent5">最近五篇文章</a></li>
+        <li><a href="#modify_search_listall">列出所有文章</a></li>
+        <li><a href="#modify_search_filter">用特定條件篩選文章</a></li>
+        <li><a href="#modify_search_fast">快速搜尋文章</a></li>
+        <li><a href="#modify_search_advanced">文章進階搜尋</a></li>
+        <li><a href="#modify_search_replace">搜尋與取代</a></li>
+      </ul>
+      <li><a href="#modify_power">大量編輯模式</a></li>
+    </ul>
+    <li><a href="#upload">上傳檔案</a></li>
+    <ul>
+      <li><a href="#upload_imagenewentry_embed">上傳圖片並以嵌入式圖片建立新文章</a></li>
+      <li><a href="#upload_imageshowhtml_embed">上傳圖片並顯示嵌入式圖片的 HTML 標籤</a></li>
+      <li><a href="#upload_imagenewentry_popup">上傳圖片並以彈出式圖片建立新文章</a></li>
+      <li><a href="#upload_imageshowhtml_popup">上傳圖片並顯示彈出式圖片的 HTML 標籤</a></li>
+      <li><a href="#upload_filenewentry">上傳檔案並建立新文章</a></li>
+      <li><a href="#upload_fileshowhtml">上傳檔案並顯示 HTML 標籤</a></li>
+    </ul>
+    <li><a href="#delete">刪除文章</a></li>
+  </ul>
+</ul>
+
+<hr size="1" color="#CCCCCC" />
+
+<h1><a id="entry"></a>第三章 ─ 管理文章</h1>
+
+<p>這一章將介紹 Movable Type 最基本的功能 ─ 管理文章。所謂的「管理」，包括了張貼新文章的<a href="#post">上稿功能</a>、修改既有文章的<a href="#modify">編輯功能</a>，以及<a htef="#delete">刪除功能</a>。我們將在本章分別介紹這些功能，並以簡單的範例來說明各種動作所會產生的結果。</p>
+
+<p>除此之外，我們也會在這一章裡加入一些跟文章有關的資訊；例如，要如何在文件中鍵入特殊的符號、建立超連結、修改文字樣式等，也都會在這一章裡面提到。</p>
+
+<h2><a id="login"></a>登入 Movable Type</h2>
+
+<p>在我們做任何事情之前，首先要介紹的是「登入 Movable Type 」。有使用者問過，「我安裝好 Movable Type 之後，要去哪兒執行呢？」實際上是妳不需要特別執行，因為<strong>祇要網頁伺服器運作正常， Movable Type 就可以運作</strong>。另一方面，妳也不需要在每一台電腦上都安裝 Movable Type ，<strong>妳祇需要在當作網頁伺服器的那台機器上安裝過一次 Movable Type 就可以了</strong>。實際使用時，祇需要先用網頁瀏覽器<code>登入</code> Movable Type ，步驟如下：</p>
+
+<p><ol>
+  <li><a id="login_01"></a>首先妳要執行支援 <code>JavaScript</code> 和 <code>Cookies</code> 的網頁瀏覽器，像是 <code>Internet Explorer</code> (<code>IE</code>) 、 <code>Mozilla</code> 、 <code>Netscape</code> 、 <code>Phoenix</code> 、 <code>Opera</code> 之類，然後開啟連線到<strong>妳的 Movable Type 系統 CGI 路徑下的 mt.cgi</strong> ，如<a href="#img_01">圖一</a>。<div class="img"><a id="img_01"></a><img src="mtlogin_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_01.png" alt="開啟連線到 mt.cgi 的所在位址"><br />圖一：開啟連線到 mt.cgi 的所在位址，在這個範例中我們連到了 <code>http://Jedimt.dyndns.org/mt.cgi</code> 。</div></li>
+  <li><a id="login_02"></a>在 <code>Username</code> 這一欄裡填入妳的使用者帳號，如<a href="#img_02">圖二</a>。如果妳還沒有按照<a href="mtbook_config.html#blog_config_profile" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile">前一章</a>的說明修改預設帳號的話，妳在這裡就應該輸入 <code>Melody</code> 。<div class="img"><a id="img_02"></a><img src="mtlogin_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_02.png" alt="輸入使用者帳號"><br />圖二：輸入使用者帳號，在這個範例中我們輸入的是 <code>Jedi</code> 。</div></li>
+  <li><a id="login_03"></a>如<a href="#img_03">圖三</a>在 <code>Password</code> 欄位裡輸入妳的使用者密碼。如果妳還沒有按照<a href="mtbook_config.html#blog_config_profile" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile">前一章</a>的說明修改預設密碼的話，妳在這裡就應該輸入 <code>Nelson</code> 。萬一不幸妳忘記密碼了，則請跳到<a href="#login_06">步驟六</a>。請注意，<strong>如果妳把自然輸入法設成預設輸入法的話，密碼可能會沒辦法正常輸入！</strong><div class="img"><a id="img_03"></a><img src="mtlogin_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_03.png" alt="輸入密碼"><br />圖三：輸入密碼。</div></li>
+  <li><a id="login_04"></a>如果妳正在使用的電腦，除了妳以外不大有別人會動到的話，妳也可以核選<a href="#img_04">圖四</a>裡的核選框，這樣子下次妳就不需要再自己輸入一次使用者名稱及密碼了。不過如果妳正在使用公用電腦，或者是妳很在意自己的隱私安全性的話，就不應該核選這個核選框。<div class="img"><a id="img_04"></a><img src="mtlogin_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_04.png" alt="「記住帳號及密碼」核選框"><br />圖四：在這個範例中，我們假設妳用的是公用的電腦，所以並不核選「記住帳號及密碼」的核選框。</div></li>
+  <li><a id="login_05"></a>按下「 <code>LOG IN</code> 」按鈕，如<a href="#img_05">圖五</a>。接下來請跳至<a href="#login_11">步驟十一</a>。<div class="img"><a id="img_05"></a><img src="mtlogin_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_05.png" alt="按下「登入」按鈕"><br />圖五：按下「登入」按鈕。</div></li>
+  <li><a id="login_06"></a>如果妳不幸忘記密碼了的話，仍然還有一線希望；請按照<a href="#img_06">圖六</a>按下「 <code>Forgot your password?</code> 」的鏈結。<div class="img"><a id="img_06"></a><img src="mtlogin_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_06.png" alt="按下「忘記密碼了?」的鏈結"><br />圖六：如果妳忘記密碼了，就按一下「<code>忘記密碼了?</code>」的鏈結。</div></li>
+  <li><a id="login_07"></a>現在會開出一個如<a href="#img_07">圖七</a>的<code>密碼恢復視窗</code>，裡面有兩個欄位，分別要填入妳的<code>帳號</code>跟妳所設定的<code>出生地</code>。<div class="img"><a id="img_07"></a><img src="mtlogin_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_07.png" alt="密碼恢復視窗"><br />圖七：密碼恢復視窗。</div></li>
+  <li><a id="login_08"></a>先在第一欄填入妳的 Movable Type 帳號，如<a href="#img_08">圖八</a>。<div class="img"><a id="img_08"></a><img src="mtlogin_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_08.png" alt="在填入帳號"><br />圖八：在第一欄填入帳號，在這個範例中我們填的是 <code>Jedi</code> 。</div></li>
+  <li><a id="login_09"></a>在第二欄中填入妳的出生地，如<a href="#img_09">圖九</a>。妳在這裡填的內容，應該要跟妳在第二章<a href="mtbook_config.html#blog_config_profile" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile">修改個人資料</a>小節<a href="mtbook_config.html#blog_config_profile_08" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile_08">步驟八</a>所設定的<code>出生地</code>一樣。<div class="img"><a id="img_09"></a><img src="mtlogin_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_09.png" alt="填入出生地"><br />圖九：在第二欄填入出生地，在這個範例中我們填的是 <code>Mars</code> 。</div></li>
+  <li><a id="login_10"></a>填妥上述兩欄資料後，請如<a href="#img_10">圖十</a>按下「 <code>RECOVER</code> 」按鈕，如果妳的<code>出生地</code>資訊填寫無誤的話， Movable Type 就會為妳的帳號產生一組新的密碼，然後寄到妳在第二章<a href="mtbook_config.html#blog_config_profile" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile">修改個人資料</a>小節<a href="mtbook_config.html#blog_config_profile_03" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile_03">步驟三</a>所設定的 <code>Email</code> 地址去。接下來就請用這一個新密碼，來登入系統（並再次按照<a href="mtbook_config.html#blog_config_profile" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_profile">第二章修改個人資料</a>小節的內容來把密碼改掉）。<div class="img"><a id="img_10"></a><img src="mtlogin_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_10.png" alt="按下「恢復」按鈕"><br />圖十：按下「恢復」按鈕，來取得新的密碼。</div></li>
+  <li><a id="login_11"></a>一旦妳成功地登入 Movable Type 後，妳應該會看到如<a href="#img_11">圖十一</a>的<code>主選單</code>畫面；現在妳可以從這裡開始，繼續後面各個章節的各種操作了。<div class="img"><a id="img_11"></a><img src="mtlogin_11.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_11.png" alt="網誌系統的「主選單」畫面"><br />圖十一：這是 Movable Type 系統的「主選單」畫面。</div></li>
+  <li><a id="login_12"></a>任何時候，當妳結束操作時，妳最好<code>登出</code> Movable Type 系統，以免有人假冒妳的名目而破壞了妳的頁面與資料庫。欲登出 Movable Type ，請如<a href="#img_12">圖十二</a>按下上方導覽列的「<strong>登出</strong>」按鈕。<div class="img"><a id="img_12"></a><img src="mtlogin_12.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_12.png" alt="按下導覽列上的「登出」按鈕"><br />圖十二：要登出 Movable Type 的時候，就按下導覽列上的「登出」按鈕。</div></li>
+  <li><a id="login_13"></a>妳應該會看到如<a href="#img_13">圖十三</a>的畫面，指出妳已經登出 Movable Type 系統了；若還要再進行操作，妳就得重新<code>登入</code> Movable Type 纔行。<div class="img"><a id="img_13"></a><img src="mtlogin_13.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtlogin_13.png" alt="已登出 Movable Type"><br />圖十三：妳已經登出了 Movable Type 系統了。</div></li>
+</ol></p>
+
+<h2><a id="post"></a>張貼文章</h2>
+
+<p>Movable Type 的設計中心思想之一，就是希望能讓妳更輕易地發表新文章，因此 Movable Type 的上稿介面也設計得相當簡單；基本上妳祇需要填寫文章<code>標題</code>跟<code>內容</code>，然後按下<code>儲存</code>就可以了。不過對於初上手的使用者來說，仍舊需要一點時間跟嘗試，纔能夠逐漸掌握這個系統的運作方式。我們將陸續帶領各位使用各種與發表文章有關的功能；如果妳從來沒有使用 Movable Type 的經驗，強烈建議妳直接接下去閱讀下面這一小節：「<a href="#post_1st">發表妳的第一篇文章</a></p>
+
+<h3><a id="post_1st"></a>發表妳的第一篇文章</h3>
+
+<p><ol>
+  <li><a id="post_1st_01"></a>登入 Movable Type 系統後，如<a href="#img_14">圖十四</a>按下<code>主選單</code>中的「<strong>新增文章</strong>」鏈結，或如<a href="#img_15">圖十五</a>一般按下<code>網誌選單</code>左方工具列上的「<strong>新增文章</strong>」按鈕。<div class="img"><a id="img_14"></a><img src="mtentry_add_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_01.png" alt="按下主選單的「新增文章」鏈結"><br />圖十四：在主選單中，按下「<code>新增文章</code>」鏈結。</div><div class="img"><a id="img_15"></a><img src="mtentry_add_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_02.png" alt="按下網誌選單的「新增文章」按鈕"><br />圖十五：在網誌選單中，則按下「<code>新增文章</code>」按鈕。</div></li>
+  <li><a id="post_1st_02"></a>現在妳所看到的，就是<code>新增文章畫面</code>了。請如<a href="#img_16">圖十六</a>在「<code>標題</code>」欄位裡填入文章的標題。<div class="img"><a id="img_16"></a><img src="mtentry_add_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_03.png" alt="填入文章標題"><br />圖十六：在<code>標題</code>欄位裡輸入文章標題。在這個範例中我們輸入了「<code>這是我的第一篇文章！</code>」。</div></li>
+  <li><a id="post_1st_03"></a><code>主要類別</code>那一欄是一個下拉式選單，可以用來指定文章的類別。不過此刻我們還沒有設定任何類別，所以先行跳過，不做任何事。</li>
+  <li><a id="post_1st_04"></a>在「<code>主要文章本體</code>」欄位裡填寫文章的內容，這些內容會自動地在適當的地方換列，不過妳也可以強制換列（按 <code>Enter</code> 鍵）。另外，分段則是用一個空白列來表示；也就是說，當妳要換下一段的時候，妳就得連按兩次 <code>Enter</code> ，如<a href="#img_17">圖十七</a>。<div class="img"><a id="img_17"></a><img src="mtentry_add_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_04.png" alt="輸入文章內容"><br />圖十七：在<code>主要文章本體</code>欄位裡輸入文章的內容，妳可以強制換列，或者用連續兩次強制換列來表示換段。</div></li>
+  <li><a id="post_1st_05"></a><a href="#img_18">圖十八</a>裡的這些欄位會按照我們在第二章<a href="mtbook_config.html#blog_config_pref_publicity" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_config.html#blog_config_pref_publicity">出版/遠端介面/引用</a>小節裡所做的設定被設好，所以理論上妳不需要特別再去調整。不過我們還是快速地看一下這裡有些甚麼：<ol><li><a id="post_1st_05_01"></a>「<code>出版狀態</code>」可以是<code>草稿</code>或<code>定稿</code>；祇有標記成<strong>定稿</strong>的文章纔會真的出現在網頁上。</li><li><a id="post_1st_05_02"></a>「<code>文字格式</code>」被設定成<strong>轉換換列</strong>的時候， Movable Type 纔會自動幫妳處理換列跟換段。</li><li><a id="post_1st_05_03"></a>「<code>允許迴響</code>」被設定成<storng>開啟</strong>的情況下，讀者纔能夠對這一篇文章發表迴響。</li><li><a id="post_1st_05_04"></a>「<code>允許通告</code>」被核選之後，讀者纔能夠透過<strong>引用功能</strong>前來引用這一篇文章。</li></ol>雖然這些設定都會按照我們之前所決定的預設值被設好，但是妳還是可以因為任何理由而在此修改成別的樣子。至於我們沒有提到的其他欄位，請先暫時留空跳過。<div class="img"><a id="img_18"></a><img src="mtentry_add_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_05.png" alt="其他跟文章有關的選項"><br />圖十八：其他跟文章有關的選項，包括了<a href="#post_1st_05_01">出版狀態</a>、<a href="#post_1st_05_02">文字格式</a>、<a href="#post_1st_05_03">允許迴響</a>以及<a href="#post_1st_05_04">允許通告</a>。</div></li>
+  <li><a id="post_1st_06"></a>如<a href="#img_19">圖十九</a>按下「<code>儲存</code>」按鈕來把文章存到資料庫中。<div class="img"><a id="img_19"></a><img src="mtentry_add_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_06.png" alt="按下「儲存」按鈕"><br />圖十九：按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="post_1st_07"></a>妳應該會看到如<a href="#img_20">圖二十</a>的畫面，這個時候 Movable Type 已經把妳的文章存到資料庫裡了，正在把這些已存入資料庫中的文章內容搭配合適的模版，製作成網頁檔案。<div class="img"><a id="img_20"></a><img src="mtentry_add_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_07.png" alt="正在建立網頁檔案"><br />圖二十：文章已存入資料庫，正在更新相關的網頁檔案。</div></li>
+  <li><a id="post_1st_08"></a>網頁檔案一旦建立（更新）完成後，妳還會看到像<a href="#img_21">圖二十一</a>的畫面，表示 Movable Type 正在送出<code>更新通告</code>給指定的伺服器。<div class="img"><a id="img_21"></a><img src="mtentry_add_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_08.png" alt="Movable Type 正在送出更新通告"><br />圖二十一：正在送出<code>更新通告</code>給 <code>blo.gs</code> 和 <code>weblogs.com</code> 。</div></li>
+  <li><a id="post_1st_09"></a>一切處理完成後，妳會看到如<a href="#img_22">圖二十二</a>的畫面，表示所有該做的事都做完了。這個時候請按上方導覽列的「<code>檢視網站</code>」按鈕，看看做出來的頁面到底長甚麼樣子。<div class="img"><a id="img_22"></a><img src="mtentry_add_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_09.png" alt="按下「檢視網站」按鈕"><br />圖二十二：按下導覽列的「<code>檢視網站</code>」按鈕。</div></li>
+  <li><a id="post_1st_10"></a>這個時候應該會開出另一個瀏覽器視窗，如<a href="#img_23">圖二十三</a>。妳可以看到剛剛新增的那一篇文章已經跑到妳的網頁上了，文章的標題以略大、不同顏色的字型來表現，文字格式（換段以及換列）也都被正確地處理了，此外也有文章的寫作時間，以及供讀者發表迴響或引用的鏈結。<div class="img"><a id="img_23"></a><img src="mtentry_add_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_10.png" alt="網誌的主索引頁面"><br />圖二十三：妳的網誌主索引頁面。</div></li>
+</ol></p>
+
+<h3><a id="post_extended"></a>讓文章分出層次</h3>
+
+<p>當妳的文章數量開始增加，或者是當妳的文章越寫越長之後，如果在主索引頁面裡就列出全部的文章內容，不但會使得頁面長度遽增，讓讀者們必須花更多的時間下載這一頁，還會使得同一個畫面裡擠進太多資訊，反而讓妳的頁面內容難以被閱讀。</p>
+
+<p>Movable Type 把文章內容分成了兩個欄位：<strong>主要文章本體</strong>和<strong>額外文章內容</strong>；在預設的模版裡，祇有第一個欄位的內容纔會顯示在索引頁面裡，而第二個欄位的內容則祇會在單篇彙整頁面中出現。這或許會很有幫助，因為妳可以在第一欄裡寫些妳觀察到的有趣現象，然後再第二欄裡纔開始寫些自己的心得感想。這麼一來，讀者們就可以先大致看到妳觀察到了些甚麼，如果他們對這個主題也一樣感興趣的話，纔花更多的時間精力去仔細閱讀另外的部分。或者，以「起─承─轉─合」的文章架構來說，妳大可用第一欄來寫一些能吸引人的東西，然後在第二欄裡則詳細地加以闡述。現在就讓我們看看要如何實做：</p>
+
+<p><ol>
+  <li><a id="post_extended_01"></a>首先按照<a href="#post_1st_01">前一小節的步驟一</a>到<a href="#post_1st_06">步驟六</a>的程序再新增一篇文章，不過這一次除了在<code>主要文章本體</code>裡寫入文章內容之外，我們也試著在「<strong>額外文章內容</strong>」這一欄也寫點東西，如<a href="#img_24">圖二十四</a>，看看這樣會有甚麼不同。<div class="img"><a id="img_24"></a><img src="mtentry_add_11.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_11.png" alt="填寫「額外文章內容」欄位"><br />圖二十四：在<code>額外文章內容</code>裡填寫，在這個範例中我們寫了「<code>嘿！這一欄是第一篇沒有用到的。找找看，這些字跑到哪兒去了？</code>」</div></li>
+  <li><a id="post_extended_02"></a>如<a href="#post_1st_07">前一小節的步驟七</a>一般存檔後，按照<a href="#img_25">圖二十五</a>按下「<code>檢視網站</code>」按鈕來看看這一次的結果如何。<div class="img"><a id="img_25"></a><img src="mtentry_add_12.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_12.png" alt="按「檢視網站」按鈕"><br />圖二十五：文章儲存後，按「檢視網站」按鈕。</div></li>
+  <li><a id="post_extended_03"></a>圖<a href="#img_26">圖二十六</a>，妳會看到在妳的網誌主索引頁面中，第二篇文章的內容也刊登出來了，而且因為這一篇文章比較新，所以會排列在第一篇文章上面。一樣地，<code>主要文章本體</code>裡的內容也直接顯示出來了，不過<code>額外文章內容</code>卻沒有，反而是多了一個「<strong>深入閱讀&quot;第二篇文章&quot;</strong>」的鏈結。且讓我們點選這個「<code>深入閱讀&quot;第二篇文章&quot;</code>」的鏈結，看看會連到哪裡去。<div class="img"><a id="img_26"></a><img src="mtentry_add_13.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_13.png" alt="點選「深入閱讀&quot;第二篇文章&quot;」的鏈結"><br />圖二十六：點選「深入閱讀&quot;第二篇文章&quot;」的鏈結。</div></li>
+  <li><a id="post_extended_04"></a>妳應該會看到如<a href="#img_27">圖二十七</a>的畫面，<code>額外文章內容</code>欄位裡的東西赫然顯示其中，與<code>主要文章本體</code>的內容以段落分隔。這是一個<strong>單篇彙整</strong>的頁面，裡面祇會有一篇文章，並且顯示這篇文章的<code>寫作時間</code>、<code>文章標題</code>、<code>主要文章本體</code>、<code>額外文章內容</code>等資訊，並且還會列出跟這一篇文章有關的<code>迴響</code>，同時也提供了讓讀者發表迴響的表單。同時 Movable Type 的預設模版也很體貼地提供了頁面導覽 (Navigation) 的功能；如<a href="#img_28">圖二十八</a>，除了在頁面上方會自動建立起連結到<code>前一篇</code>、<code>後一篇</code>以及<code>首頁</code>的鏈結外，對於有提供導覽工具列的瀏覽器如 Mozilla 或 Opera 來說，也能使用瀏覽器本身的導覽介面。<div class="img"><a id="img_27"></a><img src="mtentry_add_14.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_14.png" alt="文章的「單篇彙整」頁面"><br />圖二十七：「第二篇文章」的<code>單篇彙整</code>頁面。</div><div class="img"><a id="img_28"></a><img src="mtentry_add_15.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_add_15.png" alt="單篇彙整頁面的導覽功能"><br />圖二十八：<code>單篇彙整</code>頁面除了提供頁面上的導覽介面（上方框框）外，也讓瀏覽器能使用內建的導覽介面（下方框框）。圖中的瀏覽器是 Mozilla Firebird 0.6 ，安裝了導覽介面外掛模組後就可以使用導覽介面；其中「 Top 」會連結到主頁面，而「  Previous 」則會連結到前一篇文章「這是我的第一篇文章！」</div></li>
+</ol></p>
+
+<h3><a id="post_buttom"></a>超連結與文字變化</h3>
+
+<p>對於尋常書寫來說，粗體字、斜體字以及加底線可以說是很基本的文字變化了；而對於網頁來說，建立超連結則更是尋常。 Movable Type 在文章編輯畫面裡，提供了一些按鈕，讓妳撰寫文章的時候不再需要另外去記憶這些文字變化的 HTML 標籤。以下就讓我們逐一實做一遍：</p>
+
+<h4><a id="post_buttom_bold"></a>粗體</h4>
+
+<p><ol>
+  <li><a id="post_buttom_bold_01"></a>編輯文章的時候，請先用滑鼠拖曳選取妳打算變成粗體的字串；如果妳比較熟悉鍵盤的話，也可以用 Shift 鍵加方向鍵來完成。這些被選取起來的字串應該會像<a href="#img_29">圖二十九</a>一樣，變成反白的樣子。<div class="img"><a id="img_29"></a><img src="mtentry_bold_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_bold_01.png" alt="「粗體字」這三個字被反白選取了"><br />圖二十九：在這一篇文章裡祇有一句「這裡是粗體字測試」，其中「粗體字」三個字因為被選取而反白。</div></li>
+  <li><a id="post_buttom_bold_02"></a>接下來請如<a href="#img_30">圖三十</a>按下一旁寫著 <strong><b>B</b></strong> 的按鈕，妳應該會看到<a href="#img_31">圖三十一</a>那樣，原本的字串兩旁分別多了 <code>&lt;b&gt;</code> 和 <code>&lt;/b&gt;</code> 這兩個 HTML 標籤，同時反白也消失了。<div class="img"><a id="img_30"></a><img src="mtentry_bold_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_bold_02.png" alt="按下一旁的「 B 」按鈕"><br />圖三十：按下一旁代表粗體 (Bold) 的「 <b>B</b> 」 按鈕。</div><div class="img"><a id="img_31"></a><img src="mtentry_bold_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_bold_03.png" alt="字串左右被加上了表示粗體的 HTML 標籤"><br />圖三十一：原來的字串前後多了表示粗體的 HTML 標籤，而反白也消失了。</div></li>
+  <li><a id="post_buttom_bold_03"></a>現在請把這一篇文章儲存起來，並且檢視網站。妳應該可以看到如<a href="#img_32">圖三十二</a>的畫面，剛剛妳所選取起來的字串真的變成粗體了。<div class="img"><a id="img_32"></a><img src="mtentry_bold_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_bold_04.png" alt="「粗體字」這三個字變成粗體了"><br />圖三十二：「這裡是粗體字測試」這個句子裡，果然祇有「粗體字」這三個字變成了粗體。</div></li>
+</ol></p>
+
+<h4><a id="post_buttom_italic"></a>斜體</h4>
+
+<p><ol>
+  <li><a id="post_buttom_italic_01"></a>編輯文章的時候，請先用滑鼠拖曳選取妳打算變成斜體的字串；如果妳比較熟悉鍵盤的話，也可以用 Shift 鍵加方向鍵來完成。這些被選取起來的字串應該會像<a href="#img_33">圖三十三</a>一樣，變成反白的樣子。<div class="img"><a id="img_33"></a><img src="mtentry_italic_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_italic_01.png" alt="「粗體字」這三個字被反白選取了"><br />圖三十三：在這一篇文章裡祇有一句「這裡是斜體字測試」，其中「斜體字」三個字因為被選取而反白。</div></li>
+  <li><a id="post_buttom_italic_02"></a>接下來請如<a href="#img_34">圖三十四</a>按下一旁寫著 <strong><i>i</i></strong> 的按鈕，妳應該會看到<a href="#img_35">圖三十五</a>那樣，原本的字串兩旁分別多了 <code>&lt;i&gt;</code> 和 <code>&lt;/i&gt;</code> 這兩個 HTML 標籤，同時反白也消失了。<div class="img"><a id="img_34"></a><img src="mtentry_italic_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_italic_02.png" alt="按下一旁的「 i 」按鈕"><br />圖三十四：按下一旁代表斜體 (Italic) 的「 <i>i</i> 」 按鈕。</div><div class="img"><a id="img_35"></a><img src="mtentry_italic_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_italic_03.png" alt="字串左右被加上了表示斜體的 HTML 標籤"><br />圖三十五：原來的字串前後多了表示斜體的 HTML 標籤，而反白也消失了。</div></li>
+  <li><a id="post_buttom_italic_03"></a>現在請把這一篇文章儲存起來，並且檢視網站。妳應該可以看到如<a href="#img_36">圖三十六</a>的畫面，剛剛妳所選取起來的字串真的變成斜體了。<div class="img"><a id="img_36"></a><img src="mtentry_italic_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_italic_04.png" alt="「斜體字」這三個字變成斜體了"><br />圖三十六：「這裡是斜體字測試」這個句子裡，果然祇有「斜體字」這三個字變成了斜體。</div></li>
+</ol></p>
+
+<h4><a id="post_buttom_underline"></a>底線</h4>
+
+<p><ol>
+  <li><a id="post_buttom_underline_01"></a>編輯文章的時候，請先用滑鼠拖曳選取妳打算加上底線的字串；如果妳比較熟悉鍵盤的話，也可以用 Shift 鍵加方向鍵來完成。這些被選取起來的字串應該會像<a href="#img_37">圖三十七</a>一樣，變成反白的樣子。<div class="img"><a id="img_37"></a><img src="mtentry_underline_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_underline_01.png" alt="「底線」這兩個字被反白選取了"><br />圖三十七：在這一篇文章裡祇有一句「這裡是底線測試」，其中「底線」兩個字因為被選取而反白。</div></li>
+  <li><a id="post_buttom_underline_02"></a>接下來請如<a href="#img_38">圖三十八</a>按下一旁寫著 <strong><u>U</u></strong> 的按鈕，妳應該會看到<a href="#img_39">圖三十九</a>那樣，原本的字串兩旁分別多了 <code>&lt;u&gt;</code> 和 <code>&lt;/u&gt;</code> 這兩個 HTML 標籤，同時反白也消失了。<div class="img"><a id="img_38"></a><img src="mtentry_underline_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_underline_02.png" alt="按下一旁的「 U 」按鈕"><br />圖三十八：按下一旁代表底線 (Underline) 的「 <u>U</u> 」 按鈕。</div><div class="img"><a id="img_39"></a><img src="mtentry_underline_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_underline_03.png" alt="字串左右被加上了表示底線的 HTML 標籤"><br />圖三十九：原來的字串前後多了表示底線的 HTML 標籤，而反白也消失了。</div></li>
+  <li><a id="post_buttom_underline_03"></a>現在請把這一篇文章儲存起來，並且檢視網站。妳應該可以看到如<a href="#img_40">圖四十</a>的畫面，剛剛妳所選取起來的字串真的加上底線了。<div class="img"><a id="img_40"></a><img src="mtentry_underline_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_underline_04.png" alt="「底線」這兩個字加上底線了"><br />圖四十：「這裡是底線測試」這個句子裡，果然祇有「底線」這兩個字加上了底線。</div></li>
+</ol></p>
+
+<h4><a id="post_buttom_url"></a>鏈結</h4>
+
+<p><ol>
+  <li><a id="post_buttom_url_01"></a>編輯文章的時候，請先用滑鼠拖曳選取妳打算加上鏈結的字串；如果妳比較熟悉鍵盤的話，也可以用 Shift 鍵加方向鍵來完成。這些被選取起來的字串應該會像<a href="#img_41">圖四十一</a>一樣，變成反白的樣子。<div class="img"><a id="img_41"></a><img src="mtentry_url_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_01.png" alt="「MT 完全手冊」這個字串被反白選取了"><br />圖四十一：在這一篇文章裡祇有一句「這是在 MT 完全手冊裡的鏈結範例」，其中「MT 完全手冊」這個字串因為被選取而反白。</div></li>
+  <li><a id="post_buttom_url_02"></a>接下來請如<a href="#img_42">圖四十二</a>按下一旁寫著 <strong>URL</strong> 的按鈕，接下來會彈出一個如<a href="#img_43">圖四十三</a>那樣的對話框。<div class="img"><a id="img_42"></a><img src="mtentry_url_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_02.png" alt="按下一旁的「 URL 」按鈕"><br />圖四十二：按下一旁代表 URL 的「 URL 」按鈕。</div><div class="img"><a id="img_43"></a><img src="mtentry_url_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_03.png" alt="要求輸入 URL 的 JavaScript 對話框"><br />圖四十三：這是一個要求妳輸入 URL 的 JavaScript 對話框。</div></li>
+  <li><a id="post_buttom_url_03"></a>請按照<a href="#img_44">圖四十四</a>填寫連結網址，再如<a href="#img_45">圖四十五</a>按下<code>確定</code>按鈕。這時妳應該會看到像<a href="#img_46">圖四十六</a>那樣，原本的字串兩旁分別多了 <code>&lt;a href=&quot;網址&quot;&gt;</code> 和 <code>&lt;/a&gt;</code> 這兩個 HTML 標籤，同時反白也消失了。<div class="img"><a id="img_44"></a><img src="mtentry_url_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_04.png" alt="在對話框中填寫「 http://mtbook.net/mtbook.html 」"><br />圖四十四：在對話框裡填寫所要連結的 URL 。在這個範例裡我們填寫的是「 http://mtbook.net/mtbook.html 」。</div><div class="img"><a id="img_45"></a><img src="mtentry_url_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_05.png" alt="按下「確定」按鈕"><br />圖四十五：按下對話框的「確定」按鈕。</div><div class="img"><a id="img_46"></a><img src="mtentry_url_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_06.png" alt="字串左右被加上了表示鏈結的 HTML 標籤"><br />圖四十六：原來的字串前後多了表示鏈結的 HTML 標籤，而反白也消失了。</li>
+  <li><a id="post_buttom_url_04"></a>現在請把這一篇文章儲存起來，並且檢視網站。妳應該可以看到如<a href="#img_47">圖四十七</a>的畫面，剛剛妳所選取起來的字串真的可以連結到其他地方了。<div class="img"><a id="img_47"></a><img src="mtentry_url_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_url_07.png" alt="「 MT 完全手冊」這個字串會連結到 http://mtbook.net/mtbook.html 了"><br />圖四十七：「這是在 MT 完全手冊裡的鏈結範例」這個句子裡，果然祇有「 MT 完全手冊」這個字串具有超連結的效果，而且會連結到 http://mtbook.net/mtbook.html 去。</div></li>
+</ol></p>
+
+<h3><a id="post_note"></a>補充資訊</h3>
+
+<p>請注意：為了避免在某些瀏覽器上發生未知的解讀錯誤，同時為了盡量吻合國際標準，妳應該把所有的「 &amp; 」通通寫作「 <strong>&amp;amp;</strong> 」，然後把「 &lt; 」寫作「 <strong>&amp;lt;</strong> 」、把「 &gt; 」寫作「 <strong>&amp;gt;</strong> 」、把「 &quot; 」寫作「 <strong>&amp;quot;</strong> 」。</p>
+
+<p>對這個部分有興趣的人還可以參考 <a href="javascript:if(confirm('http://mtbook.org/mtmanual_entries.html  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://mtbook.org/mtmanual_entries.html'" tppabs="http://mtbook.org/mtmanual_entries.html">Movable Type 使用手冊：文章項目</a></p>
+
+<h2><a id="modify"></a>修改文章</h2>
+
+<p>除了可以方便地新增文章之外， Movable Type 也提供了修改既有文章的介面，這個介面其實跟新增文章的介面很像，所以應該很快就可以上手。在這一節裡，我們將介紹各種跟修改文章有關的流程：如果妳想要修改最近纔寫過的某一篇文章，無論是要修改內容、標題、甚至是<code>寫作時間</code>，都可以按照<a href="#modify_general">修改某一篇文章</a>的指引；如果妳已經累積了相當多的文章，現在突然要更新某一篇較舊的文章，那麼妳可能會需要先<a href="#modify_search">找出要修改的文章</a>；又或者妳可能要一次修改很多文章的標題、出版狀態等欄位，那麼妳也可以直接使用<a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/modify_power  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/modify_power'" tppabs="http://hedong.3322.org/mt/docs/zh/modify_power">大量編輯模式</a>。</p>
+
+<p>就讓我們一個一個來看：</p>
+
+<h3><a id="modify_general"></a>修改某一篇文章</h3>
+
+<p><ol>
+  <li><a id="modify_general_01"></a>登入 Movable Type 系統之後，妳會在<code>主選單</code>畫面看到目前系統上所有的網誌清單，這個時候請如<a href="#img_48">圖四十八</a>按下文章所屬的網誌名稱。<div class="img"><a id="img_48"></a><img src="mtentry_modify_general_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_01.png" alt="按下網誌名稱"><br />圖四十八：按下網誌名稱處的鏈結，在這個範例中我們按了「<code>光劍格鬥學院</code>」。</div></li>
+  <li><a id="modify_general_02"></a>妳會進入該網誌的<code>網誌選單</code>，左方有一組<code>工具列</code>，現在請如<a href="#img_49">圖四十九</a>按下工具列上的「<strong>修改文章</strong>」按鈕。<div class="img"><a id="img_49"></a><img src="mtentry_modify_general_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_02.png" alt="按下「修改文章」按鈕"><br />圖四十九：按下左方工具列上的<code>修改文章</code>按鈕。</div></li>
+  <li><a id="modify_general_03"></a>妳會看到如<a href="#img_50">圖五十</a>的<code>修改及編輯文章</code>畫面，在這個畫面中會列出最新的二十篇文章（不論它們的出版狀態是<code>草稿</code>或<code>定稿</code>都會列出來），並顯示出它們的<code>文章標題</code>、<code>所屬類別</code>、<code>撰寫日期</code>、<code>文章作者</code>以及<code>出版狀態</code>；其中<strong>文章標題</strong>會是一個鏈結，這時請點選妳所要編輯的文章的文章標題。<div class="img"><a id="img_50"></a><img src="mtentry_modify_general_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_03.png" alt="在編輯畫面中，點選欲編輯文章的標題"><br />圖五十：點選編輯選單中，欲編輯文章的標題；在這個範例中點選的是標題為「<code>第二篇文章</code>」的這一篇。</div></li>
+  <li><a id="modify_general_04"></a>如<a href="#img_51">圖五十一</a>、<a href="#img_52">圖五十二</a>和<a href="#img_53">圖五十三</a>，妳可以看到現在顯示出來的畫面就跟<a href="#post">張貼文章</a>小節裡的<a href="#img_16">圖十六</a>很像，祇是這些欄位裡都已經填入內容了。祇要妳高興，妳可以任意地修改所有欄位裡的內容。<div class="img"><a id="img_51"></a><img src="mtentry_modify_general_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_04.png" alt="修改文章的標題"><br />圖五十一：在這個範例中，我們把文章的標題修改成「<code>標題可以改</code>」。</div><div class="img"><a id="img_52"></a><img src="mtentry_modify_general_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_05.png" alt="修改主要文章本體"><br />圖五十二：在這個範例中，我們又把主要文章本體改成「<code>文章本體也被修改了！</code>」</div><div class="img"><a id="img_53"></a><img src="mtentry_modify_general_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_06.png" alt="修改額外文章內容"><br />圖五十三：在這個範例中，我們還把額外文章內容給清空了。</div></li>
+  <li><a id="modify_general_05"></a>把畫面往下捲動，妳應該可以看到在<a href="#img_54">圖五十四</a>的地方多了一個叫做「<strong>寫作於</strong>」的欄位，紀錄著文章被撰寫的日期與時間，這個欄位是<code>新增文章畫面</code>所沒有的。妳可以像<a href="#img_55">圖五十五</a>一樣任意地修改這個時間（甚至是改到<strong>未來</strong>），但是切記，這一欄的格式是固定的： <strong>YYYY-MM-DD hh:mm:ss</strong> ，其中 <code>YYYY</code> 是四位數的<code>西元年份</code> ， <code>MM</code> 是二位數的<code>月份</code>（不足二位的話需要在前面補零）， <code>DD</code> 是二位數的<code>日期</code>（不足二位的話需要在前面補零）， <code>hh</code> 是二位數的<code>時</code>（不足二位的話需要在前面補零），而且需以<code>二十四時制</code>來表示， <code>mm</code> 是二位數的<code>分</code>（不足二位的話需要在前面補零）， <code>ss</code> 是二位數的<code>秒</code>（不足二位數的話需要在前面補零）。<br />舉例來說，「<code>民國九十二年六月十四日下午一點零分二十三秒</code>」就應該寫成「 <code>2003-06-14 13:00:23</code> 」。<div class="img"><a id="img_54"></a><img src="mtentry_modify_general_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_07.png" alt="「新增文章」畫面中所沒有的「寫作於」時間欄位"><br />圖五十四：編輯畫面比新增文章畫面還要多了一個叫「<code>寫作於</code>」的欄位，記錄文章被撰寫的時間。在這個範例中，這一欄裡的值是 <code>2003-06-14 13:00:23</code> ，表示這一篇文章是在<code>民國九十二年六月十四日下午一點零分二十三秒</code>的時候被寫成的。</div><div class="img"><a id="img_55"></a><img src="mtentry_modify_general_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_08.png" alt="修改文章撰寫時間"><br />圖五十五：文章撰寫時間也可以修改，在這個範例中我們改成 <code>2003-06-30 20:00:00</code> ，也就是<code>民國九十二年六月三十日晚上八點整</code>。</div></li>
+  <li><a id="modify_general_06"></a>完成上述修改後，請如<a href="#img_56">圖五十六</a>按下「<code>儲存</code>」按鈕。<div class="img"><a id="img_56"></a><img src="mtentry_modify_general_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_09.png" alt="按下「儲存」按鈕"><br />圖五十六：文章的各個欄位均修改後，按下「<code>儲存</code>」按鈕。</div></li>
+  <li><a id="modify_general_07"></a>妳會看到如<a href="#img_57">圖五十七</a>的畫面，告訴妳「<code>妳所更動的部分已被儲存</code>」了，這時請按上方導覽列的「<code>檢視網站</code>」按鈕，來看看妳的頁面到底變成怎樣。<div class="img"><a id="img_57"></a><img src="mtentry_modify_general_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_10.png" alt="按上方導覽列的「檢視網站」按鈕"><br />圖五十七：修改被儲存後，請按上方導覽列的「<code>檢視網站</code>」按鈕。</div></li>
+  <li><a id="modify_general_08"></a>如<a href="#img_58">圖五十八</a>，在主索引頁面中，妳應該會看到剛剛妳所做的修改已經全部反應在頁面上了。無論是<code>文章日期</code>、<code>文章標題</code>或<code>文章內容</code>皆然。<div class="img"><a id="img_58"></a><img src="mtentry_modify_general_11.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_general_11.png" alt="頁面內容也一併更新了"><br />圖五十八：已經更新了的主索引頁面。在這個範例中，我們可以看到文章的<code>時間</code>、<code>標題</code>跟<code>主要文章本體</code>都更新了，同時因為我們清掉了<code>額外文章內容</code>，所以原有的「<code>深入閱讀</code>」鏈結也跟著消失了。</div></li>
+</ol></p>
+
+<h3><a id="modify_search"></a>找出要修改的文章</h3>
+
+<p>在<a href="#">前一節</a>裡我們學到了如何編輯已經存在了的文章，可是問題馬上就出現了：妳要怎麼找到你所要編輯的文章？</p>
+
+<p>Movable Type 提供了各種不同的方法，來幫助妳找出特定的文章；它在<code>編輯選單</code>會列出<a href="#modify_search_recent5">最新的五篇文章</a>，方便妳迅速地編輯最近寫過的文章；另外在<code>列出及編輯文章畫面</code>中，妳除了可以選擇要<a href="#modify_search_listall">列出所有的文章</a>，然後一篇一篇尋找外，也可以<a href="#modify_search_filter">用特定條件來加以篩選</a>，也可以使用 Movable Type 內建的<a href="#modify_search_fast">全文檢索</a>功能來尋找文章，或者用更複雜的<a href="#modify_search_advanced">進階搜尋表單</a>來使用像是<code>正規表示式</code>之類的搜尋字串。</p>
+
+<p>且讓我們逐一來看，要如何使用這些功能：</p>
+
+<h4><a id="modify_search_recent5"></a>最近五篇文章</h4>
+
+<p>如果妳要編輯的文章，是最近纔寫完的話，那麼妳將可以很快的找到他們。請參照<a href="#img_59">圖五十九</a>登入 Movable Type 系統並點選欲編輯文章所在的網誌名稱，然後妳在該網誌的編輯選單裡，應該可以看到如<a href="#img_60">圖六十</a>一般的畫面。請注意右邊會有一個欄框，裡面列出了妳最新發表的五篇文章的<code>文章標題</code>及<code>寫作日期</code>。妳祇需要點選某一篇文章的標題，就能夠用我們在<a href="#modify_general_04">前一小節步驟四</a>開始的程序，加以編輯該文章。<div class="img"><a id="img_59"></a><img src="mtsearch_recent_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_recent_01.png" alt="在主選單點選網誌名稱"><br />圖五十九：在 Movable Type 系統主選單裡，點選欲編輯文章所在的網誌名稱。在這個例子中，我們點選的是「<code>光劍格鬥學院</code>」。</div><div class="img"><a id="img_60"></a><img src="mtsearch_recent_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_recent_02.png" alt="網誌編輯選單裡會列出「最新五篇文章」"><br />圖六十：網誌編輯選單裡，有一欄「最新五篇文章」。</div></p>
+
+<h4><a id="modify_search_listall"></a>列出所有文章</h4>
+
+<p>如果妳所要修改的文章不在「最新五篇」之內，那麼妳至少還可以列出某份網誌裡所有的文章清單，然後從中找出妳所要編輯的那一篇。請參考以下的步驟：</p>
+
+<p><ol>
+  <li><a id="modify_search_listall_01"></a>登入 Movable Type 並進入網誌編輯選單之後，請如<a href="#img_61">圖六十一</a>按下左方工具列上的「<strong>修改文章</strong>」按鈕。<div class="img"><a id="img_61"></a><img src="mtsearch_listall_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_listall_01.png" alt="按下工具列的「修改文章」按鈕"><br />圖六十一：在網誌編輯選單中，按下工具列的「修改文章」按鈕。</div></li>
+  <li><a id="modify_search_listall_02"></a>在<code>列出及編輯文章</code>畫面中，會列出<strong>最新的二十篇文章</strong>，如<a href="#img_62">圖六十二</a>所示；祇要在任何一篇文章的<strong>標題</strong>點選，就能夠加以編輯那一篇文章。<div class="img"><a id="img_62"></a><img src="mtsearch_listall_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_listall_02.png" alt="最新的二十篇文章的標題"><br />圖六十二：在列出及編輯文章的畫面中，妳能夠輕易地點選並編輯最新二十篇文章中任何一篇。</div></li>
+  <li><a id="modify_search_listall_03"></a>不過現在請把畫面往下拉，妳會在這個畫面底部看到一個下拉式選單。這個選單的預設值是「<code>一次顯示 20 篇文章</code>」，請如<a href="#img_63">圖六十三</a>選擇「<strong>顯示所有的文章</strong>」，這會兒所有的文章就都會顯示在畫面中了。不過請注意，如果妳的網誌上有成千上百篇文章的話，畫面也會拉得很長很長；或許在這種情況下，<a href="#modify_search_filter">下一節</a>所介紹的方法會更適合妳。<div class="img"><a id="img_63"></a><img src="mtsearch_listall_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_listall_03.png" alt="在下拉式選單中選擇「顯示所有的文章」"><br />圖六十三：在這個畫面最底下的下拉式選單裡選擇「顯示所有的文章」，就能夠把所有的文章都在同一個畫面裡列出來。</div></li>
+</ol></p>
+
+<h4><a id="modify_search_filter"></a>用特定條件篩選文章</h4>
+
+<p>如果妳對於要修改的文章稍微還有一點印象，知道那一篇文章所屬的<code>類別</code>、<code>作者</code>，或者是<code>出版狀態</code>的話，就能夠利用以下的方法來快速篩選出妳所要編輯的文章。舉例來說，如果妳是某一份網誌的責任編輯，負責審核各個作者所發表的文章的話，妳就可以利用這個功能，祇列出出版狀態仍為「草稿」的文章，並加以編審。</p>
+
+<p><ol>
+  <li><a id="modify_search_filter_01"></a>在<code>列出及編輯文章</code>的畫面中，有一個<strong>過濾選項</strong>的區塊，如<a href="#img_64">圖六十四</a>如果妳不知道甚麼是<code>列出及編輯文章</code>的畫面的話，請參考「<a href="#modify_general">修改某一篇文章</a>」小節的前三個步驟。<div class="img"><a id="img_64"></a><img src="mtsearch_filter_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_filter_01.png" alt="「列出及編輯文章」畫面中的「過濾選項」區塊"><br />圖六十四：「列出及編輯文章」畫面裡，有一個「過濾選項」的區塊。</div></li>
+  <li><a id="modify_search_filter_02"></a>「<code>過濾內容</code>」的第一欄，能夠讓妳如<a href="#img_65">圖六十五</a>那樣，透過下拉式選單從<code>類別</code>、<code>作者</code>或<code>出版狀態</code>中任選一個來當作過濾條件。<div class="img"><a id="img_65"></a><img src="mtsearch_filter_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_filter_02.png" alt="從「過濾內容」第一欄的下拉式選單中選擇「類別」來當作過濾條件"><br />圖六十五：從「過濾內容」第一欄的下拉式選單中選擇一項來當作過濾條件，在這個範例中選的是「類別」。</div></li>
+  <li><a id="modify_search_filter_03"></a>「<code>過濾內容</code>」第二欄的下拉式選單則會按照第一欄的選擇而呈現不同的選項。妳可以如<a href="#img_66">圖六十六</a>選擇一個必須滿足的條件。<div class="img"><a id="img_66"></a><img src="mtsearch_filter_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_filter_03.png" alt="從「過濾內容」第二欄的下拉式選單中選擇「 hack 」來當作過濾條件"><br />圖六十六：從「過濾內容」第二欄的下拉式選單中選擇一項來當作過濾條件，在這個範例中選的是「 hack 」。</div></li>
+  <li><a id="modify_search_filter_04"></a>確認過濾條件無誤後，請如<a href="#img_67">圖六十七</a>按下「前往」按鈕。<div class="img"><a id="img_67"></a><img src="mtsearch_filter_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_filter_04.png" alt="確認過濾條件是「類別是 hack 」，然後按下「前往」按鈕"><br />圖六十七：確認過濾條件後按下「前往」按鈕。在這個範例中的過濾條件是「類別是 hack 」的文章。</div></li>
+  <li><a id="modify_search_filter_05"></a>如<a href="#img_68">圖六十八</a>，現在畫面就祇會列出滿足妳要求條件的文章了。照樣祇要點選某篇文章的標題，就能夠開始編輯那一篇文章。<div class="img"><a id="img_68"></a><img src="mtsearch_filter_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_filter_05.png" alt="畫面上祇會列出類別是 hack 的文章"><br />圖六十八：畫面上祇會列出符合過濾條件的文章。在這個範例中的過濾條件是「類別是 hack 」的文章。</div></li>
+</ol></p>
+
+<h4><a id="modify_search_fast"></a>快速搜尋文章</h4>
+
+<p>有的時候光看文章標題是沒有辦法讓妳聯想文章內容的，所幸 Movable Type 內建了搜尋功能，能夠讓妳用任何的關鍵字去對文章內容進行檢索，進而找到妳所要編輯的文章。請參考以下的步驟：</p>
+
+<p><ol>
+  <li><a id="modify_search_fast_01"></a>如<a href="#img_69">圖六十九</a>，在每一份網誌的編輯選單畫面中，上方導覽列都會有一個搜尋用的表單，就在<code>檢視網站</code>的按鈕之右。請在此填入妳所要搜尋的關鍵字。<div class="img"><a id="img_69"></a><img src="mtsearch_fast_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_fast_01.png" alt="在搜尋表單中填入關鍵字「 Movable 」"><br />圖六十九：在上方導覽列裡的搜尋表單中填入要搜尋的關鍵字。這個範例中的關鍵字是「 Movable 」。</div></li>
+  <li><a id="modify_search_fast_02"></a>然後按下一旁的「<strong>搜尋</strong>」按鈕，如<a href="#img_70">圖七十</a>。<div class="img"><a id="img_70"></a><img src="mtsearch_fast_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_fast_02.png" alt="按下「搜尋」按鈕"><br />圖七十：輸入關鍵字後，按下「搜尋」按鈕。</div></li>
+  <li><a id="modify_search_fast_03"></a>接著如<a href="#img_71">圖七十一</a>，祇要是在<code>標題</code>、<code>主要文章本體</code>或<code>額外文章內容</code>裡有出現該關鍵字的文章，就都會被列出來了。<div class="img"><a id="img_71"></a><img src="mtsearch_fast_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_fast_03.png" alt="含有「 Movable 」字串的文章都會被列出來"><br />圖七十一：「標題」、「主要文章本體」或「額外文章內容」裡有出現關鍵字的文章都會被列出來。這個範例中所使用的關鍵字是「 Movable 」。</div></li>
+</ol></p>
+
+<h4><a id="modify_search_advanced"></a>文章進階搜尋</h4>
+
+<p>如果妳想要用更複雜的規則來搜尋文章的話，也可以參考下列的步驟。透過這一部分的功能，妳將能夠指定搜尋時是否要<code>大小寫吻合</code>，甚至是採用<code>正規表示式</code>來搜尋；除此之外，妳也可以限定搜尋範圍祇侷限於<code>標題</code>、<code>主要文章本體</code>、<code>額外文章內容</code>或<code>關鍵字</code>中的某幾個欄位。</p>
+
+<p><ol>
+  <li><a id="modify_search_advanced_01"></a>在網誌的編輯選單左邊，會有一個垂直的工具列；請如<a href="#img_72">圖七十二</a>按下工具列裡的「搜尋」按鈕。<div class="img"><a id="img_72"></a><img src="mtsearch_advanced_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_01.png" alt="按下編輯選單左方工具列裡的「搜尋」按鈕"><br />圖七十二：按下編輯選單左方工具列裡的「搜尋」按鈕。</div></li>
+  <li><a id="modify_search_advanced_02"></a>接下來會出現一個搜尋表單，請先如<a href="#img_73">圖七十三</a>在<strong>尋找</strong>之後的第一個欄位裡填入妳要用來搜尋的<code>關鍵字眼</code>或<code>正規表示式</code>；然後妳還能夠如<a href="#img_74">圖七十四</a>指定是否要求關鍵字眼<code>大小寫有別</code>，或者指定要使用<code>正規表示式</code>來搜尋，祇需要加以核選相對應的核選框就可以了。<div class="img"><a id="img_73"></a><img src="mtsearch_advanced_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_02.png" alt="在「尋找」欄位裡填入 Movable 這個關鍵字"><br />圖七十三：填入關鍵字眼或正規表示式，在這個範例中填入的是 Movable 。</div><div class="img"><a id="img_74"></a><img src="mtsearch_advanced_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_03.png" alt="「大小寫有別」和「正規表示式」的核選框"><br />圖七十四：「大小寫有別」和「正規表示式」的核選框，在這個範例中我們都不予核選。</div></li>
+  <li><a id="modify_search_advanced_03"></a>預設的搜尋範圍是從所有文章的<code>標題</code>、<code>主要文章本體</code>、<code>額外文章內容</code>和<code>關鍵字</code>這四個欄位中加以搜尋比對，不過妳還是可以如<a href="#img_75">圖七十五</a>一般，藉由核選或取消四種<strong>搜尋欄位</strong>來縮小搜尋比對的範圍。<div class="img"><a id="img_75"></a><img src="mtsearch_advanced_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_04.png" alt="在四種搜尋欄位中祇選擇「標題」"><br />圖七十五：核選搜尋欄位，在這個範例中我們祇從「標題」裡比對關鍵字眼。</div></li>
+  <li><a id="modify_search_advanced_04"></a>最後如<a href="#img_76">圖七十六</a>按下「<strong>搜尋</strong>」按鈕（請千萬不要按到「取代」按鈕），就會看到如<a href="#img_77">圖七十七</a>的搜尋結果被列出來。這個時候，你祇需要點選搜尋結果中任意文章的標題，就能夠加以編輯該文章了。<div class="img"><a id="img_76"></a><img src="mtsearch_advanced_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_05.png" alt="按下「搜尋」按鈕"><br />圖七十六：填妥各個欄位後，請按下「搜尋」按鈕。</div><div class="img"><a id="img_77"></a><img src="mtsearch_advanced_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_advanced_06.png" alt="搜尋結果"><br />圖七十七：搜尋結果列出後，按下任一篇文章的標題就能加以編輯。</div></li>
+</ol></p>
+
+<h4><a id="modify_search_replace"></a>搜尋與取代</h4>
+
+<p>有的時候妳可能會想要快速地把所有文章裡的某個關鍵字眼換成另一個（例如某個網站的網址更新了），如果必須要一個一個找出來，然後再逐一修改，實在是相當地累人。好在 Movable Type 也提供了取代的功能，能夠幫妳一次做完這件事。請參照以下的說明：</p>
+
+<p><ol>
+  <li><a id="modify_search_replace_01"></a>在<a href="#modify_search_advanced">前一小節</a>的<a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/modify_search_advanced_01  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/modify_search_advanced_01'" tppabs="http://hedong.3322.org/mt/docs/zh/modify_search_advanced_01">步驟一</a>至<a href="javascript:if(confirm('http://hedong.3322.org/mt/docs/zh/modify_search_advanced_03  \n\nThis file was not retrieved by Teleport Pro, because it is linked too far away from its Starting Address. If you increase the in-domain depth setting for the Starting Address, this file will be queued for retrieval.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/docs/zh/modify_search_advanced_03'" tppabs="http://hedong.3322.org/mt/docs/zh/modify_search_advanced_03">步驟三</a>裡，我們已經學到了如何輸入搜尋<code>關鍵字眼</code>或<code>正規表示式</code>，同時也學到了如何限制<code>搜尋欄位</code>。現在讓我們如<a href="#img_78">圖七十八</a>這樣，在「<strong>取代成</strong>」欄位裡填入妳要代換成的字串，再如<a href="#img_79">圖七十九</a>按下「取代」按鈕。<div class="img"><a id="img_78"></a><img src="mtsearch_replace_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_01.png" alt="在「取代成」欄位裡填入 Type"><br />圖七十八：除了在上一節提到的搜尋內容（搜尋關鍵字是「 Movable 」）外，也在「取代成」欄位填入「 Type 」。這麼一來應該會把所有的 Movable 都取代成 Type 。</div><div class="img"><a id="img_79"></a><img src="mtsearch_replace_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_02.png" alt="按下「取代」按鈕"><br />圖七十九：現在按下「取代」按鈕，而不是「搜尋」。</div></li>
+  <li><a id="modify_search_replace_02"></a>現在妳應該會看到如<a href="#img_80">圖八十</a>的畫面，表示取代已經完成了。<div class="img"><a id="img_80"></a><img src="mtsearch_replace_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_03.png" alt="所有的 Movable 都已經被取代成 Type 了"><br />圖八十：所有在文章裡出現的 Movable 都已經被取代成 Type 了。</div></li>
+  <li><a id="modify_search_replace_03"></a>但是使用取代功能務必非常小心謹慎，否則將可能發生無法挽回的慘劇。且看<a href="#img_81">圖八十一</a>，在剛剛的範例中，我們把所有的 <code>Movable</code> 都代換成 <code>Type</code> 了，所以原本的 <code>Movable Type</code> 就會被代換成 <code>Type Type</code> 。<div class="img"><a id="img_81"></a><img src="mtsearch_replace_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_04.png" alt="Movable Type 被代換成 Type Type"><br />圖八十一：原本的 Movable Type 現在被代換成 Type Type 了。</div></li>
+  <li><a id="modify_search_replace_04"></a>如果妳沒有料到 <code>Movable Type</code> 竟然會變成 <code>Type Type</code> 的話，現在麻煩大了。因為<strong>這種代換是不可逆、無法還原</strong>的，就算妳像<a href="#img_82">圖八十二</a>那樣把兩個欄位倒過來填寫，也不可能彌補妳的不慎。相反地，事情可能會變得更糟，就像<a href="#img_83">圖八十三</a>。<div class="img"><a id="img_82"></a><img src="mtsearch_replace_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_05.png" alt="搜尋 Type 並取代成 Movable"><br />圖八十二：這是一個錯誤的補救範例，使用者顯然想要把被誤換成 Type 的關鍵字眼換回成 Movable 。</div><div class="img"><a id="img_83"></a><img src="mtsearch_replace_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtsearch_replace_06.png" alt="Type Type 現在變成了 Movable Movable"><br />圖八十三：結果天不從人願，妳不但沒辦法把 Type Type 變回 Movable Type ，反而讓它變成了 Movable Movable 。</div></li>
+</ol></p>
+
+<h3><a id="modify_power"></a>大量編輯模式</h3>
+
+<p>現在讓我們來設想另一種狀況，有可能妳想做的事情並非修改特定某篇文章的內容，而是想要修改很多篇文章的標題，或者甚至是想把一大堆文章從某個類別搬移到另外一個類別去；這個時候<strong>大量編輯模式</strong>就是妳寶貴時間的救星了。</p>
+
+<p><ol>
+  <li><a id="modify_power_01"></a>在<code>列出及編輯文章</code>畫面（任何時候按下左方工具列的<code>修改文章</code>按鈕，就可以看到這個畫面）中，會有一個「<strong>開啟大量編輯模式</strong>」的鏈結。請如<a href="#img_84">圖八十四</a>按下這個鏈結。<div class="img"><a id="img_84"></a><img src="mtentry_modify_power_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_power_01.png" alt="按下「列出及編輯文章」畫面中的「開啟大量編輯模式」鏈結"><br />圖八十四：在「列出及編輯文章」畫面中，按下「開啟大量編輯模式」的鏈結，來開啟大量編輯模式。</div></li>
+  <li><a id="modify_power_02"></a>會彈出如<a href="#img_85">圖八十五</a>的畫面，這就是<code>大量編輯模式</code>。在這個畫面中所有的欄位都是可以編輯的，這表示妳可以一次改掉很多文章的<code>標題</code>、<code>類別</code>、<code>日期</code>、<code>作者</code>和<code>出版狀態</code>；更棒的是妳仍舊可以像我們在前面幾個小節那樣，<a href="#modify_search_listall">列出所有文章</a>或<a href="#modify_search_filter">用特定條件篩選文章</a>。<div class="img"><a id="img_85"></a><img src="mtentry_modify_power_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_power_02.png" alt="「大量編輯模式」視窗，可以編輯文章標題、類別、日期、作者和出版狀態"><br />圖八十五：在「大量編輯模式」視窗中，妳可以編輯文章標題、類別、日期、作者和出版狀態，也可以指定一次要列出的文章數量，或者用類別、作者或出版狀態來限制要列出的文章範圍。</div></li>
+  <li><a id="modify_power_03"></a>當妳做完所有要做的修改後，祇需要按下畫面最下方的「儲存」按鈕就可以了。接下來妳還可以繼續在<code>大量編輯模式</code>畫面中繼續編輯修改，用完後祇需要直接把這個視窗關閉即可。<div class="img"><a id="img_86"></a><img src="mtentry_modify_power_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_modify_power_03.png" alt="大量編輯模式的「儲存」按鈕"><br />圖八十六：修改後請不要忘了要按下大量編輯模式的「儲存」按鈕。</div></li>
+</ol></p>
+
+<h2><a id="upload"></a>上傳檔案</h2>
+
+<p>Movable Type 也能夠讓妳上傳檔案。如果這個檔案是圖片的話， Movable Type 還可以讓妳選擇要用嵌入或彈出的效果來呈現；如果這個檔案不是圖片的話，就會建立起一個鏈結，讓讀者們能夠依此鏈結來下載妳所提供的檔案。</p>
+
+<p>上傳檔案的時候要注意一點：<strong>要上傳的檔案請盡可能使用祇含有英文字母跟數字的檔名</strong>，否則可能會發生預期外的錯誤。以下我們就將分別按照各種不同的狀況，加以說明：</p>
+
+<h3><a id="upload_imagenewentry_embed"></a>上傳圖片並以嵌入式圖片建立新文章</h3>
+
+<p>許多報章雜誌或者是新聞性的網頁上，都會有圖文並茂的文章。這一類的文章中，圖片是整個版面的一部份；這種直接顯示在文章段落間、會佔掉一定空間的圖片，就稱做「<strong>嵌入式圖片</strong>」，因為它們是直接嵌入在文章段落裡的圖片。</p>
+
+<p>妳也可能會想要這麼做。例如妳出去旅行，拍了一些照片，然後想要看圖說故事，把旅遊中的點滴記下來；或者妳可能從網路上抓了一張圖，然後想要報導跟這個圖有關的故事。在這個情況下，最簡單的作法就是直接上傳這張圖片，並且以這張圖片建立新的文章。像這樣：</p>
+
+<p><ol>
+  <li><a id="upload_imagenewentry_embed_01"></a>首先請如<a href="#img_87">圖八十七</a>按下左方工具列上的<strong>上傳檔案</strong>按鈕。<div class="img"><a id="img_87"></a><img src="mtupload_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_01.png" alt="按下左方工具列上的「上傳檔案」按鈕"><br />圖八十七：按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_imagenewentry_embed_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_88">圖八十八</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_88"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖八十八：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_imagenewentry_embed_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_89">圖八十九</a>選取檔案後，按下「開啟」按鈕。請注意，妳一次祇能選取一個檔案，也祇能上傳一個檔案。<div class="img"><a id="img_89"></a><img src="mtupload_dialog_image_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_01.png" alt="選取要上傳的 Jedi-Full 圖片後按下「開啟」按鈕"><br />圖八十九：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 Jedi-Full.jpg 。</div></li>
+  <li><a id="upload_imagenewentry_embed_04"></a>一旦妳按下<a href="#upload_imagenewentry_embed_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_90">圖九十</a>選擇「<strong> &lt;本機彙整路徑&gt; </strong>」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到<code>本機彙整路徑</code>裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_91">圖九十一</a>按下「上傳」按鈕，這纔真的把圖片開始上傳到伺服器上。<div class="img"><a id="img_90"></a><img src="mtupload_dialog_image_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_02.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖九十：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_91"></a><img src="mtupload_dialog_image_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_03.png" alt="按下「上傳」按鈕"><br />圖九十一：按下「上傳」按鈕，開始上傳圖片。</div></li>
+  <li><a id="upload_imagenewentry_embed_05"></a>圖片上傳完後，會出現如<a href="#img_92">圖九十二</a>的畫面，告訴妳圖片已上傳，並詢問妳要如何處置這個圖片。我們打算以此圖片建立新文章，而且還希望把圖片嵌入到文章版面裡；所以請選「<strong>用這個檔案新增一篇文章</strong>」，然後按下「<strong>嵌入式圖片</strong>」。<div class="img"><a id="img_92"></a><img src="mtupload_img_new_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_01.png" alt="選「用這個檔案新增一篇文章」"><br />圖九十二：選擇「用這個檔案新增一篇文章」。</div><div class="img"><a id="img_93"></a><img src="mtupload_img_new_embed_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_embed_01.png" alt="按下「嵌入式圖片」按鈕"><br />圖九十三：按下「嵌入式圖片」按鈕，表示要把圖片嵌入到文章版面中。</div></li>
+  <li><a id="upload_imagenewentry_embed_06"></a>接著「<code>上傳檔案</code>」的彈出式視窗會關閉，同時妳會看到妳的主視窗切換成像是<a href="#img_94">圖九十四</a>一樣。這個畫面就跟妳自己按下「新增文章」按鈕後所看到的畫面可以說是一模一樣，唯一的不同之處在於在<code>主要文章本體</code>的欄位裡，多了一連串的 HTML 標籤；那一段 HTML 標籤的意思就是把妳所上傳的圖片嵌入顯示，並且設定其替代文字 (<code>alt</code>) 、圖片寬度 (<code>width</code>) 、圖片高度 (<code>height</code>) 以及圖片邊框寬度 (<code>border</code>) 。妳可以視情況需要修改這些標籤屬性，並且為這一篇文章加上合適的標題，撰寫其他文字，再存檔。<div class="img"><a id="img_94"></a><img src="mtupload_img_new_embed_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_embed_02.png" alt="在「主要文章本體」欄位裡，出現了顯示圖片用的 HTML 標籤，而其他欄位則保持空白"><br />圖九十四：「主要文章本體」欄位被填入了顯示圖片用的 HTML 標籤；在這個範例裡的標籤，意思是：顯示 http://Jedimt.dyndns.org/archives/Jedi-Full.jpg 這張圖片，並且設定這張圖片的替代文字為 Jedi-Full.jpg ，圖片寬度為 92 個像素、高 127 個像素，不要使用邊框。</div><div class="img"><a id="img_95"></a><img src="mtupload_img_new_embed_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_embed_03.png" alt="填寫文章的標題，並在主要文章本體裡再寫些別的字"><br />圖九十五：填寫其他的欄位，在這個範例理我們在文章標題那一欄填寫了「我的照片」，並且在主要文章本體的欄位中先以 Enter 在圖片後換列，並寫上「這就是我的照片喔！」這幾個字。</div></li>
+  <li><a id="upload_imagenewentry_embed_07"></a>檢視網站的時候妳應該就能看到如<a href="#img_96">圖九十六</a>的畫面，有一張圖片嵌入在文章裡。<div class="img"><a id="img_96"></a><img src="mtupload_img_new_embed_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_embed_04.png" alt="文章裡嵌入了一張圖片"><br />圖九十六：在這篇新的文章裡有一張嵌入式的圖片，緊接著在下一列是我們所加進的「這就是我的照片喔！」字樣。</div></li>
+</ol></p>
+
+<h3><a id="upload_imageshowhtml_embed"></a>上傳圖片並顯示嵌入式圖片的 HTML 標籤</h3>
+
+<p>當妳<a href="#upload_imagenewentry_embed">上傳圖片並以嵌入式圖片建立新文章</a>時，固然可以很方便地把圖片嵌入文章裡，但是我想很快地妳就會遇到另一個問題：如果妳想要在一篇文章裡放進第二張甚至第三張圖片時，該怎麼辦？</p>
+
+<p>如果妳還是用一樣的方法來上傳圖片的話，妳就會發現每一次都會建立新文章，然而又都沒有存檔，結果妳的編輯畫面裡永遠就祇有最後上傳的那一張圖片！實際上這些圖片都上傳到伺服器上了，祇是用來顯示圖片的 HTML 標籤將會被一再地清掉。因此我們得用這一段所要講的方法，在上傳圖片後祇顯示嵌入圖片要用的 HTML 標籤就好，而不以此建立新文章：</p>
+
+<p><ol>
+  <li><a id="upload_imageshowhtml_embed_01"></a>當妳上傳第一張圖片並建立新文章後，或者是在編輯某一篇已經存在的文章時，請如<a href="#img_97">圖九十七</a>按下左方工具列的「上傳檔案」按鈕。<div class="img"><a id="img_97"></a><img src="mtupload_img_show_embed_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_01.png" alt="在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕"><br />圖九十七：在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_embed_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_98">圖九十八</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_98"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖九十八：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_embed_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_99">圖九十九</a>選取檔案後，按下「開啟」按鈕。請注意，妳祇能再選取一個檔案。<div class="img"><a id="img_99"></a><img src="mtupload_dialog_image_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_04.png" alt="選取要上傳的 Jedi-full_2 圖片後按下「開啟」按鈕"><br />圖九十九：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 Jedi-full_2.jpg 。</div></li>
+  <li><a id="upload_imageshowhtml_embed_04"></a>一旦妳按下<a href="#upload_imageshowhtml_embed_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_100">圖一百</a>選擇「 <strong>&lt;本機彙整路徑&gt;</strong> 」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到本機彙整路徑裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_101">圖一百零一</a>按下「上傳」按鈕，這纔真的把圖片開始上傳到伺服器上。<div class="img"><a id="img_100"></a><img src="mtupload_dialog_image_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_05.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖一百：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_101"></a><img src="mtupload_dialog_image_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_06.png" alt="按下「上傳」按鈕"><br />圖一百零一：按下「上傳」按鈕，開始上傳圖片。</div></li>
+  <li><a id="upload_imageshowhtml_embed_05"></a>圖片上傳完後，會出現如<a href="#img_102">圖一百零二</a>的畫面，告訴妳圖片已上傳，並詢問妳要如何處置這個圖片。我們並不打算以此圖片建立新文章，而祇是希望把嵌入圖片所需的 HTML 碼複製起來，放到文章裡；所以請選「<strong>顯示 HTML </strong>」，然後按下「<strong>嵌入式圖片</strong>」的按鈕。<div class="img"><a id="img_102"></a><img src="mtupload_img_show_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_01.png" alt="選擇「顯示 HTML 」"><br />圖一百零二：選擇「顯示 HTML 」。</div><div class="img"><a id="img_103"></a><img src="mtupload_img_show_embed_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_02.png" alt="按下「嵌入式圖片」的按鈕"><br />圖一百零三：按下「嵌入式圖片」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_embed_06"></a>接下來妳會看到如<a href="#img_104">圖一百零四</a>的畫面，在這個視窗裡會顯示出用來把圖片嵌入的 HTML 標籤。請如<a href="#img_105">圖一百零五</a>把這一段標籤先用滑鼠全部選取後，再按滑鼠右鍵複製下來（當然妳也可以按 <code>Ctrl</code>-<code>C</code> 來複製）。<div class="img"><a id="img_104"></a><img src="mtupload_img_show_embed_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_03.png" alt="嵌入圖片用的 HTML 標籤"><br />圖一百零四：這個視窗裡顯示的是用來嵌入圖片的 HTML 標籤；在這個範例裡的標籤，意思是：顯示 http://Jedimt.dyndns.org/archives/Jedi-full_2.jpg 這張圖片，並且設定這張圖片的替代文字為 Jedi-full_2.jpg ，圖片寬度為 453 個像素、高 678 個像素，不要使用邊框。</div><div class="img"><a id="img_105"></a><img src="mtupload_img_show_embed_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_04.png" alt="全選並複製"><br />圖一百零五：把這段標籤全部選取起來，此時整段標籤應該會呈現反白；然後再按滑鼠右鍵並選「複製」，來複製這段 HTML 標籤。</div></li>
+  <li><a id="upload_imageshowhtml_embed_07"></a>如果妳還要再繼續上傳別的圖片的話，妳可以先把剛剛複製起來的 HTML 標籤先貼到文章編輯區裡，然後在這裡再按下「上傳另一個檔案」的按鈕。不過我們在這裡並沒有要再上傳別的檔案，所以請按照<a href="#img_106">圖一百零六</a>按下「<strong>關閉</strong>」按鈕，來關閉這個視窗。<div class="img"><a id="img_106"></a><img src="mtupload_img_show_embed_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_05.png" alt="按下「關閉」按鈕"><br />圖一百零六：按下「關閉」按鈕來關閉這個視窗。</div></li>
+  <li><a id="upload_imageshowhtml_embed_08"></a>現在回到文章編輯畫面中，妳可以在任何想要嵌入圖片的地方按下滑鼠右鍵再選「貼上」，來插入剛剛所複製的 HTML 標籤（當然妳也可以用 <code>Ctrl</code>-<code>V</code> 來貼上）。然後妳還能夠像<a href="#img_108">圖一百零八</a>那樣繼續加入其他文字，或者更進一步設定文章的其他屬性。<div class="img"><a id="img_107"></a><img src="mtupload_img_show_embed_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_06.png" alt="貼上 HTML 標籤"><br />圖一百零七：按滑鼠右鍵貼上 HTML 標籤。</div><div class="img"><a id="img_108"></a><img src="mtupload_img_show_embed_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_07.png" alt="繼續編輯文章內容"><br />圖一百零八：繼續編輯文章內容；在這個範例裡，我們在圖片前又多加了一列「這一張是全身照：」的文字，並且再用 Enter 來換列。</div></li>
+  <li><a id="upload_imageshowhtml_embed_09"></a>編輯完後請把文章儲存起來，檢視網站的時候妳就會看到第二張圖片了。<div class="img"><a id="img_109"></a><img src="mtupload_img_show_embed_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_08.png" alt="文章裡出現第二張嵌入式圖片"><br />圖一百零九：現在第二張嵌入式圖片也出現了。</div></li>
+</ol></p>
+
+<h3><a id="upload_imagenewentry_popup"></a>上傳圖片並以彈出式圖片建立新文章</h3>
+
+<p>相信妳隨即就能從前面的<a href="#img_109">圖一百零九</a>發現一個明顯的問題：一旦妳的頁面裡用了很大的圖片或很多圖片的時候，嵌入式的圖片不儘可能會破壞整個頁面的版面安排，甚至會讓讀者花上很多時間纔能購下載完。這時候<strong>彈出式</strong>似乎就是很好的妥協方案了。</p>
+
+<p>所謂的彈出式圖片，就是把原本要擺放圖片的地方變成一個鏈結，當讀者想要看圖片的時候祇需要按一下鏈結，就會彈出一個新的視窗，裡面則是那張圖片。藉此不但不會影響到版面安排，而且也可以把載入頁面所需的時間（跟記憶體）降到最低。以下就讓我們來看看，可以怎麼做：</p>
+
+<p><ol>
+  <li><a id="upload_imagenewentry_popup_01"></a>首先請如<a href="#img_110">圖一百一十</a>按下左方工具列上的<strong>上傳檔案</strong>按鈕。<div class="img"><a id="img_110"></a><img src="mtupload_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_01.png" alt="按下左方工具列上的「上傳檔案」按鈕"><br />圖一百一十：按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_imagenewentry_popup_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_111">圖一百一十一</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_111"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖一百一十一：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_imagenewentry_popup_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_112">圖一百一十二</a>選取檔案後，按下「開啟」按鈕。請注意，妳一次祇能選取一個檔案，也祇能上傳一個檔案。<div class="img"><a id="img_112"></a><img src="mtupload_dialog_image_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_01.png" alt="選取要上傳的 Jedi-Full 圖片後按下「開啟」按鈕"><br />圖一百一十二：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 Jedi-Full.jpg 。</div></li>
+  <li><a id="upload_imagenewentry_popup_04"></a>一旦妳按下<a href="#upload_imagenewentry_embed_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_113">圖一百一十三</a>選擇「<strong> &lt;本機彙整路徑&gt; </strong>」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到<code>本機彙整路徑</code>裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_114">圖一百一十四</a>按下「上傳」按鈕，這纔真的把圖片開始上傳到伺服器上。<div class="img"><a id="img_113"></a><img src="mtupload_dialog_image_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_02.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖一百一十三：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_114"></a><img src="mtupload_dialog_image_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_03.png" alt="按下「上傳」按鈕"><br />圖一百一十四：按下「上傳」按鈕，開始上傳圖片。</div></li>
+  <li><a id="upload_imagenewentry_popup_05"></a>圖片上傳完後，會出現如<a href="#img_115">圖一百一十五</a>的畫面，告訴妳圖片已上傳，並詢問妳要如何處置這個圖片。我們打算以此圖片建立新文章，而且還希望把圖片做成彈出式鏈結；所以請選「<strong>用這個檔案新增一篇文章</strong>」，然後按下「<strong>彈出式圖片</strong>」。<div class="img"><a id="img_115"></a><img src="mtupload_img_new_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_01.png" alt="選「用這個檔案新增一篇文章」"><br />圖一百一十五：選擇「用這個檔案新增一篇文章」。</div><div class="img"><a id="img_116"></a><img src="mtupload_img_new_popup_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_01.png" alt="按下「嵌入式圖片」按鈕"><br />圖一百一十六：按下「彈出式圖片」按鈕，表示要把圖片建立成彈出式鏈結。</div></li>
+  <li><a id="upload_imagenewentry_popup_06"></a>接著「<code>上傳檔案</code>」的彈出式視窗會關閉，並且悄悄建立了一個跟圖片相同主檔名的 HTML 頁面檔，祇是妳還不會看到；同時妳會看到妳的主視窗切換成像是<a href="#img_117">圖一百一十七</a>一樣。這個畫面就跟妳自己按下「新增文章」按鈕後所看到的畫面可以說是一模一樣，唯一的不同之處在於在<code>主要文章本體</code>的欄位裡，多了一連串的 HTML 標籤。那一段 HTML 標籤的意思就是用來彈出這個同名的 HTML 頁面，以顯示妳所上傳的圖片。請注意在<a href="#img_118">圖一百一十八</a>裡的那個「<strong> View image </strong>」字串，這就是用來建立彈出式圖片的鏈結字串；妳可以視情況需要修改這個字串，並且為這一篇文章加上合適的標題，撰寫其他文字，再存檔。<div class="img"><a id="img_117"></a><img src="mtupload_img_new_popup_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_02.png" alt="「主要文章本體」裡多了用來建立彈出式圖片鏈結的 HTML 標籤"><br />圖一百一十七：「主要文章本體」裡多了用來建立彈出式圖片鏈結的 HTML 標籤，其他欄位則還是空的。</div><div class="img"><a id="img_118"></a><img src="mtupload_img_new_popup_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_03.png" alt="選取「 View image 」字串"><br />圖一百一十八：圖中被選取而呈現反白的「 View image 」字串是用來建立彈出式圖片的鏈結字串。</div><div class="img"><a id="img_119"></a><img src="mtupload_img_new_popup_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_04.png" alt="修改鏈結字串，並加入其他文字"><br />圖一百一十九：修改鏈結字串，並加入其他文字；在這個範例裡我們把「 View image 」改成「大頭照」，並且分別在這個 HTML 標籤前後加上了「這是我的」以及「呦！」；此外還寫了文章標題「我的照片」。</div></li>
+  <li><a id="upload_imagenewentry_popup_07"></a>存檔後請檢視頁面，妳會發現文章裡有一個鏈結，按下去後會彈出一個祇有圖片的視窗。<div class="img"><a id="img_120"></a><img src="mtupload_img_new_popup_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_05.png" alt="文章裡的「大頭照」是個鏈結"><br />圖一百二十：由於我們把「 View image 」修改成「大頭照」了，所以文章頁面裡的「大頭照」字串就變成了一個鏈結。</div><div class="img"><a id="img_121"></a><img src="mtupload_img_new_popup_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_new_popup_06.png" alt="彈出的視窗裡是 Jedi 的大頭照"><br />圖一百二十一：按下這個「大頭照」鏈結後會彈出一個視窗，裡面正是我們所上傳的圖片。</div></li>
+</ol></p>
+
+<h3><a id="upload_imageshowhtml_popup"></a>上傳圖片並顯示彈出式圖片的 HTML 標籤</h3>
+
+<p>妳可以祇檢視製作嵌入式圖片的 HTML 標籤，當然也可以祇檢視製作彈出式圖片所需的 HTML 標籤。請參考以下的步驟：</p>
+
+<p><ol>
+  <li><a id="upload_imageshowhtml_popup_01"></a>當妳上傳第一張圖片並建立新文章後，或者是在編輯某一篇已經存在的文章時，請如<a href="#img_122">圖一百二十二</a>按下左方工具列的「上傳檔案」按鈕。<div class="img"><a id="img_122"></a><img src="mtupload_img_show_embed_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_embed_01.png" alt="在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕"><br />圖一百二十二：在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_popup_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_123">圖一百二十三</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_123"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖一百二十三：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_popup_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_124">圖一百二十四</a>選取檔案後，按下「開啟」按鈕。請注意，妳祇能再選取一個檔案。<div class="img"><a id="img_124"></a><img src="mtupload_dialog_image_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_04.png" alt="選取要上傳的 Jedi-full_2 圖片後按下「開啟」按鈕"><br />圖一百二十四：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 Jedi-full_2.jpg 。</div></li>
+  <li><a id="upload_imageshowhtml_popup_04"></a>一旦妳按下<a href="#upload_imageshowhtml_popup_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_125">圖一百二十五</a>選擇「 <strong>&lt;本機彙整路徑&gt;</strong> 」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到本機彙整路徑裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_126">圖一百二十六</a>按下「上傳」按鈕，這纔真的把圖片開始上傳到伺服器上。<div class="img"><a id="img_125"></a><img src="mtupload_dialog_image_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_05.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖一百二十五：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_126"></a><img src="mtupload_dialog_image_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_06.png" alt="按下「上傳」按鈕"><br />圖一百二十六：按下「上傳」按鈕，開始上傳圖片。</div></li>
+  <li><a id="upload_imageshowhtml_popup_05"></a>圖片上傳完後，會出現如<a href="#img_127">圖一百二十七</a>的畫面，告訴妳圖片已上傳，並詢問妳要如何處置這個圖片。我們並不打算以此圖片建立新文章，而祇是希望把建立彈出式圖片鏈結所需的 HTML 碼複製起來，放到文章裡；所以請選「<strong>顯示 HTML </strong>」，然後按下「<strong>彈出式圖片</strong>」的按鈕。<div class="img"><a id="img_127"></a><img src="mtupload_img_show_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_01.png" alt="選擇「顯示 HTML 」"><br />圖一百二十七：選擇「顯示 HTML 」。</div><div class="img"><a id="img_128"></a><img src="mtupload_img_show_popup_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_02.png" alt="按下「彈出式圖片」的按鈕"><br />圖一百二十八：按下「彈出式圖片」按鈕。</div></li>
+  <li><a id="upload_imageshowhtml_popup_06"></a>接下來妳會看到如<a href="#img_129">圖一百二十九</a>的畫面，在這個視窗裡會顯示出用來製作彈出式圖片鏈結的 HTML 標籤；並且悄悄建立了一個跟圖片相同主檔名的 HTML 頁面檔，祇是妳還不會看到。請如<a href="#img_130">圖一百三十</a>把這一段標籤先用滑鼠全部選取後，再按滑鼠右鍵複製下來（當然妳也可以按 <code>Ctrl</code>-<code>C</code> 來複製）。<div class="img"><a id="img_129"></a><img src="mtupload_img_show_popup_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_03.png" alt="用來製作彈出式圖片鏈結的 HTML 標籤"><br />圖一百二十九：這個視窗裡顯示的是用來製作彈出式圖片鏈結的 HTML 標籤。</div><div class="img"><a id="img_130"></a><img src="mtupload_img_show_popup_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_04.png" alt="全選並複製"><br />圖一百三十：把這段標籤全部選取起來，此時整段標籤應該會呈現反白；然後再按滑鼠右鍵並選「複製」，來複製這段 HTML 標籤。</div></li>
+  <li><a id="upload_imageshowhtml_popup_07"></a>如果妳還要再繼續上傳別的圖片的話，妳可以先把剛剛複製起來的 HTML 標籤先貼到文章編輯區裡，然後在這裡再按下「上傳另一個檔案」的按鈕。不過我們在這裡並沒有要再上傳別的檔案，所以請按照<a href="#img_131">圖一百三十一</a>按下「<strong>關閉</strong>」按鈕，來關閉這個視窗。<div class="img"><a id="img_131"></a><img src="mtupload_img_show_popup_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_05.png" alt="按下「關閉」按鈕"><br />圖一百三十一：按下「關閉」按鈕來關閉這個視窗。</div></li>
+  <li><a id="upload_imageshowhtml_popup_08"></a>現在回到文章編輯畫面中，妳可以在任何想要嵌入圖片的地方按下滑鼠右鍵再選「貼上」，來插入剛剛所複製的 HTML 標籤（當然妳也可以用 <code>Ctrl</code>-<code>V</code> 來貼上）。然後妳還能夠像<a href="#img_133">圖一百三十三</a>那樣修改<code>鏈結文字</code>、繼續加入其他文字，或者更進一步設定文章的其他屬性。<div class="img"><a id="img_132"></a><img src="mtupload_img_show_popup_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_06.png" alt="貼上 HTML 標籤"><br />圖一百三十二：按滑鼠右鍵貼上 HTML 標籤。</div><div class="img"><a id="img_133"></a><img src="mtupload_img_show_popup_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_07.png" alt="修改鏈結文字並繼續編輯文章內容"><br />圖一百三十三：繼續編輯文章內容；在這個範例裡，我們在圖片前又多加了一列「當然妳也可以看」的文字，並且把原來的鏈結文字「 View image 」改成「全身照」。</div></li>
+  <li><a id="upload_imageshowhtml_popup_09"></a>編輯完後請把文章儲存起來，檢視網站的時候妳就會看到第二個彈出式圖片鏈結了。<div class="img"><a id="img_134"></a><img src="mtupload_img_show_popup_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_08.png" alt="「全身照」是另一個彈出式圖片鏈結"><br />圖一百三十四：檢視站台時，妳可以在文章畫面裡看到第二個彈出式鏈結文字；在這個範例中是「全身照」這個字串。</div><div class="img"><a id="img_135"></a><img src="mtupload_img_show_popup_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_img_show_popup_09.png" alt="彈出式圖片"><br />圖一百三十五：點選「全身照」之後，會彈出另一個視窗，裡面是我們所上傳的第二張圖片。</div></li>
+</ol></p>
+
+<h3><a id="upload_filenewentry"></a>上傳檔案並建立新文章</h3>
+
+<p>除了顯示圖片之外，妳也有可能會想要隨著文章提供一些檔案給讀者下載；在這種情況下</p>
+
+<p><ol>
+  <li><a id="upload_filenewentry_01"></a>首先請如<a href="#img_136">圖一百三十六</a>按下左方工具列上的<strong>上傳檔案</strong>按鈕。<div class="img"><a id="img_136"></a><img src="mtupload_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_01.png" alt="按下左方工具列上的「上傳檔案」按鈕"><br />圖一百三十六：按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_filenewentry_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_137">圖一百三十七</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_137"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖一百三十七：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_filenewentry_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_138">圖一百三十八</a>選取檔案後，按下「開啟」按鈕。請注意，妳一次祇能選取一個檔案，也祇能上傳一個檔案。<div class="img"><a id="img_138"></a><img src="mtupload_dialog_files_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_files_01.png" alt="選擇要上傳的 jedisymb 壓縮檔後按下「開啟」按鈕"><br />圖一百三十八：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 jedisymb.zip 。</div></li>
+  <li><a id="upload_filenewentry_04"></a>一旦妳按下<a href="#upload_filenewentry_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_139">圖一百三十九</a>選擇「<strong> &lt;本機彙整路徑&gt; </strong>」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到<code>本機彙整路徑</code>裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_140">圖一百四十</a>按下「上傳」按鈕，這纔真的把檔案開始上傳到伺服器上。<div class="img"><a id="img_139"></a><img src="mtupload_dialog_files_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_files_02.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖一百三十九：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_140"></a><img src="mtupload_dialog_files_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_files_03.png" alt="按下「上傳」按鈕"><br />圖一百四十：按下「上傳」按鈕，開始上傳檔案。</div></li>
+  <li><a id="upload_filenewentry_05"></a>檔案上傳完後，會出現如<a href="#img_141">圖一百四十一</a>的畫面，告訴妳檔案已上傳，並詢問妳要如何處置這個檔案。我們打算建立新文章，而且放進這個檔案的鏈結，所以請選「<strong>用這個檔案新增一篇文章</strong>」，然後按下「<strong>鏈結</strong>」。<div class="img"><a id="img_141"></a><img src="mtupload_file_new_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_01.png" alt="選擇「用這個檔案新增一篇文章」"><br />圖一百四十一：選擇「用這個檔案新增一篇文章」。</div><div class="img"><a id="img_142"></a><img src="mtupload_file_new_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_02.png" alt=""><br />圖一百四十二：按下「鏈結」按鈕，表示要為檔案建立鏈結。</div></li>
+  <li><a id="upload_filenewentry_06"></a>接著「<code>上傳檔案</code>」的彈出式視窗會關閉，同時妳會看到妳的主視窗切換成像是<a href="#img_143">圖一百四十三</a>一樣。這個畫面就跟妳自己按下「新增文章」按鈕後所看到的畫面可以說是一模一樣，唯一的不同之處在於在<code>主要文章本體</code>的欄位裡，多了一連串的 HTML 標籤。那一段 HTML 標籤就是建立用來下載這個檔案的鏈結。請注意在<a href="#img_144">圖一百四十四</a>裡的那個「<strong> Download file </strong>」字串，這就是用來建立彈出式圖片的鏈結字串；妳可以視情況需要修改這個字串，並且為這一篇文章加上合適的標題，撰寫其他文字，再存檔。<div class="img"><a id="img_143"></a><img src="mtupload_file_new_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_03.png" alt="「主要文章本體」裡多了用來建立鏈結的 HTML 標籤"><br />圖一百四十三：「主要文章本體」裡多了用來建立鏈結的 HTML 標籤，其他欄位則還是空的。</div><div class="img"><a id="img_144"></a><img src="mtupload_file_new_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_04.png" alt="選取「 Download file 」字串"><br />圖一百四十四：圖中被選取而呈現反白的「 Download file 」字串是用來建立彈出式圖片的鏈結字串。</div><<div class="img"><a id="img_145"></a><img src="mtupload_file_new_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_05.png" alt="修改鏈結字串，並加入其他文字"><br />圖一百四十五：修改鏈結字串，並加入其他文字；在這個範例裡我們把「 Download file 」改成「星際大戰首部曲的字型」，並且分別在這個 HTML 標籤前後加上了「我前一陣子從網路上面找到了」以及「！！」；此外還寫了文章標題「首部曲的字型」。</div></li>
+  <li><a id="upload_filenewentry_07"></a>存檔後請檢視頁面，妳會發現文章裡有一個鏈結，讀者們就可以用這個鏈結來下載妳所提供的檔案。<div class="img"><a id="img_146"></a><img src="mtupload_file_new_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_new_06.png" alt="按下「星際大戰首部曲的字型」就能夠下載 jedisymb.zip 檔案"><br />圖一百四十六：在這個頁面中「星際大戰首部曲的字型」是一個鏈結，能夠讓讀者下載妳所提供的 jedisymb.zip 檔案。</div></li>
+</ol></p>
+
+<h3><a id="upload_fileshowhtml"></a>上傳檔案並顯示 HTML 標籤</h3>
+
+<p>同樣地，當妳要上傳多個檔案，並且把檔案鏈結放進同一篇文章的時候，就可以祇顯示建立鏈結所需的 HTML 標籤，而不要直接建立新文章。請見以下的步驟：</p>
+
+<p><ol>
+  <li><a id="upload_fileshowhtml_01"></a>當妳上傳第一個檔案並建立新文章後，或者是在編輯某一篇已經存在的文章時，請如<a href="#img_147">圖一百四十七</a>按下左方工具列的「上傳檔案」按鈕。<div class="img"><a id="img_147"></a><img src="mtupload_file_show_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_01.png" alt="在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕"><br />圖一百四十七：在編輯文章畫面裡，按下左方工具列上的「上傳檔案」按鈕。</div></li>
+  <li><a id="upload_fileshowhtml_02"></a>接下來會彈出一個<code>上傳檔案</code>的視窗，請如<a href="#img_148">圖一百四十八</a>按下<code>選擇檔案</code>段落裡的「瀏覽」按鈕。<div class="img"><a id="img_148"></a><img src="mtupload_dialog_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_01.png" alt="按下「瀏覽」按鈕"><br />圖一百四十八：按下「瀏覽」按鈕。</div></li>
+  <li><a id="upload_fileshowhtml_03"></a>按下「瀏覽」按鈕後，會出現另外一個對話框，讓妳從硬碟裡選擇要上傳的檔案。請如<a href="#img_149">圖一百四十九</a>選取檔案後，按下「開啟」按鈕。請注意，妳祇能再選取一個檔案。<div class="img"><a id="img_149"></a><img src="mtupload_dialog_files_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_files_04.png" alt="選取要上傳的 aurabesh 壓縮檔後按下「開啟」按鈕"><br />圖一百四十九：從這個視窗選擇要上傳的檔案後，按下「開啟」按鈕。在這個範例中我們選取的檔案是 aurabesh.zip 。</div></li>
+  <li><a id="upload_fileshowhtml_04"></a>一旦妳按下<a href="#upload_imageshowhtml_popup_03">前述</a>的「開啟」按鈕後，就會看到這個彈出的視窗裡，「檔案」那一格裡填寫著妳所要上傳的檔案在妳硬碟裡的實際路徑；接下來我們還得決定要把檔案放到伺服器的那個目錄裡。請如<a href="#img_150">圖一百五十</a>選擇「 <strong>&lt;本機彙整路徑&gt;</strong> 」，並且在後面的欄位裡留空；這表示妳要把檔案上傳到本機彙整路徑裡，而且不放進更深層的子目錄中。接下來再如<a href="#img_151">圖一百五十一</a>按下「上傳」按鈕，這纔真的把檔案開始上傳到伺服器上。<div class="img"><a id="img_150"></a><img src="mtupload_dialog_image_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_05.png" alt="點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填"><br />圖一百五十：點選「&lt;本機彙整路徑&gt;」，後面的欄位留空不填。</div><div class="img"><a id="img_151"></a><img src="mtupload_dialog_image_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_dialog_image_06.png" alt="按下「上傳」按鈕"><br />圖一百五十一：按下「上傳」按鈕，開始上傳檔案。</div></li>
+  <li><a id="upload_fileshowhtml_05"></a>檔案上傳完後，會出現如<a href="#img_152">圖一百五十二</a>的畫面，告訴妳檔案已上傳，並詢問妳要如何處置這個檔案。我們並不打算以此檔案建立新文章，而祇是希望把建立檔案鏈結所需的 HTML 碼複製起來，放到文章裡；所以請選「<strong>顯示 HTML </strong>」，然後按下「<strong>鏈結</strong>」的按鈕。<div class="img"><a id="img_152"></a><img src="mtupload_file_show_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_02.png" alt="選擇「顯示 HTML 」"><br />圖一百五十二：選擇「顯示 HTML 」。</div><div class="img"><a id="img_153"></a><img src="mtupload_file_show_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_03.png" alt="按下「彈出式圖片」的按鈕"><br />圖一百五十三：按下「彈出式圖片」按鈕。</div></li>
+  <li><a id="upload_fileshowhtml_06"></a>接下來妳會看到如<a href="#img_154">圖一百五十四</a>的畫面，在這個視窗裡會顯示出用來製作檔案鏈結的 HTML 標籤。請如<a href="#img_155">圖一百五十五</a>把這一段標籤先用滑鼠全部選取後，再按滑鼠右鍵複製下來（當然妳也可以按 <code>Ctrl</code>-<code>C</code> 來複製）。<div class="img"><a id="img_154"></a><img src="mtupload_file_show_04.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_04.png" alt="用來製作檔案鏈結的 HTML 標籤"><br />圖一百五十四：這個視窗裡顯示的是用來製作檔案鏈結的 HTML 標籤。</div><div class="img"><a id="img_155"></a><img src="mtupload_file_show_05.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_05.png" alt="全選並複製"><br />圖一百五十五：把這段標籤全部選取起來，此時整段標籤應該會呈現反白；然後再按滑鼠右鍵並選「複製」，來複製這段 HTML 標籤。</div></li>
+  <li><a id="upload_fileshowhtml_07"></a>如果妳還要再繼續上傳別的檔案的話，妳可以先把剛剛複製起來的 HTML 標籤先貼到文章編輯區裡，然後在這裡再按下「上傳另一個檔案」的按鈕。不過我們在這裡並沒有要再上傳別的檔案，所以請按照<a href="#img_156">圖一百五十六</a>按下「<strong>關閉</strong>」按鈕，來關閉這個視窗。<div class="img"><a id="img_156"></a><img src="mtupload_file_show_06.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_06.png" alt="按下「關閉」按鈕"><br />圖一百五十六：按下「關閉」按鈕來關閉這個視窗。</div></li>
+  <li><a id="upload_fileshowhtml_08"></a>現在回到文章編輯畫面中，妳可以在任何想要加進檔案鏈結的地方按下滑鼠右鍵再選「貼上」，來插入剛剛所複製的 HTML 標籤（當然妳也可以用 <code>Ctrl</code>-<code>V</code> 來貼上）。然後妳還能夠像<a href="#img_159">圖一百五十九</a>那樣修改<code>鏈結文字</code>、繼續加入其他文字，或者更進一步設定文章的其他屬性。<div class="img"><a id="img_157"></a><img src="mtupload_file_show_07.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_07.png" alt="貼上 HTML 標籤"><br />圖一百五十七：按滑鼠右鍵貼上 HTML 標籤。</div><div class="img"><a id="img_158"></a><img src="mtupload_file_show_08.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_08.png" alt="選取鏈結文字"><br />圖一百五十八：選取鏈結文字「 Download file 」。</div><div class="img"><a id="img_159"></a><img src="mtupload_file_show_09.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_09.png" alt="修改鏈結文字並繼續編輯文章內容"><br />圖一百五十九：繼續編輯文章內容；在這個範例裡，我們在鏈結前後分別多加了「當然還有不同的」和「可以抓。」的文字，並且把原來的鏈結文字「 Download file 」改成「字型」。</div></li>
+  <li><a id="upload_fileshowhtml_09"></a>編輯完後請把文章儲存起來，檢視網站的時候妳就會看到第二個彈出式圖片鏈結了。<div class="img"><a id="img_160"></a><img src="mtupload_file_show_10.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtupload_file_show_10.png" alt="「全身照」是另一個彈出式圖片鏈結"><br />圖一百六十：檢視站台時，妳可以在文章畫面裡看到第二個檔案鏈結文字；在這個範例中是「字型」這個字串。</div></li>
+</ol></p>
+
+<h2><a id="delete"></a>刪除文章</h2>
+
+<p>築城千日，毀於一旦；妳馬上就會發現刪除文章遠比把他們建立起來要容易得多。有兩個刪除文章的方法，其一是在<code>列出及編輯文章</code>畫面中，如<a href="#img_161">圖一百六十一</a>核選文章後面的<code>刪除</code>核選框後，再如<a href="#img_162">圖一百六十二</a>按下下方的<strong>刪除</strong>按鈕，就可以一口氣把這些文章都刪除了。這個方法的好處在於效率高，妳甚至可以用我們在「<a href="#modify_search">找出要修改的文章</a>」小節提過的任何方法，來篩選要刪除的文章，再一口氣刪除掉。<div class="img"><a id="img_161"></a><img src="mtentry_delete_01.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_delete_01.png" alt="文章標題後面的「刪除」核選框"><br />圖一百六十一：文章標題後面有「刪除」核選框，請先核選妳打算刪除掉的文章。</div><div class="img"><a id="img_162"></a><img src="mtentry_delete_02.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_delete_02.png" alt="按下「刪除」按鈕"><br />圖一百六十二：一旦按下「刪除」按鈕，凡是刪除核選框有被核選的文章，就會被一起刪除。</div></p>
+
+<p>當然妳可能會想更謹慎點，先看看文章內容是甚麼纔決定要不要刪除。在<code>文章編輯</code>畫面裡，有一個<strong>刪除文章</strong>的按鈕，就可以讓妳把目前在編輯的這一篇文章給刪除掉。<div class="img"><a id="img_163"></a><img src="mtentry_delete_03.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/mtentry_delete_03.png" alt="按下「刪除文章」按鈕"><br />圖一百六十三：一旦妳按下「刪除文章」按鈕後，目前正在編輯的這篇文章就會被刪除。</div></p>
+
+<hr size="1" color="#CCCCCC" />
+
+<img src="cc.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc.png" alt="保留部分權利" class="ccicon"><img src="cc_by.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_by.png" alt="Attribution" class="ccicon"><img src="cc_sa.png" tppabs="http://hedong.3322.org/mt/docs/zh/bookimg/cc_sa.png" alt="Share Alike" class="ccicon"><p class="copyright">版權所有 &copy; 2003 Jedi. <a href="mtbook_copyright.html#copyright" tppabs="http://hedong.3322.org/mt/docs/zh/mtbook_copyright.html#copyright">保留部分權利</a>。</p>
+
+</body>
+
+</html>

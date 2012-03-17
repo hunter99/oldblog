@@ -1,0 +1,241 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: 第二章安装Squid</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+<link rel="alternate" type="application/rss+xml" title="RSS" href="index.rdf.htm" tppabs="http://hedong.3322.org/index.rdf" />
+
+<link rel="start" href="index.htm" tppabs="http://hedong.3322.org/" title="Home" />
+<link rel="prev" href="000406.html" tppabs="http://hedong.3322.org/archives/000406.html" title="第二章安装Squid" />
+
+<link rel="next" href="000408.html" tppabs="http://hedong.3322.org/archives/000408.html" title="第二章安装Squid" />
+
+
+<script type="text/javascript" language="javascript">
+<!--
+
+function OpenTrackback (c) {
+    window.open(c,
+                    'trackback',
+                    'width=480,height=480,scrollbars=yes,status=yes');
+}
+
+var HOST = 'http://hedong.3322.org/archives/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+
+<!--
+<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+         xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/">
+<rdf:Description
+    rdf:about="http://hedong.3322.org/archives/000407.html"
+    trackback:ping="http://hedong.3322.org/mt/mt-tb.cgi/296"
+    dc:title="第二章安装Squid"
+    dc:identifier="http://hedong.3322.org/archives/000407.html"
+    dc:subject="ItTech"
+    dc:description="获取Squid..."
+    dc:creator="Hilton"
+    dc:date="2003-12-19T23:45:33+00:00" />
+</rdf:RDF>
+-->
+
+
+<!--
+<rdf:RDF xmlns="http://web.resource.org/cc/"
+         xmlns:dc="http://purl.org/dc/elements/1.1/"
+         xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<Work rdf:about="http://hedong.3322.org/archives/000407.html">
+<dc:title>第二章安装Squid</dc:title>
+<dc:description>获取Squid...</dc:description>
+<dc:creator>Hilton</dc:creator>
+<dc:date>2003-12-19T23:45:33+00:00</dc:date>
+<license rdf:resource="http://web.resource.org/cc/PublicDomain" />
+</Work>
+<License rdf:about="http://web.resource.org/cc/PublicDomain">
+<permits rdf:resource="http://web.resource.org/cc/Reproduction" />
+<permits rdf:resource="http://web.resource.org/cc/Distribution" />
+<permits rdf:resource="http://web.resource.org/cc/DerivativeWorks" />
+</License>
+</rdf:RDF>
+-->
+
+
+<style>
+  .skiplink{display:none};
+</style>
+</head>
+
+<body>
+<div id="skiptocontent"><a class="skiplink" href="#startcontent" accesskey="2">转到主要内容</a></div>
+<div id="banner">
+<h1><a href="index.htm" tppabs="http://hedong.3322.org/" accesskey="1">竹笋炒肉</a></h1>
+<span class="description">东坡有诗“无竹则俗，无肉则廋；不俗不廋，竹笋炒肉”。：）<br />
+欢迎光临的每一位朋友。这是我的第一个BLOG，用来记录我的所学、所做、所思、所想、所经历、所感受。</span>
+</div>
+
+<div id="container">
+
+<div class="blog">
+
+<div id="menu">
+<a href="000406.html" tppabs="http://hedong.3322.org/archives/000406.html">&laquo; 第二章安装Squid</a> |
+
+<a href="index.htm" tppabs="http://hedong.3322.org/">Main</a>
+| <a href="000408.html" tppabs="http://hedong.3322.org/archives/000408.html">第二章安装Squid &raquo;</a>
+
+</div>
+
+</div>
+
+
+<div class="blog">
+<h2 class="date">December 19, 2003</h2>
+
+<div class="blogbody">
+
+<h3 id="startcontent" class="title">第二章安装Squid</h3>
+
+<p><strong>获取Squid</strong></p>
+
+<a name="more"></a>
+<p><br />
+现在你的机器已经做好安装的Squid的准备，你需要下载和安装squid了。有两种办法：一是下载源代码并编译，二是下载一个预编译二进制版本并安装，这依赖于别人的编译。<br />
+通常二进制版本的squid与源代码版本容易安装，尤其是如果你的操作系统销售商提供了一个软件包的话，安装更容易。<br />
+建议从源码开始安装squid。这允许你在编译时打开一些编译开关，而发布的二进制版本中可能没有打开（例如：对SNMP功能的支持在编译时没有饱含，除非你特别指定，大多数二进制版本都不支持SNMP)。如果你的操作系统为了更好地运行squid做了优化（例如你增加了一个每个进程的最大文件句柄数量），一个预编译的二进制版本可能无法利用这些优化，因为你的编译器头文件可能与二进制版本编译时用的文件不一样。<br />
+使用其它人发布的二制版本还会担心：如果他们在二进制代码嵌入了“特洛伊木马”怎么办？为了确保安全，建议你编译官方的原代码。<br />
+由于我们首先建议用原码，所以我们要先讨论这个：如果你须从某处下载二进制squid，请直接跳到第二小节：获取二进制版squid.</p>
+
+<p>获取squid源代码<br />
+Squid源代码被数不清的站点镜像，看一下。。。，那儿有镜像站点列表。<br />
+决定下载哪个文件包成了问题，尤其在你不熟悉squid版本命名约定的情况下。在本文写作时，Squid已是第二版。随着功能的增加，副版本号也增大（squid2.0变成squid 2.1，进而squid 2.2等等）。由于新的功能会产生一些新的bug，包含着新功能的第一版以“预发行”(pre-release)版的方式发布。squid 1.2的第一个预发行版叫squid-2.1.PRE1-src.tar.gz,第二个叫squid-2.1.PRE2-src.tar.gz。一旦squid被认为稳定了，一个普通的发行版本就发布了：第一个发行版叫squid-2.0.RELEASE-src.tar.gz，第二个发行版（会包含少量的错误修正）叫squid-2.0.RELEASE2-src.tar.gz。<br />
+简而言之，文件包命名如下：squid-2.副版本号.稳定信息.发行号.tar.gz。除非你是一个squid开发者，你应该下载最新发行(RELEASE)版本：这样你会少遇到bug.<br />
+通过squid源代码可以通过ftp(文件传输协议)获得，因此你应掌握利用ftp程序下载squid源代码，ftp程序几乎在每个unix系统中都有。如果你不熟悉ftp,你只需用浏览器访问最近的镜像，然后在文件名上右击鼠标后选择“另存为”来将squid源代码保存下来（不要点击文件名字，很多浏览器会试图解压缩这个文件，然后将tar文件的内容在浏览器内显示出来：这当然不是你想要的）。一旦下载完成，将这个文件传送到缓存机器上。</p>
+
+<p>获取二进制版本的squid<br />
+找一个二制版本的squid来安装非常简单：决定那一个二进制版本可以依赖则困难得多。如果你不加细心选择，有人就可能破坏你的系统的安全。如果你不能编译squid,但知识（并信任）某人可以为你编译，向他们请求帮助。这比下载一个你不认识的人编译的程序要好得多。<br />
+下载预编译程序包最不理想的地方，是那些接收公众的发布版本的站点：避免从类似incoming或uploads这样的目录中下载文件，因为你不知道它来自什么样的源代码。<br />
+邮件列表通常是一个发现预编译软件的好地方（虽然众人会因为你没有尽力搜找可信赖的版本就打扰这个列表而生气）。列表中好的加入者由于珍惜自己的声誉，而可能提供确实符合原代码的二进制版本。<br />
+squid核心开发人员知道和信任的人编译的二进制程序可以从ftp://squid.nlanr.net/pub/contrib/binaries/得到。你可以在那儿找到适合你的操作系统的二进制版本的squid。<br />
+软件包可以用其它的方式发布。通常Squid会被转换成用某种安装工具进行安装的软件包。软件包管理工具很多，无法在这儿一一讨论。</p>
+
+<span class="posted">Posted by Hilton at December 19, 2003 11:45 PM
+| <a href="mt-tb.cgi-__mode=view&entry_id=407.htm" tppabs="http://hedong.3322.org/mt/mt-tb.cgi?__mode=view&entry_id=407" onclick="OpenTrackback(this.href); return false">TrackBack</a>
+
+<br /></span>
+
+</div>
+
+
+<div class="comments-head"><a name="comments"></a>Comments</div>
+
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="static" value="1" />
+<input type="hidden" name="entry_id" value="407" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+</div>
+</div>
+</body>
+</html>
+	

@@ -1,0 +1,599 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on Lucene学习笔记（3）</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: Lucene学习笔记（3）</div>
+
+
+<div class="comments-body">
+<p>老大，我的tomcat打不开了啊，有没有直接打成war包的，累啊：（</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;genghongliang&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;genghongliang&#64;hotmail&#46;com">geng</a> at December 27, 2003 11:12 PM</span>
+</div>
+<div class="comments-body">
+<p>老大，终于等到你的demo版了。你再不出马，我要支撑不住了。</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 16, 2003 10:01 PM</span>
+</div>
+<div class="comments-body">
+<p>算了，我最近在 <a href="javascript:if(confirm('http://www.blogchina.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.blogchina.com/'" tppabs="http://www.blogchina.com/">http://www.BlogChina.com</a> 上架设了一套WebLucene，把那个包做成DEMO吧。<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">Che Dong</a> at December 15, 2003 11:53 PM</span>
+</div>
+<div class="comments-body">
+<p>To Alvin;</p>
+
+<p>　　从错误上看，好象是javacc这个jar包，没有放在classpath里吧。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 15, 2003 06:51 PM</span>
+</div>
+<div class="comments-body">
+<p>从sourcgforge上下载了最新的weblucene</p>
+
+<p>但JAVACC 3.2 跟2.0所有包的目录结构都改了，导致ANT失败，有什么解决办法嘛？</p>
+
+<p><br />
+错误显示如下：<br />
+C:\weblucene>ant build<br />
+Buildfile: build.xml</p>
+
+<p>init:<br />
+     [echo] ----------- WebLucene 0.3 [2003] ------------</p>
+
+<p>javacc_check:</p>
+
+<p>javacc:<br />
+   [javacc] java.lang.NoClassDefFoundError: COM/sun/labs/javacc/Main<br />
+   [javacc] Exception in thread "main"</p>
+
+<p>BUILD FAILED<br />
+file:C:/weblucene/build.xml:107: C:\j2sdk1.4.2_03\jre\bin\java.exe failed with r<br />
+eturn code 1</p>
+
+<p>Total time: 4 seconds</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;wangtong&#64;citiz&#46;net'" tppabs="http://hedong.3322.org/mt/mailto&#58;wangtong&#64;citiz&#46;net">alvin</a> at December 15, 2003 05:24 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢这么耐心指导，<br />
+真的不好意思麻烦你啦，<br />
+我还是自己研究研究吧：）<br />
+</p>
+<span class="comments-post">Posted by  at December 12, 2003 12:04 PM</span>
+</div>
+<div class="comments-body">
+<p>To muchun;<br />
+　　不好意思，前一次没能给你解决问题。这次又认真地看了一下原码，建议按以下步骤进行debug:<br />
+　　1）检查webapps\weblucene\WEB-INF\var\app目录下，是否有一个名叫index的目录，以及两个文件名为weblucene.xsl和wl.conf。<br />
+　　2）参考本页面的第一幅截图，在dir=后面的框中，只能输入app，其它都不对，因为此时在var目录下只有一个名叫app的目录，没有其它名字的目录。<br />
+　　3）如果上两部仍没解决问题，则可以将WebLuceneServlet.java文件中的dirname变量的值设为"app"，编译后重启weblucene或tomcat,后试一下。如果成功，则说明weblucene目录下的index.html文件中第一个输入框的“name="dir"”被改动了。<br />
+　　4）如果还是不行，请再联系。</p>
+
+<p>Good Luck.</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 11, 2003 09:32 PM</span>
+</div>
+<div class="comments-body">
+<p>app目录和下边的wl.conf文件都有，<br />
+我调试WebLuceneServlet.java这个类的下边这段代码：<br />
+if (WebLuceneAppConfig.getProperties(dirName) == null) {<br />
+            throw (new IOException("Config File of '" + dirName<br />
+                                   + "' has not been loaded!"<br />
+                                  ));<br />
+        }</p>
+
+<p>手动将dirName改成wl.conf中的其它属性也取不到值，<br />
+我的tomcat安装在e:\<br />
+我的app目录在E:\tomcat\webapps\weblucene\WEB-INF\var\app   麻烦看看是否正确，</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;muchun_fly&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;muchun_fly&#64;hotmail&#46;com">muchun</a> at December 11, 2003 08:54 AM</span>
+</div>
+<div class="comments-body">
+<p>To muchun;<br />
+  看一下有没app这个目录，以及app这个目录下有没有wl.conf这个文件。</p>
+
+<p>Hilton</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at December 10, 2003 05:23 PM</span>
+</div>
+<div class="comments-body">
+<p>出现下面错误：</p>
+
+<p>索引建立成功，但运行web检索时出现下面错误，我是按照上面列表配置的但仍不好用</p>
+
+<p>java.io.IOException: Config File of 'app' has not been loaded! </p>
+
+<p>Stack Trace Infromation:<br />
+com.chedong.weblucene.WebLuceneServlet.initWebLuceneQuery(WebLuceneServlet.java:249) <br />
+at com.chedong.weblucene.WebLuceneServlet.doGet(WebLuceneServlet.java:163) <br />
+at javax.servlet.http.HttpServlet.service(HttpServlet.java:740) <br />
+at javax.servlet.http.HttpServlet.service(HttpServlet.java:853) <br />
+at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(Unknown Source) <br />
+at org.apache.catalina.core.ApplicationFilterChain.doFilter(Unknown Source) <br />
+at org.apache.catalina.core.StandardWrapperValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invoke(Unknown Source) <br />
+at org.apache.catalina.core.ContainerBase.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardContextValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.valves.CertificatesValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invoke(Unknown Source) <br />
+at org.apache.catalina.core.ContainerBase.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardContext.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardHostValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.valves.ErrorDispatcherValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.valves.ErrorReportValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.valves.AccessLogValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invoke(Unknown Source) <br />
+at org.apache.catalina.core.ContainerBase.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardEngineValve.invoke(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invokeNext(Unknown Source) <br />
+at org.apache.catalina.core.StandardPipeline.invoke(Unknown Source) <br />
+at org.apache.catalina.core.ContainerBase.invoke(Unknown Source) <br />
+at org.apache.catalina.connector.http.HttpProcessor.process(Unknown Source) <br />
+at org.apache.catalina.connector.http.HttpProcessor.run(Unknown Source) <br />
+at java.lang.Thread.run(Thread.java:539)   </p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;muchun_fly&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;muchun_fly&#64;hotmail&#46;com">muchun</a> at December 10, 2003 03:21 PM</span>
+</div>
+<div class="comments-body">
+<p>我猜车东的本意，是实现指定字段检索和全字段检索功能，只是他在导入数据模块中的处理没有很好地区分这个功能，导致只能用tokenindex。</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 30, 2003 04:45 PM</span>
+</div>
+<div class="comments-body">
+<p>Hilton，请问知道FullIndex和TokenIndex分别是代表什么吗？我用FullIndex作为参数无法检索出结果啊，只有TokenIndex可以</p>
+
+<p>谢谢</p>
+<span class="comments-post">Posted by  at November 30, 2003 12:04 PM</span>
+</div>
+<div class="comments-body">
+<p>　　我猜测是你在dir后面的输入框中输入的值不对，此处只能输入app，参见本页面第一幅图。<br />
+　　在后台的servlet中，是根据输入的值进行匹配找到应用程序索引数据的绝对路径的。如$TOMCATHOME/webapp/weblucene/WEB-INF/app/index/wl.conf。</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 30, 2003 09:42 AM</span>
+</div>
+<div class="comments-body">
+<p>After I click query, I have the following errors. Please help me to solve this problem. Thanks</p>
+
+<p><br />
+Encount Error:<br />
+java.io.IOException: Config File of '/var/app' has not been loaded! </p>
+
+<p>Stack Trace Infromation:<br />
+com.chedong.weblucene.WebLuceneServlet.initWebLuceneQuery(Unknown Source) at <br />
+com.chedong.weblucene.WebLuceneServlet.doGet(Unknown Source) at <br />
+javax.servlet.http.HttpServlet.service(HttpServlet.java:743) at <br />
+javax.servlet.http.HttpServlet.service(HttpServlet.java:856) at <br />
+org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:284) at <br />
+org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:204) at <br />
+org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:256) at <br />
+org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:151) at <br />
+org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:563) at <br />
+org.apache.catalina.core.StandardContextValve.invokeInternal(StandardContextValve.java:245) at <br />
+org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:199) at <br />
+org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:151) at <br />
+org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:563) at <br />
+org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:195) at <br />
+org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:151) at <br />
+org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:164) at <br />
+org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:149) at <br />
+org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:563) at <br />
+org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:156) at <br />
+org.apache.catalina.core.StandardValveContext.invokeNext(StandardValveContext.java:151) at <br />
+org.apache.catalina.core.StandardPipeline.invoke(StandardPipeline.java:563) at <br />
+org.apache.catalina.core.ContainerBase.invoke(ContainerBase.java:972) at <br />
+org.apache.coyote.tomcat5.CoyoteAdapter.service(CoyoteAdapter.java:209) at <br />
+org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:781) at <br />
+org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.processConnection(Http11Protocol.java:549) at <br />
+org.apache.tomcat.util.net.TcpWorkerThread.runIt(PoolTcpEndpoint.java:589) at <br />
+org.apache.tomcat.util.threads.ThreadPool$ControlRunnable.run(ThreadPool.java:666) at <br />
+java.lang.Thread.run(Thread.java:536)  </p>
+
+<p>We are appreciate your sending the error message to our webmaster. <br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;lionevent&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;lionevent&#64;hotmail&#46;com">Anthony</a> at November 29, 2003 10:15 PM</span>
+</div>
+<div class="comments-body">
+<p>Hiton:<br />
+     非常感谢你的耐心指导,Weblucene终于可以运行了.<br />
+真的不错.还有一个问题想问一下你,如何对索引进行更新呢,就是说如果Xml中的数据改变了,索引也随着更新?有这功能吗?有的话具体怎么操作呢?</p>
+<span class="comments-post">Posted by Real2003 at November 22, 2003 11:28 AM</span>
+</div>
+<div class="comments-body">
+<p>Hilton啊，能告诉我FullIndex和TokenIndex分别是代表什么吗？我用FullIndex作为参数无法检索出结果啊，只有TokenIndex可以</p>
+
+<p>谢谢你了 :)</p>
+<span class="comments-post">Posted by  at November 17, 2003 02:06 PM</span>
+</div>
+<div class="comments-body">
+<p>你把这几个jar包放在CLASSPATH中试试如何？我没用过netbean，从错误显示来看，好象就是某些类不能找到。</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 17, 2003 09:59 AM</span>
+</div>
+<div class="comments-body">
+<p> Hilton :<br />
+       确信跟你说的一摸一样了,是不是我编译的方式不对呢,我是这样编译的,在Netbean中把运行参数设置为"-i tt.xml -o WEB-INF/var/app/index/ -t Title,Content -n Author,Pubtime",没有成功;通过dos命令在IndexRunner.java所在的路径下,直接输入:<br />
+java IndexRunner -i tt.xml -o WEB-INF/var/app/index/ -t Title,Content -n Author,Pubtime</p>
+
+<p>也不成功.到底怎么回事呀?头好痛哦.:(<br />
+</p>
+<span class="comments-post">Posted by  at November 17, 2003 09:50 AM</span>
+</div>
+<div class="comments-body">
+<p>检查一下，在weblucene/WEB-INF/lib目录下，是不是没有lucene.jar？       <br />
+下面是我在这个目录下放的jar文件，供参考：                             <br />
+java-getopt.jar,jdom.jar,log4j.jar,lucene.jar,xalan.jar,xercesImpl.jar<br />
+</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 17, 2003 09:25 AM</span>
+</div>
+<div class="comments-body">
+<p>谢谢Hilton<br />
+    编译成功,可按你给出得命令建索引时提示:<br />
+   <br />
+Exception in thread "main" java.lang.NoClassDefFoundError: org/apache/lucene/ana<br />
+lysis/Analyzer</p>
+
+<p>这又是什么回事啊?</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;real200180&#64;sina&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;real200180&#64;sina&#46;com">real2003</a> at November 17, 2003 09:00 AM</span>
+</div>
+<div class="comments-body">
+<p>　　它们带的测试文件确实有问题，当时也让我头疼不已。好在有源码，我是从源码反推出来的数据格式的。如果应用中有自己的数据格式，可以hack一下解析部分的源码。<br />
+</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 17, 2003 08:28 AM</span>
+</div>
+<div class="comments-body">
+<p>请问为什么test.xml和tt.xml的格式不一样？<br />
+而只有tt.xml经过索引后可以正确搜索出来，test.xml和weblucene里面所带的几个xml文件经过索引后都不能检索出来，是否格式不正确？<br />
+</p>
+<span class="comments-post">Posted by  at November 16, 2003 09:23 PM</span>
+</div>
+<div class="comments-body">
+<p>Sorry，“只能检索Content字段的前部分信息，输入位于后面的关键字会找不到结果”问题不存在</p>
+
+<p>不清楚FullIndex和TokenIndex分别的用途，目前只有TokenIndex才能有结果输出</p>
+
+<p>谢谢</p>
+<span class="comments-post">Posted by  at November 16, 2003 09:09 PM</span>
+</div>
+<div class="comments-body">
+<p>谢谢 Hilton</p>
+
+<p>已经解决问题</p>
+
+<p>但不明白FullIndex和TokenIndex分别是什么用途，目前只能使用TokenIndex参数进行检索，FullIndex不行</p>
+
+<p>使用TokenIndex也只能检索Content字段的前部分信息，输入位于后面的关键字会找不到结果</p>
+
+<p>谢谢</p>
+<span class="comments-post">Posted by Ming at November 16, 2003 09:04 PM</span>
+</div>
+<div class="comments-body">
+<p>　　由于weblucene文档的没有及时更新，所以严格按文档会有一些混乱。建议采用以下的步骤来排除的遇到的问题：<br />
+　　1）是不是中文切词的类没有加上？<br />
+　　2）在命令行方式下能不能检索到内容？<br />
+　　3）通过web进行检索时，是不是索引数据的位置放在不可访问的地方？<br />
+　　4）建议看看我的本篇文章，并参考提供的代码下载，以及其中的相关的web页面、tomcat配置等。</p>
+
+<p>Hilton　　</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 16, 2003 05:53 PM</span>
+</div>
+<div class="comments-body">
+<p>我安装调试weblucen并用IndexRunner进行索引后，无论怎么Search都没有找到匹配的数据</p>
+
+<p>请问是否有比较完整的安装和调试过程？</p>
+
+<p>或者是否有什么需要特别注意的地方？</p>
+
+<p><br />
+谢谢！<br />
+</p>
+<span class="comments-post">Posted by Ming at November 16, 2003 03:30 PM</span>
+</div>
+<div class="comments-body">
+<p>　　我猜测可能是你没有将相关的jar包或路径加入CLASSPATH所致。<br />
+　　试着下载log4j的jar包，将其加入CLASSPATH，再试着/path/to/webapp/WEB-INF/class这个目录加入CLASSPATH，再试试看。</p>
+
+<p>　　Good Luck!</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at November 15, 2003 10:08 PM</span>
+</div>
+<div class="comments-body">
+<p>webapp/WEB-INF/src/org/apache/lucene/analysis/HighlightAnalyzer.java [73:1] cannot resolve symbol<br />
+symbol  : class Analyzer <br />
+location: class org.apache.lucene.analysis.HighlightAnalyzer<br />
+public final class HighlightAnalyzer extends Analyzer {<br />
+                                             ^<br />
+webapp/WEB-INF/src/org/apache/lucene/analysis/HighlightAnalyzer.java [117:1] cannot resolve symbol<br />
+symbol  : class TokenStream <br />
+location: class org.apache.lucene.analysis.HighlightAnalyzer<br />
+    public final TokenStream tokenStream(String field, Reader reader) {<br />
+                 ^<br />
+webapp/WEB-INF/src/com/chedong/weblucene/WebLuceneAppConfig.java [59:1] package org.apache.log4j does not exist<br />
+import org.apache.log4j.Logger;<br />
+.<br />
+.<br />
+.<br />
+.               ^<br />
+100 errors<br />
+编译 . 时出错</p>
+
+<p>hedong<br />
+我在编译时出现好多错误,刚学java不久,忙了半天,把我弄得一头雾水, 能不能解释一下这么回事呀?<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;real200180&#64;sina&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;real200180&#64;sina&#46;com">real2003</a> at November 15, 2003 03:37 PM</span>
+</div>
+<div class="comments-body">
+<p>上面的问题你是如何解决掉的，我也有。</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;errorcao&#64;hotmail&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;errorcao&#64;hotmail&#46;com">曹伟</a> at November  1, 2003 06:07 PM</span>
+</div>
+<div class="comments-body">
+<p>我觉得通过msn或QQ进行在线讨论，可能会更方便一些。<br />
+我已经通过你留的email将我的MSN和QQ发给你了。请查收。</p>
+
+<p>改一下WEB-INF/conf/log4j.conf的调试级别，可以控制log信息的输出。<br />
+</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 20, 2003 03:49 PM</span>
+</div>
+<div class="comments-body">
+<p>2003-10-20 15:21:35,695 [INFO ] org.apache.struts.util.PropertyMessageResources.(PropertyMessageResources.java:127) - Initializing, config='org.apache.webapp.admin.ApplicationResources', returnNull=true<br />
+2003-10-20 15:21:39,230 [ERROR] org.apache.commons.digester.Digester.error(Digester.java:1439) - Parse Error at line 8 column 74: Element type "classpath" must be declared.<br />
+org.xml.sax.SAXParseException: Element type "classpath" must be declared.<br />
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)<br />
+	at org.apache.xerces.util.ErrorHandlerWrapper.error(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)<br />
+	at org.apache.xerces.impl.dtd.XMLDTDValidator.handleStartElement(Unknown Source)<br />
+	at org.apache.xerces.impl.dtd.XMLDTDValidator.emptyElement(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanStartElement(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)<br />
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.DTDConfiguration.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)<br />
+	at org.apache.commons.digester.Digester.parse(Digester.java:1548)<br />
+	at org.apache.catalina.startup.ContextConfig.applicationConfig(ContextConfig.java:282)<br />
+	at org.apache.catalina.startup.ContextConfig.start(ContextConfig.java:639)<br />
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:243)<br />
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:166)<br />
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:3568)<br />
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:821)<br />
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:807)<br />
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:579)<br />
+	at org.apache.catalina.core.StandardHostDeployer.install(StandardHostDeployer.java:307)<br />
+	at org.apache.catalina.core.StandardHost.install(StandardHost.java:772)<br />
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:559)<br />
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:401)<br />
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:718)<br />
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:358)<br />
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:166)<br />
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1196)<br />
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:738)<br />
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1188)<br />
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:347)<br />
+	at org.apache.catalina.core.StandardService.start(StandardService.java:497)<br />
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:2190)<br />
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:512)<br />
+	at org.apache.catalina.startup.Catalina.execute(Catalina.java:400)<br />
+	at org.apache.catalina.startup.Catalina.process(Catalina.java:180)<br />
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+	at java.lang.reflect.Method.invoke(Method.java:324)<br />
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:203)<br />
+2003-10-20 15:21:39,240 [ERROR] org.apache.commons.digester.Digester.error(Digester.java:1439) - Parse Error at line 39 column 11: The content of element type "web-app" must match "(icon?,display-name?,description?,distributable?,context-param*,filter*,filter-mapping*,listener*,servlet*,servlet-mapping*,session-config?,mime-mapping*,welcome-file-list?,error-page*,taglib*,resource-env-ref*,resource-ref*,security-constraint*,login-config?,security-role*,env-entry*,ejb-ref*,ejb-local-ref*)".<br />
+org.xml.sax.SAXParseException: The content of element type "web-app" must match "(icon?,display-name?,description?,distributable?,context-param*,filter*,filter-mapping*,listener*,servlet*,servlet-mapping*,session-config?,mime-mapping*,welcome-file-list?,error-page*,taglib*,resource-env-ref*,resource-ref*,security-constraint*,login-config?,security-role*,env-entry*,ejb-ref*,ejb-local-ref*)".<br />
+	at org.apache.xerces.util.ErrorHandlerWrapper.createSAXParseException(Unknown Source)<br />
+	at org.apache.xerces.util.ErrorHandlerWrapper.error(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLErrorReporter.reportError(Unknown Source)<br />
+	at org.apache.xerces.impl.dtd.XMLDTDValidator.handleEndElement(Unknown Source)<br />
+	at org.apache.xerces.impl.dtd.XMLDTDValidator.endElement(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanEndElement(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl$FragmentContentDispatcher.dispatch(Unknown Source)<br />
+	at org.apache.xerces.impl.XMLDocumentFragmentScannerImpl.scanDocument(Unknown Source)<br />
+	at org.apache.xerces.parsers.XML11Configuration.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.DTDConfiguration.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.XMLParser.parse(Unknown Source)<br />
+	at org.apache.xerces.parsers.AbstractSAXParser.parse(Unknown Source)<br />
+	at org.apache.commons.digester.Digester.parse(Digester.java:1548)<br />
+	at org.apache.catalina.startup.ContextConfig.applicationConfig(ContextConfig.java:282)<br />
+	at org.apache.catalina.startup.ContextConfig.start(ContextConfig.java:639)<br />
+	at org.apache.catalina.startup.ContextConfig.lifecycleEvent(ContextConfig.java:243)<br />
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:166)<br />
+	at org.apache.catalina.core.StandardContext.start(StandardContext.java:3568)<br />
+	at org.apache.catalina.core.ContainerBase.addChildInternal(ContainerBase.java:821)<br />
+	at org.apache.catalina.core.ContainerBase.addChild(ContainerBase.java:807)<br />
+	at org.apache.catalina.core.StandardHost.addChild(StandardHost.java:579)<br />
+	at org.apache.catalina.core.StandardHostDeployer.install(StandardHostDeployer.java:307)<br />
+	at org.apache.catalina.core.StandardHost.install(StandardHost.java:772)<br />
+	at org.apache.catalina.startup.HostConfig.deployDirectories(HostConfig.java:559)<br />
+	at org.apache.catalina.startup.HostConfig.deployApps(HostConfig.java:401)<br />
+	at org.apache.catalina.startup.HostConfig.start(HostConfig.java:718)<br />
+	at org.apache.catalina.startup.HostConfig.lifecycleEvent(HostConfig.java:358)<br />
+	at org.apache.catalina.util.LifecycleSupport.fireLifecycleEvent(LifecycleSupport.java:166)<br />
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1196)<br />
+	at org.apache.catalina.core.StandardHost.start(StandardHost.java:738)<br />
+	at org.apache.catalina.core.ContainerBase.start(ContainerBase.java:1188)<br />
+	at org.apache.catalina.core.StandardEngine.start(StandardEngine.java:347)<br />
+	at org.apache.catalina.core.StandardService.start(StandardService.java:497)<br />
+	at org.apache.catalina.core.StandardServer.start(StandardServer.java:2190)<br />
+	at org.apache.catalina.startup.Catalina.start(Catalina.java:512)<br />
+	at org.apache.catalina.startup.Catalina.execute(Catalina.java:400)<br />
+	at org.apache.catalina.startup.Catalina.process(Catalina.java:180)<br />
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)<br />
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:39)<br />
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:25)<br />
+	at java.lang.reflect.Method.invoke(Method.java:324)<br />
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:203)<br />
+2003-10-20 15:21:39,530 [INFO ] com.chedong.weblucene.WebLuceneConfig.loadGlobalConfig(WebLuceneConfig.java:157) - Begin to load the global configurations from weblucene.conf<br />
+2003-10-20 15:21:39,540 [INFO ] com.chedong.weblucene.WebLuceneConfig.loadGlobalConfig(WebLuceneConfig.java:160) - Global Configurations in 'weblucene.conf' has been loaded successfully!<br />
+2003-10-20 15:21:39,540 [INFO ] com.chedong.weblucene.WebLuceneConfig.loadGlobalConfig(WebLuceneConfig.java:161) - The the global configurations are:{EnableIPFilter=yes, EnableWordFilter=no, Password=soufun, AllowXMLOutputIPList=192.168.0.155,192.168.0.125,127.0.0.1, UserName=lhelper}<br />
+2003-10-20 15:21:39,550 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:203) - Begin to load the configuration in :app<br />
+2003-10-20 15:21:39,550 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:209) - Configuration in 'app' has been loaded successfully!<br />
+2003-10-20 15:21:39,550 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:224) - The configurations of 'app' are:{EnableIPFilter=no, ExpiredMinutes=10, EnableWordFilter=no, DirRealPath=E:\Tomcat\webapps\lucene\WEB-INF\var\app\index, UserName=lhelper, Password=soufun, HightlightFields=Content, StyleSheetName=E:\Tomcat\webapps\lucene\WEB-INF\var\app\weblucene.xsl, AllowXMLOutputIPList=192.168.0.155,192.168.0.125,127.0.0.1}<br />
+2003-10-20 15:21:39,581 [INFO ] org.apache.coyote.http11.Http11Protocol.start(Http11Protocol.java:166) - Starting Coyote HTTP/1.1 on port 8080<br />
+2003-10-20 15:21:39,661 [INFO ] org.apache.jk.common.ChannelSocket.init(ChannelSocket.java:333) - JK2: ajp13 listening on /0.0.0.0:8009<br />
+2003-10-20 15:21:39,661 [INFO ] org.apache.jk.server.JkMain.start(JkMain.java:370) - Jk running ID=0 time=0/80  config=E:\TOMCAT\conf\jk2.properties<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;nomad7&#64;sina&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;nomad7&#64;sina&#46;com">nomad</a> at October 20, 2003 03:19 PM</span>
+</div>
+<div class="comments-body">
+<p>我用tomcat4.1.27试了一下,也按照上面的编译了java文件.创建了var\app\index,wl.conf,weblucene.xsl,也抽了索引.</p>
+
+<p>但tomcat启动时就一直debug输出不停,我看了一下日志,前面是一些info的输出,后面的就都是无穷无尽的debug输出了,是有什么地方配置错了么,请指点,谢谢!<br />
+2003-10-20 14:11:49,315 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:203) - Begin to load the configuration in :news<br />
+2003-10-20 14:11:49,315 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:209) - Configuration in 'news' has been loaded successfully!<br />
+2003-10-20 14:11:49,315 [INFO ] com.chedong.weblucene.WebLuceneAppConfig.loadAppConfig(WebLuceneAppConfig.java:224) - The configurations of 'news' are:{EnableIPFilter=no, ExpiredMinutes=10, EnableWordFilter=no, DirRealPath=E:\TOMCAT\webapps\lucene\WEB-INF\var\news\index, UserName=lhelper, Password=soufun, HightlightFields=Content, StyleSheetName=E:\TOMCAT\webapps\lucene\WEB-INF\var\news\weblucene.xsl, AllowXMLOutputIPList=192.168.0.155,192.168.0.125,127.0.0.1}<br />
+2003-10-20 14:11:49,325 [DEBUG] org.apache.commons.digester.Digester.addRuleSet(Digester.java:1657) - addRuleSet() with no namespace URI<br />
+2003-10-20 14:11:49,335 [DEBUG] org.apache.commons.digester.Digester.addRuleSet(Digester.java:1657) - addRuleSet() with no namespace URI<br />
+2003-10-20 14:11:49,355 [DEBUG] org.apache.commons.digester.Digester.setDocumentLocator(Digester.java:1171) - setDocumentLocator(org.apache.xerces.parsers.AbstractSAXParser$LocatorProxy@12789d2)<br />
+2003-10-20 14:11:49,355 [DEBUG] org.apache.commons.digester.Digester.startDocument(Digester.java:1205) - startDocument()<br />
+2003-10-20 14:11:49,355 [DEBUG] org.apache.commons.digester.Digester.startPrefixMapping(Digester.java:1303) - startPrefixMapping(xml,<a href="javascript:if(confirm('http://www.w3.org/XML/1998/namespace)  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/XML/1998/namespace)'" tppabs="http://www.w3.org/XML/1998/namespace)">http://www.w3.org/XML/1998/namespace)</a><br />
+2003-10-20 14:11:49,365 [DEBUG] org.apache.commons.digester.Digester.startPrefixMapping(Digester.java:1303) - startPrefixMapping(xmlns,<a href="javascript:if(confirm('http://www.w3.org/2000/xmlns/)  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.w3.org/2000/xmlns/)'" tppabs="http://www.w3.org/2000/xmlns/)">http://www.w3.org/2000/xmlns/)</a><br />
+2003-10-20 14:11:49,365 [DEBUG] org.apache.commons.digester.Digester.startElement(Digester.java:1234) - startElement(,,Context)<br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;nomad7&#64;sina&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;nomad7&#64;sina&#46;com">nomad</a> at October 20, 2003 02:08 PM</span>
+</div>
+<div class="comments-body">
+<p>Yes, He does.</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at September 26, 2003 07:39 PM</span>
+</div>
+<div class="comments-body">
+<p>thanks chedong, u do a good work</p>
+<span class="comments-post">Posted by  at September 26, 2003 03:27 PM</span>
+</div>
+<div class="comments-body">
+<p>惭愧，惭愧，最近一直没有把文档整理好。</p>
+
+<p>另外：我觉得对于一个高性能的站点来说，POOLING INDEXSEARCHER是非常必要的。</p>
+
+<p>一起学习</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.chedong.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.chedong.com/'" tppabs="http://www.chedong.com/">chedong</a> at September 21, 2003 01:40 AM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="211" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>

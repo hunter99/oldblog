@@ -1,0 +1,200 @@
+<html><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+
+<title>竹笋炒肉: Comment on 用汉语编程</title>
+
+<link rel="stylesheet" href="styles-site.css" tppabs="http://hedong.3322.org/styles-site.css" type="text/css" />
+
+<script type="text/javascript" language="javascript">
+<!--
+
+var HOST = 'http://hedong.3322.org/mt/hedong.3322.org';
+
+// Copyright (c) 1996-1997 Athenia Associates.
+// http://www.webreference.com/js/
+// License is granted if and only if this entire
+// copyright notice is included. By Tomer Shiran.
+
+function setCookie (name, value, expires, path, domain, secure) {
+    var curCookie = name + "=" + escape(value) + ((expires) ? "; expires=" + expires.toGMTString() : "") + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + ((secure) ? "; secure" : "");
+    document.cookie = curCookie;
+}
+
+function getCookie (name) {
+    var prefix = name + '=';
+    var c = document.cookie;
+    var nullstring = '';
+    var cookieStartIndex = c.indexOf(prefix);
+    if (cookieStartIndex == -1)
+        return nullstring;
+    var cookieEndIndex = c.indexOf(";", cookieStartIndex + prefix.length);
+    if (cookieEndIndex == -1)
+        cookieEndIndex = c.length;
+    return unescape(c.substring(cookieStartIndex + prefix.length, cookieEndIndex));
+}
+
+function deleteCookie (name, path, domain) {
+    if (getCookie(name))
+        document.cookie = name + "=" + ((path) ? "; path=" + path : "") + ((domain) ? "; domain=" + domain : "") + "; expires=Thu, 01-Jan-70 00:00:01 GMT";
+}
+
+function fixDate (date) {
+    var base = new Date(0);
+    var skew = base.getTime();
+    if (skew > 0)
+        date.setTime(date.getTime() - skew);
+}
+
+function rememberMe (f) {
+    var now = new Date();
+    fixDate(now);
+    now.setTime(now.getTime() + 365 * 24 * 60 * 60 * 1000);
+    setCookie('mtcmtauth', f.author.value, now, '', HOST, '');
+    setCookie('mtcmtmail', f.email.value, now, '', HOST, '');
+    setCookie('mtcmthome', f.url.value, now, '', HOST, '');
+}
+
+function forgetMe (f) {
+    deleteCookie('mtcmtmail', '', HOST);
+    deleteCookie('mtcmthome', '', HOST);
+    deleteCookie('mtcmtauth', '', HOST);
+    f.email.value = '';
+    f.author.value = '';
+    f.url.value = '';
+}
+
+//-->
+</script>
+</head>
+
+<body>
+
+<div id="banner-commentspop">
+竹笋炒肉
+</div>
+
+<div class="blog">
+
+<div class="comments-head">Comments: 用汉语编程</div>
+
+
+<div class="comments-body">
+<p>看看.</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://www.qqba.com/  \n\nThis file was not retrieved by Teleport Pro, because it is addressed on a domain or path outside the boundaries set for its Starting Address.  \n\nDo you want to open it from the server?'))window.location='http://www.qqba.com/'" tppabs="http://www.qqba.com/">QQ吧精彩</a> at December 30, 2003 01:10 PM</span>
+</div>
+<div class="comments-body">
+<p>学习中蟒时，用“读入”函数来处理键盘输入时，无法输入汉字编码的字串。如，我在中蟒解<br />
+释器中，输入以下的代码，但无法将之读入到变量中去。<br />
+>>> 读入("请输入")<br />
+请输入ddih<br />
+'ddih'<br />
+>>> 读入("请输入")<br />
+请输入天下一家<br />
+Traceback (most recent call last):<br />
+File "", line 1, in ?<br />
+读入("请输入")<br />
+类型异常: 实体.读一行() 传回非字串型态的值</p>
+
+<p>第一次执行时，输入了英文‘ddih’，没有问题。<br />
+第二次执行时，输入了汉字‘天下一家’，就出现类型异常。</p>
+
+<p>根据以前看到的资料（脚本文件）：</p>
+
+<p>#/usr/local/bin/cpython<br />
+#--BIG5--<br />
+回答 = 读入('''你认为中文程式语言有存在价值吗 ? (有/没有)''')</p>
+
+<p>如 回答 == '''有'''.调整编码:<br />
+写 '''好吧, 让我们一起努力!'''<br />
+不然 回答 == '''没有'''.调整编码:<br />
+写 '''好吧,中文并没有作为程式语言的价值.'''<br />
+否则:<br />
+写 '''请认真考虑后再回答.'''</p>
+
+<p>应该处理起来没有任何问题？但是我在处理过程中，还就是碰上了这个拦路虎，无法解决。<br />
+求高手援手 <br />
+</p>
+<span class="comments-post">Posted by <a href="javascript:if(confirm('http://hedong.3322.org/mt/mailto&  \n\nThis file was not retrieved by Teleport Pro, because the server reports that this file cannot be found.  \n\nDo you want to open it from the server?'))window.location='http://hedong.3322.org/mt/mailto&#58;zhangming1954&#64;163&#46;com'" tppabs="http://hedong.3322.org/mt/mailto&#58;zhangming1954&#64;163&#46;com">zhangming1954</a> at November  9, 2003 07:33 PM</span>
+</div>
+<div class="comments-body">
+<p>　　没想到Steeven已经将汉语编程应用于实践了，可敬可敬！<br />
+　　以后有机会多多向你请教一番！hehe.<br />
+　　</p>
+<span class="comments-post">Posted by <a href="index.htm" tppabs="http://hedong.3322.org/">Hilton</a> at October 28, 2003 11:16 PM</span>
+</div>
+<div class="comments-body">
+<p>这样的中文编程也太过分了 :o)</p>
+
+<p>我摸索过用中文作为变量名，类名，包名，表名，字段名<br />
+现在开发工具和数据库对Unicode支持都很好，完全可行。（Java下面作为包名和类名会有点问题。）</p>
+
+<p>经常见到很多表名和字段名用拼音的声母组合，看的一头雾水。其实用中文的一个很大好处就是省事。比如做报表或者DataSet，完全都是从数据库直接拖拽出来的，我们以前经常需要修改表头，现在好了。所拖即所得！</p>
+
+<p>中文编程还需要结合Unicode来使用，尽量把程序的编码都变成UTF8,老外看都不会乱码。</p>
+
+<p>在变量名上用中文不建议完全中文，前面带几个英文比较合适，比如"txt姓名"可以利用IDE的代码提示. 这样注释的工作也可以相应减少。</p>
+
+<p>我的一个项目中这么干的，无论开发还是以后维护，都很爽。</p>
+
+<p>盲目的追求全中文编程太stupid, 那要变更语言本身。</p>
+
+<p>hilton研究的很广泛啊，有空交流一下:<br />
+MSN:ｓｔｅｅｖｅｎ_ｌｅｅ＠ｃｉｔｉｚ。ｎｅｔ<br />
+</p>
+<span class="comments-post">Posted by steeven at October 28, 2003 11:05 PM</span>
+</div>
+
+
+
+<div class="comments-head">Post a comment</div>
+
+<div class="comments-body">
+<form method="post" action="http://hedong.3322.org/mt/mt-comments.cgi" name="comments_form" onsubmit="if (this.bakecookie[0].checked) rememberMe(this)">
+<input type="hidden" name="entry_id" value="280" />
+
+<div style="width:180px; padding-right:15px; margin-right:15px; float:left; text-align:left; border-right:1px dotted #bbb;">
+	<label for="author">Name:</label><br />
+	<input tabindex="1" id="author" name="author" /><br /><br />
+
+	<label for="email">Email Address:</label><br />
+	<input tabindex="2" id="email" name="email" /><br /><br />
+
+	<label for="url">URL:</label><br />
+	<input tabindex="3" id="url" name="url" /><br /><br />
+</div>
+
+Remember personal info?<br />
+<input type="radio" id="bakecookie" name="bakecookie" /><label for="bakecookie">Yes</label><input type="radio" id="forget" name="bakecookie" onclick="forgetMe(this.form)" value="Forget Info" style="margin-left: 15px;" /><label for="forget">No</label><br style="clear: both;" />
+
+<label for="text">Comments:</label><br />
+<textarea tabindex="4" id="text" name="text" rows="10" cols="50"></textarea><br /><br />
+
+<input type="button" onclick="window.close()" value="&nbsp;Cancel&nbsp;" />
+<input type="submit" name="preview" value="&nbsp;Preview&nbsp;" />
+<input style="font-weight: bold;" type="submit" name="post" value="&nbsp;Post&nbsp;" /><br /><br />
+
+</form>
+
+<script type="text/javascript" language="javascript">
+<!--
+document.comments_form.email.value = getCookie("mtcmtmail");
+document.comments_form.author.value = getCookie("mtcmtauth");
+document.comments_form.url.value = getCookie("mtcmthome");
+if (getCookie("mtcmtauth")) {
+    document.comments_form.bakecookie[0].checked = true;
+} else {
+    document.comments_form.bakecookie[1].checked = true;
+}
+//-->
+</script>
+</div>
+
+
+
+</div>
+
+</body>
+</html>
